@@ -1,0 +1,36 @@
+{
+  "id": "statistics-estimate-pi",
+  "title": "Estimate pi",
+  "pickerTitle": "Estimate pi",
+  "pickerLine": "Statistics and probability",
+  "line": "The smallest Monte Carlo study, with its error at every sample size.",
+  "description": "The smallest Monte Carlo: points in a unit square, the fraction inside the quarter circle",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "estimate-pi.m",
+  "roles": [
+    "data_quant",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "build_simulations",
+    "gpu_acceleration",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "option-monte-carlo",
+  "thumbnailAlt": "The error of a Monte Carlo estimate of pi against the number of points, beside a one-over-root-N line, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/estimate-pi",
+    "source": "website/content/math/statistics/examples/estimate-pi.m",
+    "thumbnail": "website/public/math-assets/statistics/estimate-pi.webp"
+  }
+}

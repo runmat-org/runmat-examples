@@ -1,0 +1,33 @@
+{
+  "id": "plotting-stairs",
+  "title": "Stairstep plot",
+  "pickerTitle": "Stairstep plot",
+  "pickerLine": "Plotting",
+  "line": "A sampled step response held between samples.",
+  "description": "A sampled step response held between samples.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "stairs.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-stairs",
+  "thumbnailAlt": "A first-order step response drawn as steps, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/stairs",
+    "source": "website/content/math/plotting/examples/stairs.m",
+    "thumbnail": "website/public/math-assets/plotting/stairs.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/trapz-vs-integral.m"
+    ],
+    "activeFile": "/trapz-vs-integral.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why trapz error shrinks with spacing squared",
+      "Plot trapz error against step size on log axes",
+      "Add Simpson's rule to the comparison"
+    ]
+  }
+}

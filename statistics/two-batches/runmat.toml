@@ -1,0 +1,12 @@
+[package]
+name = "statistics-two-batches"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "two-batches.m"
+
+[desktop.artifacts]
+root = ".artifacts"

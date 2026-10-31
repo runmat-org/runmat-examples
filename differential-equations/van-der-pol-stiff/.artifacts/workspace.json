@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/van-der-pol-stiff.m"
+    ],
+    "activeFile": "/van-der-pol-stiff.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why ode45 needs so many steps here",
+      "Rerun at mu = 10 and compare step counts",
+      "Plot step size against time for both solvers"
+    ]
+  }
+}

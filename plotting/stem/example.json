@@ -1,0 +1,32 @@
+{
+  "id": "plotting-stem",
+  "title": "Stem plot",
+  "pickerTitle": "Stem plot",
+  "pickerLine": "Plotting",
+  "line": "Discrete samples of a decaying sinusoid.",
+  "description": "Discrete samples of a decaying sinusoid.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "stem.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-stem",
+  "thumbnailAlt": "Stems for the samples of a decaying sinusoid, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/stem",
+    "source": "website/content/math/plotting/examples/stem.m",
+    "thumbnail": "website/public/math-assets/plotting/stem.webp"
+  }
+}

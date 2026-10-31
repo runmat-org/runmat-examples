@@ -1,0 +1,12 @@
+[package]
+name = "energy-wind-energy"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "wind-energy.m"
+
+[desktop.artifacts]
+root = ".artifacts"

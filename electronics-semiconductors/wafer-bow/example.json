@@ -1,0 +1,28 @@
+{
+  "id": "electronics-semiconductors-wafer-bow",
+  "title": "Wafer bow from film stress",
+  "pickerTitle": "Wafer bow from film stress",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "Stoney's equation for a stressed film on a 300 mm wafer.",
+  "description": "Wafer bow from film stress by Stoney's equation: a tensile film on a 300 mm, 775 um silicon wafer, across film thickness.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "wafer-bow.m",
+  "roles": [
+    "controls_signals",
+    "electrical",
+    "structural"
+  ],
+  "goals": [],
+  "theme": "electronics-semiconductors-wafer-bow",
+  "thumbnailAlt": "Wafer bow against film thickness, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/wafer-bow",
+    "source": "website/content/industries/electronics-semiconductors/wafer-bow.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/wafer-bow.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/plot.m"
+    ],
+    "activeFile": "/plot.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the envelope bounds the signal",
+      "Change the decay rate to 0.6 and replot",
+      "Add the negative envelope and a legend"
+    ]
+  }
+}

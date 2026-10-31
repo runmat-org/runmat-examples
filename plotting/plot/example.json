@@ -1,0 +1,33 @@
+{
+  "id": "basic-plot",
+  "title": "Line plot",
+  "pickerTitle": "Line plot",
+  "pickerLine": "Plotting",
+  "line": "A damped oscillation and its envelope with plot and hold on.",
+  "description": "A damped oscillation and its envelope with plot and hold on.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "plot.m",
+  "roles": [
+    "controls_signals",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "oscillator",
+  "thumbnailAlt": "A damped sine wave between its two dashed envelopes, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/plot",
+    "source": "website/content/math/plotting/examples/plot.m",
+    "thumbnail": "website/public/math-assets/plotting/plot.webp"
+  }
+}

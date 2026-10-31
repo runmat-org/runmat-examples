@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bearing-envelope.m"
+    ],
+    "activeFile": "/bearing-envelope.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how BPFO is computed from the geometry",
+      "Compute BPFI and mark it on the spectrum",
+      "Rerun at 1,200 rpm and find the new peak"
+    ]
+  }
+}

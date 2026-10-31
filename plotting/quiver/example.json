@@ -1,0 +1,32 @@
+{
+  "id": "plotting-quiver",
+  "title": "Vector field",
+  "pickerTitle": "Vector field",
+  "pickerLine": "Plotting",
+  "line": "Gradient arrows over a filled-contour potential.",
+  "description": "Gradient arrows over a filled-contour potential.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Vectors, polar and log scales",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "quiver.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-quiver",
+  "thumbnailAlt": "Gradient arrows over filled contours of a two-lobed potential, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/quiver",
+    "source": "website/content/math/plotting/examples/quiver.m",
+    "thumbnail": "website/public/math-assets/plotting/quiver.webp"
+  }
+}

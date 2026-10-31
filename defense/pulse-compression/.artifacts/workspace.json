@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/pulse-compression.m"
+    ],
+    "activeFile": "/pulse-compression.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why range resolution is c over 2B",
+      "Cut the bandwidth to 1 MHz and rerun",
+      "Apply a Hamming window and compare sidelobes"
+    ]
+  }
+}

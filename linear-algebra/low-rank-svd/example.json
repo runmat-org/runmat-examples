@@ -1,0 +1,32 @@
+{
+  "id": "linear-algebra-low-rank-svd",
+  "title": "Low-rank approximation",
+  "pickerTitle": "Low-rank approximation",
+  "pickerLine": "Linear algebra",
+  "line": "Keep five singular values of a noisy matrix.",
+  "description": "How much of a noisy matrix do the first five singular values carry?",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": null,
+  "kind": "script",
+  "visual": "image",
+  "entry": "low-rank-svd.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "linear-algebra-low-rank-svd",
+  "thumbnailAlt": "A noisy matrix beside its rank-5 approximation from the SVD, rendered by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/low-rank-svd",
+    "source": "website/content/math/linear-algebra/examples/low-rank-svd.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/low-rank-svd.webp"
+  }
+}

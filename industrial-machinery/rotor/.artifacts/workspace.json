@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/rotor.m"
+    ],
+    "activeFile": "/rotor.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain where the first mode deflects most",
+      "Remove the 25 kg disc and redraw the mode",
+      "Report the first critical speed in rpm"
+    ]
+  }
+}

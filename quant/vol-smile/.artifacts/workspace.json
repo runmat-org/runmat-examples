@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/vol-smile.m"
+    ],
+    "activeFile": "/vol-smile.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why rounded quotes add noise to deep strikes",
+      "Fit a cubic smile and compare",
+      "Plot implied volatility errors per strike"
+    ]
+  }
+}

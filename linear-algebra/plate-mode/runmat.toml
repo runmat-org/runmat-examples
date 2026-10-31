@@ -1,0 +1,12 @@
+[package]
+name = "linear-algebra-plate-mode"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "plate-mode.m"
+
+[desktop.artifacts]
+root = ".artifacts"

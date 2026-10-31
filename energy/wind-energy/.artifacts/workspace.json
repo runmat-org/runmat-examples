@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/wind-energy.m"
+    ],
+    "activeFile": "/wind-energy.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the Weibull k and c are fitted",
+      "Lower the mean wind by 10% and compare yield",
+      "Report the capacity factor and annual MWh"
+    ]
+  }
+}

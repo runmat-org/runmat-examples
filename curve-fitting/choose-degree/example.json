@@ -1,0 +1,28 @@
+{
+  "id": "curve-fitting-choose-degree",
+  "title": "Choose a polynomial degree",
+  "pickerTitle": "Choose a polynomial degree",
+  "pickerLine": "Curve fitting",
+  "line": "Degrees 1 to 6 by R-squared, then both fits past the data.",
+  "description": "One data set, polynomial degrees 1 to 6: R-squared keeps rising while the fit gets worse",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "choose-degree.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "curve-fitting-choose-degree",
+  "thumbnailAlt": "Degree-2 and degree-6 polynomial fits to the same samples, extrapolated past the last sample, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/choose-degree",
+    "source": "website/content/math/curve-fitting/examples/choose-degree.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/choose-degree.webp"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/tuning-fork-modal.fea"
+    ],
+    "activeFile": "/tuning-fork-modal.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "shapes",
+    "mode": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which mode is the tuning fork tone",
+      "Refine the mesh and check frequency convergence",
+      "Change the material to aluminum and compare frequencies"
+    ]
+  }
+}

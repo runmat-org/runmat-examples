@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/portfolio-var.m"
+    ],
+    "activeFile": "/portfolio-var.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why simulation matches the normal closed form",
+      "Use t-distributed returns and compare ES",
+      "Report each asset's contribution to VaR"
+    ]
+  }
+}

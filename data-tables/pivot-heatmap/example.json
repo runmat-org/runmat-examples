@@ -1,0 +1,31 @@
+{
+  "id": "data-tables-pivot-heatmap",
+  "title": "Pivot two keys",
+  "pickerTitle": "Pivot two keys",
+  "pickerLine": "Data and tables",
+  "line": "Fixture by hour as a grid of means, drawn as a heatmap.",
+  "description": "Mean force for each fixture in each hour of the shift",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "analysis.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "data-tables-pivot-heatmap",
+  "thumbnailAlt": "A heatmap of mean force for three fixtures over seven hours, with the values in the cells, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/pivot-heatmap",
+    "source": "website/content/math/data-tables/examples/pivot-heatmap/analysis.m",
+    "thumbnail": "website/public/math-assets/data-tables/pivot-heatmap.webp"
+  }
+}

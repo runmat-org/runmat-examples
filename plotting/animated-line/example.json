@@ -1,0 +1,32 @@
+{
+  "id": "plotting-animated-line",
+  "title": "Live-updating line",
+  "pickerTitle": "Live-updating line",
+  "pickerLine": "Plotting",
+  "line": "Points added to a line as they are computed.",
+  "description": "Points added to a line as they are computed.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compose a figure",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "animated-line.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-animated-line",
+  "thumbnailAlt": "A decaying oscillation drawn point by point with animatedline, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/animated-line",
+    "source": "website/content/math/plotting/examples/animated-line.m",
+    "thumbnail": "website/public/math-assets/plotting/animated-line.webp"
+  }
+}

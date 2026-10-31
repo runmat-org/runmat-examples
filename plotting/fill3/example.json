@@ -1,0 +1,32 @@
+{
+  "id": "plotting-fill3",
+  "title": "3-D polygons",
+  "pickerTitle": "3-D polygons",
+  "pickerLine": "Plotting",
+  "line": "Filled polygons placed in space.",
+  "description": "Filled polygons placed in space.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "fill3.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-fill3",
+  "thumbnailAlt": "Three filled polygons floating in 3-D, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/fill3",
+    "source": "website/content/math/plotting/examples/fill3.m",
+    "thumbnail": "website/public/math-assets/plotting/fill3.webp"
+  }
+}

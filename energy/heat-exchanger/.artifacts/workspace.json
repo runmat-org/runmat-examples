@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/heat-exchanger.m"
+    ],
+    "activeFile": "/heat-exchanger.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how effectiveness depends on NTU and Cr",
+      "Compare counterflow with parallel flow",
+      "Find the area that gives 80% effectiveness"
+    ]
+  }
+}

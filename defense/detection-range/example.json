@@ -1,0 +1,26 @@
+{
+  "id": "defense-detection-range",
+  "title": "Detection range",
+  "pickerTitle": "Detection range",
+  "pickerLine": "Defense",
+  "line": "The radar range equation from 0.001 to 10 m² of RCS.",
+  "description": "Detection range against radar cross-section from the radar range equation, for an X-band radar integrating 64 pulses coherently. The signal-to-noise needed for a 90% probability of detection at a 1e-6 false-alarm rate comes from Albersheim's equation.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "detection-range.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [],
+  "theme": "defense-detection-range",
+  "thumbnailAlt": "Detection range of an X-band radar against radar cross-section on log axes, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/detection-range",
+    "source": "website/content/industries/defense/detection-range.m",
+    "thumbnail": "website/public/industries-assets/defense/detection-range.webp"
+  }
+}

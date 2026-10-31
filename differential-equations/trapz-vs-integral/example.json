@@ -1,0 +1,33 @@
+{
+  "id": "differential-equations-trapz-vs-integral",
+  "title": "Area under a curve",
+  "pickerTitle": "Area under a curve",
+  "pickerLine": "Differential equations",
+  "line": "integral against trapz on the same function.",
+  "description": "Area under exp(-x^2) on [0, 2]: adaptive quadrature against the trapezoid rule",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "trapz-vs-integral.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "differential-equations-trapz-vs-integral",
+  "thumbnailAlt": "exp(-x^2) and its cumulative area from cumtrapz, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/trapz-vs-integral",
+    "source": "website/content/math/differential-equations/examples/trapz-vs-integral.m",
+    "thumbnail": "website/public/math-assets/differential-equations/trapz-vs-integral.webp"
+  }
+}

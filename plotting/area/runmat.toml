@@ -1,0 +1,12 @@
+[package]
+name = "plotting-area"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "area.m"
+
+[desktop.artifacts]
+root = ".artifacts"

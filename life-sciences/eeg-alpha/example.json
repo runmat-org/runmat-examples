@@ -1,0 +1,26 @@
+{
+  "id": "life-sciences-eeg-alpha",
+  "title": "EEG alpha power",
+  "pickerTitle": "EEG alpha power",
+  "pickerLine": "Life sciences",
+  "line": "The 10 Hz rhythm with eyes open and closed.",
+  "description": "Alpha-band (8 to 12 Hz) power in one EEG channel, eyes open against eyes closed: closing the eyes raises the 10 Hz rhythm.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "eeg-alpha.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "power-spectrum",
+  "thumbnailAlt": "EEG power spectra with eyes open and closed, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/eeg-alpha",
+    "source": "website/content/industries/life-sciences/eeg-alpha.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/eeg-alpha.webp"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "plotting-damped-radial-wave",
+  "title": "Damped radial wave",
+  "pickerTitle": "Damped radial wave",
+  "pickerLine": "Plotting",
+  "line": "A damped radial wave from surf, drawn by RunMat.",
+  "description": "A damped radial wave from surf, drawn by RunMat. Drag to rotate it.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "damped-radial-wave.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-damped-radial-wave",
+  "thumbnailAlt": "A damped radial wave surface drawn by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/hero",
+    "source": "website/content/math/plotting/hero.m",
+    "thumbnail": "website/public/math-assets/plotting/hero.webp"
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "electronics-semiconductors-wafer-bow"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "wafer-bow.m"
+
+[desktop.artifacts]
+root = ".artifacts"

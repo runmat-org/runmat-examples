@@ -1,0 +1,32 @@
+{
+  "id": "linear-algebra-least-squares",
+  "title": "Least squares three ways",
+  "pickerTitle": "Least squares three ways",
+  "pickerLine": "Linear algebra",
+  "line": "Normal equations, QR and pinv on one fit.",
+  "description": "Fit a degree-9 polynomial three ways; the normal equations square the condition number",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "least-squares.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "linear-algebra-least-squares",
+  "thumbnailAlt": "Noisy samples of cos(4t) and a degree-9 least-squares fit, rendered by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/least-squares",
+    "source": "website/content/math/linear-algebra/examples/least-squares.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/least-squares.webp"
+  }
+}

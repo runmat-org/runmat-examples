@@ -1,0 +1,12 @@
+[package]
+name = "data-tables-force-by-hour"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "force-by-hour.m"
+
+[desktop.artifacts]
+root = ".artifacts"

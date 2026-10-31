@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/shadow-prices.m"
+    ],
+    "activeFile": "/shadow-prices.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why machine 1's shadow price is zero",
+      "Add one hour to machine 2 and verify",
+      "Sweep machine 3 hours and plot profit"
+    ]
+  }
+}

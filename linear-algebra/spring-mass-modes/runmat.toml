@@ -1,0 +1,12 @@
+[package]
+name = "linear-algebra-spring-mass-modes"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "spring-mass-modes.m"
+
+[desktop.artifacts]
+root = ".artifacts"

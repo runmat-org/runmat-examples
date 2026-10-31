@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/sir-epidemic.m"
+    ],
+    "activeFile": "/sir-epidemic.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why R0 = 3 sets the final size",
+      "Lower beta to 0.2 and compare the peak",
+      "Report the peak day and peak infected fraction"
+    ]
+  }
+}

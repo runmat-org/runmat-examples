@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/predator-prey.m"
+    ],
+    "activeFile": "/predator-prey.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the orbit closes on itself",
+      "Double the predator death rate and compare",
+      "Compute the period of one population cycle"
+    ]
+  }
+}

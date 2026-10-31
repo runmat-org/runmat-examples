@@ -1,0 +1,34 @@
+{
+  "id": "linear-algebra-plate-mode",
+  "title": "Plate vibration mode",
+  "pickerTitle": "Plate vibration mode",
+  "pickerLine": "Linear algebra",
+  "line": "A vibration mode of a rectangular plate, from eigs on its sparse Laplacian, drawn by RunMat.",
+  "description": "A vibration mode of a rectangular plate, from the smallest eigenvalues of its Laplacian",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "plate-mode.m",
+  "roles": [
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "linear-algebra-plate-mode",
+  "thumbnailAlt": "A plate vibration mode computed with eigs and drawn by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/hero",
+    "source": "website/content/math/linear-algebra/plate-mode.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/hero.webp"
+  }
+}

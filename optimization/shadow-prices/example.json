@@ -1,0 +1,29 @@
+{
+  "id": "optimization-shadow-prices",
+  "title": "Shadow prices",
+  "pickerTitle": "Shadow prices",
+  "pickerLine": "Optimization",
+  "line": "An hour on machine 2 is worth 1.50 and on machine 3 1.00; machine 1 has 2 idle hours.",
+  "description": "Shadow prices of the production plan: the profit one more machine hour would add",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "shadow-prices.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "optimization-shadow-prices",
+  "thumbnailAlt": "Bar chart of the shadow price of each machine-hour limit, rendered by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/shadow-prices",
+    "source": "website/content/math/optimization/examples/shadow-prices.m",
+    "thumbnail": "website/public/math-assets/optimization/shadow-prices.webp"
+  }
+}

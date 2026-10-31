@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-random-vibration"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "random-vibration.m"
+
+[desktop.artifacts]
+root = ".artifacts"

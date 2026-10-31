@@ -1,0 +1,30 @@
+{
+  "id": "pi-controller",
+  "title": "Add integral action",
+  "pickerTitle": "Add integral action",
+  "pickerLine": "Control systems",
+  "line": "A PI controller removes the 29% steady-state error left by proportional control.",
+  "description": "P and PI control of a two-lag thermal plant, G(s) = 2/((10s + 1)(2s + 1))",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "pi-controller.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "pi-controller",
+  "thumbnailAlt": "Step responses of a thermal plant under P and PI control, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/pi-controller",
+    "source": "website/content/math/control-systems/examples/pi-controller.m",
+    "thumbnail": "website/public/math-assets/control-systems/pi-controller.webp"
+  }
+}

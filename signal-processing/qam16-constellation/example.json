@@ -1,0 +1,30 @@
+{
+  "id": "signal-processing-qam16-constellation",
+  "title": "16-QAM with noise",
+  "pickerTitle": "16-QAM with noise",
+  "pickerLine": "Signal processing",
+  "line": "Map symbols to a constellation, add noise and plot it.",
+  "description": "16-QAM: map random symbols, add noise, plot the received constellation",
+  "topic": "signal-processing",
+  "topicLabel": "Signal processing",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "qam16-constellation.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "signal-processing-qam16-constellation",
+  "thumbnailAlt": "A noisy 16-QAM constellation at 20 dB SNR, rendered by RunMat",
+  "origin": {
+    "page": "/math/signal-processing",
+    "key": "website:math/signal-processing/qam16-constellation",
+    "source": "website/content/math/signal-processing/examples/qam16-constellation.m",
+    "thumbnail": "website/public/math-assets/signal-processing/qam16-constellation.webp"
+  }
+}

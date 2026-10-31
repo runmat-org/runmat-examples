@@ -1,0 +1,26 @@
+{
+  "id": "curve-fitting-exponential-decay",
+  "title": "Fit an exponential decay",
+  "pickerTitle": "Fit an exponential decay",
+  "pickerLine": "Curve fitting",
+  "line": "Amplitude, rate and offset with bounds and 95% intervals.",
+  "description": "Fit y = A*exp(-k*t) + c with bounds, then read the parameters and the residuals",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "exponential-decay.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "curve-fitting-exponential-decay",
+  "thumbnailAlt": "Noisy decay data with an exponential fit above a stem plot of the residuals, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/exponential-decay",
+    "source": "website/content/math/curve-fitting/examples/exponential-decay.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/exponential-decay.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/yield-curves.m"
+    ],
+    "activeFile": "/yield-curves.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain when the curve inverts in the cycle",
+      "Plot the 10y minus 2y spread over time",
+      "Show three curves before, during and after"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/sparse-eigs.m"
+    ],
+    "activeFile": "/sparse-eigs.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why eigs suits large sparse matrices",
+      "Compare eigs with the closed-form eigenvalues",
+      "Rerun with 5,000 points and time it"
+    ]
+  }
+}

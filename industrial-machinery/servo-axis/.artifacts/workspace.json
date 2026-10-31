@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/servo-axis.m"
+    ],
+    "activeFile": "/servo-axis.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the inner loop speeds up the outer",
+      "Double Kp and compare overshoot",
+      "Plot the motor torque during the step"
+    ]
+  }
+}

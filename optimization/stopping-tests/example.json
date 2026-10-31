@@ -1,0 +1,29 @@
+{
+  "id": "optimization-stopping-tests",
+  "title": "Why the solver stopped",
+  "pickerTitle": "Why the solver stopped",
+  "pickerLine": "Optimization",
+  "line": "Past a tolerance of 1e-6 the error stays near 1e-5, the limit of finite-difference gradients.",
+  "description": "Why did the solver stop? The same problem at five tolerance settings: evaluations spent and distance left to the true minimum at (1, 1)",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "stopping-tests.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "optimization-stopping-tests",
+  "thumbnailAlt": "Error and function evaluations of fminunc at five tolerance settings, rendered by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/stopping-tests",
+    "source": "website/content/math/optimization/examples/stopping-tests.m",
+    "thumbnail": "website/public/math-assets/optimization/stopping-tests.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/flight-test-psd.m"
+    ],
+    "activeFile": "/flight-test-psd.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the GRMS of each test point is computed",
+      "Halve the Welch segment length and compare the spectra",
+      "Report the margin to the limit in dB per band"
+    ]
+  }
+}

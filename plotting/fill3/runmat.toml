@@ -1,0 +1,12 @@
+[package]
+name = "plotting-fill3"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "fill3.m"
+
+[desktop.artifacts]
+root = ".artifacts"

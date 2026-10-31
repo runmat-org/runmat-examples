@@ -1,0 +1,29 @@
+{
+  "id": "finance-efficient-frontier",
+  "title": "Efficient frontier",
+  "pickerTitle": "Efficient frontier",
+  "pickerLine": "Computational finance",
+  "line": "The minimum-variance frontier for four assets from their covariance.",
+  "description": "Minimum-variance frontier for four assets from the covariance matrix",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "efficient-frontier.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "finance-efficient-frontier",
+  "thumbnailAlt": "The minimum-variance frontier with four assets plotted by volatility and expected return, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/efficient-frontier",
+    "source": "website/content/math/finance/examples/efficient-frontier.m",
+    "thumbnail": "website/public/math-assets/finance/efficient-frontier.webp"
+  }
+}

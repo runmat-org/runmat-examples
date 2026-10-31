@@ -1,0 +1,29 @@
+{
+  "id": "industrial-machinery-xbar-chart",
+  "title": "X-bar control chart",
+  "pickerTitle": "X-bar control chart",
+  "pickerLine": "Industrial machinery",
+  "line": "A bore diameter drifting out of control.",
+  "description": "X-bar chart for a bore diameter: 25 subgroups of 5 parts, limits set from the first 15 subgroups, and a 6 micrometre shift in the process from subgroup 18 on.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "xbar-chart.m",
+  "roles": [
+    "controls_signals",
+    "structural"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "process-capability",
+  "thumbnailAlt": "X-bar chart of a bore diameter crossing its upper control limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/xbar-chart",
+    "source": "website/content/industries/industrial-machinery/xbar-chart.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/xbar-chart.webp"
+  }
+}

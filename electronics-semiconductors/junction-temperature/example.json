@@ -1,0 +1,28 @@
+{
+  "id": "electronics-semiconductors-junction-temperature",
+  "title": "Junction temperature",
+  "pickerTitle": "Junction temperature",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "A power device's thermal resistance chain against its limit.",
+  "description": "Junction temperature of a power device through its thermal resistance chain, across the power range, against its 150 C limit at 40 C ambient.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "junction-temperature.m",
+  "roles": [
+    "controls_signals",
+    "electrical",
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "thermal-resistance",
+  "thumbnailAlt": "Junction temperature against power with the 150 C limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/junction-temperature",
+    "source": "website/content/industries/electronics-semiconductors/junction-temperature.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/junction-temperature.webp"
+  }
+}

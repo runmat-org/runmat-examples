@@ -1,0 +1,12 @@
+[package]
+name = "finance-value-at-risk"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "value-at-risk.m"
+
+[desktop.artifacts]
+root = ".artifacts"

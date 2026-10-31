@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/spectrogram-check.m"
+    ],
+    "activeFile": "/spectrogram-check.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how window and overlap set resolution",
+      "Change the window to 256 samples",
+      "Extract the sweep frequency against time"
+    ]
+  }
+}

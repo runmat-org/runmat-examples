@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/spring-mass-modes.m"
+    ],
+    "activeFile": "/spring-mass-modes.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the mode shapes relate to sines",
+      "Free one end and recompute frequencies",
+      "Rerun with 20 masses and compare"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "automotive-transportation-drive-cycle"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "drive-cycle.m"
+
+[desktop.artifacts]
+root = ".artifacts"

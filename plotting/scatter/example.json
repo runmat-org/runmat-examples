@@ -1,0 +1,32 @@
+{
+  "id": "plotting-scatter",
+  "title": "Scatter plot",
+  "pickerTitle": "Scatter plot",
+  "pickerLine": "Plotting",
+  "line": "Two calibration runs against the ideal line.",
+  "description": "Two calibration runs against the ideal line.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "scatter.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-scatter",
+  "thumbnailAlt": "Two sets of calibration points either side of a dashed ideal line, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/scatter",
+    "source": "website/content/math/plotting/examples/scatter.m",
+    "thumbnail": "website/public/math-assets/plotting/scatter.webp"
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "optimization-stopping-tests"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "stopping-tests.m"
+
+[desktop.artifacts]
+root = ".artifacts"

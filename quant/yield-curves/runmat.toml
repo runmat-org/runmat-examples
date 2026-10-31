@@ -1,0 +1,12 @@
+[package]
+name = "quant-yield-curves"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "yield-curves.m"
+
+[desktop.artifacts]
+root = ".artifacts"

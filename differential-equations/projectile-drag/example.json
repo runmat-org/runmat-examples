@@ -1,0 +1,33 @@
+{
+  "id": "differential-equations-projectile-drag",
+  "title": "Projectile with drag",
+  "pickerTitle": "Projectile with drag",
+  "pickerLine": "Differential equations",
+  "line": "Range from interpolating the ground crossing.",
+  "description": "Projectile with quadratic drag; range found by interpolating the ground crossing",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "projectile-drag.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "differential-equations-projectile-drag",
+  "thumbnailAlt": "The flight path of a projectile with quadratic drag, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/projectile-drag",
+    "source": "website/content/math/differential-equations/examples/projectile-drag.m",
+    "thumbnail": "website/public/math-assets/differential-equations/projectile-drag.webp"
+  }
+}

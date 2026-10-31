@@ -1,0 +1,26 @@
+{
+  "id": "optimization-lightest-beam",
+  "title": "Lightest cantilever section",
+  "pickerTitle": "Lightest cantilever section",
+  "pickerLine": "Optimization",
+  "line": "fmincon finds 35 by 140 mm, held by the deflection and depth limits.",
+  "description": "Lightest rectangular aluminum cantilever that carries its tip load: minimize the cross-section with fmincon under stress, deflection and depth limits",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "lightest-beam.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [],
+  "theme": "optimization-lightest-beam",
+  "thumbnailAlt": "Area contours of beam sections with the deflection and depth limits and the optimum marked, rendered by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/lightest-beam",
+    "source": "website/content/math/optimization/examples/lightest-beam.m",
+    "thumbnail": "website/public/math-assets/optimization/lightest-beam.webp"
+  }
+}

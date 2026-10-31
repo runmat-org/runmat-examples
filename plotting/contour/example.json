@@ -1,0 +1,33 @@
+{
+  "id": "plotting-contour",
+  "title": "Contour lines",
+  "pickerTitle": "Contour lines",
+  "pickerLine": "Plotting",
+  "line": "Level sets of a thermal field.",
+  "description": "Level sets of a thermal field.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Images and fields",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "contour.m",
+  "roles": [
+    "student",
+    "teaching",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-contour",
+  "thumbnailAlt": "Contour lines around two peaks and a trough, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/contour",
+    "source": "website/content/math/plotting/examples/contour.m",
+    "thumbnail": "website/public/math-assets/plotting/contour.webp"
+  }
+}

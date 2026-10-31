@@ -1,0 +1,12 @@
+[package]
+name = "bracket-hook-load"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "bracket-hook-load.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

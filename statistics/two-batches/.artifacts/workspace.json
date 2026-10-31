@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/two-batches.m"
+    ],
+    "activeFile": "/two-batches.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why Welch's test suits unequal spreads",
+      "Rerun with 15 samples per batch",
+      "Report the 95% interval on the difference"
+    ]
+  }
+}

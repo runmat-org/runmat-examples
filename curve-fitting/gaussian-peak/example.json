@@ -1,0 +1,29 @@
+{
+  "id": "curve-fitting-gaussian-peak",
+  "title": "Fit a peak",
+  "pickerTitle": "Fit a peak",
+  "pickerLine": "Curve fitting",
+  "line": "Center, width and height of a peak on a sloping background.",
+  "description": "Center, width and height of a peak in noisy counts, with a sloping background",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "gaussian-peak.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "curve-fitting-gaussian-peak",
+  "thumbnailAlt": "A Gaussian peak with a sloping background fitted to noisy counts, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/gaussian-peak",
+    "source": "website/content/math/curve-fitting/examples/gaussian-peak.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/gaussian-peak.webp"
+  }
+}

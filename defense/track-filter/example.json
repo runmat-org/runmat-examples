@@ -1,0 +1,27 @@
+{
+  "id": "defense-track-filter",
+  "title": "Tracking a turning target",
+  "pickerTitle": "Tracking a turning target",
+  "pickerLine": "Defense",
+  "line": "An extended Kalman filter on radar range and bearing.",
+  "description": "Tracking a target from radar range and bearing with an extended Kalman filter. The target flies straight, turns, then flies straight; the radar measures range to 15 m and bearing to 0.5 deg once a second. Constant-velocity model, state [x vx y vy].",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "track-filter.m",
+  "roles": [
+    "aerospace",
+    "controls_signals"
+  ],
+  "goals": [],
+  "theme": "defense-track-filter",
+  "thumbnailAlt": "Radar measurements, the extended Kalman filter track and the true path of a turning target, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/track-filter",
+    "source": "website/content/industries/defense/track-filter.m",
+    "thumbnail": "website/public/industries-assets/defense/track-filter.webp"
+  }
+}

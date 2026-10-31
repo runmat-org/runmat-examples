@@ -1,0 +1,32 @@
+{
+  "id": "plotting-scatter3",
+  "title": "3-D scatter",
+  "pickerTitle": "3-D scatter",
+  "pickerLine": "Plotting",
+  "line": "Two thousand points colored by height.",
+  "description": "Two thousand points colored by height.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "scatter3.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-scatter3",
+  "thumbnailAlt": "A dome of points colored from blue at the bottom to red at the top, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/scatter3",
+    "source": "website/content/math/plotting/examples/scatter3.m",
+    "thumbnail": "website/public/math-assets/plotting/scatter3.webp"
+  }
+}

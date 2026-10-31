@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/drive-cycle.m"
+    ],
+    "activeFile": "/drive-cycle.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how regen changes the Wh/km figure",
+      "Raise CdA by 20% and compare the range",
+      "Plot cumulative battery energy over the cycle"
+    ]
+  }
+}

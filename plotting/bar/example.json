@@ -1,0 +1,32 @@
+{
+  "id": "plotting-bar",
+  "title": "Grouped bar chart",
+  "pickerTitle": "Grouped bar chart",
+  "pickerLine": "Plotting",
+  "line": "Quarterly revenue for three regions, side by side.",
+  "description": "Quarterly revenue for three regions, side by side.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compare and distribute",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bar.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-bar",
+  "thumbnailAlt": "Grouped bars of revenue for three regions over four quarters, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/bar",
+    "source": "website/content/math/plotting/examples/bar.m",
+    "thumbnail": "website/public/math-assets/plotting/bar.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/interp-methods.m"
+    ],
+    "activeFile": "/interp-methods.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why spline overshoots across the step",
+      "Add makima interpolation to the comparison",
+      "Measure the overshoot of each method"
+    ]
+  }
+}

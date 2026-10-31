@@ -1,0 +1,12 @@
+[package]
+name = "defense-array-beam-pattern"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "array-beam-pattern.m"
+
+[desktop.artifacts]
+root = ".artifacts"

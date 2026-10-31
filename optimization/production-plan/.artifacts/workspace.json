@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/production-plan.m"
+    ],
+    "activeFile": "/production-plan.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the optimum sits at a corner",
+      "Raise machine 3 hours to 24 and resolve",
+      "Shade the feasible region and profit line"
+    ]
+  }
+}

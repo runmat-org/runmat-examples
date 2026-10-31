@@ -1,0 +1,29 @@
+{
+  "id": "quant-european-call",
+  "title": "European call by Monte Carlo",
+  "pickerTitle": "European call by Monte Carlo",
+  "pickerLine": "Quantitative finance",
+  "line": "Four million paths against the Black-Scholes price.",
+  "description": "A European call priced by Monte Carlo and checked against Black-Scholes. With four million paths the estimate should sit within a few standard errors of the closed form.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "european-call.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "build_simulations",
+    "gpu_acceleration"
+  ],
+  "theme": "option-monte-carlo",
+  "thumbnailAlt": "Monte Carlo estimate of a European call converging on the Black-Scholes price, rendered by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/european-call",
+    "source": "website/content/industries/quant/european-call.m",
+    "thumbnail": "website/public/industries-assets/quant/european-call.webp"
+  }
+}

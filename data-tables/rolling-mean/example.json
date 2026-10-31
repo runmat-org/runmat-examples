@@ -1,0 +1,31 @@
+{
+  "id": "data-tables-rolling-mean",
+  "title": "Timestamps and a rolling mean",
+  "pickerTitle": "Timestamps and a rolling mean",
+  "pickerLine": "Data and tables",
+  "line": "Two weeks of hourly readings in a timetable, on a time axis.",
+  "description": "Two weeks of hourly enclosure temperature on a time axis, with the mean of the last 24 hours",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "rolling-mean.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "data-tables-rolling-mean",
+  "thumbnailAlt": "Hourly enclosure temperature over two weeks with the mean of the last 24 hours, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/rolling-mean",
+    "source": "website/content/math/data-tables/examples/rolling-mean.m",
+    "thumbnail": "website/public/math-assets/data-tables/rolling-mean.webp"
+  }
+}

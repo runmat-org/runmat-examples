@@ -1,0 +1,28 @@
+{
+  "id": "quant-policy-shock",
+  "title": "Responses to a policy-rate shock",
+  "pickerTitle": "Responses to a policy-rate shock",
+  "pickerLine": "Quantitative finance",
+  "line": "A VAR in inflation, output and the policy rate.",
+  "description": "A VAR(1) in inflation, the output gap and the policy rate, estimated by least squares on 400 quarters, and the responses to a policy-rate shock.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "policy-shock.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "quant-policy-shock",
+  "thumbnailAlt": "Impulse responses of inflation, the output gap and the policy rate over 20 quarters, rendered by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/policy-shock",
+    "source": "website/content/industries/quant/policy-shock.m",
+    "thumbnail": "website/public/industries-assets/quant/policy-shock.webp"
+  }
+}

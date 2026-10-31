@@ -1,0 +1,31 @@
+{
+  "id": "data-tables-text-log",
+  "title": "Parse a text log",
+  "pickerTitle": "Parse a text log",
+  "pickerLine": "Data and tables",
+  "line": "Pull levels and loads out of log lines, then count by level.",
+  "description": "Pull the level and the load out of each line of a controller log, then count by level",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "analysis.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "data-tables-text-log",
+  "thumbnailAlt": "Counts of INFO, WARN and ERROR lines from a controller log as bars, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/text-log",
+    "source": "website/content/math/data-tables/examples/text-log/analysis.m",
+    "thumbnail": "website/public/math-assets/data-tables/text-log.webp"
+  }
+}

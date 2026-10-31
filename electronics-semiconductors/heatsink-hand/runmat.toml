@@ -1,0 +1,12 @@
+[package]
+name = "electronics-semiconductors-heatsink-hand"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "heatsink-hand.m"
+
+[desktop.artifacts]
+root = ".artifacts"

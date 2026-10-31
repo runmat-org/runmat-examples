@@ -1,0 +1,12 @@
+[package]
+name = "data-tables-messy-csv"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "analysis.m"
+
+[desktop.artifacts]
+root = ".artifacts"

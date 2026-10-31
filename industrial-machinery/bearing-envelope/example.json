@@ -1,0 +1,29 @@
+{
+  "id": "industrial-machinery-bearing-envelope",
+  "title": "Bearing fault in an envelope spectrum",
+  "pickerTitle": "Bearing fault in an envelope spectrum",
+  "pickerLine": "Industrial machinery",
+  "line": "An outer-race defect on a 6205 bearing, found at its defect frequency.",
+  "description": "An outer-race fault on a 6205 bearing at 1,797 rpm, in the envelope spectrum. The accelerometer signal comes from test_signal at the end of the file.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bearing-envelope.m",
+  "roles": [
+    "controls_signals",
+    "structural"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "industrial-machinery-bearing-envelope",
+  "thumbnailAlt": "Envelope spectrum with peaks at the bearing's outer-race defect frequency and its harmonics, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/bearing-envelope",
+    "source": "website/content/industries/industrial-machinery/bearing-envelope.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/bearing-envelope.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bracket-orders.m"
+    ],
+    "activeFile": "/bracket-orders.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which rpm each order crosses the 185 Hz mode",
+      "Raise the first mode to 250 Hz and recheck crossings",
+      "Add the sixth engine order to the plot"
+    ]
+  }
+}

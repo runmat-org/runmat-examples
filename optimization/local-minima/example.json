@@ -1,0 +1,29 @@
+{
+  "id": "optimization-local-minima",
+  "title": "Local and global minima",
+  "pickerTitle": "Local and global minima",
+  "pickerLine": "Optimization",
+  "line": "Of 81 starts on peaks, 19 reach the global minimum, 21 a local one and 41 drift away.",
+  "description": "Local and global minima: fminunc from a grid of starting points on peaks. Each start is colored by the value where fminunc stops.",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "local-minima.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "optimization-local-minima",
+  "thumbnailAlt": "Starting points on a contour plot of peaks, colored by where fminunc stops, rendered by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/local-minima",
+    "source": "website/content/math/optimization/examples/local-minima.m",
+    "thumbnail": "website/public/math-assets/optimization/local-minima.webp"
+  }
+}

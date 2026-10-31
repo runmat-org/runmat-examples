@@ -1,0 +1,26 @@
+{
+  "id": "curve-fitting-prediction-band",
+  "title": "Calibration with a prediction band",
+  "pickerTitle": "Calibration with a prediction band",
+  "pickerLine": "Curve fitting",
+  "line": "A straight-line fit and where the next reading will fall.",
+  "description": "Calibrate a pressure sensor with a straight line and show where a new reading will fall",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "prediction-band.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "curve-fitting-prediction-band",
+  "thumbnailAlt": "A sensor calibration line above its residuals inside a shaded 95% prediction band, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/prediction-band",
+    "source": "website/content/math/curve-fitting/examples/prediction-band.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/prediction-band.webp"
+  }
+}

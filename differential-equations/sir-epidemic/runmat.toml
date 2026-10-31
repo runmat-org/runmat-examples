@@ -1,0 +1,12 @@
+[package]
+name = "differential-equations-sir-epidemic"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "sir-epidemic.m"
+
+[desktop.artifacts]
+root = ".artifacts"

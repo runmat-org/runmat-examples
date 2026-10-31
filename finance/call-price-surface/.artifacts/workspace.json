@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/call-price-surface.m"
+    ],
+    "activeFile": "/call-price-surface.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the surface flattens near expiry",
+      "Raise sigma to 0.4 and redraw the surface",
+      "Plot the time value instead of the price"
+    ]
+  }
+}

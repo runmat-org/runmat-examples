@@ -1,0 +1,32 @@
+{
+  "id": "plotting-boxplot",
+  "title": "Box plot",
+  "pickerTitle": "Box plot",
+  "pickerLine": "Plotting",
+  "line": "Spread and outliers of four production batches.",
+  "description": "Spread and outliers of four production batches.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compare and distribute",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "boxplot.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-boxplot",
+  "thumbnailAlt": "Box plots of tensile strength for four batches with outliers marked, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/boxplot",
+    "source": "website/content/math/plotting/examples/boxplot.m",
+    "thumbnail": "website/public/math-assets/plotting/boxplot.webp"
+  }
+}

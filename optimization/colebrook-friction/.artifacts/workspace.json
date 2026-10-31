@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/colebrook-friction.m"
+    ],
+    "activeFile": "/colebrook-friction.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why fzero needs a bracket here",
+      "Add a curve for relative roughness 1e-2",
+      "Compare with the Haaland explicit formula"
+    ]
+  }
+}

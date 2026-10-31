@@ -1,0 +1,12 @@
+[package]
+name = "curve-fitting-interp-methods"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "interp-methods.m"
+
+[desktop.artifacts]
+root = ".artifacts"

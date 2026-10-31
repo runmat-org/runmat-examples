@@ -1,0 +1,29 @@
+{
+  "id": "control-systems-margins-three-ways",
+  "title": "Check a gain margin by hand",
+  "pickerTitle": "Check a gain margin by hand",
+  "pickerLine": "Control systems",
+  "line": "margin, the Routh array and rlocus all give a gain margin of 3.",
+  "description": "Gain margin of G(s) = 10/(s(s + 1)(s + 5)) from margin, from the Routh array and from the gain at which the root locus reaches the imaginary axis",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "margins-three-ways.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-margins-three-ways",
+  "thumbnailAlt": "A root locus reaching the imaginary axis at the marked points, where the gain equals its margin, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/margins-three-ways",
+    "source": "website/content/math/control-systems/examples/margins-three-ways.m",
+    "thumbnail": "website/public/math-assets/control-systems/margins-three-ways.webp"
+  }
+}

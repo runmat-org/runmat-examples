@@ -1,0 +1,12 @@
+[package]
+name = "plotting-cdfplot"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cdfplot.m"
+
+[desktop.artifacts]
+root = ".artifacts"

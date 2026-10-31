@@ -1,0 +1,12 @@
+[package]
+name = "plotting-surfc"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "surfc.m"
+
+[desktop.artifacts]
+root = ".artifacts"

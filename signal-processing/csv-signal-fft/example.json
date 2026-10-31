@@ -1,0 +1,29 @@
+{
+  "id": "signal-processing-csv-signal-fft",
+  "title": "Spectrum of a recorded CSV",
+  "pickerTitle": "Spectrum of a recorded CSV",
+  "pickerLine": "Signal processing",
+  "line": "Fix gaps, resample to a uniform grid, then read the spectrum.",
+  "description": "Prepare a timestamped sensor export, then compute its FFT sensor_log.csv has columns: time_s, acceleration_g",
+  "topic": "signal-processing",
+  "topicLabel": "Signal processing",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "analysis.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "power-spectrum",
+  "thumbnailAlt": "Recorded CSV data, the prepared uniform signal and its single-sided amplitude spectrum, rendered by RunMat",
+  "origin": {
+    "page": "/math/signal-processing",
+    "key": "website:math/signal-processing/csv-signal-fft",
+    "source": "website/content/math/signal-processing/examples/csv-signal-fft/analysis.m",
+    "thumbnail": "website/public/math-assets/signal-processing/csv-signal-fft.webp"
+  }
+}

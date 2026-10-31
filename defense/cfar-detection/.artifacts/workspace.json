@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cfar-detection.m"
+    ],
+    "activeFile": "/cfar-detection.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why two targets merge or get masked",
+      "Set the false-alarm rate to 1e-3 and rerun",
+      "Add guard cells and compare the detections"
+    ]
+  }
+}

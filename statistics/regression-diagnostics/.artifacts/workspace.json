@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/regression-diagnostics.m"
+    ],
+    "activeFile": "/regression-diagnostics.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what the residual plots show",
+      "Add a quadratic term and compare",
+      "Report the prediction interval at 25 kN"
+    ]
+  }
+}

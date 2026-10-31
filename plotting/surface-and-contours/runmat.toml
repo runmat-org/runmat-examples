@@ -1,0 +1,12 @@
+[package]
+name = "plotting-surface-and-contours"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "surface-and-contours.m"
+
+[desktop.artifacts]
+root = ".artifacts"

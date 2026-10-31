@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/random-vibration.m"
+    ],
+    "activeFile": "/random-vibration.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Compare Miles' equation with the integrated response",
+      "Change Q to 25 and rerun the response",
+      "Sweep the mode frequency from 100 to 500 Hz"
+    ]
+  }
+}

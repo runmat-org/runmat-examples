@@ -1,0 +1,27 @@
+{
+  "id": "electronics-semiconductors-wafer-map",
+  "title": "Wafer map yield",
+  "pickerTitle": "Wafer map yield",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "Die yield across a 300 mm wafer, center against edge.",
+  "description": "Die yield across a 300 mm wafer with 10 x 10 mm dies, where defect density rises toward the edge, and the yield by radial zone.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "wafer-map.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [],
+  "theme": "electronics-semiconductors-wafer-map",
+  "thumbnailAlt": "Wafer map of good and failed dies on a 300 mm wafer, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/wafer-map",
+    "source": "website/content/industries/electronics-semiconductors/wafer-map.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/wafer-map.webp"
+  }
+}

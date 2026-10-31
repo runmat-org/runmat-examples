@@ -1,0 +1,12 @@
+[package]
+name = "linear-algebra-least-squares"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "least-squares.m"
+
+[desktop.artifacts]
+root = ".artifacts"

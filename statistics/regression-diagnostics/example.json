@@ -1,0 +1,29 @@
+{
+  "id": "statistics-regression-diagnostics",
+  "title": "Regression with diagnostics",
+  "pickerTitle": "Regression with diagnostics",
+  "pickerLine": "Statistics and probability",
+  "line": "A fitted line, a prediction interval and the residuals that judge it.",
+  "description": "Fit a line, read its prediction interval, and check the residuals that judge it",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "regression-diagnostics.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "statistics-regression-diagnostics",
+  "thumbnailAlt": "A regression line with its prediction band beside residuals against fitted values, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/regression-diagnostics",
+    "source": "website/content/math/statistics/examples/regression-diagnostics.m",
+    "thumbnail": "website/public/math-assets/statistics/regression-diagnostics.webp"
+  }
+}

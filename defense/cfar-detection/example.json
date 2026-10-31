@@ -1,0 +1,26 @@
+{
+  "id": "defense-cfar-detection",
+  "title": "CFAR detection",
+  "pickerTitle": "CFAR detection",
+  "pickerLine": "Defense",
+  "line": "Cell-averaging CFAR at a false-alarm rate of 1e-5.",
+  "description": "Cell-averaging CFAR on a range profile: each cell is compared with the average of the cells around it, scaled for a false-alarm probability of 1e-5. Two of the targets sit ten cells apart, inside each other's training window.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "cfar-detection.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [],
+  "theme": "defense-cfar-detection",
+  "thumbnailAlt": "A range profile with its CFAR threshold and four detections, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/cfar-detection",
+    "source": "website/content/industries/defense/cfar-detection.m",
+    "thumbnail": "website/public/industries-assets/defense/cfar-detection.webp"
+  }
+}

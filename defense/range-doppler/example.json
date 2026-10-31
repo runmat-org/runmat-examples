@@ -1,0 +1,26 @@
+{
+  "id": "defense-range-doppler",
+  "title": "Range-Doppler map",
+  "pickerTitle": "Range-Doppler map",
+  "pickerLine": "Defense",
+  "line": "64 pulses resolve three targets in range and closing speed.",
+  "description": "Range-Doppler map of an X-band pulse-Doppler radar: 64 pulses of a 10 us chirp, matched-filtered in range and transformed across pulses into closing speed. Two moving targets, one stationary target and ground clutter at zero speed.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "image",
+  "entry": "range-doppler.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [],
+  "theme": "radar-pulse",
+  "thumbnailAlt": "Range-Doppler map of three targets and ground clutter from an X-band radar, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/range-doppler",
+    "source": "website/content/industries/defense/range-doppler.m",
+    "thumbnail": "website/public/industries-assets/defense/range-doppler.webp"
+  }
+}

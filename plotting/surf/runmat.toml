@@ -1,0 +1,12 @@
+[package]
+name = "plotting-surf"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "surf.m"
+
+[desktop.artifacts]
+root = ".artifacts"

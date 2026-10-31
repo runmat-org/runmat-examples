@@ -1,0 +1,32 @@
+{
+  "id": "statistics-tolerance-stack-up",
+  "title": "Monte Carlo tolerance stack-up",
+  "pickerTitle": "Monte Carlo tolerance stack-up",
+  "pickerLine": "Statistics and probability",
+  "line": "A shaft in a bore: interference probability, its standard error and when to stop.",
+  "description": "A shaft in a bore: how often do they interfere, and when is the estimate good enough?",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "tolerance-stack-up.m",
+  "roles": [
+    "data_quant",
+    "research",
+    "structural"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "build_simulations",
+    "gpu_acceleration"
+  ],
+  "theme": "option-monte-carlo",
+  "thumbnailAlt": "A clearance histogram with the interference line above the running estimate inside its standard-error band, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/tolerance-stack-up",
+    "source": "website/content/math/statistics/examples/tolerance-stack-up.m",
+    "thumbnail": "website/public/math-assets/statistics/tolerance-stack-up.webp"
+  }
+}

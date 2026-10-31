@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/phase-plane.m"
+    ],
+    "activeFile": "/phase-plane.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the lines where growth is limited",
+      "Refine the grid and redraw the surface",
+      "Plot growth against oxygen at fixed glucose"
+    ]
+  }
+}

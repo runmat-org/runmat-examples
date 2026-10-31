@@ -1,0 +1,32 @@
+{
+  "id": "plotting-imshow",
+  "title": "Grayscale image",
+  "pickerTitle": "Grayscale image",
+  "pickerLine": "Plotting",
+  "line": "A field scaled to its own range with imshow(X, []).",
+  "description": "A field scaled to its own range with imshow(X, []).",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Images and fields",
+  "kind": "script",
+  "visual": "image",
+  "entry": "imshow.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-imshow",
+  "thumbnailAlt": "A grayscale field with one dark and one bright spot, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/imshow",
+    "source": "website/content/math/plotting/examples/imshow.m",
+    "thumbnail": "website/public/math-assets/plotting/imshow.webp"
+  }
+}

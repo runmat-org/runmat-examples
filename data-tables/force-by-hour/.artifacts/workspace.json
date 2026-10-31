@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/force-by-hour.m"
+    ],
+    "activeFile": "/force-by-hour.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which fixture and hour stand out",
+      "Show the standard deviation in each cell instead",
+      "Export the pivoted table to a CSV"
+    ]
+  }
+}

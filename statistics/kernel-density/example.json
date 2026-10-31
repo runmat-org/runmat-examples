@@ -1,0 +1,34 @@
+{
+  "id": "kernel-density",
+  "title": "Smooth a histogram",
+  "pickerTitle": "Smooth a histogram",
+  "pickerLine": "Statistics and probability",
+  "line": "A kernel density estimate that finds the peaks a histogram blurs.",
+  "description": "Two populations mixed in one sample: a histogram hides it, a kernel density shows it",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "kernel-density.m",
+  "roles": [
+    "data_quant",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "histogram",
+  "thumbnailAlt": "A histogram of cycle times with a kernel density curve showing two peaks, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/kernel-density",
+    "source": "website/content/math/statistics/examples/kernel-density.m",
+    "thumbnail": "website/public/math-assets/statistics/kernel-density.webp"
+  }
+}

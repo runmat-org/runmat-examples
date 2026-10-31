@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/tower-campbell.m"
+    ],
+    "activeFile": "/tower-campbell.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the tower sits between 1P and 3P",
+      "Add 20% to the top mass and recheck",
+      "Report the rotor speeds where 1P or 3P cross"
+    ]
+  }
+}

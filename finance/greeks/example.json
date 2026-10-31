@@ -1,0 +1,29 @@
+{
+  "id": "finance-greeks",
+  "title": "Delta and gamma",
+  "pickerTitle": "Delta and gamma",
+  "pickerLine": "Computational finance",
+  "line": "The option Greeks from the formulas, checked against blsprice.",
+  "description": "Delta and gamma from the Black-Scholes formulas, checked against blsprice",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "greeks.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "finance-greeks",
+  "thumbnailAlt": "Call delta and gamma against spot for three expiries, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/greeks",
+    "source": "website/content/math/finance/examples/greeks.m",
+    "thumbnail": "website/public/math-assets/finance/greeks.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/three-batches-anova.m"
+    ],
+    "activeFile": "/three-batches-anova.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what the F statistic tests",
+      "Run pairwise comparisons after the ANOVA",
+      "Rerun with 10 samples per supplier"
+    ]
+  }
+}

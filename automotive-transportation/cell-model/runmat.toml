@@ -1,0 +1,12 @@
+[package]
+name = "automotive-transportation-cell-model"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cell-model.m"
+
+[desktop.artifacts]
+root = ".artifacts"

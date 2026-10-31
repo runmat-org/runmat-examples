@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/stability-lobes.m"
+    ],
+    "activeFile": "/stability-lobes.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why lobes repeat with spindle speed",
+      "Double the damping and redraw the lobes",
+      "Find the best speed under 20,000 rpm"
+    ]
+  }
+}

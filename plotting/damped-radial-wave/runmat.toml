@@ -1,0 +1,12 @@
+[package]
+name = "plotting-damped-radial-wave"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "damped-radial-wave.m"
+
+[desktop.artifacts]
+root = ".artifacts"

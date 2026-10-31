@@ -1,0 +1,12 @@
+[package]
+name = "optimization-local-minima"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "local-minima.m"
+
+[desktop.artifacts]
+root = ".artifacts"

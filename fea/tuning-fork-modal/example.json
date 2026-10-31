@@ -1,0 +1,34 @@
+{
+  "id": "tuning-fork-modal",
+  "title": "Tuning fork modes",
+  "pickerTitle": "Tuning fork modes",
+  "pickerLine": "FEA studies",
+  "line": "An FEA study of a steel tuning fork's natural modes.",
+  "description": "A modal study of a steel tuning fork: imports the fork's STEP geometry, meshes it, and solves its natural frequencies and mode shapes.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "tuning-fork-modal.fea",
+  "roles": [
+    "aerospace",
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations",
+    "gpu_acceleration"
+  ],
+  "theme": "tuning-fork-modal",
+  "thumbnailAlt": "First vibration mode of a steel tuning fork, solved in RunMat",
+  "origin": {
+    "page": "/docs (FEA examples)",
+    "key": "website:docs-assets/examples/tuning-fork-modal",
+    "source": "desktop/src/lib/examples/sources/tuning-fork-modal/tuning-fork-modal.fea",
+    "thumbnail": "desktop/src/lib/examples/thumbnails/tuning-fork-modal.webp"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "quant-asian-control-variate",
+  "title": "Asian option with a control variate",
+  "pickerTitle": "Asian option with a control variate",
+  "pickerLine": "Quantitative finance",
+  "line": "The geometric average cuts the error for the same paths.",
+  "description": "An arithmetic-average Asian call has no closed form. The geometric-average version does, and its payoff tracks the arithmetic one closely, so it makes a control variate that cuts the error for the same number of paths.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "asian-control-variate.m",
+  "roles": [
+    "controls_signals",
+    "data_quant"
+  ],
+  "goals": [],
+  "theme": "option-monte-carlo",
+  "thumbnailAlt": "Arithmetic against geometric Asian payoffs, nearly on one line, rendered by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/asian-control-variate",
+    "source": "website/content/industries/quant/asian-control-variate.m",
+    "thumbnail": "website/public/industries-assets/quant/asian-control-variate.webp"
+  }
+}

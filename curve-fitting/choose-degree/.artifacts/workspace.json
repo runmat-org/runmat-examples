@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/choose-degree.m"
+    ],
+    "activeFile": "/choose-degree.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why R-squared keeps rising with degree",
+      "Add leave-one-out cross-validation for each degree",
+      "Rerun with 100 samples and compare the best degree"
+    ]
+  }
+}

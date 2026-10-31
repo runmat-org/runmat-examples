@@ -1,0 +1,26 @@
+{
+  "id": "energy-load-duration",
+  "title": "Load-duration curve",
+  "pickerTitle": "Load-duration curve",
+  "pickerLine": "Energy",
+  "line": "A year of hourly load, its peak and its load factor.",
+  "description": "A year of hourly load for a utility with a 2,400 MW peak: the load-duration curve, the load factor and the hours the system runs near its peak.",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "load-duration.m",
+  "roles": [
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "energy-load-duration",
+  "thumbnailAlt": "A utility's hourly load for a year sorted from highest to lowest, rendered by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/load-duration",
+    "source": "website/content/industries/energy/load-duration.m",
+    "thumbnail": "website/public/industries-assets/energy/load-duration.webp"
+  }
+}

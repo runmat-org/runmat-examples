@@ -1,0 +1,29 @@
+{
+  "id": "automotive-transportation-bracket-orders",
+  "title": "Bracket modes against engine orders",
+  "pickerTitle": "Bracket modes against engine orders",
+  "pickerLine": "Automotive and transportation",
+  "line": "Where the second and fourth orders cross a bracket's modes.",
+  "description": "An accessory bracket's first two modes against a 4-cylinder engine's second and fourth orders from idle to redline: each crossing is a speed where the bracket rings.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bracket-orders.m",
+  "roles": [
+    "automotive",
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "automotive-transportation-bracket-orders",
+  "thumbnailAlt": "Engine order lines crossing a bracket's first two modes over engine speed, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/bracket-orders",
+    "source": "website/content/industries/automotive-transportation/bracket-orders.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/bracket-orders.webp"
+  }
+}

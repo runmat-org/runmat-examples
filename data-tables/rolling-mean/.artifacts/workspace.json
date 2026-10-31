@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/rolling-mean.m"
+    ],
+    "activeFile": "/rolling-mean.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the trend under the 24-hour rolling mean",
+      "Change the window to 72 hours and compare",
+      "Fit and report the temperature drift per day"
+    ]
+  }
+}

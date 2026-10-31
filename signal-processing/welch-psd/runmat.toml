@@ -1,0 +1,12 @@
+[package]
+name = "signal-processing-welch-psd"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "welch-psd.m"
+
+[desktop.artifacts]
+root = ".artifacts"

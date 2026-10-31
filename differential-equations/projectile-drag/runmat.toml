@@ -1,0 +1,12 @@
+[package]
+name = "differential-equations-projectile-drag"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "projectile-drag.m"
+
+[desktop.artifacts]
+root = ".artifacts"

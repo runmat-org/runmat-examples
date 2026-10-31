@@ -1,0 +1,31 @@
+{
+  "id": "data-tables-group-summary",
+  "title": "Summary by group",
+  "pickerTitle": "Summary by group",
+  "pickerLine": "Data and tables",
+  "line": "Mean and spread of force per fixture with groupsummary.",
+  "description": "Mean and spread of force per fixture, after dropping gaps and an outlier",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "analysis.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "data-tables-group-summary",
+  "thumbnailAlt": "Mean force per fixture as bars with one-standard-deviation error bars, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/group-summary",
+    "source": "website/content/math/data-tables/examples/group-summary/analysis.m",
+    "thumbnail": "website/public/math-assets/data-tables/group-summary.webp"
+  }
+}

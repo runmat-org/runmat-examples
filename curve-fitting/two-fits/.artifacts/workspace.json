@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/two-fits.m"
+    ],
+    "activeFile": "/two-fits.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the degree-6 fit diverges past the data",
+      "Extend the x range to 6 and compare both fits",
+      "Compare the residual norms of both fits"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/xbar-chart.m"
+    ],
+    "activeFile": "/xbar-chart.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the control limits come from ranges",
+      "Add an R chart under the X-bar chart",
+      "Find the first subgroup that signals"
+    ]
+  }
+}

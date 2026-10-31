@@ -1,0 +1,33 @@
+{
+  "id": "plotting-plot3",
+  "title": "3-D line",
+  "pickerTitle": "3-D line",
+  "pickerLine": "Plotting",
+  "line": "A helical sensor trajectory.",
+  "description": "A helical sensor trajectory.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "plot3.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-plot3",
+  "thumbnailAlt": "A helical line rising through 3-D space, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/plot3",
+    "source": "website/content/math/plotting/examples/plot3.m",
+    "thumbnail": "website/public/math-assets/plotting/plot3.webp"
+  }
+}

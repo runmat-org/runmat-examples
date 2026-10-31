@@ -1,0 +1,12 @@
+[package]
+name = "remove-tone"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "remove-tone.m"
+
+[desktop.artifacts]
+root = ".artifacts"

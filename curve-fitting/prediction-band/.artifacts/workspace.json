@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/prediction-band.m"
+    ],
+    "activeFile": "/prediction-band.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the difference between confidence and prediction bands",
+      "Rerun with 10 calibration points and compare the band",
+      "Invert the fit to read pressure from 2.5 V"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "plotting-contourf"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "contourf.m"
+
+[desktop.artifacts]
+root = ".artifacts"

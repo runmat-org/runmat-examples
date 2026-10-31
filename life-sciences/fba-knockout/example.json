@@ -1,0 +1,26 @@
+{
+  "id": "life-sciences-fba-knockout",
+  "title": "Flux balance and knockouts",
+  "pickerTitle": "Flux balance and knockouts",
+  "pickerLine": "Life sciences",
+  "line": "Which reactions a cell can lose and still grow.",
+  "description": "Flux balance analysis of a small metabolic network, then single-reaction knockouts: which reactions the cell can lose and still grow, and how much growth it keeps. Reactions: 1 glucose uptake, 2 oxygen uptake, 3 glycolysis, 4 respiration, 5 fermentation, 6 biomass. Metabolites: glucose, oxygen, pyruvate, ATP.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "fba-knockout.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "life-sciences-fba-knockout",
+  "thumbnailAlt": "Bar chart of growth kept after each single-reaction knockout, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/fba-knockout",
+    "source": "website/content/industries/life-sciences/fba-knockout.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/fba-knockout.webp"
+  }
+}

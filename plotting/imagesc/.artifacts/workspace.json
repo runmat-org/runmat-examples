@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/imagesc.m"
+    ],
+    "activeFile": "/imagesc.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how imagesc scales to the colormap",
+      "Fix the color limits to [-1 1]",
+      "Add axes in physical units"
+    ]
+  }
+}

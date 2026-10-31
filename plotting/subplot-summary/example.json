@@ -1,0 +1,32 @@
+{
+  "id": "plotting-subplot-summary",
+  "title": "Four-panel figure",
+  "pickerTitle": "Four-panel figure",
+  "pickerLine": "Plotting",
+  "line": "A test run summarized with subplot and sgtitle.",
+  "description": "A test run summarized with subplot and sgtitle.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compose a figure",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "subplot-summary.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-subplot-summary",
+  "thumbnailAlt": "Four panels summarizing a test run under one title, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/subplot-summary",
+    "source": "website/content/math/plotting/examples/subplot-summary.m",
+    "thumbnail": "website/public/math-assets/plotting/subplot-summary.webp"
+  }
+}

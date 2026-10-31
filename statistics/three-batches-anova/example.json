@@ -1,0 +1,31 @@
+{
+  "id": "statistics-three-batches-anova",
+  "title": "Compare three suppliers",
+  "pickerTitle": "Compare three suppliers",
+  "pickerLine": "Statistics and probability",
+  "line": "One-way ANOVA across three groups, with the F test and group means.",
+  "description": "Three suppliers, one question: does any differ? One-way ANOVA",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "three-batches-anova.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "statistics-three-batches-anova",
+  "thumbnailAlt": "Box plots of three suppliers with the ANOVA result in the title, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/three-batches-anova",
+    "source": "website/content/math/statistics/examples/three-batches-anova.m",
+    "thumbnail": "website/public/math-assets/statistics/three-batches-anova.webp"
+  }
+}

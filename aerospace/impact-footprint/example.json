@@ -1,0 +1,28 @@
+{
+  "id": "aerospace-impact-footprint",
+  "title": "Impact footprint",
+  "pickerTitle": "Impact footprint",
+  "pickerLine": "Aerospace",
+  "line": "4,000 dispersed trajectories and their 3-sigma ellipse.",
+  "description": "Impact footprint of a ballistic payload released at 25 km: 4,000 runs with dispersed mass, drag, release state, air density and crosswind.",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "impact-footprint.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "aerospace-impact-footprint",
+  "thumbnailAlt": "Impact points of 4,000 dispersed trajectories with a 3-sigma ellipse, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "website:industries/aerospace/impact-footprint",
+    "source": "website/content/industries/aerospace/impact-footprint.m",
+    "thumbnail": "website/public/industries-assets/aerospace/impact-footprint.webp"
+  }
+}

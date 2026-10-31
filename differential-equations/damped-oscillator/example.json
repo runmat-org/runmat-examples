@@ -1,0 +1,33 @@
+{
+  "id": "damped-oscillator",
+  "title": "Damped oscillator",
+  "pickerTitle": "Damped oscillator",
+  "pickerLine": "Differential equations",
+  "line": "ode45 against the closed-form solution.",
+  "description": "Damped mass-spring: x'' + 2*zeta*wn*x' + wn^2*x = 0, against the closed form",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "damped-oscillator.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "oscillator",
+  "thumbnailAlt": "A damped oscillation solved with ode45 inside its exponential decay envelope, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/damped-oscillator",
+    "source": "website/content/math/differential-equations/examples/damped-oscillator.m",
+    "thumbnail": "website/public/math-assets/differential-equations/damped-oscillator.webp"
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "control-systems-ramp-tracking"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "ramp-tracking.m"
+
+[desktop.artifacts]
+root = ".artifacts"

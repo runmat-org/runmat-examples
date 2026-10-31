@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/estimate-pi.m"
+    ],
+    "activeFile": "/estimate-pi.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why error falls as one over sqrt(N)",
+      "Rerun with 1e8 points and time it",
+      "Overlay the two-standard-error band"
+    ]
+  }
+}

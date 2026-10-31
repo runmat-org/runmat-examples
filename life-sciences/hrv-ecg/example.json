@@ -1,0 +1,26 @@
+{
+  "id": "life-sciences-hrv-ecg",
+  "title": "Heart-rate variability from an ECG",
+  "pickerTitle": "Heart-rate variability from an ECG",
+  "pickerLine": "Life sciences",
+  "line": "R peaks, beat-to-beat intervals, SDNN and RMSSD.",
+  "description": "Heart-rate variability from two minutes of ECG: find the R peaks, take the beat-to-beat intervals, and compute SDNN and RMSSD. Breathing at 15 a minute modulates the rate.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "hrv-ecg.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "life-sciences-hrv-ecg",
+  "thumbnailAlt": "Beat-to-beat intervals over two minutes of ECG, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/hrv-ecg",
+    "source": "website/content/industries/life-sciences/hrv-ecg.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/hrv-ecg.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/drawdown-and-volatility.m"
+    ],
+    "activeFile": "/drawdown-and-volatility.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the maximum drawdown is found",
+      "Change the window to 63 days and compare",
+      "Report the annualized Sharpe ratio by year"
+    ]
+  }
+}

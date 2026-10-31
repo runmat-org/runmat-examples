@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/impact-footprint.m"
+    ],
+    "activeFile": "/impact-footprint.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the 3-sigma ellipse is computed",
+      "Double the crosswind dispersion and compare the footprint",
+      "Rank which dispersed input drives the downrange spread"
+    ]
+  }
+}

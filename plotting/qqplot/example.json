@@ -1,0 +1,32 @@
+{
+  "id": "plotting-qqplot",
+  "title": "Quantile-quantile plot",
+  "pickerTitle": "Quantile-quantile plot",
+  "pickerLine": "Plotting",
+  "line": "Fit residuals against a normal distribution.",
+  "description": "Fit residuals against a normal distribution.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compare and distribute",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "qqplot.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-qqplot",
+  "thumbnailAlt": "Residual quantiles against normal quantiles along a reference line, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/qqplot",
+    "source": "website/content/math/plotting/examples/qqplot.m",
+    "thumbnail": "website/public/math-assets/plotting/qqplot.webp"
+  }
+}

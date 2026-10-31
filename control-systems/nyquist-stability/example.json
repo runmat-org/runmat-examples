@@ -1,0 +1,29 @@
+{
+  "id": "control-systems-nyquist-stability",
+  "title": "Stability from a Nyquist plot",
+  "pickerTitle": "Stability from a Nyquist plot",
+  "pickerLine": "Control systems",
+  "line": "At K = 4 the curve encircles -1 and the closed loop has two unstable poles.",
+  "description": "Nyquist plots of K*G for K = 1 and K = 4, with the closed-loop poles for each",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "nyquist-stability.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-nyquist-stability",
+  "thumbnailAlt": "Nyquist plots for two gains, one encircling the critical point at -1, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/nyquist-stability",
+    "source": "website/content/math/control-systems/examples/nyquist-stability.m",
+    "thumbnail": "website/public/math-assets/control-systems/nyquist-stability.webp"
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "defense-pulse-compression"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "pulse-compression.m"
+
+[desktop.artifacts]
+root = ".artifacts"

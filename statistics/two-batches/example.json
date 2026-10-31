@@ -1,0 +1,34 @@
+{
+  "id": "statistics-two-batches",
+  "title": "Do two batches differ?",
+  "pickerTitle": "Do two batches differ?",
+  "pickerLine": "Statistics and probability",
+  "line": "Box plots, a Welch t-test and the interval on the difference.",
+  "description": "Do two batches of tensile results differ? Box plots, then Welch's t-test",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "two-batches.m",
+  "roles": [
+    "data_quant",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "statistics-two-batches",
+  "thumbnailAlt": "Side-by-side box plots of two batches with the t-test result in the title, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/two-batches",
+    "source": "website/content/math/statistics/examples/two-batches.m",
+    "thumbnail": "website/public/math-assets/statistics/two-batches.webp"
+  }
+}

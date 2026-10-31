@@ -1,0 +1,29 @@
+{
+  "id": "automotive-transportation-module-temperature",
+  "title": "Module temperatures on US06",
+  "pickerTitle": "Module temperatures on US06",
+  "pickerLine": "Automotive and transportation",
+  "line": "Twelve cells on a cold plate through three aggressive cycles.",
+  "description": "A 12-cell module on a cold plate over three back-to-back EPA US06 cycles: I^2 R heat in each cell, coolant warming along the plate, heat shared with neighboring cells.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "module-temperature.m",
+  "roles": [
+    "automotive",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "automotive-transportation-module-temperature",
+  "thumbnailAlt": "Temperature of twelve cells rising over three US06 cycles, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/module-temperature",
+    "source": "website/content/industries/automotive-transportation/module-temperature.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/module-temperature.webp"
+  }
+}

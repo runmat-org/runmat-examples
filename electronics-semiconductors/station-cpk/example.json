@@ -1,0 +1,29 @@
+{
+  "id": "electronics-semiconductors-station-cpk",
+  "title": "Cpk by test station",
+  "pickerTitle": "Cpk by test station",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "One 3.3 V test across six stations; one station reads high.",
+  "description": "Capability of one test (a 3.30 V rail, limits 3.15 to 3.45 V) across six test stations. One station reads high; its Cpk drops below the others.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "station-cpk.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "process-capability",
+  "thumbnailAlt": "Bar chart of Cpk for six test stations against 1.33, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/station-cpk",
+    "source": "website/content/industries/electronics-semiconductors/station-cpk.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/station-cpk.webp"
+  }
+}

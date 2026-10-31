@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/analysis.m"
+    ],
+    "activeFile": "/analysis.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which fixture drifts across the shift",
+      "Pivot by fixture and operator instead of hour",
+      "Add a row of hourly means across fixtures"
+    ]
+  }
+}

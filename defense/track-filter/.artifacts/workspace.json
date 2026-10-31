@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/track-filter.m"
+    ],
+    "activeFile": "/track-filter.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the EKF linearizes range and bearing",
+      "Raise the process noise and compare the turn error",
+      "Plot position error with its 2-sigma bound"
+    ]
+  }
+}

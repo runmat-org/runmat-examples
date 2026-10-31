@@ -1,0 +1,32 @@
+{
+  "id": "plotting-polarplot",
+  "title": "Polar plot",
+  "pickerTitle": "Polar plot",
+  "pickerLine": "Plotting",
+  "line": "Two radiation patterns on polar axes.",
+  "description": "Two radiation patterns on polar axes.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Vectors, polar and log scales",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "polarplot.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-polarplot",
+  "thumbnailAlt": "Two lobed patterns on polar axes, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/polarplot",
+    "source": "website/content/math/plotting/examples/polarplot.m",
+    "thumbnail": "website/public/math-assets/plotting/polarplot.webp"
+  }
+}

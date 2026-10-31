@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cheapest-can.m"
+    ],
+    "activeFile": "/cheapest-can.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why height equals diameter at the optimum",
+      "Rerun for a 500 mL can",
+      "Add a cost for the seam and reoptimize"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "plotting-contour3",
+  "title": "3-D contours",
+  "pickerTitle": "3-D contours",
+  "pickerLine": "Plotting",
+  "line": "Contour lines drawn at their own heights.",
+  "description": "Contour lines drawn at their own heights.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "contour3.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-contour3",
+  "thumbnailAlt": "Contour lines of a field drawn in 3-D, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/contour3",
+    "source": "website/content/math/plotting/examples/contour3.m",
+    "thumbnail": "website/public/math-assets/plotting/contour3.webp"
+  }
+}

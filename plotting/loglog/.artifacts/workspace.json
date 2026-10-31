@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/loglog.m"
+    ],
+    "activeFile": "/loglog.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the slope of 1.42 is read",
+      "Fit the exponent with polyfit on log data",
+      "Add a slope-1 reference line"
+    ]
+  }
+}

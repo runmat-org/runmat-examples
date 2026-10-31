@@ -1,0 +1,12 @@
+[package]
+name = "differential-equations-trapz-vs-integral"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "trapz-vs-integral.m"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,28 @@
+{
+  "id": "industrial-machinery-rotor",
+  "title": "Rotor bending mode",
+  "pickerTitle": "Rotor bending mode",
+  "pickerLine": "Industrial machinery",
+  "line": "A stepped shaft on two bearings, colored by its first bending mode.",
+  "description": "A stepped steel shaft on two bearings 1.2 m apart, carrying a 25 kg and a 40 kg disc, drawn to scale and colored by its first bending mode from a beam model. Deflection exaggerated.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "rotor.m",
+  "roles": [
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "industrial-machinery-rotor",
+  "thumbnailAlt": "Rotor bending mode, drawn by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/rotor",
+    "source": "website/content/industries/industrial-machinery/rotor.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/rotor.webp"
+  }
+}

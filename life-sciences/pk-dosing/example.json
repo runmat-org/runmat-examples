@@ -1,0 +1,28 @@
+{
+  "id": "life-sciences-pk-dosing",
+  "title": "Dosing to steady state",
+  "pickerTitle": "Dosing to steady state",
+  "pickerLine": "Life sciences",
+  "line": "A one-compartment oral model, 500 mg every 12 hours.",
+  "description": "One-compartment oral dosing, 500 mg every 12 hours (absorption 1.2 per hour, elimination 0.17 per hour, volume 40 L): concentration to steady state.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "pk-dosing.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "life-sciences-pk-dosing",
+  "thumbnailAlt": "Plasma concentration over eight doses reaching steady state, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/pk-dosing",
+    "source": "website/content/industries/life-sciences/pk-dosing.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/pk-dosing.webp"
+  }
+}

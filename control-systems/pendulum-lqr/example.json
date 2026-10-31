@@ -1,0 +1,30 @@
+{
+  "id": "control-systems-pendulum-lqr",
+  "title": "LQR for an inverted pendulum",
+  "pickerTitle": "LQR for an inverted pendulum",
+  "pickerLine": "Control systems",
+  "line": "State feedback from lqr, simulated with ode45 from a 0.2 rad tilt.",
+  "description": "Balance an inverted pendulum on a cart with LQR, then simulate the loop with ode45",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "pendulum-lqr.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-pendulum-lqr",
+  "thumbnailAlt": "Cart position, pendulum angle and control force as LQR balances an inverted pendulum, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/pendulum-lqr",
+    "source": "website/content/math/control-systems/examples/pendulum-lqr.m",
+    "thumbnail": "website/public/math-assets/control-systems/pendulum-lqr.webp"
+  }
+}

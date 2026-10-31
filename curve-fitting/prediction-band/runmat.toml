@@ -1,0 +1,12 @@
+[package]
+name = "curve-fitting-prediction-band"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "prediction-band.m"
+
+[desktop.artifacts]
+root = ".artifacts"

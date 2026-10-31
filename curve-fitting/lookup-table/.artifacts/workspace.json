@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/lookup-table.m"
+    ],
+    "activeFile": "/lookup-table.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the 2-D spline fills the grid",
+      "Compare linear and spline refinement errors",
+      "Mark the peak efficiency point on the map"
+    ]
+  }
+}

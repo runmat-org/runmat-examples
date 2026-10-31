@@ -1,0 +1,34 @@
+{
+  "id": "linear-algebra-spring-mass-modes",
+  "title": "Vibration modes",
+  "pickerTitle": "Vibration modes",
+  "pickerLine": "Linear algebra",
+  "line": "Natural frequencies of a spring-mass chain from eig.",
+  "description": "Natural frequencies of n equal masses joined by equal springs, against the closed form",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "spring-mass-modes.m",
+  "roles": [
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "oscillator",
+  "thumbnailAlt": "The first three mode shapes of a chain of six masses, rendered by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/spring-mass-modes",
+    "source": "website/content/math/linear-algebra/examples/spring-mass-modes.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/spring-mass-modes.webp"
+  }
+}

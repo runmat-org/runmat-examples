@@ -1,0 +1,12 @@
+[package]
+name = "statistics-principal-components"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "principal-components.m"
+
+[desktop.artifacts]
+root = ".artifacts"

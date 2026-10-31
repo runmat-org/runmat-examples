@@ -1,0 +1,29 @@
+{
+  "id": "energy-turbine",
+  "title": "Wind turbine tower mode",
+  "pickerTitle": "Wind turbine tower mode",
+  "pickerLine": "Energy",
+  "line": "A reference wind turbine drawn to scale, colored by its tower's first fore-aft mode.",
+  "description": "The NREL 5-MW reference turbine (Jonkman et al. 2009, NREL/TP-500-38060), drawn to scale, with the tower colored by its first fore-aft mode from a beam model built on the report's Table 6-1 (rotor and nacelle as 350 t at the top). Deflection exaggerated.",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "turbine.m",
+  "roles": [
+    "structural",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "energy-turbine",
+  "thumbnailAlt": "Wind turbine tower mode, drawn by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/turbine",
+    "source": "website/content/industries/energy/turbine.m",
+    "thumbnail": "website/public/industries-assets/energy/turbine.webp"
+  }
+}

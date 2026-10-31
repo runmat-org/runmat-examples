@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/least-squares.m"
+    ],
+    "activeFile": "/least-squares.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the normal equations lose accuracy",
+      "Raise the degree to 14 and compare errors",
+      "Print the condition numbers of A and A'A"
+    ]
+  }
+}

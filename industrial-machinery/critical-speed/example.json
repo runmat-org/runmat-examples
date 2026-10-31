@@ -1,0 +1,26 @@
+{
+  "id": "industrial-machinery-critical-speed",
+  "title": "Shaft critical speed",
+  "pickerTitle": "Shaft critical speed",
+  "pickerLine": "Industrial machinery",
+  "line": "Dunkerley, a beam model and Rayleigh for a stepped shaft with two discs.",
+  "description": "First critical speed of a stepped steel shaft on two bearings 1.2 m apart, with a 25 kg and a 40 kg disc: Dunkerley's lower bound, a beam model, Rayleigh's upper bound.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "critical-speed.m",
+  "roles": [
+    "structural"
+  ],
+  "goals": [],
+  "theme": "industrial-machinery-critical-speed",
+  "thumbnailAlt": "Bar chart of the shaft's first critical speed by three methods, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/critical-speed",
+    "source": "website/content/industries/industrial-machinery/critical-speed.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/critical-speed.webp"
+  }
+}

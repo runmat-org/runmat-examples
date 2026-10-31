@@ -1,0 +1,26 @@
+{
+  "id": "automotive-transportation-order-tracking",
+  "title": "Order tracking on a run-up",
+  "pickerTitle": "Order tracking on a run-up",
+  "pickerLine": "Automotive and transportation",
+  "line": "A 4-cylinder's orders, resampled to shaft angle.",
+  "description": "A 4-cylinder run-up from 1,000 to 6,000 rpm: the vibration signal resampled to shaft angle, so the engine orders stand still in the spectrum.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "order-tracking.m",
+  "roles": [
+    "automotive"
+  ],
+  "goals": [],
+  "theme": "automotive-transportation-order-tracking",
+  "thumbnailAlt": "Order spectrum of a 4-cylinder run-up with the second order dominant, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/order-tracking",
+    "source": "website/content/industries/automotive-transportation/order-tracking.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/order-tracking.webp"
+  }
+}

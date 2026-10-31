@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/damping-overshoot.m"
+    ],
+    "activeFile": "/damping-overshoot.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how pole angle sets the overshoot",
+      "Add a damping ratio of 0.05 and rerun",
+      "Compare measured overshoot with the closed-form formula"
+    ]
+  }
+}

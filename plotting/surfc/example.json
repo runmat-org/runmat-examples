@@ -1,0 +1,32 @@
+{
+  "id": "plotting-surfc",
+  "title": "Surface with contours",
+  "pickerTitle": "Surface with contours",
+  "pickerLine": "Plotting",
+  "line": "A surface with its contour map below it.",
+  "description": "A surface with its contour map below it.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "surfc.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-surfc",
+  "thumbnailAlt": "A rippled surface with contour rings drawn beneath, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/surfc",
+    "source": "website/content/math/plotting/examples/surfc.m",
+    "thumbnail": "website/public/math-assets/plotting/surfc.webp"
+  }
+}

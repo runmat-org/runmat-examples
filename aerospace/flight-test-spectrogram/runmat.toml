@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-flight-test-spectrogram"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "flight-test-spectrogram.m"
+
+[desktop.artifacts]
+root = ".artifacts"

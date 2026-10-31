@@ -1,0 +1,12 @@
+[package]
+name = "finance-volatility-smile"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "volatility-smile.m"
+
+[desktop.artifacts]
+root = ".artifacts"

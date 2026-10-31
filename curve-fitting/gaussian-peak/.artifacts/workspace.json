@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/gaussian-peak.m"
+    ],
+    "activeFile": "/gaussian-peak.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the sloping background is separated",
+      "Fit a Lorentzian instead and compare residuals",
+      "Report the peak area with its uncertainty"
+    ]
+  }
+}

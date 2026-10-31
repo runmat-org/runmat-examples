@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/pendulum-lqr.m"
+    ],
+    "activeFile": "/pendulum-lqr.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the Q and R weights shape the response",
+      "Start from a 0.4 rad tilt and rerun",
+      "Plot the cart force against time"
+    ]
+  }
+}

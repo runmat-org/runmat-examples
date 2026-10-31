@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/wafer-map.m"
+    ],
+    "activeFile": "/wafer-map.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why yield drops toward the edge",
+      "Use 5 mm dies and compare total yield",
+      "Plot yield against radius as a line"
+    ]
+  }
+}

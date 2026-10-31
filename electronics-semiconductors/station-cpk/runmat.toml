@@ -1,0 +1,12 @@
+[package]
+name = "electronics-semiconductors-station-cpk"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "station-cpk.m"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,12 @@
+[package]
+name = "optimization-shadow-prices"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "shadow-prices.m"
+
+[desktop.artifacts]
+root = ".artifacts"

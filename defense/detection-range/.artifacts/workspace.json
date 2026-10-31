@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/detection-range.m"
+    ],
+    "activeFile": "/detection-range.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how 64-pulse integration extends the range",
+      "Reduce transmit power to 2 kW and compare ranges",
+      "Plot detection range against the number of pulses"
+    ]
+  }
+}

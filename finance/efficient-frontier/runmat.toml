@@ -1,0 +1,12 @@
+[package]
+name = "finance-efficient-frontier"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "efficient-frontier.m"
+
+[desktop.artifacts]
+root = ".artifacts"

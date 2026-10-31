@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/value-at-risk.m"
+    ],
+    "activeFile": "/value-at-risk.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the difference between VaR and expected shortfall",
+      "Raise all correlations to 0.9 and compare",
+      "Compare simulated VaR with the normal closed form"
+    ]
+  }
+}

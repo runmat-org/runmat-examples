@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/hrv-ecg.m"
+    ],
+    "activeFile": "/hrv-ecg.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the difference between SDNN and RMSSD",
+      "Change breathing to 6 a minute and compare",
+      "Plot the RR interval spectrum"
+    ]
+  }
+}

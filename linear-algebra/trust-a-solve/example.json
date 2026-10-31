@@ -1,0 +1,32 @@
+{
+  "id": "linear-algebra-trust-a-solve",
+  "title": "Solve a system you can check",
+  "pickerTitle": "Solve a system you can check",
+  "pickerLine": "Linear algebra",
+  "line": "inv(A)*b against A\\b on a Vandermonde matrix.",
+  "description": "Solve an ill-conditioned system two ways and check each answer",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "trust-a-solve.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "linear-algebra-trust-a-solve",
+  "thumbnailAlt": "Singular values of a 12 by 12 Vandermonde matrix on a log scale, rendered by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/trust-a-solve",
+    "source": "website/content/math/linear-algebra/examples/trust-a-solve.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/trust-a-solve.webp"
+  }
+}

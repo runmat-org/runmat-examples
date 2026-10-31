@@ -1,0 +1,32 @@
+{
+  "id": "plotting-patch",
+  "title": "Patch",
+  "pickerTitle": "Patch",
+  "pickerLine": "Plotting",
+  "line": "A pyramid from a face and vertex list.",
+  "description": "A pyramid from a face and vertex list.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "patch.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-patch",
+  "thumbnailAlt": "A translucent pyramid built with patch, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/patch",
+    "source": "website/content/math/plotting/examples/patch.m",
+    "thumbnail": "website/public/math-assets/plotting/patch.webp"
+  }
+}

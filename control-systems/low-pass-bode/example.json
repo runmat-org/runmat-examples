@@ -1,0 +1,26 @@
+{
+  "id": "control-systems-low-pass-bode",
+  "title": "Low-pass Bode plot",
+  "pickerTitle": "Low-pass Bode plot",
+  "pickerLine": "Control systems",
+  "line": "A second-order low-pass filter with a natural frequency of 10 rad/s and damping ratio 0.707, drawn by RunMat.",
+  "description": "Bode plot of a second-order low-pass filter with its -3 dB bandwidth marked",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "low-pass-bode.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [],
+  "theme": "control-systems-low-pass-bode",
+  "thumbnailAlt": "Bode plot of a second-order low-pass filter with the -3 dB point marked, drawn by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/hero",
+    "source": "website/content/math/control-systems/hero.m",
+    "thumbnail": "website/public/math-assets/control-systems/hero.webp"
+  }
+}

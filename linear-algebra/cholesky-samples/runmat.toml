@@ -1,0 +1,12 @@
+[package]
+name = "linear-algebra-cholesky-samples"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cholesky-samples.m"
+
+[desktop.artifacts]
+root = ".artifacts"

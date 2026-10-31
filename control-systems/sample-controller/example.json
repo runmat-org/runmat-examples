@@ -1,0 +1,30 @@
+{
+  "id": "control-systems-sample-controller",
+  "title": "Discretize with c2d",
+  "pickerTitle": "Discretize with c2d",
+  "pickerLine": "Control systems",
+  "line": "Sampling at 0.5 s with a zero-order hold raises the overshoot from 25% to 40%.",
+  "description": "The loop with K = 0.5, discretized with a zero-order hold at two sample times",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "sample-controller.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-sample-controller",
+  "thumbnailAlt": "Continuous and sampled step responses of the same loop, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/sample-controller",
+    "source": "website/content/math/control-systems/examples/sample-controller.m",
+    "thumbnail": "website/public/math-assets/control-systems/sample-controller.webp"
+  }
+}

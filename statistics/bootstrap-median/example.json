@@ -1,0 +1,34 @@
+{
+  "id": "statistics-bootstrap-median",
+  "title": "Bootstrap a median",
+  "pickerTitle": "Bootstrap a median",
+  "pickerLine": "Statistics and probability",
+  "line": "Two thousand resamples of a skewed sample and a percentile interval.",
+  "description": "A percentile interval for the median of a skewed sample, from 2,000 resamples",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bootstrap-median.m",
+  "roles": [
+    "data_quant",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "statistics-bootstrap-median",
+  "thumbnailAlt": "The bootstrap distribution of a median with the 95% interval marked, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/bootstrap-median",
+    "source": "website/content/math/statistics/examples/bootstrap-median.m",
+    "thumbnail": "website/public/math-assets/statistics/bootstrap-median.webp"
+  }
+}

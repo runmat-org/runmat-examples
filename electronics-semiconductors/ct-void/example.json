@@ -1,0 +1,27 @@
+{
+  "id": "electronics-semiconductors-ct-void",
+  "title": "Voids in a CT scan",
+  "pickerTitle": "Voids in a CT scan",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "96 slices of a potted module searched for low-density voxels.",
+  "description": "A CT scan of a potted module, 96 slices of 96 x 96 voxels, searched for voids: voxels much less dense than the potting, grouped and located.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "image",
+  "entry": "ct-void.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [],
+  "theme": "electronics-semiconductors-ct-void",
+  "thumbnailAlt": "A CT slice of a potted module showing a void, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/ct-void",
+    "source": "website/content/industries/electronics-semiconductors/ct-void.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/ct-void.webp"
+  }
+}

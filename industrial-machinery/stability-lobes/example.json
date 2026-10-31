@@ -1,0 +1,26 @@
+{
+  "id": "industrial-machinery-stability-lobes",
+  "title": "Milling stability lobes",
+  "pickerTitle": "Milling stability lobes",
+  "pickerLine": "Industrial machinery",
+  "line": "Chatter-free depth of cut against spindle speed.",
+  "description": "Stability lobes for a milling spindle with one dominant mode (650 Hz, 2% damping, 50 N/um), three teeth, cutting stiffness 700 N/mm^2; single-mode model after Schmitz and Smith, Machining Dynamics.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "stability-lobes.m",
+  "roles": [
+    "structural"
+  ],
+  "goals": [],
+  "theme": "industrial-machinery-stability-lobes",
+  "thumbnailAlt": "Stability lobe diagram of limiting depth of cut against spindle speed, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/stability-lobes",
+    "source": "website/content/industries/industrial-machinery/stability-lobes.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/stability-lobes.webp"
+  }
+}

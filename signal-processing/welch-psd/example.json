@@ -1,0 +1,27 @@
+{
+  "id": "signal-processing-welch-psd",
+  "title": "Welch against a single FFT",
+  "pickerTitle": "Welch against a single FFT",
+  "pickerLine": "Signal processing",
+  "line": "See what averaging does to the noise floor.",
+  "description": "Compare FFT magnitude with Welch PSD",
+  "topic": "signal-processing",
+  "topicLabel": "Signal processing",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "welch-psd.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [],
+  "theme": "power-spectrum",
+  "thumbnailAlt": "A single-run FFT magnitude above a Welch PSD estimate of the same signal, rendered by RunMat",
+  "origin": {
+    "page": "/math/signal-processing",
+    "key": "website:math/signal-processing/welch-psd",
+    "source": "website/content/math/signal-processing/examples/welch-psd.m",
+    "thumbnail": "website/public/math-assets/signal-processing/welch-psd.webp"
+  }
+}

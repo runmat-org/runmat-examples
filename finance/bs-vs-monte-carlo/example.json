@@ -1,0 +1,31 @@
+{
+  "id": "finance-bs-vs-monte-carlo",
+  "title": "Black-Scholes and Monte Carlo",
+  "pickerTitle": "Black-Scholes and Monte Carlo",
+  "pickerLine": "Computational finance",
+  "line": "A European call by simulation, inside its standard error of blsprice.",
+  "description": "Price a European call by simulation and check it against Black-Scholes",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bs-vs-monte-carlo.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "build_simulations",
+    "gpu_acceleration",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "option-monte-carlo",
+  "thumbnailAlt": "A Monte Carlo price settling inside its two-standard-error band around the Black-Scholes price, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/bs-vs-monte-carlo",
+    "source": "website/content/math/finance/examples/bs-vs-monte-carlo.m",
+    "thumbnail": "website/public/math-assets/finance/bs-vs-monte-carlo.webp"
+  }
+}

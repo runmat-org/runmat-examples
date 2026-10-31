@@ -1,0 +1,32 @@
+{
+  "id": "plotting-surface-and-contours",
+  "title": "Surface beside its contours",
+  "pickerTitle": "Surface beside its contours",
+  "pickerLine": "Plotting",
+  "line": "One field drawn two ways in one figure.",
+  "description": "One field drawn two ways in one figure.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compose a figure",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "surface-and-contours.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-surface-and-contours",
+  "thumbnailAlt": "A surface on the left and its filled contours on the right, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/surface-and-contours",
+    "source": "website/content/math/plotting/examples/surface-and-contours.m",
+    "thumbnail": "website/public/math-assets/plotting/surface-and-contours.webp"
+  }
+}

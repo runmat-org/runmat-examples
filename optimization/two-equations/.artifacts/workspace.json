@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/two-equations.m"
+    ],
+    "activeFile": "/two-equations.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why each start finds a different root",
+      "Try 25 starts on a grid and map results",
+      "Plot both curves with the solutions marked"
+    ]
+  }
+}

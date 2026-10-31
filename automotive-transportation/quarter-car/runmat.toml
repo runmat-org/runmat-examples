@@ -1,0 +1,12 @@
+[package]
+name = "automotive-transportation-quarter-car"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "quarter-car.m"
+
+[desktop.artifacts]
+root = ".artifacts"

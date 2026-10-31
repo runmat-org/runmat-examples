@@ -1,0 +1,30 @@
+{
+  "id": "control-systems-damping-overshoot",
+  "title": "Damping ratio and overshoot",
+  "pickerTitle": "Damping ratio and overshoot",
+  "pickerLine": "Control systems",
+  "line": "Pole locations and step responses for damping ratios of 0.2, 0.5 and 0.8.",
+  "description": "Three second-order systems with wn = 2 rad/s and damping ratios 0.2, 0.5 and 0.8",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "damping-overshoot.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "oscillator",
+  "thumbnailAlt": "Pole-zero map of three second-order systems beside their step responses, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/damping-overshoot",
+    "source": "website/content/math/control-systems/examples/damping-overshoot.m",
+    "thumbnail": "website/public/math-assets/control-systems/damping-overshoot.webp"
+  }
+}

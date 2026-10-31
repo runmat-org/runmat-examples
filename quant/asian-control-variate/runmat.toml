@@ -1,0 +1,12 @@
+[package]
+name = "quant-asian-control-variate"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "asian-control-variate.m"
+
+[desktop.artifacts]
+root = ".artifacts"

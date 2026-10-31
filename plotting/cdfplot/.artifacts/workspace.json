@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cdfplot.m"
+    ],
+    "activeFile": "/cdfplot.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what the curve crossing means",
+      "Add the B10 life for each supplier",
+      "Fit a Weibull to supplier A and overlay"
+    ]
+  }
+}

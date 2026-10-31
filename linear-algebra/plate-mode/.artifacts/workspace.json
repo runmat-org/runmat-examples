@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/plate-mode.m"
+    ],
+    "activeFile": "/plate-mode.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how kron builds the 2-D Laplacian",
+      "Show the fourth mode instead",
+      "Compare eigenvalues with the closed form"
+    ]
+  }
+}

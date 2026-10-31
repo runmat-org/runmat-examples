@@ -1,0 +1,32 @@
+{
+  "id": "plotting-pie",
+  "title": "Pie chart",
+  "pickerTitle": "Pie chart",
+  "pickerLine": "Plotting",
+  "line": "Budget shares with one slice pulled out.",
+  "description": "Budget shares with one slice pulled out.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compare and distribute",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "pie.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-pie",
+  "thumbnailAlt": "A five-slice pie chart with the largest slice pulled out, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/pie",
+    "source": "website/content/math/plotting/examples/pie.m",
+    "thumbnail": "website/public/math-assets/plotting/pie.webp"
+  }
+}

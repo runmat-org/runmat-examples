@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/boxplot.m"
+    ],
+    "activeFile": "/boxplot.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the outliers are flagged",
+      "Add a horizontal line at the spec minimum",
+      "Report the median and IQR per batch"
+    ]
+  }
+}

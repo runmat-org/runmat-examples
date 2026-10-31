@@ -1,0 +1,33 @@
+{
+  "id": "differential-equations-predator-prey",
+  "title": "Predator and prey",
+  "pickerTitle": "Predator and prey",
+  "pickerLine": "Differential equations",
+  "line": "Lotka-Volterra time history and its closed orbit.",
+  "description": "Lotka-Volterra: prey x, predators y",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "predator-prey.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "differential-equations-predator-prey",
+  "thumbnailAlt": "Prey and predator populations over time beside their closed orbit in the phase plane, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/predator-prey",
+    "source": "website/content/math/differential-equations/examples/predator-prey.m",
+    "thumbnail": "website/public/math-assets/differential-equations/predator-prey.webp"
+  }
+}

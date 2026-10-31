@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-flight-attitude"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "flight-attitude.m"
+
+[desktop.artifacts]
+root = ".artifacts"

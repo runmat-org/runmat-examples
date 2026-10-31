@@ -1,0 +1,28 @@
+{
+  "id": "automotive-transportation-cell-model",
+  "title": "Cell model from a pulse test",
+  "pickerTitle": "Cell model from a pulse test",
+  "pickerLine": "Automotive and transportation",
+  "line": "A one-RC equivalent circuit fitted to a 50 A pulse.",
+  "description": "A one-RC equivalent circuit fitted to a 10 s, 50 A discharge pulse and its relaxation. The measured voltage comes from pulse_test at the end of the file.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "cell-model.m",
+  "roles": [
+    "automotive"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "automotive-transportation-cell-model",
+  "thumbnailAlt": "Terminal voltage of a cell through a 50 A pulse with the fitted model over it, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/cell-model",
+    "source": "website/content/industries/automotive-transportation/cell-model.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/cell-model.webp"
+  }
+}

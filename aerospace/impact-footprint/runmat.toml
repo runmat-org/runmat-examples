@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-impact-footprint"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "impact-footprint.m"
+
+[desktop.artifacts]
+root = ".artifacts"

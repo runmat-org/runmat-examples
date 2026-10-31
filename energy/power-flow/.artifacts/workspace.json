@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/power-flow.m"
+    ],
+    "activeFile": "/power-flow.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how Newton-Raphson converges in a few iterations",
+      "Raise all loads by 10% and rerun",
+      "Plot the voltage profile across all 14 buses"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "finance-call-price-surface",
+  "title": "Call price surface",
+  "pickerTitle": "Call price surface",
+  "pickerLine": "Computational finance",
+  "line": "A Black-Scholes call price across spot and time to expiry, drawn by RunMat from one blsprice call on a grid.",
+  "description": "Black-Scholes call price across spot and time to expiry",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "call-price-surface.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "finance-call-price-surface",
+  "thumbnailAlt": "A Black-Scholes call price surface over spot and time to expiry, drawn by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/hero",
+    "source": "website/content/math/finance/hero.m",
+    "thumbnail": "website/public/math-assets/finance/hero.webp"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "automotive-transportation-quarter-car",
+  "title": "Quarter-car ride",
+  "pickerTitle": "Quarter-car ride",
+  "pickerLine": "Automotive and transportation",
+  "line": "Body acceleration against damping on an ISO 8608 class C road.",
+  "description": "Ride on an ISO 8608 class C road at 72 km/h: body acceleration RMS of a quarter car against damping, from the road spectrum and the frequency response.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "quarter-car.m",
+  "roles": [
+    "automotive"
+  ],
+  "goals": [],
+  "theme": "oscillator",
+  "thumbnailAlt": "Body acceleration RMS of a quarter car against damping, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/quarter-car",
+    "source": "website/content/industries/automotive-transportation/quarter-car.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/quarter-car.webp"
+  }
+}

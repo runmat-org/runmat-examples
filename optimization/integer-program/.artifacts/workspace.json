@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/integer-program.m"
+    ],
+    "activeFile": "/integer-program.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why rounding the relaxation fails",
+      "Change the profit to 6x + 4y and resolve",
+      "Plot all feasible integer points"
+    ]
+  }
+}

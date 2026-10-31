@@ -1,0 +1,29 @@
+{
+  "id": "aerospace-avionics-thermal",
+  "title": "Avionics temperature through a flight",
+  "pickerTitle": "Avionics temperature through a flight",
+  "pickerLine": "Aerospace",
+  "line": "A two-mass thermal model of a board and its case, with ode45.",
+  "description": "Temperature of an avionics board through a three-hour flight. The board and its case are two thermal masses; the electrical load rises in flight while the cooling air gets thinner and colder with altitude.",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "avionics-thermal.m",
+  "roles": [
+    "aerospace",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "thermal-resistance",
+  "thumbnailAlt": "Board and case temperatures of an avionics unit over a three-hour flight against the board limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "website:industries/aerospace/avionics-thermal",
+    "source": "website/content/industries/aerospace/avionics-thermal.m",
+    "thumbnail": "website/public/industries-assets/aerospace/avionics-thermal.webp"
+  }
+}

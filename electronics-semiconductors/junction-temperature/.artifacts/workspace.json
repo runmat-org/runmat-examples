@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/junction-temperature.m"
+    ],
+    "activeFile": "/junction-temperature.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which resistance dominates the chain",
+      "Raise ambient to 70 C and recompute max power",
+      "Plot junction temperature for two heat sinks"
+    ]
+  }
+}

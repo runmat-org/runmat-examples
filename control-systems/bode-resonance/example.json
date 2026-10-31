@@ -1,0 +1,29 @@
+{
+  "id": "control-systems-bode-resonance",
+  "title": "Resonance on a Bode plot",
+  "pickerTitle": "Resonance on a Bode plot",
+  "pickerLine": "Control systems",
+  "line": "A mass-spring-damper with damping ratio 0.1 peaks 14 dB above its static gain.",
+  "description": "Bode plot of a lightly damped mass-spring-damper and its resonant peak",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "bode-resonance.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-bode-resonance",
+  "thumbnailAlt": "Bode plot of a mass-spring-damper with a resonant peak near 10 rad/s, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/bode-resonance",
+    "source": "website/content/math/control-systems/examples/bode-resonance.m",
+    "thumbnail": "website/public/math-assets/control-systems/bode-resonance.webp"
+  }
+}

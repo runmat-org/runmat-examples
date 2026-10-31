@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/principal-components.m"
+    ],
+    "activeFile": "/principal-components.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how many components carry the variance",
+      "Plot the scores on the first two components",
+      "Standardize the sensors and redo the PCA"
+    ]
+  }
+}

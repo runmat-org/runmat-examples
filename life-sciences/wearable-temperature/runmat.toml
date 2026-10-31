@@ -1,0 +1,12 @@
+[package]
+name = "life-sciences-wearable-temperature"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "wearable-temperature.m"
+
+[desktop.artifacts]
+root = ".artifacts"

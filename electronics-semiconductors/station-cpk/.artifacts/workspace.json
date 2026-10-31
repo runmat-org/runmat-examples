@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/station-cpk.m"
+    ],
+    "activeFile": "/station-cpk.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why station 4 has the lowest Cpk",
+      "Remove station 4's offset and recompute Cpk",
+      "Plot a histogram per station against the limits"
+    ]
+  }
+}

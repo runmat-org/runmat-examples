@@ -1,0 +1,29 @@
+{
+  "id": "aerospace-random-vibration",
+  "title": "Random vibration of one mode",
+  "pickerTitle": "Random vibration of one mode",
+  "pickerLine": "Aerospace",
+  "line": "Miles' equation against the integrated response at 180 Hz.",
+  "description": "Random vibration qualification: the GEVS component spectrum applied at the bracket's mounting face, and the response of its first mode (180 Hz, Q = 10).",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "random-vibration.m",
+  "roles": [
+    "aerospace",
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "aerospace-random-vibration",
+  "thumbnailAlt": "GEVS input spectrum and the response of a 180 Hz mode, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "website:industries/aerospace/random-vibration",
+    "source": "website/content/industries/aerospace/random-vibration.m",
+    "thumbnail": "website/public/industries-assets/aerospace/random-vibration.webp"
+  }
+}

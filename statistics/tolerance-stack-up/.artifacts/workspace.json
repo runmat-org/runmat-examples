@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/tolerance-stack-up.m"
+    ],
+    "activeFile": "/tolerance-stack-up.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain when the estimate is good enough to stop",
+      "Tighten the shaft tolerance to 0.005 mm",
+      "Compare with the closed-form normal probability"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/exponential-decay.m"
+    ],
+    "activeFile": "/exponential-decay.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the 95% intervals are computed",
+      "Triple the noise and compare the parameter intervals",
+      "Plot the residuals against time with a zero line"
+    ]
+  }
+}

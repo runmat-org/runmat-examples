@@ -1,0 +1,12 @@
+[package]
+name = "tuning-fork-modal"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "tuning-fork-modal.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

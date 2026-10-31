@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/fit-distribution.m"
+    ],
+    "activeFile": "/fit-distribution.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what the KS test p-value says",
+      "Fit a lognormal and compare",
+      "Report the fraction outside 12.65 to 12.75 mm"
+    ]
+  }
+}

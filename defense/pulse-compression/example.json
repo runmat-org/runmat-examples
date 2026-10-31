@@ -1,0 +1,26 @@
+{
+  "id": "defense-pulse-compression",
+  "title": "Pulse compression",
+  "pickerTitle": "Pulse compression",
+  "pickerLine": "Defense",
+  "line": "A 5 MHz chirp separates two targets 120 m apart.",
+  "description": "Pulse compression of a 10 us chirp with 5 MHz of bandwidth. Two targets 120 m apart near 12 km overlap in the raw return; the matched filter separates them and lifts them out of the noise.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "pulse-compression.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [],
+  "theme": "radar-pulse",
+  "thumbnailAlt": "Raw radar return and the matched-filter output resolving two targets near 12 km, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/pulse-compression",
+    "source": "website/content/industries/defense/pulse-compression.m",
+    "thumbnail": "website/public/industries-assets/defense/pulse-compression.webp"
+  }
+}

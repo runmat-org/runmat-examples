@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/motor-current.m"
+    ],
+    "activeFile": "/motor-current.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why sidebands sit at (1 ± 2s)f",
+      "Rerun at 1% slip and measure the sidebands",
+      "Report sideband level in dB below the line"
+    ]
+  }
+}

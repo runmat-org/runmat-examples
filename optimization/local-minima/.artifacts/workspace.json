@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/local-minima.m"
+    ],
+    "activeFile": "/local-minima.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why starts drift away from minima",
+      "Use a finer 15 by 15 start grid",
+      "Rerun with fminsearch and compare outcomes"
+    ]
+  }
+}

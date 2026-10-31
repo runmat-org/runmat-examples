@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cholesky-samples.m"
+    ],
+    "activeFile": "/cholesky-samples.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why X = Z*R gives covariance Sigma",
+      "Set the correlation to -0.9 and rerun",
+      "Plot the 95% ellipse over the samples"
+    ]
+  }
+}

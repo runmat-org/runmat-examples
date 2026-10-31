@@ -1,0 +1,12 @@
+[package]
+name = "plotting-animated-line"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "animated-line.m"
+
+[desktop.artifacts]
+root = ".artifacts"

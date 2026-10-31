@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/reference-lines.m"
+    ],
+    "activeFile": "/reference-lines.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how xline and yline label values",
+      "Add a shaded band for the limit margin",
+      "Mark when temperature crosses the limit"
+    ]
+  }
+}

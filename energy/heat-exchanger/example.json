@@ -1,0 +1,26 @@
+{
+  "id": "heat-exchanger",
+  "title": "Heat exchanger sizing",
+  "pickerTitle": "Heat exchanger sizing",
+  "pickerLine": "Energy",
+  "line": "Effectiveness-NTU for a counterflow exchanger.",
+  "description": "A counterflow heat exchanger sized by effectiveness-NTU: hot water at 90 C, 2 kg/s; cold water at 20 C, 3 kg/s; overall coefficient 1,200 W/m^2 K.",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "heat-exchanger.m",
+  "roles": [
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "heat-exchanger",
+  "thumbnailAlt": "Hot and cold outlet temperatures against heat-transfer area, rendered by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/heat-exchanger",
+    "source": "website/content/industries/energy/heat-exchanger.m",
+    "thumbnail": "website/public/industries-assets/energy/heat-exchanger.webp"
+  }
+}

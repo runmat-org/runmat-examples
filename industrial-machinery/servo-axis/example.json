@@ -1,0 +1,28 @@
+{
+  "id": "industrial-machinery-servo-axis",
+  "title": "Servo axis tuning",
+  "pickerTitle": "Servo axis tuning",
+  "pickerLine": "Industrial machinery",
+  "line": "A cascaded position loop's response to a 10 mm step.",
+  "description": "A linear axis on a servo motor: PI velocity loop inside a P position loop, then a 10 mm step. Inertia and damping referred to the motor; gains from a first tuning pass.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "servo-axis.m",
+  "roles": [
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "industrial-machinery-servo-axis",
+  "thumbnailAlt": "Position of a servo axis after a 10 mm step, with overshoot, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/servo-axis",
+    "source": "website/content/industries/industrial-machinery/servo-axis.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/servo-axis.webp"
+  }
+}

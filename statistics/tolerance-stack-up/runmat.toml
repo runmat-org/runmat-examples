@@ -1,0 +1,12 @@
+[package]
+name = "statistics-tolerance-stack-up"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "tolerance-stack-up.m"
+
+[desktop.artifacts]
+root = ".artifacts"

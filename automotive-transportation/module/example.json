@@ -1,0 +1,29 @@
+{
+  "id": "automotive-transportation-module",
+  "title": "Battery module temperatures",
+  "pickerTitle": "Battery module temperatures",
+  "pickerLine": "Automotive and transportation",
+  "line": "A 12-cell module on its cold plate, colored by cell temperature after three US06 cycles.",
+  "description": "A 12-cell module on its cold plate, drawn to scale and colored by each cell's temperature after three back-to-back EPA US06 cycles (the model in module-temperature.m).",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "module.m",
+  "roles": [
+    "automotive",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "automotive-transportation-module",
+  "thumbnailAlt": "Battery module temperatures, drawn by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/module",
+    "source": "website/content/industries/automotive-transportation/module.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/module.webp"
+  }
+}

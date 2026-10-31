@@ -1,0 +1,29 @@
+{
+  "id": "curve-fitting-two-fits",
+  "title": "Two fits, one dataset",
+  "pickerTitle": "Two fits, one dataset",
+  "pickerLine": "Curve fitting",
+  "line": "Twenty-five noisy samples fitted two ways, drawn by RunMat.",
+  "description": "The same 25 noisy samples fitted two ways: a degree-6 polynomial and the exponential model",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "two-fits.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "curve-fitting-two-fits",
+  "thumbnailAlt": "A degree-6 polynomial and an exponential fit to the same samples, drawn by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/hero",
+    "source": "website/content/math/curve-fitting/hero.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/hero.webp"
+  }
+}

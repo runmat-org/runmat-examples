@@ -1,0 +1,31 @@
+{
+  "id": "statistics-principal-components",
+  "title": "Principal components",
+  "pickerTitle": "Principal components",
+  "pickerLine": "Statistics and probability",
+  "line": "Which directions carry the variance in four correlated sensors.",
+  "description": "Four correlated gauge readings per part: how many directions carry the variation?",
+  "topic": "statistics",
+  "topicLabel": "Statistics and probability",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "principal-components.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "statistics-principal-components",
+  "thumbnailAlt": "Variance explained by each principal component beside the scores on the first two, rendered by RunMat",
+  "origin": {
+    "page": "/math/statistics",
+    "key": "website:math/statistics/principal-components",
+    "source": "website/content/math/statistics/examples/principal-components.m",
+    "thumbnail": "website/public/math-assets/statistics/principal-components.webp"
+  }
+}

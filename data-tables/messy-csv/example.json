@@ -1,0 +1,29 @@
+{
+  "id": "data-tables-messy-csv",
+  "title": "Messy CSV to a clean table",
+  "pickerTitle": "Messy CSV to a clean table",
+  "pickerLine": "Data and tables",
+  "line": "Preamble lines, a units row, N/A and two date formats, read right.",
+  "description": "A rig log as exported: two preamble lines, a units row, \"N/A\" markers, a thousands separator and two timestamp formats",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "analysis.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "data-tables-messy-csv",
+  "thumbnailAlt": "Force against time for three fixtures from a rig log, read with the right import options, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/messy-csv",
+    "source": "website/content/math/data-tables/examples/messy-csv/analysis.m",
+    "thumbnail": "website/public/math-assets/data-tables/messy-csv.webp"
+  }
+}

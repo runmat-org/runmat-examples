@@ -1,0 +1,12 @@
+[package]
+name = "statistics-three-batches-anova"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "three-batches-anova.m"
+
+[desktop.artifacts]
+root = ".artifacts"

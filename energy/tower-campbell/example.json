@@ -1,0 +1,29 @@
+{
+  "id": "energy-tower-campbell",
+  "title": "Tower against 1P and 3P",
+  "pickerTitle": "Tower against 1P and 3P",
+  "pickerLine": "Energy",
+  "line": "The NREL 5-MW tower's first mode against rotor excitation.",
+  "description": "The NREL 5-MW reference turbine's tower against rotor (1P) and blade-passing (3P) excitation. Values from Jonkman et al. (2009), NREL/TP-500-38060, Table 6-1.",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "tower-campbell.m",
+  "roles": [
+    "structural",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "energy-tower-campbell",
+  "thumbnailAlt": "Tower first frequency against 1P and 3P lines over rotor speed, rendered by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/tower-campbell",
+    "source": "website/content/industries/energy/tower-campbell.m",
+    "thumbnail": "website/public/industries-assets/energy/tower-campbell.webp"
+  }
+}

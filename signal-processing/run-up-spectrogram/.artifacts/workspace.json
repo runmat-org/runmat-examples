@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/run-up-spectrogram.m"
+    ],
+    "activeFile": "/run-up-spectrogram.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the resonance stays at one frequency",
+      "Use a longer window and compare resolution",
+      "Track the first order against rpm"
+    ]
+  }
+}

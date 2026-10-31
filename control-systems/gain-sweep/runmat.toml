@@ -1,0 +1,12 @@
+[package]
+name = "control-systems-gain-sweep"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "gain-sweep.m"
+
+[desktop.artifacts]
+root = ".artifacts"

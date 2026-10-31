@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/order-tracking.m"
+    ],
+    "activeFile": "/order-tracking.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why resampling to shaft angle freezes the orders",
+      "Add a sixth-order component and rerun the tracking",
+      "Plot the 2nd-order amplitude against rpm"
+    ]
+  }
+}

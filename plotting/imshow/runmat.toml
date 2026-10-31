@@ -1,0 +1,12 @@
+[package]
+name = "plotting-imshow"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "imshow.m"
+
+[desktop.artifacts]
+root = ".artifacts"

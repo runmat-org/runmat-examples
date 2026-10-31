@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/qam16-constellation.m"
+    ],
+    "activeFile": "/qam16-constellation.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how SNR spreads the constellation",
+      "Lower SNR to 10 dB and count symbol errors",
+      "Plot symbol error rate against SNR"
+    ]
+  }
+}

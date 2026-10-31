@@ -1,0 +1,28 @@
+{
+  "id": "electronics-semiconductors-heatsink-hand",
+  "title": "Heat sink sized by hand",
+  "pickerTitle": "Heat sink sized by hand",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "Fin efficiency, thermal resistance and temperature rise of a finned heat sink at 10 W.",
+  "description": "A finned aluminum heat sink, 125 x 35 x 35 mm, the size of the KiCad model in heatsink-steady.fea, sized by hand: fin efficiency, thermal resistance to air and the temperature rise for 10 W. The solved study will be checked against this.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "heatsink-hand.m",
+  "roles": [
+    "controls_signals",
+    "electrical",
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "electronics-semiconductors-heatsink-hand",
+  "thumbnailAlt": "Heat sink sized by hand, drawn by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/heatsink-hand",
+    "source": "website/content/industries/electronics-semiconductors/heatsink-hand.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/heatsink-hand.webp"
+  }
+}

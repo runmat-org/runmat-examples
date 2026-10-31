@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/analysis.m"
+    ],
+    "activeFile": "/analysis.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain each import option that fixes the file",
+      "Report how many N/A values were found per column",
+      "Write the cleaned table to a new CSV"
+    ]
+  }
+}

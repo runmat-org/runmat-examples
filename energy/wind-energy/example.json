@@ -1,0 +1,26 @@
+{
+  "id": "energy-wind-energy",
+  "title": "Wind energy yield",
+  "pickerTitle": "Wind energy yield",
+  "pickerLine": "Energy",
+  "line": "A Weibull fit to a year of wind and a 5 MW turbine's output.",
+  "description": "A year of hourly wind speeds at hub height: a Weibull fit by maximum likelihood, then the energy a 5 MW turbine yields (cut-in 3 m/s, rated 11.4, cut-out 25).",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "wind-energy.m",
+  "roles": [
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "energy-wind-energy",
+  "thumbnailAlt": "Histogram of hourly wind speed with a fitted Weibull density, rendered by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/wind-energy",
+    "source": "website/content/industries/energy/wind-energy.m",
+    "thumbnail": "website/public/industries-assets/energy/wind-energy.webp"
+  }
+}

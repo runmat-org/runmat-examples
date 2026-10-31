@@ -1,0 +1,12 @@
+[package]
+name = "data-tables-clean-sensor-trace"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "clean-sensor-trace.m"
+
+[desktop.artifacts]
+root = ".artifacts"

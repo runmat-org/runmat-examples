@@ -1,0 +1,33 @@
+{
+  "id": "differential-equations-sir-epidemic",
+  "title": "SIR epidemic",
+  "pickerTitle": "SIR epidemic",
+  "pickerLine": "Differential equations",
+  "line": "Susceptible, infected and recovered over 160 days.",
+  "description": "SIR epidemic model: susceptible, infected, recovered (fractions of the population)",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "sir-epidemic.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "differential-equations-sir-epidemic",
+  "thumbnailAlt": "Susceptible, infected and recovered fractions of a population over 160 days, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/sir-epidemic",
+    "source": "website/content/math/differential-equations/examples/sir-epidemic.m",
+    "thumbnail": "website/public/math-assets/differential-equations/sir-epidemic.webp"
+  }
+}

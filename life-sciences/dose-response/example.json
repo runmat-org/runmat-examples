@@ -1,0 +1,28 @@
+{
+  "id": "life-sciences-dose-response",
+  "title": "Dose-response fit",
+  "pickerTitle": "Dose-response fit",
+  "pickerLine": "Life sciences",
+  "line": "A four-parameter Hill fit to a triplicate assay.",
+  "description": "A four-parameter Hill fit to a dose-response assay (eight doses, triplicates), giving the EC50 and the Hill slope.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "dose-response.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "life-sciences-dose-response",
+  "thumbnailAlt": "Assay responses against dose with a fitted Hill curve, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/dose-response",
+    "source": "website/content/industries/life-sciences/dose-response.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/dose-response.webp"
+  }
+}

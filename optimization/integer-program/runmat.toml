@@ -1,0 +1,12 @@
+[package]
+name = "optimization-integer-program"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "integer-program.m"
+
+[desktop.artifacts]
+root = ".artifacts"

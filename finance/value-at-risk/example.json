@@ -1,0 +1,29 @@
+{
+  "id": "finance-value-at-risk",
+  "title": "Value at risk",
+  "pickerTitle": "Value at risk",
+  "pickerLine": "Computational finance",
+  "line": "99% VaR and expected shortfall for three correlated assets.",
+  "description": "One-day 99% value at risk for three correlated assets, by simulation",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "value-at-risk.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "value-at-risk",
+  "thumbnailAlt": "A histogram of one-day P&L with the 99% value at risk marked, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/value-at-risk",
+    "source": "website/content/math/finance/examples/value-at-risk.m",
+    "thumbnail": "website/public/math-assets/finance/value-at-risk.webp"
+  }
+}

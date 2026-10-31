@@ -1,0 +1,26 @@
+{
+  "id": "energy-hosting-capacity",
+  "title": "Hosting capacity",
+  "pickerTitle": "Hosting capacity",
+  "pickerLine": "Energy",
+  "line": "How much solar a bus takes before its voltage passes the limit.",
+  "description": "Hosting capacity: how much solar bus 14 takes at light load before its voltage rises 3% above its level with no solar, a common planning limit.",
+  "topic": "energy",
+  "topicLabel": "Energy",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "hosting-capacity.m",
+  "roles": [
+    "thermal_fluids"
+  ],
+  "goals": [],
+  "theme": "energy-hosting-capacity",
+  "thumbnailAlt": "Bus 14 voltage rising with solar at the bus against a 3% rise limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/energy",
+    "key": "website:industries/energy/hosting-capacity",
+    "source": "website/content/industries/energy/hosting-capacity.m",
+    "thumbnail": "website/public/industries-assets/energy/hosting-capacity.webp"
+  }
+}

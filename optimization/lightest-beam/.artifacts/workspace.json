@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/lightest-beam.m"
+    ],
+    "activeFile": "/lightest-beam.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which constraints are active at the optimum",
+      "Relax the deflection limit to 10 mm",
+      "Switch the material to steel and resolve"
+    ]
+  }
+}

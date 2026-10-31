@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/low-rank-svd.m"
+    ],
+    "activeFile": "/low-rank-svd.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how much energy five singular values hold",
+      "Plot error against rank from 1 to 30",
+      "Double the noise and pick a new rank"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "plotting-reference-lines",
+  "title": "Reference lines",
+  "pickerTitle": "Reference lines",
+  "pickerLine": "Plotting",
+  "line": "Mark a time and a limit with xline and yline.",
+  "description": "Mark a time and a limit with xline and yline.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Vectors, polar and log scales",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "reference-lines.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-reference-lines",
+  "thumbnailAlt": "A temperature curve with a vertical marker and a horizontal limit line, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/reference-lines",
+    "source": "website/content/math/plotting/examples/reference-lines.m",
+    "thumbnail": "website/public/math-assets/plotting/reference-lines.webp"
+  }
+}

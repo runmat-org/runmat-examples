@@ -1,0 +1,30 @@
+{
+  "id": "curve-fitting-lookup-table",
+  "title": "Refine a lookup table",
+  "pickerTitle": "Refine a lookup table",
+  "pickerLine": "Curve fitting",
+  "line": "A coarse efficiency map filled in with a 2-D spline.",
+  "description": "Refine a coarse efficiency map measured on a speed-torque grid",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "lookup-table.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "curve-fitting-lookup-table",
+  "thumbnailAlt": "A filled-contour efficiency map interpolated from 36 measured points, shown as dots, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/lookup-table",
+    "source": "website/content/math/curve-fitting/examples/lookup-table.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/lookup-table.webp"
+  }
+}

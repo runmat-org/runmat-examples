@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/ramp-tracking.m"
+    ],
+    "activeFile": "/ramp-tracking.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the ramp error equals 1/Kv",
+      "Double the loop gain and compare the ramp lag",
+      "Plot the tracking error against time"
+    ]
+  }
+}

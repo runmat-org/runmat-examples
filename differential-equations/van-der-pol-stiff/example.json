@@ -1,0 +1,33 @@
+{
+  "id": "differential-equations-van-der-pol-stiff",
+  "title": "A stiff problem",
+  "pickerTitle": "A stiff problem",
+  "pickerLine": "Differential equations",
+  "line": "Step sizes of ode45 and ode15s on Van der Pol.",
+  "description": "Van der Pol at mu = 1000: a stiff problem, solved with ode45 and with ode15s",
+  "topic": "differential-equations",
+  "topicLabel": "Differential equations",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "van-der-pol-stiff.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "differential-equations-van-der-pol-stiff",
+  "thumbnailAlt": "Step size against time for ode45 and ode15s on the Van der Pol equation at mu = 1000, rendered by RunMat",
+  "origin": {
+    "page": "/math/differential-equations",
+    "key": "website:math/differential-equations/van-der-pol-stiff",
+    "source": "website/content/math/differential-equations/examples/van-der-pol-stiff.m",
+    "thumbnail": "website/public/math-assets/differential-equations/van-der-pol-stiff.webp"
+  }
+}

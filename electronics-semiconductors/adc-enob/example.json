@@ -1,0 +1,27 @@
+{
+  "id": "electronics-semiconductors-adc-enob",
+  "title": "ADC characterization",
+  "pickerTitle": "ADC characterization",
+  "pickerLine": "Electronics and semiconductors",
+  "line": "SINAD, ENOB and SFDR of a 12-bit converter from one FFT.",
+  "description": "A 12-bit ADC at 1 MS/s, characterized from a coherently sampled sine (IEEE 1241 style): SINAD, ENOB and SFDR from one FFT. The captured codes come from adc_capture at the end of the file.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "adc-enob.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [],
+  "theme": "electronics-semiconductors-adc-enob",
+  "thumbnailAlt": "Output spectrum of a 12-bit ADC with its tone and third harmonic, rendered by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "website:industries/electronics-semiconductors/adc-enob",
+    "source": "website/content/industries/electronics-semiconductors/adc-enob.m",
+    "thumbnail": "website/public/industries-assets/electronics-semiconductors/adc-enob.webp"
+  }
+}

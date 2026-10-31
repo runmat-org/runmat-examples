@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/damped-oscillator.m"
+    ],
+    "activeFile": "/damped-oscillator.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how zeta sets the decay envelope",
+      "Rerun with zeta = 0.5 and compare",
+      "Plot the ode45 error against the closed form"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "curve-fitting-interp-methods",
+  "title": "Linear, spline or pchip?",
+  "pickerTitle": "Linear, spline or pchip?",
+  "pickerLine": "Curve fitting",
+  "line": "Three interpolants across a step, and where spline overshoots.",
+  "description": "Linear, spline and shape-preserving interpolation through the same step",
+  "topic": "curve-fitting",
+  "topicLabel": "Curve fitting",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "interp-methods.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "curve-fitting-interp-methods",
+  "thumbnailAlt": "Linear, spline and pchip interpolation through the same step, with the spline overshooting, rendered by RunMat",
+  "origin": {
+    "page": "/math/curve-fitting",
+    "key": "website:math/curve-fitting/interp-methods",
+    "source": "website/content/math/curve-fitting/examples/interp-methods.m",
+    "thumbnail": "website/public/math-assets/curve-fitting/interp-methods.webp"
+  }
+}

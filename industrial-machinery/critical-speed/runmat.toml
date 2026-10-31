@@ -1,0 +1,12 @@
+[package]
+name = "industrial-machinery-critical-speed"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "critical-speed.m"
+
+[desktop.artifacts]
+root = ".artifacts"

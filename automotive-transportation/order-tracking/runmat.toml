@@ -1,0 +1,12 @@
+[package]
+name = "automotive-transportation-order-tracking"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "order-tracking.m"
+
+[desktop.artifacts]
+root = ".artifacts"

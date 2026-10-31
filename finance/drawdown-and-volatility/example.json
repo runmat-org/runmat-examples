@@ -1,0 +1,30 @@
+{
+  "id": "finance-drawdown-and-volatility",
+  "title": "Drawdown and Sharpe ratio",
+  "pickerTitle": "Drawdown and Sharpe ratio",
+  "pickerLine": "Computational finance",
+  "line": "Maximum drawdown, rolling volatility and Sharpe ratio of a price series.",
+  "description": "Drawdown and 21-day rolling volatility of a price series",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "drawdown-and-volatility.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "finance-drawdown-and-volatility",
+  "thumbnailAlt": "A price series above its 21-day annualized volatility, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/drawdown-and-volatility",
+    "source": "website/content/math/finance/examples/drawdown-and-volatility.m",
+    "thumbnail": "website/public/math-assets/finance/drawdown-and-volatility.webp"
+  }
+}

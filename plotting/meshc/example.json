@@ -1,0 +1,32 @@
+{
+  "id": "plotting-meshc",
+  "title": "Mesh with contours",
+  "pickerTitle": "Mesh with contours",
+  "pickerLine": "Plotting",
+  "line": "A wireframe with its contour map below it.",
+  "description": "A wireframe with its contour map below it.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "meshc.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-meshc",
+  "thumbnailAlt": "A wireframe surface with contour lines drawn beneath, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/meshc",
+    "source": "website/content/math/plotting/examples/meshc.m",
+    "thumbnail": "website/public/math-assets/plotting/meshc.webp"
+  }
+}

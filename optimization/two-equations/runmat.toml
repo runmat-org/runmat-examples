@@ -1,0 +1,12 @@
+[package]
+name = "optimization-two-equations"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "two-equations.m"
+
+[desktop.artifacts]
+root = ".artifacts"

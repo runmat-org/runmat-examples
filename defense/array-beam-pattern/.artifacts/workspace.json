@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/array-beam-pattern.m"
+    ],
+    "activeFile": "/array-beam-pattern.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the Hamming taper widens the beam",
+      "Steer to 45 degrees and compare sidelobes",
+      "Rerun with 32 elements and report the beamwidth"
+    ]
+  }
+}

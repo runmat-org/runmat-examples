@@ -1,0 +1,29 @@
+{
+  "id": "finance-volatility-smile",
+  "title": "Implied volatility smile",
+  "pickerTitle": "Implied volatility smile",
+  "pickerLine": "Computational finance",
+  "line": "Volatility recovered from prices across 13 strikes with blsimpv.",
+  "description": "Recover implied volatility from option prices across strikes",
+  "topic": "finance",
+  "topicLabel": "Computational finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "volatility-smile.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "volatility-smile",
+  "thumbnailAlt": "Implied volatility against strike, forming a smile, rendered by RunMat",
+  "origin": {
+    "page": "/math/finance",
+    "key": "website:math/finance/volatility-smile",
+    "source": "website/content/math/finance/examples/volatility-smile.m",
+    "thumbnail": "website/public/math-assets/finance/volatility-smile.webp"
+  }
+}

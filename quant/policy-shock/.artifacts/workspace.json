@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/policy-shock.m"
+    ],
+    "activeFile": "/policy-shock.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the response of inflation to the shock",
+      "Add 90% bootstrap bands to the responses",
+      "Compare estimated A with the true matrix"
+    ]
+  }
+}

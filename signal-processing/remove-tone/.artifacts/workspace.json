@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/remove-tone.m"
+    ],
+    "activeFile": "/remove-tone.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why filtfilt has no phase lag",
+      "Move the cutoff to 80 Hz and compare",
+      "Report the 120 Hz attenuation from Welch"
+    ]
+  }
+}

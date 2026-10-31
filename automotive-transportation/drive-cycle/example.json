@@ -1,0 +1,28 @@
+{
+  "id": "automotive-transportation-drive-cycle",
+  "title": "EV energy on the EPA urban cycle",
+  "pickerTitle": "EV energy on the EPA urban cycle",
+  "pickerLine": "Automotive and transportation",
+  "line": "Battery power, Wh/km and range from the EPA's own trace.",
+  "description": "An EV on the EPA urban cycle (UDDS, 1 Hz): road load at the wheels, regen, accessories, then battery energy per kilometre and range from a 75 kWh pack.",
+  "topic": "automotive-transportation",
+  "topicLabel": "Automotive and transportation",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "drive-cycle.m",
+  "roles": [
+    "automotive"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "automotive-transportation-drive-cycle",
+  "thumbnailAlt": "Battery power of an EV over the EPA urban drive cycle, rendered by RunMat",
+  "origin": {
+    "page": "/industries/automotive-transportation",
+    "key": "website:industries/automotive-transportation/drive-cycle",
+    "source": "website/content/industries/automotive-transportation/drive-cycle.m",
+    "thumbnail": "website/public/industries-assets/automotive-transportation/drive-cycle.webp"
+  }
+}

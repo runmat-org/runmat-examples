@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/margins-three-ways.m"
+    ],
+    "activeFile": "/margins-three-ways.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the Routh array gives a gain margin of 3",
+      "Move the pole at -5 to -10 and recheck margins",
+      "Plot the root locus with the crossing gain marked"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "plotting-polarplot"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "polarplot.m"
+
+[desktop.artifacts]
+root = ".artifacts"

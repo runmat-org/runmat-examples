@@ -1,0 +1,26 @@
+{
+  "id": "quant-yield-curves",
+  "title": "Yield curves through a cycle",
+  "pickerTitle": "Yield curves through a cycle",
+  "pickerLine": "Quantitative finance",
+  "line": "Ten years of month-end yield curves through hikes, inversion and cuts.",
+  "description": "Ten years of month-end yield curves through a policy cycle: rates near zero, a hiking cycle that inverts the curve, then cuts that steepen it again.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "yield-curves.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [],
+  "theme": "quant-yield-curves",
+  "thumbnailAlt": "Yield curves through a cycle, drawn by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/yield-curves",
+    "source": "website/content/industries/quant/yield-curves.m",
+    "thumbnail": "website/public/industries-assets/quant/yield-curves.webp"
+  }
+}

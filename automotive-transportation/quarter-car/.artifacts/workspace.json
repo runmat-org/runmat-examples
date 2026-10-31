@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/quarter-car.m"
+    ],
+    "activeFile": "/quarter-car.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the damping that minimizes body acceleration RMS",
+      "Rerun on a class D road at 100 km/h",
+      "Plot tire load variation against damping too"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/shock-response-spectrum.m"
+    ],
+    "activeFile": "/shock-response-spectrum.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what maximax means in this SRS",
+      "Recompute the spectrum at Q = 5 and compare",
+      "Overlay a test-tolerance band of plus or minus 6 dB"
+    ]
+  }
+}

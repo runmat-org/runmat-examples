@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/wafer-bow.m"
+    ],
+    "activeFile": "/wafer-bow.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the assumptions behind Stoney's equation",
+      "Change the film stress to 1 GPa and rerun",
+      "Plot bow for 200 and 300 mm wafers"
+    ]
+  }
+}

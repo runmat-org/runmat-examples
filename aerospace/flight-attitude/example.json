@@ -1,0 +1,29 @@
+{
+  "id": "aerospace-flight-attitude",
+  "title": "Pitch from IMU data",
+  "pickerTitle": "Pitch from IMU data",
+  "pickerLine": "Aerospace",
+  "line": "A Kalman filter on a drifting gyro and a noisy accelerometer.",
+  "description": "Pitch attitude from flight-test IMU data: a gyro that drifts and an accelerometer that is noisy, combined with a two-state Kalman filter.",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "flight-attitude.m",
+  "roles": [
+    "aerospace",
+    "controls_signals"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "aerospace-flight-attitude",
+  "thumbnailAlt": "Pitch from accelerometer tilt, gyro integration and a Kalman estimate against the reference, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "website:industries/aerospace/flight-attitude",
+    "source": "website/content/industries/aerospace/flight-attitude.m",
+    "thumbnail": "website/public/industries-assets/aerospace/flight-attitude.webp"
+  }
+}

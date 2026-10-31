@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/fba-knockout.m"
+    ],
+    "activeFile": "/fba-knockout.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why some knockouts stop growth entirely",
+      "Cap oxygen uptake and rerun the knockouts",
+      "Run double knockouts and list lethal pairs"
+    ]
+  }
+}

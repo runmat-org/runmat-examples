@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/kernel-density.m"
+    ],
+    "activeFile": "/kernel-density.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how bandwidth affects the peaks",
+      "Halve the bandwidth and compare",
+      "Fit a two-component mixture and overlay"
+    ]
+  }
+}

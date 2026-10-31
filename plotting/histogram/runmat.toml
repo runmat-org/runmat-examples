@@ -1,0 +1,12 @@
+[package]
+name = "plotting-histogram"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "histogram.m"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,26 @@
+{
+  "id": "optimization-rosenbrock-solvers",
+  "title": "Three solvers on Rosenbrock",
+  "pickerTitle": "Three solvers on Rosenbrock",
+  "pickerLine": "Optimization",
+  "line": "From (-1.2, 1): fminsearch takes 159 evaluations, fminunc 156, and 53 with a gradient.",
+  "description": "Rosenbrock's function from (-1.2, 1) with three solvers, and the evaluations each needs",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "rosenbrock-solvers.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [],
+  "theme": "optimization-rosenbrock-solvers",
+  "thumbnailAlt": "Contours of Rosenbrock's function beside the evaluation count of each solver, rendered by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/rosenbrock-solvers",
+    "source": "website/content/math/optimization/examples/rosenbrock-solvers.m",
+    "thumbnail": "website/public/math-assets/optimization/rosenbrock-solvers.webp"
+  }
+}

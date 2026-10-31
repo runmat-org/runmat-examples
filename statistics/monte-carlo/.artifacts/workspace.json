@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/monte-carlo.m"
+    ],
+    "activeFile": "/monte-carlo.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the band narrows as 1/sqrt(N)",
+      "Widen the bore tolerance and rerun",
+      "Compare with the normal hand calculation"
+    ]
+  }
+}

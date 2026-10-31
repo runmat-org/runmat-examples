@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-shock-response-spectrum"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "shock-response-spectrum.m"
+
+[desktop.artifacts]
+root = ".artifacts"

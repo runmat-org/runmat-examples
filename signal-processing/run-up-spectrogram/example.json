@@ -1,0 +1,30 @@
+{
+  "id": "signal-processing-run-up-spectrogram",
+  "title": "Motor run-up spectrogram",
+  "pickerTitle": "Motor run-up spectrogram",
+  "pickerLine": "Signal processing",
+  "line": "A motor run-up, computed and drawn by RunMat.",
+  "description": "Spectrogram of a motor run-up: shaft orders rise with speed, a resonance stays put",
+  "topic": "signal-processing",
+  "topicLabel": "Signal processing",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "image",
+  "entry": "run-up-spectrogram.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "signal-processing-run-up-spectrogram",
+  "thumbnailAlt": "Spectrogram of a motor run-up, rendered by RunMat",
+  "origin": {
+    "page": "/math/signal-processing",
+    "key": "website:math/signal-processing/hero",
+    "source": "website/content/math/signal-processing/run-up-spectrogram.m",
+    "thumbnail": "website/public/math-assets/signal-processing/hero.webp"
+  }
+}

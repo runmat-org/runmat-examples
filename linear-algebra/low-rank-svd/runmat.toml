@@ -1,0 +1,12 @@
+[package]
+name = "linear-algebra-low-rank-svd"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "low-rank-svd.m"
+
+[desktop.artifacts]
+root = ".artifacts"

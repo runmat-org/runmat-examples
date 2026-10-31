@@ -1,0 +1,12 @@
+[package]
+name = "energy-power-flow"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "power-flow.m"
+
+[desktop.artifacts]
+root = ".artifacts"

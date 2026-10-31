@@ -1,0 +1,32 @@
+{
+  "id": "plotting-image",
+  "title": "Indexed image",
+  "pickerTitle": "Indexed image",
+  "pickerLine": "Plotting",
+  "line": "A matrix of colormap indices shown with image.",
+  "description": "A matrix of colormap indices shown with image.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Images and fields",
+  "kind": "script",
+  "visual": "image",
+  "entry": "image.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-image",
+  "thumbnailAlt": "A grid of colored blobs from an indexed image, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/image",
+    "source": "website/content/math/plotting/examples/image.m",
+    "thumbnail": "website/public/math-assets/plotting/image.webp"
+  }
+}

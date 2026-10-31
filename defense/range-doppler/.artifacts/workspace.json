@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/range-doppler.m"
+    ],
+    "activeFile": "/range-doppler.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how closing speed comes from the pulse FFT",
+      "Double the number of pulses and compare velocity resolution",
+      "Report each target's range and speed in a table"
+    ]
+  }
+}

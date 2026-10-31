@@ -1,0 +1,26 @@
+{
+  "id": "industrial-machinery-motor-current",
+  "title": "Broken rotor bar",
+  "pickerTitle": "Broken rotor bar",
+  "pickerLine": "Industrial machinery",
+  "line": "Slip sidebands in an induction motor's stator current.",
+  "description": "A broken rotor bar in a 4-pole, 60 Hz induction motor at 3% slip: sidebands at (1 - 2s)f and (1 + 2s)f in the stator current, measured against the supply line.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "motor-current.m",
+  "roles": [
+    "structural"
+  ],
+  "goals": [],
+  "theme": "industrial-machinery-motor-current",
+  "thumbnailAlt": "Stator current spectrum around 60 Hz with sidebands from a broken rotor bar, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "website:industries/industrial-machinery/motor-current",
+    "source": "website/content/industries/industrial-machinery/motor-current.m",
+    "thumbnail": "website/public/industries-assets/industrial-machinery/motor-current.webp"
+  }
+}

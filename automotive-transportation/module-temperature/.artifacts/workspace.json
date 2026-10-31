@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/module-temperature.m"
+    ],
+    "activeFile": "/module-temperature.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the coolant warming shifts cell temperatures",
+      "Halve the cell resistance and rerun three US06 cycles",
+      "Plot the max-to-min cell temperature spread over time"
+    ]
+  }
+}

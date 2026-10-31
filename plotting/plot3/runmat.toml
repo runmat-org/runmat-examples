@@ -1,0 +1,12 @@
+[package]
+name = "plotting-plot3"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "plot3.m"
+
+[desktop.artifacts]
+root = ".artifacts"

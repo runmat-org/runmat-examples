@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/asian-control-variate.m"
+    ],
+    "activeFile": "/asian-control-variate.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the geometric average makes a good control",
+      "Compare the variance reduction at 10,000 paths",
+      "Rerun with 10x more paths and time it"
+    ]
+  }
+}

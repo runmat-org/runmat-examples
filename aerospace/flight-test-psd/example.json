@@ -1,0 +1,31 @@
+{
+  "id": "aerospace-flight-test-psd",
+  "title": "Flight-test vibration against its limit",
+  "pickerTitle": "Flight-test vibration against its limit",
+  "pickerLine": "Aerospace",
+  "line": "Welch spectra of three test points against the GEVS limit.",
+  "description": "Flight test: equipment-shelf vibration at three test points against the GEVS component qualification limit (GSFC-STD-7000B, 14.1 g RMS).",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "flight-test-psd.m",
+  "roles": [
+    "aerospace",
+    "controls_signals",
+    "structural"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "build_simulations"
+  ],
+  "theme": "power-spectrum",
+  "thumbnailAlt": "Shelf vibration spectra at takeoff, climb and cruise against the qualification limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "website:industries/aerospace/flight-test-psd",
+    "source": "website/content/industries/aerospace/flight-test-psd.m",
+    "thumbnail": "website/public/industries-assets/aerospace/flight-test-psd.webp"
+  }
+}

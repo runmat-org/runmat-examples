@@ -1,0 +1,30 @@
+{
+  "id": "control-systems-ramp-tracking",
+  "title": "Ramp tracking error",
+  "pickerTitle": "Ramp tracking error",
+  "pickerLine": "Control systems",
+  "line": "A type-1 loop follows a ramp with a constant lag of 1/Kv = 0.5.",
+  "description": "Ramp response of the unity-feedback loop; a type-1 loop lags a ramp by 1/Kv",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "ramp-tracking.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-ramp-tracking",
+  "thumbnailAlt": "A ramp reference and the closed-loop output lagging it by a constant amount, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/ramp-tracking",
+    "source": "website/content/math/control-systems/examples/ramp-tracking.m",
+    "thumbnail": "website/public/math-assets/control-systems/ramp-tracking.webp"
+  }
+}

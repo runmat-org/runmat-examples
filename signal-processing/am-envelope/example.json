@@ -1,0 +1,27 @@
+{
+  "id": "signal-processing-am-envelope",
+  "title": "Recover an AM envelope",
+  "pickerTitle": "Recover an AM envelope",
+  "pickerLine": "Signal processing",
+  "line": "Band-pass a carrier, then read its envelope and frequency.",
+  "description": "Band-pass an amplitude-modulated carrier, then recover envelope and frequency",
+  "topic": "signal-processing",
+  "topicLabel": "Signal processing",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "am-envelope.m",
+  "roles": [
+    "controls_signals",
+    "electrical"
+  ],
+  "goals": [],
+  "theme": "signal-processing-am-envelope",
+  "thumbnailAlt": "A modulated carrier, its band-passed signal with envelope, and its instantaneous frequency, rendered by RunMat",
+  "origin": {
+    "page": "/math/signal-processing",
+    "key": "website:math/signal-processing/am-envelope",
+    "source": "website/content/math/signal-processing/examples/am-envelope.m",
+    "thumbnail": "website/public/math-assets/signal-processing/am-envelope.webp"
+  }
+}

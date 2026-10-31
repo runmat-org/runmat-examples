@@ -1,0 +1,12 @@
+[package]
+name = "signal-processing-qam16-constellation"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "qam16-constellation.m"
+
+[desktop.artifacts]
+root = ".artifacts"

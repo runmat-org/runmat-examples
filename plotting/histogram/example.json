@@ -1,0 +1,32 @@
+{
+  "id": "plotting-histogram",
+  "title": "Overlaid histograms",
+  "pickerTitle": "Overlaid histograms",
+  "pickerLine": "Plotting",
+  "line": "Two distributions with shared bin edges.",
+  "description": "Two distributions with shared bin edges.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Compare and distribute",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "histogram.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "histogram",
+  "thumbnailAlt": "Two overlapping histograms with transparent bars, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/histogram",
+    "source": "website/content/math/plotting/examples/histogram.m",
+    "thumbnail": "website/public/math-assets/plotting/histogram.webp"
+  }
+}

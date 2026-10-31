@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/heatsink-hand.m"
+    ],
+    "activeFile": "/heatsink-hand.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how fin efficiency is computed",
+      "Sweep fin count from 4 to 12",
+      "Find the power that keeps the rise under 40 K"
+    ]
+  }
+}

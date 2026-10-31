@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/greeks.m"
+    ],
+    "activeFile": "/greeks.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why gamma peaks at the money",
+      "Add vega and theta from the formulas",
+      "Check delta by finite differences on blsprice"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "electronics-semiconductors-ct-void"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "ct-void.m"
+
+[desktop.artifacts]
+root = ".artifacts"

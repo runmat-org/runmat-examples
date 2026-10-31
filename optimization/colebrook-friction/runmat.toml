@@ -1,0 +1,12 @@
+[package]
+name = "optimization-colebrook-friction"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "colebrook-friction.m"
+
+[desktop.artifacts]
+root = ".artifacts"

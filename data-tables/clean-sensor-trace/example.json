@@ -1,0 +1,29 @@
+{
+  "id": "data-tables-clean-sensor-trace",
+  "title": "Clean a sensor trace",
+  "pickerTitle": "Clean a sensor trace",
+  "pickerLine": "Data and tables",
+  "line": "Fill dropouts and replace spikes, then compare before and after.",
+  "description": "Fill dropouts and replace spikes in a sampled temperature trace",
+  "topic": "data-tables",
+  "topicLabel": "Data and tables",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "clean-sensor-trace.m",
+  "roles": [
+    "data_quant",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data"
+  ],
+  "theme": "data-tables-clean-sensor-trace",
+  "thumbnailAlt": "A raw temperature trace with dropouts and spikes above the cleaned trace and its moving mean, rendered by RunMat",
+  "origin": {
+    "page": "/math/data-tables",
+    "key": "website:math/data-tables/clean-sensor-trace",
+    "source": "website/content/math/data-tables/examples/clean-sensor-trace.m",
+    "thumbnail": "website/public/math-assets/data-tables/clean-sensor-trace.webp"
+  }
+}

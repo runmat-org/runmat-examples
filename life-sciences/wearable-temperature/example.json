@@ -1,0 +1,29 @@
+{
+  "id": "life-sciences-wearable-temperature",
+  "title": "Wearable skin temperature",
+  "pickerTitle": "Wearable skin temperature",
+  "pickerLine": "Life sciences",
+  "line": "A device on the wrist against the 43 C skin-contact limit.",
+  "description": "A wearable on the wrist: 0.35 W from its electronics, a two-node model of the board and the skin-contact case, against a 43 C limit for skin contact.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "wearable-temperature.m",
+  "roles": [
+    "research",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "life-sciences-wearable-temperature",
+  "thumbnailAlt": "Board and case temperature of a wearable over an hour against the 43 C limit, rendered by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/wearable-temperature",
+    "source": "website/content/industries/life-sciences/wearable-temperature.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/wearable-temperature.webp"
+  }
+}

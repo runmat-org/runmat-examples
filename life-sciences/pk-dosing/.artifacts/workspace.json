@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/pk-dosing.m"
+    ],
+    "activeFile": "/pk-dosing.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how long steady state takes to reach",
+      "Change to 250 mg every 6 hours and compare",
+      "Compare peak and trough with the closed form"
+    ]
+  }
+}

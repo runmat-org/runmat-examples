@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/gain-sweep.m"
+    ],
+    "activeFile": "/gain-sweep.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why overshoot grows with gain K",
+      "Sweep K from 0.2 to 3 and plot overshoot",
+      "Find the gain that gives 10% overshoot"
+    ]
+  }
+}

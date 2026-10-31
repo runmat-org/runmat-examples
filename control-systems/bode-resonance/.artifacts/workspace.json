@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bode-resonance.m"
+    ],
+    "activeFile": "/bode-resonance.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the peak sits 14 dB above static gain",
+      "Halve the damping c and compare the peak",
+      "Compare the peak frequency with wn*sqrt(1-2*zeta^2)"
+    ]
+  }
+}

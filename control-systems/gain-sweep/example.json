@@ -1,0 +1,30 @@
+{
+  "id": "control-systems-gain-sweep",
+  "title": "Proportional gain and overshoot",
+  "pickerTitle": "Proportional gain and overshoot",
+  "pickerLine": "Control systems",
+  "line": "Step responses for K = 0.5, 1 and 2, with rise time and overshoot from stepinfo.",
+  "description": "Closed-loop step responses of G(s) = 10/(s(s + 1)(s + 5)) for three proportional gains",
+  "topic": "control-systems",
+  "topicLabel": "Control systems",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "gain-sweep.m",
+  "roles": [
+    "controls_signals"
+  ],
+  "goals": [
+    "build_simulations",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "control-systems-gain-sweep",
+  "thumbnailAlt": "Closed-loop step responses for three proportional gains, rendered by RunMat",
+  "origin": {
+    "page": "/math/control-systems",
+    "key": "website:math/control-systems/gain-sweep",
+    "source": "website/content/math/control-systems/examples/gain-sweep.m",
+    "thumbnail": "website/public/math-assets/control-systems/gain-sweep.webp"
+  }
+}

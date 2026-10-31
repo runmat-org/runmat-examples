@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/wearable-temperature.m"
+    ],
+    "activeFile": "/wearable-temperature.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain which resistance sets the case temperature",
+      "Find the power that reaches 43 C",
+      "Rerun at 35 C ambient air"
+    ]
+  }
+}

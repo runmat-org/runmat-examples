@@ -1,0 +1,12 @@
+[package]
+name = "electronics-semiconductors-wafer-map"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "wafer-map.m"
+
+[desktop.artifacts]
+root = ".artifacts"

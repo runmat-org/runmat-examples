@@ -1,0 +1,26 @@
+{
+  "id": "life-sciences-phase-plane",
+  "title": "Metabolic phase plane",
+  "pickerTitle": "Metabolic phase plane",
+  "pickerLine": "Life sciences",
+  "line": "Best growth rate over glucose and oxygen uptake limits, one linear program per point.",
+  "description": "Phenotypic phase plane of a small metabolic network: the best growth rate for each pair of glucose and oxygen uptake limits, by flux balance analysis (one linear program per point). Growth rises with oxygen until glucose becomes the limit. Reactions: 1 glucose uptake, 2 oxygen uptake, 3 glycolysis, 4 respiration, 5 fermentation, 6 biomass. Metabolites: glucose, oxygen, pyruvate, ATP.",
+  "topic": "life-sciences",
+  "topicLabel": "Life sciences",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "phase-plane.m",
+  "roles": [
+    "research"
+  ],
+  "goals": [],
+  "theme": "life-sciences-phase-plane",
+  "thumbnailAlt": "Metabolic phase plane, drawn by RunMat",
+  "origin": {
+    "page": "/industries/life-sciences",
+    "key": "website:industries/life-sciences/phase-plane",
+    "source": "website/content/industries/life-sciences/phase-plane.m",
+    "thumbnail": "website/public/industries-assets/life-sciences/phase-plane.webp"
+  }
+}

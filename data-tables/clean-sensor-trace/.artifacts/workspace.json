@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/clean-sensor-trace.m"
+    ],
+    "activeFile": "/clean-sensor-trace.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the spikes are detected and replaced",
+      "Fill gaps with spline instead of linear and compare",
+      "Count the samples changed by each cleaning step"
+    ]
+  }
+}

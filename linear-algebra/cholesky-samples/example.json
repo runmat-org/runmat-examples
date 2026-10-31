@@ -1,0 +1,32 @@
+{
+  "id": "linear-algebra-cholesky-samples",
+  "title": "Correlated samples",
+  "pickerTitle": "Correlated samples",
+  "pickerLine": "Linear algebra",
+  "line": "Random vectors from a covariance matrix with chol.",
+  "description": "Draw correlated random vectors from a covariance matrix with chol",
+  "topic": "linear-algebra",
+  "topicLabel": "Linear algebra",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "cholesky-samples.m",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "linear-algebra-cholesky-samples",
+  "thumbnailAlt": "Two thousand correlated random points drawn with a Cholesky factor, rendered by RunMat",
+  "origin": {
+    "page": "/math/linear-algebra",
+    "key": "website:math/linear-algebra/cholesky-samples",
+    "source": "website/content/math/linear-algebra/examples/cholesky-samples.m",
+    "thumbnail": "website/public/math-assets/linear-algebra/cholesky-samples.webp"
+  }
+}

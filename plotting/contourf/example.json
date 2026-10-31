@@ -1,0 +1,32 @@
+{
+  "id": "plotting-contourf",
+  "title": "Filled contours",
+  "pickerTitle": "Filled contours",
+  "pickerLine": "Plotting",
+  "line": "An interference pattern in filled bands.",
+  "description": "An interference pattern in filled bands.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Images and fields",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "contourf.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-contourf",
+  "thumbnailAlt": "Filled contour bands of an interference pattern, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/contourf",
+    "source": "website/content/math/plotting/examples/contourf.m",
+    "thumbnail": "website/public/math-assets/plotting/contourf.webp"
+  }
+}

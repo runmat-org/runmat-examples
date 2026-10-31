@@ -1,0 +1,26 @@
+{
+  "id": "quant-yield-curve",
+  "title": "Nelson-Siegel yield curve",
+  "pickerTitle": "Nelson-Siegel yield curve",
+  "pickerLine": "Quantitative finance",
+  "line": "Level, slope and curvature fitted to ten par yields.",
+  "description": "A Nelson-Siegel curve fitted to ten par yields: level, slope, curvature and a decay time, the form many central banks use to publish curves.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "yield-curve.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [],
+  "theme": "yield-curve",
+  "thumbnailAlt": "Par yields and the fitted Nelson-Siegel curve out to 30 years, rendered by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/yield-curve",
+    "source": "website/content/industries/quant/yield-curve.m",
+    "thumbnail": "website/public/industries-assets/quant/yield-curve.webp"
+  }
+}

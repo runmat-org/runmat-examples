@@ -1,0 +1,32 @@
+{
+  "id": "plotting-imagesc",
+  "title": "Scaled image",
+  "pickerTitle": "Scaled image",
+  "pickerLine": "Plotting",
+  "line": "A scalar field shown with its colorbar.",
+  "description": "A scalar field shown with its colorbar.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Images and fields",
+  "kind": "script",
+  "visual": "image",
+  "entry": "imagesc.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-imagesc",
+  "thumbnailAlt": "A scalar field drawn with imagesc and a colorbar, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/imagesc",
+    "source": "website/content/math/plotting/examples/imagesc.m",
+    "thumbnail": "website/public/math-assets/plotting/imagesc.webp"
+  }
+}

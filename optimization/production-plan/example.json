@@ -1,0 +1,29 @@
+{
+  "id": "optimization-production-plan",
+  "title": "Production plan",
+  "pickerTitle": "Production plan",
+  "pickerLine": "Optimization",
+  "line": "A weekly production plan as a linear program, solved with linprog and drawn by RunMat.",
+  "description": "A production plan as a linear program: two products, three machine-hour limits",
+  "topic": "optimization",
+  "topicLabel": "Optimization",
+  "group": "Page hero",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "production-plan.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "optimization-production-plan",
+  "thumbnailAlt": "Feasible region of a linear program with the optimum marked, drawn by RunMat",
+  "origin": {
+    "page": "/math/optimization",
+    "key": "website:math/optimization/hero",
+    "source": "website/content/math/optimization/hero.m",
+    "thumbnail": "website/public/math-assets/optimization/hero.webp"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/critical-speed.m"
+    ],
+    "activeFile": "/critical-speed.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why Dunkerley and Rayleigh bound the answer",
+      "Move the 40 kg disc to midspan and rerun",
+      "Plot the first three mode shapes"
+    ]
+  }
+}

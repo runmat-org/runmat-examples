@@ -1,0 +1,12 @@
+[package]
+name = "curve-fitting-lookup-table"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "lookup-table.m"
+
+[desktop.artifacts]
+root = ".artifacts"

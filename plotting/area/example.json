@@ -1,0 +1,32 @@
+{
+  "id": "plotting-area",
+  "title": "Stacked area",
+  "pickerTitle": "Stacked area",
+  "pickerLine": "Plotting",
+  "line": "Energy generation by source, stacked by year.",
+  "description": "Energy generation by source, stacked by year.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "area.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-area",
+  "thumbnailAlt": "Solar, wind and hydro generation stacked from 2018 to 2025, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/area",
+    "source": "website/content/math/plotting/examples/area.m",
+    "thumbnail": "website/public/math-assets/plotting/area.webp"
+  }
+}

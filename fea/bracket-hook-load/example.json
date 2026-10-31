@@ -1,0 +1,33 @@
+{
+  "id": "bracket-hook-load",
+  "title": "Wall-hook bracket under load",
+  "pickerTitle": "Wall-hook bracket under load",
+  "pickerLine": "FEA studies",
+  "line": "A static FEA study of a steel wall-hook bracket carrying a 2 kN hanging load.",
+  "description": "Static strength of a wall-hook bracket (40 x 50 x 35 mm, steel). A two-kilonewton hanging load along the wall (-Y) at the end of the arm; the countersunk mounting holes are held.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "bracket-hook-load.fea",
+  "roles": [
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "bracket-hook-load",
+  "thumbnailAlt": "Displacement of a steel wall-hook bracket under a hanging load, solved in RunMat",
+  "origin": {
+    "page": "desktop sign-in scene",
+    "key": "desktop:scripts/sign-in-scene/bracket-hook-load",
+    "source": "desktop/scripts/sign-in-scene/bracket-hook-load.fea",
+    "geometry": "desktop/src/workspace/default-sandbox-files/cad/bracket.stp",
+    "thumbnail": "desktop/public/js/sign-in/bracket-hook/displacement.webp"
+  }
+}

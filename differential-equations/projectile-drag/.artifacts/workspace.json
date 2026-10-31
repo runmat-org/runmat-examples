@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/projectile-drag.m"
+    ],
+    "activeFile": "/projectile-drag.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the range is interpolated at the ground",
+      "Find the launch angle that maximizes range",
+      "Compare the range with the no-drag hand calculation"
+    ]
+  }
+}

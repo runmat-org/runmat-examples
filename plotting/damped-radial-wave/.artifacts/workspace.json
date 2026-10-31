@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/damped-radial-wave.m"
+    ],
+    "activeFile": "/damped-radial-wave.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain why the wave decays as 1/R",
+      "Change the frequency to 6 and redraw",
+      "Add a contour map below the surface"
+    ]
+  }
+}

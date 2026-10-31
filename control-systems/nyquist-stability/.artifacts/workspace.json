@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/nyquist-stability.m"
+    ],
+    "activeFile": "/nyquist-stability.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how encirclements of -1 count unstable poles",
+      "Find the exact K where the loop goes unstable",
+      "Add a Nyquist plot for K = 2.5"
+    ]
+  }
+}

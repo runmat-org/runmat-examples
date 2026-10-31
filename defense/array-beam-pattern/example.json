@@ -1,0 +1,26 @@
+{
+  "id": "defense-array-beam-pattern",
+  "title": "Phased-array beam pattern",
+  "pickerTitle": "Phased-array beam pattern",
+  "pickerLine": "Defense",
+  "line": "16 elements steered to 20 degrees, with and without a taper.",
+  "description": "Beam pattern of a 16-element half-wavelength array steered to 20 degrees, uniform weights against a Hamming taper: the taper trades a wider beam for lower sidelobes.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "array-beam-pattern.m",
+  "roles": [
+    "aerospace"
+  ],
+  "goals": [],
+  "theme": "defense-array-beam-pattern",
+  "thumbnailAlt": "Beam patterns of a 16-element array with uniform and Hamming weights, rendered by RunMat",
+  "origin": {
+    "page": "/industries/defense",
+    "key": "website:industries/defense/array-beam-pattern",
+    "source": "website/content/industries/defense/array-beam-pattern.m",
+    "thumbnail": "website/public/industries-assets/defense/array-beam-pattern.webp"
+  }
+}

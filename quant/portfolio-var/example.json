@@ -1,0 +1,28 @@
+{
+  "id": "quant-portfolio-var",
+  "title": "Value at risk and expected shortfall",
+  "pickerTitle": "Value at risk and expected shortfall",
+  "pickerLine": "Quantitative finance",
+  "line": "500,000 correlated scenarios against the normal closed forms.",
+  "description": "One-day 99% value at risk and expected shortfall of a three-asset book, from 500,000 correlated scenarios, checked against the normal closed forms.",
+  "topic": "quant",
+  "topicLabel": "Quantitative finance",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "portfolio-var.m",
+  "roles": [
+    "data_quant"
+  ],
+  "goals": [
+    "gpu_acceleration"
+  ],
+  "theme": "value-at-risk",
+  "thumbnailAlt": "Histogram of one-day P&L with the 99% value at risk marked, rendered by RunMat",
+  "origin": {
+    "page": "/industries/quant",
+    "key": "website:industries/quant/portfolio-var",
+    "source": "website/content/industries/quant/portfolio-var.m",
+    "thumbnail": "website/public/industries-assets/quant/portfolio-var.webp"
+  }
+}

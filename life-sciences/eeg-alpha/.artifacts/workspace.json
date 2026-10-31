@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/eeg-alpha.m"
+    ],
+    "activeFile": "/eeg-alpha.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how alpha power is integrated from the PSD",
+      "Narrow the band to 9 to 11 Hz and compare",
+      "Plot alpha power over time in 2 s windows"
+    ]
+  }
+}

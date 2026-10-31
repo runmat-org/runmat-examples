@@ -1,0 +1,12 @@
+[package]
+name = "signal-processing-spectrogram-check"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "spectrogram-check.m"
+
+[desktop.artifacts]
+root = ".artifacts"

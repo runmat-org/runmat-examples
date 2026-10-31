@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/semilogx.m"
+    ],
+    "activeFile": "/semilogx.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the slope above the cutoff",
+      "Move the cutoff to 2 kHz and replot",
+      "Mark the -3 dB point"
+    ]
+  }
+}

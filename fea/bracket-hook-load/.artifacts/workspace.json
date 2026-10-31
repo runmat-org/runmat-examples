@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bracket-hook-load.fea"
+    ],
+    "activeFile": "/bracket-hook-load.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak von Mises stress and its location",
+      "Refine the mesh and check stress convergence",
+      "Change the material to aluminum and compare deflection"
+    ]
+  }
+}

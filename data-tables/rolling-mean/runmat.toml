@@ -1,0 +1,12 @@
+[package]
+name = "data-tables-rolling-mean"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "rolling-mean.m"
+
+[desktop.artifacts]
+root = ".artifacts"

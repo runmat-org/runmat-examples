@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bootstrap-median.m"
+    ],
+    "activeFile": "/bootstrap-median.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the percentile interval is formed",
+      "Rerun with 10,000 resamples",
+      "Bootstrap the mean and compare intervals"
+    ]
+  }
+}

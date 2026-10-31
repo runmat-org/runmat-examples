@@ -1,0 +1,32 @@
+{
+  "id": "plotting-errorbar",
+  "title": "Error bars",
+  "pickerTitle": "Error bars",
+  "pickerLine": "Plotting",
+  "line": "Measured strength with asymmetric error bars.",
+  "description": "Measured strength with asymmetric error bars.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Lines and points",
+  "kind": "script",
+  "visual": "2d",
+  "entry": "errorbar.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-errorbar",
+  "thumbnailAlt": "Strength for eight samples joined by a line, with error bars, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/errorbar",
+    "source": "website/content/math/plotting/examples/errorbar.m",
+    "thumbnail": "website/public/math-assets/plotting/errorbar.webp"
+  }
+}

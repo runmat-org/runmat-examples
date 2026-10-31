@@ -1,0 +1,32 @@
+{
+  "id": "plotting-mesh",
+  "title": "Mesh",
+  "pickerTitle": "Mesh",
+  "pickerLine": "Plotting",
+  "line": "A saddle surface drawn as a wireframe.",
+  "description": "A saddle surface drawn as a wireframe.",
+  "topic": "plotting",
+  "topicLabel": "Plotting",
+  "group": "Surfaces and 3-D",
+  "kind": "script",
+  "visual": "3d",
+  "entry": "mesh.m",
+  "roles": [
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "academic_coursework",
+    "analyze_visualize_data",
+    "learn_matlab_alternative",
+    "migrate_matlab_code"
+  ],
+  "theme": "plotting-mesh",
+  "thumbnailAlt": "A saddle-shaped wireframe surface, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:math/plotting/mesh",
+    "source": "website/content/math/plotting/examples/mesh.m",
+    "thumbnail": "website/public/math-assets/plotting/mesh.webp"
+  }
+}
