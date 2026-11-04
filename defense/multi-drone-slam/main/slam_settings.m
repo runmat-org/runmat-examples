@@ -6,15 +6,20 @@ function settings = slam_settings()
 %                        156, then one every 140 steps (the home-page video
 %                        runs 480)
 %     settings.rate      playback speed, simulation steps per second
+%     settings.fps       playback frames per second
+%     settings.minPause  shortest wait between frames, s; the figures are
+%                        drawn while the script waits
 %     settings.light     true draws with the light-theme palette
 %     settings.fontSize  title size; axis labels and ticks scale from it
 %
 %   steps is part of the saved run's key: changing it makes
-%   multi_drone_slam.m simulate again. rate, light and fontSize only change
-%   the playback.
+%   multi_drone_slam.m simulate again. rate, fps, minPause, light and fontSize
+%   only change the playback.
 
     settings.steps = 180;
     settings.rate = 15;
+    settings.fps = 10;
+    settings.minPause = 0.04;
     settings.light = false;
     settings.fontSize = 18;
 end

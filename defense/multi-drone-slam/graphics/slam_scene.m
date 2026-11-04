@@ -96,4 +96,7 @@ function G = slam_scene(S, opts)
     set(gca, 'FontSize', small, 'XTick', stepTicks);
 
     G = slam_scene_step(G, S, 1);
+    % RunMat presents live changes for the current figure only, so the 3D
+    % map is made current for playback.
+    figure(1);
 end

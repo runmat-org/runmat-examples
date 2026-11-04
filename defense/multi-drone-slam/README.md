@@ -25,9 +25,9 @@ The key is a checksum: two 31-bit sums of the character codes, computed in exact
 
 ### Playback
 
-`playback/slam_play.m` builds the three figures once (`graphics/slam_scene.m`) and then changes only the data of the moving objects (`graphics/slam_scene_step.m`), so the camera of figure 1 stays wherever the viewer puts it. The pace follows the wall clock: step $f$ is due $(f - 1)/15$ seconds after playback starts. When a frame takes longer to draw than one step, the next frame jumps to the step that is due, so the run keeps its pace on a slow machine. The last frame is always the last step, so the figures end on the finished run. `rate` in `main/slam_settings.m` sets the pace.
+`playback/slam_play.m` builds the three figures once (`graphics/slam_scene.m`) and then changes only the data of the moving objects (`graphics/slam_scene_step.m`), so the camera of figure 1 stays wherever the viewer puts it. The pace follows the wall clock. Playback draws up to 10 frames per second, and each frame shows the step that is due at that moment: step $f$ is due $(f - 1)/15$ seconds after playback starts. When a frame takes longer to draw, the next frame skips ahead to the step that is due, so the 180 steps always take 12 seconds. After the last step, `graphics/slam_scene_finish.m` redraws the map as one `scatter3` cloud, the way `graphics/slam_draw.m` draws it. `rate` and `fps` in `main/slam_settings.m` set the pace and the frame rate.
 
-The command-line runtime (`runmat run main/multi_drone_slam.m`) shows figures only when the script ends, so there playback draws the last step only.
+The figures redraw while the script pauses, so every frame pauses for at least 40 ms (`minPause`). RunMat shows live changes only for the current figure, so figure 1 stays current during playback; figures 2 and 3 show their curves when the run ends. The command-line runtime (`runmat run main/multi_drone_slam.m`) shows figures only when the script ends.
 
 ## Project layout
 
@@ -229,7 +229,7 @@ After event $e$, the estimate for steps up to $t_e$ comes from the solve. After 
 - Dashed gray lines are the true paths. Solid colored lines are the estimated paths. Both show the last 150 steps.
 - Thin lines from each drone are a sample of its LIDAR rays for the current step. The colored discs are the drones at their true positions.
 
-Playback draws the map as 16 height bands of short strokes, one line object per band, and each drone as a small flat spiral. RunMat's `set` changes the data of line objects but not of `scatter3` objects, and `plot3` draws no markers, so the moving parts are all lines. `graphics/slam_draw.m` draws one step from scratch with `scatter3` points; the home-page video uses it.
+While it plays, the map is drawn as 16 height bands of short strokes, one line object per band, and each drone as a small flat spiral. RunMat's `set` changes the data of line objects but not of `scatter3` objects, and `plot3` draws no markers, so the moving parts are all lines. When playback ends, the map becomes a `scatter3` cloud, as in `graphics/slam_draw.m`, which draws one step from scratch and makes the home-page video.
 
 **Figure 2: position error.** For each drone, the horizontal distance between the estimated and true position at each step, in meters. The error climbs while the drones fly on odometry alone, then drops after each solve.
 
@@ -259,6 +259,7 @@ In figures 2 and 3, a dotted vertical line labeled "sync" marks each pose-graph 
 | `playback/slam_play.m` | Plays a run in real time. |
 | `graphics/slam_scene.m` | Builds figures 1 to 3 once for playback and returns their handles. |
 | `graphics/slam_scene_step.m` | Moves the playback figures to a given step. |
+| `graphics/slam_scene_finish.m` | Redraws the finished map as a `scatter3` cloud when playback ends. |
 | `graphics/slam_draw.m` | Draws figures 1 to 3 for one step from scratch; the home-page video uses it. |
 | `graphics/slam_map_points.m` | Places the map points through a pose estimate. |
 | `graphics/slam_ground_grid.m`, `graphics/slam_terrain_wire.m` | The ground grid and the terrain wireframe. |
@@ -272,6 +273,7 @@ In `main/slam_settings.m`:
 
 - `steps`: the length of the run. The default of 180 includes one correction, near step 156. Each extra 140 steps adds one more correction. The home-page video uses 480. A new step count makes `main` simulate once and then play.
 - `rate`: playback speed in simulation steps per second.
+- `fps`: playback frames per second.
 - `light`: set to `true` to draw with the light-theme palette.
 
 In `main/slam_config.m` (each change makes `main` simulate again):

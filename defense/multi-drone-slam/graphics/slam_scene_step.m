@@ -50,6 +50,7 @@ function G = slam_scene_step(G, S, f)
         t = S.eventSolve(G.marksDrawn);
         slamSyncMark(G.ax2, t, G.errTop, cfg.T, G.style.mark, G.markSize);
         slamSyncMark(G.ax3, t, 100, cfg.T, G.style.mark, G.markSize);
+        figure(1);   % keep the 3D map current (see slam_scene)
     end
 end
 

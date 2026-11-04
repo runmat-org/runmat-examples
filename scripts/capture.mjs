@@ -172,9 +172,12 @@ async function openAndRun(browser, entry, files, theme, binary = []) {
 /** Writes binary source files into the opened sandbox, then presses Run. */
 async function writeBinaryAndRun(page, binary) {
   const deadline = Date.now() + 60_000;
-  while ((await list(page, "/")).length === 0) {
+  for (;;) {
+    // The filesystem worker starts after the page loads; until then the request throws.
+    const entries = await list(page, "/").catch(() => []);
+    if (entries.length > 0) break;
     if (Date.now() > deadline) throw new Error("the sandbox filesystem did not open");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
   }
   for (const file of binary) {
     const path = `/${file.path}`;
