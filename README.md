@@ -14,6 +14,7 @@ Every RunMat example as a complete project. The website and the desktop app both
     thumbnail.webp         the figure RunMat drew from this source (dark theme)
     thumbnail.light.webp   the same figure in the light theme, when one exists
     workspace.json         how the app lays out the project when it opens
+    capture.json           the pin of the example's captured run (bundle hash, source hash, RunMat version)
 ```
 
 Topics are the website's `/math` pages (`plotting`, `statistics`, ...), its `/industries` pages (`aerospace`, `quant`, ...) and `fea` for FEA studies.
@@ -60,7 +61,19 @@ The layout the app restores when the example opens:
 - `resultView`: the result shown first: a figure handle for scripts, or a study output name for FEA studies.
 - `agent.suggestions`: two or three short prompts shown in the agent panel.
 
-Run results (figures, FEA datasets, run records) will also live under `.artifacts/` so an example opens in its post-run state. See [PHASE2.md](PHASE2.md).
+## Captured runs
+
+Every example opens in its finished run: figures drawn, results loaded, nothing running until Run. The run itself stays out of git. It is published as an immutable bundle (see [PHASE2.md](PHASE2.md) section 6), and the example keeps a pin, `.artifacts/capture.json`, with the bundle's hash, the source hash and the RunMat version.
+
+```sh
+node scripts/capture.mjs --only <id>          # a script example, through the app's sandbox on http://localhost:1001
+node scripts/capture-study.mjs --only <id> --runmat <signed-in runmat CLI>   # an FEA study
+node scripts/validate.mjs --runs ../runmat-private/website/public/examples-runs
+```
+
+Locally, bundles go to `runmat-private/website/public/examples-runs/` (gitignored), which the dev site serves. Then run `npm run sync:examples` in `website` and `node scripts/sync-example-runs.mjs` in `desktop` so the site and the app open the new run. CI captures and publishes every example with `.github/workflows/publish-examples.yml` in runmat-private.
+
+A changed source or `workspace.json` makes the pin stale, and the validator fails until the example is recaptured.
 
 ## Add an example
 
@@ -81,8 +94,8 @@ Run results (figures, FEA datasets, run records) will also live under `.artifact
    root = ".artifacts"
    ```
 
-2. Run it in RunMat and save the figure as `.artifacts/thumbnail.webp` (and `.artifacts/thumbnail.light.webp` from the light theme).
-3. Write `example.json` and `.artifacts/workspace.json` (copy a neighbor's and edit).
+2. Write `example.json` and `.artifacts/workspace.json` (copy a neighbor's and edit).
+3. Capture its run: `node scripts/capture.mjs --only <id>`. This also writes `.artifacts/thumbnail.webp` and `.artifacts/thumbnail.light.webp` from the captured figure.
 4. Check it:
 
    ```sh

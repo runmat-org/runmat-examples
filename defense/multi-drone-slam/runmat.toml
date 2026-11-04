@@ -1,0 +1,15 @@
+[package]
+name = "defense-multi-drone-slam"
+version = "0.1.0"
+
+[sources]
+roots = ["main", "terrain", "flight", "sensors", "slam", "graphics", "playback"]
+
+[entrypoints.main]
+path = "main/multi_drone_slam.m"
+
+[entrypoints.simulate]
+path = "main/simulate_slam.m"
+
+[desktop.artifacts]
+root = ".artifacts"

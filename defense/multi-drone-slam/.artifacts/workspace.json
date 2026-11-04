@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/README.md",
+      "/main/multi_drone_slam.m",
+      "/main/slam_settings.m",
+      "/main/slam_simulate.m"
+    ],
+    "activeFile": "/README.md"
+  },
+  "panels": {
+    "files": true,
+    "agent": false,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the loop closure corrects the drift",
+      "Set steps to 480 in slam_settings.m and report the error before and after each correction",
+      "Double the odometry bias and compare the position error"
+    ]
+  }
+}

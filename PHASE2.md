@@ -127,3 +127,39 @@ Today 21 of 167 examples are 3D, most of them in plotting. Proposals for the rol
 - **Something else (`other`, no examples tagged):** tag the general showcase examples (`plotting-damped-radial-wave`, `differential-equations-lorenz-attractor`, `quant-heston-surface`) with `other` rather than adding new ones.
 
 **Visual rule.** A study is `study`. A script is `3d` if it calls `surf`, `surfc`, `surfl`, `mesh`, `meshc`, `meshz`, `plot3`, `scatter3`, `contour3`, `isosurface`, `waterfall`, `bar3`, `bar3h`, `quiver3`, `trisurf`, `trimesh`, `fill3` or `zlabel`, or sets a 3D camera with `view(3)`, `view(az, el)` or `view([az el])`. Otherwise it is `image` if it calls `imagesc`, `pcolor`, `image` or `imshow`, and `2d` if it calls none of them. Comments are ignored. The `zlabel`/`view` cue catches the 3D `patch` renders: turbine, rotor, battery module and heat sink.
+
+## 6. How it is built (2026-11-03)
+
+The owner's decisions of 2026-11-03 replace section 3's single-folder bundle: runs stay out of git.
+
+- **Bundle.** Each captured run is an immutable bundle: the example's files, its `.artifacts/workspace.json` and the run's `.artifacts/runs` and `.artifacts/objects` (studies add `.snapshot/` and the native analysis store). `project.json` lists every file with its size and sha256, in the docs examples' format. The bundle's hash is the sha256 of `project.json`.
+  - Published at `examples/<id>/<sha256>/project.json` and `examples/<id>/<sha256>/files/<path>` in the downloads bucket, served by the CDN at `https://updates.runmat.com/examples/`. Bundle files are cached as immutable.
+  - On the dev site the same layout lives in `website/public/examples-runs/` (gitignored) and is served at `http://localhost:1001/examples-runs/`.
+- **Pin.** Git keeps `.artifacts/capture.json` per example: the bundle hash, file count and size, the source hash, the RunMat version, the device (`cpu_reference` on CI) and the capture time. `runtime.json` at the repo root pins the runtime the captures came from (`runmat.version` for scripts, `studies.version` for the CLI that solves studies).
+- **Capture.** `node scripts/capture.mjs [--only <id>]` opens each script example in the app's sandbox in headless Chromium (WebGPU on SwiftShader, so no GPU is needed) with run-on-open, waits for the run and reads `.artifacts` back from the sandbox's filesystem worker. The app's shared planner wrote every byte. The capture then:
+  - renames the run to `run_example_<id>`;
+  - sets every timestamp in the run and in the workspace and scene objects to the pinned capture time, and re-addresses the objects it changed;
+  - drops the renderer's diagnostic log channel, whose lines depend on frame timing.
+  A recapture on the same runtime writes the same bundle hash.
+  It also writes the dark and light thumbnails from the captured figure (a run per theme).
+- **Studies.** `node scripts/capture-study.mjs --runmat <signed-in cli>` runs `runmat snapshot` and writes the app's run format, the same way the runtime's `snapshot-project.mjs` does. `--from-project <dir>` reuses a native snapshot project the runtime already produced (the docs examples' `project/files`).
+- **Check.** `node scripts/validate.mjs` fails on a stale pin: a source or layout that changed since the capture, or a runtime other than `runtime.json`'s. `--runs <dir>` also checks each local bundle file by file and that `resultView` names a figure the run has. `--require-runs` turns a missing pin into an error once every example is captured. `desktop/src/replay/domain/example-run-replay.spec.ts` replays every pinned bundle through Desktop's replay code.
+- **Opening.** The website's "Open example" looks up the pin (`public/examples-assets/runs.json`, written by `npm run sync:examples`) and passes the bundle URL and hash with the launch. Desktop's Home, Start and the sandbox picker read `desktop/src/lib/examples/generated/runs.gen.ts` (`node scripts/sync-example-runs.mjs`). The app downloads the bundle, checks every sha256, writes the files into the sandbox or the new cloud project, and runs nothing; the replay index restores the run. Verified files are kept in the browser's Cache Storage, so a reopen works offline. An example without a pin, or whose bundle fails to load, runs once on open as before.
+- **Layout.** `panels.feaResults` opens the Results tab once the FEA run is shown; `resultView` selects the named figure or FEA output; `agent.suggestions` appear before the agent panel's built-in next steps. A script example whose layout names the Results tab opens on Variables, since only FEA runs have Results.
+
+### CI setup the owner approves
+
+The workflow `runmat-private/.github/workflows/publish-examples.yml` is written and has not run. Before the first run:
+
+1. **Dev CI organization.** Create an organization on the dev server for example captures, for example "RunMat Examples CI".
+2. **Service account and key.** As an admin of that organization, create one API key (`rk.dev.…`) with the member role, scoped to that organization only. Recommended expiry: 90 days, rotated by hand. The key's owner is the admin who creates it, and FEA usage counts against that owner's allowance.
+3. **Machine limit.** The CLI registers the machine it runs on at sign-in, and a key registers for its owner. Each hosted runner is a new machine, so on Scale (3 machines per person) the owner hits `409 machines.limit_reached` on the fourth capture run. Recommendation: put the CI organization on Enterprise on dev (no machine cap unless a contract sets one). The browser sandbox is not a machine, so script captures are unaffected.
+4. **GitHub environment `dev`** (runmat-private): secret `RUNMAT_EXAMPLES_CI_API_KEY` (the key), variables `RUNMAT_EXAMPLES_CI_ORG_ID` and `RUNMAT_DEV_SERVER_URL`.
+5. **Upload.** The existing `GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_BUILD_SERVICE_ACCOUNT` secrets and `DESKTOP_UPDATER_BUCKET_DEV`/`_PROD` variables in the `dev` and `prod` environments. The module grants object admin on the bucket to `ci_service_account_email`; confirm that is the account `GCP_BUILD_SERVICE_ACCOUNT` names.
+6. **Pull requests.** Secret `RUNMAT_EXAMPLES_TOKEN` (a fine-grained token with contents and pull-request write on runmat-examples, and read for checkout), plus variable `RUNMAT_EXAMPLES_REPO` if the repository is not `runmat-org/runmat-examples`.
+7. **Bucket retention.** The Terraform change in `server/infra/modules/desktop_updater_distribution` names `examples/` as a never-expiring prefix and fails the plan if a TTL rule would ever cover it. The existing rules only match `dev/` and `prod/`, so the bucket's rules do not change. Apply it through `infra-apply-dev`/`infra-apply-prod` when approved.
+
+Known limits:
+- Hosted runners have no GPU. Every capture is a CPU result, pinned with device `cpu_reference`.
+- The CLI's sign-in token expires after five minutes. A study whose solve runs longer fails to capture until the runtime team fixes it (brief in `/tmp/sister-comms/runtime-example-runs-capture-20261103.md`).
+- Bundle sizes are over section 3's budget: script runs are 1 to 3 MB (the figure scene and the workspace object dominate) and the tuning fork study is 30 MB.

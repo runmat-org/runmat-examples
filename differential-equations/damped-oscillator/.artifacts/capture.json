@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "bundle": {
+    "sha256": "0b2527b6472c0037b526ad6c82f62defd4e48fcb69fa196f21bfca4123ece445",
+    "files": 10,
+    "bytes": 325798
+  },
+  "sourceSha256": "73cc49ea1e64dd0eb0c5d2bae46cc008dd8c37d866d67a3c9956d02b3b2da1af",
+  "runmat": {
+    "version": "0.7.0",
+    "fingerprint": "desktop:browser"
+  },
+  "device": "cpu_reference",
+  "capturedAt": "2026-11-04T06:01:12Z",
+  "figures": 1
+}

@@ -6,15 +6,31 @@
  * runmat.toml, an entry file that exists, a unique id, the dark thumbnail and a workspace.json
  * whose files exist. A missing light thumbnail is a warning (the app falls back to the dark one).
  * The only dot-folder allowed inside an example is .artifacts/.
+ *
+ * Captured runs (PHASE2.md): an example's pin, .artifacts/capture.json, must match its source (sourceSha256) and the
+ * runtime pinned in runtime.json, so a changed source or a new runtime fails until the example is recaptured.
+ * An example without a pin is a warning; `--require-runs` makes it an error once every example is captured.
+ * With `--runs <dir>` (the local bundle folder), each pinned bundle is also checked file by file, and the
+ * workspace.json resultView must name a figure the run has.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { PIN_PATH, RUNTIME_PATH, sha256, sourceSha256 } from "./lib/bundle.mjs";
+
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const KINDS = new Set(["script", "study"]);
 const VISUALS = new Set(["3d", "study", "image", "2d"]);
 const REQUIRED = ["id", "title", "pickerTitle", "pickerLine", "description", "topic", "kind", "visual", "entry", "roles", "goals", "origin"];
+
+const args = process.argv.slice(2);
+const REQUIRE_RUNS = args.includes("--require-runs");
+const RUNS_DIR = args.includes("--runs") ? args[args.indexOf("--runs") + 1] : process.env.RUNMAT_EXAMPLE_RUNS_DIR;
+const runtime = existsSync(RUNTIME_PATH) ? JSON.parse(readFileSync(RUNTIME_PATH, "utf8")) : null;
+const DIGEST = /^[0-9a-f]{64}$/;
+let pinned = 0;
+const examplesWorkspace = new Map();
 
 const errors = [];
 const warnings = [];
@@ -83,17 +99,78 @@ for (const group of groups) {
     if (!existsSync(workspacePath)) errors.push(`${where}: no .artifacts/workspace.json`);
     else {
       const workspace = readJson(workspacePath, where);
+      if (workspace) examplesWorkspace.set(where, workspace);
       if (workspace) {
-        const files = workspace.openFiles ?? [];
+        // The app reads editor.openFiles and editor.activeFile (PHASE2.md section 1).
+        const editor = workspace.editor ?? {};
+        const files = editor.openFiles ?? [];
+        if (!Array.isArray(files) || files.length === 0) errors.push(`${where}: workspace editor.openFiles is empty`);
         for (const file of files) if (!existsSync(join(dir, file))) errors.push(`${where}: workspace opens ${file}, which does not exist`);
-        if (workspace.activeFile && !files.includes(workspace.activeFile)) errors.push(`${where}: activeFile ${workspace.activeFile} is not in openFiles`);
+        if (!editor.activeFile) errors.push(`${where}: workspace has no editor.activeFile`);
+        else if (!files.includes(editor.activeFile)) errors.push(`${where}: activeFile ${editor.activeFile} is not in openFiles`);
+        const panels = workspace.panels ?? {};
+        for (const key of ["files", "agent", "feaResults"]) {
+          if (panels[key] !== undefined && typeof panels[key] !== "boolean") errors.push(`${where}: workspace panels.${key} must be true or false`);
+        }
+        const runtimeMode = panels.runtime?.mode;
+        if (runtimeMode !== undefined && !["auto", "pinned", "hidden"].includes(runtimeMode)) errors.push(`${where}: workspace panels.runtime.mode ${runtimeMode} is not auto, pinned or hidden`);
+        const runtimeTab = panels.runtime?.tab;
+        if (runtimeTab !== undefined && !["results", "variables", "trace", "log"].includes(runtimeTab)) errors.push(`${where}: workspace panels.runtime.tab ${runtimeTab} is not results, variables, trace or log`);
         const suggestions = workspace.agent?.suggestions ?? [];
         if (suggestions.length < 2 || suggestions.length > 3) errors.push(`${where}: workspace needs 2-3 agent suggestions, has ${suggestions.length}`);
       }
     }
 
+    checkPin(dir, where, example);
+
     for (const folder of dotFolders(dir)) errors.push(`${where}: dot-folder ${folder} (only .artifacts/ is allowed)`);
   }
+}
+
+function checkPin(dir, where, example) {
+  const pinPath = join(dir, PIN_PATH);
+  if (!existsSync(pinPath)) {
+    (REQUIRE_RUNS ? errors : warnings).push(`${where}: no captured run (${PIN_PATH}); run node scripts/capture.mjs --only ${example.id}`);
+    return;
+  }
+  const pin = readJson(pinPath, where);
+  if (!pin) return;
+  pinned += 1;
+  if (pin.schemaVersion !== 1 || !DIGEST.test(pin.bundle?.sha256 ?? "") || !DIGEST.test(pin.sourceSha256 ?? "")) {
+    errors.push(`${where}: ${PIN_PATH} is malformed`);
+    return;
+  }
+  if (pin.sourceSha256 !== sourceSha256(dir)) errors.push(`${where}: stale pin, the source changed since the run was captured; recapture it`);
+  const pinnedVersion = example.kind === "study" ? runtime?.studies?.version : runtime?.runmat?.version;
+  if (!runtime) errors.push(`${where}: pinned, but runtime.json is missing`);
+  else if (pinnedVersion && pin.runmat?.version !== pinnedVersion) errors.push(`${where}: stale pin, captured on RunMat ${pin.runmat?.version}, runtime.json pins ${pinnedVersion}; recapture it`);
+  else if (!pinnedVersion) warnings.push(`${where}: runtime.json pins no ${example.kind === "study" ? "studies.version" : "runmat.version"}`);
+  if (!["cpu_reference", "gpu"].includes(pin.device)) errors.push(`${where}: pin device must be cpu_reference or gpu, not ${pin.device}`);
+  if (RUNS_DIR) checkBundle(where, example, pin);
+}
+
+/** The local bundle: project.json hashes to the pin, every file matches, and resultView exists in the run. */
+function checkBundle(where, example, pin) {
+  const base = join(RUNS_DIR, example.id, pin.bundle.sha256);
+  if (!existsSync(join(base, "project.json"))) {
+    warnings.push(`${where}: bundle ${pin.bundle.sha256.slice(0, 12)} is not in ${RUNS_DIR}`);
+    return;
+  }
+  const manifestBytes = readFileSync(join(base, "project.json"));
+  if (sha256(manifestBytes) !== pin.bundle.sha256) {
+    errors.push(`${where}: bundle project.json does not hash to the pin`);
+    return;
+  }
+  const manifest = JSON.parse(manifestBytes.toString("utf8"));
+  for (const file of manifest.files) {
+    const path = join(base, "files", file.path);
+    if (!existsSync(path)) errors.push(`${where}: bundle file ${file.path} is missing`);
+    else if (sha256(readFileSync(path)) !== file.sha256) errors.push(`${where}: bundle file ${file.path} does not match its sha256`);
+  }
+  const run = JSON.parse(readFileSync(join(base, "files", manifest.run_manifest), "utf8"));
+  const handles = Object.values(run.cells ?? {}).flatMap((cell) => (cell.figures ?? []).map((figure) => figure.handle));
+  const view = examplesWorkspace.get(where)?.resultView;
+  if (view?.kind === "figure" && !handles.includes(view.figure)) errors.push(`${where}: resultView names figure ${view.figure}, which the captured run does not have (${handles.join(", ") || "none"})`);
 }
 
 const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
@@ -105,4 +182,4 @@ if (errors.length > 0) {
   console.error(`${errors.length} error(s)`);
   process.exit(1);
 }
-console.log(`ok (${warnings.length} warning(s))`);
+console.log(`ok (${warnings.length} warning(s), ${pinned} captured run(s))`);

@@ -1,0 +1,29 @@
+{
+  "id": "defense-multi-drone-slam",
+  "title": "Multi-drone SLAM",
+  "pickerTitle": "Multi-drone SLAM",
+  "pickerLine": "Defense",
+  "line": "Four drones map unknown terrain with LIDAR and correct their drift.",
+  "description": "Four drones fly over procedural mountain terrain and map it with LIDAR, thousands of rays marched against the heightfield every step. Each drone's odometry drifts; when one comes back within range of mapped track, it detects a loop closure, and a sparse least-squares pose-graph solve corrects every drone's trajectory so the map snaps into alignment.",
+  "topic": "defense",
+  "topicLabel": "Defense",
+  "group": null,
+  "kind": "script",
+  "visual": "3d",
+  "entry": "main/multi_drone_slam.m",
+  "roles": [
+    "aerospace",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "defense-multi-drone-slam",
+  "thumbnailAlt": "Point-cloud map of mountain terrain built by four drones, with their LIDAR rays and flight paths, rendered by RunMat",
+  "origin": {
+    "page": "/",
+    "key": "website:home/slam",
+    "source": "website/content/home/slam",
+    "thumbnail": "website/public/home-assets/hero/slam/slam-dark.webp"
+  }
+}
