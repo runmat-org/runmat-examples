@@ -21,3 +21,6 @@ title('Estimating pi: error against the number of points');
 xlabel('Points');
 ylabel('|estimate - pi|');
 grid on;
+
+% Keep the plotted curves in the workspace and let the million samples go
+clear xy inside estimate

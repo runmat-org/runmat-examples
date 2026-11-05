@@ -18,3 +18,6 @@ xline(-100*var99);
 title('One-day P&L with the 99% VaR');
 xlabel('P&L (% of book)');
 ylabel('Scenarios');
+
+% Keep the risk figures in the workspace and let the 500,000 scenarios go
+clear returns pnl

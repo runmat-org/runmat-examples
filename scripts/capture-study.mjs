@@ -5,6 +5,7 @@
  *
  *   node scripts/capture-study.mjs --runmat <cli> [--only <id>]... [--out <dir>]
  *   node scripts/capture-study.mjs --only <id> --from-project <native snapshot project> [--out <dir>]
+ *   node scripts/capture-study.mjs --only <id> --from-bundle [--out <dir>]
  *
  * With --runmat, each study runs as `<cli> snapshot <entry> --out .snapshot/snapshot.json` in a staging copy of the
  * example. The CLI must be signed in: `runmat login --api-key "$RUNMAT_API_KEY" --server "$RUNMAT_SERVER_URL"` in CI.
@@ -14,7 +15,18 @@
  * posters. The app's replay index restores the run from these files without solving.
  *
  * With --from-project, the capture reuses a native snapshot project the runtime already produced (for example a docs
- * example's project/files folder). Its source files must equal the example's.
+ * example's project/files folder). Its source files must equal the example's. With --from-bundle, it reuses the
+ * example's currently pinned bundle in <out> and keeps the pin's RunMat version: use it to republish an existing
+ * capture under the current bundle rules without solving again.
+ *
+ * Size: the bundle must fit the app's limits (EXAMPLE_RUN_LIMITS in runmat-private's
+ * desktop/src/lib/examples/run-bundle.ts). By default it carries the whole native analysis store (.artifacts/meshes,
+ * publications, studies and the field chunks in .artifacts/objects), which Desktop reads to page field values and
+ * to reassess the saved run. When that does not fit, the bundle carries only what the replay restores: the run
+ * manifest, the FEA dataset object, the snapshot's scenes and posters, the layout and the study evidence files the
+ * dataset names. The run then opens with its figures and results; paging raw field values or reassessing it needs a
+ * new run. The pin records which it is (analysisStore: "included" or "omitted"). A bundle that does not fit even
+ * then is not published.
  *
  * Stable output: the run keeps the native, content-derived run id; the manifest is saved as
  * .artifacts/runs/run_example_<id>.json and its createdAt is the capture time pinned in runtime.json.
@@ -25,7 +37,7 @@ import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, listExamples, projectManifest, sha256, sourceFiles, sourceSha256 } from "./lib/bundle.mjs";
+import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, bundleLimits, bundleViolations, listExamples, projectManifest, readJsonFile, sha256, sourceFiles, sourceSha256 } from "./lib/bundle.mjs";
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => {
@@ -37,6 +49,27 @@ const PRIVATE = resolve(process.env.RUNMAT_PRIVATE_DIR ?? join(ROOT, "../runmat-
 const OUT = resolve(option("--out", join(PRIVATE, "website/public/examples-runs")));
 const RUNMAT = option("--runmat", process.env.RUNMAT_CLI);
 const FROM_PROJECT = option("--from-project");
+const FROM_BUNDLE = args.includes("--from-bundle");
+const LIMITS = bundleLimits(PRIVATE);
+if (!LIMITS) throw new Error(`No runmat-private at ${PRIVATE}; the capture checks bundles against its loader's limits`);
+
+/**
+ * The native analysis store under .artifacts: everything except the app's run manifests (runs/), its sharded
+ * objects (objects/<aa>/, the FEA dataset and sidecar) and the layout. Study evidence files the dataset names are
+ * kept with the replay set (`keep`).
+ */
+function isAnalysisStore(path, keep) {
+  if (!path.startsWith(".artifacts/") || keep.has(path)) return false;
+  return !(path.startsWith(".artifacts/runs/") || /^\.artifacts\/objects\/[0-9a-f]{2}\//.test(path) || path === ".artifacts/workspace.json");
+}
+
+/** Study evidence files the run's FEA dataset names (dataset.study.evidenceArtifactPaths). */
+function datasetEvidence(project, run) {
+  const src = run.fea?.datasetSrc;
+  if (!src || !existsSync(join(project, src))) return new Set();
+  const paths = readJsonFile(join(project, src)).study?.evidenceArtifactPaths ?? [];
+  return new Set(paths.filter((path) => typeof path === "string" && existsSync(join(project, path))));
+}
 
 const contracts = await import(pathToFileURL(join(PRIVATE, "desktop/node_modules/runmat/dist/index.js")).href);
 
@@ -122,8 +155,8 @@ if (!selected.length) {
   console.error("No study matches --only.");
   process.exit(1);
 }
-if (!RUNMAT && !FROM_PROJECT) {
-  console.error("Pass --runmat <cli> (a signed-in RunMat CLI) or --from-project <native snapshot project>.");
+if (!RUNMAT && !FROM_PROJECT && !FROM_BUNDLE) {
+  console.error("Pass --runmat <cli> (a signed-in RunMat CLI), --from-project <native snapshot project> or --from-bundle.");
   process.exit(1);
 }
 // Studies run on the native CLI, so runtime.json pins its version separately (`studies.version`). A capture reusing
@@ -142,13 +175,16 @@ if (RUNMAT) {
 let failed = 0;
 for (const { dir, where, example } of selected) {
   const sources = sourceFiles(dir);
+  const previous = existsSync(join(dir, PIN_PATH)) ? readJsonFile(join(dir, PIN_PATH)) : null;
+  const from = FROM_BUNDLE ? previous && join(OUT, example.id, previous.bundle.sha256, "files") : FROM_PROJECT && resolve(FROM_PROJECT);
   const project = mkdtempSync(join(tmpdir(), `runmat-study-${example.id}-`));
   try {
     for (const file of sources) {
       mkdirSync(dirname(join(project, file.path)), { recursive: true });
       writeFileSync(join(project, file.path), file.bytes);
     }
-    if (FROM_PROJECT) adoptProject(project, resolve(FROM_PROJECT), example, sources, capturedAt);
+    if (FROM_BUNDLE && !(from && existsSync(from))) throw new Error(`--from-bundle: no pinned bundle in ${OUT}`);
+    if (from) adoptProject(project, from, example, sources, capturedAt);
     else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
       execFileSync(RUNMAT, ["snapshot", example.entry, "--out", ".snapshot/snapshot.json"], { cwd: project, stdio: "inherit" });
@@ -157,11 +193,25 @@ for (const { dir, where, example } of selected) {
       writeRunFormat(project, example, snapshot, capturedAt);
     }
     const sourcePaths = new Set(sources.map((file) => file.path));
-    const runFiles = walk(project)
+    const run = JSON.parse(readFileSync(join(project, RUN_MANIFEST(example.id)), "utf8"));
+    const allRunFiles = walk(project)
       .filter((path) => !sourcePaths.has(path) && (path.startsWith(".artifacts/") || path.startsWith(".snapshot/")))
       .map((path) => ({ path, bytes: readFileSync(join(project, path)) }));
-    const bundleFiles = [...sources, ...runFiles];
-    const manifestBytes = projectManifest(example.id, example.entry, bundleFiles);
+    let bundleFiles = [...sources, ...allRunFiles];
+    let manifestBytes = projectManifest(example.id, example.entry, bundleFiles);
+    let analysisStore = "included";
+    const full = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
+    if (full.length) {
+      const keep = datasetEvidence(project, run);
+      const store = allRunFiles.filter((file) => isAnalysisStore(file.path, keep));
+      const storeBytes = store.reduce((sum, file) => sum + file.bytes.length, 0);
+      console.log(`     ${where}: the run with its analysis store does not fit (${full.join("; ")}); publishing the replay set without the store (${store.length} files, ${(storeBytes / 1024 / 1024).toFixed(1)} MB)`);
+      bundleFiles = bundleFiles.filter((file) => !store.includes(file));
+      manifestBytes = projectManifest(example.id, example.entry, bundleFiles);
+      analysisStore = "omitted";
+      const replay = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
+      if (replay.length) throw new Error(`the replay set is over the app's bundle limits: ${replay.join("; ")}`);
+    }
     const hash = sha256(manifestBytes);
     const bundleDir = join(OUT, example.id, hash);
     if (!existsSync(join(bundleDir, "project.json"))) {
@@ -176,18 +226,18 @@ for (const { dir, where, example } of selected) {
       execFileSync("mv", [staging, bundleDir]);
     }
     const bytes = manifestBytes.length + bundleFiles.reduce((sum, file) => sum + file.bytes.length, 0);
-    const run = JSON.parse(readFileSync(join(project, RUN_MANIFEST(example.id)), "utf8"));
     const pin = {
       schemaVersion: 1,
       bundle: { sha256: hash, files: bundleFiles.length, bytes },
       sourceSha256: sourceSha256(dir),
-      runmat: { version: runmatVersion, fingerprint: run.runtimeFingerprint ?? null },
-      device: process.env.RUNMAT_CAPTURE_DEVICE ?? runtimePin?.device ?? "cpu_reference",
-      capturedAt,
+      runmat: FROM_BUNDLE ? previous.runmat : { version: runmatVersion, fingerprint: run.runtimeFingerprint ?? null },
+      device: FROM_BUNDLE ? previous.device : process.env.RUNMAT_CAPTURE_DEVICE ?? runtimePin?.device ?? "cpu_reference",
+      capturedAt: FROM_BUNDLE ? previous.capturedAt : capturedAt,
       figures: Object.values(run.cells ?? {}).flatMap((cell) => cell.figures ?? []).length,
+      analysisStore,
     };
     writeFileSync(join(dir, PIN_PATH), `${JSON.stringify(pin, null, 2)}\n`);
-    console.log(`ok   ${where} ${hash.slice(0, 12)} ${(bytes / 1024 / 1024).toFixed(1)} MB`);
+    console.log(`ok   ${where} ${hash.slice(0, 12)} ${(bytes / 1024 / 1024).toFixed(1)} MB, analysis store ${analysisStore}`);
   } catch (error) {
     failed += 1;
     console.log(`fail ${where}: ${error.message}`);

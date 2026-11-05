@@ -39,6 +39,8 @@ import {
   PIN_PATH,
   ROOT,
   RUNTIME_PATH,
+  bundleLimits,
+  bundleViolations,
   listExamples,
   projectManifest,
   runIdFor,
@@ -63,6 +65,8 @@ const THUMBNAILS = !args.includes("--no-thumbnails");
  * repository's local developer account. */
 const SIGN_IN = args.includes("--sign-in");
 const RUN_TIMEOUT_MS = Number(option("--timeout", "240000"));
+const LIMITS = bundleLimits(PRIVATE);
+if (!LIMITS) throw new Error(`No runmat-private at ${PRIVATE}; the capture checks bundles against its loader's limits`);
 
 const require = createRequire(join(PRIVATE, "desktop/package.json"));
 const { chromium } = require("playwright");
@@ -383,6 +387,9 @@ async function captureOne(browser, { dir, where, example }, runtime) {
   const runFiles = stabilize(dark.files, dark.originalRunId, runId, runtime.capturedAt);
   const bundleFiles = [...sources, ...runFiles];
   const project = projectManifest(example.id, example.entry, bundleFiles);
+  // A bundle over the app's limits would not open already run, so it is not published and the old pin stays.
+  const tooLarge = bundleViolations(project.length, bundleFiles, LIMITS);
+  if (tooLarge.length) throw new Error(`captured run is over the app's bundle limits: ${tooLarge.join("; ")}`);
   const hash = sha256(project);
   const bundleDir = join(OUT, example.id, hash);
   if (!existsSync(join(bundleDir, "project.json"))) {

@@ -8,6 +8,8 @@
  * For each page it clicks the first "Open example" button, waits for the sandbox, and checks:
  * - the captured run (run_example_<id>) is in the sandbox's .artifacts/runs and no other run exists (nothing ran);
  * - a figure or FEA result is on screen;
+ * - no "Sign in to RunMat to mesh or solve" prompt is shown. A signed-out visitor sees it when the captured run fails
+ *   to load (for example, a bundle over the app's size limits) and the example falls back to running;
  * then screenshots it (dark). With --rerun it presses Run and checks a new run is written.
  */
 import { createRequire } from "node:module";
@@ -85,9 +87,10 @@ async function verify(browser, target) {
   await context.addInitScript(recordWorkers);
   // The picker stays hidden for automated browsers; show it as a visitor sees it.
   if (target.picker) await context.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
-  const page = await context.newPage();
+  let page = await context.newPage();
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
+
   if (process.env.VERIFY_DEBUG) page.on("console", (message) => { const text = message.text(); if (/bundle|example|workspace_bootstrap/i.test(text)) console.log("console:", text.slice(0, 400)); });
   if (process.env.VERIFY_DEBUG) page.on("request", (request) => { if (/examples-runs|runs\.json/.test(request.url())) console.log("request:", request.url()); });
   try {
@@ -95,7 +98,18 @@ async function verify(browser, target) {
       await page.goto(`${APP}${target.page}`, { waitUntil: "domcontentloaded" });
       const button = page.locator('[data-ph-capture-attribute-cta="open-example"]').first();
       await button.waitFor({ timeout: 60_000 });
-      await Promise.all([page.waitForURL(/\/sandbox/, { timeout: 60_000 }), button.click()]);
+      // The button opens the sandbox in this tab or, on pages whose button reads "Open example ↗", in a new one.
+      const opened = context.waitForEvent("page", { timeout: 60_000 }).catch(() => null);
+      await button.click();
+      const sandbox = await Promise.race([
+        page.waitForURL(/\/sandbox/, { timeout: 60_000 }).then(() => page),
+        opened.then(async (tab) => (tab ? (await tab.waitForURL(/\/sandbox/, { timeout: 60_000 }), tab) : null)),
+      ]);
+      if (!sandbox) throw new Error(`${target.page}: the open-example button did not open the sandbox`);
+      if (sandbox !== page) {
+        sandbox.on("pageerror", (error) => errors.push(error.message));
+        page = sandbox;
+      }
     } else if (target.picker) {
       // The sandbox's "Start with..." picker (Desktop's example launch, lib/examples/launch.ts).
       await page.goto(`${APP}/sandbox`, { waitUntil: "domcontentloaded" });
@@ -117,11 +131,12 @@ async function verify(browser, target) {
     const captured = runs.filter((name) => name.startsWith("run_example_"));
     const others = runs.filter((name) => !name.startsWith("run_example_"));
     const canvases = await page.locator("canvas").count();
+    const signInPrompts = await page.getByText(/sign in to runmat to (mesh|solve|run)/i).count();
     const name = (target.page ?? target.example ?? `picker-${target.picker}`).replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
     mkdirSync(SHOTS, { recursive: true });
     const shot = join(SHOTS, `${name}.png`);
     await page.screenshot({ path: shot });
-    const result = { target: target.page ?? target.example ?? `picker:${target.picker}`, captured, ranOnOpen: others, canvases, shot, errors: errors.slice(0, 3) };
+    const result = { target: target.page ?? target.example ?? `picker:${target.picker}`, captured, ranOnOpen: others, canvases, signInPrompts, shot, errors: errors.slice(0, 3) };
     if (RERUN) {
       const run = page.getByRole("button", { name: /^Run\b/ }).first();
       await run.click({ timeout: 10_000 });
@@ -158,7 +173,7 @@ try {
   for (const [index, target] of targets.entries()) {
     if (index > 0) await new Promise((done) => setTimeout(done, 4000));
     const result = await verify(browser, target);
-    const ok = result.captured.length === 1 && result.ranOnOpen.length === 0 && (!RERUN || result.rerun?.length);
+    const ok = result.captured.length === 1 && result.ranOnOpen.length === 0 && result.signInPrompts === 0 && (!RERUN || result.rerun?.length);
     if (!ok) failed += 1;
     console.log(`${ok ? "ok  " : "FAIL"} ${JSON.stringify(result)}`);
   }

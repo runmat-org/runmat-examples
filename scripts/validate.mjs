@@ -12,12 +12,16 @@
  * An example without a pin is a warning; `--require-runs` makes it an error once every example is captured.
  * With `--runs <dir>` (the local bundle folder), each pinned bundle is also checked file by file, and the
  * workspace.json resultView must name a figure the run has.
+ *
+ * Size: every pin must fit the app's bundle limits (EXAMPLE_RUN_LIMITS in runmat-private's
+ * desktop/src/lib/examples/run-bundle.ts). The pin's file count and total are checked always; with `--runs`, each
+ * file and project.json are checked too. A bundle over a limit does not open already run, so it is an error.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { PIN_PATH, RUNTIME_PATH, sha256, sourceSha256 } from "./lib/bundle.mjs";
+import { PIN_PATH, RUNTIME_PATH, bundleLimits, bundleViolations, sha256, sourceSha256 } from "./lib/bundle.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const KINDS = new Set(["script", "study"]);
@@ -30,6 +34,7 @@ const RUNS_DIR = args.includes("--runs") ? args[args.indexOf("--runs") + 1] : pr
 const runtime = existsSync(RUNTIME_PATH) ? JSON.parse(readFileSync(RUNTIME_PATH, "utf8")) : null;
 const DIGEST = /^[0-9a-f]{64}$/;
 let pinned = 0;
+const LIMITS = bundleLimits();
 const examplesWorkspace = new Map();
 
 const errors = [];
@@ -146,6 +151,9 @@ function checkPin(dir, where, example) {
   else if (pinnedVersion && pin.runmat?.version !== pinnedVersion) errors.push(`${where}: stale pin, captured on RunMat ${pin.runmat?.version}, runtime.json pins ${pinnedVersion}; recapture it`);
   else if (!pinnedVersion) warnings.push(`${where}: runtime.json pins no ${example.kind === "study" ? "studies.version" : "runmat.version"}`);
   if (!["cpu_reference", "gpu"].includes(pin.device)) errors.push(`${where}: pin device must be cpu_reference or gpu, not ${pin.device}`);
+  if (LIMITS && (pin.bundle.files > LIMITS.files || pin.bundle.bytes > LIMITS.totalBytes)) {
+    errors.push(`${where}: captured run is ${pin.bundle.files} files, ${(pin.bundle.bytes / 1024 / 1024).toFixed(1)} MB, over the app's bundle limits (${LIMITS.files} files, ${LIMITS.totalBytes / 1024 / 1024} MB); it would not open already run`);
+  }
   if (RUNS_DIR) checkBundle(where, example, pin);
 }
 
@@ -162,6 +170,7 @@ function checkBundle(where, example, pin) {
     return;
   }
   const manifest = JSON.parse(manifestBytes.toString("utf8"));
+  if (LIMITS) for (const problem of bundleViolations(manifestBytes.length, manifest.files, LIMITS)) errors.push(`${where}: bundle too large to open already run: ${problem}`);
   for (const file of manifest.files) {
     const path = join(base, "files", file.path);
     if (!existsSync(path)) errors.push(`${where}: bundle file ${file.path} is missing`);
@@ -173,6 +182,7 @@ function checkBundle(where, example, pin) {
   if (view?.kind === "figure" && !handles.includes(view.figure)) errors.push(`${where}: resultView names figure ${view.figure}, which the captured run does not have (${handles.join(", ") || "none"})`);
 }
 
+if (!LIMITS) warnings.push("bundle size limits not checked: runmat-private is not next to this repository (set RUNMAT_PRIVATE_DIR)");
 const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
 console.log(`${total} examples`);
 for (const [group, count] of Object.entries(counts)) console.log(`  ${group}: ${count}`);
