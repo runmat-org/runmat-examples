@@ -1,0 +1,12 @@
+[package]
+name = "bracket-hook-sweep"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "bracket-hook-sweep.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,93 @@
+// Static strength of a wall-hook bracket (40 x 50 x 35 mm, S355 steel), set up with RunMat's guided setup.
+// The base plate is bolted to a wall at its three countersunk mounting holes, which are held.
+// A 2 kN load hangs from the hook: it presses down the wall (-Y) on the hook seat.
+// The STEP file declares millimeters, so the geometry keeps the file's scale.
+geometry bracket {
+    file = "./geometry/bracket.step"
+    region body : solid {
+        select name "WallHook_30mm"
+        expect exactly_one
+    }
+    // Three bores and their three countersinks, all named in the CAD file.
+    region mounting_holes : face {
+        select name "Mounting holes"
+        expect one_or_more
+    }
+    region hook_seat : face {
+        select name "Hook seat"
+        expect exactly_one
+    }
+}
+
+mesh bracket on geometry.bracket {
+    tetrahedra {
+        order = linear
+        target_size = 6 mm
+        maximum_deviation = 0.05 mm
+        cells_across_gap = 3
+    }
+}
+
+// S355 (EN 10025-2), machined from plate. Its yield strength is 355 MPa.
+// Linear elasticity does not model plastic redistribution above yield.
+material s355 {
+    name = "S355 (EN 10025-2), machined plate"
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 210 GPa
+        poisson_ratio = 0.30
+    }
+}
+
+model loaded_bracket {
+    input service_load : force = 2 kN
+    assign material.s355 to geometry.bracket.region.body
+    // The holes are held fixed; the screws and the wall contact are left out.
+    constraint mounting {
+        structural.fixed { target = geometry.bracket.region.mounting_holes }
+    }
+    // The total force, spread over the seat (not 2 kN per node).
+    load hanging {
+        force on geometry.bracket.region.hook_seat = [0 N, -input.service_load, 0 N]
+    }
+    load_case service { include load.hanging }
+}
+
+study bracket_static {
+    input service_load : force = 2 kN
+    // Each sweep case sets this input; the study on its own runs at 2 kN.
+    geometry = geometry.bracket
+    mesh = mesh.bracket
+    model = model.loaded_bracket(service_load = input.service_load)
+
+    // A steady static load; impact and fatigue are not analyzed.
+    analysis static { structural static {} }
+
+    output displacement = analysis.static.field.node.displacement
+    output von_mises = analysis.static.field.element.von_mises_stress
+    output peak_hook_deflection = max(
+        magnitude(output.displacement),
+        over = geometry.bracket.region.hook_seat,
+    )
+    assessment hook_deflection {
+        value = output.peak_hook_deflection
+        maximum = 0.1 mm
+        evidence = authored_samples
+    }
+}
+
+// Seven static cases; assessments are evaluated separately for each case.
+sweep load_sweep over study.bracket_static {
+    axis service_load {
+        load_1_0 = 1 kN
+        load_1_5 = 1.5 kN
+        load_2_0 = 2 kN
+        load_2_5 = 2.5 kN
+        load_3_0 = 3 kN
+        load_3_5 = 3.5 kN
+        load_4_0 = 4 kN
+    }
+    combine = product
+    output deflection_by_case = collect(case.output.peak_hook_deflection.value)
+    output governing_deflection = max(case.output.peak_hook_deflection.value, over = cases)
+}

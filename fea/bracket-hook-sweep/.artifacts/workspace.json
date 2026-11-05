@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bracket-hook-sweep.fea"
+    ],
+    "activeFile": "/bracket-hook-sweep.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak hook deflection for each sweep case",
+      "Refine the mesh and check the hook deflection converges",
+      "Change the material to aluminum and compare deflection"
+    ]
+  }
+}

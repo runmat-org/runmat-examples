@@ -1,0 +1,33 @@
+{
+  "id": "bracket-hook-sweep",
+  "title": "Wall-hook bracket load sweep",
+  "pickerTitle": "Wall-hook bracket load sweep",
+  "pickerLine": "FEA studies",
+  "line": "A static FEA study of an S355 steel wall-hook bracket under a 2 kN hanging load, checked against a 0.1 mm hook deflection limit and swept from 1 to 4 kN.",
+  "description": "Static strength of a wall-hook bracket (40 x 50 x 35 mm, S355 steel, E = 210 GPa) on a linear tetrahedral mesh with a 6 mm target size. The base plate is bolted to a wall at its three countersunk mounting holes, which are held. A 2 kN load hangs from the hook: it presses down the wall (-Y) on the hook seat. The study checks the peak deflection of the hook seat against 0.1 mm, and the load sweep repeats the check from 1 to 4 kN in 0.5 kN steps. This is the study RunMat's guided setup wrote in the session shown on /simulation/structural.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "bracket-hook-sweep.fea",
+  "roles": [
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "bracket-hook-sweep",
+  "thumbnailAlt": "Displacement of an S355 steel wall-hook bracket under a 2 kN hanging load, solved in RunMat",
+  "origin": {
+    "page": "/simulation/structural",
+    "key": "website:simulation/structural/hero",
+    "source": "runmat-private desktop/scripts/site-captures/guided-setup/session/bracket_static.fea (guided setup session on GPT-6.1 Sol, 2026-11-03), with the mesh coarsened to linear 6 mm tetrahedra",
+    "geometry": "runmat-examples fea/bracket-hook-load/geometry/bracket.step",
+    "thumbnail": "snapshot displacement poster"
+  }
+}
