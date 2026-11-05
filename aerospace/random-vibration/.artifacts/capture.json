@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "bundle": {
-    "sha256": "505c9c016e0b12ab6abac6ce856de474ae4782c5005d24c09a122e5822f0bf25",
+    "sha256": "ec73d8d8ba01162a4803ad8b7105b3ca491405c2c94a68674c7fccd2b31dc494",
     "files": 12,
     "bytes": 434801
   },
-  "sourceSha256": "f396617e5fcd8e39b4e1d7c463058faa989f02778daf68777993768886dd8706",
+  "sourceSha256": "c68271a98e5effb11dcbb3d38fe1658b1742c0e32837e022b69f00d52d4f016c",
   "runmat": {
     "version": "0.7.0",
     "fingerprint": "desktop:browser"

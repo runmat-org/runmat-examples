@@ -15,8 +15,8 @@ DATA;
 #4 = PRODUCT_DEFINITION_SHAPE('','',#5);
 #5 = PRODUCT_DEFINITION('design','',#6,#9);
 #6 = PRODUCT_DEFINITION_FORMATION('','',#7);
-#7 = PRODUCT('Open CASCADE STEP translator 7.9 1',
-  'Open CASCADE STEP translator 7.9 1','',(#8));
+#7 = PRODUCT('Tuning fork',
+  'Tuning fork','',(#8));
 #8 = PRODUCT_CONTEXT('',#2,'mechanical');
 #9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #10 = ADVANCED_BREP_SHAPE_REPRESENTATION('',(#11,#15),#969);
@@ -24,10 +24,10 @@ DATA;
 #12 = CARTESIAN_POINT('',(0.,0.,0.));
 #13 = DIRECTION('',(0.,0.,1.));
 #14 = DIRECTION('',(1.,0.,-0.));
-#15 = MANIFOLD_SOLID_BREP('',#16);
+#15 = MANIFOLD_SOLID_BREP('Tuning fork',#16);
 #16 = CLOSED_SHELL('',(#17,#137,#213,#289,#365,#441,#517,#593,#669,#745,
     #821,#892,#939,#954));
-#17 = ADVANCED_FACE('',(#18),#32,.T.);
+#17 = ADVANCED_FACE('Fixed end',(#18),#32,.T.);
 #18 = FACE_BOUND('',#19,.T.);
 #19 = EDGE_LOOP('',(#20,#55,#83,#111));
 #20 = ORIENTED_EDGE('',*,*,#21,.T.);
