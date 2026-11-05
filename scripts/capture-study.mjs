@@ -6,6 +6,7 @@
  *   node scripts/capture-study.mjs --runmat <cli> [--only <id>]... [--out <dir>]
  *   node scripts/capture-study.mjs --only <id> --from-project <native snapshot project> [--out <dir>]
  *   node scripts/capture-study.mjs --only <id> --from-bundle [--out <dir>]
+ *   node scripts/capture-study.mjs --only <id> --from-snapshot <snapshot dir> --store <study dir> --runmat-version <v> [--out <dir>]
  *
  * With --runmat, each study runs as `<cli> snapshot <entry> --out .snapshot/snapshot.json` in a staging copy of the
  * example. The CLI must be signed in: `runmat login --api-key "$RUNMAT_API_KEY" --server "$RUNMAT_SERVER_URL"` in CI.
@@ -13,6 +14,12 @@
  * scripts/docs/snapshot-project.mjs does it for the docs examples: the FEA dataset object and its sidecar under
  * .artifacts/objects/<aa>/, and a schemaVersion 2 run manifest whose figures point at the snapshot's scenes and
  * posters. The app's replay index restores the run from these files without solving.
+ *
+ * With --from-snapshot, the capture reuses a `runmat snapshot` output folder (snapshot.json with its scenes and posters)
+ * that was solved elsewhere, for example on a build machine, and writes it in the app's run format as --runmat does.
+ * --store is the folder the study was solved in; the study evidence file the snapshot names is copied from its
+ * .artifacts. --runmat-version names the CLI build that solved it. The study's code must equal the example's. The pin
+ * records analysisStore "omitted": the run opens with its figures and results, and paging raw field values needs a new run.
  *
  * With --from-project, the capture reuses a native snapshot project the runtime already produced (for example a docs
  * example's project/files folder). Its source files must equal the example's. With --from-bundle, it reuses the
@@ -50,6 +57,9 @@ const OUT = resolve(option("--out", join(PRIVATE, "website/public/examples-runs"
 const RUNMAT = option("--runmat", process.env.RUNMAT_CLI);
 const FROM_PROJECT = option("--from-project");
 const FROM_BUNDLE = args.includes("--from-bundle");
+const FROM_SNAPSHOT = option("--from-snapshot");
+const STORE = option("--store");
+const SNAPSHOT_VERSION = option("--runmat-version");
 const LIMITS = bundleLimits(PRIVATE);
 if (!LIMITS) throw new Error(`No runmat-private at ${PRIVATE}; the capture checks bundles against its loader's limits`);
 
@@ -155,13 +165,17 @@ if (!selected.length) {
   console.error("No study matches --only.");
   process.exit(1);
 }
-if (!RUNMAT && !FROM_PROJECT && !FROM_BUNDLE) {
-  console.error("Pass --runmat <cli> (a signed-in RunMat CLI), --from-project <native snapshot project> or --from-bundle.");
+if (FROM_SNAPSHOT && !(STORE && SNAPSHOT_VERSION)) {
+  console.error("--from-snapshot needs --store <study dir> and --runmat-version <version of the CLI that solved it>.");
+  process.exit(1);
+}
+if (!RUNMAT && !FROM_PROJECT && !FROM_BUNDLE && !FROM_SNAPSHOT) {
+  console.error("Pass --runmat <cli> (a signed-in RunMat CLI), --from-project <native snapshot project>, --from-snapshot <snapshot dir> or --from-bundle.");
   process.exit(1);
 }
 // Studies run on the native CLI, so runtime.json pins its version separately (`studies.version`). A capture reusing
 // a docs snapshot project cannot name the build that solved it and records "docs-snapshot".
-const runmatVersion = RUNMAT ? execFileSync(RUNMAT, ["--version"], { encoding: "utf8" }).trim().replace(/^runmat\s+/, "") : "docs-snapshot";
+const runmatVersion = RUNMAT ? execFileSync(RUNMAT, ["--version"], { encoding: "utf8" }).trim().replace(/^runmat\s+/, "") : FROM_SNAPSHOT ? SNAPSHOT_VERSION : "docs-snapshot";
 if (RUNMAT) {
   const pinned = runtimePin ?? { schemaVersion: 1, runmat: { version: null, fingerprint: null }, device: process.env.RUNMAT_CAPTURE_DEVICE ?? "cpu_reference", capturedAt };
   if (pinned.studies?.version && pinned.studies.version !== runmatVersion && !args.includes("--accept-runtime")) {
@@ -185,7 +199,15 @@ for (const { dir, where, example } of selected) {
     }
     if (FROM_BUNDLE && !(from && existsSync(from))) throw new Error(`--from-bundle: no pinned bundle in ${OUT}`);
     if (from) adoptProject(project, from, example, sources, capturedAt);
-    else {
+    else if (FROM_SNAPSHOT) {
+      cpSync(resolve(FROM_SNAPSHOT), join(project, ".snapshot"), { recursive: true });
+      const snapshot = JSON.parse(readFileSync(join(project, ".snapshot/snapshot.json"), "utf8"));
+      requireCompleteSnapshot(snapshot);
+      const evidence = snapshot.publication.evidence_artifact_path;
+      mkdirSync(dirname(join(project, evidence)), { recursive: true });
+      cpSync(join(resolve(STORE), evidence), join(project, evidence));
+      writeRunFormat(project, example, snapshot, capturedAt);
+    } else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
       execFileSync(RUNMAT, ["snapshot", example.entry, "--out", ".snapshot/snapshot.json"], { cwd: project, stdio: "inherit" });
       const snapshot = JSON.parse(readFileSync(join(project, ".snapshot/snapshot.json"), "utf8"));
@@ -199,7 +221,8 @@ for (const { dir, where, example } of selected) {
       .map((path) => ({ path, bytes: readFileSync(join(project, path)) }));
     let bundleFiles = [...sources, ...allRunFiles];
     let manifestBytes = projectManifest(example.id, example.entry, bundleFiles);
-    let analysisStore = "included";
+    // A snapshot solved elsewhere brings only its evidence file, not the native store's meshes and field chunks.
+    let analysisStore = FROM_SNAPSHOT ? "omitted" : "included";
     const full = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
     if (full.length) {
       const keep = datasetEvidence(project, run);

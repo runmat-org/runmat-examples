@@ -1,0 +1,32 @@
+{
+  "id": "battery-module-cells",
+  "title": "Battery module cells on a cold plate",
+  "pickerTitle": "Battery module cells on a cold plate",
+  "pickerLine": "FEA studies",
+  "line": "A steady thermal FEA study of eight prismatic cells in one battery module, 20 W per cell, cooled from below.",
+  "description": "Steady temperature of the eight prismatic cells (34 x 500 x 95 mm) of module M01 in an EV battery pack. Each cell generates 20 W, 160 W for the module. The cell bottoms are cooled through the gap filler, the cold-plate lid and the coolant, written as one effective film coefficient of 403 W/m^2/K to 25 C. Only the cells are solved; the rest of the pack is CAD context.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "battery-module-cells.fea",
+  "roles": [
+    "automotive",
+    "thermal_fluids",
+    "electrical",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "battery-module-cells",
+  "thumbnailAlt": "Temperature of eight battery cells on a cold plate, from 301.1 K at the bottoms to 303.9 K at the tops, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/hero",
+    "source": "build Mac ~/runs/q-hero-pack/study/m01-cells-thermal.fea (run snap-cellsp2, CLI runmat-proximity-b32655585d)",
+    "geometry": "build Mac ~/runs/q-hero-pack/study/geometry/m01-cells.step",
+    "thumbnail": "snap-cellsp2/temperature.png"
+  }
+}

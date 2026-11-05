@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/battery-module-cells.fea"
+    ],
+    "activeFile": "/battery-module-cells.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak cell temperature and the heat leaving through the cold plate",
+      "Raise the load to 30 W per cell and check the peak against 318 K",
+      "Find the cold-plate film coefficient that keeps the cell tops below 308 K"
+    ]
+  }
+}

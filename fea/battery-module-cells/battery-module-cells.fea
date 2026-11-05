@@ -1,0 +1,91 @@
+// Module M01 of an EV battery pack: steady temperature of its eight prismatic cells at
+// 20 W per cell (160 W), cooled from below by the module's cold plate. Only the cells are
+// solved; the rest of the pack is CAD context and is not part of this study.
+//
+// Geometry: ./geometry/m01-cells.step holds the eight cells (34 x 500 x 95 mm) with their CAD
+// solid names. Each cell's bottom face, which sits on the module's thermal interface, is named
+// "M01 cell bottom". The 2 mm barriers between cells are left out: every cell carries the same
+// load, so no heat crosses them and their faces are adiabatic.
+//
+// Cooling below the cells: a 3 mm gap filler (3 W/m/K), a 2 mm aluminum cold-plate lid, and
+// 25 C coolant with h = 1500 W/m^2/K on 0.06168 m^2 of channel wall (92.5 W/K). Over the
+// 0.136 m^2 of cell bottoms these resistances add up to
+//     0.136 / 92.5 + 0.003 / 3 + 0.002 / 167 = 2.482e-3 m^2 K/W, so h_eff = 403 W/m^2/K.
+//
+// Load: 20 W per cell over its 1.615e-3 m^3 volume, Q = 12383.9 W/m^3.
+// Check: each cell is a slab with uniform heat generation, a convective bottom and an adiabatic
+// top, so its top reaches
+//     T = 298.15 + Q H / h_eff + Q H^2 / (2 k) = 298.15 + 2.919 + 2.794 = 303.86 K  (H = 0.095 m).
+
+geometry module {
+    file = "./geometry/m01-cells.step"
+    units = mm
+    interfaces = shared
+    region cell_1 : solid { select name "M01 cell 1"; expect exactly_one }
+    region cell_2 : solid { select name "M01 cell 2"; expect exactly_one }
+    region cell_3 : solid { select name "M01 cell 3"; expect exactly_one }
+    region cell_4 : solid { select name "M01 cell 4"; expect exactly_one }
+    region cell_5 : solid { select name "M01 cell 5"; expect exactly_one }
+    region cell_6 : solid { select name "M01 cell 6"; expect exactly_one }
+    region cell_7 : solid { select name "M01 cell 7"; expect exactly_one }
+    region cell_8 : solid { select name "M01 cell 8"; expect exactly_one }
+    region cell_bottoms : face { select name "M01 cell bottom"; expect one_or_more }
+}
+
+mesh module on geometry.module {
+    tetrahedra {
+        order = linear
+        target_size = 12 mm
+        maximum_deviation = 0.2 mm
+    }
+}
+
+// An effective isotropic cell, at the in-plane conductivity of a stacked prismatic cell.
+material li_ion_cell {
+    mass_density = 2500 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.00001 K^-1
+        conductivity = 20 W/m/K
+        specific_heat = 1000 J/kg/K
+    }
+}
+
+model module_cooling {
+    thermal { reference_temperature = 298.15 K }
+    assign material.li_ion_cell to geometry.module.region.cell_1
+    assign material.li_ion_cell to geometry.module.region.cell_2
+    assign material.li_ion_cell to geometry.module.region.cell_3
+    assign material.li_ion_cell to geometry.module.region.cell_4
+    assign material.li_ion_cell to geometry.module.region.cell_5
+    assign material.li_ion_cell to geometry.module.region.cell_6
+    assign material.li_ion_cell to geometry.module.region.cell_7
+    assign material.li_ion_cell to geometry.module.region.cell_8
+    load cell_1_heat { heat_generation on geometry.module.region.cell_1 = 12383.9 W/m^3 }
+    load cell_2_heat { heat_generation on geometry.module.region.cell_2 = 12383.9 W/m^3 }
+    load cell_3_heat { heat_generation on geometry.module.region.cell_3 = 12383.9 W/m^3 }
+    load cell_4_heat { heat_generation on geometry.module.region.cell_4 = 12383.9 W/m^3 }
+    load cell_5_heat { heat_generation on geometry.module.region.cell_5 = 12383.9 W/m^3 }
+    load cell_6_heat { heat_generation on geometry.module.region.cell_6 = 12383.9 W/m^3 }
+    load cell_7_heat { heat_generation on geometry.module.region.cell_7 = 12383.9 W/m^3 }
+    load cell_8_heat { heat_generation on geometry.module.region.cell_8 = 12383.9 W/m^3 }
+    load cold_plate {
+        thermal.convection {
+            target = geometry.module.region.cell_bottoms
+            ambient_temperature = 298.15 K
+            coefficient = 403 W/m^2/K
+        }
+    }
+}
+
+study module_temperature {
+    geometry = geometry.module
+    mesh = mesh.module
+    model = model.module_cooling
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output heat_flux = analysis.heat.field.element.heat_flux
+    output peak_end_cell_temperature = max(analysis.heat.field.node.temperature, over = geometry.module.region.cell_1)
+    output peak_mid_cell_temperature = max(analysis.heat.field.node.temperature, over = geometry.module.region.cell_4)
+}
