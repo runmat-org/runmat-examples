@@ -1,0 +1,51 @@
+// Buckling of a steel column (1000 mm tall, 100 x 50 mm section), fixed at its base.
+// A 250 kN axial load presses on its top face. The preload's geometric stiffness feeds a buckling
+// analysis, which returns the load factor on 250 kN at which the column buckles, and the buckled shape.
+geometry column {
+    file = "./geometry/column-100x50.step"
+    units = mm
+    region body : solid { select name "Column"; expect exactly_one }
+    region base : face { select name "Base"; expect exactly_one }
+    region top : face { select name "Top"; expect exactly_one }
+}
+
+mesh column on geometry.column {
+    tetrahedra {
+        order = quadratic
+        target_size = 25 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+material steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+model compressed_column {
+    assign material.steel to geometry.column.region.body
+    constraint fixed_base {
+        structural.fixed { target = geometry.column.region.base }
+    }
+    load axial {
+        force on geometry.column.region.top = [-250, 0, 0] kN
+    }
+    load_case service { include load.axial }
+}
+
+study column_buckling {
+    geometry = geometry.column
+    mesh = mesh.column
+    model = model.compressed_column
+    analysis preload { structural preload {} }
+    analysis buckling after analysis.preload {
+        structural buckling {
+            prestress = analysis.preload.state.geometric_stiffness
+            modes = 1
+        }
+    }
+    output buckled_shapes = analysis.buckling.field.node.displacement
+}

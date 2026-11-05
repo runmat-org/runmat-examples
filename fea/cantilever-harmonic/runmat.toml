@@ -1,0 +1,12 @@
+[package]
+name = "cantilever-harmonic"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cantilever-harmonic.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

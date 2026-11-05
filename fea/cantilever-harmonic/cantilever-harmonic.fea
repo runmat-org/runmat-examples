@@ -1,0 +1,71 @@
+// Forced response of a steel cantilever beam (1000 x 100 x 100 mm), fixed at one end.
+// A 100 N force drives the free end vertically (-Z), swept from 20 to 200 Hz across the first bending mode.
+// The sweep is solved on the first eight modes, with Rayleigh damping in the material.
+geometry beam {
+    file = "./geometry/cantilever.step"
+    units = mm
+    region body : solid { select name "Beam"; expect exactly_one }
+    region fixed_end : face { select name "Fixed end"; expect exactly_one }
+    region loaded_end : face { select name "Loaded end"; expect exactly_one }
+}
+
+mesh beam on geometry.beam {
+    tetrahedra {
+        order = quadratic
+        target_size = 50 mm
+        maximum_deviation = 1 mm
+    }
+}
+
+material steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+    rayleigh_damping {
+        mass_coefficient = 10 Hz
+        stiffness_coefficient = 20 us
+    }
+}
+
+model shaken_beam {
+    assign material.steel to geometry.beam.region.body
+    constraint fixed_end {
+        structural.fixed { target = geometry.beam.region.fixed_end }
+    }
+    signal drive : force over frequency {
+        samples = [
+            { at = 20 Hz, value = { real = 100 N, imaginary = 0 N } },
+            { at = 200 Hz, value = { real = 100 N, imaginary = 0 N } },
+        ]
+        interpolation = linear
+        extrapolation = reject
+    }
+    excitation tip_force {
+        force {
+            target = geometry.beam.region.loaded_end
+            signal = signal.drive
+            direction = global([0, 0, -1])
+            kinematics = fixed_frame
+        }
+    }
+    load_case driven { include excitation.tip_force }
+}
+
+study cantilever_modal_harmonic {
+    geometry = geometry.beam
+    mesh = mesh.beam
+    model = model.shaken_beam
+    analysis modes {
+        structural modal { modes = 8 }
+        retain basis
+    }
+    analysis response after analysis.modes {
+        structural modal_harmonic {
+            basis = analysis.modes.state.basis
+            frequencies = [20, 40, 60, 75, 80, 85, 100, 150, 200] Hz
+        }
+    }
+    output displacement = analysis.response.field.node.displacement
+}

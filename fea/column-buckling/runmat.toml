@@ -1,0 +1,12 @@
+[package]
+name = "column-buckling"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "column-buckling.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

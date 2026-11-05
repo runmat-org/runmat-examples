@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cantilever-impact.fea",
+      "/impactPulse.m"
+    ],
+    "activeFile": "/cantilever-impact.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak tip displacement and when it occurs",
+      "Double the pulse duration and compare the peak",
+      "Add 2% damping and report how fast the vibration decays"
+    ]
+  }
+}

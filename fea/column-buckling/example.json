@@ -1,0 +1,32 @@
+{
+  "id": "column-buckling",
+  "title": "Column buckling",
+  "pickerTitle": "Column buckling",
+  "pickerLine": "FEA studies",
+  "line": "A buckling FEA study of a steel column under a 250 kN axial load.",
+  "description": "Linear buckling of a steel column (1000 mm tall, 100 x 50 mm section), fixed at its base, with a 250 kN axial load on its top face. A preload step finds the stress state and its geometric stiffness; the buckling step returns the load factor on 250 kN at which the column buckles and the buckled shape.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "column-buckling.fea",
+  "roles": [
+    "aerospace",
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "column-buckling",
+  "thumbnailAlt": "First buckling mode of a steel column under axial load, solved in RunMat",
+  "origin": {
+    "page": "/simulation/structural",
+    "key": "website:simulation/structural/column-buckling",
+    "source": "runmat-examples/fea/column-buckling/column-buckling.fea"
+  }
+}

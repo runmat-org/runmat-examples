@@ -1,0 +1,12 @@
+[package]
+name = "cantilever-impact"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cantilever-impact.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cantilever-harmonic.fea"
+    ],
+    "activeFile": "/cantilever-harmonic.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the tip amplitude at each frequency and the resonant peak",
+      "Refine the sweep from 75 to 90 Hz in 1 Hz steps",
+      "Check the peak amplitude against a 1 mm limit"
+    ]
+  }
+}
