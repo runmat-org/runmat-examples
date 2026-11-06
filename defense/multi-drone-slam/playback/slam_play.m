@@ -1,12 +1,12 @@
 function slam_play(S, settings)
 % SLAM_PLAY  Plays a SLAM run in real time.
 %
-%   slam_play(S, settings) builds figures 1 to 3 (slam_scene) and steps them
+%   slam_play(S, settings) builds the playback figure (slam_scene) and steps it
 %   through the run at settings.rate simulation steps per second, timed by
 %   the wall clock. When a frame takes longer to draw than one step, the
 %   next frame jumps to the step that is due, so the run keeps its pace on a
-%   slow machine; a fast machine waits between frames. The camera of figure
-%   1 is never moved, so the map can be orbited and zoomed while it plays.
+%   slow machine; a fast machine waits between frames. The camera of the
+%   map is never moved, so it can be orbited and zoomed while it plays.
 %   The last frame is always the last step, and slam_scene_finish then
 %   draws the finished map as slam_draw does.
 %
@@ -19,7 +19,7 @@ function slam_play(S, settings)
     T = S.cfg.T;
     G = slam_scene(S, opts);
     flush = slamDrawnowWorks();
-    fprintf('Playing %d steps at %d steps per second (%.0f s). Drag figure 1 to orbit, scroll to zoom.\n', ...
+    fprintf('Playing %d steps at %d steps per second (%.0f s). Drag the map to orbit, scroll to zoom.\n', ...
         T, settings.rate, T ./ settings.rate);
     tPlay = tic;
     f = 1;

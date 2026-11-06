@@ -21,5 +21,5 @@ function settings = slam_settings()
     settings.fps = 10;
     settings.minPause = 0.04;
     settings.light = false;
-    settings.fontSize = 18;
+    settings.fontSize = 13;
 end

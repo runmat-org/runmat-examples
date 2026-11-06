@@ -1,11 +1,14 @@
 function G = slam_scene(S, opts)
-% SLAM_SCENE  Builds figures 1 to 3 once, for playback.
+% SLAM_SCENE  Builds the playback figure once.
 %
-%   G = slam_scene(S, opts) draws the run at step 1 in the layout slam_draw
-%   uses and returns the handles slam_scene_step updates at each later step.
-%   Only the data of the drawn objects changes after this call; the camera
-%   of figure 1 is set here once, so an orbit or zoom made with the mouse
-%   during playback stays in place.
+%   G = slam_scene(S, opts) draws the run at step 1 in figure 1 and returns
+%   the handles slam_scene_step updates at each later step. The left panel
+%   is the 3D map, whose title reports the share of the terrain mapped; the
+%   right panel is each drone's position error. Everything is in one figure
+%   because RunMat presents live changes for the current figure only, so
+%   both panels move while the run plays. Only the data of the drawn objects
+%   changes after this call; the map's camera is set here once, so an orbit
+%   or zoom made with the mouse during playback stays in place.
 %
 %   The map points are drawn in G.bands height bands over 0 to 115 m, one
 %   line object per band in the turbo colormap, each point a short stroke,
@@ -20,6 +23,7 @@ function G = slam_scene(S, opts)
     style = slam_style(opts.light);
     G.style = style;
     G.trail = 150;
+    G.zoom = 1.5;
     G.bands = 16;
     G.bandColors = turbo(G.bands);
     G.zTop = 115;
@@ -32,7 +36,10 @@ function G = slam_scene(S, opts)
 
     figure(1);
     clf;
-    ground = slam_ground_grid(-1000, 1500, 50);
+    subplot(1, 2, 1);
+    % The ground grid covers the terrain only: the live view frames
+    % everything drawn, so a wider grid would shrink the map in the panel.
+    ground = slam_ground_grid(0, cfg.L, 32);
     plot3(ground.x, ground.y, ground.z, '-', 'Color', style.grid, 'LineWidth', 0.6);
     hold on;
     wire = slam_terrain_wire(S.H, S.gx, 8);
@@ -53,15 +60,16 @@ function G = slam_scene(S, opts)
         G.rayLine(d) = plot3(p(1), p(2), p(3), '-', 'Color', style.ray, 'LineWidth', 0.7);
         G.drone(d) = plot3(p(1), p(2), p(3), '-', 'Color', style.drone(d, :), 'LineWidth', 3.5);
     end
-    axis([0 cfg.L 0 cfg.L 0 200]);
+    G.limits = [0 cfg.L 0 cfg.L 0 200];
+    axis(G.limits);
     grid off;
     % RunMat 0.7.0 RC draws a 3D title in a fixed 28 px band and clips a
     % large one at the top; the empty first line gives it room.
-    title(sprintf('\nDrones scanning terrain'), 'FontSize', opts.fontSize);
+    G.mapTitle = title(slam_map_title(S.coverage(1)), 'FontSize', opts.fontSize);
     set(gca, 'FontSize', round(opts.fontSize .* 0.8));
     % The starting camera of slam_draw's orbit. Playback never moves it.
     view(32, 34);
-    zoom(1.5);
+    zoom(G.zoom);
 
     tickStep = 50;
     if cfg.T >= 300
@@ -70,8 +78,7 @@ function G = slam_scene(S, opts)
     stepTicks = tickStep:tickStep:cfg.T;
     small = round(opts.fontSize .* 0.8);
 
-    figure(2);
-    clf;
+    subplot(1, 2, 2);
     hold on;
     G.ax2 = gca;
     G.err = zeros(1, cfg.D);
@@ -84,19 +91,5 @@ function G = slam_scene(S, opts)
     xlabel('Step', 'FontSize', small);
     set(gca, 'FontSize', small, 'XTick', stepTicks);
 
-    figure(3);
-    clf;
-    hold on;
-    G.ax3 = gca;
-    G.cov = plot(1, S.coverage(1), '-', 'Color', style.drone(3, :), 'LineWidth', 5);
-    xlim([0 cfg.T]);
-    ylim([0 100]);
-    title('Map coverage (%)', 'FontSize', opts.fontSize);
-    xlabel('Step', 'FontSize', small);
-    set(gca, 'FontSize', small, 'XTick', stepTicks);
-
     G = slam_scene_step(G, S, 1);
-    % RunMat presents live changes for the current figure only, so the 3D
-    % map is made current for playback.
-    figure(1);
 end

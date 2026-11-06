@@ -1,13 +1,14 @@
 function G = slam_scene_step(G, S, f)
-% SLAM_SCENE_STEP  Moves the figures slam_scene built to step f.
+% SLAM_SCENE_STEP  Moves the figure slam_scene built to step f.
 %
 %   G = slam_scene_step(G, S, f) sets the data of every moving object to
 %   step f: the map points re-placed through the pose estimate shown at f
 %   (slam_estimate), each drone's true and estimated path over the last
-%   G.trail steps, its LIDAR rays and its position, and the error and
-%   coverage curves up to f. A sync mark is added to figures 2 and 3 for each
-%   pose-graph solve reached since the last call. Nothing else in the
-%   figures changes, so the camera stays where the viewer put it.
+%   G.trail steps, its LIDAR rays and its position, the position-error
+%   curve up to f, and the share mapped in the map's title. A sync mark is
+%   added to the error panel for each pose-graph solve reached since the
+%   last call. Nothing else changes, so the camera stays where the viewer
+%   put it.
 
     cfg = S.cfg;
     est = slam_estimate(S.epochs, S.eventSolve, cfg.snapFrames, f);
@@ -43,14 +44,12 @@ function G = slam_scene_step(G, S, f)
         set(G.drone(d), 'XData', q(:, 1), 'YData', q(:, 2), 'ZData', q(:, 3));
         set(G.err(d), 'XData', 1:f, 'YData', S.errShown(d, 1:f));
     end
-    set(G.cov, 'XData', 1:f, 'YData', S.coverage(1:f));
+    set(G.mapTitle, 'String', slam_map_title(S.coverage(f)));
 
     while G.marksDrawn < numel(S.eventSolve) && S.eventSolve(G.marksDrawn + 1) <= f
         G.marksDrawn = G.marksDrawn + 1;
         t = S.eventSolve(G.marksDrawn);
         slamSyncMark(G.ax2, t, G.errTop, cfg.T, G.style.mark, G.markSize);
-        slamSyncMark(G.ax3, t, 100, cfg.T, G.style.mark, G.markSize);
-        figure(1);   % keep the 3D map current (see slam_scene)
     end
 end
 

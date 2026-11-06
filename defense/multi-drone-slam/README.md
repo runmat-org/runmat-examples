@@ -25,9 +25,9 @@ The key is a checksum: two 31-bit sums of the character codes, computed in exact
 
 ### Playback
 
-`playback/slam_play.m` builds the three figures once (`graphics/slam_scene.m`) and then changes only the data of the moving objects (`graphics/slam_scene_step.m`), so the camera of figure 1 stays wherever the viewer puts it. The pace follows the wall clock. Playback draws up to 10 frames per second, and each frame shows the step that is due at that moment: step $f$ is due $(f - 1)/15$ seconds after playback starts. When a frame takes longer to draw, the next frame skips ahead to the step that is due, so the 180 steps always take 12 seconds. After the last step, `graphics/slam_scene_finish.m` redraws the map as one `scatter3` cloud, the way `graphics/slam_draw.m` draws it. `rate` and `fps` in `main/slam_settings.m` set the pace and the frame rate.
+`playback/slam_play.m` builds one figure once (`graphics/slam_scene.m`): the 3D map on the left, with the share of terrain mapped in its title, and each drone's position error on the right. It then changes only the data of the moving objects (`graphics/slam_scene_step.m`), so the map's camera stays wherever the viewer puts it. The pace follows the wall clock. Playback draws up to 10 frames per second, and each frame shows the step that is due at that moment: step $f$ is due $(f - 1)/15$ seconds after playback starts. When a frame takes longer to draw, the next frame skips ahead to the step that is due, so the 180 steps always take 12 seconds. After the last step, `graphics/slam_scene_finish.m` redraws the map as one `scatter3` cloud, the way `graphics/slam_draw.m` draws it. `rate` and `fps` in `main/slam_settings.m` set the pace and the frame rate.
 
-The figures redraw while the script pauses, so every frame pauses for at least 40 ms (`minPause`). RunMat shows live changes only for the current figure, so figure 1 stays current during playback; figures 2 and 3 show their curves when the run ends. The command-line runtime (`runmat run main/multi_drone_slam.m`) shows figures only when the script ends.
+The figure redraws while the script pauses, so every frame pauses for at least 40 ms (`minPause`). RunMat shows live changes only for the current figure, so both panels share figure 1 and move together. The command-line runtime (`runmat run main/multi_drone_slam.m`) shows figures only when the script ends.
 
 ## Project layout
 
@@ -221,6 +221,8 @@ After event $e$, the estimate for steps up to $t_e$ comes from the solve. After 
 
 ## Reading the figures
 
+Playback shows the map and the position error side by side in one figure, with the share of terrain mapped in the map's title. `graphics/slam_draw.m`, which draws one step from scratch for the home-page video, draws the three figures described below.
+
 **Figure 1: the map.** The 3D scene at the current step.
 
 - The terrain wireframe is the ground truth.
@@ -257,8 +259,9 @@ In figures 2 and 3, a dotted vertical line labeled "sync" marks each pose-graph 
 | `playback/slam_results.m` | Loads the saved run when its key matches; otherwise simulates and saves. |
 | `playback/slam_run_key.m` | The key of the current code and step count. |
 | `playback/slam_play.m` | Plays a run in real time. |
-| `graphics/slam_scene.m` | Builds figures 1 to 3 once for playback and returns their handles. |
-| `graphics/slam_scene_step.m` | Moves the playback figures to a given step. |
+| `graphics/slam_scene.m` | Builds the playback figure (map and position error) once and returns its handles. |
+| `graphics/slam_scene_step.m` | Moves the playback figure to a given step. |
+| `graphics/slam_map_title.m` | The map's title, with the share of terrain mapped. |
 | `graphics/slam_scene_finish.m` | Redraws the finished map as a `scatter3` cloud when playback ends. |
 | `graphics/slam_draw.m` | Draws figures 1 to 3 for one step from scratch; the home-page video uses it. |
 | `graphics/slam_map_points.m` | Places the map points through a pose estimate. |
