@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "bundle": {
-    "sha256": "076ccde20bbd86d7dd7ef44317b83e95984b16f90a4b9659c2676b82dc4d557f",
-    "files": 15,
-    "bytes": 36275240
+    "sha256": "56fb5e9974a9c1944454fea6b86cd7968f941fbe2e75a358d4ae9623efa3f8df",
+    "files": 23,
+    "bytes": 36284654
   },
   "sourceSha256": "ffe3e423c0d1bead5eb2938ed0f1de84fccb0d63276c31d0632b21247a55a004",
   "runmat": {
@@ -13,5 +13,9 @@
   "device": "cpu_reference",
   "capturedAt": "2026-11-04T06:01:12Z",
   "figures": 3,
-  "analysisStore": "omitted"
+  "analysisStore": "omitted",
+  "guide": {
+    "sessionId": "session_mw9uaiy7_o4gc5lyn",
+    "capturedAt": "2026-11-09T22:36:38Z"
+  }
 }
