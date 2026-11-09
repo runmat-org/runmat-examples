@@ -11,6 +11,11 @@
  * - no "Sign in to RunMat to mesh or solve" prompt is shown. A signed-out visitor sees it when the captured run fails
  *   to load (for example, a bundle over the app's size limits) and the example falls back to running;
  * then screenshots it (dark). With --rerun it presses Run and checks a new run is written.
+ *
+ * With --guide (FEA studies whose bundle carries the guide's first stage, see capture-guide.mjs) it also checks that
+ * the shipped agent session is the only one in .artifacts/agent/sessions and that opening sent no model request
+ * (POST /v1/llm/request). With --answer it then presses the card's first choice and checks the answer starts one
+ * normal model turn (this costs one model request per example).
  */
 import { createRequire } from "node:module";
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
@@ -25,6 +30,9 @@ const PRIVATE = resolve(process.env.RUNMAT_PRIVATE_DIR ?? join(ROOT, "../runmat-
 const APP = option("--app", "http://localhost:1001").replace(/\/$/, "");
 const SHOTS = resolve(option("--shots", join(ROOT, ".verify-shots")));
 const RERUN = args.includes("--rerun");
+const GUIDE = args.includes("--guide") || args.includes("--answer");
+const ANSWER = args.includes("--answer");
+const MODEL_REQUEST = /\/v1\/llm\/request(\/stream)?(\?|$)/;
 const require = createRequire(join(PRIVATE, "desktop/package.json"));
 const { chromium } = require("playwright");
 const CHROMIUM = process.env.CHROMIUM_PATH ?? chromium.executablePath();
@@ -61,11 +69,38 @@ async function listRuns(page) {
   });
 }
 
+async function listSessions(page) {
+  return page.evaluate(async () => {
+    const entry = [...window.__captureWorkers].reverse().find((candidate) => /fs_worker|fs\/worker/.test(candidate.url));
+    if (!entry) return null;
+    const id = 2_110_000_000 + Math.floor(Math.random() * 10_000_000);
+    const response = await new Promise((done) => {
+      const timer = setTimeout(() => done(null), 10_000);
+      const onMessage = (event) => {
+        if (event.data?.kind !== "response" || event.data.id !== id) return;
+        clearTimeout(timer);
+        entry.worker.removeEventListener("message", onMessage);
+        done(event.data);
+      };
+      entry.worker.addEventListener("message", onMessage);
+      entry.worker.postMessage({ id, requestId: `verify_${id}`, command: "fs.list", payload: { path: "/.artifacts/agent/sessions" } });
+    });
+    if (!response?.success) return [];
+    return response.result.filter((item) => item.fileType === "dir").map((item) => item.fileName);
+  });
+}
+
+function item(id) {
+  const found = listExamples().find((candidate) => candidate.example.id === id);
+  return found && { ...found, pin: JSON.parse(readFileSync(join(found.dir, ".artifacts/capture.json"), "utf8")) };
+}
+
 async function directLaunch(page, id) {
-  const item = listExamples().find((candidate) => candidate.example.id === id);
-  if (!item) throw new Error(`unknown example ${id}`);
-  const pin = JSON.parse(readFileSync(join(item.dir, ".artifacts/capture.json"), "utf8"));
-  const workspace = readFileSync(join(item.dir, ".artifacts/workspace.json"), "utf8");
+  const found = item(id);
+  if (!found) throw new Error(`unknown example ${id}`);
+  const { pin } = found;
+  const example = found;
+  const workspace = readFileSync(join(example.dir, ".artifacts/workspace.json"), "utf8");
   await page.goto(`${APP}/sandbox`, { waitUntil: "domcontentloaded" });
   const launchId = `verify-${Date.now().toString(36)}`;
   await page.evaluate(({ launchId, id, sha256, entry, workspace }) => {
@@ -78,7 +113,7 @@ async function directLaunch(page, id) {
       createdAt: now,
       expiresAt: now + 600_000,
     }));
-  }, { launchId, id, sha256: pin.bundle.sha256, entry: `/${item.example.entry}`, workspace });
+  }, { launchId, id, sha256: pin.bundle.sha256, entry: `/${example.example.entry}`, workspace });
   await page.goto(`${APP}/sandbox?workspace=${launchId}`, { waitUntil: "domcontentloaded" });
 }
 
@@ -90,6 +125,9 @@ async function verify(browser, target) {
   let page = await context.newPage();
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  // Agent model requests come from the agent's worker; the context sees them on every page it opens.
+  const modelRequests = [];
+  context.on("request", (request) => { if (request.method() === "POST" && MODEL_REQUEST.test(request.url())) modelRequests.push(Date.now()); });
 
   if (process.env.VERIFY_DEBUG) page.on("console", (message) => { const text = message.text(); if (/bundle|example|workspace_bootstrap/i.test(text)) console.log("console:", text.slice(0, 400)); });
   if (process.env.VERIFY_DEBUG) page.on("request", (request) => { if (/examples-runs|runs\.json/.test(request.url())) console.log("request:", request.url()); });
@@ -137,6 +175,21 @@ async function verify(browser, target) {
     const shot = join(SHOTS, `${name}.png`);
     await page.screenshot({ path: shot });
     const result = { target: target.page ?? target.example ?? `picker:${target.picker}`, captured, ranOnOpen: others, canvases, signInPrompts, shot, errors: errors.slice(0, 3) };
+    if (GUIDE) {
+      const shipped = item(target.example)?.pin.guide?.sessionId ?? null;
+      result.guide = { shipped, sessions: (await listSessions(page)) ?? [], modelRequestsOnOpen: modelRequests.length };
+      if (ANSWER) {
+        const before = modelRequests.length;
+        // The stage's primary action: "Continue setup" on a summary, the first choice on a question card.
+        const choice = page.getByRole("button", { name: /^(Continue setup|Confirm\b.*)$/ }).first();
+        result.guide.answered = await choice.click({ timeout: 10_000 }).then(() => true, () => false);
+        for (let attempt = 0; attempt < 60 && modelRequests.length === before; attempt += 1) await page.waitForTimeout(1000);
+        await page.waitForTimeout(15_000);
+        result.guide.modelRequestsAfterAnswer = modelRequests.length - before;
+        result.guide.answerShot = join(SHOTS, `${name}.answer.png`);
+        await page.screenshot({ path: result.guide.answerShot });
+      }
+    }
     if (RERUN) {
       const run = page.getByRole("button", { name: /^Run\b/ }).first();
       await run.click({ timeout: 10_000 });
@@ -173,7 +226,9 @@ try {
   for (const [index, target] of targets.entries()) {
     if (index > 0) await new Promise((done) => setTimeout(done, 4000));
     const result = await verify(browser, target);
-    const ok = result.captured.length === 1 && result.ranOnOpen.length === 0 && result.signInPrompts === 0 && (!RERUN || result.rerun?.length);
+    const guideOk = !GUIDE || (result.guide.shipped && result.guide.sessions.length === 1 && result.guide.sessions[0] === result.guide.shipped
+      && result.guide.modelRequestsOnOpen === 0 && (!ANSWER || (result.guide.answered && result.guide.modelRequestsAfterAnswer >= 1)));
+    const ok = result.captured.length === 1 && result.ranOnOpen.length === 0 && result.signInPrompts === 0 && (!RERUN || result.rerun?.length) && guideOk;
     if (!ok) failed += 1;
     console.log(`${ok ? "ok  " : "FAIL"} ${JSON.stringify(result)}`);
   }

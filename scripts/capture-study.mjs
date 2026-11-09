@@ -70,7 +70,7 @@ if (!LIMITS) throw new Error(`No runmat-private at ${PRIVATE}; the capture check
  */
 function isAnalysisStore(path, keep) {
   if (!path.startsWith(".artifacts/") || keep.has(path)) return false;
-  return !(path.startsWith(".artifacts/runs/") || /^\.artifacts\/objects\/[0-9a-f]{2}\//.test(path) || path === ".artifacts/workspace.json");
+  return !(path.startsWith(".artifacts/runs/") || path.startsWith(".artifacts/agent/") || /^\.artifacts\/objects\/[0-9a-f]{2}\//.test(path) || path === ".artifacts/workspace.json");
 }
 
 /** Study evidence files the run's FEA dataset names (dataset.study.evidenceArtifactPaths). */
@@ -258,6 +258,7 @@ for (const { dir, where, example } of selected) {
       capturedAt: FROM_BUNDLE ? previous.capturedAt : capturedAt,
       figures: Object.values(run.cells ?? {}).flatMap((cell) => cell.figures ?? []).length,
       analysisStore,
+      ...(previous?.guide && bundleFiles.some((file) => file.path.startsWith(`.artifacts/agent/sessions/${previous.guide.sessionId}/`)) ? { guide: previous.guide } : {}),
     };
     writeFileSync(join(dir, PIN_PATH), `${JSON.stringify(pin, null, 2)}\n`);
     console.log(`ok   ${where} ${hash.slice(0, 12)} ${(bytes / 1024 / 1024).toFixed(1)} MB, analysis store ${analysisStore}`);
