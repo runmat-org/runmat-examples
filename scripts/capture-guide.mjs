@@ -97,7 +97,41 @@ async function read(page, path) {
   return Buffer.from(result);
 }
 
-/** Opens the pinned bundle in the sandbox, as verify-open.mjs --example does. */
+/** The pinned bundle without any shipped guide session, written next to it if needed. Opening a bundle that already
+ * carries a session restores that session, so a recapture starts from the run alone. */
+function sessionFreeBundle(item, pin) {
+  const from = join(OUT, item.example.id, pin.bundle.sha256);
+  const inventory = readJsonFile(join(from, "project.json"));
+  if (!inventory.files.some((file) => file.path.startsWith(".artifacts/agent/"))) return pin.bundle.sha256;
+  const kept = inventory.files
+    .filter((file) => !file.path.startsWith(".artifacts/agent/"))
+    .map((file) => ({ path: file.path, bytes: readFileSync(join(from, "files", file.path)) }));
+  return writeBundle(item, inventory, kept).hash;
+}
+
+/** Writes a bundle (once per content hash) and returns its hash and size. */
+function writeBundle(item, inventory, files) {
+  const manifestBytes = projectManifest(inventory.id, inventory.entry, files);
+  const violations = bundleViolations(manifestBytes.length, files, LIMITS);
+  if (violations.length) throw new Error(`the bundle is over the app's limits: ${violations.join("; ")}`);
+  const hash = sha256(manifestBytes);
+  const bundleDir = join(OUT, item.example.id, hash);
+  if (!existsSync(join(bundleDir, "project.json"))) {
+    const staging = `${bundleDir}.partial`;
+    rmSync(staging, { recursive: true, force: true });
+    for (const file of files) {
+      mkdirSync(dirname(join(staging, "files", file.path)), { recursive: true });
+      writeFileSync(join(staging, "files", file.path), file.bytes);
+    }
+    writeFileSync(join(staging, "project.json"), manifestBytes);
+    rmSync(bundleDir, { recursive: true, force: true });
+    execFileSync("mv", [staging, bundleDir]);
+  }
+  const bytes = manifestBytes.length + files.reduce((sum, file) => sum + file.bytes.length, 0);
+  return { hash, bytes };
+}
+
+/** Opens the pinned bundle, minus any shipped session, in the sandbox, as verify-open.mjs --example does. */
 async function launch(page, item, pin) {
   const workspace = readFileSync(join(item.dir, ".artifacts/workspace.json"), "utf8");
   await page.goto(`${APP}/sandbox`, { waitUntil: "domcontentloaded" });
@@ -112,7 +146,7 @@ async function launch(page, item, pin) {
       createdAt: now,
       expiresAt: now + 600_000,
     }));
-  }, { launchId, id: item.example.id, sha256: pin.bundle.sha256, entry: `/${item.example.entry}`, workspace });
+  }, { launchId, id: item.example.id, sha256: sessionFreeBundle(item, pin), entry: `/${item.example.entry}`, workspace });
   await page.goto(`${APP}/sandbox?workspace=${launchId}`, { waitUntil: "domcontentloaded" });
 }
 
@@ -171,23 +205,7 @@ function publish(item, pin, sessionFiles) {
     .filter((file) => !file.path.startsWith(".artifacts/agent/"))
     .map((file) => ({ path: file.path, bytes: readFileSync(join(from, "files", file.path)) }));
   const files = [...kept, ...sessionFiles];
-  const manifestBytes = projectManifest(inventory.id, inventory.entry, files);
-  const violations = bundleViolations(manifestBytes.length, files, LIMITS);
-  if (violations.length) throw new Error(`the bundle with the session is over the app's limits: ${violations.join("; ")}`);
-  const hash = sha256(manifestBytes);
-  const bundleDir = join(OUT, item.example.id, hash);
-  if (!existsSync(join(bundleDir, "project.json"))) {
-    const staging = `${bundleDir}.partial`;
-    rmSync(staging, { recursive: true, force: true });
-    for (const file of files) {
-      mkdirSync(dirname(join(staging, "files", file.path)), { recursive: true });
-      writeFileSync(join(staging, "files", file.path), file.bytes);
-    }
-    writeFileSync(join(staging, "project.json"), manifestBytes);
-    rmSync(bundleDir, { recursive: true, force: true });
-    execFileSync("mv", [staging, bundleDir]);
-  }
-  const bytes = manifestBytes.length + files.reduce((sum, file) => sum + file.bytes.length, 0);
+  const { hash, bytes } = writeBundle(item, inventory, files);
   const sessionId = sessionFiles[0].path.split("/")[3];
   const next = {
     ...pin,
