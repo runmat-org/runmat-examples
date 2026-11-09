@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/pin-fin-convection.fea"
+    ],
+    "activeFile": "/pin-fin-convection.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the base heat flow and the tip temperature",
+      "Compare the heat flow with an insulated-tip fin",
+      "Find the fin length where the tip sits within 1 K of the air"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "heated-rod-fixed-ends",
+  "title": "Heater rod with fixed end temperatures",
+  "pickerTitle": "Heater rod with fixed end temperatures",
+  "pickerLine": "FEA studies",
+  "line": "A steady thermal FEA study of a stainless heater rod with uniform heat generation and both ends held at 20 C.",
+  "description": "Steady temperature of a stainless steel heater rod, 10 mm in diameter and 100 mm long, generating 1 MW/m^3 (7.85 W) uniformly. Both ends are held at 20 C by the terminal blocks and the surface is insulated. The study returns the parabolic temperature profile and its peak at mid-length.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "heated-rod-fixed-ends.fea",
+  "roles": [
+    "thermal_fluids",
+    "electrical",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "heated-rod-fixed-ends",
+  "thumbnailAlt": "Parabolic temperature along a stainless heater rod with both ends held at 20 C, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/heated-rod-fixed-ends",
+    "source": "runmat-examples/fea/heated-rod-fixed-ends/heated-rod-fixed-ends.fea",
+    "geometry": "geometry/heater-rod.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

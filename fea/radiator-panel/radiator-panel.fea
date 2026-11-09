@@ -1,0 +1,64 @@
+// Steady temperature of a spacecraft radiator panel: aluminum, 300 x 300 x 2 mm. Electronics on its
+// back face dissipate 40 W into the panel. The front face, coated with white thermal-control paint
+// (emissivity 0.92), radiates to deep space at 3 K. The back face and edges are insulated by the
+// spacecraft's blankets. The run returns the panel temperature and its mean on the radiating face.
+// Check: the panel is nearly isothermal (0.005 K through its thickness), so it settles where the
+// radiated power equals the input: T = (q / (eps sigma) + T_space^4)^(1/4) with
+// q = 40 W / 0.09 m^2 = 444.4 W/m^2, giving T = 303.8 K (30.7 C).
+geometry radiator {
+    file = "./geometry/radiator-panel.step"
+    units = mm
+    region body : solid { select name "Radiator panel"; expect exactly_one }
+    region mounting_face : face { select name "Mounting face"; expect exactly_one }
+    region radiating_face : face { select name "Radiating face"; expect exactly_one }
+}
+
+mesh radiator on geometry.radiator {
+    tetrahedra {
+        order = quadratic
+        target_size = 10 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
+material aluminum_6061_t6 {
+    mass_density = 2700 kg/m^3
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+        expansion_coefficient = 0.0000236 K^-1
+    }
+}
+
+model radiating_panel {
+    thermal { reference_temperature = 293.15 K }
+    assign material.aluminum_6061_t6 to geometry.radiator.region.body
+    // 40 W spread over the 0.09 m^2 back face.
+    load electronics {
+        thermal.heat_flux {
+            target = geometry.radiator.region.mounting_face
+            value = 444.444 W/m^2
+        }
+    }
+    // White zinc-oxide silicate thermal-control paint: emissivity 0.92 (Gilmore, Spacecraft Thermal
+    // Control Handbook, Vol. 1, appendix of optical properties).
+    load to_space {
+        thermal.radiation {
+            target = geometry.radiator.region.radiating_face
+            ambient_temperature = 3 K
+            emissivity = 0.92
+        }
+    }
+}
+
+study radiator_balance {
+    geometry = geometry.radiator
+    mesh = mesh.radiator
+    model = model.radiating_panel
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output radiating_face_temperature = mean(analysis.heat.field.node.temperature, over = geometry.radiator.region.radiating_face)
+}

@@ -1,0 +1,12 @@
+[package]
+name = "fuse-link-overload"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "fuse-link-overload.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

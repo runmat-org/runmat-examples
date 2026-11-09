@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/fin-array-cell.fea"
+    ],
+    "activeFile": "/fin-array-cell.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the base temperature and the fin efficiency",
+      "Change the fin pitch to 8 mm and compare the base temperature",
+      "Find the fin height that keeps the base under 50 \u00b0C"
+    ]
+  }
+}

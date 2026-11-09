@@ -1,0 +1,56 @@
+// Steady temperature of a stainless steel heater rod, 10 mm in diameter and 100 mm long, generating
+// heat uniformly at 1 MW/m^3 (7.85 W in all). Both ends are clamped in terminal blocks held at 20 C;
+// the rod's surface is insulated. The run returns the temperature field and the peak temperature.
+// Check: heat flows only along the rod, so the profile is a parabola peaking at mid-length:
+//     T_max = T_end + q''' L^2 / (8 k) = 20 + 1e6 * 0.1^2 / (8 * 16.2) = 97.2 C.
+geometry rod {
+    file = "./geometry/heater-rod.step"
+    units = mm
+    region body : solid { select name "Heater rod"; expect exactly_one }
+    region end_a : face { select name "End A"; expect exactly_one }
+    region end_b : face { select name "End B"; expect exactly_one }
+}
+
+mesh rod on geometry.rod {
+    tetrahedra {
+        order = quadratic
+        target_size = 2.5 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Stainless steel AISI 304 (ASM Handbook, Vol. 1, properties of wrought stainless steels).
+material stainless_304 {
+    mass_density = 8000 kg/m^3
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 16.2 W/m/K
+        specific_heat = 500 J/kg/K
+        expansion_coefficient = 0.0000173 K^-1
+    }
+}
+
+model heated_rod {
+    thermal { reference_temperature = 20 degC }
+    assign material.stainless_304 to geometry.rod.region.body
+    constraint end_a_held {
+        thermal.temperature { target = geometry.rod.region.end_a; value = 293.15 K }
+    }
+    constraint end_b_held {
+        thermal.temperature { target = geometry.rod.region.end_b; value = 293.15 K }
+    }
+    load heating {
+        heat_generation on geometry.rod.region.body = 1000000 W/m^3
+    }
+}
+
+study rod_temperature {
+    geometry = geometry.rod
+    mesh = mesh.rod
+    model = model.heated_rod
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output peak_temperature = max(analysis.heat.field.node.temperature, over = geometry.rod.region.body)
+    output end_a_heat_flow = flux(analysis.heat.field.element.heat_flux, through = geometry.rod.region.end_a)
+}

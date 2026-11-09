@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/heat-spreader-warm-up.fea"
+    ],
+    "activeFile": "/heat-spreader-warm-up.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Plot the mean and peak temperature over time",
+      "Report how long the plate takes to reach 95 % of its final rise",
+      "Switch the plate to copper and compare the warm-up"
+    ]
+  }
+}

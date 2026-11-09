@@ -1,0 +1,32 @@
+{
+  "id": "radiator-panel",
+  "title": "Spacecraft radiator panel",
+  "pickerTitle": "Spacecraft radiator panel",
+  "pickerLine": "FEA studies",
+  "line": "A steady thermal FEA study of a spacecraft radiator panel rejecting 40 W to deep space by radiation.",
+  "description": "Steady temperature of an aluminum spacecraft radiator panel (300 x 300 x 2 mm). Electronics on its back face dissipate 40 W into it, and its painted front face radiates to deep space at 3 K with an emissivity of 0.92. The study returns the panel temperature, which settles where radiated power equals the input.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "radiator-panel.fea",
+  "roles": [
+    "aerospace",
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "radiator-panel",
+  "thumbnailAlt": "Temperature of an aluminum radiator panel radiating 40 W to space, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/radiator-panel",
+    "source": "runmat-examples/fea/radiator-panel/radiator-panel.fea",
+    "geometry": "geometry/radiator-panel.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "fin-array-cell",
+  "title": "Fin array cell with periodic sides",
+  "pickerTitle": "Fin array cell with periodic sides",
+  "pickerLine": "FEA studies",
+  "line": "A steady thermal FEA study of one cell of a straight-fin heat sink, with periodic side faces.",
+  "description": "Steady temperature of one 10 mm pitch cell of a straight-fin aluminum heat sink: a 5 mm base and one 2 mm fin, 30 mm tall and 50 mm deep. The base takes 5 kW/m^2 (2.5 W per cell) and the fin and exposed base lose heat to 25 C air at 25 W/m^2/K. The cell side faces are tied by a periodic constraint, so the cell stands for the whole array.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "fin-array-cell.fea",
+  "roles": [
+    "thermal_fluids",
+    "electrical",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "fin-array-cell",
+  "thumbnailAlt": "Temperature in one cell of a finned heat sink with periodic sides, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/fin-array-cell",
+    "source": "runmat-examples/fea/fin-array-cell/fin-array-cell.fea",
+    "geometry": "geometry/fin-array-cell.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

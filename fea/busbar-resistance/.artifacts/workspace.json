@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/busbar-resistance.fea"
+    ],
+    "activeFile": "/busbar-resistance.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "current_density"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the terminal voltage and the resistance",
+      "Report the current density at the bolt hole edge",
+      "Move the bolt hole 10 mm off center and compare the crowding"
+    ]
+  }
+}

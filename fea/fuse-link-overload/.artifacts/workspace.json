@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/fuse-link-overload.fea"
+    ],
+    "activeFile": "/fuse-link-overload.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak temperature and the voltage across the element",
+      "Find the current at which the middle reaches the melting point",
+      "Compare with constant resistivity"
+    ]
+  }
+}

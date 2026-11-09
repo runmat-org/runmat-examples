@@ -1,0 +1,12 @@
+[package]
+name = "radiator-panel"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "radiator-panel.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,12 @@
+[package]
+name = "heated-rod-fixed-ends"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "heated-rod-fixed-ends.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

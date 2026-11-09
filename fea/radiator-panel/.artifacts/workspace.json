@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/radiator-panel.fea"
+    ],
+    "activeFile": "/radiator-panel.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the panel temperature against the hand check",
+      "Find the radiator area that holds the panel at 20 \u00b0C",
+      "Compare an emissivity of 0.85 after paint aging"
+    ]
+  }
+}

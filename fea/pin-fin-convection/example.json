@@ -1,0 +1,32 @@
+{
+  "id": "pin-fin-convection",
+  "title": "Pin fin convection",
+  "pickerTitle": "Pin fin convection",
+  "pickerLine": "FEA studies",
+  "line": "A steady thermal FEA study of an aluminum pin fin with its base at 80 C, cooled by air.",
+  "description": "Steady heat flow through an aluminum pin fin, 6 mm in diameter and 50 mm long. The base is held at 80 C and the side and tip lose heat to 25 C air at 25 W/m^2/K. The study returns the temperature along the fin, the heat flowing in through the base and the tip temperature, which the classical fin solution predicts.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "pin-fin-convection.fea",
+  "roles": [
+    "thermal_fluids",
+    "electrical",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "pin-fin-convection",
+  "thumbnailAlt": "Temperature falling along an aluminum pin fin from its 80 C base, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/pin-fin-convection",
+    "source": "runmat-examples/fea/pin-fin-convection/pin-fin-convection.fea",
+    "geometry": "geometry/pin-fin.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

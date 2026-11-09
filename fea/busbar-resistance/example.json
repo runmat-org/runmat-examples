@@ -1,0 +1,32 @@
+{
+  "id": "busbar-resistance",
+  "title": "Busbar resistance with a bolt hole",
+  "pickerTitle": "Busbar resistance with a bolt hole",
+  "pickerLine": "FEA studies",
+  "line": "A DC current-flow FEA study of a copper busbar strip with one bolt hole at 100 A.",
+  "description": "DC current flow in a copper busbar strip, 200 x 30 x 3 mm, with a 9 mm bolt hole at its middle. 100 A flows end to end. The study returns the potential, the current density, the voltage across the strip, which gives its resistance, and the current crowding beside the hole.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "busbar-resistance.fea",
+  "roles": [
+    "electrical",
+    "automotive",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "busbar-resistance",
+  "thumbnailAlt": "Current density crowding beside the bolt hole of a copper busbar strip, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electrothermal",
+    "key": "website:simulation/electrothermal/busbar-resistance",
+    "source": "runmat-examples/fea/busbar-resistance/busbar-resistance.fea",
+    "geometry": "geometry/busbar-bolt-hole.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

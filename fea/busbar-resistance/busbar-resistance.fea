@@ -1,0 +1,59 @@
+// DC current flow in a copper busbar strip, 200 x 30 x 3 mm, with a 9 mm bolt hole at its middle.
+// 100 A enters through one end face and leaves through the other, which is held at 0 V. The run
+// returns the potential, the current density, the voltage across the strip (its resistance at
+// 100 A) and the peak current density beside the hole.
+// Check: the plain strip has R = rho L / (W t) = (1/58e6) * 0.2 / (0.03 * 0.003) = 38.31 uOhm.
+// A small round hole in a sheet adds about 2 pi a^2 / W^2 squares, 0.81 uOhm here, so the strip
+// reads about 39.1 uOhm: 3.91 mV at 100 A. Current crowds at the hole's sides to about twice the
+// strip's mean density (1.11 A/mm^2), a little more with the strip's finite width: about 2.2 A/mm^2,
+// against 1.59 A/mm^2 averaged over the net section.
+geometry busbar {
+    file = "./geometry/busbar-bolt-hole.step"
+    units = mm
+    region body : solid { select name "Busbar"; expect exactly_one }
+    region terminal_a : face { select name "Terminal A"; expect exactly_one }
+    region terminal_b : face { select name "Terminal B"; expect exactly_one }
+    region bolt_hole : face { select name "Bolt hole"; expect exactly_one }
+}
+
+mesh busbar on geometry.busbar {
+    tetrahedra {
+        order = quadratic
+        target_size = 2 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Copper: IEC 60028 (international standard of resistance for copper, 1/58 ohm mm^2/m at 20 C).
+material copper {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 58000000 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}
+
+model conducting_strip {
+    electromagnetic { equation = steady_conduction }
+    assign material.copper to geometry.busbar.region.body
+    constraint return_terminal {
+        electrical.potential { target = geometry.busbar.region.terminal_b; value = 0 V }
+    }
+    load supply {
+        electric_current on geometry.busbar.region.terminal_a = 100 A
+    }
+}
+
+study strip_resistance {
+    geometry = geometry.busbar
+    mesh = mesh.busbar
+    model = model.conducting_strip
+    analysis conduction { electromagnetic static {} }
+    output potential = analysis.conduction.field.node.electric_potential
+    output current_density = analysis.conduction.field.element.electric_current_density
+    output terminal_voltage = mean(analysis.conduction.field.node.electric_potential, over = geometry.busbar.region.terminal_a)
+    output peak_current_density = max(magnitude(analysis.conduction.field.element.electric_current_density), over = geometry.busbar.region.body)
+    output hole_edge_current_density = max(magnitude(analysis.conduction.field.element.electric_current_density), over = geometry.busbar.region.bolt_hole)
+}

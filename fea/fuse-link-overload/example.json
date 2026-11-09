@@ -1,0 +1,31 @@
+{
+  "id": "fuse-link-overload",
+  "title": "Fuse element overload",
+  "pickerTitle": "Fuse element overload",
+  "pickerLine": "FEA studies",
+  "line": "A Joule heating FEA study of a copper fuse element at a 120 A overload, with resistivity rising with temperature.",
+  "description": "A copper fuse element (10 mm long, 1 x 0.25 mm section) carrying a 120 A overload, its ends held at 20 C by the terminals. Resistivity rises with temperature, so the middle heats faster than the ends. The study solves current and temperature together and returns the peak temperature, against the closed-form solution for resistivity linear in temperature.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "fuse-link-overload.fea",
+  "roles": [
+    "electrical",
+    "automotive",
+    "thermal_fluids",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "fuse-link-overload",
+  "thumbnailAlt": "Temperature along a copper fuse element at 120 A, hottest at its middle, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electrothermal",
+    "key": "website:simulation/electrothermal/fuse-link-overload",
+    "source": "runmat-examples/fea/fuse-link-overload/fuse-link-overload.fea",
+    "geometry": "geometry/fuse-element.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

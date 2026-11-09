@@ -1,0 +1,12 @@
+[package]
+name = "fin-array-cell"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "fin-array-cell.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

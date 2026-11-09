@@ -1,0 +1,32 @@
+{
+  "id": "heat-spreader-warm-up",
+  "title": "Heat spreader warm-up",
+  "pickerTitle": "Heat spreader warm-up",
+  "pickerLine": "FEA studies",
+  "line": "A transient thermal FEA study of an aluminum heat spreader warming up after a 20 W component switches on.",
+  "description": "Transient temperature of an aluminum heat spreader (100 x 100 x 10 mm) after a 20 W component on a 20 x 20 mm pad switches on. The other faces lose heat to 25 C air at 10 W/m^2/K. The study follows the plate for 6000 s, about six time constants, and returns the temperature history, the peak and the mean.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "heat-spreader-warm-up.fea",
+  "roles": [
+    "thermal_fluids",
+    "electrical",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "heat-spreader-warm-up",
+  "thumbnailAlt": "Temperature of an aluminum heat spreader warming up from a 20 W pad, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermal",
+    "key": "website:simulation/thermal/heat-spreader-warm-up",
+    "source": "runmat-examples/fea/heat-spreader-warm-up/heat-spreader-warm-up.fea",
+    "geometry": "geometry/heat-spreader.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

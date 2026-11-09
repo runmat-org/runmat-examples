@@ -8,6 +8,6 @@
   "capturedAt": "2026-11-04T06:01:12Z",
   "app": "http://localhost:1001",
   "studies": {
-    "version": "0.6.2"
+    "version": "0.7.0"
   }
 }

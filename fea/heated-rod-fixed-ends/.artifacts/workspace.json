@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/heated-rod-fixed-ends.fea"
+    ],
+    "activeFile": "/heated-rod-fixed-ends.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak temperature and the heat leaving each end",
+      "Double the heat generation and compare the peak with the hand check",
+      "Plot the temperature along the rod axis"
+    ]
+  }
+}

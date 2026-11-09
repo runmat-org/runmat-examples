@@ -1,0 +1,72 @@
+// Steady temperature of one cell of a straight-fin aluminum heat sink: a 10 mm pitch, 50 mm deep
+// slice with a 5 mm base and one 2 mm fin, 30 mm tall. The base underside takes 5 kW/m^2 from the
+// component (2.5 W per cell). Fin faces and the exposed base lose heat to 25 C air at h = 25 W/m^2/K.
+// The cell's side faces meet the next cell, so their temperatures are tied by a periodic constraint.
+// The run returns the temperature field and the mean temperature of the base underside.
+// Check (fin-array estimate): m = sqrt(2h / (k t)) = 12.24 1/m, corrected height Hc = 31 mm,
+// fin efficiency tanh(m Hc) / (m Hc) = 0.955. The cell's conductance to air is
+// h (A_base + eta A_fin) = 25 * (400 + 0.955 * 3100) mm^2 = 0.0840 W/K, so the base runs
+// 2.5 / 0.0840 = 29.8 K above the air; with 0.15 K across the base plate the underside reads 54.9 C.
+geometry cell {
+    file = "./geometry/fin-array-cell.step"
+    units = mm
+    region body : solid { select name "Heat sink cell"; expect exactly_one }
+    region base_underside : face { select name "Base underside"; expect exactly_one }
+    region side_left : face { select name "Cell side left"; expect exactly_one }
+    region side_right : face { select name "Cell side right"; expect exactly_one }
+    region cooled_surfaces : face { select name "Cooled surfaces"; expect one_or_more }
+}
+
+mesh cell on geometry.cell {
+    tetrahedra {
+        order = quadratic
+        target_size = 2 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
+material aluminum_6061_t6 {
+    mass_density = 2700 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+        expansion_coefficient = 0.0000236 K^-1
+    }
+}
+
+model finned_cell {
+    thermal { reference_temperature = 25 degC }
+    assign material.aluminum_6061_t6 to geometry.cell.region.body
+    load component {
+        thermal.heat_flux {
+            target = geometry.cell.region.base_underside
+            value = 5000 W/m^2
+        }
+    }
+    load fin_air {
+        thermal.convection {
+            target = geometry.cell.region.cooled_surfaces
+            ambient_temperature = 25 degC
+            coefficient = 25 W/m^2/K
+        }
+    }
+    constraint neighbor_cells {
+        thermal.periodic {
+            primary = geometry.cell.region.side_left
+            secondary = geometry.cell.region.side_right
+            translation = [10 mm, 0 mm, 0 mm]
+        }
+    }
+}
+
+study cell_temperature {
+    geometry = geometry.cell
+    mesh = mesh.cell
+    model = model.finned_cell
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output base_temperature = mean(analysis.heat.field.node.temperature, over = geometry.cell.region.base_underside)
+}
