@@ -7,6 +7,10 @@
  *   node scripts/capture-study.mjs --only <id> --from-project <native snapshot project> [--out <dir>]
  *   node scripts/capture-study.mjs --only <id> --from-bundle [--out <dir>]
  *   node scripts/capture-study.mjs --only <id> --from-snapshot <snapshot dir> --store <study dir> --runmat-version <v> [--out <dir>]
+ *   node scripts/capture-study.mjs --only <id> --runmat-version <v> [--out <dir>] \
+ *       --study <path.fea> --from-snapshot <snapshot dir> --store <study dir> [--study ... --from-snapshot ... --store ...]
+ *   node scripts/capture-study.mjs --only <id> --plan <plan.json> [--out <dir>]
+ *   node scripts/capture-study.mjs --only <id> --runmat <cli> --study <path.fea> [--study <path.fea>]...
  *
  * With --runmat, each study runs as `<cli> snapshot <entry> --out .snapshot/snapshot.json` in a staging copy of the
  * example. The CLI must be signed in: `runmat login --api-key "$RUNMAT_API_KEY" --server "$RUNMAT_SERVER_URL"` in CI.
@@ -42,6 +46,22 @@
  *
  * Stable output: the run keeps the native, content-derived run id; the manifest is saved as
  * .artifacts/runs/run_example_<id>.json and its createdAt is the capture time pinned in runtime.json.
+ *
+ * Several studies: an example of any kind (a design project with arm and board studies, say) can ship one captured
+ * run per study it contains. Name each study with --study <path.fea> followed by its --from-snapshot and --store (or,
+ * with --runmat, the study alone), or list them in a plan file:
+ *
+ *   { "runmatVersion": "0.7.1", "studies": [
+ *       { "study": "simulation/arm_modal.fea", "snapshot": "arm_modal/snap", "store": "arm_modal/store",
+ *         "sourceSha256": "<optional sha256 of the .fea that was solved>" } ] }
+ *
+ * Plan paths are relative to the plan file. Each study's run is saved as .artifacts/runs/run_example_<id>__<slug>.json
+ * (slug: the study path without .fea, other characters as "_") with docPath /<study path>, and its snapshot under
+ * .snapshot/<slug>/. Each study is checked against its own file: the plan's sourceSha256 when given, and the copy of
+ * the study in its --store when the store holds one. The one-value outputs' parts of every store merge into one
+ * partial analysis store. project.json lists every run as run_manifests (run_manifest names the first, so list the
+ * study the example opens on first); the pin lists them as runs[{study, runId, sourceSha256, figures, analysisStore}].
+ * When the bundle is over the limits, studies' stores are left out one at a time, largest first, until it fits.
  */
 import { execFileSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -49,7 +69,7 @@ import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, bundleLimits, bundleViolations, listExamples, projectManifest, readJsonFile, sha256, sourceFiles, sourceSha256 } from "./lib/bundle.mjs";
+import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, bundleLimits, bundleViolations, listExamples, projectManifest, readJsonFile, sha256, sourceFiles, sourceSha256, studySlug } from "./lib/bundle.mjs";
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => {
@@ -64,7 +84,24 @@ const FROM_PROJECT = option("--from-project");
 const FROM_BUNDLE = args.includes("--from-bundle");
 const FROM_SNAPSHOT = option("--from-snapshot");
 const STORE = option("--store");
-const SNAPSHOT_VERSION = option("--runmat-version");
+const PLAN_PATH = option("--plan");
+const PLAN = PLAN_PATH ? readJsonFile(resolve(PLAN_PATH)) : null;
+const SNAPSHOT_VERSION = option("--runmat-version", PLAN?.runmatVersion);
+/** The studies of a multi-study capture, in order: from --plan, or each --study with the options that follow it. */
+const STUDIES = PLAN
+  ? (PLAN.studies ?? []).map((entry) => ({
+      study: entry.study,
+      snapshot: entry.snapshot && resolve(dirname(resolve(PLAN_PATH)), entry.snapshot),
+      store: entry.store && resolve(dirname(resolve(PLAN_PATH)), entry.store),
+      sourceSha256: entry.sourceSha256 ?? null,
+    }))
+  : args.reduce((studies, arg, index) => {
+      if (arg === "--study") studies.push({ study: args[index + 1], snapshot: null, store: null, sourceSha256: null });
+      else if (studies.length && arg === "--from-snapshot") studies.at(-1).snapshot = resolve(args[index + 1]);
+      else if (studies.length && arg === "--store") studies.at(-1).store = resolve(args[index + 1]);
+      return studies;
+    }, []);
+const MULTI = STUDIES.length > 0;
 const LIMITS = bundleLimits(PRIVATE);
 if (!LIMITS) throw new Error(`No runmat-private at ${PRIVATE}; the capture checks bundles against its loader's limits`);
 
@@ -91,14 +128,19 @@ function datasetEvidence(project, run) {
  * (runmat-runtime analysis/storage: publication binding -> publication commit -> committed run record -> chunks),
  * with the chunks of the study's one-value authored outputs only. Authored output names are identifiers; fields the
  * solver adds are namespaced by family (structural.residual_norm) and stay out, as in Desktop's
- * feaAuthoredScalarOutputFields. Returns the number of output chunks copied, or null when the store has no binding.
+ * feaAuthoredScalarOutputFields. Returns the paths copied, or null when the store has no binding.
  */
 function partialStore(store, project) {
   const bindings = join(store, ".artifacts/publication-bindings");
   if (!existsSync(bindings)) return null;
+  const copied = new Set();
   const copy = (path) => {
-    mkdirSync(dirname(join(project, path)), { recursive: true });
-    cpSync(join(store, path), join(project, path));
+    const target = join(project, path);
+    // Studies of one example share the project: a file another study's store already put there must be the same.
+    if (existsSync(target) && !readFileSync(target).equals(readFileSync(join(store, path)))) throw new Error(`${path} differs between the studies' stores`);
+    mkdirSync(dirname(target), { recursive: true });
+    cpSync(join(store, path), target);
+    copied.add(path);
   };
   const chunks = new Set();
   for (const name of readdirSync(bindings).filter((entry) => entry.endsWith(".json"))) {
@@ -116,7 +158,7 @@ function partialStore(store, project) {
     }
   }
   for (const digest of chunks) copy(`.artifacts/objects/${digest}`);
-  return chunks.size;
+  return copied;
 }
 
 const contracts = await import(pathToFileURL(join(PRIVATE, "desktop/node_modules/runmat/dist/index.js")).href);
@@ -140,15 +182,18 @@ function requireCompleteSnapshot(snapshot) {
   }
 }
 
-/** The app's run format for a native snapshot (port of the runtime's scripts/docs/snapshot-project.mjs). */
-function writeRunFormat(project, example, snapshot, capturedAt) {
+/**
+ * The app's run format for a native snapshot (port of the runtime's scripts/docs/snapshot-project.mjs). `run` names
+ * the study (`docPath`), where its manifest goes and the folder holding the snapshot's scenes and posters.
+ */
+function writeRunFormat(project, run, snapshot, capturedAt) {
   const fieldBindings = snapshot.results.field_descriptors.map((descriptor) => ({
     stepId: snapshot.publication.steps[0].procedure_step.step_id, runId: snapshot.run_id, descriptor,
   }));
   const dataset = {
     schemaVersion: contracts.FEA_RUN_DATASET_SCHEMA_VERSION, kind: contracts.FEA_RUN_DATASET_KIND,
-    sessionId: snapshot.run_id, docPath: `/${example.entry}`,
-    study: { path: `/${example.entry}`, documentKind: "study", valid: true, evidenceArtifactPaths: [snapshot.publication.evidence_artifact_path] },
+    sessionId: snapshot.run_id, docPath: run.docPath,
+    study: { path: run.docPath, documentKind: "study", valid: true, evidenceArtifactPaths: [snapshot.publication.evidence_artifact_path] },
     physicsFamily: snapshot.publication.steps[0].procedure_step.family, run: snapshot.publication, resultSummary: snapshot.results.summary,
     fieldBindings, fieldPaging: { mode: "paged", policy: "lazy_materialization" },
     assessments: snapshot.publication.assessments ?? [], diagnostics: snapshot.results.diagnostics ?? [],
@@ -163,20 +208,38 @@ function writeRunFormat(project, example, snapshot, capturedAt) {
   const metadata = { schemaVersion: contracts.FEA_OBJECT_ARTIFACT_METADATA_SCHEMA_VERSION, artifactId: object, src, bytes: Buffer.byteLength(bytes), mime: "application/json", kind: contracts.FEA_DATASET_ARTIFACT_KIND };
   writeFileSync(join(project, directory, `${digest}.json`), `${JSON.stringify(metadata, null, 2)}\n`);
   const figures = (snapshot.views ?? []).map((view, index) => {
-    const sceneSrc = `.snapshot/${view.scene}`;
-    const previewSrc = `.snapshot/${view.poster}`;
+    const sceneSrc = `${run.snapshotDir}/${view.scene}`;
+    const previewSrc = `${run.snapshotDir}/${view.poster}`;
     return { handle: index + 1, sceneSrc, previewSrc,
       sceneObject: `sha256:${sha256(readFileSync(join(project, sceneSrc)))}`,
       previewObject: `sha256:${sha256(readFileSync(join(project, previewSrc)))}` };
   });
   const manifest = {
-    schemaVersion: 2, runId: snapshot.run_id, docPath: `/${example.entry}`,
+    schemaVersion: 2, runId: snapshot.run_id, docPath: run.docPath,
     createdAt: capturedAt, status: "completed", cancelled: false, runKind: contracts.FEA_RUN_KIND,
     fea: { schemaVersion: contracts.FEA_RUN_MANIFEST_METADATA_SCHEMA_VERSION, datasetObject: object, datasetSrc: src },
     cells: { [contracts.FEA_RUN_CELL_ID]: { figures, kept: [{ id: contracts.feaRunArtifactRefId("dataset"), kind: contracts.FEA_DATASET_ARTIFACT_KIND, src, bytes: metadata.bytes, artifactId: object }] } },
   };
   mkdirSync(join(project, ".artifacts/runs"), { recursive: true });
-  writeFileSync(join(project, RUN_MANIFEST(example.id)), `${JSON.stringify(manifest, null, 2)}\n`);
+  writeFileSync(join(project, run.manifestPath), `${JSON.stringify(manifest, null, 2)}\n`);
+}
+
+/** The single-study run of an example: its entry, .artifacts/runs/run_example_<id>.json, .snapshot/. */
+const entryRun = (example) => ({ docPath: `/${example.entry}`, manifestPath: RUN_MANIFEST(example.id), snapshotDir: ".snapshot" });
+
+/** Writes a bundle once per content hash under <OUT>/<id>/<hash>. */
+function publishBundle(example, hash, manifestBytes, bundleFiles) {
+  const bundleDir = join(OUT, example.id, hash);
+  if (existsSync(join(bundleDir, "project.json"))) return;
+  const staging = `${bundleDir}.partial`;
+  rmSync(staging, { recursive: true, force: true });
+  for (const file of bundleFiles) {
+    mkdirSync(dirname(join(staging, "files", file.path)), { recursive: true });
+    writeFileSync(join(staging, "files", file.path), file.bytes);
+  }
+  writeFileSync(join(staging, "project.json"), manifestBytes);
+  rmSync(bundleDir, { recursive: true, force: true });
+  execFileSync("mv", [staging, bundleDir]);
 }
 
 /** Reuses a native snapshot project: checks its sources, renames its run manifest and pins its createdAt. */
@@ -198,22 +261,35 @@ function adoptProject(project, from, example, sources, capturedAt) {
 
 const runtimePin = existsSync(RUNTIME_PATH) ? JSON.parse(readFileSync(RUNTIME_PATH, "utf8")) : null;
 const capturedAt = runtimePin?.capturedAt ?? new Date().toISOString().replace(/\.\d+Z$/, "Z");
-const selected = listExamples().filter((item) => item.example.kind === "study" && (!only.length || only.includes(item.example.id) || only.includes(item.where)));
+// A multi-study capture names its studies, so it takes one example of any kind; otherwise each example is one study.
+const selected = listExamples().filter((item) => (MULTI || item.example.kind === "study") && (!only.length || only.includes(item.example.id) || only.includes(item.where)));
 if (!selected.length) {
   console.error("No study matches --only.");
   process.exit(1);
 }
-if (FROM_SNAPSHOT && !(STORE && SNAPSHOT_VERSION)) {
+if (MULTI && (selected.length !== 1 || !only.length)) {
+  console.error("--study and --plan capture the studies of one example: pass exactly one --only <id>.");
+  process.exit(1);
+}
+if (MULTI && (FROM_PROJECT || FROM_BUNDLE)) {
+  console.error("--study and --plan take --from-snapshot and --store per study, or --runmat.");
+  process.exit(1);
+}
+if (MULTI && !RUNMAT && !(SNAPSHOT_VERSION && STUDIES.every((entry) => entry.study && entry.snapshot && entry.store))) {
+  console.error("Each --study needs its --from-snapshot <snapshot dir> and --store <study dir>, and the capture needs --runmat-version.");
+  process.exit(1);
+}
+if (!MULTI && FROM_SNAPSHOT && !(STORE && SNAPSHOT_VERSION)) {
   console.error("--from-snapshot needs --store <study dir> and --runmat-version <version of the CLI that solved it>.");
   process.exit(1);
 }
-if (!RUNMAT && !FROM_PROJECT && !FROM_BUNDLE && !FROM_SNAPSHOT) {
+if (!MULTI && !RUNMAT && !FROM_PROJECT && !FROM_BUNDLE && !FROM_SNAPSHOT) {
   console.error("Pass --runmat <cli> (a signed-in RunMat CLI), --from-project <native snapshot project>, --from-snapshot <snapshot dir> or --from-bundle.");
   process.exit(1);
 }
 // Studies run on the native CLI, so runtime.json pins its version separately (`studies.version`). A capture reusing
 // a docs snapshot project cannot name the build that solved it and records "docs-snapshot".
-const runmatVersion = RUNMAT ? execFileSync(RUNMAT, ["--version"], { encoding: "utf8" }).trim().replace(/^runmat\s+/, "") : FROM_SNAPSHOT ? SNAPSHOT_VERSION : "docs-snapshot";
+const runmatVersion = RUNMAT ? execFileSync(RUNMAT, ["--version"], { encoding: "utf8" }).trim().replace(/^runmat\s+/, "") : FROM_SNAPSHOT || MULTI ? SNAPSHOT_VERSION : "docs-snapshot";
 if (RUNMAT) {
   const pinned = runtimePin ?? { schemaVersion: 1, runmat: { version: null, fingerprint: null }, device: process.env.RUNMAT_CAPTURE_DEVICE ?? "cpu_reference", capturedAt };
   if (pinned.studies?.version && pinned.studies.version !== runmatVersion && !args.includes("--accept-runtime")) {
@@ -224,8 +300,115 @@ if (RUNMAT) {
   writeFileSync(RUNTIME_PATH, `${JSON.stringify(pinned, null, 2)}\n`);
 }
 
+/**
+ * Captures every study STUDIES names into one bundle for the example: one run per study, each under its own run
+ * file, snapshot folder and docPath (see "Several studies" above).
+ */
+function captureStudies({ dir, where, example }) {
+  const sources = sourceFiles(dir);
+  const byPath = new Map(sources.map((file) => [file.path, file]));
+  const previous = existsSync(join(dir, PIN_PATH)) ? readJsonFile(join(dir, PIN_PATH)) : null;
+  const project = mkdtempSync(join(tmpdir(), `runmat-study-${example.id}-`));
+  try {
+    for (const file of sources) {
+      mkdirSync(dirname(join(project, file.path)), { recursive: true });
+      writeFileSync(join(project, file.path), file.bytes);
+    }
+    const runs = [];
+    for (const entry of STUDIES) {
+      const study = entry.study.replace(/^\/+/, "");
+      const file = byPath.get(study);
+      if (!study.endsWith(".fea") || !file) throw new Error(`${entry.study} is not a study in ${where}`);
+      const digest = sha256(file.bytes);
+      if (entry.sourceSha256 && entry.sourceSha256.replace(/^sha256:/, "") !== digest) throw new Error(`${study} differs from the study that was solved (sourceSha256)`);
+      for (const solved of entry.store ? [join(entry.store, study), join(entry.store, study.split("/").pop())] : []) {
+        if (existsSync(solved) && !readFileSync(solved).equals(file.bytes)) throw new Error(`${study} differs from the copy in its store (${solved})`);
+      }
+      const slug = studySlug(study);
+      if (runs.some((run) => run.slug === slug)) throw new Error(`${study} is listed twice`);
+      const run = { study, slug, docPath: `/${study}`, manifestPath: RUN_MANIFEST(example.id, slug), snapshotDir: `.snapshot/${slug}`, sourceSha256: digest, storePaths: null };
+      let snapshot;
+      if (RUNMAT) {
+        mkdirSync(join(project, run.snapshotDir), { recursive: true });
+        execFileSync(RUNMAT, ["snapshot", study, "--out", `${run.snapshotDir}/snapshot.json`], { cwd: project, stdio: "inherit" });
+        snapshot = JSON.parse(readFileSync(join(project, run.snapshotDir, "snapshot.json"), "utf8"));
+        requireCompleteSnapshot(snapshot);
+      } else {
+        cpSync(entry.snapshot, join(project, run.snapshotDir), { recursive: true });
+        snapshot = JSON.parse(readFileSync(join(project, run.snapshotDir, "snapshot.json"), "utf8"));
+        requireCompleteSnapshot(snapshot);
+        const evidence = snapshot.publication.evidence_artifact_path;
+        const target = join(project, evidence);
+        if (existsSync(target) && !readFileSync(target).equals(readFileSync(join(entry.store, evidence)))) throw new Error(`${evidence} differs between the studies' stores`);
+        mkdirSync(dirname(target), { recursive: true });
+        cpSync(join(entry.store, evidence), target);
+        run.storePaths = partialStore(entry.store, project);
+      }
+      writeRunFormat(project, run, snapshot, capturedAt);
+      run.runId = snapshot.run_id;
+      run.figures = snapshot.views.length;
+      run.analysisStore = RUNMAT ? "included" : run.storePaths === null ? "omitted" : "partial";
+      runs.push(run);
+    }
+    const sourcePaths = new Set(sources.map((file) => file.path));
+    const allRunFiles = walk(project)
+      .filter((path) => !sourcePaths.has(path) && (path.startsWith(".artifacts/") || path.startsWith(".snapshot/")))
+      .map((path) => ({ path, bytes: readFileSync(join(project, path)) }));
+    const runManifests = runs.map((run) => run.manifestPath);
+    let bundleFiles = [...sources, ...allRunFiles];
+    let manifestBytes = projectManifest(example.id, example.entry, bundleFiles, runManifests);
+    const full = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
+    if (full.length) {
+      // Each study's own part of the store: the paths its store brought (a snapshot solved elsewhere), or, with
+      // --runmat, the one native store every study wrote into. Evidence files the datasets name stay in the replay set.
+      const keep = new Set(runs.flatMap((run) => [...datasetEvidence(project, readJsonFile(join(project, run.manifestPath)))]));
+      const groups = RUNMAT
+        ? [{ runs, paths: new Set(allRunFiles.map((file) => file.path).filter((path) => isAnalysisStore(path, keep))) }]
+        : runs.filter((run) => run.storePaths).map((run) => ({ runs: [run], paths: new Set([...run.storePaths].filter((path) => !keep.has(path))) }));
+      const size = (group) => bundleFiles.filter((file) => group.paths.has(file.path)).reduce((sum, file) => sum + file.bytes.length, 0);
+      groups.sort((a, b) => size(b) - size(a));
+      let violations = full;
+      for (const group of groups) {
+        if (!violations.length) break;
+        const shared = new Set(runs.filter((run) => !group.runs.includes(run) && run.analysisStore !== "omitted").flatMap((run) => [...(run.storePaths ?? [])]));
+        console.log(`     ${where}: the bundle with ${group.runs.map((run) => run.study).join(", ")}'s analysis store does not fit (${violations.join("; ")}); leaving that store out (${(size(group) / 1024 / 1024).toFixed(1)} MB)`);
+        bundleFiles = bundleFiles.filter((file) => !group.paths.has(file.path) || shared.has(file.path));
+        for (const run of group.runs) run.analysisStore = "omitted";
+        manifestBytes = projectManifest(example.id, example.entry, bundleFiles, runManifests);
+        violations = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
+      }
+      if (violations.length) throw new Error(`the replay set is over the app's bundle limits: ${violations.join("; ")}`);
+    }
+    const hash = sha256(manifestBytes);
+    publishBundle(example, hash, manifestBytes, bundleFiles);
+    const bytes = manifestBytes.length + bundleFiles.reduce((sum, file) => sum + file.bytes.length, 0);
+    const stores = new Set(runs.map((run) => run.analysisStore));
+    const pin = {
+      schemaVersion: 1,
+      bundle: { sha256: hash, files: bundleFiles.length, bytes },
+      sourceSha256: sourceSha256(dir),
+      runmat: { version: runmatVersion, fingerprint: null },
+      device: process.env.RUNMAT_CAPTURE_DEVICE ?? runtimePin?.device ?? "cpu_reference",
+      capturedAt,
+      figures: runs.reduce((sum, run) => sum + run.figures, 0),
+      analysisStore: stores.size === 1 ? [...stores][0] : "mixed",
+      runs: runs.map((run) => ({ study: run.study, runId: run.runId, sourceSha256: run.sourceSha256, figures: run.figures, analysisStore: run.analysisStore })),
+      ...(previous?.guide && bundleFiles.some((file) => file.path.startsWith(`.artifacts/agent/sessions/${previous.guide.sessionId}/`)) ? { guide: previous.guide } : {}),
+    };
+    writeFileSync(join(dir, PIN_PATH), `${JSON.stringify(pin, null, 2)}\n`);
+    console.log(`ok   ${where} ${hash.slice(0, 12)} ${(bytes / 1024 / 1024).toFixed(1)} MB, ${runs.length} studies: ${runs.map((run) => `${run.study} (store ${run.analysisStore})`).join(", ")}`);
+    return true;
+  } catch (error) {
+    console.log(`fail ${where}: ${error.message}`);
+    return false;
+  } finally {
+    rmSync(project, { recursive: true, force: true });
+  }
+}
+
 let failed = 0;
-for (const { dir, where, example } of selected) {
+if (MULTI) failed += captureStudies(selected[0]) ? 0 : 1;
+for (const { dir, where, example } of MULTI ? [] : selected) {
   const sources = sourceFiles(dir);
   const previous = existsSync(join(dir, PIN_PATH)) ? readJsonFile(join(dir, PIN_PATH)) : null;
   const from = FROM_BUNDLE ? previous && join(OUT, example.id, previous.bundle.sha256, "files") : FROM_PROJECT && resolve(FROM_PROJECT);
@@ -246,13 +429,13 @@ for (const { dir, where, example } of selected) {
       mkdirSync(dirname(join(project, evidence)), { recursive: true });
       cpSync(join(resolve(STORE), evidence), join(project, evidence));
       partial = partialStore(resolve(STORE), project);
-      writeRunFormat(project, example, snapshot, capturedAt);
+      writeRunFormat(project, entryRun(example), snapshot, capturedAt);
     } else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
       execFileSync(RUNMAT, ["snapshot", example.entry, "--out", ".snapshot/snapshot.json"], { cwd: project, stdio: "inherit" });
       const snapshot = JSON.parse(readFileSync(join(project, ".snapshot/snapshot.json"), "utf8"));
       requireCompleteSnapshot(snapshot);
-      writeRunFormat(project, example, snapshot, capturedAt);
+      writeRunFormat(project, entryRun(example), snapshot, capturedAt);
     }
     const sourcePaths = new Set(sources.map((file) => file.path));
     const run = JSON.parse(readFileSync(join(project, RUN_MANIFEST(example.id)), "utf8"));
@@ -277,18 +460,7 @@ for (const { dir, where, example } of selected) {
       if (replay.length) throw new Error(`the replay set is over the app's bundle limits: ${replay.join("; ")}`);
     }
     const hash = sha256(manifestBytes);
-    const bundleDir = join(OUT, example.id, hash);
-    if (!existsSync(join(bundleDir, "project.json"))) {
-      const staging = `${bundleDir}.partial`;
-      rmSync(staging, { recursive: true, force: true });
-      for (const file of bundleFiles) {
-        mkdirSync(dirname(join(staging, "files", file.path)), { recursive: true });
-        writeFileSync(join(staging, "files", file.path), file.bytes);
-      }
-      writeFileSync(join(staging, "project.json"), manifestBytes);
-      rmSync(bundleDir, { recursive: true, force: true });
-      execFileSync("mv", [staging, bundleDir]);
-    }
+    publishBundle(example, hash, manifestBytes, bundleFiles);
     const bytes = manifestBytes.length + bundleFiles.reduce((sum, file) => sum + file.bytes.length, 0);
     const pin = {
       schemaVersion: 1,

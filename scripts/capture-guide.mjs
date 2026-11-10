@@ -111,7 +111,7 @@ function sessionFreeBundle(item, pin) {
 
 /** Writes a bundle (once per content hash) and returns its hash and size. */
 function writeBundle(item, inventory, files) {
-  const manifestBytes = projectManifest(inventory.id, inventory.entry, files);
+  const manifestBytes = projectManifest(inventory.id, inventory.entry, files, inventory.run_manifests ?? [inventory.run_manifest]);
   const violations = bundleViolations(manifestBytes.length, files, LIMITS);
   if (violations.length) throw new Error(`the bundle is over the app's limits: ${violations.join("; ")}`);
   const hash = sha256(manifestBytes);

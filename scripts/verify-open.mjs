@@ -16,12 +16,19 @@
  * the shipped agent session is the only one in .artifacts/agent/sessions and that opening sent no model request
  * (POST /v1/llm/request). With --answer it then presses the card's first choice and checks the answer starts one
  * normal model turn (this costs one model request per example).
+ *
+ * With --all-studies, an --example whose pin lists one captured run per study (capture-study.mjs --study/--plan)
+ * must arrive with every study's run and nothing else; the script then opens each study in turn and checks the FEA
+ * results show that study's captured run id, still with no new run, and screenshots each (<name>.<study slug>.png).
+ *
+ * --examples <dir> reads examples from another checkout (a synthetic example in a temp folder, say), and --runs <dir>
+ * serves bundles from a capture's --out folder in place of the app's /examples-runs, without touching the servers.
  */
 import { createRequire } from "node:module";
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-import { ROOT, listExamples } from "./lib/bundle.mjs";
+import { ROOT, listExamples, studySlug } from "./lib/bundle.mjs";
 
 const args = process.argv.slice(2);
 const values = (name) => args.flatMap((arg, index) => (arg === name ? [args[index + 1]] : []));
@@ -32,6 +39,9 @@ const SHOTS = resolve(option("--shots", join(ROOT, ".verify-shots")));
 const RERUN = args.includes("--rerun");
 const GUIDE = args.includes("--guide") || args.includes("--answer");
 const ANSWER = args.includes("--answer");
+const ALL_STUDIES = args.includes("--all-studies");
+const EXAMPLES = resolve(option("--examples", ROOT));
+const RUNS = option("--runs") && resolve(option("--runs"));
 const MODEL_REQUEST = /\/v1\/llm\/request(\/stream)?(\?|$)/;
 const require = createRequire(join(PRIVATE, "desktop/package.json"));
 const { chromium } = require("playwright");
@@ -91,7 +101,7 @@ async function listSessions(page) {
 }
 
 function item(id) {
-  const found = listExamples().find((candidate) => candidate.example.id === id);
+  const found = listExamples(EXAMPLES).find((candidate) => candidate.example.id === id);
   return found && { ...found, pin: JSON.parse(readFileSync(join(found.dir, ".artifacts/capture.json"), "utf8")) };
 }
 
@@ -117,9 +127,53 @@ async function directLaunch(page, id) {
   await page.goto(`${APP}/sandbox?workspace=${launchId}`, { waitUntil: "domcontentloaded" });
 }
 
+/** Serves /examples-runs/<id>/<sha>/... from --runs when the file is there. */
+async function serveRuns(context) {
+  await context.route(/\/examples-runs\//, async (route) => {
+    const path = decodeURIComponent(new URL(route.request().url()).pathname.replace(/^.*?\/examples-runs\//, ""));
+    const file = join(RUNS, path);
+    if (!path.split("/").includes("..") && existsSync(file)) return route.fulfill({ status: 200, body: readFileSync(file), contentType: "application/octet-stream" });
+    return route.continue();
+  });
+}
+
+/** Opens a project file: its editor tab when one is open, else through the file tree, unfolding its folders. */
+async function openFile(page, path) {
+  const parts = path.replace(/^\/+/, "").split("/");
+  const name = parts.at(-1);
+  const tab = page.getByRole("tab", { name: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`) }).first();
+  if (await tab.count()) return tab.click();
+  for (const folder of parts.slice(0, -1)) {
+    const item = page.getByRole("treeitem", { name: folder, exact: true }).first();
+    if ((await item.count()) && (await item.getAttribute("aria-expanded")) === "false") await item.click();
+  }
+  const file = page.getByRole("treeitem", { name, exact: true }).first();
+  await (await file.count() ? file : page.getByText(name, { exact: true }).first()).click();
+}
+
+/** Opens each study of a multi-study example and checks it shows its own captured run. */
+async function verifyStudies(page, found, name) {
+  const results = [];
+  for (const run of found.pin.runs) {
+    await openFile(page, run.study);
+    let shown = false;
+    for (let attempt = 0; attempt < 30 && !shown; attempt += 1) {
+      await page.waitForTimeout(1000);
+      shown = (await page.getByText(run.runId, { exact: true }).count()) > 0;
+    }
+    const others = found.pin.runs.filter((other) => other !== run && other.runId !== run.runId);
+    const otherShown = (await Promise.all(others.map((other) => page.getByText(other.runId, { exact: true }).count()))).some((count) => count > 0);
+    const shot = join(SHOTS, `${name}.${studySlug(run.study)}.png`);
+    await page.screenshot({ path: shot });
+    results.push({ study: run.study, shown, otherShown, shot });
+  }
+  return results;
+}
+
 async function verify(browser, target) {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, colorScheme: "dark" });
   await context.addInitScript(recordWorkers);
+  if (RUNS) await serveRuns(context);
   // The picker stays hidden for automated browsers; show it as a visitor sees it.
   if (target.picker) await context.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
   let page = await context.newPage();
@@ -190,6 +244,13 @@ async function verify(browser, target) {
         await page.screenshot({ path: result.guide.answerShot });
       }
     }
+    const found = target.example ? item(target.example) : null;
+    result.expectedRuns = found?.pin.runs?.length ?? 1;
+    if (ALL_STUDIES && found?.pin.runs) {
+      result.studies = await verifyStudies(page, found, name);
+      const after = (await listRuns(page)) ?? [];
+      result.ranOnOpen = after.filter((file) => !file.startsWith("run_example_"));
+    }
     if (RERUN) {
       const run = page.getByRole("button", { name: /^Run\b/ }).first();
       await run.click({ timeout: 10_000 });
@@ -228,7 +289,8 @@ try {
     const result = await verify(browser, target);
     const guideOk = !GUIDE || (result.guide.shipped && result.guide.sessions.length === 1 && result.guide.sessions[0] === result.guide.shipped
       && result.guide.modelRequestsOnOpen === 0 && (!ANSWER || (result.guide.answered && result.guide.modelRequestsAfterAnswer >= 1)));
-    const ok = result.captured.length === 1 && result.ranOnOpen.length === 0 && result.signInPrompts === 0 && (!RERUN || result.rerun?.length) && guideOk;
+    const studiesOk = !result.studies || result.studies.every((study) => study.shown && !study.otherShown);
+    const ok = result.captured.length === result.expectedRuns && studiesOk && result.ranOnOpen.length === 0 && result.signInPrompts === 0 && (!RERUN || result.rerun?.length) && guideOk;
     if (!ok) failed += 1;
     console.log(`${ok ? "ok  " : "FAIL"} ${JSON.stringify(result)}`);
   }

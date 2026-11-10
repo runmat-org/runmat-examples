@@ -4,7 +4,9 @@
  *
  * A bundle is one example as a complete project: its source files plus the run the app wrote under
  * .artifacts/runs/ and .artifacts/objects/. It is described by project.json, the same inventory the FEA docs
- * examples use (schema_version 1, id, entry, run_manifest, files[{path, bytes, sha256}]). The bundle's hash is
+ * examples use (schema_version 1, id, entry, run_manifest, files[{path, bytes, sha256}]). An example with several
+ * studies ships one captured run per study: its project.json also lists run_manifests (every run, one per study),
+ * and run_manifest names the first. The bundle's hash is
  * the sha256 of project.json's bytes, and every file is published next to it under files/<path>:
  *
  *   <base>/<id>/<hash>/project.json
@@ -21,7 +23,12 @@ import { fileURLToPath } from "node:url";
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../..");
 export const PIN_PATH = ".artifacts/capture.json";
 export const RUNTIME_PATH = join(ROOT, "runtime.json");
-export const RUN_MANIFEST = (id) => `.artifacts/runs/${runIdFor(id)}.json`;
+export const RUN_MANIFEST = (id, studySlug) => `.artifacts/runs/${runIdFor(id)}${studySlug ? `__${studySlug}` : ""}.json`;
+
+/** A study's name in its run file: the study path without `.fea`, every other character but [A-Za-z0-9_-] as `_`. */
+export function studySlug(study) {
+  return study.replace(/\.fea$/, "").replace(/[^A-Za-z0-9_-]/g, "_");
+}
 
 export const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 
@@ -74,14 +81,19 @@ export function sourceSha256(dir) {
   return sha256(JSON.stringify(sourceFiles(dir).map((file) => ({ path: file.path, sha256: sha256(file.bytes) }))));
 }
 
-/** project.json bytes for a bundle, in the docs examples' inventory format. Files are sorted by path. */
-export function projectManifest(id, entry, files) {
+/**
+ * project.json bytes for a bundle, in the docs examples' inventory format. Files are sorted by path. `runManifests`
+ * lists the bundle's run manifests; with more than one, project.json carries them as run_manifests and names the
+ * first as run_manifest, which Desktop builds without multi-run support open alone.
+ */
+export function projectManifest(id, entry, files, runManifests = [RUN_MANIFEST(id)]) {
   const sorted = [...files].sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
   const manifest = {
     schema_version: 1,
     id,
     entry,
-    run_manifest: RUN_MANIFEST(id),
+    run_manifest: runManifests[0],
+    ...(runManifests.length > 1 ? { run_manifests: runManifests } : {}),
     files: sorted.map((file) => ({ path: file.path, bytes: file.bytes.length, sha256: sha256(file.bytes) })),
   };
   return Buffer.from(`${JSON.stringify(manifest, null, 2)}\n`);
