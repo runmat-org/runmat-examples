@@ -1,0 +1,105 @@
+// A six-bolt EV module busbar at 400 A: six cells feed it through their M8 terminal bolts and
+// the module's output cable leaves through the M10 bolt at its far end. Still air at 25 degC
+// cools it (10 W/m^2/K); copper's conductivity falls with temperature (0.0039 /K), so current
+// flow and temperature are solved together. The limit is 85 degC.
+//
+// Geometry: ./geometry/busbar.step, exported from busbar.part: a 200 x 30 x 2 mm Cu-ETP strap,
+// six 8.5 mm cell-bolt holes at a 27 mm pitch from 15 mm, a 10.5 mm output-bolt hole 18 mm from
+// the far end.
+//
+// Load: 66.7 A in through each of the six cell-bolt bores (400 A), 0 V on the output bolt's bore.
+// The bolted joints are taken as perfect contacts, and the cell terminals and the cable as
+// adiabatic, so all the heat leaves by convection from the strap (the worst case).
+//
+// Hand check: the current grows by 66.7 A at each cell bolt, so the 27 mm span after bolt k
+// carries 66.7 k A. With rho = 1.72e-8 Ohm m at 20 degC and A = 60 mm^2, the spans lose
+// I^2 rho L / A = 0.03, 0.14, 0.31, 0.55 and 0.86 W for k = 1 to 5, and the last 32 mm to the
+// output bolt carries 400 A and loses 1.47 W: 3.36 W in all. Still air at 10 W/m^2/K over
+// the strap's 12,400 mm^2 carries 0.124 W/K, so the strap runs 27 K over ambient at 20 degC
+// resistivity, 31 K once resistivity rises with it: about 56 degC. The hottest point, at the
+// output end, runs a few kelvin over the mean.
+
+geometry busbar {
+    file = "./geometry/busbar.step"
+    units = mm
+    region body : solid { select name "Busbar"; expect exactly_one }
+    region cell_bolt_1 : face { select name "Cell bolt 1"; expect exactly_one }
+    region cell_bolt_2 : face { select name "Cell bolt 2"; expect exactly_one }
+    region cell_bolt_3 : face { select name "Cell bolt 3"; expect exactly_one }
+    region cell_bolt_4 : face { select name "Cell bolt 4"; expect exactly_one }
+    region cell_bolt_5 : face { select name "Cell bolt 5"; expect exactly_one }
+    region cell_bolt_6 : face { select name "Cell bolt 6"; expect exactly_one }
+    region output_bolt : face { select name "Output bolt"; expect exactly_one }
+    region exterior : face { select name "Exterior"; expect one_or_more }
+}
+
+mesh busbar on geometry.busbar {
+    tetrahedra {
+        order = linear
+        target_size = 2 mm
+        maximum_deviation = 0.02 mm
+    }
+}
+
+material copper_c11000 {
+    mass_density = 8940 kg/m^3
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 58000000 A/V/m
+        resistive_heating_coefficient = 0.0039 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+    thermal {
+        reference_temperature = 20 degC
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 390 W/m/K
+        specific_heat = 385 J/kg/K
+        expansion_coefficient = 0.0000168 K^-1
+    }
+}
+
+model rated_current {
+    thermal { reference_temperature = 293.15 K }
+    electromagnetic { equation = steady_conduction }
+    assign material.copper_c11000 to geometry.busbar.region.body
+    constraint ground {
+        electrical.potential { target = geometry.busbar.region.output_bolt; value = 0 V }
+    }
+    load cell_1 { electric_current on geometry.busbar.region.cell_bolt_1 = 66.667 A }
+    load cell_2 { electric_current on geometry.busbar.region.cell_bolt_2 = 66.667 A }
+    load cell_3 { electric_current on geometry.busbar.region.cell_bolt_3 = 66.667 A }
+    load cell_4 { electric_current on geometry.busbar.region.cell_bolt_4 = 66.667 A }
+    load cell_5 { electric_current on geometry.busbar.region.cell_bolt_5 = 66.667 A }
+    load cell_6 { electric_current on geometry.busbar.region.cell_bolt_6 = 66.667 A }
+    load still_air {
+        thermal.convection {
+            target = geometry.busbar.region.exterior
+            ambient_temperature = 298.15 K
+            coefficient = 10 W/m^2/K
+        }
+    }
+    load_case rated {
+        include load.cell_1
+        include load.cell_2
+        include load.cell_3
+        include load.cell_4
+        include load.cell_5
+        include load.cell_6
+    }
+}
+
+study busbar_temperature {
+    geometry = geometry.busbar
+    mesh = mesh.busbar
+    model = model.rated_current
+    analysis operating_point { electrothermal steady {} }
+    output temperature = analysis.operating_point.field.node.temperature
+    output current_density = analysis.operating_point.field.element.electric_current_density
+    output peak_temperature = max(output.temperature, over = geometry.busbar.region.body)
+    assessment stays_below_85_celsius {
+        value = output.peak_temperature
+        maximum = 85 degC
+        evidence = authored_samples
+    }
+}

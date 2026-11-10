@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/six-bolt-busbar.fea",
+      "/busbar.part"
+    ],
+    "activeFile": "/six-bolt-busbar.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak temperature and where it sits",
+      "Find the current at which the busbar reaches 85 C",
+      "Thin the strap to 1.5 mm and compare the peak temperature"
+    ]
+  }
+}

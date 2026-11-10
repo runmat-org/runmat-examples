@@ -1,0 +1,12 @@
+[package]
+name = "six-bolt-busbar"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "six-bolt-busbar.fea"
+
+[desktop.artifacts]
+root = ".artifacts"
