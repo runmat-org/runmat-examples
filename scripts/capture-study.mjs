@@ -18,8 +18,13 @@
  * With --from-snapshot, the capture reuses a `runmat snapshot` output folder (snapshot.json with its scenes and posters)
  * that was solved elsewhere, for example on a build machine, and writes it in the app's run format as --runmat does.
  * --store is the folder the study was solved in; the study evidence file the snapshot names is copied from its
- * .artifacts. --runmat-version names the CLI build that solved it. The study's code must equal the example's. The pin
- * records analysisStore "omitted": the run opens with its figures and results, and paging raw field values needs a new run.
+ * .artifacts. --runmat-version names the CLI build that solved it. The study's code must equal the example's.
+ * The bundle also carries the part of the store that pages the study's one-value outputs (see partialStore): the
+ * run's publication binding, the publication's commit, manifest and run records, and the chunks of each authored
+ * output that holds one value (`output peak_temperature = max(...)`). Meshes, observations and every other field's
+ * chunks stay out. The pin records analysisStore "partial": the run opens with its figures and results, Desktop and
+ * the guide read the one-value outputs, and paging other fields or reassessing needs a new run. A store without a
+ * publication binding records "omitted".
  *
  * With --from-project, the capture reuses a native snapshot project the runtime already produced (for example a docs
  * example's project/files folder). Its source files must equal the example's. With --from-bundle, it reuses the
@@ -79,6 +84,39 @@ function datasetEvidence(project, run) {
   if (!src || !existsSync(join(project, src))) return new Set();
   const paths = readJsonFile(join(project, src)).study?.evidenceArtifactPaths ?? [];
   return new Set(paths.filter((path) => typeof path === "string" && existsSync(join(project, path))));
+}
+
+/**
+ * Copies from a solved study folder the files the runtime reads to page one field by run id
+ * (runmat-runtime analysis/storage: publication binding -> publication commit -> committed run record -> chunks),
+ * with the chunks of the study's one-value authored outputs only. Authored output names are identifiers; fields the
+ * solver adds are namespaced by family (structural.residual_norm) and stay out, as in Desktop's
+ * feaAuthoredScalarOutputFields. Returns the number of output chunks copied, or null when the store has no binding.
+ */
+function partialStore(store, project) {
+  const bindings = join(store, ".artifacts/publication-bindings");
+  if (!existsSync(bindings)) return null;
+  const copy = (path) => {
+    mkdirSync(dirname(join(project, path)), { recursive: true });
+    cpSync(join(store, path), join(project, path));
+  };
+  const chunks = new Set();
+  for (const name of readdirSync(bindings).filter((entry) => entry.endsWith(".json"))) {
+    const runId = name.slice(0, -".json".length);
+    const binding = readJsonFile(join(bindings, name));
+    const publication = binding.Study?.publication?.replace(/^sha256:/, "");
+    if (!publication) throw new Error(`${name}: only study publications are supported`);
+    const directory = `.artifacts/publications/${publication}`;
+    copy(`.artifacts/publication-bindings/${name}`);
+    for (const file of ["commit.json", "manifest.json", `runs/${runId}.json`]) copy(`${directory}/${file}`);
+    for (const field of readJsonFile(join(store, directory, "runs", `${runId}.json`)).fields ?? []) {
+      const values = (field.shape ?? []).reduce((product, size) => product * size, 1);
+      if (values !== 1 || field.field_id.includes(".")) continue;
+      for (const chunk of field.manifest?.chunks ?? []) chunks.add(chunk.digest.replace(/^sha256:/, ""));
+    }
+  }
+  for (const digest of chunks) copy(`.artifacts/objects/${digest}`);
+  return chunks.size;
 }
 
 const contracts = await import(pathToFileURL(join(PRIVATE, "desktop/node_modules/runmat/dist/index.js")).href);
@@ -192,6 +230,7 @@ for (const { dir, where, example } of selected) {
   const previous = existsSync(join(dir, PIN_PATH)) ? readJsonFile(join(dir, PIN_PATH)) : null;
   const from = FROM_BUNDLE ? previous && join(OUT, example.id, previous.bundle.sha256, "files") : FROM_PROJECT && resolve(FROM_PROJECT);
   const project = mkdtempSync(join(tmpdir(), `runmat-study-${example.id}-`));
+  let partial = null;
   try {
     for (const file of sources) {
       mkdirSync(dirname(join(project, file.path)), { recursive: true });
@@ -206,6 +245,7 @@ for (const { dir, where, example } of selected) {
       const evidence = snapshot.publication.evidence_artifact_path;
       mkdirSync(dirname(join(project, evidence)), { recursive: true });
       cpSync(join(resolve(STORE), evidence), join(project, evidence));
+      partial = partialStore(resolve(STORE), project);
       writeRunFormat(project, example, snapshot, capturedAt);
     } else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
@@ -221,8 +261,9 @@ for (const { dir, where, example } of selected) {
       .map((path) => ({ path, bytes: readFileSync(join(project, path)) }));
     let bundleFiles = [...sources, ...allRunFiles];
     let manifestBytes = projectManifest(example.id, example.entry, bundleFiles);
-    // A snapshot solved elsewhere brings only its evidence file, not the native store's meshes and field chunks.
-    let analysisStore = FROM_SNAPSHOT ? "omitted" : "included";
+    // A snapshot solved elsewhere brings its evidence file and the one-value outputs' part of the store, not the
+    // native store's meshes and other field chunks.
+    let analysisStore = FROM_SNAPSHOT ? (partial === null ? "omitted" : "partial") : "included";
     const full = bundleViolations(manifestBytes.length, bundleFiles, LIMITS);
     if (full.length) {
       const keep = datasetEvidence(project, run);
