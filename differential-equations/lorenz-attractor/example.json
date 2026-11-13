@@ -3,14 +3,14 @@
   "title": "Lorenz attractor",
   "pickerTitle": "Lorenz attractor",
   "pickerLine": "Differential equations",
-  "line": "The Lorenz system, solved with ode45 and drawn by RunMat.",
+  "line": "The Lorenz system, drawn live and solved with ode45 by RunMat.",
   "description": "Lorenz system with the classic parameters: a chaotic trajectory in three dimensions",
   "topic": "differential-equations",
   "topicLabel": "Differential equations",
   "group": "Page hero",
   "kind": "script",
   "visual": "3d",
-  "entry": "lorenz-attractor.m",
+  "entry": "lorenz-attractor-animate.m",
   "roles": [
     "research",
     "student",
@@ -27,7 +27,7 @@
   "origin": {
     "page": "/math/differential-equations",
     "key": "website:math/differential-equations/hero",
-    "source": "website/content/math/differential-equations/lorenz-attractor.m",
+    "source": "website/content/math/differential-equations/lorenz-attractor-animate.m",
     "thumbnail": "website/public/math-assets/differential-equations/hero.webp"
   }
 }
