@@ -1,0 +1,14 @@
+runmat 0.7
+std 1
+
+// The nacelle cowl: a rounded inlet lip swelling to 1.1 m and closing over the core, turned about x.
+part cowl {
+    sketch s on origin.xy {
+        c1 = spline(points = [[180 mm, 835 mm], [50 mm, 850 mm], [0 mm, 895 mm], [30 mm, 965 mm], [300 mm, 1045 mm], [1100 mm, 1100 mm], [2200 mm, 1075 mm], [3000 mm, 975 mm], [3450 mm, 880 mm]])
+        c2_1 = line(start = c1.end, end = [3450 mm, 820 mm])
+        c2 = line(start = c2_1.end, end = c1.start)
+    }
+    feature body = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+
+    output cowl = { body = feature.body.body, part_number = "NAC-CW-900", material = "composite", color = "#E6E9EC" }
+}

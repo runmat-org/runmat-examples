@@ -1,0 +1,199 @@
+// Winter heat loss through the house's exterior wall, and the stud as a thermal bridge.
+//
+// Geometry: ./geometry/wall_thermal.step, exported from wall_thermal.assembly (wall_section.part):
+// the layers of envelope/exterior_wall.part and framing/shear_wall.part across half of one 16 in
+// stud bay, from the centre of a stud (x = 0) to the centre of the insulated bay (x = 203.2 mm).
+// Both ends are planes of symmetry and the two faces of the 5 mm slice carry no heat, so
+// those faces are left adiabatic. y runs inward from the outside face of the studs.
+//
+// Conditions: 21 degC (294.15 K) in the room and -10 degC (263.15 K) outside, a 31 K difference.
+// Surface films as convection, with the film resistances of California Energy Commission, 2013
+// Reference Appendices, Joint Appendix JA4, Table 4.6.2 (also Washington State Energy Code,
+// WAC 51-11C, Table A101.5): interior vertical surface R-0.68 and exterior surface R-0.17
+// (h ft^2 degF/Btu). 1 h ft^2 degF/Btu = 0.17611 m^2 K/W, so h_in = 1/(0.68 x 0.17611) =
+// 8.35 W/m^2/K and h_out = 1/(0.17 x 0.17611) = 33.4 W/m^2/K.
+//
+// Materials: JA4 Table 4.6.1, "Physical Properties of Materials" (same document), converted to SI
+// (1 Btu/h/ft/degF = 1.7307 W/m/K, 1 lb/ft^3 = 16.018 kg/m^3, 1 Btu/lb/degF = 4186.8 J/kg/K):
+//   stucco, SC01: k 0.4167 Btu/h/ft/degF = 0.721 W/m/K, 116 lb/ft^3 = 1858 kg/m^3, 0.20 Btu/lb/degF = 837 J/kg/K
+//   gypsum board 1/2 in, GP01: k 0.0926 = 0.160 W/m/K, 50 lb/ft^3 = 801 kg/m^3, 0.26 = 1089 J/kg/K
+//   softwood, WD05 (the Douglas fir studs): k 0.0667 = 0.115 W/m/K, 32 lb/ft^3 = 513 kg/m^3, 0.33 = 1382 J/kg/K
+//   plywood, PW03 (the table's wood structural panel value, used for the OSB): k 0.0667 = 0.115 W/m/K,
+//     34 lb/ft^3 = 545 kg/m^3, 0.29 = 1214 J/kg/K
+//   building paper, permeable felt, BP01: R-0.06 per layer; the table gives no thickness, density
+//     or specific heat. Each layer is modeled 1/32 in (0.794 mm) thick, so k = 0.000794 /
+//     (0.06 x 0.17611) = 0.0751 W/m/K carries the listed R-0.06.
+//   R-21 fiberglass batt, 5 1/2 in: the rated R-value of the product (the FTC R-value Rule,
+//     16 CFR Part 460, rates it at a 75 degF mean temperature), so k = 0.1397 / (21 x 0.17611) =
+//     0.0378 W/m/K.
+// A steady solve uses conductivity only. The density, specific heat and the two temperature
+// coefficients below are not used by it; the 0.7 study format asks every thermal material for
+// them, and they come out once that requirement is lifted (FEA G41). Where they are given:
+//   densities and specific heats of stucco, gypsum, softwood and OSB: JA4 Table 4.6.1, as above;
+//   batt: 19 kg/m^3 and 960 J/kg/K, ASHRAE Handbook of Fundamentals 2005, Chapter 30, Table 19,
+//     "I05 154mm batt insulation" (as carried in the EnergyPlus dataset ASHRAE_2005_HOF_Materials);
+//   building paper: no source lists them, so the paper takes the "Laminated paperboard" entry of
+//     ASHRAE HOF 2005, Chapter 25, Table 4 (480 kg/m^3, 1380 J/kg/K, same dataset) as a stand-in;
+//   expansion and modulus temperature coefficients: 0 K^-1, meaning "not modeled"; this study
+//     has no structural analysis.
+//
+// Hand check, 1-D series resistances (h ft^2 degF/Btu): 0.17 outside film + 0.18 stucco (7/8 in at
+// SC01's R-0.20 per inch) + 0.12 two papers + 0.55 OSB (7/16 in at PW03's k) + 0.45 gypsum + 0.68
+// inside film = 2.15 outside the framing; plus 21 through the batt = 23.15 (4.077 m^2 K/W,
+// U = 0.245 W/m^2/K, 7.60 W/m^2 at 31 K), or plus 6.88 through the stud (5 1/2 in at WD05's R-1.25
+// per inch) = 9.03 (1.590 m^2 K/W, U = 0.629 W/m^2/K, 19.5 W/m^2). The half bay is 9.4 % stud by
+// width; as parallel paths U = 0.906 x 0.245 + 0.094 x 0.629 = 0.281 W/m^2/K, 8.72 W/m^2, 0.00886 W
+// through this 203.2 x 5 mm slice. The solve lets heat cross between the stud and the batt
+// through the sheathing, stucco and gypsum, which the parallel paths cannot.
+
+geometry wall {
+    file = "./geometry/wall_thermal.step"
+    units = mm
+    interfaces = shared
+    region stucco_finish : solid { select name "stucco_finish"; expect exactly_one }
+    region stucco_brown : solid { select name "stucco_brown"; expect exactly_one }
+    region stucco_scratch : solid { select name "stucco_scratch"; expect exactly_one }
+    region wrb_outer : solid { select name "wrb_outer"; expect exactly_one }
+    region wrb_inner : solid { select name "wrb_inner"; expect exactly_one }
+    region osb : solid { select name "osb"; expect exactly_one }
+    region stud : solid { select name "stud"; expect exactly_one }
+    region batt : solid { select name "batt"; expect exactly_one }
+    region gypsum : solid { select name "gypsum"; expect exactly_one }
+    region inside_face : face { select name "inside_face"; expect exactly_one }
+    region outside_face : face { select name "outside_face"; expect exactly_one }
+}
+
+// Temperature runs linearly through each flat layer, so one quadratic tetrahedron through a
+// paper layer holds it exactly. The papers and the finish coat are refined; the rest grades
+// out to 15 mm.
+mesh wall on geometry.wall {
+    tetrahedra {
+        order = quadratic
+        target_size = 15 mm
+        maximum_deviation = 0.1 mm
+        maximum_grading_ratio = 2.0
+
+        refine paper_outer {
+            on = geometry.wall.region.wrb_outer
+            target_size = 1.5 mm
+        }
+        refine paper_inner {
+            on = geometry.wall.region.wrb_inner
+            target_size = 1.5 mm
+        }
+        refine finish_coat {
+            on = geometry.wall.region.stucco_finish
+            target_size = 3 mm
+        }
+    }
+}
+
+material stucco {
+    mass_density = 1858 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.721 W/m/K
+        specific_heat = 837 J/kg/K
+    }
+}
+
+material building_paper {
+    mass_density = 480 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.0751 W/m/K
+        specific_heat = 1380 J/kg/K
+    }
+}
+
+material osb {
+    mass_density = 545 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.115 W/m/K
+        specific_heat = 1214 J/kg/K
+    }
+}
+
+material softwood_stud {
+    mass_density = 513 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.115 W/m/K
+        specific_heat = 1382 J/kg/K
+    }
+}
+
+material fiberglass_batt_r21 {
+    mass_density = 19 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.0378 W/m/K
+        specific_heat = 960 J/kg/K
+    }
+}
+
+material gypsum_board {
+    mass_density = 801 kg/m^3
+    thermal {
+        reference_temperature = 294.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0 K^-1
+        conductivity = 0.160 W/m/K
+        specific_heat = 1089 J/kg/K
+    }
+}
+
+model winter_design {
+    thermal { reference_temperature = 294.15 K }
+    assign material.stucco to geometry.wall.region.stucco_finish
+    assign material.stucco to geometry.wall.region.stucco_brown
+    assign material.stucco to geometry.wall.region.stucco_scratch
+    assign material.building_paper to geometry.wall.region.wrb_outer
+    assign material.building_paper to geometry.wall.region.wrb_inner
+    assign material.osb to geometry.wall.region.osb
+    assign material.softwood_stud to geometry.wall.region.stud
+    assign material.fiberglass_batt_r21 to geometry.wall.region.batt
+    assign material.gypsum_board to geometry.wall.region.gypsum
+    load room_air {
+        thermal.convection {
+            target = geometry.wall.region.inside_face
+            ambient_temperature = 294.15 K
+            coefficient = 8.35 W/m^2/K
+        }
+    }
+    load outdoor_air {
+        thermal.convection {
+            target = geometry.wall.region.outside_face
+            ambient_temperature = 263.15 K
+            coefficient = 33.4 W/m^2/K
+        }
+    }
+}
+
+study wall_heat_loss {
+    geometry = geometry.wall
+    mesh = mesh.wall
+    model = model.winter_design
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    // Heat through the slice (W); divided by its 0.001016 m^2 it is the wall's mean flux.
+    output heat_through_room_face = flux(analysis.heat.field.element.heat_flux, through = geometry.wall.region.inside_face)
+    output heat_through_weather_face = flux(analysis.heat.field.element.heat_flux, through = geometry.wall.region.outside_face)
+    // The room face over the stud is the coldest; the local flux there is h_in x (294.15 K - T).
+    output coldest_room_surface = min(analysis.heat.field.node.temperature, over = geometry.wall.region.inside_face)
+    output warmest_room_surface = max(analysis.heat.field.node.temperature, over = geometry.wall.region.inside_face)
+    // The room face's mean temperature gives the same heat as the flux: h_in x A x (294.15 K - mean).
+    output mean_room_surface = mean(analysis.heat.field.node.temperature, over = geometry.wall.region.inside_face)
+    output mean_weather_surface = mean(analysis.heat.field.node.temperature, over = geometry.wall.region.outside_face)
+}

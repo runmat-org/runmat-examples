@@ -1,0 +1,76 @@
+// AC resistance of a round copper conductor, 20 mm in diameter, at 50 Hz and 1 kHz. A 30 mm length
+// carries 1000 A (peak) and returns through a coaxial, perfectly conducting shell at 15 mm radius,
+// joined to the rod by end plates; the space between is air. At each frequency the run solves the
+// full field, with skin effect in the copper, and reports the terminal voltage and the power
+// delivered, which equals the loss in the rod. It also returns the loss density and its peak, at
+// the rod's surface. Rac / Rdc is the delivered power divided by the DC loss of the same current.
+// Check: the skin depth sqrt(2 / (omega mu sigma)) is 9.35 mm at 50 Hz and 2.09 mm at 1 kHz.
+// The exact solution for a round wire, Z / Rdc = (k a / 2) J0(k a) / J1(k a) with k = (1 - j) / delta,
+// gives Rac / Rdc = 1.027 at 50 Hz and 2.662 at 1 kHz. With Rdc = 1.646 uOhm, the rod loses
+// 0.845 W and 2.191 W (0.823 W at DC). The surface loss density is 0.099 and 1.109 MW/m^3.
+geometry conductor {
+    file = "./geometry/round-conductor.step"
+    units = mm
+    interfaces = shared
+    region rod : solid { select name "Conductor"; expect exactly_one }
+    region air : solid { select name "Air"; expect exactly_one }
+    region terminal_in : face { select name "Terminal in"; expect exactly_one }
+    region terminal_out : face { select name "Terminal out"; expect exactly_one }
+    region return_shell : face { select name "Return shell"; expect exactly_one }
+    region end_plates : face { select name "End plates"; expect one_or_more }
+}
+
+mesh conductor on geometry.conductor {
+    tetrahedra {
+        order = linear
+        target_size = 1.2 mm
+        maximum_deviation = 0.05 mm
+    }
+}
+
+// Copper: IEC 60028 (international standard of resistance for copper, 1/58 ohm mm^2/m at 20 C).
+material copper {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 58000000 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}
+
+material air {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 0 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}
+
+model coaxial_line {
+    assign material.copper to geometry.conductor.region.rod
+    assign material.air to geometry.conductor.region.air
+    constraint return_path {
+        magnetic.vector_potential_ground { target = geometry.conductor.region.return_shell }
+    }
+    constraint end_plates {
+        magnetic.vector_potential_ground { target = geometry.conductor.region.end_plates }
+    }
+    constraint return_terminal {
+        electrical.potential { target = geometry.conductor.region.terminal_out; value = 0 V }
+    }
+    load drive {
+        electric_current on geometry.conductor.region.terminal_in = 1000 A
+    }
+}
+
+study ac_resistance {
+    geometry = geometry.conductor
+    mesh = mesh.conductor
+    model = model.coaxial_line
+    analysis field { electromagnetic harmonic { frequencies = [50, 1000] Hz } }
+    output loss_density = analysis.field.field.element.joule_power_density
+    output peak_loss_density = max(analysis.field.field.element.joule_power_density, over = geometry.conductor.region.rod)
+}

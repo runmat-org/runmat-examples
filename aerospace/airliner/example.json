@@ -1,0 +1,31 @@
+{
+  "id": "aerospace-airliner",
+  "title": "A narrow-body airliner, inside and out",
+  "pickerTitle": "Narrow-body airliner",
+  "pickerLine": "Aerospace CAD",
+  "line": "A twin-engine airliner modeled as parts and assemblies, with its cabin, flight deck and cargo holds.",
+  "description": "A generic 38 m twin-engine narrow-body built from .part and .assembly files. A skeleton part sets the main sizes and the frames each assembly attaches to. The fuselage has frames, stringers, skin panels and rivets, a drooped nose with six cockpit panes, and an interior: floor beams and seat tracks, business and economy seat rows patterned at their pitch, overhead bins, linings, galleys, lavatories and doors, the flight deck, the cargo holds, the center wing box and the main gear bays. Cut it down the centerline or across the cabin with Section to see inside.",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "design",
+  "visual": "3d",
+  "entry": "airliner.assembly",
+  "tags": ["cad", "assembly", "aircraft", "patterns", "section-view"],
+  "roles": [
+    "aerospace",
+    "structural"
+  ],
+  "goals": [
+    "build_simulations",
+    "share_projects"
+  ],
+  "theme": "airliner-cad",
+  "thumbnailAlt": "A generic twin-engine narrow-body airliner seen from ahead and below, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "runmat-cad:aircraft",
+    "source": "runmat-cad/crates/runmat-cad/wasm/tests/aircraft_text",
+    "thumbnail": null
+  }
+}

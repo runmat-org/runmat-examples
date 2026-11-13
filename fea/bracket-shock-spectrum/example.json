@@ -1,0 +1,32 @@
+{
+  "id": "bracket-shock-spectrum",
+  "title": "Bracket shock response",
+  "pickerTitle": "Bracket shock response",
+  "pickerLine": "FEA studies",
+  "line": "A response spectrum FEA study of a steel bracket under a 1000 g shock spectrum.",
+  "description": "Shock response of a steel wall-hook bracket (40 x 50 x 35 mm) bolted at its three mounting holes. The mounting sees a pyrotechnic shock along the wall, given as a 5% damped shock response spectrum rising from 20 g at 100 Hz to a 1000 g plateau from 2 kHz. Modes combine by CQC.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "bracket-shock-spectrum.fea",
+  "roles": [
+    "aerospace",
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "bracket-shock-spectrum",
+  "thumbnailAlt": "Peak displacement of a steel bracket under a shock response spectrum, solved in RunMat",
+  "origin": {
+    "page": "/simulation/structural",
+    "key": "website:simulation/structural/bracket-shock-spectrum",
+    "source": "runmat-examples/fea/bracket-shock-spectrum/bracket-shock-spectrum.fea"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/brake-disc.fea",
+      "/disc.part"
+    ],
+    "activeFile": "/brake-disc.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak temperature and peak thermal stress against 250 MPa",
+      "Raise the duty to a 10 % grade and find the new peak stress",
+      "Halve the vane cooling and compare the ring temperature"
+    ]
+  }
+}

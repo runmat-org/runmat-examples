@@ -1,0 +1,31 @@
+{
+  "id": "busbar-fault-pulse",
+  "title": "Busbar fault pulse",
+  "pickerTitle": "Busbar fault pulse",
+  "pickerLine": "FEA studies",
+  "line": "A transient Joule heating FEA study of a copper busbar strip through a 25 kA, 0.5 s fault.",
+  "description": "A copper busbar strip (100 x 40 x 5 mm) carrying 400 A sees a 25 kA fault for 0.5 s. Resistivity rises with temperature, so the loss grows as the strip heats. The study solves current and temperature together for 1 s and returns the temperature history and its peak, against the adiabatic short-circuit estimate.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "busbar-fault-pulse.fea",
+  "roles": [
+    "electrical",
+    "automotive",
+    "thermal_fluids",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "busbar-fault-pulse",
+  "thumbnailAlt": "Temperature of a copper busbar strip during a 25 kA fault, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electrothermal",
+    "key": "website:simulation/electrothermal/busbar-fault-pulse",
+    "source": "runmat-examples/fea/busbar-fault-pulse/busbar-fault-pulse.fea",
+    "geometry": "geometry/busbar-strip.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

@@ -1,0 +1,77 @@
+// Natural frequencies of a steel bar (1000 x 100 x 100 mm) clamped at both ends and heated 200 K
+// above the temperature it was clamped at (20 C to 220 C). The clamps stop the bar growing, so it
+// carries an axial compression of E A alpha dT = 5040 kN, which softens its bending modes. A steady
+// thermal step finds the temperature, a preload step turns it into thermal stress and geometric
+// stiffness, and a modal step returns the first two modes of the hot bar.
+// Check: the compression is P / Pcr = alpha dT A L^2 / (4 pi^2 I) = 0.0730 of the clamped-clamped
+// buckling load, so mode 1 drops by about sqrt(1 - P / Pcr) = 0.963. Euler-Bernoulli theory puts
+// the cold mode 1 at 531.7 Hz (the solid model reads lower, with shear); hot, about 512 Hz.
+geometry bar {
+    file = "./geometry/heated-bar.step"
+    units = mm
+    region body : solid { select name "Bar"; expect exactly_one }
+    region end_a : face { select name "End A"; expect exactly_one }
+    region end_b : face { select name "End B"; expect exactly_one }
+}
+
+mesh bar on geometry.bar {
+    tetrahedra {
+        order = quadratic
+        target_size = 50 mm
+        maximum_deviation = 1 mm
+    }
+}
+
+// Structural steel S275: E, nu, density and expansion from EN 1993-1-1, 3.2.6; conductivity and
+// specific heat are the constant values EN 1993-1-2, 3.4.1 gives for simple calculations.
+material steel_s275 {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 210 GPa
+        poisson_ratio = 0.3
+    }
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 45 W/m/K
+        specific_heat = 600 J/kg/K
+        expansion_coefficient = 0.000012 K^-1
+    }
+}
+
+model clamped_bar {
+    thermal { reference_temperature = 293.15 K }
+    thermomechanical { reference_temperature = 293.15 K }
+    assign material.steel_s275 to geometry.bar.region.body
+    constraint clamp_a {
+        structural.fixed { target = geometry.bar.region.end_a }
+    }
+    constraint clamp_b {
+        structural.fixed { target = geometry.bar.region.end_b }
+    }
+    // Both ends at 220 C and no other heat path: the whole bar reaches 220 C.
+    constraint hot_a {
+        thermal.temperature { target = geometry.bar.region.end_a; value = 493.15 K }
+    }
+    constraint hot_b {
+        thermal.temperature { target = geometry.bar.region.end_b; value = 493.15 K }
+    }
+}
+
+study heated_modes {
+    geometry = geometry.bar
+    mesh = mesh.bar
+    model = model.clamped_bar
+    analysis heat { thermal steady {} retain heated }
+    analysis preload after analysis.heat {
+        thermomechanical preload { temperature = analysis.heat.state.heated }
+    }
+    analysis modes after analysis.preload {
+        structural prestressed_modal {
+            prestress = analysis.preload.state.geometric_stiffness
+            modes = 2
+        }
+    }
+    output temperature = analysis.heat.field.node.temperature
+    output mode_shapes = analysis.modes.field.node.displacement
+}

@@ -1,0 +1,32 @@
+{
+  "id": "battery-cold-plate",
+  "title": "Battery module on its liquid cold plate",
+  "pickerTitle": "Battery module on its liquid cold plate",
+  "pickerLine": "FEA studies",
+  "line": "Conjugate heat transfer through battery module M01, its gap filler, an aluminum cold plate and the laminar coolant in its serpentine, against a 45 C cell limit.",
+  "description": "The eight prismatic cells of module M01 (20 W each) on 3 mm gap-filler pads and a brazed aluminum cold plate with a four-pass 14 x 4 mm serpentine. The coolant is its own body in the RunMat MCAD part, sharing its channel walls with the plate. The study solves the laminar coolant flow (Re 1130 at 2 L/min of 50/50 water-glycol from 25 C) and the heat through every solid together, and reports the peak cell temperature against 45 C, the coolant's temperature rise and the pressure drop.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "battery-cold-plate.fea",
+  "roles": [
+    "automotive",
+    "thermal_fluids",
+    "electrical",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "battery-cold-plate",
+  "thumbnailAlt": "Eight prismatic battery cells on gap-filler pads over an aluminum liquid cold plate, modeled in RunMat",
+  "origin": {
+    "page": "/simulation/conjugate-heat-transfer",
+    "key": "website:simulation/conjugate-heat-transfer/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/battery-cold-plate/m01_cold_plate.part",
+    "geometry": "geometry/, exported from m01_cold_plate.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's figure"
+  }
+}

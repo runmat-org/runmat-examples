@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// A lavatory: a monument with its door on the aisle.
+part lavatory {
+    sketch s on origin.yz {
+        l1 = line(start = [250 mm, -400 mm], end = [1700 mm, -400 mm])
+        l2 = line(start = [1700 mm, -400 mm], end = [1760 mm, 300 mm])
+        l3 = line(start = [1760 mm, 300 mm], end = [1440 mm, 1000 mm])
+        l4 = line(start = [1440 mm, 1000 mm], end = [900 mm, 1480 mm])
+        l5 = line(start = [900 mm, 1480 mm], end = [250 mm, 1480 mm])
+        l6 = line(start = [250 mm, 1480 mm], end = [250 mm, -400 mm])
+    }
+    feature box = extrude(profile = sketch.s, distance = 900 mm)
+    feature door_at = plane.offset(base = origin.zx, distance = 245 mm)
+    sketch d on plane.door_at {
+        l1 = line(start = [-370 mm, 80 mm], end = [1450 mm, 80 mm])
+        l2 = line(start = [1450 mm, 80 mm], end = [1450 mm, 820 mm])
+        l3 = line(start = [1450 mm, 820 mm], end = [-370 mm, 820 mm])
+        l4 = line(start = [-370 mm, 820 mm], end = [-370 mm, 80 mm])
+    }
+    feature door = extrude(profile = sketch.d, distance = 10 mm, mode = cut)
+
+    output lavatory = { body = feature.box.body, part_number = "CAB-LV-610", material = "polycarbonate", color = "#E5E1D8" }
+}

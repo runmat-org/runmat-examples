@@ -1,0 +1,49 @@
+runmat 0.7
+std 1
+
+// The cabin window frame's detail drawing at 1:2 on A3, third-angle projection: the plan with
+// the outer size, the cutout it surrounds (the skin's window cutout, the cabin window's
+// outline) and the fastener holes' callout; section A-A across the ring at the fuselage
+// station of its center; and an isometric.
+drawing window_frame {
+    format a3 = {
+        size = { size = iso, name = A3 },
+        title_block = [
+            { label = "Title", source = { source = literal, text = "Cabin window frame" } },
+            { label = "Part number", source = { source = property, name = part_number } },
+            { label = "Material", source = { source = property, name = material } },
+            { label = "Drawn", source = { source = literal, text = "RunMat Design" } },
+            { label = "Scale", source = { source = scale } },
+            { label = "Sheet", source = { source = sheet_number } },
+            { label = "Rev", source = { source = revision } },
+            { label = "Date", source = { source = literal, text = "2026-11-10" } }
+        ]
+    }
+
+    sheet "1" = { format = a3, scale = [1, 2], projection = third_angle }
+
+    view top = standard(orientation = top, sheet = "1", model = { part = window_frame, from = "../fuselage" }, at = [115, 175], display = visible_lines)
+    view a_a = section(
+        from = top,
+        plane = feature.fastener_holes.face.wall(a),
+        label = A,
+        sheet = "1",
+        model = { part = window_frame, from = "../fuselage" },
+        at = [115, 55],
+        display = visible_lines
+    )
+    view iso = standard(orientation = isometric, sheet = "1", model = { part = window_frame, from = "../fuselage" }, at = [355, 215], scale = [1, 4], display = visible_lines)
+
+    annotation outer_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol4), feature.ring.face.side(ring_s.ol2)], view = top)
+    annotation outer_height = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol1), feature.ring.face.side(ring_s.ol3)], view = top)
+    annotation cutout_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.il4), feature.ring.face.side(ring_s.il2)], view = top)
+    annotation cutout_height = dimension(style = linear, references = [feature.ring.face.side(ring_s.il1), feature.ring.face.side(ring_s.il3)], view = top)
+    annotation cutout_corner = dimension(style = radius, references = [feature.ring.face.side(ring_s.ia2)], view = top)
+    annotation thickness = dimension(style = linear, references = [feature.ring.face.start, feature.ring.face.end], view = a_a)
+    annotation fasteners = hole_callout(hole = feature.fastener_holes.face.wall(a), view = top)
+    annotation notes = note(
+        text = "NOTES:\n1. MATERIAL: {material}-T6 FORGING.\n2. SKIN CUTOUT MATCHES THE FRAME'S INNER OUTLINE, +0.5/0 MM.\n3. FASTEN TO THE SKIN WITH 12 FLUSH FASTENERS, WET INSTALLED.\n4. FORM TO THE FUSELAGE'S 1977 MM INNER SKIN RADIUS.\n5. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.",
+        view = iso,
+        at = [250, 150]
+    )
+}

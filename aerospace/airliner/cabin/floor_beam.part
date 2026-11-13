@@ -1,0 +1,23 @@
+runmat 0.7
+std 1
+
+// A floor beam: an I section 150 mm deep across the fuselage at a frame, under the floor panels.
+part floor_beam {
+    sketch s on origin.zx {
+        l1 = line(start = [-560 mm, -40 mm], end = [-560 mm, 40 mm])
+        l2 = line(start = [-560 mm, 40 mm], end = [-552 mm, 40 mm])
+        l3 = line(start = [-552 mm, 40 mm], end = [-552 mm, 3 mm])
+        l4 = line(start = [-552 mm, 3 mm], end = [-418 mm, 3 mm])
+        l5 = line(start = [-418 mm, 3 mm], end = [-418 mm, 40 mm])
+        l6 = line(start = [-418 mm, 40 mm], end = [-410 mm, 40 mm])
+        l7 = line(start = [-410 mm, 40 mm], end = [-410 mm, -40 mm])
+        l8 = line(start = [-410 mm, -40 mm], end = [-418 mm, -40 mm])
+        l9 = line(start = [-418 mm, -40 mm], end = [-418 mm, -3 mm])
+        l10 = line(start = [-418 mm, -3 mm], end = [-552 mm, -3 mm])
+        l11 = line(start = [-552 mm, -3 mm], end = [-552 mm, -40 mm])
+        l12 = line(start = [-552 mm, -40 mm], end = [-560 mm, -40 mm])
+    }
+    feature beam = extrude(profile = sketch.s, distance = 3464.422 mm, symmetric)
+
+    output floor_beam = { body = feature.beam.body, part_number = "FUS-FB-400", material = "aluminum_7075", color = "#A7B596" }
+}

@@ -1,0 +1,27 @@
+runmat 0.7
+std 1
+
+// A door to starboard, 1800 mm wide and 1150 mm tall: its outer skin, 6 mm proud of the fuselage.
+part cargo_door {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1986 mm], end = [1800 mm, 1986 mm])
+        l2 = line(start = [1800 mm, 1986 mm], end = [1800 mm, 1989 mm])
+        l3 = line(start = [1800 mm, 1989 mm], end = [0 mm, 1989 mm])
+        l4 = line(start = [0 mm, 1989 mm], end = [0 mm, 1986 mm])
+    }
+    feature skin = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+    feature side = plane.offset(base = origin.zx, distance = 0 mm)
+    sketch o on plane.side {
+        c1 = spline(points = [[-1500 mm, 0 mm], [-1584 mm, 36 mm], [-1620 mm, 120 mm]])
+        c2 = line(start = c1.end, end = [-1620 mm, 1680 mm])
+        c3 = spline(points = [c2.end, [-1584 mm, 1764 mm], [-1500 mm, 1800 mm]])
+        c4 = line(start = c3.end, end = [-590 mm, 1800 mm])
+        c5 = spline(points = [c4.end, [-506 mm, 1764 mm], [-470 mm, 1680 mm]])
+        c6 = line(start = c5.end, end = [-470 mm, 120 mm])
+        c7 = spline(points = [c6.end, [-506 mm, 36 mm], [-590 mm, 0 mm]])
+        c8 = line(start = c7.end, end = c1.start)
+    }
+    feature cut = extrude(profile = sketch.o, distance = 2180 mm, mode = intersect)
+
+    output cargo_door = { body = feature.skin.body, part_number = "FUS-DR-730", material = "aluminum_2024", color = "#EEF0F2" }
+}

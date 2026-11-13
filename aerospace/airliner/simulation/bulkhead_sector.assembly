@@ -1,0 +1,12 @@
+runmat 0.7
+std 1
+
+// A 10 degree sector of the aft pressure bulkhead, for bulkhead_dome.fea: the part's own
+// profile turned through 10 degrees instead of a full turn. The dome's load and supports repeat
+// round the axis, so the sector's two cut faces are planes of symmetry. Exported to
+// geometry/bulkhead_sector.step.
+assembly bulkhead_sector {
+    use part aft_pressure_bulkhead from "../fuselage" as bulkhead {
+        configuration = { select = inputs, values = { sweep = 10 deg } }
+    }
+}

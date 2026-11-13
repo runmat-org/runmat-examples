@@ -1,0 +1,31 @@
+{
+  "id": "construction-house",
+  "title": "A two-story house, foundation to roof, with its MEP",
+  "pickerTitle": "Two-story house with MEP",
+  "pickerLine": "Construction CAD",
+  "line": "A 2,400 sq ft wood-framed stucco house: footings, framing, shear walls, envelope layers, interior, and the electrical, plumbing and HVAC routed through the framing.",
+  "description": "A generic two-story, wood-framed single-family house on a 40 x 30 ft footprint with a 6:12 gable roof, in feet and inches. A skeleton part sets the grids and levels every assembly attaches to. The foundation has footings with rebar, the stem wall and the slab with its insulation; the framing has 2x6 walls with insulated headers, OSB shear walls with hold-downs and anchor bolts, I-joists on LVL beams and Fink trusses. Each wall and roof layer is its own body with its material. The interior has partitions, the stair, cabinets and bath fixtures. The service one-line, panel schedule and branch circuits are circuit files; PEX supply, drain-waste-vent with its stack and vents, and the heat pump's ducts are routed through bored framing and checked clear of it. DESIGN-NOTES gives the loads, load path and sizing. Cut it with Section to see inside.",
+  "topic": "construction",
+  "topicLabel": "Construction",
+  "group": null,
+  "kind": "design",
+  "visual": "3d",
+  "entry": "house.assembly",
+  "tags": ["cad", "assembly", "construction", "mep", "circuit", "section-view"],
+  "roles": [
+    "structural",
+    "electrical"
+  ],
+  "goals": [
+    "build_simulations",
+    "share_projects"
+  ],
+  "theme": "house-cad",
+  "thumbnailAlt": "A two-story stucco house with a gable roof, seen from the south-west, rendered by RunMat",
+  "origin": {
+    "page": "/industries/construction",
+    "key": "runmat-cad:house",
+    "source": "runmat-examples/construction/house",
+    "thumbnail": null
+  }
+}

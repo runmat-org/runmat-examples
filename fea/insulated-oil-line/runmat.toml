@@ -1,0 +1,12 @@
+[package]
+name = "insulated-oil-line"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "insulated-oil-line.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,86 @@
+// Steady temperatures through a copper heat spreader (30 x 30 x 3 mm) mounted on an aluminum block
+// (30 x 30 x 10 mm) of the same footprint. A component puts 30 W into the spreader's top face. The
+// joint between the two parts is filled with silicone oil and written as a contact conductance. The
+// block's underside is held at 40 C by the cold plate; the side faces are insulated. The run returns
+// the temperature field, the mean temperature on each side of the joint and on the heated face.
+// Check: heat flows straight down at q = 30 W / 900 mm^2 = 33.3 kW/m^2 through three resistances
+// in series: block 0.010 / 167 -> 2.00 K, joint 0.525e-4 m^2 K/W -> 1.75 K, copper 0.003 / 388 ->
+// 0.26 K. The block top reads 42.00 C, the spreader underside 43.75 C and the heated face 44.00 C.
+geometry stack {
+    file = "./geometry/tim-stack.step"
+    units = mm
+    region spreader : solid { select name "Copper spreader"; expect exactly_one }
+    region block : solid { select name "Aluminum block"; expect exactly_one }
+    region heat_input : face { select name "Heat input"; expect exactly_one }
+    region spreader_underside : face { select name "Spreader underside"; expect exactly_one }
+    region block_top : face { select name "Block top"; expect exactly_one }
+    region cold_face : face { select name "Cold face"; expect exactly_one }
+}
+
+mesh stack on geometry.stack {
+    tetrahedra {
+        order = quadratic
+        target_size = 2 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Copper C11000 (ASM Handbook, Vol. 2, properties of wrought coppers).
+material copper_c11000 {
+    mass_density = 8890 kg/m^3
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 388 W/m/K
+        specific_heat = 385 J/kg/K
+        expansion_coefficient = 0.000017 K^-1
+    }
+}
+
+// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
+material aluminum_6061_t6 {
+    mass_density = 2700 kg/m^3
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+        expansion_coefficient = 0.0000236 K^-1
+    }
+}
+
+model cooled_stack {
+    thermal { reference_temperature = 40 degC }
+    assign material.copper_c11000 to geometry.stack.region.spreader
+    assign material.aluminum_6061_t6 to geometry.stack.region.block
+    constraint cold_plate {
+        thermal.temperature { target = geometry.stack.region.cold_face; value = 313.15 K }
+    }
+    // 30 W over the 900 mm^2 top face.
+    load component {
+        thermal.heat_flux {
+            target = geometry.stack.region.heat_input
+            value = 33333.33 W/m^2
+        }
+    }
+    // Silicone-oil-filled metal contact: R'' = 0.525e-4 m^2 K/W (Incropera et al., Fundamentals of
+    // Heat and Mass Transfer, Table 3.1b), a conductance of 19048 W/m^2/K.
+    interface joint {
+        conjugate_heat_transfer.conductance {
+            primary = geometry.stack.region.spreader_underside
+            secondary = geometry.stack.region.block_top
+            coefficient = 19048 W/m^2/K
+        }
+    }
+}
+
+study stack_temperatures {
+    geometry = geometry.stack
+    mesh = mesh.stack
+    model = model.cooled_stack
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output heated_face_temperature = mean(analysis.heat.field.node.temperature, over = geometry.stack.region.heat_input)
+    output spreader_underside_temperature = mean(analysis.heat.field.node.temperature, over = geometry.stack.region.spreader_underside)
+    output block_top_temperature = mean(analysis.heat.field.node.temperature, over = geometry.stack.region.block_top)
+}

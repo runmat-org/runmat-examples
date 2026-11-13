@@ -1,0 +1,32 @@
+{
+  "id": "cantilever-plastic",
+  "title": "Cantilever beam plastic bending",
+  "pickerTitle": "Cantilever beam plastic bending",
+  "pickerLine": "FEA studies",
+  "line": "A nonlinear FEA study of a steel cantilever beam loaded past first yield.",
+  "description": "Elastic-plastic bending of a steel cantilever beam (1000 x 100 x 100 mm) fixed at one end. A 48 kN force on the free end takes the root past first yield, with J2 plasticity and linear hardening, applied in load increments with Newton iteration.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "cantilever-plastic.fea",
+  "roles": [
+    "aerospace",
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "cantilever-plastic",
+  "thumbnailAlt": "Stress in a steel cantilever beam loaded past first yield, solved in RunMat",
+  "origin": {
+    "page": "/simulation/structural",
+    "key": "website:simulation/structural/cantilever-plastic",
+    "source": "runmat-examples/fea/cantilever-plastic/cantilever-plastic.fea"
+  }
+}

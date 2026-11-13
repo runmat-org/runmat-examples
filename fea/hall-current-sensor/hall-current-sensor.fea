@@ -1,0 +1,105 @@
+// Magnetic field of an open-loop Hall current sensor at 500 A: the flux in its gapped ferrite
+// C-core, checked against the ferrite's saturation, and the field across the gap, where the
+// Hall element reads it.
+//
+// Geometry: ./geometry/sensor.step, exported from sensor.part: a 44 x 44 x 12 mm C-core with a
+// 26 mm window and a 3 mm gap in its right leg ("Core"), a 16 mm copper primary rod through the
+// window ("Primary") and a 120 mm cube of air round both ("Air").
+//
+// Core: TDK N87 MnZn power ferrite, initial permeability 2200 and saturation flux density
+// 490 mT at 25 degC, 390 mT at 100 degC (TDK, "SIFERRIT material N87" datasheet). The core
+// must stay below 390 mT at its 100 degC rating.
+//
+// Load: 500 A along +z in the rod, 500 / (pi 8^2 mm^2) = 2.487e6 A/m^2.
+// Hand check, Ampere's law round the core's mean path (l = 4 x 35 mm - 3 mm = 137 mm):
+// B = mu0 I / (g + l / mu_r) = 4 pi e-7 x 500 / (3 mm + 0.062 mm) = 0.205 T in the gap and,
+// less the gap's fringing, in the legs. That is 53 % of the 100 degC saturation.
+
+geometry sensor {
+    file = "./geometry/sensor.step"
+    units = mm
+    interfaces = shared
+    region core : solid { select name "Core"; expect exactly_one }
+    region primary : solid { select name "Primary"; expect exactly_one }
+    region air : solid { select name "Air"; expect one_or_more }
+    region gap : face { select name "Gap"; expect one_or_more }
+    region outer_boundary : face { select name "Outer boundary"; expect one_or_more }
+    region primary_in : face { select name "Primary in"; expect exactly_one }
+    region primary_out : face { select name "Primary out"; expect exactly_one }
+}
+
+mesh sensor on geometry.sensor {
+    tetrahedra {
+        order = linear
+        target_size = 6 mm
+        maximum_deviation = 0.05 mm
+        refine core { on = geometry.sensor.region.core; target_size = 1.5 mm }
+    }
+}
+
+material ferrite_n87 {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 0 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 2200
+    }
+}
+
+material copper {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 0 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}
+
+material air {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 0 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}
+
+model rated_current {
+    electromagnetic { equation = magnetostatics }
+    assign material.ferrite_n87 to geometry.sensor.region.core
+    assign material.copper to geometry.sensor.region.primary
+    assign material.air to geometry.sensor.region.air
+    constraint far_field {
+        magnetic.vector_potential_ground { target = geometry.sensor.region.outer_boundary }
+    }
+    constraint primary_in {
+        magnetic.vector_potential_ground { target = geometry.sensor.region.primary_in }
+    }
+    constraint primary_out {
+        magnetic.vector_potential_ground { target = geometry.sensor.region.primary_out }
+    }
+    constraint gauge {
+        magnetic.coulomb_gauge { target = geometry.sensor.region.air }
+    }
+    load primary_current {
+        magnetic_volume_current_density on geometry.sensor.region.primary = [0, 0, 2487000] A/m^2
+    }
+    load_case rated { include load.primary_current }
+}
+
+study sensor_field {
+    geometry = geometry.sensor
+    mesh = mesh.sensor
+    model = model.rated_current
+    analysis field { electromagnetic static {} }
+    output flux_density = analysis.field.field.element.magnetic_flux_density
+    output peak_core_flux = max(magnitude(output.flux_density), over = geometry.sensor.region.core)
+    // The gap's faces are shared by the core and the air, so the gap field is read in the air:
+    // the air's peak is in the gap, since the rod's own surface field is 12.5 mT
+    // (mu0 I / (2 pi r) at r = 8 mm). Fringing at the pole corners puts the peak a little over
+    // the field at the gap's middle, where the Hall element sits.
+    output gap_flux = max(magnitude(output.flux_density), over = geometry.sensor.region.air)
+}

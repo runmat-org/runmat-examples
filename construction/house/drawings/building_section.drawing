@@ -1,0 +1,60 @@
+runmat 0.7
+std 1
+
+// Building section A-A at 1/4 in = 1 ft on ANSI D: a cross section north-south through the living
+// room, 8'-6" east of grid 1, looking east, between two trusses. It shows the footings and stem
+// walls, the slab, the 2x6 walls A and D, the I-joist floor on beams B and C, the Fink truss
+// beyond the cut and the stair rising east. The roof plan beside it carries the cutting line.
+drawing building_section {
+    format d = {
+        size = { size = ansi, name = D },
+        standard = asme,
+        units = ft_in,
+        title_block = [
+            { label = "Title", source = { source = literal, text = "Building section A-A" } },
+            { label = "Project", source = { source = literal, text = "Two-story house, 40 x 30 ft" } },
+            { label = "Drawing", source = { source = literal, text = "A-301" } },
+            { label = "Scale", source = { source = scale } },
+            { label = "Sheet", source = { source = sheet_number } },
+            { label = "Rev", source = { source = revision } }
+        ]
+    }
+
+    sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
+
+    view roof = standard(orientation = top, sheet = "1", model = { assembly = house, from = ".." }, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
+    view a_a = section(
+        from = roof,
+        plane = origin.yz,
+        offset = 102 in,
+        vertical = true,
+        label = A,
+        title = "BUILDING SECTION A-A",
+        sheet = "1",
+        model = { assembly = house, from = ".." },
+        at = [520, 300],
+        display = visible_lines,
+        exclude = [[{ name = mep }]],
+        centerlines = false
+    )
+
+    // Grids A-D across the section and the levels beside it, from the skeleton.
+    annotation grids_ns = grids(occurrence = [{ name = skeleton }], datums = [grid_a, grid_b, grid_c, grid_d], labels = ["A", "B", "C", "D"], view = a_a)
+    annotation lv_ridge = level(label = "RIDGE", datum = ridge, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_plate2 = level(label = "T.O. PLATE (2ND)", datum = top_plate, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_floor2 = level(label = "2ND FLOOR", datum = second_floor, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_slab = level(label = "T.O. SLAB", datum = top_of_slab, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_footing = level(label = "T.O. FOOTING", datum = top_of_footing, occurrence = [{ name = skeleton }], view = a_a)
+
+    table notes = notes(
+        rows = [
+            "SECTION 8'-6\" EAST OF GRID 1, THROUGH THE LIVING ROOM, LOOKING EAST.",
+            "LEVELS: T.O. FOOTING -1'-10\". T.O. SLAB 0'-0\". 2ND FLOOR 10'-1 3/4\". T.O. PLATE 18'-2 7/8\". RIDGE 26'-4 5/16\".",
+            "FOOTING 20\" x 10\" WITH 2 #4 CONT. 8\" STEM WALL. 4\" SLAB ON 10 MIL VAPOR RETARDER, 2\" XPS AND 4\" BASE.",
+            "2X6 STUDS AT 16\" O.C. 11 7/8\" I-JOISTS ON FLUSH LVL BEAMS B AND C. 3/4\" SUBFLOOR.",
+            "FINK TRUSSES AT 24\" O.C., 6:12. STAIR: 16 RISERS AT 7 39/64\", 15 TREADS AT 10\"."
+        ],
+        sheet = "1",
+        at = [0, 0]
+    )
+}

@@ -1,0 +1,12 @@
+[package]
+name = "heated-tube-nusselt"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "heated-tube-nusselt.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

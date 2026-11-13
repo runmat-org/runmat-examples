@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bracket-shock-spectrum.fea"
+    ],
+    "activeFile": "/bracket-shock-spectrum.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak von Mises stress and compare it with yield",
+      "Combine the modes by SRSS and compare the peak",
+      "Apply the same spectrum across the wall and report the larger response"
+    ]
+  }
+}

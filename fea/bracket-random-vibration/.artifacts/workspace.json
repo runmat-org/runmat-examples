@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/bracket-random-vibration.fea"
+    ],
+    "activeFile": "/bracket-random-vibration.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the RMS and 3-sigma von Mises stress and where they peak",
+      "Raise the plateau to 0.2 g^2/Hz and compare the RMS stress",
+      "List the modes that carry most of the response"
+    ]
+  }
+}

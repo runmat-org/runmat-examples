@@ -1,0 +1,214 @@
+runmat 0.7
+std 1
+
+// The slab on grade, inside the stem wall: a 4 in concrete slab on a 10 mil polyethylene vapor
+// retarder, 2 in of XPS under the slab (R-10), 4 in of compacted crushed-stone base, and 1 in
+// of XPS (R-5) on the inside face of the stem wall from the top of the slab down to the footing,
+// the slab-edge thermal break. The pad footings come up through the base and the insulation to
+// the vapor retarder. Each layer is its own body with its material.
+part slab_on_grade {
+    feature slab_plane = plane.offset(base = origin.xy, distance = -4 in)
+    sketch slab_s on plane.slab_plane {
+        e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
+        e1 = line(start = [471 in, 9 in], end = [471 in, 351 in])
+        e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
+        e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
+    }
+    feature slab = extrude(profile = sketch.slab_s, distance = 4 in, mode = new)
+    feature vapor_retarder_plane = plane.offset(base = origin.xy, distance = -4.01 in)
+    sketch vapor_retarder_s on plane.vapor_retarder_plane {
+        e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
+        e1 = line(start = [471 in, 9 in], end = [471 in, 351 in])
+        e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
+        e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
+    }
+    feature vapor_retarder = extrude(profile = sketch.vapor_retarder_s, distance = 0.01 in, mode = new)
+    feature sub_slab_insulation_plane = plane.offset(base = origin.xy, distance = -6.01 in)
+    sketch sub_slab_insulation_s on plane.sub_slab_insulation_plane {
+        e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
+        e1 = line(start = [471 in, 9 in], end = [471 in, 351 in])
+        e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
+        e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
+    }
+    feature sub_slab_insulation = extrude(profile = sketch.sub_slab_insulation_s, distance = 2 in, mode = new)
+    feature gravel_base_plane = plane.offset(base = origin.xy, distance = -10.01 in)
+    sketch gravel_base_s on plane.gravel_base_plane {
+        e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
+        e1 = line(start = [471 in, 9 in], end = [471 in, 351 in])
+        e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
+        e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
+    }
+    feature gravel_base = extrude(profile = sketch.gravel_base_s, distance = 4 in, mode = new)
+    sketch sub_slab_insulation_pads_s on plane.sub_slab_insulation_plane {
+        b2_0 = line(start = [105 in, 129 in], end = [135 in, 129 in])
+        b2_1 = line(start = [135 in, 129 in], end = [135 in, 159 in])
+        b2_2 = line(start = [135 in, 159 in], end = [105 in, 159 in])
+        b2_3 = line(start = [105 in, 159 in], end = [105 in, 129 in])
+        b3_0 = line(start = [217 in, 129 in], end = [247 in, 129 in])
+        b3_1 = line(start = [247 in, 129 in], end = [247 in, 159 in])
+        b3_2 = line(start = [247 in, 159 in], end = [217 in, 159 in])
+        b3_3 = line(start = [217 in, 159 in], end = [217 in, 129 in])
+        b4_0 = line(start = [345 in, 129 in], end = [375 in, 129 in])
+        b4_1 = line(start = [375 in, 129 in], end = [375 in, 159 in])
+        b4_2 = line(start = [375 in, 159 in], end = [345 in, 159 in])
+        b4_3 = line(start = [345 in, 159 in], end = [345 in, 129 in])
+        c2_0 = line(start = [105 in, 209 in], end = [135 in, 209 in])
+        c2_1 = line(start = [135 in, 209 in], end = [135 in, 239 in])
+        c2_2 = line(start = [135 in, 239 in], end = [105 in, 239 in])
+        c2_3 = line(start = [105 in, 239 in], end = [105 in, 209 in])
+        c3_0 = line(start = [217 in, 209 in], end = [247 in, 209 in])
+        c3_1 = line(start = [247 in, 209 in], end = [247 in, 239 in])
+        c3_2 = line(start = [247 in, 239 in], end = [217 in, 239 in])
+        c3_3 = line(start = [217 in, 239 in], end = [217 in, 209 in])
+        c4_0 = line(start = [345 in, 209 in], end = [375 in, 209 in])
+        c4_1 = line(start = [375 in, 209 in], end = [375 in, 239 in])
+        c4_2 = line(start = [375 in, 239 in], end = [345 in, 239 in])
+        c4_3 = line(start = [345 in, 239 in], end = [345 in, 209 in])
+    }
+    feature sub_slab_insulation_pads = extrude(profile = sketch.sub_slab_insulation_pads_s, distance = 2 in, mode = cut)
+    sketch gravel_base_pads_s on plane.gravel_base_plane {
+        b2_0 = line(start = [105 in, 129 in], end = [135 in, 129 in])
+        b2_1 = line(start = [135 in, 129 in], end = [135 in, 159 in])
+        b2_2 = line(start = [135 in, 159 in], end = [105 in, 159 in])
+        b2_3 = line(start = [105 in, 159 in], end = [105 in, 129 in])
+        b3_0 = line(start = [217 in, 129 in], end = [247 in, 129 in])
+        b3_1 = line(start = [247 in, 129 in], end = [247 in, 159 in])
+        b3_2 = line(start = [247 in, 159 in], end = [217 in, 159 in])
+        b3_3 = line(start = [217 in, 159 in], end = [217 in, 129 in])
+        b4_0 = line(start = [345 in, 129 in], end = [375 in, 129 in])
+        b4_1 = line(start = [375 in, 129 in], end = [375 in, 159 in])
+        b4_2 = line(start = [375 in, 159 in], end = [345 in, 159 in])
+        b4_3 = line(start = [345 in, 159 in], end = [345 in, 129 in])
+        c2_0 = line(start = [105 in, 209 in], end = [135 in, 209 in])
+        c2_1 = line(start = [135 in, 209 in], end = [135 in, 239 in])
+        c2_2 = line(start = [135 in, 239 in], end = [105 in, 239 in])
+        c2_3 = line(start = [105 in, 239 in], end = [105 in, 209 in])
+        c3_0 = line(start = [217 in, 209 in], end = [247 in, 209 in])
+        c3_1 = line(start = [247 in, 209 in], end = [247 in, 239 in])
+        c3_2 = line(start = [247 in, 239 in], end = [217 in, 239 in])
+        c3_3 = line(start = [217 in, 239 in], end = [217 in, 209 in])
+        c4_0 = line(start = [345 in, 209 in], end = [375 in, 209 in])
+        c4_1 = line(start = [375 in, 209 in], end = [375 in, 239 in])
+        c4_2 = line(start = [375 in, 239 in], end = [345 in, 239 in])
+        c4_3 = line(start = [345 in, 239 in], end = [345 in, 209 in])
+    }
+    feature gravel_base_pads = extrude(profile = sketch.gravel_base_pads_s, distance = 4 in, mode = cut)
+    feature edge_plane = plane.offset(base = origin.xy, distance = -22 in)
+    sketch edge_insulation_s on plane.edge_plane {
+        ro0 = line(start = [8 in, 8 in], end = [472 in, 8 in])
+        ro1 = line(start = [472 in, 8 in], end = [472 in, 352 in])
+        ro2 = line(start = [472 in, 352 in], end = [8 in, 352 in])
+        ro3 = line(start = [8 in, 352 in], end = [8 in, 8 in])
+        ri0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
+        ri1 = line(start = [471 in, 9 in], end = [471 in, 351 in])
+        ri2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
+        ri3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
+    }
+    feature edge_insulation = extrude(profile = sketch.edge_insulation_s, distance = 22 in, mode = new)
+
+    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    feature hw_pl0 = plane.offset(base = origin.xy, distance = -3.5 in)
+    sketch hw_0_s on plane.hw_pl0 {
+        c = circle(center = [120 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_0 = extrude(profile = sketch.hw_0_s, distance = 3.5 in, mode = cut)
+    sketch hw_1_s on plane.hw_pl0 {
+        c = circle(center = [232 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_1 = extrude(profile = sketch.hw_1_s, distance = 3.5 in, mode = cut)
+    sketch hw_2_s on plane.hw_pl0 {
+        c = circle(center = [360 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_2 = extrude(profile = sketch.hw_2_s, distance = 3.5 in, mode = cut)
+    sketch hw_3_s on plane.hw_pl0 {
+        c = circle(center = [120 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_3 = extrude(profile = sketch.hw_3_s, distance = 3.5 in, mode = cut)
+    sketch hw_4_s on plane.hw_pl0 {
+        c = circle(center = [232 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_4 = extrude(profile = sketch.hw_4_s, distance = 3.5 in, mode = cut)
+    sketch hw_5_s on plane.hw_pl0 {
+        c = circle(center = [360 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_5 = extrude(profile = sketch.hw_5_s, distance = 3.5 in, mode = cut)
+    // end connector holes all
+    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    feature mep_all_p_zx_13 = plane.offset(base = origin.zx, distance = 346 in)
+    feature mep_all_p_xy_12 = plane.offset(base = origin.xy, distance = -8.95 in)
+    feature mep_all_p_zx_11 = plane.offset(base = origin.zx, distance = 344.25 in)
+    feature mep_all_p_yz_10 = plane.offset(base = origin.yz, distance = 278.25 in)
+    feature mep_all_p_yz_9 = plane.offset(base = origin.yz, distance = 289.1111 in)
+    feature mep_all_p_yz_8 = plane.offset(base = origin.yz, distance = 299.9722 in)
+    feature mep_all_p_yz_7 = plane.offset(base = origin.yz, distance = 310.8333 in)
+    feature mep_all_p_yz_6 = plane.offset(base = origin.yz, distance = 321.6944 in)
+    feature mep_all_p_yz_5 = plane.offset(base = origin.yz, distance = 332.5556 in)
+    feature mep_all_p_yz_4 = plane.offset(base = origin.yz, distance = 343.4167 in)
+    feature mep_all_p_yz_3 = plane.offset(base = origin.yz, distance = 354.2778 in)
+    feature mep_all_p_yz_2 = plane.offset(base = origin.yz, distance = 365.1389 in)
+    feature mep_all_p_xy_1 = plane.offset(base = origin.xy, distance = -10 in)
+    feature mep_all_p_xy_0 = plane.offset(base = origin.xy, distance = -14 in)
+    sketch mep_all_0_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [302 in, 30 in], radius = 0.625 in)
+    }
+    feature mep_all_0 = extrude(profile = sketch.mep_all_0_s, distance = 54.4375 in, mode = cut)
+    sketch mep_all_1_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [280 in, 346 in], radius = 1.875 in)
+    }
+    feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 123.7 in, mode = cut)
+    sketch mep_all_2_s on plane.mep_all_p_yz_2 {
+        c = circle(center = [346 in, -8.1111 in], radius = 1.9861 in)
+    }
+    feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_3_s on plane.mep_all_p_yz_3 {
+        c = circle(center = [346 in, -8.3333 in], radius = 1.9861 in)
+    }
+    feature mep_all_3 = extrude(profile = sketch.mep_all_3_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_4_s on plane.mep_all_p_yz_4 {
+        c = circle(center = [346 in, -8.5556 in], radius = 1.9861 in)
+    }
+    feature mep_all_4 = extrude(profile = sketch.mep_all_4_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_5_s on plane.mep_all_p_yz_5 {
+        c = circle(center = [346 in, -8.7778 in], radius = 1.9861 in)
+    }
+    feature mep_all_5 = extrude(profile = sketch.mep_all_5_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_6_s on plane.mep_all_p_yz_6 {
+        c = circle(center = [346 in, -9 in], radius = 1.9861 in)
+    }
+    feature mep_all_6 = extrude(profile = sketch.mep_all_6_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_7_s on plane.mep_all_p_yz_7 {
+        c = circle(center = [346 in, -9.2222 in], radius = 1.9861 in)
+    }
+    feature mep_all_7 = extrude(profile = sketch.mep_all_7_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_8_s on plane.mep_all_p_yz_8 {
+        c = circle(center = [346 in, -9.4444 in], radius = 1.9861 in)
+    }
+    feature mep_all_8 = extrude(profile = sketch.mep_all_8_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_9_s on plane.mep_all_p_yz_9 {
+        c = circle(center = [346 in, -9.6667 in], radius = 1.9861 in)
+    }
+    feature mep_all_9 = extrude(profile = sketch.mep_all_9_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_10_s on plane.mep_all_p_yz_10 {
+        c = circle(center = [346 in, -9.8889 in], radius = 1.9861 in)
+    }
+    feature mep_all_10 = extrude(profile = sketch.mep_all_10_s, distance = 10.8611 in, mode = cut)
+    sketch mep_all_11_s on plane.mep_all_p_zx_11 {
+        c = circle(center = [-10.1101 in, 280 in], radius = 1.9851 in)
+    }
+    feature mep_all_11 = extrude(profile = sketch.mep_all_11_s, distance = 10.8214 in, mode = cut)
+    sketch mep_all_12_s on plane.mep_all_p_xy_12 {
+        c = circle(center = [376 in, 350 in], radius = 1.05 in)
+    }
+    feature mep_all_12 = extrude(profile = sketch.mep_all_12_s, distance = 25.9681 in, mode = cut)
+    sketch mep_all_13_s on plane.mep_all_p_zx_13 {
+        c = circle(center = [-8 in, 376 in], radius = 1.05 in)
+    }
+    feature mep_all_13 = extrude(profile = sketch.mep_all_13_s, distance = 4.95 in, mode = cut)
+    // end MEP penetrations all
+    output slab_on_grade = { body = feature.slab.body, part_number = "F-3", material = "material.concrete" }
+    material = { body = feature.vapor_retarder.body, material = "material.polyethylene_10_mil" }
+    material = { body = feature.sub_slab_insulation.body, material = "material.xps_foam" }
+    material = { body = feature.gravel_base.body, material = "material.crushed_stone_gravel" }
+    material = { body = feature.edge_insulation.body, material = "material.xps_foam" }
+    region top_of_slab : face = { select = [feature.slab.face.end], expect = exactly_one, label = "Top of slab" }
+}

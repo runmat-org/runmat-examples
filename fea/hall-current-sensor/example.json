@@ -1,0 +1,32 @@
+{
+  "id": "hall-current-sensor",
+  "title": "Hall current sensor core flux at 500 A",
+  "pickerTitle": "Hall current sensor core flux at 500 A",
+  "pickerLine": "FEA studies",
+  "line": "Magnetic flux in the gapped ferrite C-core of an open-loop Hall current sensor at 500 A, against the ferrite's saturation.",
+  "description": "An open-loop Hall current sensor: a 44 x 44 x 12 mm TDK N87 MnZn ferrite C-core with a 3 mm gap, a 16 mm copper primary rod through its window, and the air round both, each its own body in the RunMat MCAD part. The magnetostatic study reports the peak core flux density at 500 A against N87's 390 mT saturation at 100 C, and the field across the gap where the Hall element sits.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "hall-current-sensor.fea",
+  "roles": [
+    "electrical",
+    "automotive",
+    "research",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "hall-current-sensor",
+  "thumbnailAlt": "Magnetic flux density in a gapped ferrite current-sensor core round a 500 A conductor, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electromagnetic",
+    "key": "website:simulation/electromagnetic/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/hall-current-sensor/sensor.part",
+    "geometry": "geometry/, exported from sensor.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's figure"
+  }
+}

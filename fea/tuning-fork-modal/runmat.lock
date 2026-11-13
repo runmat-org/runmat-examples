@@ -1,0 +1,15 @@
+schema_version = 1
+resolver_version = "1"
+packages = []
+edges = []
+graph_digest = "sha256:2225cbba3f04ec096fda4fb0bf4c20f096cc830061b2be854f44c130877726c1"
+
+[root]
+manifest_digest = "sha256:9f198bc3bfc04524f3aae71289807ab1982972f8982b1451065645987922fdf6"
+package = "workspace:local/tuning-fork-modal"
+
+[selection]
+target = "aarch64-apple-darwin"
+groups = ["runtime"]
+root_features = []
+host_capabilities = ["network", "native-library", "mex", "jvm", "subprocess"]

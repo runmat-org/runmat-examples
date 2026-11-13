@@ -1,0 +1,12 @@
+[package]
+name = "hydraulic-line-poiseuille"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "hydraulic-line-poiseuille.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

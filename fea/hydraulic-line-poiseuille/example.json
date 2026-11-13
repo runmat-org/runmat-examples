@@ -1,0 +1,31 @@
+{
+  "id": "hydraulic-line-poiseuille",
+  "title": "Hydraulic line pressure drop",
+  "pickerTitle": "Hydraulic line pressure drop",
+  "pickerLine": "FEA studies",
+  "line": "A steady laminar flow FEA study of hydraulic oil in a 10 mm line at 1 L/min.",
+  "description": "Steady laminar flow of ISO VG 46 oil at 40 C through a straight 10 mm bore, 300 mm long, at 1 L/min (Re 46). The study returns the pressure drop from inlet to outlet, about 0.83 kPa by Hagen-Poiseuille plus the entrance loss, and the velocity profile along the line.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "hydraulic-line-poiseuille.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching",
+    "automotive"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "hydraulic-line-poiseuille",
+  "thumbnailAlt": "Oil speed through a 10 mm hydraulic line, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-flow",
+    "key": "website:simulation/fluid-flow/hydraulic-line-poiseuille",
+    "source": "runmat-examples/fea/hydraulic-line-poiseuille/hydraulic-line-poiseuille.fea"
+  }
+}

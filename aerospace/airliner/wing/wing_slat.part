@@ -1,0 +1,21 @@
+runmat 0.7
+std 1
+
+// The leading-edge slat, engine to tip.
+part wing_slat {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 5000 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[836.649 mm, 3275.243 mm], [809.963 mm, 3138.862 mm], [779.998 mm, 3014.988 mm], [747.251 mm, 2904.419 mm], [712.245 mm, 2807.847 mm], [675.506 mm, 2725.859 mm], [637.536 mm, 2658.932 mm], [598.796 mm, 2607.435 mm], [559.677 mm, 2571.631 mm], [520.489 mm, 2551.676 mm], [481.445 mm, 2547.625 mm], [443.97 mm, 2559.298 mm], [409.444 mm, 2586.417 mm], [377.937 mm, 2628.739 mm], [349.532 mm, 2685.926 mm], [324.307 mm, 2757.553 mm], [302.335 mm, 2843.113 mm], [283.667 mm, 2942.025 mm], [268.323 mm, 3053.638 mm], [256.282 mm, 3177.241 mm], [247.471 mm, 3312.066 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 17000 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1728.156 mm, 8889.903 mm], [1721.012 mm, 8847.451 mm], [1713.06 mm, 8808.855 mm], [1704.443 mm, 8774.362 mm], [1695.306 mm, 8744.188 mm], [1685.795 mm, 8718.518 mm], [1676.048 mm, 8697.505 mm], [1666.192 mm, 8681.268 mm], [1656.333 mm, 8669.895 mm], [1646.554 mm, 8663.439 mm], [1636.913 mm, 8661.925 mm], [1627.761 mm, 8665.311 mm], [1619.435 mm, 8673.526 mm], [1611.948 mm, 8686.501 mm], [1605.313 mm, 8704.135 mm], [1599.538 mm, 8726.302 mm], [1594.63 mm, 8752.849 mm], [1590.584 mm, 8783.598 mm], [1587.39 mm, 8818.348 mm], [1585.025 mm, 8856.877 mm], [1583.451 mm, 8898.947 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature piece = loft(profiles = [sketch.s0, sketch.s1])
+
+    output wing_slat = { body = feature.piece.body, part_number = "WNG-SL-620", material = "aluminum_2024", color = "#A8AFB8" }
+}

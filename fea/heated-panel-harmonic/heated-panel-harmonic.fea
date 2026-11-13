@@ -1,0 +1,104 @@
+// Forced vibration of a titanium heat-shield panel (200 x 200 x 6 mm) beside an engine exhaust. Its
+// four edges are clamped in a frame and the panel runs 150 K above the temperature it was fitted at
+// (20 C to 170 C). The frame stops it growing, so it carries an in-plane compression that lowers its
+// natural frequencies. Exhaust noise presses on its hot side, written as a uniform 1 kPa (40 N on
+// the face) swept from 500 Hz to 1.6 kHz. A thermal step, a preload, a prestressed modal step and a
+// modal frequency sweep return the hot modes and the panel's response across the band.
+// Check: a clamped square plate's mode 1 is f = 35.99 / (2 pi a^2) sqrt(D / (rho h)) = 1338 Hz cold
+// (Leissa, Vibration of Plates). Uniform heating buckles the clamped panel at
+// dT_cr = 5.31 pi^2 h^2 / (12 (1 + nu) alpha a^2) = 341 K, so at 150 K the compression is 0.44 of
+// the buckling level and mode 1 falls by about sqrt(1 - 0.44) = 0.75, to near 1000 Hz.
+geometry panel {
+    file = "./geometry/titanium-panel.step"
+    units = mm
+    region body : solid { select name "Panel"; expect exactly_one }
+    region clamped_edges : face { select name "Clamped edges"; expect one_or_more }
+    region exhaust_side : face { select name "Exhaust side"; expect exactly_one }
+}
+
+mesh panel on geometry.panel {
+    tetrahedra {
+        order = quadratic
+        target_size = 5 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Ti-6Al-4V (Grade 5), annealed: ASM Aerospace Specification Metals data sheet. The Rayleigh
+// stiffness term is a modeling choice: about 2 % of critical damping at 1 kHz.
+material ti_6al_4v {
+    mass_density = 4430 kg/m^3
+    elastic {
+        youngs_modulus = 113.8 GPa
+        poisson_ratio = 0.342
+    }
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 6.7 W/m/K
+        specific_heat = 526.3 J/kg/K
+        expansion_coefficient = 0.0000086 K^-1
+    }
+    rayleigh_damping {
+        mass_coefficient = 0 Hz
+        stiffness_coefficient = 6.4 us
+    }
+}
+
+model heated_panel {
+    thermal { reference_temperature = 293.15 K }
+    thermomechanical { reference_temperature = 293.15 K }
+    assign material.ti_6al_4v to geometry.panel.region.body
+    constraint frame {
+        structural.fixed { target = geometry.panel.region.clamped_edges }
+    }
+    // The edges at 170 C and no other heat path: the whole panel reaches 170 C.
+    constraint hot_edges {
+        thermal.temperature { target = geometry.panel.region.clamped_edges; value = 443.15 K }
+    }
+    signal exhaust_noise : force over frequency {
+        samples = [
+            { at = 500 Hz, value = { real = 40 N, imaginary = 0 N } },
+            { at = 1600 Hz, value = { real = 40 N, imaginary = 0 N } },
+        ]
+        interpolation = linear
+        extrapolation = reject
+    }
+    excitation noise_pressure {
+        force {
+            target = geometry.panel.region.exhaust_side
+            signal = signal.exhaust_noise
+            direction = global([0, 0, 1])
+            kinematics = fixed_frame
+        }
+    }
+    load_case exhaust { include excitation.noise_pressure }
+}
+
+study hot_panel_response {
+    geometry = geometry.panel
+    mesh = mesh.panel
+    model = model.heated_panel
+    analysis heat { thermal steady {} retain heated }
+    analysis preload after analysis.heat {
+        thermomechanical preload { temperature = analysis.heat.state.heated }
+        load_cases = []
+    }
+    analysis modes after analysis.preload {
+        structural prestressed_modal {
+            prestress = analysis.preload.state.geometric_stiffness
+            modes = 6
+        }
+        retain basis
+    }
+    analysis response after analysis.modes {
+        structural prestressed_harmonic {
+            prestress = analysis.preload.state.geometric_stiffness
+            basis = analysis.modes.state.basis
+            frequencies = [500, 700, 800, 900, 950, 1000, 1050, 1100, 1200, 1400, 1600] Hz
+            static_correction = applied_loads
+        }
+    }
+    output mode_shapes = analysis.modes.field.node.displacement
+    output displacement = analysis.response.field.node.displacement
+}

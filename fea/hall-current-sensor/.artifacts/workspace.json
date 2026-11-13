@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/hall-current-sensor.fea",
+      "/sensor.part"
+    ],
+    "activeFile": "/hall-current-sensor.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "flux_density"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak core flux density against N87's 390 mT at 100 C",
+      "Find the primary current at which the core reaches 390 mT",
+      "Narrow the gap to 2 mm and compare the gap field"
+    ]
+  }
+}

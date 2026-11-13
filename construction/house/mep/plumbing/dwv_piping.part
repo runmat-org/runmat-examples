@@ -1,0 +1,270 @@
+runmat 0.7
+std 1
+
+
+// Drain, waste and vent, in building coordinates: the kitchen sink trap arm and its 1 1/2 in vent,
+// carried through the bored studs of wall D beside the window, up the wall through both floors, across
+// the attic above the insulation and out through the roof at y = 25 ft with a cleanout tee at the
+// trap arm. Slope 1/4 in per ft on the trap arm (IPC 704.1).
+// Lane H5: the second-floor baths drain to two 3 in horizontal branches in floor bay C-D at y = 28'-10",
+// 1/8 in per ft, that meet at a 3 in stack at x = 23'-4". The stack drops through a framed chase in the
+// dining room's north-east corner to a 3 in building drain under the slab, 1/4 in per ft, which also takes
+// the kitchen sink and leaves through the north stem wall. Vents: a 1 1/2 in vent at the tub end rises in
+// wall D and a 2 in vent rises in the partition between the baths; each runs across the attic and out
+// through the roof. The primary vanity basins and the hall lavatory vent through air admittance valves.
+part dwv_piping {
+    feature p_xy_25 = plane.offset(base = origin.xy, distance = 12 in)
+    feature p_yz_24 = plane.offset(base = origin.yz, distance = 280 in)
+    feature p_xy_23 = plane.offset(base = origin.xy, distance = 113.7 in)
+    feature p_xy_22 = plane.offset(base = origin.xy, distance = 114.0896 in)
+    feature p_yz_21 = plane.offset(base = origin.yz, distance = 242.6 in)
+    feature p_xy_20 = plane.offset(base = origin.xy, distance = 115.3302 in)
+    feature p_yz_19 = plane.offset(base = origin.yz, distance = 293.5 in)
+    feature p_yz_18 = plane.offset(base = origin.yz, distance = 262 in)
+    feature p_xy_17 = plane.offset(base = origin.xy, distance = 132.25 in)
+    feature p_yz_16 = plane.offset(base = origin.yz, distance = 228 in)
+    feature p_xy_15 = plane.offset(base = origin.xy, distance = 125.25 in)
+    feature p_yz_14 = plane.offset(base = origin.yz, distance = 268.5 in)
+    feature p_xy_13 = plane.offset(base = origin.xy, distance = 122.25 in)
+    feature p_yz_12 = plane.offset(base = origin.yz, distance = 170 in)
+    feature p_xy_11 = plane.offset(base = origin.xy, distance = 124.25 in)
+    feature p_zx_10 = plane.offset(base = origin.zx, distance = 349 in)
+    feature p_yz_9 = plane.offset(base = origin.yz, distance = 315 in)
+    feature p_zx_8 = plane.offset(base = origin.zx, distance = 346 in)
+    feature p_zx_7 = plane.offset(base = origin.zx, distance = 356 in)
+    feature p_yz_6 = plane.offset(base = origin.yz, distance = 133.5 in)
+    feature p_xy_5 = plane.offset(base = origin.xy, distance = 21 in)
+    feature p_yz_4 = plane.offset(base = origin.yz, distance = 440 in)
+    feature p_xy_3 = plane.offset(base = origin.xy, distance = 16 in)
+    feature p_zx_2 = plane.offset(base = origin.zx, distance = 357.25 in)
+    feature p_zx_1 = plane.offset(base = origin.zx, distance = 353.9844 in)
+    feature p_yz_0 = plane.offset(base = origin.yz, distance = 376 in)
+    sketch sink_trap_arm_0_path on plane.p_yz_0 {
+        l0 = line(start = [353.9844 in, 16.0681 in], end = [357.25 in, 16 in])
+    }
+    sketch sink_trap_arm_0_p on plane.p_zx_1 {
+        c = circle(center = [16.0681 in, 376 in], radius = 0.95 in)
+    }
+    feature sink_trap_arm_0 = sweep(profile = sketch.sink_trap_arm_0_p, path = sketch.sink_trap_arm_0_path, follow_path = true)
+    material = { body = feature.sink_trap_arm_0.body, material = "material.pvc_dwv" }
+    sketch sink_vent_0_path on plane.p_zx_2 {
+        l0 = line(start = [16 in, 376 in], end = [30 in, 376 in])
+        l1 = line(start = [30 in, 376 in], end = [30 in, 440 in])
+        l2 = line(start = [30 in, 440 in], end = [224 in, 440 in])
+    }
+    sketch sink_vent_0_p on plane.p_xy_3 {
+        c = circle(center = [376 in, 357.25 in], radius = 0.95 in)
+    }
+    feature sink_vent_0 = sweep(profile = sketch.sink_vent_0_p, path = sketch.sink_vent_0_path, follow_path = true)
+    material = { body = feature.sink_vent_0.body, material = "material.pvc_dwv" }
+    sketch sink_vent_1_path on plane.p_yz_4 {
+        l0 = line(start = [357.25 in, 224 in], end = [300 in, 224 in])
+        l1 = line(start = [300 in, 224 in], end = [300 in, 268 in])
+    }
+    sketch sink_vent_1_p on plane.p_zx_2 {
+        c = circle(center = [224 in, 440 in], radius = 0.95 in)
+    }
+    feature sink_vent_1 = sweep(profile = sketch.sink_vent_1_p, path = sketch.sink_vent_1_path, follow_path = true)
+    material = { body = feature.sink_vent_1.body, material = "material.pvc_dwv" }
+    sketch cleanout_s on plane.p_xy_5 {
+        l0 = line(start = [374.75 in, 353.9844 in], end = [377.25 in, 353.9844 in])
+        l1 = line(start = [377.25 in, 353.9844 in], end = [377.25 in, 354.5 in])
+        l2 = line(start = [377.25 in, 354.5 in], end = [374.75 in, 354.5 in])
+        l3 = line(start = [374.75 in, 354.5 in], end = [374.75 in, 353.9844 in])
+    }
+    feature cleanout = extrude(profile = sketch.cleanout_s, distance = 2.5 in, mode = new)
+    material = { body = feature.cleanout.body, material = "material.pvc_dwv" }
+    sketch hall_branch_0_path on plane.p_yz_6 {
+        l0 = line(start = [356 in, 115.3302 in], end = [346 in, 115.226 in])
+    }
+    sketch hall_branch_0_p on plane.p_zx_7 {
+        c = circle(center = [115.3302 in, 133.5 in], radius = 1.75 in)
+    }
+    feature hall_branch_0 = sweep(profile = sketch.hall_branch_0_p, path = sketch.hall_branch_0_path, follow_path = true)
+    material = { body = feature.hall_branch_0.body, material = "material.pvc_dwv" }
+    sketch hall_branch_1_path on plane.p_zx_8 {
+        l0 = line(start = [115.226 in, 133.5 in], end = [113.7 in, 280 in])
+    }
+    sketch hall_branch_1_p on plane.p_yz_6 {
+        c = circle(center = [346 in, 115.226 in], radius = 1.75 in)
+    }
+    feature hall_branch_1 = sweep(profile = sketch.hall_branch_1_p, path = sketch.hall_branch_1_path, follow_path = true)
+    material = { body = feature.hall_branch_1.body, material = "material.pvc_dwv" }
+    sketch primary_branch_0_path on plane.p_zx_8 {
+        l0 = line(start = [114.0646 in, 315 in], end = [113.7 in, 280 in])
+    }
+    sketch primary_branch_0_p on plane.p_yz_9 {
+        c = circle(center = [346 in, 114.0646 in], radius = 1.75 in)
+    }
+    feature primary_branch_0 = sweep(profile = sketch.primary_branch_0_p, path = sketch.primary_branch_0_path, follow_path = true)
+    material = { body = feature.primary_branch_0.body, material = "material.pvc_dwv" }
+    sketch tub_0_path on plane.p_zx_10 {
+        l0 = line(start = [124.25 in, 133.5 in], end = [115.226 in, 133.5 in])
+    }
+    sketch tub_0_p on plane.p_xy_11 {
+        c = circle(center = [133.5 in, 349 in], radius = 0.95 in)
+    }
+    feature tub_0 = sweep(profile = sketch.tub_0_p, path = sketch.tub_0_path, follow_path = true)
+    material = { body = feature.tub_0.body, material = "material.pvc_dwv" }
+    sketch wc_hall_0_path on plane.p_yz_12 {
+        l0 = line(start = [342 in, 122.25 in], end = [342 in, 114.8458 in])
+        l1 = line(start = [342 in, 114.8458 in], end = [346 in, 114.8458 in])
+    }
+    sketch wc_hall_0_p on plane.p_xy_13 {
+        c = circle(center = [170 in, 342 in], radius = 1.75 in)
+    }
+    feature wc_hall_0 = sweep(profile = sketch.wc_hall_0_p, path = sketch.wc_hall_0_path, follow_path = true)
+    material = { body = feature.wc_hall_0.body, material = "material.pvc_dwv" }
+    sketch wc_primary_0_path on plane.p_yz_9 {
+        l0 = line(start = [342 in, 122.25 in], end = [342 in, 114.0646 in])
+        l1 = line(start = [342 in, 114.0646 in], end = [346 in, 114.0646 in])
+    }
+    sketch wc_primary_0_p on plane.p_xy_13 {
+        c = circle(center = [315 in, 342 in], radius = 1.75 in)
+    }
+    feature wc_primary_0 = sweep(profile = sketch.wc_primary_0_p, path = sketch.wc_primary_0_path, follow_path = true)
+    material = { body = feature.wc_primary_0.body, material = "material.pvc_dwv" }
+    sketch shower_0_path on plane.p_yz_14 {
+        l0 = line(start = [336 in, 125.25 in], end = [336 in, 117.6 in])
+        l1 = line(start = [336 in, 117.6 in], end = [346 in, 117.3917 in])
+    }
+    sketch shower_0_p on plane.p_xy_15 {
+        c = circle(center = [268.5 in, 336 in], radius = 1.1875 in)
+    }
+    feature shower_0 = sweep(profile = sketch.shower_0_p, path = sketch.shower_0_path, follow_path = true)
+    material = { body = feature.shower_0.body, material = "material.pvc_dwv" }
+    sketch lav_hall_0_path on plane.p_yz_16 {
+        l0 = line(start = [280 in, 132.25 in], end = [280 in, 117.6 in])
+        l1 = line(start = [280 in, 117.6 in], end = [346 in, 116.225 in])
+    }
+    sketch lav_hall_0_p on plane.p_xy_17 {
+        c = circle(center = [228 in, 280 in], radius = 0.95 in)
+    }
+    feature lav_hall_0 = sweep(profile = sketch.lav_hall_0_p, path = sketch.lav_hall_0_path, follow_path = true)
+    material = { body = feature.lav_hall_0.body, material = "material.pvc_dwv" }
+    sketch lav_hall_aav_s on plane.p_xy_17 {
+        l0 = line(start = [226.75 in, 278.75 in], end = [229.25 in, 278.75 in])
+        l1 = line(start = [229.25 in, 278.75 in], end = [229.25 in, 281.25 in])
+        l2 = line(start = [229.25 in, 281.25 in], end = [226.75 in, 281.25 in])
+        l3 = line(start = [226.75 in, 281.25 in], end = [226.75 in, 278.75 in])
+    }
+    feature lav_hall_aav = extrude(profile = sketch.lav_hall_aav_s, distance = 4 in, mode = new)
+    material = { body = feature.lav_hall_aav.body, material = "material.pvc_dwv" }
+    sketch lav_primary_1_0_path on plane.p_yz_18 {
+        l0 = line(start = [242 in, 132.25 in], end = [242 in, 117.6 in])
+        l1 = line(start = [242 in, 117.6 in], end = [346 in, 115.4333 in])
+    }
+    sketch lav_primary_1_0_p on plane.p_xy_17 {
+        c = circle(center = [262 in, 242 in], radius = 0.95 in)
+    }
+    feature lav_primary_1_0 = sweep(profile = sketch.lav_primary_1_0_p, path = sketch.lav_primary_1_0_path, follow_path = true)
+    material = { body = feature.lav_primary_1_0.body, material = "material.pvc_dwv" }
+    sketch lav_primary_1_aav_s on plane.p_xy_17 {
+        l0 = line(start = [260.75 in, 240.75 in], end = [263.25 in, 240.75 in])
+        l1 = line(start = [263.25 in, 240.75 in], end = [263.25 in, 243.25 in])
+        l2 = line(start = [263.25 in, 243.25 in], end = [260.75 in, 243.25 in])
+        l3 = line(start = [260.75 in, 243.25 in], end = [260.75 in, 240.75 in])
+    }
+    feature lav_primary_1_aav = extrude(profile = sketch.lav_primary_1_aav_s, distance = 4 in, mode = new)
+    material = { body = feature.lav_primary_1_aav.body, material = "material.pvc_dwv" }
+    sketch lav_primary_2_0_path on plane.p_yz_19 {
+        l0 = line(start = [242 in, 132.25 in], end = [242 in, 117.6 in])
+        l1 = line(start = [242 in, 117.6 in], end = [346 in, 115.4333 in])
+    }
+    sketch lav_primary_2_0_p on plane.p_xy_17 {
+        c = circle(center = [293.5 in, 242 in], radius = 0.95 in)
+    }
+    feature lav_primary_2_0 = sweep(profile = sketch.lav_primary_2_0_p, path = sketch.lav_primary_2_0_path, follow_path = true)
+    material = { body = feature.lav_primary_2_0.body, material = "material.pvc_dwv" }
+    sketch lav_primary_2_aav_s on plane.p_xy_17 {
+        l0 = line(start = [292.25 in, 240.75 in], end = [294.75 in, 240.75 in])
+        l1 = line(start = [294.75 in, 240.75 in], end = [294.75 in, 243.25 in])
+        l2 = line(start = [294.75 in, 243.25 in], end = [292.25 in, 243.25 in])
+        l3 = line(start = [292.25 in, 243.25 in], end = [292.25 in, 240.75 in])
+    }
+    feature lav_primary_2_aav = extrude(profile = sketch.lav_primary_2_aav_s, distance = 4 in, mode = new)
+    material = { body = feature.lav_primary_2_aav.body, material = "material.pvc_dwv" }
+    sketch tub_vent_0_path on plane.p_yz_6 {
+        l0 = line(start = [356 in, 115.3302 in], end = [356 in, 224 in])
+        l1 = line(start = [356 in, 224 in], end = [300 in, 224 in])
+        l2 = line(start = [300 in, 224 in], end = [300 in, 268 in])
+    }
+    sketch tub_vent_0_p on plane.p_xy_20 {
+        c = circle(center = [133.5 in, 356 in], radius = 0.95 in)
+    }
+    feature tub_vent_0 = sweep(profile = sketch.tub_vent_0_p, path = sketch.tub_vent_0_path, follow_path = true)
+    material = { body = feature.tub_vent_0.body, material = "material.pvc_dwv" }
+    sketch bath_vent_0_path on plane.p_yz_21 {
+        l0 = line(start = [346 in, 114.0896 in], end = [346 in, 224 in])
+        l1 = line(start = [346 in, 224 in], end = [300 in, 224 in])
+        l2 = line(start = [300 in, 224 in], end = [300 in, 268 in])
+    }
+    sketch bath_vent_0_p on plane.p_xy_22 {
+        c = circle(center = [242.6 in, 346 in], radius = 1.1875 in)
+    }
+    feature bath_vent_0 = sweep(profile = sketch.bath_vent_0_p, path = sketch.bath_vent_0_path, follow_path = true)
+    material = { body = feature.bath_vent_0.body, material = "material.pvc_dwv" }
+    sketch stack_0_path on plane.p_zx_8 {
+        l0 = line(start = [113.7 in, 280 in], end = [-10 in, 280 in])
+    }
+    sketch stack_0_p on plane.p_xy_23 {
+        c = circle(center = [280 in, 346 in], radius = 1.75 in)
+    }
+    feature stack_0 = sweep(profile = sketch.stack_0_p, path = sketch.stack_0_path, follow_path = true)
+    material = { body = feature.stack_0.body, material = "material.pvc_dwv" }
+    sketch building_drain_0_path on plane.p_zx_8 {
+        l0 = line(start = [-8 in, 376 in], end = [-10 in, 280 in])
+    }
+    sketch building_drain_0_p on plane.p_yz_0 {
+        c = circle(center = [346 in, -8 in], radius = 1.75 in)
+    }
+    feature building_drain_0 = sweep(profile = sketch.building_drain_0_p, path = sketch.building_drain_0_path, follow_path = true)
+    material = { body = feature.building_drain_0.body, material = "material.pvc_dwv" }
+    sketch building_drain_1_path on plane.p_yz_24 {
+        l0 = line(start = [346 in, -10 in], end = [420 in, -11.5417 in])
+    }
+    sketch building_drain_1_p on plane.p_zx_8 {
+        c = circle(center = [-10 in, 280 in], radius = 1.75 in)
+    }
+    feature building_drain_1 = sweep(profile = sketch.building_drain_1_p, path = sketch.building_drain_1_path, follow_path = true)
+    material = { body = feature.building_drain_1.body, material = "material.pvc_dwv" }
+    sketch kitchen_drain_0_path on plane.p_yz_0 {
+        l0 = line(start = [353.9844 in, 16.0681 in], end = [350 in, 16.0681 in])
+        l1 = line(start = [350 in, 16.0681 in], end = [350 in, -8 in])
+        l2 = line(start = [350 in, -8 in], end = [346 in, -8 in])
+    }
+    sketch kitchen_drain_0_p on plane.p_zx_1 {
+        c = circle(center = [16.0681 in, 376 in], radius = 0.95 in)
+    }
+    feature kitchen_drain_0 = sweep(profile = sketch.kitchen_drain_0_p, path = sketch.kitchen_drain_0_path, follow_path = true)
+    material = { body = feature.kitchen_drain_0.body, material = "material.pvc_dwv" }
+    sketch stack_cleanout_s on plane.p_xy_25 {
+        l0 = line(start = [278 in, 342 in], end = [282 in, 342 in])
+        l1 = line(start = [282 in, 342 in], end = [282 in, 344.25 in])
+        l2 = line(start = [282 in, 344.25 in], end = [278 in, 344.25 in])
+        l3 = line(start = [278 in, 344.25 in], end = [278 in, 342 in])
+    }
+    feature stack_cleanout = extrude(profile = sketch.stack_cleanout_s, distance = 4 in, mode = new)
+    material = { body = feature.stack_cleanout.body, material = "material.pvc_dwv" }
+    output dwv_piping_sink_trap_arm = { body = feature.sink_trap_arm_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Trap arm, 1 1/2 in PVC DWV, 1/4 in per ft" }
+    output dwv_piping_sink_vent = { body = feature.sink_vent_0.body, part_number = "P-VENT", material = "material.pvc_dwv", label = "Vent, 1 1/2 in PVC DWV, through the roof" }
+    output dwv_piping_cleanout = { body = feature.cleanout.body, part_number = "P-CO", material = "material.pvc_dwv", label = "Cleanout cover" }
+    output dwv_piping_hall_branch = { body = feature.hall_branch_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Hall bath branch, 3 in PVC DWV, 1/8 in per ft" }
+    output dwv_piping_primary_branch = { body = feature.primary_branch_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Primary bath branch, 3 in PVC DWV, 1/8 in per ft" }
+    output dwv_piping_tub = { body = feature.tub_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Tub waste, 1 1/2 in PVC DWV" }
+    output dwv_piping_wc_hall = { body = feature.wc_hall_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Hall toilet closet bend, 3 in PVC DWV" }
+    output dwv_piping_wc_primary = { body = feature.wc_primary_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Primary toilet closet bend, 3 in PVC DWV" }
+    output dwv_piping_shower = { body = feature.shower_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Shower drain, 2 in PVC DWV, 1/4 in per ft" }
+    output dwv_piping_lav_hall = { body = feature.lav_hall_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Hall lavatory drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
+    output dwv_piping_lav_hall_aav = { body = feature.lav_hall_aav.body, part_number = "P-AAV", material = "material.pvc_dwv", label = "Air admittance valve, hall lavatory drain" }
+    output dwv_piping_lav_primary_1 = { body = feature.lav_primary_1_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Primary lavatory 1 drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
+    output dwv_piping_lav_primary_1_aav = { body = feature.lav_primary_1_aav.body, part_number = "P-AAV", material = "material.pvc_dwv", label = "Air admittance valve, primary lavatory 1 drain" }
+    output dwv_piping_lav_primary_2 = { body = feature.lav_primary_2_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Primary lavatory 2 drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
+    output dwv_piping_lav_primary_2_aav = { body = feature.lav_primary_2_aav.body, part_number = "P-AAV", material = "material.pvc_dwv", label = "Air admittance valve, primary lavatory 2 drain" }
+    output dwv_piping_tub_vent = { body = feature.tub_vent_0.body, part_number = "P-VENT", material = "material.pvc_dwv", label = "Tub vent, 1 1/2 in PVC DWV, in wall D and through the roof" }
+    output dwv_piping_bath_vent = { body = feature.bath_vent_0.body, part_number = "P-VENT", material = "material.pvc_dwv", label = "Bath vent, 2 in PVC DWV, in the partition between the baths and through the roof" }
+    output dwv_piping_stack = { body = feature.stack_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Drain stack, 3 in PVC DWV" }
+    output dwv_piping_building_drain = { body = feature.building_drain_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Building drain, 3 in PVC DWV, 1/4 in per ft, to the sewer" }
+    output dwv_piping_kitchen_drain = { body = feature.kitchen_drain_0.body, part_number = "P-DWV", material = "material.pvc_dwv", label = "Kitchen sink drain, 1 1/2 in PVC DWV, down through the sink base" }
+    output dwv_piping_stack_cleanout = { body = feature.stack_cleanout.body, part_number = "P-CO", material = "material.pvc_dwv", label = "Cleanout at the stack base" }
+}

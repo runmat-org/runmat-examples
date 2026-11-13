@@ -1,0 +1,12 @@
+[package]
+name = "industrial-machinery-disc-cam"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "disc_cam.part"
+
+[desktop.artifacts]
+root = ".artifacts"

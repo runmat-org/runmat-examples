@@ -1,0 +1,57 @@
+// Plastic bending of a steel cantilever beam (1000 x 100 x 100 mm), fixed at one end.
+// A 48 kN downward force on the free end (-Z) takes the root past first yield (about 41.7 kN for a
+// 250 MPa yield stress) toward the plastic hinge load (62.5 kN). The load is applied in increments,
+// with J2 plasticity and linear isotropic hardening.
+geometry beam {
+    file = "./geometry/cantilever.step"
+    units = mm
+    region body : solid { select name "Beam"; expect exactly_one }
+    region fixed_end : face { select name "Fixed end"; expect exactly_one }
+    region loaded_end : face { select name "Loaded end"; expect exactly_one }
+}
+
+mesh beam on geometry.beam {
+    tetrahedra {
+        order = quadratic
+        target_size = 50 mm
+        maximum_deviation = 1 mm
+    }
+}
+
+material mild_steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+    plastic {
+        law = "j2_isotropic_linear_hardening"
+        yield_stress = 250 MPa
+        isotropic_hardening_modulus = 2 GPa
+    }
+}
+
+model overloaded_beam {
+    assign material.mild_steel to geometry.beam.region.body
+    constraint fixed_end {
+        structural.fixed { target = geometry.beam.region.fixed_end }
+    }
+    load tip {
+        force on geometry.beam.region.loaded_end = [0, 0, -48] kN
+    }
+    load_case overload { include load.tip }
+}
+
+study cantilever_plastic {
+    geometry = geometry.beam
+    mesh = mesh.beam
+    model = model.overloaded_beam
+    analysis load_path {
+        structural nonlinear {
+            start_load_factor = 0
+            end_load_factor = 1
+        }
+    }
+    output displacement = analysis.load_path.field.node.displacement
+    output stress = analysis.load_path.field.element.stress
+}

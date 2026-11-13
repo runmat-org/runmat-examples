@@ -1,0 +1,14 @@
+runmat 0.7
+std 1
+
+// A wheel hub filling the tyre's rim: its radius is an input.
+part hub {
+    input radius : length = 440 mm
+
+    sketch s on origin.zx {
+        c = circle(center = [0 mm, 0 mm], radius = input.radius)
+    }
+    feature hub = extrude(profile = sketch.s, distance = 200 mm, symmetric)
+
+    output hub = { body = feature.hub.body, part_number = "LG-HB-815", material = "aluminum_7075", color = "#A2A8AF" }
+}

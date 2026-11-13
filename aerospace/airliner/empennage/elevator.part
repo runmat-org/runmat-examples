@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// An elevator, aft of the hinge line at 70 % chord.
+part elevator {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 400 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[659.917 mm, 6020 mm], [633.871 mm, 6323.372 mm], [608.758 mm, 6588.659 mm], [586.511 mm, 6805.988 mm], [568.954 mm, 6967.271 mm], [557.674 mm, 7066.506 mm], [553.78 mm, 7100 mm]])
+        c2 = line(start = c1.end, end = [546.22 mm, 7100 mm])
+        c3 = spline(points = [c2.end, [542.326 mm, 7066.506 mm], [531.046 mm, 6967.271 mm], [513.489 mm, 6805.988 mm], [491.242 mm, 6588.659 mm], [466.129 mm, 6323.372 mm], [440.083 mm, 6020 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 6300 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1312.597 mm, 8206.507 mm], [1303.553 mm, 8311.845 mm], [1294.834 mm, 8403.958 mm], [1287.109 mm, 8479.42 mm], [1281.013 mm, 8535.421 mm], [1277.096 mm, 8569.877 mm], [1275.744 mm, 8581.507 mm]])
+        c2 = line(start = c1.end, end = [1273.119 mm, 8581.507 mm])
+        c3 = spline(points = [c2.end, [1271.767 mm, 8569.877 mm], [1267.85 mm, 8535.421 mm], [1261.754 mm, 8479.42 mm], [1254.029 mm, 8403.958 mm], [1245.31 mm, 8311.845 mm], [1236.266 mm, 8206.507 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature surface = loft(profiles = [sketch.s0, sketch.s1])
+
+    output elevator = { body = feature.surface.body, part_number = "EMP-EL-715", material = "composite", color = "#E4E7EB" }
+}

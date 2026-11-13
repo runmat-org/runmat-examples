@@ -1,0 +1,27 @@
+runmat 0.7
+std 1
+
+// A control column: a post from the floor, leaning aft, with the yoke across its top.
+part control_column {
+    sketch p on origin.zx {
+        l1 = line(start = [0 mm, 0 mm], end = [0 mm, 60 mm])
+        l2 = line(start = [0 mm, 60 mm], end = [640 mm, 130 mm])
+        l3 = line(start = [640 mm, 130 mm], end = [640 mm, 70 mm])
+        l4 = line(start = [640 mm, 70 mm], end = [0 mm, 0 mm])
+    }
+    feature post = extrude(profile = sketch.p, distance = 60 mm, symmetric)
+    feature yoke_at = plane.offset(base = origin.yz, distance = 80 mm)
+    sketch y on plane.yoke_at {
+        l1 = line(start = [-170 mm, 600 mm], end = [170 mm, 600 mm])
+        l2 = line(start = [170 mm, 600 mm], end = [170 mm, 700 mm])
+        l3 = line(start = [170 mm, 700 mm], end = [130 mm, 700 mm])
+        l4 = line(start = [130 mm, 700 mm], end = [130 mm, 640 mm])
+        l5 = line(start = [130 mm, 640 mm], end = [-130 mm, 640 mm])
+        l6 = line(start = [-130 mm, 640 mm], end = [-130 mm, 700 mm])
+        l7 = line(start = [-130 mm, 700 mm], end = [-170 mm, 700 mm])
+        l8 = line(start = [-170 mm, 700 mm], end = [-170 mm, 600 mm])
+    }
+    feature yoke = extrude(profile = sketch.y, distance = 40 mm, mode = add)
+
+    output control_column = { body = feature.post.body, part_number = "FD-CC-360", material = "aluminum_7075", color = "#2A2E33" }
+}

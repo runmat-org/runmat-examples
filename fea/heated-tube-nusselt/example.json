@@ -1,0 +1,30 @@
+{
+  "id": "heated-tube-nusselt",
+  "title": "Heated tube Nusselt number",
+  "pickerTitle": "Heated tube Nusselt number",
+  "pickerLine": "FEA studies",
+  "line": "A steady conjugate heat transfer FEA study of laminar water in a uniformly heated copper tube.",
+  "description": "Laminar water (Re 40) entering at 25 C in a copper tube with an 8 mm bore, 240 mm long, heated with 10 W on its outside. The study returns the wall and centerline temperatures in the developed region, the outlet temperature and the pressure drop; developed flow with uniform flux gives Nu = 4.36, a 38.3 C wall at 180 mm.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "heated-tube-nusselt.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "heated-tube-nusselt",
+  "thumbnailAlt": "Water temperature in a heated copper tube, solved in RunMat",
+  "origin": {
+    "page": "/simulation/conjugate-heat-transfer",
+    "key": "website:simulation/conjugate-heat-transfer/heated-tube-nusselt",
+    "source": "runmat-examples/fea/heated-tube-nusselt/heated-tube-nusselt.fea"
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "pipe-wall-shear"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "pipe-wall-shear.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

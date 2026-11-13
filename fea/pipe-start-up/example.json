@@ -1,0 +1,30 @@
+{
+  "id": "pipe-start-up",
+  "title": "Pipe flow start-up",
+  "pickerTitle": "Pipe flow start-up",
+  "pickerLine": "FEA studies",
+  "line": "A transient flow FEA study of oil in a 10 mm line starting from rest under a step pressure.",
+  "description": "Start-up of laminar flow of ISO VG 46 oil in a 10 mm bore, 300 mm long, with 807 Pa applied across it at t = 0. The study samples the mean oil speed through the first 0.6 s; Szymanski's solution puts 95 % of the final 0.21 m/s at 0.28 s.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "pipe-start-up.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "pipe-start-up",
+  "thumbnailAlt": "Oil speed building up in a 10 mm line after a step pressure, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-flow",
+    "key": "website:simulation/fluid-flow/pipe-start-up",
+    "source": "runmat-examples/fea/pipe-start-up/pipe-start-up.fea"
+  }
+}

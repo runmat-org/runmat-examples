@@ -1,0 +1,81 @@
+runmat 0.7
+std 1
+
+// A hold-down: a bent steel bracket screwed to the face of a 2-ply end post, with a 5/8 in
+// threaded rod through its seat. In the foundation configuration the rod runs down through the
+// sill into the stem wall and footing; in floor_to_floor it runs down through the floor to an
+// inverted bracket on the first-floor post. Origin on the sill top at the post face; +x away
+// from the post, z up. Allowable tension 3,000 lb or more (DESIGN-NOTES, "Hold-downs").
+part hold_down {
+    input rod_bottom : length = -26.5 in
+    sketch back_s on origin.yz {
+        e0 = line(start = [-1.25 in, 0 in], end = [1.25 in, 0 in])
+        e1 = line(start = [1.25 in, 0 in], end = [1.25 in, 10 in])
+        e2 = line(start = [1.25 in, 10 in], end = [-1.25 in, 10 in])
+        e3 = line(start = [-1.25 in, 10 in], end = [-1.25 in, 0 in])
+    }
+    feature back = extrude(profile = sketch.back_s, distance = 0.1875 in, mode = new)
+    feature seat_plane = plane.offset(base = origin.xy, distance = 2 in)
+    sketch seat_s on plane.seat_plane {
+        e0 = line(start = [0.1875 in, -1.25 in], end = [2.25 in, -1.25 in])
+        e1 = line(start = [2.25 in, -1.25 in], end = [2.25 in, 1.25 in])
+        e2 = line(start = [2.25 in, 1.25 in], end = [0.1875 in, 1.25 in])
+        e3 = line(start = [0.1875 in, 1.25 in], end = [0.1875 in, -1.25 in])
+        h = circle(center = [1.25 in, 0 in], radius = 0.34375 in)
+    }
+    feature seat = extrude(profile = sketch.seat_s, distance = 0.375 in, mode = new)
+    feature side_plane = plane.offset(base = origin.zx, distance = -1.25 in)
+    sketch sides_s on plane.side_plane {
+        a0 = line(start = [0 in, 0.1875 in], end = [2 in, 0.1875 in])
+        a1 = line(start = [2 in, 0.1875 in], end = [2 in, 2.25 in])
+        a2 = line(start = [2 in, 2.25 in], end = [0 in, 2.25 in])
+        a3 = line(start = [0 in, 2.25 in], end = [0 in, 0.1875 in])
+    }
+    feature side_a = extrude(profile = sketch.sides_s, distance = 0.1875 in, mode = new)
+    feature side_plane_b = plane.offset(base = origin.zx, distance = 1.0625 in)
+    sketch sides_b_s on plane.side_plane_b {
+        a0 = line(start = [0 in, 0.1875 in], end = [2 in, 0.1875 in])
+        a1 = line(start = [2 in, 0.1875 in], end = [2 in, 2.25 in])
+        a2 = line(start = [2 in, 2.25 in], end = [0 in, 2.25 in])
+        a3 = line(start = [0 in, 2.25 in], end = [0 in, 0.1875 in])
+    }
+    feature side_b = extrude(profile = sketch.sides_b_s, distance = 0.1875 in, mode = new)
+    feature nut_plane = plane.offset(base = origin.xy, distance = 2.375 in)
+    sketch nut_s on plane.nut_plane {
+        o = circle(center = [1.25 in, 0 in], radius = 0.5 in)
+        i = circle(center = [1.25 in, 0 in], radius = 0.3125 in)
+    }
+    feature nut = extrude(profile = sketch.nut_s, distance = 0.55 in, mode = new)
+    feature rod_plane = plane.offset(base = origin.xy, distance = input.rod_bottom)
+    sketch rod_s on plane.rod_plane {
+        c = circle(center = [1.25 in, 0 in], radius = 0.3125 in)
+    }
+    feature rod = extrude(profile = sketch.rod_s, distance = 3.4 in - input.rod_bottom, mode = new)
+    // Floor-to-floor: the inverted bracket under the first-floor top plates
+    feature low_plane = plane.offset(base = origin.xy, distance = -19.5 in)
+    sketch low_seat_s on plane.low_plane {
+        e0 = line(start = [0.1875 in, -1.25 in], end = [2.25 in, -1.25 in])
+        e1 = line(start = [2.25 in, -1.25 in], end = [2.25 in, 1.25 in])
+        e2 = line(start = [2.25 in, 1.25 in], end = [0.1875 in, 1.25 in])
+        e3 = line(start = [0.1875 in, 1.25 in], end = [0.1875 in, -1.25 in])
+        h = circle(center = [1.25 in, 0 in], radius = 0.34375 in)
+    }
+    feature low_seat = extrude(profile = sketch.low_seat_s, distance = 0.375 in, mode = new, suppressed = true)
+    sketch low_back_s on origin.yz {
+        e0 = line(start = [-1.25 in, -29.125 in], end = [1.25 in, -29.125 in])
+        e1 = line(start = [1.25 in, -29.125 in], end = [1.25 in, -19.125 in])
+        e2 = line(start = [1.25 in, -19.125 in], end = [-1.25 in, -19.125 in])
+        e3 = line(start = [-1.25 in, -19.125 in], end = [-1.25 in, -29.125 in])
+    }
+    feature low_back = extrude(profile = sketch.low_back_s, distance = 0.1875 in, mode = new, suppressed = true)
+    feature low_nut_plane = plane.offset(base = origin.xy, distance = -20.05 in)
+    sketch low_nut_s on plane.low_nut_plane {
+        o = circle(center = [1.25 in, 0 in], radius = 0.5 in)
+        i = circle(center = [1.25 in, 0 in], radius = 0.3125 in)
+    }
+    feature low_nut = extrude(profile = sketch.low_nut_s, distance = 0.55 in, mode = new, suppressed = true)
+
+    output hold_down = { body = feature.back.body, part_number = "HD-58", material = "material.galvanized_steel" }
+    configuration foundation = { part_number = "HD-58-F", description = "Hold-down to the foundation" }
+    configuration floor_to_floor = { rod_bottom = -20.7 in, features = { low_seat = { suppressed = false }, low_back = { suppressed = false }, low_nut = { suppressed = false } }, part_number = "HD-58-FF", description = "Hold-down, second floor to first floor" }
+}

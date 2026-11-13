@@ -1,0 +1,1091 @@
+runmat 0.7
+std 1
+
+// The second-floor framing, from the top of the first-floor top plates: 11 7/8 in I-joists at
+// 16 in o.c. spanning north-south, a 1 1/8 in rim board all round, two flush 3 1/2 x 11 7/8 in
+// LVL beams on grids B and C (on posts at grids 2, 3 and 4 and on the end walls), the stair
+// opening between them with doubled trimmers, an LVL header and tail joists, and 3/4 in
+// tongue-and-groove subfloor. Joists hang from the beams on face-mount hangers (framing.assembly).
+part floor_system {
+    input spacing : length = 16 in
+    feature y_ab = plane.offset(base = origin.zx, distance = 1.125 in)
+    feature y_bc = plane.offset(base = origin.zx, distance = 145.8125 in)
+    feature y_cd = plane.offset(base = origin.zx, distance = 225.8125 in)
+    feature y_tail = plane.offset(base = origin.zx, distance = 145.8125 in)
+    feature y_hdr = plane.offset(base = origin.zx, distance = 178.5 in)
+    // Rim boards
+    sketch rim_s_s on origin.xy {
+        e0 = line(start = [0 in, 0 in], end = [480 in, 0 in])
+        e1 = line(start = [480 in, 0 in], end = [480 in, 1.125 in])
+        e2 = line(start = [480 in, 1.125 in], end = [0 in, 1.125 in])
+        e3 = line(start = [0 in, 1.125 in], end = [0 in, 0 in])
+    }
+    feature rim_s = extrude(profile = sketch.rim_s_s, distance = 11.875 in, mode = new)
+    sketch rim_n_s on origin.xy {
+        e0 = line(start = [0 in, 358.875 in], end = [480 in, 358.875 in])
+        e1 = line(start = [480 in, 358.875 in], end = [480 in, 360 in])
+        e2 = line(start = [480 in, 360 in], end = [0 in, 360 in])
+        e3 = line(start = [0 in, 360 in], end = [0 in, 358.875 in])
+    }
+    feature rim_n = extrude(profile = sketch.rim_n_s, distance = 11.875 in, mode = new)
+    sketch rim_w_s on origin.xy {
+        e0 = line(start = [0 in, 1.125 in], end = [1.125 in, 1.125 in])
+        e1 = line(start = [1.125 in, 1.125 in], end = [1.125 in, 358.875 in])
+        e2 = line(start = [1.125 in, 358.875 in], end = [0 in, 358.875 in])
+        e3 = line(start = [0 in, 358.875 in], end = [0 in, 1.125 in])
+    }
+    feature rim_w = extrude(profile = sketch.rim_w_s, distance = 11.875 in, mode = new)
+    sketch rim_e_s on origin.xy {
+        e0 = line(start = [478.875 in, 1.125 in], end = [480 in, 1.125 in])
+        e1 = line(start = [480 in, 1.125 in], end = [480 in, 358.875 in])
+        e2 = line(start = [480 in, 358.875 in], end = [478.875 in, 358.875 in])
+        e3 = line(start = [478.875 in, 358.875 in], end = [478.875 in, 1.125 in])
+    }
+    feature rim_e = extrude(profile = sketch.rim_e_s, distance = 11.875 in, mode = new)
+    // Flush beams on grids B and C
+    sketch beam_b_s on origin.xy {
+        e0 = line(start = [1.125 in, 142.25 in], end = [478.875 in, 142.25 in])
+        e1 = line(start = [478.875 in, 142.25 in], end = [478.875 in, 145.75 in])
+        e2 = line(start = [478.875 in, 145.75 in], end = [1.125 in, 145.75 in])
+        e3 = line(start = [1.125 in, 145.75 in], end = [1.125 in, 142.25 in])
+    }
+    feature beam_b = extrude(profile = sketch.beam_b_s, distance = 11.875 in, mode = new)
+    sketch beam_c_s on origin.xy {
+        e0 = line(start = [1.125 in, 222.25 in], end = [478.875 in, 222.25 in])
+        e1 = line(start = [478.875 in, 222.25 in], end = [478.875 in, 225.75 in])
+        e2 = line(start = [478.875 in, 225.75 in], end = [1.125 in, 225.75 in])
+        e3 = line(start = [1.125 in, 225.75 in], end = [1.125 in, 222.25 in])
+    }
+    feature beam_c = extrude(profile = sketch.beam_c_s, distance = 11.875 in, mode = new)
+    // I-joists, one bay at a time: the first joist at 16 in, then the pattern
+    sketch joist_ab_s on plane.y_ab {
+        e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
+        e1 = line(start = [0 in, 17.1562 in], end = [1.5 in, 17.1562 in])
+        e2 = line(start = [1.5 in, 17.1562 in], end = [1.5 in, 16.1875 in])
+        e3 = line(start = [1.5 in, 16.1875 in], end = [10.375 in, 16.1875 in])
+        e4 = line(start = [10.375 in, 16.1875 in], end = [10.375 in, 17.1562 in])
+        e5 = line(start = [10.375 in, 17.1562 in], end = [11.875 in, 17.1562 in])
+        e6 = line(start = [11.875 in, 17.1562 in], end = [11.875 in, 14.8438 in])
+        e7 = line(start = [11.875 in, 14.8438 in], end = [10.375 in, 14.8438 in])
+        e8 = line(start = [10.375 in, 14.8438 in], end = [10.375 in, 15.8125 in])
+        e9 = line(start = [10.375 in, 15.8125 in], end = [1.5 in, 15.8125 in])
+        e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
+        e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
+    }
+    feature joist_ab = extrude(profile = sketch.joist_ab_s, distance = 141.0625 in, mode = new)
+    feature joists_ab = pattern(bodies = [feature.joist_ab.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29))
+    sketch joist_bc_s on plane.y_bc {
+        e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
+        e1 = line(start = [0 in, 17.1562 in], end = [1.5 in, 17.1562 in])
+        e2 = line(start = [1.5 in, 17.1562 in], end = [1.5 in, 16.1875 in])
+        e3 = line(start = [1.5 in, 16.1875 in], end = [10.375 in, 16.1875 in])
+        e4 = line(start = [10.375 in, 16.1875 in], end = [10.375 in, 17.1562 in])
+        e5 = line(start = [10.375 in, 17.1562 in], end = [11.875 in, 17.1562 in])
+        e6 = line(start = [11.875 in, 17.1562 in], end = [11.875 in, 14.8438 in])
+        e7 = line(start = [11.875 in, 14.8438 in], end = [10.375 in, 14.8438 in])
+        e8 = line(start = [10.375 in, 14.8438 in], end = [10.375 in, 15.8125 in])
+        e9 = line(start = [10.375 in, 15.8125 in], end = [1.5 in, 15.8125 in])
+        e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
+        e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
+    }
+    feature joist_bc = extrude(profile = sketch.joist_bc_s, distance = 76.375 in, mode = new)
+    feature joists_bc = pattern(bodies = [feature.joist_bc.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29), skip = [{ instance = linear, step = 9 }, { instance = linear, step = 10 }, { instance = linear, step = 11 }, { instance = linear, step = 12 }, { instance = linear, step = 13 }, { instance = linear, step = 14 }, { instance = linear, step = 15 }, { instance = linear, step = 16 }, { instance = linear, step = 17 }])
+    sketch joist_cd_s on plane.y_cd {
+        e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
+        e1 = line(start = [0 in, 17.1562 in], end = [1.5 in, 17.1562 in])
+        e2 = line(start = [1.5 in, 17.1562 in], end = [1.5 in, 16.1875 in])
+        e3 = line(start = [1.5 in, 16.1875 in], end = [10.375 in, 16.1875 in])
+        e4 = line(start = [10.375 in, 16.1875 in], end = [10.375 in, 17.1562 in])
+        e5 = line(start = [10.375 in, 17.1562 in], end = [11.875 in, 17.1562 in])
+        e6 = line(start = [11.875 in, 17.1562 in], end = [11.875 in, 14.8438 in])
+        e7 = line(start = [11.875 in, 14.8438 in], end = [10.375 in, 14.8438 in])
+        e8 = line(start = [10.375 in, 14.8438 in], end = [10.375 in, 15.8125 in])
+        e9 = line(start = [10.375 in, 15.8125 in], end = [1.5 in, 15.8125 in])
+        e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
+        e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
+    }
+    feature joist_cd = extrude(profile = sketch.joist_cd_s, distance = 133.0625 in, mode = new)
+    feature joists_cd = pattern(bodies = [feature.joist_cd.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29))
+    // Stair opening: doubled trimmers, the LVL header and the tail joists
+    sketch trimmer_0_s on plane.y_bc {
+        e0 = line(start = [0 in, 159.375 in], end = [0 in, 161.6875 in])
+        e1 = line(start = [0 in, 161.6875 in], end = [1.5 in, 161.6875 in])
+        e2 = line(start = [1.5 in, 161.6875 in], end = [1.5 in, 160.7188 in])
+        e3 = line(start = [1.5 in, 160.7188 in], end = [10.375 in, 160.7188 in])
+        e4 = line(start = [10.375 in, 160.7188 in], end = [10.375 in, 161.6875 in])
+        e5 = line(start = [10.375 in, 161.6875 in], end = [11.875 in, 161.6875 in])
+        e6 = line(start = [11.875 in, 161.6875 in], end = [11.875 in, 159.375 in])
+        e7 = line(start = [11.875 in, 159.375 in], end = [10.375 in, 159.375 in])
+        e8 = line(start = [10.375 in, 159.375 in], end = [10.375 in, 160.3438 in])
+        e9 = line(start = [10.375 in, 160.3438 in], end = [1.5 in, 160.3438 in])
+        e10 = line(start = [1.5 in, 160.3438 in], end = [1.5 in, 159.375 in])
+        e11 = line(start = [1.5 in, 159.375 in], end = [0 in, 159.375 in])
+    }
+    feature trimmer_0 = extrude(profile = sketch.trimmer_0_s, distance = 76.375 in, mode = new)
+    sketch trimmer_1_s on plane.y_bc {
+        e0 = line(start = [0 in, 161.6875 in], end = [0 in, 164 in])
+        e1 = line(start = [0 in, 164 in], end = [1.5 in, 164 in])
+        e2 = line(start = [1.5 in, 164 in], end = [1.5 in, 163.0312 in])
+        e3 = line(start = [1.5 in, 163.0312 in], end = [10.375 in, 163.0312 in])
+        e4 = line(start = [10.375 in, 163.0312 in], end = [10.375 in, 164 in])
+        e5 = line(start = [10.375 in, 164 in], end = [11.875 in, 164 in])
+        e6 = line(start = [11.875 in, 164 in], end = [11.875 in, 161.6875 in])
+        e7 = line(start = [11.875 in, 161.6875 in], end = [10.375 in, 161.6875 in])
+        e8 = line(start = [10.375 in, 161.6875 in], end = [10.375 in, 162.6562 in])
+        e9 = line(start = [10.375 in, 162.6562 in], end = [1.5 in, 162.6562 in])
+        e10 = line(start = [1.5 in, 162.6562 in], end = [1.5 in, 161.6875 in])
+        e11 = line(start = [1.5 in, 161.6875 in], end = [0 in, 161.6875 in])
+    }
+    feature trimmer_1 = extrude(profile = sketch.trimmer_1_s, distance = 76.375 in, mode = new)
+    sketch trimmer_2_s on plane.y_bc {
+        e0 = line(start = [0 in, 296 in], end = [0 in, 298.3125 in])
+        e1 = line(start = [0 in, 298.3125 in], end = [1.5 in, 298.3125 in])
+        e2 = line(start = [1.5 in, 298.3125 in], end = [1.5 in, 297.3438 in])
+        e3 = line(start = [1.5 in, 297.3438 in], end = [10.375 in, 297.3438 in])
+        e4 = line(start = [10.375 in, 297.3438 in], end = [10.375 in, 298.3125 in])
+        e5 = line(start = [10.375 in, 298.3125 in], end = [11.875 in, 298.3125 in])
+        e6 = line(start = [11.875 in, 298.3125 in], end = [11.875 in, 296 in])
+        e7 = line(start = [11.875 in, 296 in], end = [10.375 in, 296 in])
+        e8 = line(start = [10.375 in, 296 in], end = [10.375 in, 296.9688 in])
+        e9 = line(start = [10.375 in, 296.9688 in], end = [1.5 in, 296.9688 in])
+        e10 = line(start = [1.5 in, 296.9688 in], end = [1.5 in, 296 in])
+        e11 = line(start = [1.5 in, 296 in], end = [0 in, 296 in])
+    }
+    feature trimmer_2 = extrude(profile = sketch.trimmer_2_s, distance = 76.375 in, mode = new)
+    sketch trimmer_3_s on plane.y_bc {
+        e0 = line(start = [0 in, 298.3125 in], end = [0 in, 300.625 in])
+        e1 = line(start = [0 in, 300.625 in], end = [1.5 in, 300.625 in])
+        e2 = line(start = [1.5 in, 300.625 in], end = [1.5 in, 299.6562 in])
+        e3 = line(start = [1.5 in, 299.6562 in], end = [10.375 in, 299.6562 in])
+        e4 = line(start = [10.375 in, 299.6562 in], end = [10.375 in, 300.625 in])
+        e5 = line(start = [10.375 in, 300.625 in], end = [11.875 in, 300.625 in])
+        e6 = line(start = [11.875 in, 300.625 in], end = [11.875 in, 298.3125 in])
+        e7 = line(start = [11.875 in, 298.3125 in], end = [10.375 in, 298.3125 in])
+        e8 = line(start = [10.375 in, 298.3125 in], end = [10.375 in, 299.2812 in])
+        e9 = line(start = [10.375 in, 299.2812 in], end = [1.5 in, 299.2812 in])
+        e10 = line(start = [1.5 in, 299.2812 in], end = [1.5 in, 298.3125 in])
+        e11 = line(start = [1.5 in, 298.3125 in], end = [0 in, 298.3125 in])
+    }
+    feature trimmer_3 = extrude(profile = sketch.trimmer_3_s, distance = 76.375 in, mode = new)
+    sketch stair_header_s on plane.y_hdr {
+        e0 = line(start = [0 in, 164.0625 in], end = [11.875 in, 164.0625 in])
+        e1 = line(start = [11.875 in, 164.0625 in], end = [11.875 in, 295.9375 in])
+        e2 = line(start = [11.875 in, 295.9375 in], end = [0 in, 295.9375 in])
+        e3 = line(start = [0 in, 295.9375 in], end = [0 in, 164.0625 in])
+    }
+    feature stair_header = extrude(profile = sketch.stair_header_s, distance = 1.75 in, mode = new)
+    sketch tail_s on plane.y_tail {
+        e0 = line(start = [0 in, 174.8438 in], end = [0 in, 177.1562 in])
+        e1 = line(start = [0 in, 177.1562 in], end = [1.5 in, 177.1562 in])
+        e2 = line(start = [1.5 in, 177.1562 in], end = [1.5 in, 176.1875 in])
+        e3 = line(start = [1.5 in, 176.1875 in], end = [10.375 in, 176.1875 in])
+        e4 = line(start = [10.375 in, 176.1875 in], end = [10.375 in, 177.1562 in])
+        e5 = line(start = [10.375 in, 177.1562 in], end = [11.875 in, 177.1562 in])
+        e6 = line(start = [11.875 in, 177.1562 in], end = [11.875 in, 174.8438 in])
+        e7 = line(start = [11.875 in, 174.8438 in], end = [10.375 in, 174.8438 in])
+        e8 = line(start = [10.375 in, 174.8438 in], end = [10.375 in, 175.8125 in])
+        e9 = line(start = [10.375 in, 175.8125 in], end = [1.5 in, 175.8125 in])
+        e10 = line(start = [1.5 in, 175.8125 in], end = [1.5 in, 174.8438 in])
+        e11 = line(start = [1.5 in, 174.8438 in], end = [0 in, 174.8438 in])
+    }
+    feature tail = extrude(profile = sketch.tail_s, distance = 32.625 in, mode = new)
+    feature tails = pattern(bodies = [feature.tail.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 8))
+    // Subfloor, with the stair opening cut out
+    feature deck = plane.offset(base = origin.xy, distance = 11.875 in)
+    sketch subfloor_s on plane.deck {
+        e0 = line(start = [0 in, 0 in], end = [480 in, 0 in])
+        e1 = line(start = [480 in, 0 in], end = [480 in, 360 in])
+        e2 = line(start = [480 in, 360 in], end = [0 in, 360 in])
+        e3 = line(start = [0 in, 360 in], end = [0 in, 0 in])
+    }
+    feature subfloor = extrude(profile = sketch.subfloor_s, distance = 0.75 in, mode = new)
+    sketch opening_s on plane.deck {
+        e0 = line(start = [164 in, 180.25 in], end = [296 in, 180.25 in])
+        e1 = line(start = [296 in, 180.25 in], end = [296 in, 222.25 in])
+        e2 = line(start = [296 in, 222.25 in], end = [164 in, 222.25 in])
+        e3 = line(start = [164 in, 222.25 in], end = [164 in, 180.25 in])
+    }
+    feature opening = extrude(profile = sketch.opening_s, distance = 0.75 in, mode = cut)
+
+    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    feature hw_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_0_s on plane.hw_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_0 = extrude(profile = sketch.hw_0_s, distance = 12.625 in, mode = cut)
+    sketch hw_1_s on plane.hw_pl0 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1 = extrude(profile = sketch.hw_1_s, distance = 12.625 in, mode = cut)
+    sketch hw_2_s on plane.hw_pl0 {
+        c = circle(center = [475.75 in, 357.25 in], radius = 0.3438 in)
+    }
+    feature hw_2 = extrude(profile = sketch.hw_2_s, distance = 12.625 in, mode = cut)
+    sketch hw_3_s on plane.hw_pl0 {
+        c = circle(center = [4.25 in, 357.25 in], radius = 0.3438 in)
+    }
+    feature hw_3 = extrude(profile = sketch.hw_3_s, distance = 12.625 in, mode = cut)
+    sketch hw_4_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 350.25 in], radius = 0.3438 in)
+    }
+    feature hw_4 = extrude(profile = sketch.hw_4_s, distance = 12.625 in, mode = cut)
+    sketch hw_5_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 9.75 in], radius = 0.3438 in)
+    }
+    feature hw_5 = extrude(profile = sketch.hw_5_s, distance = 12.625 in, mode = cut)
+    sketch hw_6_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 9.75 in], radius = 0.3438 in)
+    }
+    feature hw_6 = extrude(profile = sketch.hw_6_s, distance = 12.625 in, mode = cut)
+    sketch hw_7_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 350.25 in], radius = 0.3438 in)
+    }
+    feature hw_7 = extrude(profile = sketch.hw_7_s, distance = 12.625 in, mode = cut)
+    // end connector holes all
+    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    feature mep_all_p_xy_109 = plane.offset(base = origin.xy, distance = -119.125 in)
+    feature mep_all_p_xy_108 = plane.offset(base = origin.xy, distance = 4.9646 in)
+    feature mep_all_p_xy_107 = plane.offset(base = origin.xy, distance = 6.2052 in)
+    feature mep_all_p_zx_106 = plane.offset(base = origin.zx, distance = 334.3389 in)
+    feature mep_all_p_zx_105 = plane.offset(base = origin.zx, distance = 322.6778 in)
+    feature mep_all_p_zx_104 = plane.offset(base = origin.zx, distance = 311.0167 in)
+    feature mep_all_p_zx_103 = plane.offset(base = origin.zx, distance = 299.3556 in)
+    feature mep_all_p_zx_102 = plane.offset(base = origin.zx, distance = 287.6944 in)
+    feature mep_all_p_zx_101 = plane.offset(base = origin.zx, distance = 276.0333 in)
+    feature mep_all_p_zx_100 = plane.offset(base = origin.zx, distance = 264.3722 in)
+    feature mep_all_p_zx_99 = plane.offset(base = origin.zx, distance = 252.7111 in)
+    feature mep_all_p_zx_98 = plane.offset(base = origin.zx, distance = 241.05 in)
+    feature mep_all_p_zx_97 = plane.offset(base = origin.zx, distance = 334.8417 in)
+    feature mep_all_p_zx_96 = plane.offset(base = origin.zx, distance = 323.6833 in)
+    feature mep_all_p_zx_95 = plane.offset(base = origin.zx, distance = 312.525 in)
+    feature mep_all_p_zx_94 = plane.offset(base = origin.zx, distance = 301.3667 in)
+    feature mep_all_p_zx_93 = plane.offset(base = origin.zx, distance = 290.2083 in)
+    feature mep_all_p_zx_92 = plane.offset(base = origin.zx, distance = 279.05 in)
+    feature mep_all_p_xy_91 = plane.offset(base = origin.xy, distance = 7.525 in)
+    feature mep_all_p_zx_90 = plane.offset(base = origin.zx, distance = 334.8125 in)
+    feature mep_all_p_xy_89 = plane.offset(base = origin.xy, distance = 7.2875 in)
+    feature mep_all_p_xy_88 = plane.offset(base = origin.xy, distance = 3.1896 in)
+    feature mep_all_p_zx_87 = plane.offset(base = origin.zx, distance = 340.25 in)
+    feature mep_all_p_xy_86 = plane.offset(base = origin.xy, distance = 3.9708 in)
+    feature mep_all_p_xy_85 = plane.offset(base = origin.xy, distance = 6.101 in)
+    feature mep_all_p_yz_84 = plane.offset(base = origin.yz, distance = 280 in)
+    feature mep_all_p_yz_83 = plane.offset(base = origin.yz, distance = 291.6667 in)
+    feature mep_all_p_yz_82 = plane.offset(base = origin.yz, distance = 303.3333 in)
+    feature mep_all_p_yz_81 = plane.offset(base = origin.yz, distance = 268.5962 in)
+    feature mep_all_p_yz_80 = plane.offset(base = origin.yz, distance = 257.1923 in)
+    feature mep_all_p_yz_79 = plane.offset(base = origin.yz, distance = 245.7885 in)
+    feature mep_all_p_yz_78 = plane.offset(base = origin.yz, distance = 234.3846 in)
+    feature mep_all_p_yz_77 = plane.offset(base = origin.yz, distance = 222.9808 in)
+    feature mep_all_p_yz_76 = plane.offset(base = origin.yz, distance = 211.5769 in)
+    feature mep_all_p_yz_75 = plane.offset(base = origin.yz, distance = 200.1731 in)
+    feature mep_all_p_yz_74 = plane.offset(base = origin.yz, distance = 188.7692 in)
+    feature mep_all_p_yz_73 = plane.offset(base = origin.yz, distance = 177.3654 in)
+    feature mep_all_p_yz_72 = plane.offset(base = origin.yz, distance = 165.9615 in)
+    feature mep_all_p_yz_71 = plane.offset(base = origin.yz, distance = 154.5577 in)
+    feature mep_all_p_yz_70 = plane.offset(base = origin.yz, distance = 143.1538 in)
+    feature mep_all_p_yz_69 = plane.offset(base = origin.yz, distance = 131.75 in)
+    feature mep_all_p_zx_68 = plane.offset(base = origin.zx, distance = 344.25 in)
+    feature mep_all_p_zx_67 = plane.offset(base = origin.zx, distance = 240 in)
+    feature mep_all_p_zx_66 = plane.offset(base = origin.zx, distance = 237.5 in)
+    feature mep_all_p_xy_65 = plane.offset(base = origin.xy, distance = 9.0625 in)
+    feature mep_all_p_zx_64 = plane.offset(base = origin.zx, distance = 232.5 in)
+    feature mep_all_p_xy_63 = plane.offset(base = origin.xy, distance = 7.8625 in)
+    feature mep_all_p_zx_62 = plane.offset(base = origin.zx, distance = 235 in)
+    feature mep_all_p_yz_61 = plane.offset(base = origin.yz, distance = 243.3 in)
+    feature mep_all_p_zx_60 = plane.offset(base = origin.zx, distance = 77.6875 in)
+    feature mep_all_p_yz_59 = plane.offset(base = origin.yz, distance = 242 in)
+    feature mep_all_p_zx_58 = plane.offset(base = origin.zx, distance = 71.6875 in)
+    feature mep_all_p_yz_57 = plane.offset(base = origin.yz, distance = 122.5 in)
+    feature mep_all_p_zx_56 = plane.offset(base = origin.zx, distance = 86.6875 in)
+    feature mep_all_p_yz_55 = plane.offset(base = origin.yz, distance = 125 in)
+    feature mep_all_p_xy_54 = plane.offset(base = origin.xy, distance = 4.5625 in)
+    feature mep_all_p_zx_53 = plane.offset(base = origin.zx, distance = 94.6875 in)
+    feature mep_all_p_xy_52 = plane.offset(base = origin.xy, distance = -80.075 in)
+    feature mep_all_p_yz_51 = plane.offset(base = origin.yz, distance = 326.1875 in)
+    feature mep_all_p_zx_50 = plane.offset(base = origin.zx, distance = 83.6875 in)
+    feature mep_all_p_xy_49 = plane.offset(base = origin.xy, distance = -91.4375 in)
+    feature mep_all_p_zx_48 = plane.offset(base = origin.zx, distance = 344.6875 in)
+    feature mep_all_p_yz_47 = plane.offset(base = origin.yz, distance = 323.6875 in)
+    feature mep_all_p_zx_46 = plane.offset(base = origin.zx, distance = 74.6875 in)
+    feature mep_all_p_yz_45 = plane.offset(base = origin.yz, distance = 301.1875 in)
+    feature mep_all_p_xy_44 = plane.offset(base = origin.xy, distance = -49.125 in)
+    feature mep_all_p_xy_43 = plane.offset(base = origin.xy, distance = 1.5625 in)
+    feature mep_all_p_xy_42 = plane.offset(base = origin.xy, distance = -5.1875 in)
+    feature mep_all_p_xy_41 = plane.offset(base = origin.xy, distance = -70 in)
+    feature mep_all_p_zx_40 = plane.offset(base = origin.zx, distance = 116.125 in)
+    feature mep_all_p_yz_39 = plane.offset(base = origin.yz, distance = 331.425 in)
+    feature mep_all_p_xy_38 = plane.offset(base = origin.xy, distance = -98 in)
+    feature mep_all_p_zx_37 = plane.offset(base = origin.zx, distance = 27.75 in)
+    feature mep_all_p_yz_36 = plane.offset(base = origin.yz, distance = 328.15 in)
+    feature mep_all_p_xy_35 = plane.offset(base = origin.xy, distance = -101.125 in)
+    feature mep_all_p_zx_34 = plane.offset(base = origin.zx, distance = 14.5 in)
+    feature mep_all_p_yz_33 = plane.offset(base = origin.yz, distance = 327.2 in)
+    feature mep_all_p_xy_32 = plane.offset(base = origin.xy, distance = -49.375 in)
+    feature mep_all_p_yz_31 = plane.offset(base = origin.yz, distance = 339.75 in)
+    feature mep_all_p_zx_30 = plane.offset(base = origin.zx, distance = 27.25 in)
+    feature mep_all_p_yz_29 = plane.offset(base = origin.yz, distance = 360.75 in)
+    feature mep_all_p_zx_28 = plane.offset(base = origin.zx, distance = 25.75 in)
+    feature mep_all_p_xy_27 = plane.offset(base = origin.xy, distance = 1.5 in)
+    feature mep_all_p_yz_26 = plane.offset(base = origin.yz, distance = 343.75 in)
+    feature mep_all_p_zx_25 = plane.offset(base = origin.zx, distance = 24.25 in)
+    feature mep_all_p_xy_24 = plane.offset(base = origin.xy, distance = -91.625 in)
+    feature mep_all_p_zx_23 = plane.offset(base = origin.zx, distance = 4.5 in)
+    feature mep_all_p_yz_22 = plane.offset(base = origin.yz, distance = 358.75 in)
+    feature mep_all_p_zx_21 = plane.offset(base = origin.zx, distance = 11.75 in)
+    feature mep_all_p_yz_20 = plane.offset(base = origin.yz, distance = 357.75 in)
+    feature mep_all_p_xy_19 = plane.offset(base = origin.xy, distance = -33.625 in)
+    feature mep_all_p_yz_18 = plane.offset(base = origin.yz, distance = 327.75 in)
+    feature mep_all_p_zx_17 = plane.offset(base = origin.zx, distance = 21.25 in)
+    feature mep_all_p_yz_16 = plane.offset(base = origin.yz, distance = 329.95 in)
+    feature mep_all_p_zx_15 = plane.offset(base = origin.zx, distance = 344.75 in)
+    feature mep_all_p_zx_14 = plane.offset(base = origin.zx, distance = 19.75 in)
+    feature mep_all_p_yz_13 = plane.offset(base = origin.yz, distance = 328.75 in)
+    feature mep_all_p_yz_12 = plane.offset(base = origin.yz, distance = 356.75 in)
+    feature mep_all_p_xy_11 = plane.offset(base = origin.xy, distance = -41.625 in)
+    feature mep_all_p_yz_10 = plane.offset(base = origin.yz, distance = 314.75 in)
+    feature mep_all_p_zx_9 = plane.offset(base = origin.zx, distance = 18.25 in)
+    feature mep_all_p_yz_8 = plane.offset(base = origin.yz, distance = 355.75 in)
+    feature mep_all_p_xy_7 = plane.offset(base = origin.xy, distance = -77.125 in)
+    feature mep_all_p_zx_6 = plane.offset(base = origin.zx, distance = 16.75 in)
+    feature mep_all_p_yz_5 = plane.offset(base = origin.yz, distance = 354.75 in)
+    feature mep_all_p_xy_4 = plane.offset(base = origin.xy, distance = -65.625 in)
+    feature mep_all_p_yz_3 = plane.offset(base = origin.yz, distance = 298 in)
+    feature mep_all_p_zx_2 = plane.offset(base = origin.zx, distance = 15.25 in)
+    feature mep_all_p_yz_1 = plane.offset(base = origin.yz, distance = 353.75 in)
+    feature mep_all_p_xy_0 = plane.offset(base = origin.xy, distance = -31.125 in)
+    sketch mep_all_0_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 15.5 in], radius = 0.375 in)
+    }
+    feature mep_all_0 = extrude(profile = sketch.mep_all_0_s, distance = 33.85 in, mode = cut)
+    sketch mep_all_1_s on plane.mep_all_p_yz_1 {
+        c = circle(center = [15.5 in, 2.475 in], radius = 0.375 in)
+    }
+    feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 4.5 in, mode = cut)
+    sketch mep_all_2_s on plane.mep_all_p_zx_2 {
+        c = circle(center = [2.475 in, 354 in], radius = 0.375 in)
+    }
+    feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 95 in, mode = cut)
+    sketch mep_all_3_s on plane.mep_all_p_yz_3 {
+        c = circle(center = [110 in, 2.475 in], radius = 0.375 in)
+    }
+    feature mep_all_3 = extrude(profile = sketch.mep_all_3_s, distance = 56.25 in, mode = cut)
+    sketch mep_all_4_s on plane.mep_all_p_xy_4 {
+        c = circle(center = [298.25 in, 110 in], radius = 0.375 in)
+    }
+    feature mep_all_4 = extrude(profile = sketch.mep_all_4_s, distance = 68.35 in, mode = cut)
+    sketch mep_all_5_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 17 in], radius = 0.375 in)
+    }
+    feature mep_all_5 = extrude(profile = sketch.mep_all_5_s, distance = 34.55 in, mode = cut)
+    sketch mep_all_6_s on plane.mep_all_p_yz_5 {
+        c = circle(center = [17 in, 3.175 in], radius = 0.375 in)
+    }
+    feature mep_all_6 = extrude(profile = sketch.mep_all_6_s, distance = 3.5 in, mode = cut)
+    sketch mep_all_7_s on plane.mep_all_p_zx_6 {
+        c = circle(center = [3.175 in, 355 in], radius = 0.375 in)
+    }
+    feature mep_all_7 = extrude(profile = sketch.mep_all_7_s, distance = 109.5 in, mode = cut)
+    sketch mep_all_8_s on plane.mep_all_p_yz_3 {
+        c = circle(center = [126 in, 3.175 in], radius = 0.375 in)
+    }
+    feature mep_all_8 = extrude(profile = sketch.mep_all_8_s, distance = 57.25 in, mode = cut)
+    sketch mep_all_9_s on plane.mep_all_p_xy_7 {
+        c = circle(center = [298.25 in, 126 in], radius = 0.375 in)
+    }
+    feature mep_all_9 = extrude(profile = sketch.mep_all_9_s, distance = 80.55 in, mode = cut)
+    sketch mep_all_10_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 18.5 in], radius = 0.375 in)
+    }
+    feature mep_all_10 = extrude(profile = sketch.mep_all_10_s, distance = 39.85 in, mode = cut)
+    sketch mep_all_11_s on plane.mep_all_p_yz_8 {
+        c = circle(center = [18.5 in, 8.475 in], radius = 0.375 in)
+    }
+    feature mep_all_11 = extrude(profile = sketch.mep_all_11_s, distance = 2.5 in, mode = cut)
+    sketch mep_all_12_s on plane.mep_all_p_zx_9 {
+        c = circle(center = [8.475 in, 356 in], radius = 0.375 in)
+    }
+    feature mep_all_12 = extrude(profile = sketch.mep_all_12_s, distance = 117.25 in, mode = cut)
+    sketch mep_all_13_s on plane.mep_all_p_yz_10 {
+        c = circle(center = [135.25 in, 8.475 in], radius = 0.375 in)
+    }
+    feature mep_all_13 = extrude(profile = sketch.mep_all_13_s, distance = 41.5 in, mode = cut)
+    sketch mep_all_14_s on plane.mep_all_p_xy_11 {
+        c = circle(center = [315 in, 135.25 in], radius = 0.375 in)
+    }
+    feature mep_all_14 = extrude(profile = sketch.mep_all_14_s, distance = 50.35 in, mode = cut)
+    sketch mep_all_15_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 20 in], radius = 0.375 in)
+    }
+    feature mep_all_15 = extrude(profile = sketch.mep_all_15_s, distance = 35.65 in, mode = cut)
+    sketch mep_all_16_s on plane.mep_all_p_yz_12 {
+        c = circle(center = [20 in, 4.275 in], radius = 0.375 in)
+    }
+    feature mep_all_16 = extrude(profile = sketch.mep_all_16_s, distance = 1.5 in, mode = cut)
+    sketch mep_all_17_s on plane.mep_all_p_yz_13 {
+        c = circle(center = [20 in, 4.275 in], radius = 0.375 in)
+    }
+    feature mep_all_17 = extrude(profile = sketch.mep_all_17_s, distance = 28.5 in, mode = cut)
+    sketch mep_all_18_s on plane.mep_all_p_zx_14 {
+        c = circle(center = [4.275 in, 329 in], radius = 0.375 in)
+    }
+    feature mep_all_18 = extrude(profile = sketch.mep_all_18_s, distance = 325.5 in, mode = cut)
+    sketch mep_all_19_s on plane.mep_all_p_yz_13 {
+        c = circle(center = [345 in, 4.275 in], radius = 0.375 in)
+    }
+    feature mep_all_19 = extrude(profile = sketch.mep_all_19_s, distance = 14 in, mode = cut)
+    sketch mep_all_20_s on plane.mep_all_p_zx_15 {
+        c = circle(center = [4.275 in, 342.5 in], radius = 0.375 in)
+    }
+    feature mep_all_20 = extrude(profile = sketch.mep_all_20_s, distance = 10.75 in, mode = cut)
+    sketch mep_all_21_s on plane.mep_all_p_xy_4 {
+        c = circle(center = [342.5 in, 355.25 in], radius = 0.375 in)
+    }
+    feature mep_all_21 = extrude(profile = sketch.mep_all_21_s, distance = 70.15 in, mode = cut)
+    sketch mep_all_22_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 21.5 in], radius = 0.375 in)
+    }
+    feature mep_all_22 = extrude(profile = sketch.mep_all_22_s, distance = 36.35 in, mode = cut)
+    sketch mep_all_23_s on plane.mep_all_p_yz_16 {
+        c = circle(center = [21.5 in, 4.975 in], radius = 0.375 in)
+    }
+    feature mep_all_23 = extrude(profile = sketch.mep_all_23_s, distance = 28.3 in, mode = cut)
+    sketch mep_all_24_s on plane.mep_all_p_zx_17 {
+        c = circle(center = [4.975 in, 330.2 in], radius = 0.375 in)
+    }
+    feature mep_all_24 = extrude(profile = sketch.mep_all_24_s, distance = 324 in, mode = cut)
+    sketch mep_all_25_s on plane.mep_all_p_yz_18 {
+        c = circle(center = [345 in, 4.975 in], radius = 0.375 in)
+    }
+    feature mep_all_25 = extrude(profile = sketch.mep_all_25_s, distance = 2.7 in, mode = cut)
+    sketch mep_all_26_s on plane.mep_all_p_zx_15 {
+        c = circle(center = [4.975 in, 328 in], radius = 0.375 in)
+    }
+    feature mep_all_26 = extrude(profile = sketch.mep_all_26_s, distance = 10.75 in, mode = cut)
+    sketch mep_all_27_s on plane.mep_all_p_xy_19 {
+        c = circle(center = [328 in, 355.25 in], radius = 0.375 in)
+    }
+    feature mep_all_27 = extrude(profile = sketch.mep_all_27_s, distance = 38.85 in, mode = cut)
+    sketch mep_all_28_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 23 in], radius = 0.375 in)
+    }
+    feature mep_all_28 = extrude(profile = sketch.mep_all_28_s, distance = 40.55 in, mode = cut)
+    sketch mep_all_29_s on plane.mep_all_p_yz_20 {
+        c = circle(center = [23 in, 9.175 in], radius = 0.375 in)
+    }
+    feature mep_all_29 = extrude(profile = sketch.mep_all_29_s, distance = 1.5 in, mode = cut)
+    sketch mep_all_30_s on plane.mep_all_p_zx_21 {
+        c = circle(center = [9.175 in, 359 in], radius = 0.375 in)
+    }
+    feature mep_all_30 = extrude(profile = sketch.mep_all_30_s, distance = 11.5 in, mode = cut)
+    sketch mep_all_31_s on plane.mep_all_p_yz_22 {
+        c = circle(center = [12 in, 9.175 in], radius = 0.375 in)
+    }
+    feature mep_all_31 = extrude(profile = sketch.mep_all_31_s, distance = 17.5 in, mode = cut)
+    sketch mep_all_32_s on plane.mep_all_p_zx_23 {
+        c = circle(center = [9.175 in, 376 in], radius = 0.375 in)
+    }
+    feature mep_all_32 = extrude(profile = sketch.mep_all_32_s, distance = 7.75 in, mode = cut)
+    sketch mep_all_33_s on plane.mep_all_p_xy_24 {
+        c = circle(center = [376 in, 4.75 in], radius = 0.375 in)
+    }
+    feature mep_all_33 = extrude(profile = sketch.mep_all_33_s, distance = 101.05 in, mode = cut)
+    sketch mep_all_34_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 24.5 in], radius = 0.375 in)
+    }
+    feature mep_all_34 = extrude(profile = sketch.mep_all_34_s, distance = 37.05 in, mode = cut)
+    sketch mep_all_35_s on plane.mep_all_p_yz_20 {
+        c = circle(center = [24.5 in, 5.675 in], radius = 0.375 in)
+    }
+    feature mep_all_35 = extrude(profile = sketch.mep_all_35_s, distance = 2.5 in, mode = cut)
+    sketch mep_all_36_s on plane.mep_all_p_zx_25 {
+        c = circle(center = [5.675 in, 360 in], radius = 0.375 in)
+    }
+    feature mep_all_36 = extrude(profile = sketch.mep_all_36_s, distance = 46 in, mode = cut)
+    sketch mep_all_37_s on plane.mep_all_p_yz_26 {
+        c = circle(center = [70 in, 5.675 in], radius = 0.375 in)
+    }
+    feature mep_all_37 = extrude(profile = sketch.mep_all_37_s, distance = 16.5 in, mode = cut)
+    sketch mep_all_38_s on plane.mep_all_p_xy_27 {
+        c = circle(center = [344 in, 70 in], radius = 0.375 in)
+    }
+    feature mep_all_38 = extrude(profile = sketch.mep_all_38_s, distance = 4.425 in, mode = cut)
+    sketch mep_all_39_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 26 in], radius = 0.375 in)
+    }
+    feature mep_all_39 = extrude(profile = sketch.mep_all_39_s, distance = 41.25 in, mode = cut)
+    sketch mep_all_40_s on plane.mep_all_p_yz_20 {
+        c = circle(center = [26 in, 9.875 in], radius = 0.375 in)
+    }
+    feature mep_all_40 = extrude(profile = sketch.mep_all_40_s, distance = 3.5 in, mode = cut)
+    sketch mep_all_41_s on plane.mep_all_p_zx_28 {
+        c = circle(center = [9.875 in, 361 in], radius = 0.375 in)
+    }
+    feature mep_all_41 = extrude(profile = sketch.mep_all_41_s, distance = 44.5 in, mode = cut)
+    sketch mep_all_42_s on plane.mep_all_p_yz_29 {
+        c = circle(center = [70 in, 9.875 in], radius = 0.375 in)
+    }
+    feature mep_all_42 = extrude(profile = sketch.mep_all_42_s, distance = 63.5 in, mode = cut)
+    sketch mep_all_43_s on plane.mep_all_p_xy_27 {
+        c = circle(center = [424 in, 70 in], radius = 0.375 in)
+    }
+    feature mep_all_43 = extrude(profile = sketch.mep_all_43_s, distance = 8.625 in, mode = cut)
+    sketch mep_all_44_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 27.5 in], radius = 0.375 in)
+    }
+    feature mep_all_44 = extrude(profile = sketch.mep_all_44_s, distance = 39.15 in, mode = cut)
+    sketch mep_all_45_s on plane.mep_all_p_yz_20 {
+        c = circle(center = [27.5 in, 7.775 in], radius = 0.375 in)
+    }
+    feature mep_all_45 = extrude(profile = sketch.mep_all_45_s, distance = 5 in, mode = cut)
+    sketch mep_all_46_s on plane.mep_all_p_zx_30 {
+        c = circle(center = [7.775 in, 362.5 in], radius = 0.375 in)
+    }
+    feature mep_all_46 = extrude(profile = sketch.mep_all_46_s, distance = 108.25 in, mode = cut)
+    sketch mep_all_47_s on plane.mep_all_p_yz_31 {
+        c = circle(center = [135.25 in, 7.775 in], radius = 0.375 in)
+    }
+    feature mep_all_47 = extrude(profile = sketch.mep_all_47_s, distance = 23 in, mode = cut)
+    sketch mep_all_48_s on plane.mep_all_p_xy_32 {
+        c = circle(center = [340 in, 135.25 in], radius = 0.375 in)
+    }
+    feature mep_all_48 = extrude(profile = sketch.mep_all_48_s, distance = 57.4 in, mode = cut)
+    sketch mep_all_49_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 14.9 in], radius = 0.5 in)
+    }
+    feature mep_all_49 = extrude(profile = sketch.mep_all_49_s, distance = 38.6 in, mode = cut)
+    sketch mep_all_50_s on plane.mep_all_p_yz_33 {
+        c = circle(center = [14.9 in, 7.075 in], radius = 0.5 in)
+    }
+    feature mep_all_50 = extrude(profile = sketch.mep_all_50_s, distance = 31.2 in, mode = cut)
+    sketch mep_all_51_s on plane.mep_all_p_zx_34 {
+        c = circle(center = [7.075 in, 327.6 in], radius = 0.5 in)
+    }
+    feature mep_all_51 = extrude(profile = sketch.mep_all_51_s, distance = 214.9 in, mode = cut)
+    sketch mep_all_52_s on plane.mep_all_p_yz_33 {
+        c = circle(center = [229 in, 7.075 in], radius = 0.5 in)
+    }
+    feature mep_all_52 = extrude(profile = sketch.mep_all_52_s, distance = 148.45 in, mode = cut)
+    sketch mep_all_53_s on plane.mep_all_p_xy_35 {
+        c = circle(center = [475.25 in, 229 in], radius = 0.5 in)
+    }
+    feature mep_all_53 = extrude(profile = sketch.mep_all_53_s, distance = 108.6 in, mode = cut)
+    sketch mep_all_54_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [358 in, 28 in], radius = 0.375 in)
+    }
+    feature mep_all_54 = extrude(profile = sketch.mep_all_54_s, distance = 37.75 in, mode = cut)
+    sketch mep_all_55_s on plane.mep_all_p_yz_36 {
+        c = circle(center = [28 in, 6.375 in], radius = 0.375 in)
+    }
+    feature mep_all_55 = extrude(profile = sketch.mep_all_55_s, distance = 30.1 in, mode = cut)
+    sketch mep_all_56_s on plane.mep_all_p_zx_37 {
+        c = circle(center = [6.375 in, 328.4 in], radius = 0.375 in)
+    }
+    feature mep_all_56 = extrude(profile = sketch.mep_all_56_s, distance = 222.5 in, mode = cut)
+    sketch mep_all_57_s on plane.mep_all_p_yz_36 {
+        c = circle(center = [250 in, 6.375 in], radius = 0.375 in)
+    }
+    feature mep_all_57 = extrude(profile = sketch.mep_all_57_s, distance = 147.35 in, mode = cut)
+    sketch mep_all_58_s on plane.mep_all_p_xy_4 {
+        c = circle(center = [475.25 in, 250 in], radius = 0.375 in)
+    }
+    feature mep_all_58 = extrude(profile = sketch.mep_all_58_s, distance = 72.25 in, mode = cut)
+    sketch mep_all_59_s on plane.mep_all_p_xy_38 {
+        c = circle(center = [477.25 in, 178 in], radius = 1 in)
+    }
+    feature mep_all_59 = extrude(profile = sketch.mep_all_59_s, distance = 105.75 in, mode = cut)
+    sketch mep_all_60_s on plane.mep_all_p_yz_39 {
+        c = circle(center = [178 in, 6.875 in], radius = 1 in)
+    }
+    feature mep_all_60 = extrude(profile = sketch.mep_all_60_s, distance = 146.7 in, mode = cut)
+    sketch mep_all_61_s on plane.mep_all_p_zx_40 {
+        c = circle(center = [6.875 in, 332.3 in], radius = 1 in)
+    }
+    feature mep_all_61 = extrude(profile = sketch.mep_all_61_s, distance = 62.75 in, mode = cut)
+    sketch mep_all_62_s on plane.mep_all_p_xy_41 {
+        c = circle(center = [332.3 in, 117 in], radius = 1 in)
+    }
+    feature mep_all_62 = extrude(profile = sketch.mep_all_62_s, distance = 77.75 in, mode = cut)
+    sketch mep_all_63_s on plane.mep_all_p_xy_42 {
+        l0 = line(start = [370.4375 in, 111.9375 in], end = [381.5625 in, 111.9375 in])
+        l1 = line(start = [381.5625 in, 111.9375 in], end = [381.5625 in, 122.0625 in])
+        l2 = line(start = [381.5625 in, 122.0625 in], end = [370.4375 in, 122.0625 in])
+        l3 = line(start = [370.4375 in, 122.0625 in], end = [370.4375 in, 111.9375 in])
+    }
+    feature mep_all_63 = extrude(profile = sketch.mep_all_63_s, distance = 15.375 in, mode = cut)
+    sketch mep_all_64_s on plane.mep_all_p_xy_43 {
+        l0 = line(start = [370.4375 in, 111.9375 in], end = [381.5625 in, 111.9375 in])
+        l1 = line(start = [381.5625 in, 111.9375 in], end = [381.5625 in, 139.0625 in])
+        l2 = line(start = [381.5625 in, 139.0625 in], end = [370.4375 in, 139.0625 in])
+        l3 = line(start = [370.4375 in, 139.0625 in], end = [370.4375 in, 111.9375 in])
+    }
+    feature mep_all_64 = extrude(profile = sketch.mep_all_64_s, distance = 8.625 in, mode = cut)
+    sketch mep_all_65_s on plane.mep_all_p_xy_43 {
+        l0 = line(start = [370.4375 in, 128.9375 in], end = [381.5625 in, 128.9375 in])
+        l1 = line(start = [381.5625 in, 128.9375 in], end = [381.5625 in, 139.0625 in])
+        l2 = line(start = [381.5625 in, 139.0625 in], end = [370.4375 in, 139.0625 in])
+        l3 = line(start = [370.4375 in, 139.0625 in], end = [370.4375 in, 128.9375 in])
+    }
+    feature mep_all_65 = extrude(profile = sketch.mep_all_65_s, distance = 120.375 in, mode = cut)
+    sketch mep_all_66_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 75 in], radius = 0.5 in)
+    }
+    feature mep_all_66 = extrude(profile = sketch.mep_all_66_s, distance = 56.1625 in, mode = cut)
+    sketch mep_all_67_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [75 in, 6.725 in], radius = 0.5 in)
+    }
+    feature mep_all_67 = extrude(profile = sketch.mep_all_67_s, distance = 23.125 in, mode = cut)
+    sketch mep_all_68_s on plane.mep_all_p_zx_46 {
+        c = circle(center = [6.725 in, 324 in], radius = 0.5 in)
+    }
+    feature mep_all_68 = extrude(profile = sketch.mep_all_68_s, distance = 270.625 in, mode = cut)
+    sketch mep_all_69_s on plane.mep_all_p_yz_47 {
+        c = circle(center = [345 in, 6.725 in], radius = 0.5 in)
+    }
+    feature mep_all_69 = extrude(profile = sketch.mep_all_69_s, distance = 15.125 in, mode = cut)
+    sketch mep_all_70_s on plane.mep_all_p_zx_48 {
+        c = circle(center = [6.725 in, 338.5 in], radius = 0.5 in)
+    }
+    feature mep_all_70 = extrude(profile = sketch.mep_all_70_s, distance = 10.875 in, mode = cut)
+    sketch mep_all_71_s on plane.mep_all_p_xy_49 {
+        c = circle(center = [338.5 in, 355.25 in], radius = 0.5 in)
+    }
+    feature mep_all_71 = extrude(profile = sketch.mep_all_71_s, distance = 98.475 in, mode = cut)
+    sketch mep_all_72_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 84 in], radius = 0.5 in)
+    }
+    feature mep_all_72 = extrude(profile = sketch.mep_all_72_s, distance = 56.7125 in, mode = cut)
+    sketch mep_all_73_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [84 in, 7.275 in], radius = 0.5 in)
+    }
+    feature mep_all_73 = extrude(profile = sketch.mep_all_73_s, distance = 25.625 in, mode = cut)
+    sketch mep_all_74_s on plane.mep_all_p_zx_50 {
+        c = circle(center = [7.275 in, 326.5 in], radius = 0.5 in)
+    }
+    feature mep_all_74 = extrude(profile = sketch.mep_all_74_s, distance = 261.625 in, mode = cut)
+    sketch mep_all_75_s on plane.mep_all_p_yz_51 {
+        c = circle(center = [345 in, 7.275 in], radius = 0.5 in)
+    }
+    feature mep_all_75 = extrude(profile = sketch.mep_all_75_s, distance = 22.625 in, mode = cut)
+    sketch mep_all_76_s on plane.mep_all_p_zx_48 {
+        c = circle(center = [7.275 in, 348.5 in], radius = 0.5 in)
+    }
+    feature mep_all_76 = extrude(profile = sketch.mep_all_76_s, distance = 10.875 in, mode = cut)
+    sketch mep_all_77_s on plane.mep_all_p_xy_49 {
+        c = circle(center = [348.5 in, 355.25 in], radius = 0.5 in)
+    }
+    feature mep_all_77 = extrude(profile = sketch.mep_all_77_s, distance = 99.025 in, mode = cut)
+    sketch mep_all_78_s on plane.mep_all_p_xy_52 {
+        c = circle(center = [440 in, 357.25 in], radius = 1.05 in)
+    }
+    feature mep_all_78 = extrude(profile = sketch.mep_all_78_s, distance = 195.9 in, mode = cut)
+    sketch mep_all_79_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 95 in], radius = 0.5 in)
+    }
+    feature mep_all_79 = extrude(profile = sketch.mep_all_79_s, distance = 54.3125 in, mode = cut)
+    sketch mep_all_80_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [95 in, 4.875 in], radius = 0.5 in)
+    }
+    feature mep_all_80 = extrude(profile = sketch.mep_all_80_s, distance = 6.125 in, mode = cut)
+    sketch mep_all_81_s on plane.mep_all_p_zx_53 {
+        c = circle(center = [4.875 in, 307 in], radius = 0.5 in)
+    }
+    feature mep_all_81 = extrude(profile = sketch.mep_all_81_s, distance = 138.125 in, mode = cut)
+    sketch mep_all_82_s on plane.mep_all_p_xy_54 {
+        c = circle(center = [307 in, 232.5 in], radius = 0.5 in)
+    }
+    feature mep_all_82 = extrude(profile = sketch.mep_all_82_s, distance = 4.8125 in, mode = cut)
+    sketch mep_all_83_s on plane.mep_all_p_yz_55 {
+        c = circle(center = [232.5 in, 9.375 in], radius = 0.5 in)
+    }
+    feature mep_all_83 = extrude(profile = sketch.mep_all_83_s, distance = 182 in, mode = cut)
+    sketch mep_all_84_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 87 in], radius = 0.5 in)
+    }
+    feature mep_all_84 = extrude(profile = sketch.mep_all_84_s, distance = 54.3125 in, mode = cut)
+    sketch mep_all_85_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [87 in, 4.875 in], radius = 0.5 in)
+    }
+    feature mep_all_85 = extrude(profile = sketch.mep_all_85_s, distance = 8.625 in, mode = cut)
+    sketch mep_all_86_s on plane.mep_all_p_zx_56 {
+        c = circle(center = [4.875 in, 309.5 in], radius = 0.5 in)
+    }
+    feature mep_all_86 = extrude(profile = sketch.mep_all_86_s, distance = 148.625 in, mode = cut)
+    sketch mep_all_87_s on plane.mep_all_p_xy_54 {
+        c = circle(center = [309.5 in, 235 in], radius = 0.5 in)
+    }
+    feature mep_all_87 = extrude(profile = sketch.mep_all_87_s, distance = 3.6125 in, mode = cut)
+    sketch mep_all_88_s on plane.mep_all_p_yz_57 {
+        c = circle(center = [235 in, 8.175 in], radius = 0.5 in)
+    }
+    feature mep_all_88 = extrude(profile = sketch.mep_all_88_s, distance = 187 in, mode = cut)
+    sketch mep_all_89_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 72 in], radius = 0.5 in)
+    }
+    feature mep_all_89 = extrude(profile = sketch.mep_all_89_s, distance = 54.3125 in, mode = cut)
+    sketch mep_all_90_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [72 in, 4.875 in], radius = 0.5 in)
+    }
+    feature mep_all_90 = extrude(profile = sketch.mep_all_90_s, distance = 16.625 in, mode = cut)
+    sketch mep_all_91_s on plane.mep_all_p_zx_58 {
+        c = circle(center = [4.875 in, 317.5 in], radius = 0.5 in)
+    }
+    feature mep_all_91 = extrude(profile = sketch.mep_all_91_s, distance = 166.125 in, mode = cut)
+    sketch mep_all_92_s on plane.mep_all_p_xy_54 {
+        c = circle(center = [317.5 in, 237.5 in], radius = 0.5 in)
+    }
+    feature mep_all_92 = extrude(profile = sketch.mep_all_92_s, distance = 3.6125 in, mode = cut)
+    sketch mep_all_93_s on plane.mep_all_p_yz_59 {
+        c = circle(center = [237.5 in, 8.175 in], radius = 0.5 in)
+    }
+    feature mep_all_93 = extrude(profile = sketch.mep_all_93_s, distance = 75.5 in, mode = cut)
+    sketch mep_all_94_s on plane.mep_all_p_xy_44 {
+        c = circle(center = [301.5 in, 78 in], radius = 0.5 in)
+    }
+    feature mep_all_94 = extrude(profile = sketch.mep_all_94_s, distance = 54.3125 in, mode = cut)
+    sketch mep_all_95_s on plane.mep_all_p_yz_45 {
+        c = circle(center = [78 in, 4.875 in], radius = 0.5 in)
+    }
+    feature mep_all_95 = extrude(profile = sketch.mep_all_95_s, distance = 11.125 in, mode = cut)
+    sketch mep_all_96_s on plane.mep_all_p_zx_60 {
+        c = circle(center = [4.875 in, 312 in], radius = 0.5 in)
+    }
+    feature mep_all_96 = extrude(profile = sketch.mep_all_96_s, distance = 162.625 in, mode = cut)
+    sketch mep_all_97_s on plane.mep_all_p_xy_54 {
+        c = circle(center = [312 in, 240 in], radius = 0.5 in)
+    }
+    feature mep_all_97 = extrude(profile = sketch.mep_all_97_s, distance = 4.8125 in, mode = cut)
+    sketch mep_all_98_s on plane.mep_all_p_yz_61 {
+        c = circle(center = [240 in, 9.375 in], radius = 0.5 in)
+    }
+    feature mep_all_98 = extrude(profile = sketch.mep_all_98_s, distance = 68.7 in, mode = cut)
+    sketch mep_all_99_s on plane.mep_all_p_zx_62 {
+        c = circle(center = [8.175 in, 122.5 in], radius = 0.5 in)
+    }
+    feature mep_all_99 = extrude(profile = sketch.mep_all_99_s, distance = 120.8125 in, mode = cut)
+    sketch mep_all_100_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [122.5 in, 355.5 in], radius = 0.5 in)
+    }
+    feature mep_all_100 = extrude(profile = sketch.mep_all_100_s, distance = 35.2625 in, mode = cut)
+    sketch mep_all_101_s on plane.mep_all_p_zx_64 {
+        c = circle(center = [9.375 in, 125 in], radius = 0.5 in)
+    }
+    feature mep_all_101 = extrude(profile = sketch.mep_all_101_s, distance = 123.3125 in, mode = cut)
+    sketch mep_all_102_s on plane.mep_all_p_xy_65 {
+        c = circle(center = [125 in, 355.5 in], radius = 0.5 in)
+    }
+    feature mep_all_102 = extrude(profile = sketch.mep_all_102_s, distance = 34.0625 in, mode = cut)
+    sketch mep_all_103_s on plane.mep_all_p_zx_62 {
+        c = circle(center = [8.175 in, 164 in], radius = 0.5 in)
+    }
+    feature mep_all_103 = extrude(profile = sketch.mep_all_103_s, distance = 114.3125 in, mode = cut)
+    sketch mep_all_104_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [164 in, 349 in], radius = 0.5 in)
+    }
+    feature mep_all_104 = extrude(profile = sketch.mep_all_104_s, distance = 11.2625 in, mode = cut)
+    sketch mep_all_105_s on plane.mep_all_p_zx_62 {
+        c = circle(center = [8.175 in, 233.5 in], radius = 0.5 in)
+    }
+    feature mep_all_105 = extrude(profile = sketch.mep_all_105_s, distance = 41.3125 in, mode = cut)
+    sketch mep_all_106_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [233.5 in, 276 in], radius = 0.5 in)
+    }
+    feature mep_all_106 = extrude(profile = sketch.mep_all_106_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_107_s on plane.mep_all_p_zx_64 {
+        c = circle(center = [9.375 in, 232 in], radius = 0.5 in)
+    }
+    feature mep_all_107 = extrude(profile = sketch.mep_all_107_s, distance = 51.8125 in, mode = cut)
+    sketch mep_all_108_s on plane.mep_all_p_xy_65 {
+        c = circle(center = [232 in, 284 in], radius = 0.5 in)
+    }
+    feature mep_all_108 = extrude(profile = sketch.mep_all_108_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_109_s on plane.mep_all_p_zx_66 {
+        c = circle(center = [8.175 in, 242 in], radius = 0.5 in)
+    }
+    feature mep_all_109 = extrude(profile = sketch.mep_all_109_s, distance = 92.8125 in, mode = cut)
+    sketch mep_all_110_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [242 in, 330 in], radius = 0.5 in)
+    }
+    feature mep_all_110 = extrude(profile = sketch.mep_all_110_s, distance = 53.2625 in, mode = cut)
+    sketch mep_all_111_s on plane.mep_all_p_zx_67 {
+        c = circle(center = [9.375 in, 243.3 in], radius = 0.5 in)
+    }
+    feature mep_all_111 = extrude(profile = sketch.mep_all_111_s, distance = 92.3125 in, mode = cut)
+    sketch mep_all_112_s on plane.mep_all_p_xy_65 {
+        c = circle(center = [243.3 in, 332 in], radius = 0.5 in)
+    }
+    feature mep_all_112 = extrude(profile = sketch.mep_all_112_s, distance = 52.0625 in, mode = cut)
+    sketch mep_all_113_s on plane.mep_all_p_zx_66 {
+        c = circle(center = [8.175 in, 258.5 in], radius = 0.5 in)
+    }
+    feature mep_all_113 = extrude(profile = sketch.mep_all_113_s, distance = 6.8125 in, mode = cut)
+    sketch mep_all_114_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [258.5 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_114 = extrude(profile = sketch.mep_all_114_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_115_s on plane.mep_all_p_zx_67 {
+        c = circle(center = [9.375 in, 265.5 in], radius = 0.5 in)
+    }
+    feature mep_all_115 = extrude(profile = sketch.mep_all_115_s, distance = 4.3125 in, mode = cut)
+    sketch mep_all_116_s on plane.mep_all_p_xy_65 {
+        c = circle(center = [265.5 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_116 = extrude(profile = sketch.mep_all_116_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_117_s on plane.mep_all_p_zx_66 {
+        c = circle(center = [8.175 in, 290 in], radius = 0.5 in)
+    }
+    feature mep_all_117 = extrude(profile = sketch.mep_all_117_s, distance = 6.8125 in, mode = cut)
+    sketch mep_all_118_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [290 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_118 = extrude(profile = sketch.mep_all_118_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_119_s on plane.mep_all_p_zx_67 {
+        c = circle(center = [9.375 in, 297 in], radius = 0.5 in)
+    }
+    feature mep_all_119 = extrude(profile = sketch.mep_all_119_s, distance = 4.3125 in, mode = cut)
+    sketch mep_all_120_s on plane.mep_all_p_xy_65 {
+        c = circle(center = [297 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_120 = extrude(profile = sketch.mep_all_120_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_121_s on plane.mep_all_p_zx_66 {
+        c = circle(center = [8.175 in, 307.5 in], radius = 0.5 in)
+    }
+    feature mep_all_121 = extrude(profile = sketch.mep_all_121_s, distance = 111.8125 in, mode = cut)
+    sketch mep_all_122_s on plane.mep_all_p_xy_63 {
+        c = circle(center = [307.5 in, 349 in], radius = 0.5 in)
+    }
+    feature mep_all_122 = extrude(profile = sketch.mep_all_122_s, distance = 11.2625 in, mode = cut)
+    sketch mep_all_123_s on plane.mep_all_p_zx_68 {
+        c = circle(center = [6.1531 in, 133.5 in], radius = 1.9271 in)
+    }
+    feature mep_all_123 = extrude(profile = sketch.mep_all_123_s, distance = 11.75 in, mode = cut)
+    sketch mep_all_124_s on plane.mep_all_p_yz_69 {
+        c = circle(center = [346 in, 6.0423 in], radius = 1.9337 in)
+    }
+    feature mep_all_124 = extrude(profile = sketch.mep_all_124_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_125_s on plane.mep_all_p_yz_70 {
+        c = circle(center = [346 in, 5.925 in], radius = 1.9337 in)
+    }
+    feature mep_all_125 = extrude(profile = sketch.mep_all_125_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_126_s on plane.mep_all_p_yz_71 {
+        c = circle(center = [346 in, 5.8076 in], radius = 1.9337 in)
+    }
+    feature mep_all_126 = extrude(profile = sketch.mep_all_126_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_127_s on plane.mep_all_p_yz_72 {
+        c = circle(center = [346 in, 5.6902 in], radius = 1.9337 in)
+    }
+    feature mep_all_127 = extrude(profile = sketch.mep_all_127_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_128_s on plane.mep_all_p_yz_73 {
+        c = circle(center = [346 in, 5.5728 in], radius = 1.9337 in)
+    }
+    feature mep_all_128 = extrude(profile = sketch.mep_all_128_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_129_s on plane.mep_all_p_yz_74 {
+        c = circle(center = [346 in, 5.4554 in], radius = 1.9337 in)
+    }
+    feature mep_all_129 = extrude(profile = sketch.mep_all_129_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_130_s on plane.mep_all_p_yz_75 {
+        c = circle(center = [346 in, 5.338 in], radius = 1.9337 in)
+    }
+    feature mep_all_130 = extrude(profile = sketch.mep_all_130_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_131_s on plane.mep_all_p_yz_76 {
+        c = circle(center = [346 in, 5.2206 in], radius = 1.9337 in)
+    }
+    feature mep_all_131 = extrude(profile = sketch.mep_all_131_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_132_s on plane.mep_all_p_yz_77 {
+        c = circle(center = [346 in, 5.1032 in], radius = 1.9337 in)
+    }
+    feature mep_all_132 = extrude(profile = sketch.mep_all_132_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_133_s on plane.mep_all_p_yz_78 {
+        c = circle(center = [346 in, 4.9859 in], radius = 1.9337 in)
+    }
+    feature mep_all_133 = extrude(profile = sketch.mep_all_133_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_134_s on plane.mep_all_p_yz_79 {
+        c = circle(center = [346 in, 4.8685 in], radius = 1.9337 in)
+    }
+    feature mep_all_134 = extrude(profile = sketch.mep_all_134_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_135_s on plane.mep_all_p_yz_80 {
+        c = circle(center = [346 in, 4.7511 in], radius = 1.9337 in)
+    }
+    feature mep_all_135 = extrude(profile = sketch.mep_all_135_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_136_s on plane.mep_all_p_yz_81 {
+        c = circle(center = [346 in, 4.6337 in], radius = 1.9337 in)
+    }
+    feature mep_all_136 = extrude(profile = sketch.mep_all_136_s, distance = 11.4038 in, mode = cut)
+    sketch mep_all_137_s on plane.mep_all_p_yz_82 {
+        c = circle(center = [346 in, 4.8788 in], radius = 1.9358 in)
+    }
+    feature mep_all_137 = extrude(profile = sketch.mep_all_137_s, distance = 11.6667 in, mode = cut)
+    sketch mep_all_138_s on plane.mep_all_p_yz_83 {
+        c = circle(center = [346 in, 4.7573 in], radius = 1.9358 in)
+    }
+    feature mep_all_138 = extrude(profile = sketch.mep_all_138_s, distance = 11.6667 in, mode = cut)
+    sketch mep_all_139_s on plane.mep_all_p_yz_84 {
+        c = circle(center = [346 in, 4.6358 in], radius = 1.9358 in)
+    }
+    feature mep_all_139 = extrude(profile = sketch.mep_all_139_s, distance = 11.6667 in, mode = cut)
+    sketch mep_all_140_s on plane.mep_all_p_xy_85 {
+        c = circle(center = [133.5 in, 349 in], radius = 1.05 in)
+    }
+    feature mep_all_140 = extrude(profile = sketch.mep_all_140_s, distance = 9.024 in, mode = cut)
+    sketch mep_all_141_s on plane.mep_all_p_xy_86 {
+        c = circle(center = [170 in, 342 in], radius = 1.875 in)
+    }
+    feature mep_all_141 = extrude(profile = sketch.mep_all_141_s, distance = 9.1542 in, mode = cut)
+    sketch mep_all_142_s on plane.mep_all_p_zx_87 {
+        c = circle(center = [5.7208 in, 170 in], radius = 1.875 in)
+    }
+    feature mep_all_142 = extrude(profile = sketch.mep_all_142_s, distance = 5.75 in, mode = cut)
+    sketch mep_all_143_s on plane.mep_all_p_xy_88 {
+        c = circle(center = [315 in, 342 in], radius = 1.875 in)
+    }
+    feature mep_all_143 = extrude(profile = sketch.mep_all_143_s, distance = 9.9354 in, mode = cut)
+    sketch mep_all_144_s on plane.mep_all_p_zx_87 {
+        c = circle(center = [4.9396 in, 315 in], radius = 1.875 in)
+    }
+    feature mep_all_144 = extrude(profile = sketch.mep_all_144_s, distance = 5.75 in, mode = cut)
+    sketch mep_all_145_s on plane.mep_all_p_xy_89 {
+        c = circle(center = [268.5 in, 336 in], radius = 1.3125 in)
+    }
+    feature mep_all_145 = extrude(profile = sketch.mep_all_145_s, distance = 8.8375 in, mode = cut)
+    sketch mep_all_146_s on plane.mep_all_p_zx_90 {
+        c = circle(center = [8.3708 in, 268.5 in], radius = 1.4167 in)
+    }
+    feature mep_all_146 = extrude(profile = sketch.mep_all_146_s, distance = 11.1875 in, mode = cut)
+    sketch mep_all_147_s on plane.mep_all_p_xy_91 {
+        c = circle(center = [228 in, 280 in], radius = 1.05 in)
+    }
+    feature mep_all_147 = extrude(profile = sketch.mep_all_147_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_148_s on plane.mep_all_p_zx_92 {
+        c = circle(center = [8.3604 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_148 = extrude(profile = sketch.mep_all_148_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_149_s on plane.mep_all_p_zx_93 {
+        c = circle(center = [8.1312 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_149 = extrude(profile = sketch.mep_all_149_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_150_s on plane.mep_all_p_zx_94 {
+        c = circle(center = [7.9021 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_150 = extrude(profile = sketch.mep_all_150_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_151_s on plane.mep_all_p_zx_95 {
+        c = circle(center = [7.6729 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_151 = extrude(profile = sketch.mep_all_151_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_152_s on plane.mep_all_p_zx_96 {
+        c = circle(center = [7.4437 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_152 = extrude(profile = sketch.mep_all_152_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_153_s on plane.mep_all_p_zx_97 {
+        c = circle(center = [7.2146 in, 228 in], radius = 1.1646 in)
+    }
+    feature mep_all_153 = extrude(profile = sketch.mep_all_153_s, distance = 11.1583 in, mode = cut)
+    sketch mep_all_154_s on plane.mep_all_p_xy_91 {
+        c = circle(center = [262 in, 242 in], radius = 1.05 in)
+    }
+    feature mep_all_154 = extrude(profile = sketch.mep_all_154_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_155_s on plane.mep_all_p_zx_98 {
+        c = circle(center = [8.3546 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_155 = extrude(profile = sketch.mep_all_155_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_156_s on plane.mep_all_p_zx_99 {
+        c = circle(center = [8.1139 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_156 = extrude(profile = sketch.mep_all_156_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_157_s on plane.mep_all_p_zx_100 {
+        c = circle(center = [7.8731 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_157 = extrude(profile = sketch.mep_all_157_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_158_s on plane.mep_all_p_zx_101 {
+        c = circle(center = [7.6324 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_158 = extrude(profile = sketch.mep_all_158_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_159_s on plane.mep_all_p_zx_102 {
+        c = circle(center = [7.3917 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_159 = extrude(profile = sketch.mep_all_159_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_160_s on plane.mep_all_p_zx_103 {
+        c = circle(center = [7.1509 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_160 = extrude(profile = sketch.mep_all_160_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_161_s on plane.mep_all_p_zx_104 {
+        c = circle(center = [6.9102 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_161 = extrude(profile = sketch.mep_all_161_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_162_s on plane.mep_all_p_zx_105 {
+        c = circle(center = [6.6694 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_162 = extrude(profile = sketch.mep_all_162_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_163_s on plane.mep_all_p_zx_106 {
+        c = circle(center = [6.4287 in, 262 in], radius = 1.1704 in)
+    }
+    feature mep_all_163 = extrude(profile = sketch.mep_all_163_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_164_s on plane.mep_all_p_xy_91 {
+        c = circle(center = [293.5 in, 242 in], radius = 1.05 in)
+    }
+    feature mep_all_164 = extrude(profile = sketch.mep_all_164_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_165_s on plane.mep_all_p_zx_98 {
+        c = circle(center = [8.3546 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_165 = extrude(profile = sketch.mep_all_165_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_166_s on plane.mep_all_p_zx_99 {
+        c = circle(center = [8.1139 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_166 = extrude(profile = sketch.mep_all_166_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_167_s on plane.mep_all_p_zx_100 {
+        c = circle(center = [7.8731 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_167 = extrude(profile = sketch.mep_all_167_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_168_s on plane.mep_all_p_zx_101 {
+        c = circle(center = [7.6324 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_168 = extrude(profile = sketch.mep_all_168_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_169_s on plane.mep_all_p_zx_102 {
+        c = circle(center = [7.3917 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_169 = extrude(profile = sketch.mep_all_169_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_170_s on plane.mep_all_p_zx_103 {
+        c = circle(center = [7.1509 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_170 = extrude(profile = sketch.mep_all_170_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_171_s on plane.mep_all_p_zx_104 {
+        c = circle(center = [6.9102 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_171 = extrude(profile = sketch.mep_all_171_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_172_s on plane.mep_all_p_zx_105 {
+        c = circle(center = [6.6694 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_172 = extrude(profile = sketch.mep_all_172_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_173_s on plane.mep_all_p_zx_106 {
+        c = circle(center = [6.4287 in, 293.5 in], radius = 1.1704 in)
+    }
+    feature mep_all_173 = extrude(profile = sketch.mep_all_173_s, distance = 11.6611 in, mode = cut)
+    sketch mep_all_174_s on plane.mep_all_p_xy_107 {
+        c = circle(center = [133.5 in, 356 in], radius = 1.05 in)
+    }
+    feature mep_all_174 = extrude(profile = sketch.mep_all_174_s, distance = 109.6198 in, mode = cut)
+    sketch mep_all_175_s on plane.mep_all_p_xy_108 {
+        c = circle(center = [242.6 in, 346 in], radius = 1.3125 in)
+    }
+    feature mep_all_175 = extrude(profile = sketch.mep_all_175_s, distance = 111.0979 in, mode = cut)
+    sketch mep_all_176_s on plane.mep_all_p_xy_109 {
+        c = circle(center = [280 in, 346 in], radius = 1.875 in)
+    }
+    feature mep_all_176 = extrude(profile = sketch.mep_all_176_s, distance = 123.7 in, mode = cut)
+    // end MEP penetrations all
+    output floor_system = { body = feature.subfloor.body, part_number = "FL-2", material = "material.osb" }
+    material = { body = feature.rim_s.body, material = "material.lsl_rim_board" }
+    material = { body = feature.rim_n.body, material = "material.lsl_rim_board" }
+    material = { body = feature.rim_w.body, material = "material.lsl_rim_board" }
+    material = { body = feature.rim_e.body, material = "material.lsl_rim_board" }
+    material = { body = feature.beam_b.body, material = "material.lvl" }
+    material = { body = feature.beam_c.body, material = "material.lvl" }
+    material = { body = feature.stair_header.body, material = "material.lvl" }
+    material = { body = feature.joist_ab.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.joist_bc.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.joist_cd.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.trimmer_0.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.trimmer_1.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.trimmer_2.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.trimmer_3.body, material = "material.engineered_lumber_i_joist" }
+    material = { body = feature.tail.body, material = "material.engineered_lumber_i_joist" }
+    region stair_opening : face = { select = [feature.opening.face.side(opening_s.e0), feature.opening.face.side(opening_s.e1), feature.opening.face.side(opening_s.e2), feature.opening.face.side(opening_s.e3)], expect = at_least_one, label = "Stair opening" }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "round-conductor-ac",
+  "title": "AC resistance of a round conductor",
+  "pickerTitle": "AC resistance of a round conductor",
+  "pickerLine": "FEA studies",
+  "line": "A harmonic electromagnetic FEA study of skin effect in a 20 mm copper conductor at 50 Hz and 1 kHz.",
+  "description": "AC resistance of a round copper conductor, 20 mm in diameter, at 50 Hz and 1 kHz. A 30 mm length carries 1000 A and returns through a coaxial, perfectly conducting shell; the space between is air. The study solves the full field with skin effect at each frequency and reports the power delivered, which gives Rac/Rdc against the Bessel-function solution for a round wire.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "round-conductor-ac.fea",
+  "roles": [
+    "electrical",
+    "automotive",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "round-conductor-ac",
+  "thumbnailAlt": "Joule loss density crowding toward the surface of a copper conductor at 1 kHz, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electrothermal",
+    "key": "website:simulation/electrothermal/round-conductor-ac",
+    "source": "runmat-examples/fea/round-conductor-ac/round-conductor-ac.fea",
+    "geometry": "geometry/round-conductor.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

@@ -24,7 +24,7 @@ import { fileURLToPath } from "node:url";
 import { PIN_PATH, RUNTIME_PATH, bundleLimits, bundleViolations, sha256, sourceSha256 } from "./lib/bundle.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const KINDS = new Set(["script", "study"]);
+const KINDS = new Set(["script", "study", "design"]);
 const VISUALS = new Set(["3d", "study", "image", "2d"]);
 const REQUIRED = ["id", "title", "pickerTitle", "pickerLine", "description", "topic", "kind", "visual", "entry", "roles", "goals", "origin"];
 

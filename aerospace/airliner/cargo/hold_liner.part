@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// A cargo hold's sidewall liner, one side, inside the frames from the cargo floor to the floor beams.
+part hold_liner {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1800 mm], end = [6800 mm, 1800 mm])
+        l2 = line(start = [6800 mm, 1800 mm], end = [6800 mm, 1808 mm])
+        l3 = line(start = [6800 mm, 1808 mm], end = [0 mm, 1808 mm])
+        l4 = line(start = [0 mm, 1808 mm], end = [0 mm, 1800 mm])
+    }
+    feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 51.404331 deg)
+
+    output hold_liner = { body = feature.panel.body, part_number = "FUS-CL-810", material = "composite", color = "#C9CDD2" }
+}

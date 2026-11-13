@@ -1,0 +1,31 @@
+{
+  "id": "coaxial-bushing",
+  "title": "Coaxial bushing electric field",
+  "pickerTitle": "Coaxial bushing electric field",
+  "pickerLine": "FEA studies",
+  "line": "An electrostatic FEA study of the field in the cast-epoxy insulation of a 36 kV coaxial bushing.",
+  "description": "Electric field in the cast-epoxy insulation of a coaxial high-voltage bushing: a 20 mm conductor bore at 36 kV inside an 80 mm grounded sleeve, 100 mm long. The study returns the potential and the field, which peaks at the conductor surface, against the coaxial-cylinder solution.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "coaxial-bushing.fea",
+  "roles": [
+    "electrical",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "coaxial-bushing",
+  "thumbnailAlt": "Electric field in the insulation of a coaxial bushing, strongest at the conductor, solved in RunMat",
+  "origin": {
+    "page": "/simulation/electromagnetic",
+    "key": "website:simulation/electromagnetic/coaxial-bushing",
+    "source": "runmat-examples/fea/coaxial-bushing/coaxial-bushing.fea",
+    "geometry": "geometry/coaxial-bushing.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

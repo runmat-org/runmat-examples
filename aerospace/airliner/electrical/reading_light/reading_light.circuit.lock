@@ -1,0 +1,63 @@
+entry c44ba025-ae59-81ed-853a-c24f597e59c4 net /ADJ
+entry acb3f49f-e98b-80f3-bda3-9892d2c72bee component /C1 designator=C1
+entry 29494d20-1a30-82fe-8a05-ddb1b9a74e6a component /C2 designator=C2
+entry 1040fad3-b62f-847a-a4bb-87da0da3fb3d component /D1 designator=D1
+entry 68f69409-6864-8192-8eaf-7af5e76c3edb component /D2 designator=D2
+entry 0297ce3c-53d2-85a0-b3d3-dab9bdb2fff2 component /D3 designator=D3
+entry 4c0a14f3-6f99-814a-b81f-73b51d4aab29 net /DIM
+entry af6c6490-7f74-8e41-98a2-580ee3294230 component /F1 designator=F1
+entry a5421bf0-632d-84e2-91c5-28f521802a28 net /GND
+entry 3c6c67ab-2b82-8bae-8984-3b5913ce2ce4 component /H1 designator=H1
+entry 200a37e7-ee8c-8ea5-876b-dd291416bb4d component /H2 designator=H2
+entry e051bb82-6779-8ac2-b074-7ba8ccc7f125 component /J1 designator=J1
+entry 14db2c23-fe79-8fe7-a290-baabe7ff22f0 component /J2 designator=J2
+entry b02829c7-f12d-8b5b-b62a-60804d2bd5b6 component /L1 designator=L1
+entry 8209e518-bc56-8103-b94d-c4383ba7b686 net /LED_A
+entry 1f3c8aab-815d-8e0c-8431-3274f76c3f63 net /LED_K
+entry b640844f-f702-8ff3-b67b-a825c53c272d component /R1 designator=R1
+entry ff510550-1143-8082-863d-a3e67c261202 component /R2 designator=R2
+entry a6844927-4f80-810b-8b4e-d05bbf5b5a27 component /R3 designator=R3
+entry 867f61b6-f35e-8dca-b7ee-bcb2d6ff5910 net /SW
+entry ff5ecc2b-4c0e-8b93-b904-d0932d0df11b component /U1 designator=U1
+entry 3e1daf40-c054-8d82-8588-ae5586b70d54 net /V28
+entry fb7b9002-01b0-8e04-9ebe-7761d4076b27 net /V28_FUSED
+entry 42e1a910-766c-8156-956d-31d7fa0e2c8f net /V28_IN
+fp /ADJ /R2.2,/R3.1,/U1.ADJ
+fp /C1 a22177b3-379c-8ce8-8f64-9c3857a4d708|GND,V28
+fp /C2 432d8561-454e-8b35-a38e-5e0ca3336d7e|GND,V28
+fp /D1 fe11a8a6-624d-89b6-ad1a-9625a8de90fb|V28,V28_FUSED
+fp /D2 ffe26519-6548-8f1c-9025-ac24f462dfd5|GND,V28
+fp /D3 fe11a8a6-624d-89b6-ad1a-9625a8de90fb|SW,V28
+fp /DIM /J1.3,/R2.1
+fp /F1 c573fd7a-d6e7-8235-bc18-a411be019985|V28_FUSED,V28_IN
+fp /GND /C1.2,/C2.2,/D2.A,/J1.2,/J1.4,/R3.2,/U1.GND
+fp /H1 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /H2 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /J1 1339f6ee-2ad7-8f9d-8c4d-774b83fdc91c|DIM,GND,V28_IN
+fp /J2 d60c228c-0529-8577-aa40-863d84db276e|LED_A,LED_K
+fp /L1 c4e0b3a0-88de-8c0e-b059-42b705374448|LED_K,SW
+fp /LED_A /J2.1,/R1.2,/U1.ISENSE
+fp /LED_K /J2.2,/L1.1
+fp /R1 dcb60345-32b4-8474-a887-ad796f01e8d6|LED_A,V28
+fp /R2 5cad3456-7f51-8bcd-9bf4-5cf482812887|ADJ,DIM
+fp /R3 4c1fba02-a319-8d52-bb34-c5a664ea31c5|ADJ,GND
+fp /SW /D3.A,/L1.2,/U1.SW
+fp /U1 e40a0524-263d-81f9-9155-7b4530c4da71|ADJ,GND,LED_A,SW,V28
+fp /V28 /C1.1,/C2.1,/D1.K,/D2.K,/D3.K,/R1.1,/U1.VIN
+fp /V28_FUSED /D1.A,/F1.2
+fp /V28_IN /F1.1,/J1.1
+place main/C1 218.44 138.43 270
+place main/C2 205.74 138.43 270
+place main/D1 181.61 129.54 0
+place main/D2 231.14 138.43 90
+place main/D3 331.47 149.86 0
+place main/F1 135.89 129.54 0
+place main/H1 86.36 187.96 0
+place main/H2 95.25 187.96 0
+place main/J1 99.06 130.81 0
+place main/J2 99.06 109.22 0
+place main/L1 308.61 109.22 0
+place main/R1 247.65 109.22 180
+place main/R2 135.89 148.59 0
+place main/R3 165.1 157.48 270
+place main/U1 278.13 149.86 0

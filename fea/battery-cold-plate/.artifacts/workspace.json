@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/battery-cold-plate.fea",
+      "/m01_cold_plate.part"
+    ],
+    "activeFile": "/battery-cold-plate.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "temperature"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak cell temperature, the coolant rise and the pressure drop",
+      "Halve the coolant flow and check the peak cell against 45 C",
+      "Raise the load to 40 W per cell and find the peak cell temperature"
+    ]
+  }
+}

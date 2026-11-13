@@ -1,0 +1,73 @@
+runmat 0.7
+std 1
+
+// The starboard front windshield pane, beside the centre post.
+part cockpit_window_front {
+    input side : real = 1
+
+    feature glass_st0 = plane.offset(base = origin.yz, distance = 400 mm)
+    sketch glass_s0 on plane.glass_st0 {
+        c = spline(points = [[0 mm, 62.09 mm], [167.638 mm, 46.823 mm], [323.851 mm, 2.061 mm], [457.994 mm, -69.144 mm], [560.926 mm, -161.94 mm], [625.632 mm, -270.004 mm], [647.702 mm, -385.97 mm], [625.632 mm, -501.937 mm], [560.926 mm, -610 mm], [457.994 mm, -702.797 mm], [323.851 mm, -774.002 mm], [167.638 mm, -818.763 mm], [0 mm, -834.031 mm], [-167.638 mm, -818.763 mm], [-323.851 mm, -774.002 mm], [-457.994 mm, -702.797 mm], [-560.926 mm, -610 mm], [-625.632 mm, -501.937 mm], [-647.702 mm, -385.97 mm], [-625.632 mm, -270.004 mm], [-560.926 mm, -161.94 mm], [-457.994 mm, -69.144 mm], [-323.851 mm, 2.061 mm], [-167.638 mm, 46.823 mm]], closed)
+    }
+    feature glass_st1 = plane.offset(base = origin.yz, distance = 600 mm)
+    sketch glass_s1 on plane.glass_st1 {
+        c = spline(points = [[0 mm, 220.614 mm], [208.169 mm, 200.676 mm], [402.152 mm, 142.22 mm], [568.729 mm, 49.23 mm], [696.548 mm, -71.957 mm], [776.899 mm, -213.082 mm], [804.305 mm, -364.527 mm], [776.899 mm, -515.973 mm], [696.548 mm, -657.098 mm], [568.729 mm, -778.285 mm], [402.152 mm, -871.275 mm], [208.169 mm, -929.731 mm], [0 mm, -949.669 mm], [-208.169 mm, -929.731 mm], [-402.152 mm, -871.275 mm], [-568.729 mm, -778.285 mm], [-696.548 mm, -657.098 mm], [-776.899 mm, -515.973 mm], [-804.305 mm, -364.527 mm], [-776.899 mm, -213.082 mm], [-696.548 mm, -71.957 mm], [-568.729 mm, 49.23 mm], [-402.152 mm, 142.22 mm], [-208.169 mm, 200.676 mm]], closed)
+    }
+    feature glass_st2 = plane.offset(base = origin.yz, distance = 900 mm)
+    sketch glass_s2 on plane.glass_st2 {
+        c = spline(points = [[0 mm, 428.436 mm], [257.225 mm, 402.486 mm], [496.921 mm, 326.404 mm], [702.752 mm, 205.376 mm], [860.692 mm, 47.649 mm], [959.977 mm, -136.027 mm], [993.842 mm, -333.137 mm], [959.977 mm, -530.247 mm], [860.692 mm, -713.923 mm], [702.752 mm, -871.65 mm], [496.921 mm, -992.679 mm], [257.225 mm, -1068.76 mm], [0 mm, -1094.71 mm], [-257.225 mm, -1068.76 mm], [-496.921 mm, -992.679 mm], [-702.752 mm, -871.65 mm], [-860.692 mm, -713.923 mm], [-959.977 mm, -530.247 mm], [-993.842 mm, -333.137 mm], [-959.977 mm, -136.027 mm], [-860.692 mm, 47.649 mm], [-702.752 mm, 205.376 mm], [-496.921 mm, 326.404 mm], [-257.225 mm, 402.486 mm]], closed)
+    }
+    feature glass_st3 = plane.offset(base = origin.yz, distance = 1300 mm)
+    sketch glass_s3 on plane.glass_st3 {
+        c = spline(points = [[0 mm, 669.742 mm], [309.551 mm, 636.942 mm], [598.007 mm, 540.778 mm], [845.71 mm, 387.803 mm], [1035.779 mm, 188.443 mm], [1155.262 mm, -43.718 mm], [1196.015 mm, -292.857 mm], [1155.262 mm, -541.995 mm], [1035.779 mm, -774.156 mm], [845.71 mm, -973.517 mm], [598.007 mm, -1126.491 mm], [309.551 mm, -1222.655 mm], [0 mm, -1255.455 mm], [-309.551 mm, -1222.655 mm], [-598.007 mm, -1126.491 mm], [-845.71 mm, -973.517 mm], [-1035.779 mm, -774.156 mm], [-1155.262 mm, -541.995 mm], [-1196.015 mm, -292.857 mm], [-1155.262 mm, -43.718 mm], [-1035.779 mm, 188.443 mm], [-845.71 mm, 387.803 mm], [-598.007 mm, 540.778 mm], [-309.551 mm, 636.942 mm]], closed)
+    }
+    feature glass_st4 = plane.offset(base = origin.yz, distance = 1800 mm)
+    sketch glass_s4 on plane.glass_st4 {
+        c = spline(points = [[0 mm, 932.208 mm], [361.611 mm, 892.098 mm], [698.578 mm, 774.504 mm], [987.939 mm, 587.438 mm], [1209.973 mm, 343.649 mm], [1349.55 mm, 59.751 mm], [1397.157 mm, -244.91 mm], [1349.55 mm, -549.57 mm], [1209.973 mm, -833.468 mm], [987.939 mm, -1077.257 mm], [698.578 mm, -1264.323 mm], [361.611 mm, -1381.918 mm], [0 mm, -1422.027 mm], [-361.611 mm, -1381.918 mm], [-698.578 mm, -1264.323 mm], [-987.939 mm, -1077.257 mm], [-1209.973 mm, -833.468 mm], [-1349.55 mm, -549.57 mm], [-1397.157 mm, -244.91 mm], [-1349.55 mm, 59.751 mm], [-1209.973 mm, 343.649 mm], [-987.939 mm, 587.438 mm], [-698.578 mm, 774.504 mm], [-361.611 mm, 892.098 mm]], closed)
+    }
+    feature glass_st5 = plane.offset(base = origin.yz, distance = 2400 mm)
+    sketch glass_s5 on plane.glass_st5 {
+        c = spline(points = [[0 mm, 1204.703 mm], [410.607 mm, 1157.156 mm], [793.232 mm, 1017.755 mm], [1121.799 mm, 796 mm], [1373.918 mm, 507.003 mm], [1532.406 mm, 170.459 mm], [1586.463 mm, -190.697 mm], [1532.406 mm, -551.852 mm], [1373.918 mm, -888.396 mm], [1121.799 mm, -1177.393 mm], [793.232 mm, -1399.148 mm], [410.607 mm, -1538.549 mm], [0 mm, -1586.096 mm], [-410.607 mm, -1538.549 mm], [-793.232 mm, -1399.148 mm], [-1121.799 mm, -1177.393 mm], [-1373.918 mm, -888.396 mm], [-1532.406 mm, -551.852 mm], [-1586.463 mm, -190.697 mm], [-1532.406 mm, 170.459 mm], [-1373.918 mm, 507.003 mm], [-1121.799 mm, 796 mm], [-793.232 mm, 1017.755 mm], [-410.607 mm, 1157.156 mm]], closed)
+    }
+    feature glass = loft(profiles = [sketch.glass_s0, sketch.glass_s1, sketch.glass_s2, sketch.glass_s3, sketch.glass_s4, sketch.glass_s5])
+    feature inside_st0 = plane.offset(base = origin.yz, distance = 400 mm)
+    sketch inside_s0 on plane.inside_st0 {
+        c = spline(points = [[0 mm, 36.569 mm], [160.966 mm, 22.134 mm], [310.963 mm, -20.185 mm], [439.768 mm, -87.506 mm], [538.604 mm, -175.241 mm], [600.735 mm, -277.409 mm], [621.926 mm, -387.05 mm], [600.735 mm, -496.691 mm], [538.604 mm, -598.86 mm], [439.768 mm, -686.594 mm], [310.963 mm, -753.915 mm], [160.966 mm, -796.235 mm], [0 mm, -810.669 mm], [-160.966 mm, -796.235 mm], [-310.963 mm, -753.915 mm], [-439.768 mm, -686.594 mm], [-538.604 mm, -598.86 mm], [-600.735 mm, -496.691 mm], [-621.926 mm, -387.05 mm], [-600.735 mm, -277.409 mm], [-538.604 mm, -175.241 mm], [-439.768 mm, -87.506 mm], [-310.963 mm, -20.185 mm], [-160.966 mm, 22.134 mm]], closed)
+    }
+    feature inside_st1 = plane.offset(base = origin.yz, distance = 600 mm)
+    sketch inside_s1 on plane.inside_st1 {
+        c = spline(points = [[0 mm, 196.145 mm], [201.926 mm, 177.004 mm], [390.092 mm, 120.887 mm], [551.673 mm, 31.616 mm], [675.659 mm, -84.723 mm], [753.6 mm, -220.203 mm], [780.184 mm, -365.591 mm], [753.6 mm, -510.979 mm], [675.659 mm, -646.458 mm], [551.673 mm, -762.798 mm], [390.092 mm, -852.068 mm], [201.926 mm, -908.186 mm], [0 mm, -927.326 mm], [-201.926 mm, -908.186 mm], [-390.092 mm, -852.068 mm], [-551.673 mm, -762.798 mm], [-675.659 mm, -646.458 mm], [-753.6 mm, -510.979 mm], [-780.184 mm, -365.591 mm], [-753.6 mm, -220.203 mm], [-675.659 mm, -84.723 mm], [-551.673 mm, 31.616 mm], [-390.092 mm, 120.887 mm], [-201.926 mm, 177.004 mm]], closed)
+    }
+    feature inside_st2 = plane.offset(base = origin.yz, distance = 900 mm)
+    sketch inside_s2 on plane.inside_st2 {
+        c = spline(points = [[0 mm, 404.942 mm], [251.352 mm, 379.758 mm], [485.576 mm, 305.92 mm], [686.707 mm, 188.462 mm], [841.041 mm, 35.388 mm], [938.06 mm, -142.871 mm], [971.151 mm, -334.167 mm], [938.06 mm, -525.463 mm], [841.041 mm, -703.722 mm], [686.707 mm, -856.796 mm], [485.576 mm, -974.254 mm], [251.352 mm, -1048.092 mm], [0 mm, -1073.276 mm], [-251.352 mm, -1048.092 mm], [-485.576 mm, -974.254 mm], [-686.707 mm, -856.796 mm], [-841.041 mm, -703.722 mm], [-938.06 mm, -525.463 mm], [-971.151 mm, -334.167 mm], [-938.06 mm, -142.871 mm], [-841.041 mm, 35.388 mm], [-686.707 mm, 188.462 mm], [-485.576 mm, 305.92 mm], [-251.352 mm, 379.758 mm]], closed)
+    }
+    feature inside_st3 = plane.offset(base = origin.yz, distance = 1300 mm)
+    sketch inside_s3 on plane.inside_st3 {
+        c = spline(points = [[0 mm, 647.094 mm], [303.978 mm, 615.032 mm], [587.24 mm, 521.032 mm], [830.482 mm, 371.5 mm], [1017.129 mm, 176.626 mm], [1134.46 mm, -50.31 mm], [1174.479 mm, -293.842 mm], [1134.46 mm, -537.374 mm], [1017.129 mm, -764.31 mm], [830.482 mm, -959.185 mm], [587.24 mm, -1108.717 mm], [303.978 mm, -1202.717 mm], [0 mm, -1234.778 mm], [-303.978 mm, -1202.717 mm], [-587.24 mm, -1108.717 mm], [-830.482 mm, -959.185 mm], [-1017.129 mm, -764.31 mm], [-1134.46 mm, -537.374 mm], [-1174.479 mm, -293.842 mm], [-1134.46 mm, -50.31 mm], [-1017.129 mm, 176.626 mm], [-830.482 mm, 371.5 mm], [-587.24 mm, 521.032 mm], [-303.978 mm, 615.032 mm]], closed)
+    }
+    feature inside_st4 = plane.offset(base = origin.yz, distance = 1800 mm)
+    sketch inside_s4 on plane.inside_st4 {
+        c = spline(points = [[0 mm, 910.304 mm], [356.282 mm, 870.909 mm], [688.284 mm, 755.41 mm], [973.381 mm, 571.676 mm], [1192.143 mm, 332.23 mm], [1329.663 mm, 53.39 mm], [1376.568 mm, -245.844 mm], [1329.663 mm, -545.077 mm], [1192.143 mm, -823.917 mm], [973.381 mm, -1063.363 mm], [688.284 mm, -1247.097 mm], [356.282 mm, -1362.596 mm], [0 mm, -1401.991 mm], [-356.282 mm, -1362.596 mm], [-688.284 mm, -1247.097 mm], [-973.381 mm, -1063.363 mm], [-1192.143 mm, -823.917 mm], [-1329.663 mm, -545.077 mm], [-1376.568 mm, -245.844 mm], [-1329.663 mm, 53.39 mm], [-1192.143 mm, 332.23 mm], [-973.381 mm, 571.676 mm], [-688.284 mm, 755.41 mm], [-356.282 mm, 870.909 mm]], closed)
+    }
+    feature inside_st5 = plane.offset(base = origin.yz, distance = 2400 mm)
+    sketch inside_s5 on plane.inside_st5 {
+        c = spline(points = [[0 mm, 1183.487 mm], [405.489 mm, 1136.633 mm], [783.344 mm, 999.264 mm], [1107.816 mm, 780.742 mm], [1356.792 mm, 495.958 mm], [1513.305 mm, 164.32 mm], [1566.688 mm, -191.571 mm], [1513.305 mm, -547.462 mm], [1356.792 mm, -879.1 mm], [1107.816 mm, -1163.884 mm], [783.344 mm, -1382.406 mm], [405.489 mm, -1519.775 mm], [0 mm, -1566.629 mm], [-405.489 mm, -1519.775 mm], [-783.344 mm, -1382.406 mm], [-1107.816 mm, -1163.884 mm], [-1356.792 mm, -879.1 mm], [-1513.305 mm, -547.462 mm], [-1566.688 mm, -191.571 mm], [-1513.305 mm, 164.32 mm], [-1356.792 mm, 495.958 mm], [-1107.816 mm, 780.742 mm], [-783.344 mm, 999.264 mm], [-405.489 mm, 1136.633 mm]], closed)
+    }
+    feature inside = loft(profiles = [sketch.inside_s0, sketch.inside_s1, sketch.inside_s2, sketch.inside_s3, sketch.inside_s4, sketch.inside_s5], mode = cut)
+    feature o_at = plane.offset(base = origin.yz, distance = 300 mm)
+    sketch o on plane.o_at {
+        c1 = spline(points = [[input.side * 129.552 mm, 307.904 mm], [input.side * 80.866 mm, 323.371 mm], [input.side * 60 mm, 370 mm]])
+        c2 = line(start = c1.end, end = [input.side * 60 mm, 830 mm])
+        c3 = spline(points = [c2.end, [input.side * 80.846 mm, 876.465 mm], [input.side * 129.488 mm, 891.549 mm]])
+        c4 = line(start = c3.end, end = [input.side * 730.512 mm, 818.451 mm])
+        c5 = spline(points = [c4.end, [input.side * 785.94 mm, 792.662 mm], [input.side * 822.62 mm, 743.756 mm]])
+        c6 = line(start = c5.end, end = [input.side * 917.38 mm, 466.244 mm])
+        c7 = spline(points = [c6.end, [input.side * 912.348 mm, 417.502 mm], [input.side * 870.448 mm, 392.096 mm]])
+        c8 = line(start = c7.end, end = c1.start)
+    }
+    feature pane = extrude(profile = sketch.o, distance = 2200 mm, mode = intersect)
+
+    output cockpit_window_front = { body = feature.glass.body, part_number = "FUS-WS-031", material = "glass", color = "#16202A" }
+    configuration port = { side = -1, part_number = "FUS-WS-032" }
+}

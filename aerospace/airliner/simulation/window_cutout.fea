@@ -1,0 +1,114 @@
+// A cabin window's skin cutout and window frame at the maximum cabin pressure differential, the
+// limit case for the fuselage skin round its windows.
+//
+// Pressure: 59.3 kPa (8.6 psi). A narrow-body of this class flies up to about 12,500 m
+// (41,000 ft) with the cabin held at no more than 2,440 m (8,000 ft), the altitude the cabin
+// pressure rules set as the ceiling for normal operation. Air at 2,440 m is at 75.3 kPa and at
+// 12,500 m at 17.9 kPa, so the cabin runs 57.4 kPa above outside air; the pressure controller's
+// maximum normal differential for this class is 8.6 psi, 59.3 kPa, with the safety valve at
+// about 62 kPa. This study takes the 59.3 kPa as the limit load and checks that the skin and
+// frame stay elastic (below yield) at limit.
+//
+// Geometry: ./geometry/window_cutout.step, exported from window_cutout.part: one 500 mm frame
+// bay of 3 mm 2024-T3 skin over 20 degrees of arc at the 1,980 mm outer radius, centred on one
+// window, with its 7075-T6 window frame (40 mm wide, 8 mm deep) bonded round the cutout. The
+// stringers are left out, which puts all of the hoop load in the skin (conservative).
+//
+// Supports and loads: the bay's two radial cut faces are planes of symmetry, which is what the
+// rest of the barrel does to the bay, so the pressure on the skin's inside makes the barrel's
+// hoop tension. The forward edge is a plane of symmetry too; the aft edge carries the barrel's
+// axial tension from the pressure on the aft bulkhead, p R / 2 = 59.3 kPa x 1.9785 m / 2 =
+// 58.7 kN/m over the edge's 690.6 mm of arc, 40.5 kN. The pane is left out: the pressure on its
+// 52,000 mm^2 (230 x 250 mm less the corners) pushes it out against the frame's seat,
+// 59.3 kPa x 0.052 m^2 = 3.08 kN outward (+y).
+//
+// Hand check: away from the window the skin's hoop stress is p R / t = 59.3 kPa x 1977.0 mm /
+// 3 mm = 39.1 MPa and its axial stress half that, 19.5 MPa. The cutout takes 230 mm x 3 mm =
+// 690 mm^2 of skin out of the hoop load path; the frame's two 40 x 8 mm sides put back 640 mm^2
+// beside it, so the cutout is about fully reinforced, and the peak at the cutout's corners should
+// sit near the unreinforced cutout's concentration (about 2.5 for this 80 mm corner radius under
+// 2:1 biaxial tension, so about 100 MPa) or below it. Yield of 2024-T3 sheet is 345 MPa: the
+// assessment holds the skin's peak below it at limit.
+
+geometry window {
+    file = "./geometry/window_cutout.step"
+    units = mm
+    interfaces = shared
+    region skin : solid { select name "skin"; expect exactly_one }
+    region frame : solid { select name "window_frame"; expect exactly_one }
+    region skin_inner : face { select name "skin_inner"; expect one_or_more }
+    region fwd_edge : face { select name "fwd_edge"; expect exactly_one }
+    region aft_edge : face { select name "aft_edge"; expect exactly_one }
+    region sym_low : face { select name "sym_low"; expect exactly_one }
+    region sym_high : face { select name "sym_high"; expect exactly_one }
+    region frame_seat : face { select name "frame_seat"; expect one_or_more }
+}
+
+mesh window on geometry.window {
+    tetrahedra {
+        order = quadratic
+        target_size = 8 mm
+        maximum_deviation = 0.5 mm
+    }
+}
+
+material aluminum_2024_t3 {
+    mass_density = 2780 kg/m^3
+    elastic {
+        youngs_modulus = 73.1 GPa
+        poisson_ratio = 0.33
+    }
+}
+
+material aluminum_7075_t6 {
+    mass_density = 2810 kg/m^3
+    elastic {
+        youngs_modulus = 71.7 GPa
+        poisson_ratio = 0.33
+    }
+}
+
+model pressurized {
+    assign material.aluminum_2024_t3 to geometry.window.region.skin
+    assign material.aluminum_7075_t6 to geometry.window.region.frame
+    constraint hoop_low {
+        structural.symmetry { target = geometry.window.region.sym_low }
+    }
+    constraint hoop_high {
+        structural.symmetry { target = geometry.window.region.sym_high }
+    }
+    constraint forward_frame {
+        structural.symmetry { target = geometry.window.region.fwd_edge }
+    }
+    load cabin {
+        pressure on geometry.window.region.skin_inner = 59.3 kPa
+    }
+    load axial_tension {
+        force on geometry.window.region.aft_edge = [40500, 0, 0] N
+    }
+    load pane {
+        force on geometry.window.region.frame_seat = [0, 3080, 0] N
+    }
+    load_case max_differential {
+        include load.cabin
+        include load.axial_tension
+        include load.pane
+    }
+}
+
+study window_cutout {
+    geometry = geometry.window
+    mesh = mesh.window
+    model = model.pressurized
+    analysis static { structural static {} }
+    output displacement = analysis.static.field.node.displacement
+    output von_mises = analysis.static.field.element.von_mises_stress
+    output peak_skin_stress = max(analysis.static.field.element.von_mises_stress, over = geometry.window.region.skin)
+    output peak_frame_stress = max(analysis.static.field.element.von_mises_stress, over = geometry.window.region.frame)
+    output peak_displacement = max(magnitude(analysis.static.field.node.displacement), over = geometry.window.region.skin)
+    assessment skin_below_yield {
+        value = output.peak_skin_stress
+        maximum = 345 MPa
+        evidence = authored_samples
+    }
+}

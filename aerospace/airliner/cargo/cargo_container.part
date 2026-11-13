@@ -1,0 +1,17 @@
+runmat 0.7
+std 1
+
+// A lower-deck container: a sloped base for the hold's curve, full width, 1530 mm long.
+part cargo_container {
+    sketch s on origin.yz {
+        l1 = line(start = [-620 mm, -1690 mm], end = [620 mm, -1690 mm])
+        l2 = line(start = [620 mm, -1690 mm], end = [1080 mm, -1170 mm])
+        l3 = line(start = [1080 mm, -1170 mm], end = [1080 mm, -600 mm])
+        l4 = line(start = [1080 mm, -600 mm], end = [-1080 mm, -600 mm])
+        l5 = line(start = [-1080 mm, -600 mm], end = [-1080 mm, -1170 mm])
+        l6 = line(start = [-1080 mm, -1170 mm], end = [-620 mm, -1690 mm])
+    }
+    feature box = extrude(profile = sketch.s, distance = 1530 mm)
+
+    output cargo_container = { body = feature.box.body, part_number = "FUS-UL-810", material = "aluminum_2024", color = "#B7BDC5" }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "battery-cold-plate"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "battery-cold-plate.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

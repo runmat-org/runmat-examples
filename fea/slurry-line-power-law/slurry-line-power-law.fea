@@ -1,0 +1,67 @@
+// Steady laminar flow of a shear-thinning coal slurry through a straight 25 mm pipe, 400 mm
+// long, at a mean speed of 0.05 m/s (1.47 L/min). The run returns the pressure drop, the
+// velocity and pressure fields and the peak speed on the axis, which sits below the Newtonian
+// value because the slurry's flattened profile is blunter.
+//
+// Geometry: ./geometry/slurry-line-d25x400.step, the slurry in the bore ("Slurry"); the pipe is a
+// rigid wall.
+//
+// Slurry: power-law (Ostwald-de Waele) coal slurry from the worked example in Darby and Chhabra,
+// Chemical Engineering Fluid Mechanics: flow index n = 0.4, apparent viscosity 200 cP at
+// 1 1/s (so K = 0.2 Pa s^0.4), specific gravity 1.5 (1500 kg/m^3).
+// Metzner-Reed Reynolds number: Re_MR = rho V^(2-n) D^n / (K 8^(n-1) ((3n+1)/(4n))^n) = 44,
+// laminar; the profile develops within about 0.05 Re_MR D = 55 mm.
+//
+// Hand check, developed laminar power-law flow:
+// - Wall shear rate ((3n+1)/(4n)) 8V/D = 1.375 x 16 = 22 1/s; wall shear stress
+//   tau_w = K 22^0.4 = 0.689 Pa.
+// - Pressure drop dP = 4 tau_w L / D = 4 x 0.689 x 0.400 / 0.025 = 44 Pa, plus a small entrance
+//   loss.
+// - Centerline speed V (3n+1)/(n+1) = 0.05 x 2.2 / 1.4 = 0.079 m/s (a Newtonian fluid: 0.100 m/s).
+
+geometry line {
+    file = "./geometry/slurry-line-d25x400.step"
+    units = mm
+    region slurry : cell { select name "Slurry"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region wall : face { select name "Wall"; expect exactly_one }
+}
+
+// Ten cells across the 25 mm bore.
+mesh line on geometry.line {
+    tetrahedra {
+        order = linear
+        target_size = 2.5 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+material coal_slurry {
+    mass_density = 1500 kg/m^3
+    fluid {
+        law = power_law
+        consistency = 0.2
+        power_index = 0.4
+    }
+}
+
+model pumped_slurry {
+    assign material.coal_slurry to geometry.line.region.slurry
+    constraint supply {
+        fluid.velocity { target = geometry.line.region.inlet; value = [0.05 m/s, 0 m/s, 0 m/s] }
+    }
+    constraint bore { fluid.no_slip_wall { target = geometry.line.region.wall } }
+    load discharge { fluid.outlet_pressure { target = geometry.line.region.outlet; value = 0 Pa } }
+}
+
+study slurry_pressure_drop {
+    geometry = geometry.line
+    mesh = mesh.line
+    model = model.pumped_slurry
+    analysis flow { fluid steady {} }
+    output velocity = analysis.flow.field.cell.fluid_velocity
+    output pressure = analysis.flow.field.cell.fluid_pressure
+    output pressure_drop = pressure_drop(analysis.flow, from = geometry.line.region.inlet, to = geometry.line.region.outlet)
+    output peak_speed = max(magnitude(output.velocity), over = geometry.line.region.slurry)
+}

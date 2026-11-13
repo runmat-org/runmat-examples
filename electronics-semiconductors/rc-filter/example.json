@@ -1,0 +1,25 @@
+{
+  "id": "electronics-rc-filter",
+  "title": "An RC filter sized by a MATLAB function",
+  "pickerTitle": "RC filter from its corner frequency",
+  "pickerLine": "Electronics design",
+  "line": "A first-order RC low-pass filter whose resistor is computed from its corner frequency by a MATLAB function.",
+  "description": "A first-order RC low-pass filter in a .circuit file. R1's value calls rcResistor.m in the same folder with the corner frequency and the capacitor, so the schematic, the BOM and the simulation read the computed resistor. The corner simulation measures the -3 dB bandwidth against its spec. Change the corner frequency and the resistor and the measured corner follow.",
+  "topic": "electronics-semiconductors",
+  "topicLabel": "Electronics and semiconductors",
+  "group": null,
+  "kind": "design",
+  "visual": "2d",
+  "entry": "lowpass.circuit",
+  "tags": ["circuit", "circuit-simulation", "matlab-values"],
+  "roles": ["electrical"],
+  "goals": ["build_simulations"],
+  "theme": "rc-filter",
+  "thumbnailAlt": "An RC low-pass filter schematic, drawn by RunMat",
+  "origin": {
+    "page": "/industries/electronics-semiconductors",
+    "key": "runmat-cad:rc-filter",
+    "source": "runmat-cad/crates/runmat-design-tools/tests/fixtures/rc_filter",
+    "thumbnail": null
+  }
+}

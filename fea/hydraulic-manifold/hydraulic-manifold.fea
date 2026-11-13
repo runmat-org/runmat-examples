@@ -1,0 +1,75 @@
+// Pressure drop through a crossover manifold block at 20 L/min of ISO VG 46 hydraulic oil at
+// 40 degC. The loss budget from P to A is 1 bar.
+//
+// Geometry: ./geometry/manifold-oil.step, the oil of manifold.part in its `oil_only`
+// configuration. The block is a rigid wall to the oil, so only the oil is meshed. The oil fills
+// two drilled lines, each its own body ("Oil"): P to A (a 12 mm supply gallery drilled 60 mm
+// from the left face, 10 mm work port A dropped into it from the top) and B to T (10 mm work
+// port B from the top into a 12 mm return gallery drilled from the right face).
+//
+// Flow: 20 L/min = 3.333e-4 m^3/s into P and into B (the actuator's return), with zero gauge
+// pressure at A and T. Oil: 861 kg/m^3, 46 cSt, so 0.0396 Pa s.
+// - 12 mm gallery from P: U = 2.95 m/s, Re = 768. 10 mm port A: U = 4.24 m/s, Re = 922. Laminar.
+// - Hand check, P to A: developed laminar friction 128 mu Q L / (pi d^4) over the 50 mm of
+//   gallery to port A (1.3 kPa) and the 30 mm of port A (1.6 kPa), plus the entry, the
+//   right-angle turn and the outlet: about K = 2.5 on the port's 0.5 rho U^2 = 7.74 kPa
+//   (19 kPa). That is about 0.2 bar, inside the 1 bar budget.
+
+geometry manifold {
+    file = "./geometry/manifold-oil.step"
+    units = mm
+    interfaces = shared
+    region oil : cell { select name "Oil"; expect one_or_more }
+    region port_p : face { select name "Port P"; expect exactly_one }
+    region port_a : face { select name "Port A"; expect exactly_one }
+    region port_b : face { select name "Port B"; expect exactly_one }
+    region port_t : face { select name "Port T"; expect exactly_one }
+    region passage_wall : face { select name "Passage wall"; expect one_or_more }
+}
+
+mesh manifold on geometry.manifold {
+    tetrahedra {
+        order = linear
+        target_size = 1.5 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+material iso_vg_46 {
+    mass_density = 861 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+model rated_flow {
+    assign material.iso_vg_46 to geometry.manifold.region.oil
+    // 20 L/min into P (12 mm, along +x) and into B (10 mm, down the port).
+    constraint supply {
+        fluid.velocity { target = geometry.manifold.region.port_p; value = [2.947 m/s, 0 m/s, 0 m/s] }
+    }
+    constraint return_flow {
+        fluid.velocity { target = geometry.manifold.region.port_b; value = [0 m/s, 0 m/s, -4.244 m/s] }
+    }
+    constraint walls { fluid.no_slip_wall { target = geometry.manifold.region.passage_wall } }
+    load work_port_a { fluid.outlet_pressure { target = geometry.manifold.region.port_a; value = 0 Pa } }
+    load tank_port_t { fluid.outlet_pressure { target = geometry.manifold.region.port_t; value = 0 Pa } }
+}
+
+study manifold_pressure_drop {
+    geometry = geometry.manifold
+    mesh = mesh.manifold
+    model = model.rated_flow
+    analysis flow { fluid steady {} }
+    output velocity = analysis.flow.field.cell.fluid_velocity
+    output pressure = analysis.flow.field.cell.fluid_pressure
+    output peak_speed = max(magnitude(output.velocity), over = geometry.manifold.region.oil)
+    output pressure_p = max(output.pressure, over = geometry.manifold.region.port_p)
+    output pressure_b = max(output.pressure, over = geometry.manifold.region.port_b)
+    assessment p_to_a_within_1_bar {
+        value = output.pressure_p
+        maximum = 100 kPa
+        evidence = authored_samples
+    }
+}

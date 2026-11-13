@@ -1,0 +1,77 @@
+runmat 0.7
+std 1
+
+// One barrel section: 17 frames at the frame pitch, 24 stringers, 8 skin panels,
+// a ring of flush rivets at every frame and a row of cabin windows each side between the frames.
+assembly fuselage_section {
+    input frame_pitch : length = 500 mm
+
+    use part frame as frame
+    use part stringer as stringer
+    use part skin_panel as panel {
+        placement = { placement = offset, offset = { translation = [0 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 22.5 deg } } }
+    }
+    use assembly rivet_ring as rivets
+    use part cabin_window as window_starboard {
+        placement = { placement = offset, offset = { translation = [4250 mm, 1940.946 mm, 348.586 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 10.181542 deg } } }
+    }
+    use part cabin_window as window_port {
+        placement = { placement = offset, offset = { translation = [4250 mm, -1940.946 mm, 348.586 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 169.818458 deg } } }
+    }
+    use part cabin_window as window_starboard_fwd {
+        placement = { placement = offset, offset = { translation = [3750 mm, 1940.946 mm, 348.586 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 10.181542 deg } } }
+    }
+    use part cabin_window as window_port_fwd {
+        placement = { placement = offset, offset = { translation = [3750 mm, -1940.946 mm, 348.586 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 169.818458 deg } } }
+    }
+    use part floor_beam from "../cabin" as floor_beam {
+        placement = { placement = offset, offset = { translation = [0 mm, 0 mm, 0 mm] } }
+    }
+    use part floor_panel from "../cabin" as floor {
+        placement = { placement = offset, offset = { translation = [0 mm, 0 mm, -410 mm] } }
+    }
+    use part seat_track from "../cabin" as track0 {
+        placement = { placement = offset, offset = { translation = [0 mm, -1335 mm, -414 mm] } }
+    }
+    use part seat_track from "../cabin" as track1 {
+        placement = { placement = offset, offset = { translation = [0 mm, -435 mm, -414 mm] } }
+    }
+    use part seat_track from "../cabin" as track2 {
+        placement = { placement = offset, offset = { translation = [0 mm, 435 mm, -414 mm] } }
+    }
+    use part seat_track from "../cabin" as track3 {
+        placement = { placement = offset, offset = { translation = [0 mm, 1335 mm, -414 mm] } }
+    }
+    use part sidewall_lining from "../cabin" as lining_starboard {
+        placement = { placement = offset, offset = { translation = [250 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = -12.457065 deg } } }
+    }
+    use part sidewall_lining from "../cabin" as lining_port {
+        placement = { placement = offset, offset = { translation = [250 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 147.17985 deg } } }
+    }
+    use part ceiling_panel from "../cabin" as ceiling {
+        placement = { placement = offset, offset = { translation = [0 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 58 deg } } }
+    }
+    use part overhead_bin from "../cabin" as bin_starboard {
+        placement = { placement = offset, offset = { translation = [4000 mm, 0 mm, 0 mm] } }
+    }
+    use part overhead_bin from "../cabin" as bin_port {
+        placement = { placement = offset, offset = { translation = [4000 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part overhead_bin from "../cabin" as bin_starboard_fwd {
+        placement = { placement = offset, offset = { translation = [2400 mm, 0 mm, 0 mm] } }
+    }
+    use part overhead_bin from "../cabin" as bin_port_fwd {
+        placement = { placement = offset, offset = { translation = [2400 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+
+    pattern frames = linear(seeds = [frame], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
+    pattern stringers = circular(seeds = [stringer], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 24, angle = 360 deg)
+    pattern panels = circular(seeds = [panel], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 8, angle = 360 deg)
+    pattern rivet_rings = linear(seeds = [rivets], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
+    pattern windows = linear(seeds = [window_starboard, window_port], direction = [1, 0, 0], spacing = input.frame_pitch, count = 8)
+    pattern windows_fwd = linear(seeds = [window_starboard_fwd, window_port_fwd], direction = [-1, 0, 0], spacing = input.frame_pitch, count = 8)
+    pattern floor_beams = linear(seeds = [floor_beam], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
+    pattern linings = linear(seeds = [lining_starboard, lining_port], direction = [1, 0, 0], spacing = input.frame_pitch, count = 16)
+    pattern bins = linear(seeds = [bin_starboard, bin_port], direction = [1, 0, 0], spacing = 1600 mm, count = 3)
+    pattern bins_fwd = linear(seeds = [bin_starboard_fwd, bin_port_fwd], direction = [-1, 0, 0], spacing = 1600 mm, count = 2)
+}

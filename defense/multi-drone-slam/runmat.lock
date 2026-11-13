@@ -1,0 +1,15 @@
+schema_version = 1
+resolver_version = "1"
+packages = []
+edges = []
+graph_digest = "sha256:8027ac75bb84a4771a300f704692327a4cabed8d3978d5e7c6516a62a6d2ae72"
+
+[root]
+manifest_digest = "sha256:66ff764189a9f4e94f1bde61dda488b6b0a02079d7b9ca5531f6e896a40c4a23"
+package = "workspace:local/defense-multi-drone-slam"
+
+[selection]
+target = "aarch64-apple-darwin"
+groups = ["runtime"]
+root_features = []
+host_capabilities = ["network", "native-library", "mex", "jvm", "subprocess"]

@@ -1,0 +1,27 @@
+runmat 0.7
+std 1
+
+// An economy seat's cushion and back, 400 mm wide, in fabric.
+part seat_cushion {
+    sketch s on origin.zx {
+        c1 = spline(points = [[409.451 mm, -222.005 mm], [418.133 mm, -242.912 mm], [437.657 mm, -254.367 mm]])
+        c2 = line(start = c1.end, end = [477.343 mm, -260.633 mm])
+        c3 = spline(points = [c2.end, [497.089 mm, -255.299 mm], [506.286 mm, -237.03 mm]])
+        c4 = line(start = c3.end, end = [523.714 mm, 142.03 mm])
+        c5 = spline(points = [c4.end, [532.898 mm, 163.003 mm], [552.611 mm, 174.648 mm]])
+        c6 = line(start = c5.end, end = [1072.389 mm, 262.152 mm])
+        c7 = spline(points = [c6.end, [1094.373 mm, 273.374 mm], [1108.854 mm, 293.363 mm]])
+        c8 = line(start = c7.end, end = [1121.146 mm, 330.237 mm])
+        c9 = spline(points = [c8.end, [1120.354 mm, 353.491 mm], [1106.703 mm, 372.332 mm]])
+        c10 = line(start = c9.end, end = [1093.297 mm, 381.268 mm])
+        c11 = spline(points = [c10.end, [1068.696 mm, 390.803 mm], [1042.357 mm, 392.34 mm]])
+        c12 = line(start = c11.end, end = [497.643 mm, 304.46 mm])
+        c13 = spline(points = [c12.end, [471 mm, 297.17 mm], [445.689 mm, 286.108 mm]])
+        c14 = line(start = c13.end, end = [424.311 mm, 273.892 mm])
+        c15 = spline(points = [c14.end, [407.458 mm, 255.769 mm], [400.549 mm, 232.005 mm]])
+        c16 = line(start = c15.end, end = c1.start)
+    }
+    feature body = extrude(profile = sketch.s, distance = 400 mm, symmetric)
+
+    output seat_cushion = { body = feature.body.body, part_number = "CAB-ST-120", material = "wool_fabric", color = "#2E4A6B" }
+}

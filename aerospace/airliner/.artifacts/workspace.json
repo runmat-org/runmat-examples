@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/airliner.assembly",
+      "/cabin/cabin.assembly"
+    ],
+    "activeFile": "/airliner.assembly"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "hidden",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "agent": {
+    "suggestions": [
+      "Add two economy rows and shorten the seat pitch to 760 mm",
+      "Cut the airliner down its centerline and show the cabin",
+      "List the parts in the cockpit with their part numbers"
+    ]
+  }
+}

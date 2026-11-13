@@ -1,0 +1,12 @@
+[package]
+name = "cantilever-plastic"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "cantilever-plastic.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

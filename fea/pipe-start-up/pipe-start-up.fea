@@ -1,0 +1,75 @@
+// Start-up of laminar flow in a hydraulic line: the 10 mm bore, 300 mm long, full of ISO VG 46
+// oil at rest, has 807 Pa applied across it at t = 0. The run returns how the flow builds up:
+// the mean oil speed sampled through the first 0.6 s, the final velocity and pressure fields and
+// the final peak speed on the axis.
+//
+// Geometry: ./geometry/oil-line-d10x300.step, the oil in the bore ("Oil"); the pipe is a rigid
+// wall. Oil: 861 kg/m^3, 46 mm^2/s at 40 degC (ISO 3448 VG 46), mu = 0.0396 Pa s.
+//
+// Hand check, Szymanski (1932) start-up of pipe flow under a step pressure gradient: the mean
+// speed follows U(t)/U_inf = 1 - sum 32/l_n^4 exp(-l_n^2 nu t / R^2), with l_n the zeros of J0
+// (2.405, 5.520, ...). The time scale is R^2/nu = 0.005^2 / 46e-6 = 0.543 s.
+// - Final mean speed: dP d^2 / (32 mu L) = 807 x 1e-4 / (32 x 0.0396 x 0.3) = 0.212 m/s (1 L/min),
+//   a few percent less for the entrance loss.
+// - 63 % of the final flow at 0.090 s; 95 % at nu t / R^2 = ln(0.957 / 0.05) / 5.783 = 0.510,
+//   so t95 = 0.277 s. By 0.6 s the flow is steady to 0.1 %.
+
+geometry line {
+    file = "./geometry/oil-line-d10x300.step"
+    units = mm
+    region oil : cell { select name "Oil"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region wall : face { select name "Wall"; expect exactly_one }
+}
+
+mesh line on geometry.line {
+    tetrahedra {
+        order = linear
+        target_size = 1.5 mm
+        maximum_deviation = 0.05 mm
+    }
+}
+
+material iso_vg_46 {
+    mass_density = 861 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+// The oil starts at rest; the pressure difference is applied in full from t = 0.
+model pressure_step {
+    assign material.iso_vg_46 to geometry.line.region.oil
+    constraint bore { fluid.no_slip_wall { target = geometry.line.region.wall } }
+    load supply { fluid.outlet_pressure { target = geometry.line.region.inlet; value = 807 Pa } }
+    load discharge { fluid.outlet_pressure { target = geometry.line.region.outlet; value = 0 Pa } }
+}
+
+study line_start_up {
+    geometry = geometry.line
+    mesh = mesh.line
+    model = model.pressure_step
+    // 5 ms steps: about 19 per l_1 time constant of 94 ms.
+    analysis startup {
+        fluid transient {
+            start_time = 0 s
+            end_time = 0.6 s
+            time_step = 5 ms
+        }
+    }
+    output velocity = analysis.startup.field.cell.fluid_velocity
+    output pressure = analysis.startup.field.cell.fluid_pressure
+    output mean_speed = mean(magnitude(output.velocity), over = geometry.line.region.oil)
+    output peak_speed = max(magnitude(output.velocity), over = geometry.line.region.oil)
+    output mean_speed_history {
+        value = sample(
+            output.mean_speed,
+            over = time,
+            at = [0.025 s, 0.05 s, 0.1 s, 0.15 s, 0.2 s, 0.25 s, 0.3 s, 0.4 s, 0.5 s, 0.6 s],
+        )
+        retention = explicit_samples
+        maximum_samples = 10
+    }
+}

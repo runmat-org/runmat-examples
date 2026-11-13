@@ -1,0 +1,27 @@
+runmat 0.7
+std 1
+
+// A 5/8 in anchor bolt cast into the stem wall, 10 in embedment, with a 3 x 3 x 0.229 in plate
+// washer and nut on the sill plate. Origin on the top of the sill at the bolt axis.
+part anchor_bolt {
+    feature down = plane.offset(base = origin.xy, distance = -11.5 in)
+    sketch rod2_s on plane.down {
+        c = circle(center = [0 in, 0 in], radius = 0.3125 in)
+    }
+    feature rod = extrude(profile = sketch.rod2_s, distance = 12.5 in, mode = new)
+    sketch washer_s on origin.xy {
+        e0 = line(start = [-1.5 in, -1.5 in], end = [1.5 in, -1.5 in])
+        e1 = line(start = [1.5 in, -1.5 in], end = [1.5 in, 1.5 in])
+        e2 = line(start = [1.5 in, 1.5 in], end = [-1.5 in, 1.5 in])
+        e3 = line(start = [-1.5 in, 1.5 in], end = [-1.5 in, -1.5 in])
+        h = circle(center = [0 in, 0 in], radius = 0.34375 in)
+    }
+    feature washer = extrude(profile = sketch.washer_s, distance = 0.229 in, mode = new)
+    feature nut_plane = plane.offset(base = origin.xy, distance = 0.229 in)
+    sketch nut_s on plane.nut_plane {
+        o = circle(center = [0 in, 0 in], radius = 0.5 in)
+        i = circle(center = [0 in, 0 in], radius = 0.3125 in)
+    }
+    feature nut = extrude(profile = sketch.nut_s, distance = 0.55 in, mode = new)
+    output anchor_bolt = { body = feature.rod.body, part_number = "AB-58-12", material = "material.galvanized_steel" }
+}

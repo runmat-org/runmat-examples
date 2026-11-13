@@ -1,0 +1,12 @@
+[package]
+name = "exhaust-muffler"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "exhaust-muffler.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

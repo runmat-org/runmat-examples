@@ -1,0 +1,64 @@
+runmat 0.7
+std 1
+
+// Study geometry for window_cutout.fea: one frame bay of the barrel skin (500 mm long between
+// frames, 20 degrees of arc, 3 mm 2024-T3 at the 1,980 mm outer radius) with a cabin window's
+// cutout, and the window frame bonded round the cutout inside the skin (40 mm wide, 8 mm deep,
+// 7075-T6). The cutout is the cabin window's outline (cabin_window.part: 230 mm along the
+// fuselage, 250 mm round it, 80 mm corner radius). The bay is centred on the window, which
+// faces +y; the frame bay's edges are where the frames stand.
+part window_cutout {
+    feature start = plane.angle(base = origin.xy, axis = origin.x, angle = -10 deg)
+    sketch band_s on plane.start {
+        l1 = line(start = [-250 mm, 1969 mm], end = [250 mm, 1969 mm])
+        l2 = line(start = [250 mm, 1969 mm], end = [250 mm, 1977 mm])
+        l3 = line(start = [250 mm, 1977 mm], end = [-250 mm, 1977 mm])
+        l4 = line(start = [-250 mm, 1977 mm], end = [-250 mm, 1969 mm])
+    }
+    feature frame = revolve(profile = sketch.band_s, axis = origin.x, angle = 20 deg)
+    feature cut_plane = plane.offset(base = origin.zx, distance = 1900 mm)
+    // Everything of the band outside the frame's outer edge (40 mm out from the cutout).
+    sketch outside_s on plane.cut_plane {
+        o1 = line(start = [-400 mm, -400 mm], end = [400 mm, -400 mm])
+        o2 = line(start = [400 mm, -400 mm], end = [400 mm, 400 mm])
+        o3 = line(start = [400 mm, 400 mm], end = [-400 mm, 400 mm])
+        o4 = line(start = [-400 mm, 400 mm], end = [-400 mm, -400 mm])
+        fl1 = line(start = [-45 mm, -155 mm], end = [45 mm, -155 mm])
+        fa1 = arc(center = [45 mm, -35 mm], start = fl1.end, end = [165 mm, -35 mm])
+        fl2 = line(start = fa1.end, end = [165 mm, 35 mm])
+        fa2 = arc(center = [45 mm, 35 mm], start = fl2.end, end = [45 mm, 155 mm])
+        fl3 = line(start = fa2.end, end = [-45 mm, 155 mm])
+        fa3 = arc(center = [-45 mm, 35 mm], start = fl3.end, end = [-165 mm, 35 mm])
+        fl4 = line(start = fa3.end, end = [-165 mm, -35 mm])
+        fa4 = arc(center = [-45 mm, -35 mm], start = fl4.end, end = fl1.start)
+    }
+    feature trim = extrude(profile = sketch.outside_s, distance = 200 mm, mode = cut)
+    sketch skin_s on plane.start {
+        s1 = line(start = [-250 mm, 1977 mm], end = [250 mm, 1977 mm])
+        s2 = line(start = [250 mm, 1977 mm], end = [250 mm, 1980 mm])
+        s3 = line(start = [250 mm, 1980 mm], end = [-250 mm, 1980 mm])
+        s4 = line(start = [-250 mm, 1980 mm], end = [-250 mm, 1977 mm])
+    }
+    feature skin = revolve(profile = sketch.skin_s, axis = origin.x, angle = 20 deg, mode = new)
+    sketch cutout_s on plane.cut_plane {
+        wl1 = line(start = [-45 mm, -115 mm], end = [45 mm, -115 mm])
+        wa1 = arc(center = [45 mm, -35 mm], start = wl1.end, end = [125 mm, -35 mm])
+        wl2 = line(start = wa1.end, end = [125 mm, 35 mm])
+        wa2 = arc(center = [45 mm, 35 mm], start = wl2.end, end = [45 mm, 115 mm])
+        wl3 = line(start = wa2.end, end = [-45 mm, 115 mm])
+        wa3 = arc(center = [-45 mm, 35 mm], start = wl3.end, end = [-125 mm, 35 mm])
+        wl4 = line(start = wa3.end, end = [-125 mm, -35 mm])
+        wa4 = arc(center = [-45 mm, -35 mm], start = wl4.end, end = wl1.start)
+    }
+    feature cutout = extrude(profile = sketch.cutout_s, distance = 200 mm, mode = cut)
+
+    region skin_inner : face = { select = [feature.skin.face.side(skin_s.s1)], expect = at_least_one, label = "skin_inner" }
+    region fwd_edge : face = { select = [feature.skin.face.side(skin_s.s4)], expect = exactly_one, label = "fwd_edge" }
+    region aft_edge : face = { select = [feature.skin.face.side(skin_s.s2)], expect = exactly_one, label = "aft_edge" }
+    region sym_low : face = { select = [feature.skin.face.start], expect = exactly_one, label = "sym_low" }
+    region sym_high : face = { select = [feature.skin.face.end], expect = exactly_one, label = "sym_high" }
+    region frame_seat : face = { select = [feature.frame.face.side(band_s.l1)], expect = at_least_one, label = "frame_seat" }
+
+    output skin = { body = feature.skin.body, part_number = "FUS-SK-300-W", material = "aluminum_2024", color = "#F4F5F7" }
+    output window_frame = { body = feature.frame.body, part_number = "FUS-WF-041", material = "aluminum_7075", color = "#A7B596" }
+}

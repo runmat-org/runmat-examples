@@ -1,0 +1,22 @@
+runmat 0.7
+std 1
+
+// The display unit's controller board as the thermal study sees it: a 120 x 100 x 1.6 mm plate
+// with the board's outline and its four M3 holes, in the display unit's frame (y along the
+// board's x, z along its y, the board's top facing +x, toward the screen). The FEA reads STEP
+// solids and has no reader for a routed board's copper yet, so the plate carries the four-layer
+// stack's in-plane conductivity and the components' dissipation spread over its volume.
+part du_board_thermal {
+    sketch s on origin.yz {
+        l1 = line(start = [-60 mm, -50 mm], end = [60 mm, -50 mm])
+        l2 = line(start = [60 mm, -50 mm], end = [60 mm, 50 mm])
+        l3 = line(start = [60 mm, 50 mm], end = [-60 mm, 50 mm])
+        l4 = line(start = [-60 mm, 50 mm], end = [-60 mm, -50 mm])
+        h1 = circle(center = [55 mm, 45 mm], radius = 1.6 mm)
+        h2 = circle(center = [-55 mm, 45 mm], radius = 1.6 mm)
+        h3 = circle(center = [-55 mm, -45 mm], radius = 1.6 mm)
+        h4 = circle(center = [55 mm, -45 mm], radius = 1.6 mm)
+    }
+    feature board = extrude(profile = sketch.s, distance = 1.6 mm)
+    output du_board_thermal = { body = feature.board.body, part_number = "FD-EL-342-TH", material = "composite", color = "#1F5F3A" }
+}

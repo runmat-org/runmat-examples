@@ -1,0 +1,270 @@
+entry ff8f519b-6046-846d-b082-b56a08244644 net /+3V3
+entry 7b2d6784-a582-8d77-a23e-05ebff4869fa net /+5V
+entry c3b4a269-c91d-842c-afc2-532670f3de7c net /BL_EN
+entry 2babd01b-11b3-8c17-b6c1-20bc21249855 net /BL_FAULT
+entry fefa87d2-a3a4-8b07-9396-71599eaa4402 net /BL_PWM
+entry e8537a51-ad84-89b8-b270-8106fe316571 net /DIM_IN
+entry 084be8de-f4f7-8977-b328-ce0a1f3c95db net /DISC_ON
+entry 425e1970-48e2-8415-98aa-34dfec86426d net /GND
+entry 07f23d5d-5226-8a9b-8509-a3e375fd5751 net /PANEL_CS
+entry c76442c7-2962-83f5-8765-b3af704ed0b6 net /PANEL_EN
+entry 909e5900-6cb7-8804-8356-421299745ce3 net /SPI_MOSI
+entry cd5949b2-0207-805a-9ef3-7618db54ce7f net /SPI_SCK
+entry 3b7560d6-93f7-86cd-9cc1-81bd2f86092e net /V28
+entry d6052195-aab0-8368-922a-b1cbf7fdf32e net /V28_IN
+entry e54a1806-82ce-805a-9842-3eeb371f6d7b net /V28_SENSE
+entry 2bdf8cd1-eba2-81ea-ac8a-930919d6ee51 sheet /bl
+entry 02a44f80-df6f-837d-9a05-2e9468149149 component /bl/C10 designator=C10
+entry bf33cbc7-1851-8c1c-9f40-ebd4d8c50c70 component /bl/C11 designator=C11
+entry 844dc0a4-ffdc-81c5-8211-079757d5ebdb component /bl/C12 designator=C12
+entry d1e9c9ec-a3c5-8e66-81ec-3b63650b3a36 component /bl/C13 designator=C13
+entry b0b569d9-f8bf-817e-8c45-f3bd246947af component /bl/C9 designator=C9
+entry ab84075f-7a76-8fa6-a239-e59a081c1a75 net /bl/COMP
+entry 5c685c0e-8f87-8385-82b8-702d18e90130 component /bl/D3 designator=D3
+entry 6b2561c9-829e-8481-90d2-57a87525fd60 net /bl/FSET
+entry 422b4a04-97f1-8f96-8f02-bd2793c8c9b8 net /bl/ISET
+entry 179207ee-0bf2-83b3-8951-6ada0d764b3c component /bl/J3 designator=J3
+entry 405729ba-8878-8a71-9f50-bf4396a19d8c component /bl/L2 designator=L2
+entry b3779ab0-6454-86d4-863f-846fc76b3345 net /bl/LED1
+entry ac0f5850-1943-8f00-b95b-146270ba4ff2 net /bl/LED2
+entry 6ae35148-40b3-888c-b874-355d92cfacae net /bl/LED3
+entry 9eab4892-6283-8684-a84b-78d648ff1660 net /bl/LED4
+entry e6758a98-c71c-88f5-ae2c-213fa86820c0 net /bl/LED5
+entry 3ca60a1d-7b9b-8370-a93b-38ba74343ed6 net /bl/LED6
+entry 7e5182c5-3767-8a01-9b44-81e3ae4519da net /bl/OVP
+entry 4b1d2bd5-a923-8a0d-afdf-5542f2ed0832 component /bl/R10 designator=R10
+entry e7b88d4a-707b-804a-90fc-5fcf4ad66820 component /bl/R6 designator=R6
+entry 53a792a7-dc74-8f0c-8da8-66f5c373f550 component /bl/R7 designator=R7
+entry a5b06ad5-08ee-81e8-ada1-e8f9f780c2e9 component /bl/R8 designator=R8
+entry 27000fae-e954-8e6a-9cdb-3a6bbdee74da component /bl/R9 designator=R9
+entry 32f8cbcf-f957-8f7f-bc26-7867dacb4c51 net /bl/SWL
+entry c23bee9d-540f-83aa-b449-ec699bb17532 component /bl/U3 designator=U3
+entry a5ed1b7e-bb8b-84d9-ad8f-636ac51f988f net /bl/VCC_BL
+entry 2b5f3e36-ce1c-821b-bb1a-0b2ef13d3401 net /bl/VLED
+entry ed576a95-e898-87b3-adc9-744e207255b0 sheet /conn
+entry ad4b1bc7-a719-89fc-99a5-514f76b7e186 component /conn/H1 designator=H1
+entry 8900f713-9548-8ad8-ae70-2cc619f91c50 component /conn/H2 designator=H2
+entry 76222a7d-df7c-89f3-94fe-a141273d48ac component /conn/H3 designator=H3
+entry 0da5d1c4-218c-8a7b-a0dd-ae5f63c0c895 component /conn/H4 designator=H4
+entry f3b10ec9-103a-8208-84c5-cabd8ddf00f8 component /conn/J1 designator=J1
+entry e8f3e4f0-9deb-8020-9398-80f6e693b052 component /conn/J2 designator=J2
+entry 9a5a03a8-99d9-82b4-96b2-e7c5d32bcaa0 sheet /mcu
+entry 24b060f4-b07d-8421-8a54-772d23659ee4 net /mcu/BOOT0
+entry 3b0a74f9-213b-8f9d-98b1-05e6644bfe47 component /mcu/C14 designator=C14
+entry ae04e1f9-d6d8-8850-ac33-87cbfb1315a6 component /mcu/C15 designator=C15
+entry 9615516f-e39d-8d27-a1ed-842b44cdb7ca component /mcu/C16 designator=C16
+entry d321bc9e-f2c7-84d7-bb23-5434c3fd1e72 component /mcu/C17 designator=C17
+entry 0bc838d2-98c3-86c4-ab0a-c3e4ed79a966 component /mcu/C18 designator=C18
+entry cb9cfecf-0d49-833f-82df-e3f5cda6db31 component /mcu/C19 designator=C19
+entry fe3a66c7-acab-85cc-adf8-8ee0760dd62e component /mcu/C20 designator=C20
+entry ae805488-ec15-8ed2-97df-501f6eb684b8 component /mcu/C21 designator=C21
+entry f8960273-dfc1-86c8-af55-ef15ec961fe6 component /mcu/C22 designator=C22
+entry 3050be97-fa47-8fce-9848-65c0e8f0b3e7 component /mcu/D4 designator=D4
+entry 04fcd7e4-1867-87e4-8402-e85f1e42c900 net /mcu/DIM_ADC
+entry 8c68e7c2-ea9c-88bf-bba7-b3d1f44e2686 net /mcu/DISC_MCU
+entry 4471b321-6aed-8f4e-b7d7-91c166d23813 net /mcu/LED_K
+entry 670d6ed3-ddc5-88c9-afe2-130feccca5f8 net /mcu/LED_STATUS
+entry 732c69ad-5fbe-8e0b-a22b-25005426eb55 net /mcu/NRST
+entry e7201095-9f4d-80c3-99c6-2af227352fb3 net /mcu/OSC_IN
+entry 57efc109-8ada-84c4-b628-b5e5fb1ee7f9 net /mcu/OSC_OUT
+entry 43542f7d-9a5d-8249-af97-cd2a81d55ac0 component /mcu/R11 designator=R11
+entry 8dfd7dc8-1d84-8f19-a394-314f71cf04d2 component /mcu/R12 designator=R12
+entry 2b6076fc-30d7-8659-81ae-89984e57dcdb component /mcu/R13 designator=R13
+entry c2e41e42-72e7-86c0-adc8-35b082ccf331 component /mcu/R14 designator=R14
+entry e189dea2-b7cd-86e1-97bf-700b0d90c7b0 component /mcu/R15 designator=R15
+entry 2c332ced-3af5-83c1-bbcb-97b7b5ab9262 component /mcu/R16 designator=R16
+entry 3c94bb19-7a2e-849f-9d5b-d05dad828f93 component /mcu/R17 designator=R17
+entry 382e5403-e0f9-88d5-befc-76fef9fefcef component /mcu/U4 designator=U4
+entry a18381c6-f6b4-8ad6-99a4-afa0e9ab239d net /mcu/VCAP
+entry f4cde0b9-4bf2-8810-8c0a-95e1992c6555 component /mcu/Y1 designator=Y1
+entry a05f9f5a-7718-8787-ba46-18e57798fa93 sheet /pwr
+entry fe079c76-4015-8054-b794-377fca85176c net /pwr/BST5
+entry dc39d2d5-b756-8a43-b134-b31d23175529 component /pwr/C1 designator=C1
+entry de6ae1bb-52ea-8ff2-b8ba-07b39b06a874 component /pwr/C2 designator=C2
+entry 7ba99867-5268-8595-baf5-85b0f0a320c8 component /pwr/C3 designator=C3
+entry e9758a2d-b70e-8b41-b286-1c9441fb354f component /pwr/C4 designator=C4
+entry 37119375-5af7-8805-af51-23ba4f44836a component /pwr/C5 designator=C5
+entry 614f959c-a5bb-8cff-aa09-8e639e6ee916 component /pwr/C6 designator=C6
+entry 645fc766-c8a8-88cd-85b3-e80e54181d9c component /pwr/C7 designator=C7
+entry 0c78d434-ced6-8faa-8763-47e321f7b309 component /pwr/C8 designator=C8
+entry 166f9d88-e705-8bf8-b8f5-ff29019ad93a component /pwr/D1 designator=D1
+entry 22fa0822-f323-8234-9043-ba2610a60b2c component /pwr/D2 designator=D2
+entry c54578ab-df96-8490-89c1-4445c5f21ccb net /pwr/EN5
+entry 549607f6-5357-8528-beae-11ed1dae69ff component /pwr/F1 designator=F1
+entry 33495a98-9565-8b3c-ad55-3a02b2efe336 net /pwr/FB5
+entry 5f7686fa-d9b5-8a39-b4e0-f287c6c4b35f component /pwr/L1 designator=L1
+entry e8ac1fed-c30c-8d4a-983f-19a441ddd587 component /pwr/R1 designator=R1
+entry 14d2d2a7-006b-87f2-bbce-fe105bfe9d47 component /pwr/R2 designator=R2
+entry 01dea180-3f67-8fd8-97ac-0e8a570d07c1 component /pwr/R3 designator=R3
+entry bce02a4d-c70a-8631-9433-fe4f08472700 component /pwr/R4 designator=R4
+entry c5a8d5e6-ab44-8910-9460-c716adc9b6ce component /pwr/R5 designator=R5
+entry 6686258d-e2aa-87f2-b533-06ad798d7020 net /pwr/SW5
+entry a3e143f6-0458-89c6-b87d-22f1396e8d0d component /pwr/U1 designator=U1
+entry 9b18985d-201e-86e3-8802-93c1d597dd59 component /pwr/U2 designator=U2
+entry b8254fe9-1f93-84c9-b246-58eaee82d5fc net /pwr/V28_FUSED
+fp /+3V3 /bl/R10.1,/mcu/C16.1,/mcu/C17.1,/mcu/C18.1,/mcu/C19.1,/mcu/R11.2,/mcu/R16.1,/mcu/U4.VDD,/mcu/U4.VDDA,/pwr/C7.1,/pwr/U2.VOUT
+fp /+5V /conn/J2.1,/pwr/C4.1,/pwr/C5.1,/pwr/C6.1,/pwr/L1.2,/pwr/R1.1,/pwr/U2.EN,/pwr/U2.VIN
+fp /BL_EN /bl/U3.EN,/mcu/U4.PB1
+fp /BL_FAULT /bl/R10.2,/bl/U3.FAULT,/mcu/U4.PB2
+fp /BL_PWM /bl/U3.PWM,/mcu/U4.PA8
+fp /DIM_IN /conn/J1.3,/mcu/R13.1
+fp /DISC_ON /conn/J1.4,/mcu/R15.1
+fp /GND /bl/C10.2,/bl/C11.2,/bl/C12.2,/bl/C13.2,/bl/C9.2,/bl/R6.2,/bl/R7.2,/bl/R9.2,/bl/U3.AGND,/bl/U3.PGND,/conn/J1.2,/conn/J1.5,/conn/J2.2,/mcu/C14.2,/mcu/C15.2,/mcu/C16.2,/mcu/C17.2,/mcu/C18.2,/mcu/C19.2,/mcu/C20.2,/mcu/C21.2,/mcu/C22.2,/mcu/D4.K,/mcu/R12.2,/mcu/R14.2,/mcu/U4.VSS,/mcu/U4.VSSA,/pwr/C1.2,/pwr/C2.2,/pwr/C4.2,/pwr/C5.2,/pwr/C6.2,/pwr/C7.2,/pwr/C8.2,/pwr/D2.A,/pwr/R2.2,/pwr/R5.2,/pwr/U1.GND,/pwr/U2.GND
+fp /PANEL_CS /conn/J2.5,/mcu/U4.PB4
+fp /PANEL_EN /conn/J2.6,/mcu/U4.PB3
+fp /SPI_MOSI /conn/J2.4,/mcu/U4.PA7
+fp /SPI_SCK /conn/J2.3,/mcu/U4.PA5
+fp /V28 /bl/C9.1,/bl/L2.1,/bl/U3.VIN,/pwr/C1.1,/pwr/C2.1,/pwr/D1.K,/pwr/D2.K,/pwr/R3.1,/pwr/R4.1,/pwr/U1.VIN
+fp /V28_IN /conn/J1.1,/pwr/F1.1
+fp /V28_SENSE /mcu/U4.PA0,/pwr/C8.1,/pwr/R4.2,/pwr/R5.1
+fp /bl backlight
+fp /bl/C10 234d3662-1d33-8c9e-8c5c-43eff7055051|/bl/VLED,GND
+fp /bl/C11 234d3662-1d33-8c9e-8c5c-43eff7055051|/bl/VLED,GND
+fp /bl/C12 5884b3d6-4fd9-87f3-a37a-bfdf5d04441d|/bl/VCC_BL,GND
+fp /bl/C13 093ea587-6f23-8d53-9aeb-764edf458f9d|/bl/COMP,GND
+fp /bl/C9 a22177b3-379c-8ce8-8f64-9c3857a4d708|GND,V28
+fp /bl/COMP /bl/C13.1,/bl/U3.COMP
+fp /bl/D3 fe11a8a6-624d-89b6-ad1a-9625a8de90fb|/bl/SWL,/bl/VLED
+fp /bl/FSET /bl/R7.1,/bl/U3.FSET
+fp /bl/ISET /bl/R6.1,/bl/U3.ISET
+fp /bl/J3 f5756340-689f-873a-a119-290b9f90eb44|/bl/LED1,/bl/LED2,/bl/LED3,/bl/LED4,/bl/LED5,/bl/LED6,/bl/VLED
+fp /bl/L2 2758acc0-4b29-886a-8f11-63180832686b|/bl/SWL,V28
+fp /bl/LED1 /bl/J3.3,/bl/U3.LED1
+fp /bl/LED2 /bl/J3.4,/bl/U3.LED2
+fp /bl/LED3 /bl/J3.5,/bl/U3.LED3
+fp /bl/LED4 /bl/J3.6,/bl/U3.LED4
+fp /bl/LED5 /bl/J3.7,/bl/U3.LED5
+fp /bl/LED6 /bl/J3.8,/bl/U3.LED6
+fp /bl/OVP /bl/R8.2,/bl/R9.1,/bl/U3.OVP
+fp /bl/R10 f0b7343f-4c49-88f7-8a3b-7c46bf087762|+3V3,BL_FAULT
+fp /bl/R6 2b951ee0-ec6c-8fd6-aecd-d52d6433a973|/bl/ISET,GND
+fp /bl/R7 4c1fba02-a319-8d52-bb34-c5a664ea31c5|/bl/FSET,GND
+fp /bl/R8 5fb276d2-e91d-8146-a315-19b825959d8b|/bl/OVP,/bl/VLED
+fp /bl/R9 f0b7343f-4c49-88f7-8a3b-7c46bf087762|/bl/OVP,GND
+fp /bl/SWL /bl/D3.A,/bl/L2.2,/bl/U3.SW
+fp /bl/U3 af3a715b-6503-86de-baa3-713f86a7985c|/bl/COMP,/bl/FSET,/bl/ISET,/bl/LED1,/bl/LED2,/bl/LED3,/bl/LED4,/bl/LED5,/bl/LED6,/bl/OVP,/bl/SWL,/bl/VCC_BL,BL_EN,BL_FAULT,BL_PWM,GND,V28
+fp /bl/VCC_BL /bl/C12.1,/bl/U3.VCC
+fp /bl/VLED /bl/C10.1,/bl/C11.1,/bl/D3.K,/bl/J3.1,/bl/J3.2,/bl/R8.1
+fp /conn connectors
+fp /conn/H1 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /conn/H2 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /conn/H3 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /conn/H4 59859214-7a2d-8056-85c2-c1622e6bf6a1|
+fp /conn/J1 9e0c926f-c0a3-8c37-b5cb-cbc4e32ee020|DIM_IN,DISC_ON,GND,V28_IN
+fp /conn/J2 d4046b9d-e830-87f6-9eeb-edde4a0387dc|+5V,GND,PANEL_CS,PANEL_EN,SPI_MOSI,SPI_SCK
+fp /mcu mcu
+fp /mcu/BOOT0 /mcu/R12.1,/mcu/U4.BOOT0
+fp /mcu/C14 487c9fa2-8806-85e9-a8e7-c76ab2c775f2|/mcu/OSC_IN,GND
+fp /mcu/C15 487c9fa2-8806-85e9-a8e7-c76ab2c775f2|/mcu/OSC_OUT,GND
+fp /mcu/C16 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|+3V3,GND
+fp /mcu/C17 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|+3V3,GND
+fp /mcu/C18 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|+3V3,GND
+fp /mcu/C19 5884b3d6-4fd9-87f3-a37a-bfdf5d04441d|+3V3,GND
+fp /mcu/C20 e6517d62-caf2-8354-a15d-4ec7c594d6b3|/mcu/VCAP,GND
+fp /mcu/C21 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|/mcu/NRST,GND
+fp /mcu/C22 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|/mcu/DIM_ADC,GND
+fp /mcu/D4 2859cb87-a523-8b87-9a37-d891b91c04b9|/mcu/LED_K,GND
+fp /mcu/DIM_ADC /mcu/C22.1,/mcu/R13.2,/mcu/R14.1,/mcu/U4.PA1
+fp /mcu/DISC_MCU /mcu/R15.2,/mcu/R16.2,/mcu/U4.PA2
+fp /mcu/LED_K /mcu/D4.A,/mcu/R17.2
+fp /mcu/LED_STATUS /mcu/R17.1,/mcu/U4.PC13
+fp /mcu/NRST /mcu/C21.1,/mcu/R11.1,/mcu/U4.NRST
+fp /mcu/OSC_IN /mcu/C14.1,/mcu/U4.OSC_IN,/mcu/Y1.1
+fp /mcu/OSC_OUT /mcu/C15.1,/mcu/U4.OSC_OUT,/mcu/Y1.2
+fp /mcu/R11 f0b7343f-4c49-88f7-8a3b-7c46bf087762|+3V3,/mcu/NRST
+fp /mcu/R12 f0b7343f-4c49-88f7-8a3b-7c46bf087762|/mcu/BOOT0,GND
+fp /mcu/R13 f0b7343f-4c49-88f7-8a3b-7c46bf087762|/mcu/DIM_ADC,DIM_IN
+fp /mcu/R14 f0b7343f-4c49-88f7-8a3b-7c46bf087762|/mcu/DIM_ADC,GND
+fp /mcu/R15 c532b318-7624-8985-bede-a878fa8f8d9d|/mcu/DISC_MCU,DISC_ON
+fp /mcu/R16 f0b7343f-4c49-88f7-8a3b-7c46bf087762|+3V3,/mcu/DISC_MCU
+fp /mcu/R17 5cad3456-7f51-8bcd-9bf4-5cf482812887|/mcu/LED_K,/mcu/LED_STATUS
+fp /mcu/U4 8a5fb81d-61d0-86be-936c-76caa4bd5a2c|+3V3,/mcu/BOOT0,/mcu/DIM_ADC,/mcu/DISC_MCU,/mcu/LED_STATUS,/mcu/NRST,/mcu/OSC_IN,/mcu/OSC_OUT,/mcu/VCAP,BL_EN,BL_FAULT,BL_PWM,GND,PANEL_CS,PANEL_EN,SPI_MOSI,SPI_SCK,V28_SENSE
+fp /mcu/VCAP /mcu/C20.1,/mcu/U4.VCAP
+fp /mcu/Y1 354e5a70-798a-8d7c-8d48-bf24989866c3|/mcu/OSC_IN,/mcu/OSC_OUT
+fp /pwr power
+fp /pwr/BST5 /pwr/C3.1,/pwr/U1.BST
+fp /pwr/C1 a22177b3-379c-8ce8-8f64-9c3857a4d708|GND,V28
+fp /pwr/C2 a22177b3-379c-8ce8-8f64-9c3857a4d708|GND,V28
+fp /pwr/C3 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|/pwr/BST5,/pwr/SW5
+fp /pwr/C4 6a379792-55b5-8250-99f1-82a456234a1e|+5V,GND
+fp /pwr/C5 6a379792-55b5-8250-99f1-82a456234a1e|+5V,GND
+fp /pwr/C6 5884b3d6-4fd9-87f3-a37a-bfdf5d04441d|+5V,GND
+fp /pwr/C7 5884b3d6-4fd9-87f3-a37a-bfdf5d04441d|+3V3,GND
+fp /pwr/C8 ddc2db39-4d38-8b30-ba86-5795b4cdc95d|GND,V28_SENSE
+fp /pwr/D1 fe11a8a6-624d-89b6-ad1a-9625a8de90fb|/pwr/V28_FUSED,V28
+fp /pwr/D2 ffe26519-6548-8f1c-9025-ac24f462dfd5|GND,V28
+fp /pwr/EN5 /pwr/R3.2,/pwr/U1.EN
+fp /pwr/F1 37a8758a-e7b0-8da3-b26f-9a854f1bd13f|/pwr/V28_FUSED,V28_IN
+fp /pwr/FB5 /pwr/R1.2,/pwr/R2.1,/pwr/U1.FB
+fp /pwr/L1 9d230dbe-6451-81ad-a530-0803fa78362c|+5V,/pwr/SW5
+fp /pwr/R1 bc7913a8-7964-80e5-b860-7e16a7b09969|+5V,/pwr/FB5
+fp /pwr/R2 f0b7343f-4c49-88f7-8a3b-7c46bf087762|/pwr/FB5,GND
+fp /pwr/R3 4c1fba02-a319-8d52-bb34-c5a664ea31c5|/pwr/EN5,V28
+fp /pwr/R4 050fd933-fbbb-864b-a9e4-2f69d1e6e4c0|V28,V28_SENSE
+fp /pwr/R5 f0b7343f-4c49-88f7-8a3b-7c46bf087762|GND,V28_SENSE
+fp /pwr/SW5 /pwr/C3.2,/pwr/L1.1,/pwr/U1.SW
+fp /pwr/U1 bc64e65b-02cf-8bbf-93e8-fa7da2feda18|/pwr/BST5,/pwr/EN5,/pwr/FB5,/pwr/SW5,GND,V28
+fp /pwr/U2 5fef276e-5d9f-87b7-a405-8a5aeef03e55|+3V3,+5V,GND
+fp /pwr/V28_FUSED /pwr/D1.A,/pwr/F1.2
+place backlight/C10 328.93 158.75 270
+place backlight/C11 316.23 158.75 270
+place backlight/C12 194.31 181.61 270
+place backlight/C13 262.89 148.59 270
+place backlight/C9 209.55 181.61 270
+place backlight/D3 292.1 149.86 0
+place backlight/J3 96.52 135.89 0
+place backlight/L2 96.52 113.03 0
+place backlight/R10 147.32 133.35 270
+place backlight/R6 250.19 146.05 270
+place backlight/R7 275.59 151.13 270
+place backlight/R8 124.46 132.08 0
+place backlight/R9 160.02 140.97 270
+place backlight/U3 201.93 140.97 0 mirror
+place connectors/H1 190.5 102.87 0
+place connectors/H2 199.39 102.87 0
+place connectors/H3 208.28 102.87 0
+place connectors/H4 217.17 102.87 0
+place connectors/J1 152.4 106.68 0
+place connectors/J2 96.52 106.68 0
+place main/bl 107.95 63.5 0
+place main/conn 107.95 93.98 0
+place main/mcu 166.37 63.5 0
+place main/pwr 107.95 129.54 0
+place mcu/C14 181.61 73.66 270
+place mcu/C15 168.91 64.77 270
+place mcu/C16 80.01 133.35 270
+place mcu/C17 95.25 133.35 270
+place mcu/C18 110.49 133.35 270
+place mcu/C19 125.73 133.35 270
+place mcu/C20 35.56 66.04 270
+place mcu/C21 48.26 68.58 270
+place mcu/C22 194.31 77.47 270
+place mcu/D4 257.81 92.71 270
+place mcu/R11 48.26 50.8 90
+place mcu/R12 60.96 71.12 270
+place mcu/R13 102.87 156.21 0
+place mcu/R14 207.01 77.47 270
+place mcu/R15 102.87 172.72 0
+place mcu/R16 156.21 62.23 270
+place mcu/R17 228.6 83.82 0
+place mcu/U4 102.87 80.01 0
+place mcu/Y1 228.6 64.77 0
+place power/C1 146.05 105.41 270
+place power/C2 161.29 105.41 270
+place power/C3 146.05 50.8 0
+place power/C4 219.71 104.14 270
+place power/C5 194.31 88.9 270
+place power/C6 234.95 104.14 270
+place power/C7 250.19 104.14 270
+place power/C8 52.07 156.21 270
+place power/D1 80.01 77.47 0
+place power/D2 130.81 105.41 90
+place power/F1 52.07 77.47 0
+place power/L1 190.5 77.47 0
+place power/R1 119.38 68.58 270
+place power/R2 119.38 86.36 270
+place power/R3 106.68 71.12 270
+place power/R4 36.83 138.43 270
+place power/R5 36.83 156.21 270
+place power/U1 146.05 77.47 0
+place power/U2 234.95 77.47 0

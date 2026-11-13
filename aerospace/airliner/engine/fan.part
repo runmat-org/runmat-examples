@@ -1,0 +1,12 @@
+runmat 0.7
+std 1
+
+// The fan disk behind the inlet.
+part fan {
+    sketch s on origin.yz {
+        c = circle(center = [0 mm, 0 mm], radius = 840 mm)
+    }
+    feature disk = extrude(profile = sketch.s, distance = 140 mm)
+
+    output fan = { body = feature.disk.body, part_number = "NAC-FN-910", material = "titanium", color = "#363C44" }
+}

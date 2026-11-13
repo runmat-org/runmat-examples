@@ -1,0 +1,45 @@
+runmat 0.7
+std 1
+
+// The main instrument panel across the flight deck, carrying the six display units. Each unit's
+// case sits in a 192 mm square pocket through the panel, 1 mm clear of the case all round, so
+// the avionics cooling air forward of the panel reaches the case's back.
+part instrument_panel {
+    feature datum = plane.offset(base = origin.yz, distance = 1560 mm)
+    sketch s on plane.datum {
+        l1 = line(start = [-942.737 mm, -150 mm], end = [942.737 mm, -150 mm])
+        l2 = line(start = [942.737 mm, -150 mm], end = [942.737 mm, 400 mm])
+        l3 = line(start = [942.737 mm, 400 mm], end = [-942.737 mm, 400 mm])
+        l4 = line(start = [-942.737 mm, 400 mm], end = [-942.737 mm, -150 mm])
+    }
+    feature panel = extrude(profile = sketch.s, distance = 120 mm)
+    sketch pockets_s on plane.datum {
+        p1a = line(start = [-876 mm, 134 mm], end = [-684 mm, 134 mm])
+        p1b = line(start = [-684 mm, 134 mm], end = [-684 mm, 326 mm])
+        p1c = line(start = [-684 mm, 326 mm], end = [-876 mm, 326 mm])
+        p1d = line(start = [-876 mm, 326 mm], end = [-876 mm, 134 mm])
+        p2a = line(start = [-636 mm, 134 mm], end = [-444 mm, 134 mm])
+        p2b = line(start = [-444 mm, 134 mm], end = [-444 mm, 326 mm])
+        p2c = line(start = [-444 mm, 326 mm], end = [-636 mm, 326 mm])
+        p2d = line(start = [-636 mm, 326 mm], end = [-636 mm, 134 mm])
+        p3a = line(start = [444 mm, 134 mm], end = [636 mm, 134 mm])
+        p3b = line(start = [636 mm, 134 mm], end = [636 mm, 326 mm])
+        p3c = line(start = [636 mm, 326 mm], end = [444 mm, 326 mm])
+        p3d = line(start = [444 mm, 326 mm], end = [444 mm, 134 mm])
+        p4a = line(start = [684 mm, 134 mm], end = [876 mm, 134 mm])
+        p4b = line(start = [876 mm, 134 mm], end = [876 mm, 326 mm])
+        p4c = line(start = [876 mm, 326 mm], end = [684 mm, 326 mm])
+        p4d = line(start = [684 mm, 326 mm], end = [684 mm, 134 mm])
+        p5a = line(start = [-96 mm, 184 mm], end = [96 mm, 184 mm])
+        p5b = line(start = [96 mm, 184 mm], end = [96 mm, 376 mm])
+        p5c = line(start = [96 mm, 376 mm], end = [-96 mm, 376 mm])
+        p5d = line(start = [-96 mm, 376 mm], end = [-96 mm, 184 mm])
+        p6a = line(start = [-96 mm, -36 mm], end = [96 mm, -36 mm])
+        p6b = line(start = [96 mm, -36 mm], end = [96 mm, 156 mm])
+        p6c = line(start = [96 mm, 156 mm], end = [-96 mm, 156 mm])
+        p6d = line(start = [-96 mm, 156 mm], end = [-96 mm, -36 mm])
+    }
+    feature pockets = extrude(profile = sketch.pockets_s, distance = 120 mm, mode = cut)
+
+    output instrument_panel = { body = feature.panel.body, part_number = "FD-IP-320", material = "aluminum_6061", color = "#3C4148" }
+}

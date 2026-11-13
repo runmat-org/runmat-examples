@@ -1,0 +1,12 @@
+[package]
+name = "compliant-tube-pulse"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "compliant-tube-pulse.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,32 @@
+{
+  "id": "clamped-bar-yield",
+  "title": "Restrained bar heated past yield",
+  "pickerTitle": "Restrained bar heated past yield",
+  "pickerLine": "FEA studies",
+  "line": "A nonlinear thermal-stress FEA study of a steel bar restrained at both ends and heated 150 K past first yield.",
+  "description": "A steel bar, 16 x 16 mm and 200 mm long, held between rigid walls and heated 150 K. The walls stop it growing, so it carries a uniform axial stress that reaches yield at 109 K. A quarter of the bar is solved in load steps with J2 plasticity, and the study returns the stress and displacement at full heating.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "clamped-bar-yield.fea",
+  "roles": [
+    "structural",
+    "automotive",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "clamped-bar-yield",
+  "thumbnailAlt": "Von Mises stress in a restrained steel bar heated past yield, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermomechanical",
+    "key": "website:simulation/thermomechanical/clamped-bar-yield",
+    "source": "runmat-examples/fea/clamped-bar-yield/clamped-bar-yield.fea",
+    "geometry": "geometry/quarter-bar.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+  }
+}

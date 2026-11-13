@@ -1,0 +1,109 @@
+// Temperature and thermal stress of a ventilated front brake disc in a long downhill drag stop,
+// the disc's hardest steady duty: a 1,600 kg car holding 50 km/h down an 8 % grade.
+//
+// Geometry: ./geometry/disc.step, exported from disc.part: a 300 x 28 mm EN-GJL-250 grey-iron
+// disc with 36 radial vanes and a 32 mm deep hat on a five-hole 114.3 mm pitch circle ("Rotor").
+//
+// Duty: the grade gives m g sin(a) v = 1600 x 9.81 x 0.0798 x 13.9 = 17.4 kW; rolling resistance
+// (2.6 kW) and drag (1.4 kW) take 4.0 kW, so the brakes absorb 13.4 kW. The front axle takes
+// 70 %, so each front disc takes 4.7 kW, split evenly between its two friction faces and spread
+// over each face's swept annulus (r = 92 to 150 mm, 0.0441 m^2): 53.3 kW/m^2.
+// Cooling at 50 km/h (442 rpm on a 0.3 m wheel), air at 40 degC under the wheel arch: 60
+// W/m^2/K on the friction faces, 80 W/m^2/K in the vane channels, 30 W/m^2/K on the hat and
+// edges. Radiation is left out, which overstates the temperature.
+// Mount: the hub face is held at its five bolt holes.
+//
+// Material: EN-GJL-250 (EN 1561): E = 110 GPa (103 to 118), nu = 0.26, thermal expansion
+// 12.5e-6 /K (20 to 400 degC), conductivity 48.5 W/m/K (100 degC), 7,200 kg/m^3, 460 J/kg/K.
+// Its minimum tensile strength is 250 MPa (EN 1561, Table 1), the allowable here.
+//
+// Hand check, temperature: 4.7 kW over about 0.088 m^2 of friction faces at 60, 0.10 m^2 of vane
+// channel at 80 and 0.03 m^2 of hat at 30 W/m^2/K, about 14.2 W/K, is 330 K over ambient: the
+// ring runs about 370 degC. Stress: a ring held to a cooler hat strains by alpha dT; fully
+// restrained, sigma = E alpha dT / (1 - nu) = 110e3 x 12.5e-6 x 100 / 0.74 = 186 MPa per 100 K
+// of ring-to-hat difference. The hat's flexibility relieves most of it.
+
+geometry disc {
+    file = "./geometry/disc.step"
+    units = mm
+    region rotor : solid { select name "Rotor"; expect exactly_one }
+    region friction_inboard : face { select name "Friction face inboard"; expect exactly_one }
+    region friction_outboard : face { select name "Friction face outboard"; expect exactly_one }
+    region vanes : face { select name "Vanes"; expect one_or_more }
+    region bolt_holes : face { select name "Bolt holes"; expect one_or_more }
+    region exterior : face { select name "Exterior"; expect one_or_more }
+}
+
+mesh disc on geometry.disc {
+    tetrahedra {
+        order = quadratic
+        target_size = 6 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+material grey_iron {
+    mass_density = 7200 kg/m^3
+    elastic {
+        youngs_modulus = 110 GPa
+        poisson_ratio = 0.26
+    }
+    thermal {
+        reference_temperature = 313.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 48.5 W/m/K
+        specific_heat = 460 J/kg/K
+        expansion_coefficient = 0.0000125 K^-1
+    }
+}
+
+model drag_stop {
+    thermal { reference_temperature = 313.15 K }
+    thermomechanical { reference_temperature = 313.15 K }
+    assign material.grey_iron to geometry.disc.region.rotor
+    constraint hub { structural.fixed { target = geometry.disc.region.bolt_holes } }
+    load pad_inboard { thermal.heat_flux { target = geometry.disc.region.friction_inboard; value = 53300 W/m^2 } }
+    load pad_outboard { thermal.heat_flux { target = geometry.disc.region.friction_outboard; value = 53300 W/m^2 } }
+    load inboard_air {
+        thermal.convection {
+            target = geometry.disc.region.friction_inboard
+            ambient_temperature = 313.15 K
+            coefficient = 60 W/m^2/K
+        }
+    }
+    load outboard_air {
+        thermal.convection {
+            target = geometry.disc.region.friction_outboard
+            ambient_temperature = 313.15 K
+            coefficient = 60 W/m^2/K
+        }
+    }
+    load vane_air {
+        thermal.convection {
+            target = geometry.disc.region.vanes
+            ambient_temperature = 313.15 K
+            coefficient = 80 W/m^2/K
+        }
+    }
+    load hat_air {
+        thermal.convection {
+            target = geometry.disc.region.exterior
+            ambient_temperature = 313.15 K
+            coefficient = 30 W/m^2/K
+        }
+    }
+}
+
+study drag_stop {
+    geometry = geometry.disc
+    mesh = mesh.disc
+    model = model.drag_stop
+    analysis heat { thermal steady {} retain hot }
+    analysis stress after analysis.heat {
+        thermomechanical preload { temperature = analysis.heat.state.hot }
+    }
+    output temperature = analysis.heat.field.node.temperature
+    output peak_temperature = max(analysis.heat.field.node.temperature, over = geometry.disc.region.rotor)
+    output von_mises = analysis.stress.field.element.von_mises_stress
+    output peak_stress = max(output.von_mises, over = geometry.disc.region.rotor)
+}

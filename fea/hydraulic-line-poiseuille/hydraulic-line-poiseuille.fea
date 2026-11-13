@@ -1,0 +1,62 @@
+// Steady laminar flow of ISO VG 46 hydraulic oil at 40 degC through a straight 10 mm bore,
+// 300 mm long, at 1 L/min. The run returns the pressure drop from inlet to outlet, the velocity
+// and pressure fields and the peak speed on the pipe axis.
+//
+// Geometry: ./geometry/oil-line-d10x300.step, the oil in the bore ("Oil") with its inlet face,
+// outlet face and the bore wall. The pipe is a rigid wall to the oil, so only the oil is meshed.
+//
+// Oil: ISO VG 46 at 40 degC, 46 mm^2/s (ISO 3448 grade midpoint) and 861 kg/m^3, so
+// mu = 861 x 46e-6 = 0.0396 Pa s.
+// Flow: 1 L/min = 1.667e-5 m^3/s over 78.54 mm^2 is a mean speed of 0.2122 m/s; Re = 0.2122 x
+// 0.010 / 46e-6 = 46, laminar. The profile develops within about 0.06 Re d = 28 mm of the inlet.
+//
+// Hand check, Hagen-Poiseuille: dP = 128 mu Q L / (pi d^4)
+//   = 128 x 0.0396 x 1.667e-5 x 0.300 / (pi x 1e-8) = 807 Pa.
+// The uniform inlet adds an entrance loss of about 1.25 x 0.5 rho U^2 = 24 Pa, so the run should
+// read about 830 Pa. The developed centerline speed is twice the mean, 0.424 m/s.
+
+geometry line {
+    file = "./geometry/oil-line-d10x300.step"
+    units = mm
+    region oil : cell { select name "Oil"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region wall : face { select name "Wall"; expect exactly_one }
+}
+
+// About eight cells across the 10 mm bore.
+mesh line on geometry.line {
+    tetrahedra {
+        order = linear
+        target_size = 1.25 mm
+        maximum_deviation = 0.05 mm
+    }
+}
+
+material iso_vg_46 {
+    mass_density = 861 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+model rated_flow {
+    assign material.iso_vg_46 to geometry.line.region.oil
+    constraint supply {
+        fluid.velocity { target = geometry.line.region.inlet; value = [0.2122 m/s, 0 m/s, 0 m/s] }
+    }
+    constraint bore { fluid.no_slip_wall { target = geometry.line.region.wall } }
+    load discharge { fluid.outlet_pressure { target = geometry.line.region.outlet; value = 0 Pa } }
+}
+
+study line_pressure_drop {
+    geometry = geometry.line
+    mesh = mesh.line
+    model = model.rated_flow
+    analysis flow { fluid steady {} }
+    output velocity = analysis.flow.field.cell.fluid_velocity
+    output pressure = analysis.flow.field.cell.fluid_pressure
+    output pressure_drop = pressure_drop(analysis.flow, from = geometry.line.region.inlet, to = geometry.line.region.outlet)
+    output peak_speed = max(magnitude(output.velocity), over = geometry.line.region.oil)
+}

@@ -1,0 +1,58 @@
+// Wall shear stress in a hydraulic line: steady laminar flow of ISO VG 46 oil at 40 degC through
+// a straight 10 mm bore, 300 mm long, at 1 L/min. The run returns the wall shear stress on the
+// bore, its peak and mean, and the velocity and pressure fields.
+//
+// Geometry: ./geometry/oil-line-d10x300.step, the oil in the bore ("Oil"); the pipe is a rigid
+// wall. Oil: 861 kg/m^3, 46 mm^2/s at 40 degC (ISO 3448 VG 46), mu = 0.0396 Pa s.
+// Flow: mean speed 0.2122 m/s, Re = 46, laminar.
+//
+// Hand check, developed Poiseuille flow: tau_w = 4 mu Q / (pi R^3) = 8 mu U / d
+//   = 8 x 0.0396 x 0.2122 / 0.010 = 6.72 Pa
+// over the developed length (beyond about 28 mm from the inlet). The wall shear is higher in the
+// entrance, where the profile is still flat.
+
+geometry line {
+    file = "./geometry/oil-line-d10x300.step"
+    units = mm
+    region oil : cell { select name "Oil"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region wall : face { select name "Wall"; expect exactly_one }
+}
+
+mesh line on geometry.line {
+    tetrahedra {
+        order = linear
+        target_size = 1.25 mm
+        maximum_deviation = 0.05 mm
+    }
+}
+
+material iso_vg_46 {
+    mass_density = 861 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+model rated_flow {
+    assign material.iso_vg_46 to geometry.line.region.oil
+    constraint supply {
+        fluid.velocity { target = geometry.line.region.inlet; value = [0.2122 m/s, 0 m/s, 0 m/s] }
+    }
+    constraint bore { fluid.no_slip_wall { target = geometry.line.region.wall } }
+    load discharge { fluid.outlet_pressure { target = geometry.line.region.outlet; value = 0 Pa } }
+}
+
+study line_wall_shear {
+    geometry = geometry.line
+    mesh = mesh.line
+    model = model.rated_flow
+    analysis flow { fluid steady {} }
+    output velocity = analysis.flow.field.cell.fluid_velocity
+    output pressure = analysis.flow.field.cell.fluid_pressure
+    output wall_shear = analysis.flow.field.face.wall_shear_stress
+    output peak_wall_shear = max(magnitude(output.wall_shear), over = geometry.line.region.wall)
+    output mean_wall_shear = mean(magnitude(output.wall_shear), over = geometry.line.region.wall)
+}

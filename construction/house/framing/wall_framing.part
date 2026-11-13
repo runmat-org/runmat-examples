@@ -1,0 +1,1032 @@
+runmat 0.7
+std 1
+
+// The framing of one exterior wall: 2x6 studs at 16 in o.c. on a sill plate (pressure-treated
+// on the slab, untreated on the floor), a double top plate lapped at the corners, end posts for
+// the hold-downs, and at each opening king and jack studs, an insulated 2-ply header sized to its
+// span (DESIGN-NOTES, "Headers") and a rough sill. Studs under a window or over a header stay on
+// layout as cripples. Each wall line and level is a configuration; the opening sizes follow the
+// opening schedule in DESIGN-NOTES.md. Local axes: x along the wall, y inward from the outside face
+// of the studs, z up from the bottom of the sill.
+part wall_framing {
+    input len : length = 480 in
+    input zt : length = 106.125 in
+    input first : length = 16 in
+    input n : count = 29
+    input top2_x0 : length = 5.5 in
+    input top2_x1 : length = 474.5 in
+    input p1 : length = 60 in
+    input p2 : length = 120 in
+    input o1_l : length = 53.75 in
+    input o1_r : length = 114.25 in
+    input o1_h : length = 82.5 in
+    input o1_t : length = 91.75 in
+    input o1_s : length = 20.5 in
+    input o1_k : length = 3 in
+    input o2_l : length = 202.75 in
+    input o2_r : length = 240.75 in
+    input o2_h : length = 82.5 in
+    input o2_t : length = 89.75 in
+    input o2_s : length = 1.5 in
+    input o2_k : length = 3 in
+    input o3_l : length = 311.75 in
+    input o3_r : length = 348.25 in
+    input o3_h : length = 82.5 in
+    input o3_t : length = 89.75 in
+    input o3_s : length = 20.5 in
+    input o3_k : length = 3 in
+    input o4_l : length = 391.75 in
+    input o4_r : length = 428.25 in
+    input o4_h : length = 82.5 in
+    input o4_t : length = 89.75 in
+    input o4_s : length = 20.5 in
+    input o4_k : length = 3 in
+    let zt2 = input.zt + 1.5 in
+    let ztop = input.zt + 3 in
+
+    feature y15 = plane.offset(base = origin.zx, distance = 1.5 in)
+    feature y40 = plane.offset(base = origin.zx, distance = 4 in)
+    // Plates
+    sketch sill_s on origin.zx {
+        e0 = line(start = [0 in, 0 in], end = [1.5 in, 0 in])
+        e1 = line(start = [1.5 in, 0 in], end = [1.5 in, input.len])
+        e2 = line(start = [1.5 in, input.len], end = [0 in, input.len])
+        e3 = line(start = [0 in, input.len], end = [0 in, 0 in])
+    }
+    feature sill = extrude(profile = sketch.sill_s, distance = 5.5 in, mode = new)
+    sketch bottom_s on origin.zx {
+        e0 = line(start = [0 in, 0 in], end = [1.5 in, 0 in])
+        e1 = line(start = [1.5 in, 0 in], end = [1.5 in, input.len])
+        e2 = line(start = [1.5 in, input.len], end = [0 in, input.len])
+        e3 = line(start = [0 in, input.len], end = [0 in, 0 in])
+    }
+    feature bottom = extrude(profile = sketch.bottom_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch top1_s on origin.zx {
+        e0 = line(start = [input.zt, 0 in], end = [let.zt2, 0 in])
+        e1 = line(start = [let.zt2, 0 in], end = [let.zt2, input.len])
+        e2 = line(start = [let.zt2, input.len], end = [input.zt, input.len])
+        e3 = line(start = [input.zt, input.len], end = [input.zt, 0 in])
+    }
+    feature top1 = extrude(profile = sketch.top1_s, distance = 5.5 in, mode = new)
+    sketch top2_s on origin.zx {
+        e0 = line(start = [let.zt2, input.top2_x0], end = [let.ztop, input.top2_x0])
+        e1 = line(start = [let.ztop, input.top2_x0], end = [let.ztop, input.top2_x1])
+        e2 = line(start = [let.ztop, input.top2_x1], end = [let.zt2, input.top2_x1])
+        e3 = line(start = [let.zt2, input.top2_x1], end = [let.zt2, input.top2_x0])
+    }
+    feature top2 = extrude(profile = sketch.top2_s, distance = 5.5 in, mode = new)
+    // End posts (2 plies, the hold-down post) and the corner backing stud of the long walls
+    sketch e0_s on origin.zx {
+        e0 = line(start = [1.5 in, 0 in], end = [input.zt, 0 in])
+        e1 = line(start = [input.zt, 0 in], end = [input.zt, 1.5 in])
+        e2 = line(start = [input.zt, 1.5 in], end = [1.5 in, 1.5 in])
+        e3 = line(start = [1.5 in, 1.5 in], end = [1.5 in, 0 in])
+    }
+    feature e0 = extrude(profile = sketch.e0_s, distance = 5.5 in, mode = new)
+    sketch e1_s on origin.zx {
+        e0 = line(start = [1.5 in, 1.5 in], end = [input.zt, 1.5 in])
+        e1 = line(start = [input.zt, 1.5 in], end = [input.zt, 3 in])
+        e2 = line(start = [input.zt, 3 in], end = [1.5 in, 3 in])
+        e3 = line(start = [1.5 in, 3 in], end = [1.5 in, 1.5 in])
+    }
+    feature e1 = extrude(profile = sketch.e1_s, distance = 5.5 in, mode = new)
+    sketch e2_s on origin.zx {
+        e0 = line(start = [1.5 in, 5.5 in], end = [input.zt, 5.5 in])
+        e1 = line(start = [input.zt, 5.5 in], end = [input.zt, 7 in])
+        e2 = line(start = [input.zt, 7 in], end = [1.5 in, 7 in])
+        e3 = line(start = [1.5 in, 7 in], end = [1.5 in, 5.5 in])
+    }
+    feature e2 = extrude(profile = sketch.e2_s, distance = 5.5 in, mode = new)
+    sketch e3_s on origin.zx {
+        e0 = line(start = [1.5 in, input.len - 1.5 in], end = [input.zt, input.len - 1.5 in])
+        e1 = line(start = [input.zt, input.len - 1.5 in], end = [input.zt, input.len])
+        e2 = line(start = [input.zt, input.len], end = [1.5 in, input.len])
+        e3 = line(start = [1.5 in, input.len], end = [1.5 in, input.len - 1.5 in])
+    }
+    feature e3 = extrude(profile = sketch.e3_s, distance = 5.5 in, mode = new)
+    sketch e4_s on origin.zx {
+        e0 = line(start = [1.5 in, input.len - 3 in], end = [input.zt, input.len - 3 in])
+        e1 = line(start = [input.zt, input.len - 3 in], end = [input.zt, input.len - 1.5 in])
+        e2 = line(start = [input.zt, input.len - 1.5 in], end = [1.5 in, input.len - 1.5 in])
+        e3 = line(start = [1.5 in, input.len - 1.5 in], end = [1.5 in, input.len - 3 in])
+    }
+    feature e4 = extrude(profile = sketch.e4_s, distance = 5.5 in, mode = new)
+    sketch e5_s on origin.zx {
+        e0 = line(start = [1.5 in, input.len - 7 in], end = [input.zt, input.len - 7 in])
+        e1 = line(start = [input.zt, input.len - 7 in], end = [input.zt, input.len - 5.5 in])
+        e2 = line(start = [input.zt, input.len - 5.5 in], end = [1.5 in, input.len - 5.5 in])
+        e3 = line(start = [1.5 in, input.len - 5.5 in], end = [1.5 in, input.len - 7 in])
+    }
+    feature e5 = extrude(profile = sketch.e5_s, distance = 5.5 in, mode = new)
+    // Studs at 16 in o.c. from the first layout mark
+    sketch stud_s on origin.zx {
+        e0 = line(start = [1.5 in, input.first - 0.75 in], end = [input.zt, input.first - 0.75 in])
+        e1 = line(start = [input.zt, input.first - 0.75 in], end = [input.zt, input.first + 0.75 in])
+        e2 = line(start = [input.zt, input.first + 0.75 in], end = [1.5 in, input.first + 0.75 in])
+        e3 = line(start = [1.5 in, input.first + 0.75 in], end = [1.5 in, input.first - 0.75 in])
+    }
+    feature stud = extrude(profile = sketch.stud_s, distance = 5.5 in, mode = new)
+    feature studs = pattern(bodies = [feature.stud.body], layout = linear(direction = origin.x, spacing = 16 in, count = input.n))
+    // 3-ply posts under the floor beams (walls 1 and 5, first floor)
+    sketch p1_0_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p1 + -2.25 in], end = [input.zt, input.p1 + -2.25 in])
+        e1 = line(start = [input.zt, input.p1 + -2.25 in], end = [input.zt, input.p1 + -0.75 in])
+        e2 = line(start = [input.zt, input.p1 + -0.75 in], end = [1.5 in, input.p1 + -0.75 in])
+        e3 = line(start = [1.5 in, input.p1 + -0.75 in], end = [1.5 in, input.p1 + -2.25 in])
+    }
+    feature p1_0 = extrude(profile = sketch.p1_0_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch p1_1_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p1 + -0.75 in], end = [input.zt, input.p1 + -0.75 in])
+        e1 = line(start = [input.zt, input.p1 + -0.75 in], end = [input.zt, input.p1 + 0.75 in])
+        e2 = line(start = [input.zt, input.p1 + 0.75 in], end = [1.5 in, input.p1 + 0.75 in])
+        e3 = line(start = [1.5 in, input.p1 + 0.75 in], end = [1.5 in, input.p1 + -0.75 in])
+    }
+    feature p1_1 = extrude(profile = sketch.p1_1_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch p1_2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p1 + 0.75 in], end = [input.zt, input.p1 + 0.75 in])
+        e1 = line(start = [input.zt, input.p1 + 0.75 in], end = [input.zt, input.p1 + 2.25 in])
+        e2 = line(start = [input.zt, input.p1 + 2.25 in], end = [1.5 in, input.p1 + 2.25 in])
+        e3 = line(start = [1.5 in, input.p1 + 2.25 in], end = [1.5 in, input.p1 + 0.75 in])
+    }
+    feature p1_2 = extrude(profile = sketch.p1_2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch p2_0_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p2 + -2.25 in], end = [input.zt, input.p2 + -2.25 in])
+        e1 = line(start = [input.zt, input.p2 + -2.25 in], end = [input.zt, input.p2 + -0.75 in])
+        e2 = line(start = [input.zt, input.p2 + -0.75 in], end = [1.5 in, input.p2 + -0.75 in])
+        e3 = line(start = [1.5 in, input.p2 + -0.75 in], end = [1.5 in, input.p2 + -2.25 in])
+    }
+    feature p2_0 = extrude(profile = sketch.p2_0_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch p2_1_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p2 + -0.75 in], end = [input.zt, input.p2 + -0.75 in])
+        e1 = line(start = [input.zt, input.p2 + -0.75 in], end = [input.zt, input.p2 + 0.75 in])
+        e2 = line(start = [input.zt, input.p2 + 0.75 in], end = [1.5 in, input.p2 + 0.75 in])
+        e3 = line(start = [1.5 in, input.p2 + 0.75 in], end = [1.5 in, input.p2 + -0.75 in])
+    }
+    feature p2_1 = extrude(profile = sketch.p2_1_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch p2_2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.p2 + 0.75 in], end = [input.zt, input.p2 + 0.75 in])
+        e1 = line(start = [input.zt, input.p2 + 0.75 in], end = [input.zt, input.p2 + 2.25 in])
+        e2 = line(start = [input.zt, input.p2 + 2.25 in], end = [1.5 in, input.p2 + 2.25 in])
+        e3 = line(start = [1.5 in, input.p2 + 2.25 in], end = [1.5 in, input.p2 + 0.75 in])
+    }
+    feature p2_2 = extrude(profile = sketch.p2_2_s, distance = 5.5 in, mode = new, suppressed = true)
+    // Opening 1: rough opening o1_l to o1_r, head o1_h; king and jack zone o1_k each side
+    sketch o1_cut_s on origin.zx {
+        e0 = line(start = [input.o1_s, input.o1_l - input.o1_k], end = [input.o1_t, input.o1_l - input.o1_k])
+        e1 = line(start = [input.o1_t, input.o1_l - input.o1_k], end = [input.o1_t, input.o1_r + input.o1_k])
+        e2 = line(start = [input.o1_t, input.o1_r + input.o1_k], end = [input.o1_s, input.o1_r + input.o1_k])
+        e3 = line(start = [input.o1_s, input.o1_r + input.o1_k], end = [input.o1_s, input.o1_l - input.o1_k])
+    }
+    feature o1_cut = extrude(profile = sketch.o1_cut_s, distance = 5.5 in, mode = cut)
+    sketch o1_plate_cut_s on origin.zx {
+        e0 = line(start = [0 in, input.o1_l], end = [1.5 in, input.o1_l])
+        e1 = line(start = [1.5 in, input.o1_l], end = [1.5 in, input.o1_r])
+        e2 = line(start = [1.5 in, input.o1_r], end = [0 in, input.o1_r])
+        e3 = line(start = [0 in, input.o1_r], end = [0 in, input.o1_l])
+    }
+    feature o1_plate_cut = extrude(profile = sketch.o1_plate_cut_s, distance = 5.5 in, mode = cut, suppressed = true)
+    sketch o1_king_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_l - input.o1_k], end = [input.zt, input.o1_l - input.o1_k])
+        e1 = line(start = [input.zt, input.o1_l - input.o1_k], end = [input.zt, input.o1_l - input.o1_k + 1.5 in])
+        e2 = line(start = [input.zt, input.o1_l - input.o1_k + 1.5 in], end = [1.5 in, input.o1_l - input.o1_k + 1.5 in])
+        e3 = line(start = [1.5 in, input.o1_l - input.o1_k + 1.5 in], end = [1.5 in, input.o1_l - input.o1_k])
+    }
+    feature o1_king_l = extrude(profile = sketch.o1_king_l_s, distance = 5.5 in, mode = new)
+    sketch o1_king_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_r + input.o1_k - 1.5 in], end = [input.zt, input.o1_r + input.o1_k - 1.5 in])
+        e1 = line(start = [input.zt, input.o1_r + input.o1_k - 1.5 in], end = [input.zt, input.o1_r + input.o1_k])
+        e2 = line(start = [input.zt, input.o1_r + input.o1_k], end = [1.5 in, input.o1_r + input.o1_k])
+        e3 = line(start = [1.5 in, input.o1_r + input.o1_k], end = [1.5 in, input.o1_r + input.o1_k - 1.5 in])
+    }
+    feature o1_king_r = extrude(profile = sketch.o1_king_r_s, distance = 5.5 in, mode = new)
+    sketch o1_jack_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_l - 1.5 in], end = [input.o1_h, input.o1_l - 1.5 in])
+        e1 = line(start = [input.o1_h, input.o1_l - 1.5 in], end = [input.o1_h, input.o1_l])
+        e2 = line(start = [input.o1_h, input.o1_l], end = [1.5 in, input.o1_l])
+        e3 = line(start = [1.5 in, input.o1_l], end = [1.5 in, input.o1_l - 1.5 in])
+    }
+    feature o1_jack_l = extrude(profile = sketch.o1_jack_l_s, distance = 5.5 in, mode = new)
+    sketch o1_jack_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_r], end = [input.o1_h, input.o1_r])
+        e1 = line(start = [input.o1_h, input.o1_r], end = [input.o1_h, input.o1_r + 1.5 in])
+        e2 = line(start = [input.o1_h, input.o1_r + 1.5 in], end = [1.5 in, input.o1_r + 1.5 in])
+        e3 = line(start = [1.5 in, input.o1_r + 1.5 in], end = [1.5 in, input.o1_r])
+    }
+    feature o1_jack_r = extrude(profile = sketch.o1_jack_r_s, distance = 5.5 in, mode = new)
+    sketch o1_jack_l2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_l - 3 in], end = [input.o1_h, input.o1_l - 3 in])
+        e1 = line(start = [input.o1_h, input.o1_l - 3 in], end = [input.o1_h, input.o1_l - 1.5 in])
+        e2 = line(start = [input.o1_h, input.o1_l - 1.5 in], end = [1.5 in, input.o1_l - 1.5 in])
+        e3 = line(start = [1.5 in, input.o1_l - 1.5 in], end = [1.5 in, input.o1_l - 3 in])
+    }
+    feature o1_jack_l2 = extrude(profile = sketch.o1_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o1_jack_r2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o1_r + 1.5 in], end = [input.o1_h, input.o1_r + 1.5 in])
+        e1 = line(start = [input.o1_h, input.o1_r + 1.5 in], end = [input.o1_h, input.o1_r + 3 in])
+        e2 = line(start = [input.o1_h, input.o1_r + 3 in], end = [1.5 in, input.o1_r + 3 in])
+        e3 = line(start = [1.5 in, input.o1_r + 3 in], end = [1.5 in, input.o1_r + 1.5 in])
+    }
+    feature o1_jack_r2 = extrude(profile = sketch.o1_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o1_hdr_out_s on origin.zx {
+        e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
+        e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
+        e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
+        e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
+    }
+    feature o1_hdr_out = extrude(profile = sketch.o1_hdr_out_s, distance = 1.5 in, mode = new)
+    sketch o1_hdr_foam_s on plane.y15 {
+        e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
+        e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
+        e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
+        e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
+    }
+    feature o1_hdr_foam = extrude(profile = sketch.o1_hdr_foam_s, distance = 2.5 in, mode = new)
+    sketch o1_hdr_in_s on plane.y40 {
+        e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
+        e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
+        e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
+        e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
+    }
+    feature o1_hdr_in = extrude(profile = sketch.o1_hdr_in_s, distance = 1.5 in, mode = new)
+    sketch o1_rough_sill_s on origin.zx {
+        e0 = line(start = [input.o1_s, input.o1_l], end = [input.o1_s + 1.5 in, input.o1_l])
+        e1 = line(start = [input.o1_s + 1.5 in, input.o1_l], end = [input.o1_s + 1.5 in, input.o1_r])
+        e2 = line(start = [input.o1_s + 1.5 in, input.o1_r], end = [input.o1_s, input.o1_r])
+        e3 = line(start = [input.o1_s, input.o1_r], end = [input.o1_s, input.o1_l])
+    }
+    feature o1_rough_sill = extrude(profile = sketch.o1_rough_sill_s, distance = 5.5 in, mode = new)
+    // Opening 2: rough opening o2_l to o2_r, head o2_h; king and jack zone o2_k each side
+    sketch o2_cut_s on origin.zx {
+        e0 = line(start = [input.o2_s, input.o2_l - input.o2_k], end = [input.o2_t, input.o2_l - input.o2_k])
+        e1 = line(start = [input.o2_t, input.o2_l - input.o2_k], end = [input.o2_t, input.o2_r + input.o2_k])
+        e2 = line(start = [input.o2_t, input.o2_r + input.o2_k], end = [input.o2_s, input.o2_r + input.o2_k])
+        e3 = line(start = [input.o2_s, input.o2_r + input.o2_k], end = [input.o2_s, input.o2_l - input.o2_k])
+    }
+    feature o2_cut = extrude(profile = sketch.o2_cut_s, distance = 5.5 in, mode = cut)
+    sketch o2_plate_cut_s on origin.zx {
+        e0 = line(start = [0 in, input.o2_l], end = [1.5 in, input.o2_l])
+        e1 = line(start = [1.5 in, input.o2_l], end = [1.5 in, input.o2_r])
+        e2 = line(start = [1.5 in, input.o2_r], end = [0 in, input.o2_r])
+        e3 = line(start = [0 in, input.o2_r], end = [0 in, input.o2_l])
+    }
+    feature o2_plate_cut = extrude(profile = sketch.o2_plate_cut_s, distance = 5.5 in, mode = cut)
+    sketch o2_king_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_l - input.o2_k], end = [input.zt, input.o2_l - input.o2_k])
+        e1 = line(start = [input.zt, input.o2_l - input.o2_k], end = [input.zt, input.o2_l - input.o2_k + 1.5 in])
+        e2 = line(start = [input.zt, input.o2_l - input.o2_k + 1.5 in], end = [1.5 in, input.o2_l - input.o2_k + 1.5 in])
+        e3 = line(start = [1.5 in, input.o2_l - input.o2_k + 1.5 in], end = [1.5 in, input.o2_l - input.o2_k])
+    }
+    feature o2_king_l = extrude(profile = sketch.o2_king_l_s, distance = 5.5 in, mode = new)
+    sketch o2_king_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_r + input.o2_k - 1.5 in], end = [input.zt, input.o2_r + input.o2_k - 1.5 in])
+        e1 = line(start = [input.zt, input.o2_r + input.o2_k - 1.5 in], end = [input.zt, input.o2_r + input.o2_k])
+        e2 = line(start = [input.zt, input.o2_r + input.o2_k], end = [1.5 in, input.o2_r + input.o2_k])
+        e3 = line(start = [1.5 in, input.o2_r + input.o2_k], end = [1.5 in, input.o2_r + input.o2_k - 1.5 in])
+    }
+    feature o2_king_r = extrude(profile = sketch.o2_king_r_s, distance = 5.5 in, mode = new)
+    sketch o2_jack_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_l - 1.5 in], end = [input.o2_h, input.o2_l - 1.5 in])
+        e1 = line(start = [input.o2_h, input.o2_l - 1.5 in], end = [input.o2_h, input.o2_l])
+        e2 = line(start = [input.o2_h, input.o2_l], end = [1.5 in, input.o2_l])
+        e3 = line(start = [1.5 in, input.o2_l], end = [1.5 in, input.o2_l - 1.5 in])
+    }
+    feature o2_jack_l = extrude(profile = sketch.o2_jack_l_s, distance = 5.5 in, mode = new)
+    sketch o2_jack_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_r], end = [input.o2_h, input.o2_r])
+        e1 = line(start = [input.o2_h, input.o2_r], end = [input.o2_h, input.o2_r + 1.5 in])
+        e2 = line(start = [input.o2_h, input.o2_r + 1.5 in], end = [1.5 in, input.o2_r + 1.5 in])
+        e3 = line(start = [1.5 in, input.o2_r + 1.5 in], end = [1.5 in, input.o2_r])
+    }
+    feature o2_jack_r = extrude(profile = sketch.o2_jack_r_s, distance = 5.5 in, mode = new)
+    sketch o2_jack_l2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_l - 3 in], end = [input.o2_h, input.o2_l - 3 in])
+        e1 = line(start = [input.o2_h, input.o2_l - 3 in], end = [input.o2_h, input.o2_l - 1.5 in])
+        e2 = line(start = [input.o2_h, input.o2_l - 1.5 in], end = [1.5 in, input.o2_l - 1.5 in])
+        e3 = line(start = [1.5 in, input.o2_l - 1.5 in], end = [1.5 in, input.o2_l - 3 in])
+    }
+    feature o2_jack_l2 = extrude(profile = sketch.o2_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o2_jack_r2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o2_r + 1.5 in], end = [input.o2_h, input.o2_r + 1.5 in])
+        e1 = line(start = [input.o2_h, input.o2_r + 1.5 in], end = [input.o2_h, input.o2_r + 3 in])
+        e2 = line(start = [input.o2_h, input.o2_r + 3 in], end = [1.5 in, input.o2_r + 3 in])
+        e3 = line(start = [1.5 in, input.o2_r + 3 in], end = [1.5 in, input.o2_r + 1.5 in])
+    }
+    feature o2_jack_r2 = extrude(profile = sketch.o2_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o2_hdr_out_s on origin.zx {
+        e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
+        e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
+        e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
+        e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
+    }
+    feature o2_hdr_out = extrude(profile = sketch.o2_hdr_out_s, distance = 1.5 in, mode = new)
+    sketch o2_hdr_foam_s on plane.y15 {
+        e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
+        e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
+        e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
+        e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
+    }
+    feature o2_hdr_foam = extrude(profile = sketch.o2_hdr_foam_s, distance = 2.5 in, mode = new)
+    sketch o2_hdr_in_s on plane.y40 {
+        e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
+        e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
+        e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
+        e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
+    }
+    feature o2_hdr_in = extrude(profile = sketch.o2_hdr_in_s, distance = 1.5 in, mode = new)
+    sketch o2_rough_sill_s on origin.zx {
+        e0 = line(start = [input.o2_s, input.o2_l], end = [input.o2_s + 1.5 in, input.o2_l])
+        e1 = line(start = [input.o2_s + 1.5 in, input.o2_l], end = [input.o2_s + 1.5 in, input.o2_r])
+        e2 = line(start = [input.o2_s + 1.5 in, input.o2_r], end = [input.o2_s, input.o2_r])
+        e3 = line(start = [input.o2_s, input.o2_r], end = [input.o2_s, input.o2_l])
+    }
+    feature o2_rough_sill = extrude(profile = sketch.o2_rough_sill_s, distance = 5.5 in, mode = new, suppressed = true)
+    // Opening 3: rough opening o3_l to o3_r, head o3_h; king and jack zone o3_k each side
+    sketch o3_cut_s on origin.zx {
+        e0 = line(start = [input.o3_s, input.o3_l - input.o3_k], end = [input.o3_t, input.o3_l - input.o3_k])
+        e1 = line(start = [input.o3_t, input.o3_l - input.o3_k], end = [input.o3_t, input.o3_r + input.o3_k])
+        e2 = line(start = [input.o3_t, input.o3_r + input.o3_k], end = [input.o3_s, input.o3_r + input.o3_k])
+        e3 = line(start = [input.o3_s, input.o3_r + input.o3_k], end = [input.o3_s, input.o3_l - input.o3_k])
+    }
+    feature o3_cut = extrude(profile = sketch.o3_cut_s, distance = 5.5 in, mode = cut)
+    sketch o3_plate_cut_s on origin.zx {
+        e0 = line(start = [0 in, input.o3_l], end = [1.5 in, input.o3_l])
+        e1 = line(start = [1.5 in, input.o3_l], end = [1.5 in, input.o3_r])
+        e2 = line(start = [1.5 in, input.o3_r], end = [0 in, input.o3_r])
+        e3 = line(start = [0 in, input.o3_r], end = [0 in, input.o3_l])
+    }
+    feature o3_plate_cut = extrude(profile = sketch.o3_plate_cut_s, distance = 5.5 in, mode = cut, suppressed = true)
+    sketch o3_king_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_l - input.o3_k], end = [input.zt, input.o3_l - input.o3_k])
+        e1 = line(start = [input.zt, input.o3_l - input.o3_k], end = [input.zt, input.o3_l - input.o3_k + 1.5 in])
+        e2 = line(start = [input.zt, input.o3_l - input.o3_k + 1.5 in], end = [1.5 in, input.o3_l - input.o3_k + 1.5 in])
+        e3 = line(start = [1.5 in, input.o3_l - input.o3_k + 1.5 in], end = [1.5 in, input.o3_l - input.o3_k])
+    }
+    feature o3_king_l = extrude(profile = sketch.o3_king_l_s, distance = 5.5 in, mode = new)
+    sketch o3_king_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_r + input.o3_k - 1.5 in], end = [input.zt, input.o3_r + input.o3_k - 1.5 in])
+        e1 = line(start = [input.zt, input.o3_r + input.o3_k - 1.5 in], end = [input.zt, input.o3_r + input.o3_k])
+        e2 = line(start = [input.zt, input.o3_r + input.o3_k], end = [1.5 in, input.o3_r + input.o3_k])
+        e3 = line(start = [1.5 in, input.o3_r + input.o3_k], end = [1.5 in, input.o3_r + input.o3_k - 1.5 in])
+    }
+    feature o3_king_r = extrude(profile = sketch.o3_king_r_s, distance = 5.5 in, mode = new)
+    sketch o3_jack_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_l - 1.5 in], end = [input.o3_h, input.o3_l - 1.5 in])
+        e1 = line(start = [input.o3_h, input.o3_l - 1.5 in], end = [input.o3_h, input.o3_l])
+        e2 = line(start = [input.o3_h, input.o3_l], end = [1.5 in, input.o3_l])
+        e3 = line(start = [1.5 in, input.o3_l], end = [1.5 in, input.o3_l - 1.5 in])
+    }
+    feature o3_jack_l = extrude(profile = sketch.o3_jack_l_s, distance = 5.5 in, mode = new)
+    sketch o3_jack_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_r], end = [input.o3_h, input.o3_r])
+        e1 = line(start = [input.o3_h, input.o3_r], end = [input.o3_h, input.o3_r + 1.5 in])
+        e2 = line(start = [input.o3_h, input.o3_r + 1.5 in], end = [1.5 in, input.o3_r + 1.5 in])
+        e3 = line(start = [1.5 in, input.o3_r + 1.5 in], end = [1.5 in, input.o3_r])
+    }
+    feature o3_jack_r = extrude(profile = sketch.o3_jack_r_s, distance = 5.5 in, mode = new)
+    sketch o3_jack_l2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_l - 3 in], end = [input.o3_h, input.o3_l - 3 in])
+        e1 = line(start = [input.o3_h, input.o3_l - 3 in], end = [input.o3_h, input.o3_l - 1.5 in])
+        e2 = line(start = [input.o3_h, input.o3_l - 1.5 in], end = [1.5 in, input.o3_l - 1.5 in])
+        e3 = line(start = [1.5 in, input.o3_l - 1.5 in], end = [1.5 in, input.o3_l - 3 in])
+    }
+    feature o3_jack_l2 = extrude(profile = sketch.o3_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o3_jack_r2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o3_r + 1.5 in], end = [input.o3_h, input.o3_r + 1.5 in])
+        e1 = line(start = [input.o3_h, input.o3_r + 1.5 in], end = [input.o3_h, input.o3_r + 3 in])
+        e2 = line(start = [input.o3_h, input.o3_r + 3 in], end = [1.5 in, input.o3_r + 3 in])
+        e3 = line(start = [1.5 in, input.o3_r + 3 in], end = [1.5 in, input.o3_r + 1.5 in])
+    }
+    feature o3_jack_r2 = extrude(profile = sketch.o3_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o3_hdr_out_s on origin.zx {
+        e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
+        e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
+        e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
+        e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
+    }
+    feature o3_hdr_out = extrude(profile = sketch.o3_hdr_out_s, distance = 1.5 in, mode = new)
+    sketch o3_hdr_foam_s on plane.y15 {
+        e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
+        e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
+        e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
+        e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
+    }
+    feature o3_hdr_foam = extrude(profile = sketch.o3_hdr_foam_s, distance = 2.5 in, mode = new)
+    sketch o3_hdr_in_s on plane.y40 {
+        e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
+        e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
+        e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
+        e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
+    }
+    feature o3_hdr_in = extrude(profile = sketch.o3_hdr_in_s, distance = 1.5 in, mode = new)
+    sketch o3_rough_sill_s on origin.zx {
+        e0 = line(start = [input.o3_s, input.o3_l], end = [input.o3_s + 1.5 in, input.o3_l])
+        e1 = line(start = [input.o3_s + 1.5 in, input.o3_l], end = [input.o3_s + 1.5 in, input.o3_r])
+        e2 = line(start = [input.o3_s + 1.5 in, input.o3_r], end = [input.o3_s, input.o3_r])
+        e3 = line(start = [input.o3_s, input.o3_r], end = [input.o3_s, input.o3_l])
+    }
+    feature o3_rough_sill = extrude(profile = sketch.o3_rough_sill_s, distance = 5.5 in, mode = new)
+    // Opening 4: rough opening o4_l to o4_r, head o4_h; king and jack zone o4_k each side
+    sketch o4_cut_s on origin.zx {
+        e0 = line(start = [input.o4_s, input.o4_l - input.o4_k], end = [input.o4_t, input.o4_l - input.o4_k])
+        e1 = line(start = [input.o4_t, input.o4_l - input.o4_k], end = [input.o4_t, input.o4_r + input.o4_k])
+        e2 = line(start = [input.o4_t, input.o4_r + input.o4_k], end = [input.o4_s, input.o4_r + input.o4_k])
+        e3 = line(start = [input.o4_s, input.o4_r + input.o4_k], end = [input.o4_s, input.o4_l - input.o4_k])
+    }
+    feature o4_cut = extrude(profile = sketch.o4_cut_s, distance = 5.5 in, mode = cut)
+    sketch o4_plate_cut_s on origin.zx {
+        e0 = line(start = [0 in, input.o4_l], end = [1.5 in, input.o4_l])
+        e1 = line(start = [1.5 in, input.o4_l], end = [1.5 in, input.o4_r])
+        e2 = line(start = [1.5 in, input.o4_r], end = [0 in, input.o4_r])
+        e3 = line(start = [0 in, input.o4_r], end = [0 in, input.o4_l])
+    }
+    feature o4_plate_cut = extrude(profile = sketch.o4_plate_cut_s, distance = 5.5 in, mode = cut, suppressed = true)
+    sketch o4_king_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_l - input.o4_k], end = [input.zt, input.o4_l - input.o4_k])
+        e1 = line(start = [input.zt, input.o4_l - input.o4_k], end = [input.zt, input.o4_l - input.o4_k + 1.5 in])
+        e2 = line(start = [input.zt, input.o4_l - input.o4_k + 1.5 in], end = [1.5 in, input.o4_l - input.o4_k + 1.5 in])
+        e3 = line(start = [1.5 in, input.o4_l - input.o4_k + 1.5 in], end = [1.5 in, input.o4_l - input.o4_k])
+    }
+    feature o4_king_l = extrude(profile = sketch.o4_king_l_s, distance = 5.5 in, mode = new)
+    sketch o4_king_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_r + input.o4_k - 1.5 in], end = [input.zt, input.o4_r + input.o4_k - 1.5 in])
+        e1 = line(start = [input.zt, input.o4_r + input.o4_k - 1.5 in], end = [input.zt, input.o4_r + input.o4_k])
+        e2 = line(start = [input.zt, input.o4_r + input.o4_k], end = [1.5 in, input.o4_r + input.o4_k])
+        e3 = line(start = [1.5 in, input.o4_r + input.o4_k], end = [1.5 in, input.o4_r + input.o4_k - 1.5 in])
+    }
+    feature o4_king_r = extrude(profile = sketch.o4_king_r_s, distance = 5.5 in, mode = new)
+    sketch o4_jack_l_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_l - 1.5 in], end = [input.o4_h, input.o4_l - 1.5 in])
+        e1 = line(start = [input.o4_h, input.o4_l - 1.5 in], end = [input.o4_h, input.o4_l])
+        e2 = line(start = [input.o4_h, input.o4_l], end = [1.5 in, input.o4_l])
+        e3 = line(start = [1.5 in, input.o4_l], end = [1.5 in, input.o4_l - 1.5 in])
+    }
+    feature o4_jack_l = extrude(profile = sketch.o4_jack_l_s, distance = 5.5 in, mode = new)
+    sketch o4_jack_r_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_r], end = [input.o4_h, input.o4_r])
+        e1 = line(start = [input.o4_h, input.o4_r], end = [input.o4_h, input.o4_r + 1.5 in])
+        e2 = line(start = [input.o4_h, input.o4_r + 1.5 in], end = [1.5 in, input.o4_r + 1.5 in])
+        e3 = line(start = [1.5 in, input.o4_r + 1.5 in], end = [1.5 in, input.o4_r])
+    }
+    feature o4_jack_r = extrude(profile = sketch.o4_jack_r_s, distance = 5.5 in, mode = new)
+    sketch o4_jack_l2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_l - 3 in], end = [input.o4_h, input.o4_l - 3 in])
+        e1 = line(start = [input.o4_h, input.o4_l - 3 in], end = [input.o4_h, input.o4_l - 1.5 in])
+        e2 = line(start = [input.o4_h, input.o4_l - 1.5 in], end = [1.5 in, input.o4_l - 1.5 in])
+        e3 = line(start = [1.5 in, input.o4_l - 1.5 in], end = [1.5 in, input.o4_l - 3 in])
+    }
+    feature o4_jack_l2 = extrude(profile = sketch.o4_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o4_jack_r2_s on origin.zx {
+        e0 = line(start = [1.5 in, input.o4_r + 1.5 in], end = [input.o4_h, input.o4_r + 1.5 in])
+        e1 = line(start = [input.o4_h, input.o4_r + 1.5 in], end = [input.o4_h, input.o4_r + 3 in])
+        e2 = line(start = [input.o4_h, input.o4_r + 3 in], end = [1.5 in, input.o4_r + 3 in])
+        e3 = line(start = [1.5 in, input.o4_r + 3 in], end = [1.5 in, input.o4_r + 1.5 in])
+    }
+    feature o4_jack_r2 = extrude(profile = sketch.o4_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    sketch o4_hdr_out_s on origin.zx {
+        e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
+        e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
+        e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
+        e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
+    }
+    feature o4_hdr_out = extrude(profile = sketch.o4_hdr_out_s, distance = 1.5 in, mode = new)
+    sketch o4_hdr_foam_s on plane.y15 {
+        e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
+        e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
+        e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
+        e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
+    }
+    feature o4_hdr_foam = extrude(profile = sketch.o4_hdr_foam_s, distance = 2.5 in, mode = new)
+    sketch o4_hdr_in_s on plane.y40 {
+        e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
+        e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
+        e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
+        e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
+    }
+    feature o4_hdr_in = extrude(profile = sketch.o4_hdr_in_s, distance = 1.5 in, mode = new)
+    sketch o4_rough_sill_s on origin.zx {
+        e0 = line(start = [input.o4_s, input.o4_l], end = [input.o4_s + 1.5 in, input.o4_l])
+        e1 = line(start = [input.o4_s + 1.5 in, input.o4_l], end = [input.o4_s + 1.5 in, input.o4_r])
+        e2 = line(start = [input.o4_s + 1.5 in, input.o4_r], end = [input.o4_s, input.o4_r])
+        e3 = line(start = [input.o4_s, input.o4_r], end = [input.o4_s, input.o4_l])
+    }
+    feature o4_rough_sill = extrude(profile = sketch.o4_rough_sill_s, distance = 5.5 in, mode = new)
+
+    // Connector holes (lane H4) 1_l1 for wall_1_l1: bored holes, cast-in voids and seat reliefs
+    feature hw_1_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
+    feature hw_1_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_1_l1_0_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [8 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_0 = extrude(profile = sketch.hw_1_l1_0_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_1_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [56 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_1 = extrude(profile = sketch.hw_1_l1_1_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_2_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [104 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_2 = extrude(profile = sketch.hw_1_l1_2_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_3_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [152 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_3 = extrude(profile = sketch.hw_1_l1_3_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_4_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [200 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_4 = extrude(profile = sketch.hw_1_l1_4_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_5_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [245 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_5 = extrude(profile = sketch.hw_1_l1_5_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_6_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [293 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_6 = extrude(profile = sketch.hw_1_l1_6_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_7_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [341 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_7 = extrude(profile = sketch.hw_1_l1_7_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_8_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_8 = extrude(profile = sketch.hw_1_l1_8_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_9_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_9 = extrude(profile = sketch.hw_1_l1_9_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_10_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_10 = extrude(profile = sketch.hw_1_l1_10_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_11_s on plane.hw_1_l1_pl0 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_11 = extrude(profile = sketch.hw_1_l1_11_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_12_s on plane.hw_1_l1_pl1 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_12 = extrude(profile = sketch.hw_1_l1_12_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_13_s on plane.hw_1_l1_pl1 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_13 = extrude(profile = sketch.hw_1_l1_13_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_14_s on plane.hw_1_l1_pl1 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_14 = extrude(profile = sketch.hw_1_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_1_l1_15_s on plane.hw_1_l1_pl1 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l1_15 = extrude(profile = sketch.hw_1_l1_15_s, distance = 6.575 in, mode = cut, suppressed = true)
+    // end connector holes 1_l1 wall_1_l1
+    // Connector holes (lane H4) 1_l2 for wall_1_l2: bored holes, cast-in voids and seat reliefs
+    feature hw_1_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_1_l2_0_s on plane.hw_1_l2_pl0 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l2_0 = extrude(profile = sketch.hw_1_l2_0_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l2_1_s on plane.hw_1_l2_pl0 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_1_l2_1 = extrude(profile = sketch.hw_1_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l2_2_s on plane.hw_1_l2_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l2_2 = extrude(profile = sketch.hw_1_l2_2_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_1_l2_3_s on plane.hw_1_l2_pl0 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_1_l2_3 = extrude(profile = sketch.hw_1_l2_3_s, distance = 4.9 in, mode = cut, suppressed = true)
+    // end connector holes 1_l2 wall_1_l2
+    // Connector holes (lane H4) 5_l1 for wall_5_l1: bored holes, cast-in voids and seat reliefs
+    feature hw_5_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
+    feature hw_5_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_5_l1_0_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [12 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_0 = extrude(profile = sketch.hw_5_l1_0_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_1_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [58 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_1 = extrude(profile = sketch.hw_5_l1_1_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_2_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [106 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_2 = extrude(profile = sketch.hw_5_l1_2_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_3_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [154 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_3 = extrude(profile = sketch.hw_5_l1_3_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_4_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [202 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_4 = extrude(profile = sketch.hw_5_l1_4_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_5_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [250 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_5 = extrude(profile = sketch.hw_5_l1_5_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_6_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [298 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_6 = extrude(profile = sketch.hw_5_l1_6_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_7_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [342 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_7 = extrude(profile = sketch.hw_5_l1_7_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_8_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_8 = extrude(profile = sketch.hw_5_l1_8_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_9_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_9 = extrude(profile = sketch.hw_5_l1_9_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_10_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_10 = extrude(profile = sketch.hw_5_l1_10_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_11_s on plane.hw_5_l1_pl0 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_11 = extrude(profile = sketch.hw_5_l1_11_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_12_s on plane.hw_5_l1_pl1 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_12 = extrude(profile = sketch.hw_5_l1_12_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_13_s on plane.hw_5_l1_pl1 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_13 = extrude(profile = sketch.hw_5_l1_13_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_14_s on plane.hw_5_l1_pl1 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_14 = extrude(profile = sketch.hw_5_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_5_l1_15_s on plane.hw_5_l1_pl1 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l1_15 = extrude(profile = sketch.hw_5_l1_15_s, distance = 6.575 in, mode = cut, suppressed = true)
+    // end connector holes 5_l1 wall_5_l1
+    // Connector holes (lane H4) 5_l2 for wall_5_l2: bored holes, cast-in voids and seat reliefs
+    feature hw_5_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_5_l2_0_s on plane.hw_5_l2_pl0 {
+        c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l2_0 = extrude(profile = sketch.hw_5_l2_0_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l2_1_s on plane.hw_5_l2_pl0 {
+        c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
+    }
+    feature hw_5_l2_1 = extrude(profile = sketch.hw_5_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l2_2_s on plane.hw_5_l2_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l2_2 = extrude(profile = sketch.hw_5_l2_2_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_5_l2_3_s on plane.hw_5_l2_pl0 {
+        c = circle(center = [344.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_5_l2_3 = extrude(profile = sketch.hw_5_l2_3_s, distance = 4.9 in, mode = cut, suppressed = true)
+    // end connector holes 5_l2 wall_5_l2
+    // Connector holes (lane H4) a_l1 for wall_a_l1: bored holes, cast-in voids and seat reliefs
+    feature hw_a_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
+    feature hw_a_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_a_l1_0_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [12 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_0 = extrude(profile = sketch.hw_a_l1_0_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_1_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [60 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_1 = extrude(profile = sketch.hw_a_l1_1_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_2_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [108 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_2 = extrude(profile = sketch.hw_a_l1_2_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_3_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [156 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_3 = extrude(profile = sketch.hw_a_l1_3_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_4_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [198 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_4 = extrude(profile = sketch.hw_a_l1_4_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_5_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [252.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_5 = extrude(profile = sketch.hw_a_l1_5_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_6_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [300.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_6 = extrude(profile = sketch.hw_a_l1_6_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_7_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [346.5 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_7 = extrude(profile = sketch.hw_a_l1_7_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_8_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [394.5 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_8 = extrude(profile = sketch.hw_a_l1_8_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_9_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [442.5 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_9 = extrude(profile = sketch.hw_a_l1_9_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_10_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [471.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_10 = extrude(profile = sketch.hw_a_l1_10_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_11_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_11 = extrude(profile = sketch.hw_a_l1_11_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_12_s on plane.hw_a_l1_pl0 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_12 = extrude(profile = sketch.hw_a_l1_12_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_13_s on plane.hw_a_l1_pl1 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_13 = extrude(profile = sketch.hw_a_l1_13_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_a_l1_14_s on plane.hw_a_l1_pl1 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l1_14 = extrude(profile = sketch.hw_a_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
+    // end connector holes a_l1 wall_a_l1
+    // Connector holes (lane H4) a_l2 for wall_a_l2: bored holes, cast-in voids and seat reliefs
+    feature hw_a_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_a_l2_0_s on plane.hw_a_l2_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l2_0 = extrude(profile = sketch.hw_a_l2_0_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_a_l2_1_s on plane.hw_a_l2_pl0 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_a_l2_1 = extrude(profile = sketch.hw_a_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
+    // end connector holes a_l2 wall_a_l2
+    // Connector holes (lane H4) d_l1 for wall_d_l1: bored holes, cast-in voids and seat reliefs
+    feature hw_d_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
+    feature hw_d_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_d_l1_0_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [12 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_0 = extrude(profile = sketch.hw_d_l1_0_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_1_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [60 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_1 = extrude(profile = sketch.hw_d_l1_1_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_2_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [108 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_2 = extrude(profile = sketch.hw_d_l1_2_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_3_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [156 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_3 = extrude(profile = sketch.hw_d_l1_3_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_4_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [204 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_4 = extrude(profile = sketch.hw_d_l1_4_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_5_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [217 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_5 = extrude(profile = sketch.hw_d_l1_5_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_6_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [309.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_6 = extrude(profile = sketch.hw_d_l1_6_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_7_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [357.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_7 = extrude(profile = sketch.hw_d_l1_7_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_8_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [405.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_8 = extrude(profile = sketch.hw_d_l1_8_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_9_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [453.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_9 = extrude(profile = sketch.hw_d_l1_9_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_10_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [471.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_10 = extrude(profile = sketch.hw_d_l1_10_s, distance = 2.5 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_11_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_11 = extrude(profile = sketch.hw_d_l1_11_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_12_s on plane.hw_d_l1_pl0 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_12 = extrude(profile = sketch.hw_d_l1_12_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_13_s on plane.hw_d_l1_pl1 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_13 = extrude(profile = sketch.hw_d_l1_13_s, distance = 6.575 in, mode = cut, suppressed = true)
+    sketch hw_d_l1_14_s on plane.hw_d_l1_pl1 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l1_14 = extrude(profile = sketch.hw_d_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
+    // end connector holes d_l1 wall_d_l1
+    // Connector holes (lane H4) d_l2 for wall_d_l2: bored holes, cast-in voids and seat reliefs
+    feature hw_d_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
+    sketch hw_d_l2_0_s on plane.hw_d_l2_pl0 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l2_0 = extrude(profile = sketch.hw_d_l2_0_s, distance = 4.9 in, mode = cut, suppressed = true)
+    sketch hw_d_l2_1_s on plane.hw_d_l2_pl0 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3438 in)
+    }
+    feature hw_d_l2_1 = extrude(profile = sketch.hw_d_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
+    // end connector holes d_l2 wall_d_l2
+    // MEP penetrations (lane H3) for wall_5_l1: bored holes and box cut-outs where the runs pass
+    feature mep_wall_5_l1_p_xy_3 = plane.offset(base = origin.xy, distance = 11.125 in)
+    feature mep_wall_5_l1_p_zx_2 = plane.offset(base = origin.zx, distance = -8 in)
+    feature mep_wall_5_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 43.5 in)
+    feature mep_wall_5_l1_p_xy_0 = plane.offset(base = origin.xy, distance = 8 in)
+    sketch mep_wall_5_l1_0_s on plane.mep_wall_5_l1_p_xy_0 {
+        c = circle(center = [223.5 in, 4.75 in], radius = 0.5 in)
+    }
+    feature mep_wall_5_l1_0 = extrude(profile = sketch.mep_wall_5_l1_0_s, distance = 108.6 in, mode = cut, suppressed = true)
+    sketch mep_wall_5_l1_1_s on plane.mep_wall_5_l1_p_xy_1 {
+        c = circle(center = [244.5 in, 4.75 in], radius = 0.375 in)
+    }
+    feature mep_wall_5_l1_1 = extrude(profile = sketch.mep_wall_5_l1_1_s, distance = 72.25 in, mode = cut, suppressed = true)
+    sketch mep_wall_5_l1_2_s on plane.mep_wall_5_l1_p_zx_2 {
+        c = circle(center = [12 in, 172.5 in], radius = 1 in)
+    }
+    feature mep_wall_5_l1_2 = extrude(profile = sketch.mep_wall_5_l1_2_s, distance = 11.625 in, mode = cut, suppressed = true)
+    sketch mep_wall_5_l1_3_s on plane.mep_wall_5_l1_p_xy_3 {
+        c = circle(center = [172.5 in, 2.75 in], radius = 1 in)
+    }
+    feature mep_wall_5_l1_3 = extrude(profile = sketch.mep_wall_5_l1_3_s, distance = 105.75 in, mode = cut, suppressed = true)
+    // end MEP penetrations wall_5_l1
+    // MEP penetrations (lane H3) for wall_a_l1: bored holes and box cut-outs where the runs pass
+    feature mep_wall_a_l1_p_xy_0 = plane.offset(base = origin.xy, distance = 17.5 in)
+    sketch mep_wall_a_l1_0_s on plane.mep_wall_a_l1_p_xy_0 {
+        c = circle(center = [376 in, 4.75 in], radius = 0.375 in)
+    }
+    feature mep_wall_a_l1_0 = extrude(profile = sketch.mep_wall_a_l1_0_s, distance = 101.05 in, mode = cut, suppressed = true)
+    // end MEP penetrations wall_a_l1
+    // MEP penetrations (lane H3) for wall_d_l1: bored holes and box cut-outs where the runs pass
+    feature mep_wall_d_l1_p_zx_8 = plane.offset(base = origin.zx, distance = 6.0156 in)
+    feature mep_wall_d_l1_p_xy_7 = plane.offset(base = origin.xy, distance = 29.05 in)
+    feature mep_wall_d_l1_p_yz_6 = plane.offset(base = origin.yz, distance = 39.05 in)
+    feature mep_wall_d_l1_p_xy_5 = plane.offset(base = origin.xy, distance = 16 in)
+    feature mep_wall_d_l1_p_zx_4 = plane.offset(base = origin.zx, distance = 2.75 in)
+    feature mep_wall_d_l1_p_zx_3 = plane.offset(base = origin.zx, distance = 4.4375 in)
+    feature mep_wall_d_l1_p_xy_2 = plane.offset(base = origin.xy, distance = 17.6875 in)
+    feature mep_wall_d_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 75.5 in)
+    feature mep_wall_d_l1_p_xy_0 = plane.offset(base = origin.xy, distance = 43.5 in)
+    sketch mep_wall_d_l1_0_s on plane.mep_wall_d_l1_p_xy_0 {
+        c = circle(center = [137.5 in, 4.75 in], radius = 0.375 in)
+    }
+    feature mep_wall_d_l1_0 = extrude(profile = sketch.mep_wall_d_l1_0_s, distance = 70.15 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_1_s on plane.mep_wall_d_l1_p_xy_1 {
+        c = circle(center = [152 in, 4.75 in], radius = 0.375 in)
+    }
+    feature mep_wall_d_l1_1 = extrude(profile = sketch.mep_wall_d_l1_1_s, distance = 38.85 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_2_s on plane.mep_wall_d_l1_p_xy_2 {
+        c = circle(center = [141.5 in, 4.75 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l1_2 = extrude(profile = sketch.mep_wall_d_l1_2_s, distance = 98.475 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_3_s on plane.mep_wall_d_l1_p_zx_3 {
+        c = circle(center = [18 in, 141.5 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l1_3 = extrude(profile = sketch.mep_wall_d_l1_3_s, distance = 1.5781 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_4_s on plane.mep_wall_d_l1_p_xy_2 {
+        c = circle(center = [131.5 in, 4.75 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l1_4 = extrude(profile = sketch.mep_wall_d_l1_4_s, distance = 99.025 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_5_s on plane.mep_wall_d_l1_p_zx_3 {
+        c = circle(center = [18 in, 131.5 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l1_5 = extrude(profile = sketch.mep_wall_d_l1_5_s, distance = 1.5781 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_6_s on plane.mep_wall_d_l1_p_zx_4 {
+        c = circle(center = [16.0341 in, 104 in], radius = 1.0841 in)
+    }
+    feature mep_wall_d_l1_6 = extrude(profile = sketch.mep_wall_d_l1_6_s, distance = 3.2656 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_7_s on plane.mep_wall_d_l1_p_xy_5 {
+        c = circle(center = [104 in, 2.75 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l1_7 = extrude(profile = sketch.mep_wall_d_l1_7_s, distance = 14.95 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_8_s on plane.mep_wall_d_l1_p_yz_6 {
+        c = circle(center = [2.75 in, 30 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l1_8 = extrude(profile = sketch.mep_wall_d_l1_8_s, distance = 65.9 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_9_s on plane.mep_wall_d_l1_p_xy_7 {
+        c = circle(center = [40 in, 2.75 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l1_9 = extrude(profile = sketch.mep_wall_d_l1_9_s, distance = 195.9 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l1_10_s on plane.mep_wall_d_l1_p_zx_8 {
+        c = circle(center = [16.0681 in, 104 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l1_10 = extrude(profile = sketch.mep_wall_d_l1_10_s, distance = 4.9344 in, mode = cut, suppressed = true)
+    // end MEP penetrations wall_d_l1
+    // MEP penetrations (lane H3) for wall_d_l2: bored holes and box cut-outs where the runs pass
+    feature mep_wall_d_l2_p_xy_3 = plane.offset(base = origin.xy, distance = -6.4198 in)
+    feature mep_wall_d_l2_p_xy_2 = plane.offset(base = origin.xy, distance = -3.5625 in)
+    feature mep_wall_d_l2_p_xy_1 = plane.offset(base = origin.xy, distance = -4.7625 in)
+    feature mep_wall_d_l2_p_xy_0 = plane.offset(base = origin.xy, distance = -92.7 in)
+    sketch mep_wall_d_l2_0_s on plane.mep_wall_d_l2_p_xy_0 {
+        c = circle(center = [40 in, 2.75 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l2_0 = extrude(profile = sketch.mep_wall_d_l2_0_s, distance = 195.9 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l2_1_s on plane.mep_wall_d_l2_p_xy_1 {
+        c = circle(center = [357.5 in, 4.5 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l2_1 = extrude(profile = sketch.mep_wall_d_l2_1_s, distance = 35.2625 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l2_2_s on plane.mep_wall_d_l2_p_xy_2 {
+        c = circle(center = [355 in, 4.5 in], radius = 0.5 in)
+    }
+    feature mep_wall_d_l2_2 = extrude(profile = sketch.mep_wall_d_l2_2_s, distance = 34.0625 in, mode = cut, suppressed = true)
+    sketch mep_wall_d_l2_3_s on plane.mep_wall_d_l2_p_xy_3 {
+        c = circle(center = [346.5 in, 4 in], radius = 1.05 in)
+    }
+    feature mep_wall_d_l2_3 = extrude(profile = sketch.mep_wall_d_l2_3_s, distance = 109.6198 in, mode = cut, suppressed = true)
+    // end MEP penetrations wall_d_l2
+    output wall_framing = { body = feature.top1.body, part_number = "W-A1", material = "material.douglas_fir_lumber" }
+    material = { body = feature.sill.body, material = "material.douglas_fir_lumber_pressure_treated" }
+    material = { body = feature.o1_hdr_foam.body, material = "material.xps_foam" }
+    material = { body = feature.o2_hdr_foam.body, material = "material.xps_foam" }
+    material = { body = feature.o3_hdr_foam.body, material = "material.xps_foam" }
+    material = { body = feature.o4_hdr_foam.body, material = "material.xps_foam" }
+    region outside_face : face = { select = [feature.top1.face.start], expect = exactly_one, label = "Outside face of framing" }
+    publish len = value(input = len)
+
+    configuration wall_a_l1 = {
+        len = 480 in, zt = 106.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29,
+        o1_l = 53.75 in, o1_r = 114.25 in, o1_h = 82.5 in, o1_t = 91.75 in, o1_s = 20.5 in, o1_k = 3 in,
+        o2_l = 202.75 in, o2_r = 240.75 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 1.5 in, o2_k = 3 in,
+        o3_l = 311.75 in, o3_r = 348.25 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        features = { mep_wall_a_l1_0 = { suppressed = false }, hw_a_l1_0 = { suppressed = false }, hw_a_l1_1 = { suppressed = false }, hw_a_l1_2 = { suppressed = false }, hw_a_l1_3 = { suppressed = false }, hw_a_l1_4 = { suppressed = false }, hw_a_l1_5 = { suppressed = false }, hw_a_l1_6 = { suppressed = false }, hw_a_l1_7 = { suppressed = false }, hw_a_l1_8 = { suppressed = false }, hw_a_l1_9 = { suppressed = false }, hw_a_l1_10 = { suppressed = false }, hw_a_l1_11 = { suppressed = false }, hw_a_l1_12 = { suppressed = false }, hw_a_l1_13 = { suppressed = false }, hw_a_l1_14 = { suppressed = false } },
+        part_number = "W-A1", description = "South (grid A) wall, first floor"
+    }
+    configuration wall_d_l1 = {
+        len = 480 in, zt = 106.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29,
+        o1_l = 75.75 in, o1_r = 124.25 in, o1_h = 82.5 in, o1_t = 91.75 in, o1_s = 44.5 in, o1_k = 3 in,
+        o2_l = 223.25 in, o2_r = 297.25 in, o2_h = 82.5 in, o2_t = 93.75 in, o2_s = 1.5 in, o2_k = 4.5 in,
+        o3_l = 381.75 in, o3_r = 418.25 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        suppress = [feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill],
+        features = { mep_wall_d_l1_0 = { suppressed = false }, mep_wall_d_l1_1 = { suppressed = false }, mep_wall_d_l1_2 = { suppressed = false }, mep_wall_d_l1_3 = { suppressed = false }, mep_wall_d_l1_4 = { suppressed = false }, mep_wall_d_l1_5 = { suppressed = false }, mep_wall_d_l1_6 = { suppressed = false }, mep_wall_d_l1_7 = { suppressed = false }, mep_wall_d_l1_8 = { suppressed = false }, mep_wall_d_l1_9 = { suppressed = false }, mep_wall_d_l1_10 = { suppressed = false }, hw_d_l1_0 = { suppressed = false }, hw_d_l1_1 = { suppressed = false }, hw_d_l1_2 = { suppressed = false }, hw_d_l1_3 = { suppressed = false }, hw_d_l1_4 = { suppressed = false }, hw_d_l1_5 = { suppressed = false }, hw_d_l1_6 = { suppressed = false }, hw_d_l1_7 = { suppressed = false }, hw_d_l1_8 = { suppressed = false }, hw_d_l1_9 = { suppressed = false }, hw_d_l1_10 = { suppressed = false }, hw_d_l1_11 = { suppressed = false }, hw_d_l1_12 = { suppressed = false }, hw_d_l1_13 = { suppressed = false }, hw_d_l1_14 = { suppressed = false }, o2_jack_l2 = { suppressed = false }, o2_jack_r2 = { suppressed = false } },
+        part_number = "W-D1", description = "North (grid D) wall, first floor"
+    }
+    configuration wall_1_l1 = {
+        len = 349 in, zt = 106.125 in, first = 10.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 130.5 in, p2 = 210.5 in, n = 21,
+        o1_l = 71.75 in, o1_r = 108.25 in, o1_h = 82.5 in, o1_t = 89.75 in, o1_s = 20.5 in, o1_k = 3 in,
+        o2_l = 249.75 in, o2_r = 286.25 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 20.5 in, o2_k = 3 in,
+        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill],
+        features = { hw_1_l1_0 = { suppressed = false }, hw_1_l1_1 = { suppressed = false }, hw_1_l1_2 = { suppressed = false }, hw_1_l1_3 = { suppressed = false }, hw_1_l1_4 = { suppressed = false }, hw_1_l1_5 = { suppressed = false }, hw_1_l1_6 = { suppressed = false }, hw_1_l1_7 = { suppressed = false }, hw_1_l1_8 = { suppressed = false }, hw_1_l1_9 = { suppressed = false }, hw_1_l1_10 = { suppressed = false }, hw_1_l1_11 = { suppressed = false }, hw_1_l1_12 = { suppressed = false }, hw_1_l1_13 = { suppressed = false }, hw_1_l1_14 = { suppressed = false }, hw_1_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-11", description = "West (grid 1) wall, first floor"
+    }
+    configuration wall_5_l1 = {
+        len = 349 in, zt = 106.125 in, first = 18.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 138.5 in, p2 = 218.5 in, n = 21,
+        o1_l = 62.75 in, o1_r = 99.25 in, o1_h = 82.5 in, o1_t = 89.75 in, o1_s = 20.5 in, o1_k = 3 in,
+        o2_l = 271.75 in, o2_r = 308.25 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 20.5 in, o2_k = 3 in,
+        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill],
+        features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false }, mep_wall_5_l1_2 = { suppressed = false }, mep_wall_5_l1_3 = { suppressed = false }, hw_5_l1_0 = { suppressed = false }, hw_5_l1_1 = { suppressed = false }, hw_5_l1_2 = { suppressed = false }, hw_5_l1_3 = { suppressed = false }, hw_5_l1_4 = { suppressed = false }, hw_5_l1_5 = { suppressed = false }, hw_5_l1_6 = { suppressed = false }, hw_5_l1_7 = { suppressed = false }, hw_5_l1_8 = { suppressed = false }, hw_5_l1_9 = { suppressed = false }, hw_5_l1_10 = { suppressed = false }, hw_5_l1_11 = { suppressed = false }, hw_5_l1_12 = { suppressed = false }, hw_5_l1_13 = { suppressed = false }, hw_5_l1_14 = { suppressed = false }, hw_5_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-51", description = "East (grid 5) wall, first floor"
+    }
+    configuration wall_a_l2 = {
+        len = 480 in, zt = 94.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29,
+        o1_l = 51.75 in, o1_r = 88.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in,
+        o2_l = 151.75 in, o2_r = 188.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in,
+        o3_l = 291.75 in, o3_r = 328.25 in, o3_h = 82.875 in, o3_t = 94.125 in, o3_s = 32.875 in, o3_k = 3 in,
+        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.875 in, o4_t = 94.125 in, o4_s = 32.875 in, o4_k = 3 in,
+        suppress = [feature.sill, feature.o2_plate_cut],
+        features = { hw_a_l2_0 = { suppressed = false }, hw_a_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-A2", description = "South (grid A) wall, second floor"
+    }
+    configuration wall_d_l2 = {
+        len = 480 in, zt = 94.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29,
+        o1_l = 51.75 in, o1_r = 88.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in,
+        o2_l = 157.75 in, o2_r = 182.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 44.875 in, o2_k = 3 in,
+        o3_l = 297.75 in, o3_r = 322.25 in, o3_h = 82.875 in, o3_t = 94.125 in, o3_s = 44.875 in, o3_k = 3 in,
+        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.875 in, o4_t = 94.125 in, o4_s = 32.875 in, o4_k = 3 in,
+        suppress = [feature.sill, feature.o2_plate_cut],
+        features = { mep_wall_d_l2_0 = { suppressed = false }, mep_wall_d_l2_1 = { suppressed = false }, mep_wall_d_l2_2 = { suppressed = false }, mep_wall_d_l2_3 = { suppressed = false }, hw_d_l2_0 = { suppressed = false }, hw_d_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-D2", description = "North (grid D) wall, second floor"
+    }
+    configuration wall_1_l2 = {
+        len = 349 in, zt = 94.125 in, first = 10.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 60 in, p2 = 120 in, n = 21,
+        o1_l = 71.75 in, o1_r = 108.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in,
+        o2_l = 249.75 in, o2_r = 286.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in,
+        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill],
+        features = { hw_1_l2_0 = { suppressed = false }, hw_1_l2_1 = { suppressed = false }, hw_1_l2_2 = { suppressed = false }, hw_1_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-12", description = "West (grid 1) wall, second floor"
+    }
+    configuration wall_5_l2 = {
+        len = 349 in, zt = 94.125 in, first = 18.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 60 in, p2 = 120 in, n = 21,
+        o1_l = 62.75 in, o1_r = 99.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in,
+        o2_l = 271.75 in, o2_r = 308.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in,
+        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in,
+        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in,
+        suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill],
+        features = { hw_5_l2_0 = { suppressed = false }, hw_5_l2_1 = { suppressed = false }, hw_5_l2_2 = { suppressed = false }, hw_5_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } },
+        part_number = "W-52", description = "East (grid 5) wall, second floor"
+    }
+}

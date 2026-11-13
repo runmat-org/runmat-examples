@@ -1,0 +1,21 @@
+runmat 0.7
+std 1
+
+// An overhead bin module: its back on the lining, its door curving down to the aisle.
+part overhead_bin {
+    sketch s on origin.yz {
+        c1 = spline(points = [[1472.277 mm, 1014.654 mm], [1480.883 mm, 998.938 mm], [1462.982 mm, 999.71 mm]])
+        c2 = line(start = c1.end, end = [1068.544 mm, 1136.863 mm])
+        c3 = spline(points = [c2.end, [1034.07 mm, 1154.978 mm], [1004.005 mm, 1179.732 mm]])
+        c4 = line(start = c3.end, end = [967.522 mm, 1220.268 mm])
+        c5 = spline(points = [c4.end, [946.818 mm, 1252.917 mm], [934.187 mm, 1289.456 mm]])
+        c6 = line(start = c5.end, end = [922.339 mm, 1360.544 mm])
+        c7 = spline(points = [c6.end, [922.468 mm, 1399.191 mm], [931.535 mm, 1436.759 mm]])
+        c8 = line(start = c7.end, end = [949.218 mm, 1477.972 mm])
+        c9 = spline(points = [c8.end, [968.804 mm, 1495.279 mm], [993.476 mm, 1486.65 mm]])
+        c10 = line(start = c9.end, end = c1.start)
+    }
+    feature bin = extrude(profile = sketch.s, distance = 1590 mm, symmetric)
+
+    output overhead_bin = { body = feature.bin.body, part_number = "CAB-BN-520", material = "polycarbonate", color = "#E1E4E8" }
+}

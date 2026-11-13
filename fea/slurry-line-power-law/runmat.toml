@@ -1,0 +1,12 @@
+[package]
+name = "slurry-line-power-law"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "slurry-line-power-law.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

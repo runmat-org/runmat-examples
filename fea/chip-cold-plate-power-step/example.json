@@ -1,0 +1,31 @@
+{
+  "id": "chip-cold-plate-power-step",
+  "title": "Chip cold plate power step",
+  "pickerTitle": "Chip cold plate power step",
+  "pickerLine": "FEA studies",
+  "line": "A transient conjugate heat transfer FEA study of a water-cooled aluminum block after a 50 W power step.",
+  "description": "Warm-up of a 6061 aluminum block, 80 x 40 x 12 mm, with one straight 6 mm water channel at 0.25 m/s, after a 20 x 20 mm die switches on at 50 W. The study returns the die temperature through 150 s and the outlet water temperature; the water warms 1.7 K and the die settles near 46 C with a time constant near 35 s.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "chip-cold-plate-power-step.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching",
+    "automotive"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "chip-cold-plate-power-step",
+  "thumbnailAlt": "Temperature of a water-cooled aluminum block under a 50 W die, solved in RunMat",
+  "origin": {
+    "page": "/simulation/conjugate-heat-transfer",
+    "key": "website:simulation/conjugate-heat-transfer/chip-cold-plate-power-step",
+    "source": "runmat-examples/fea/chip-cold-plate-power-step/chip-cold-plate-power-step.fea"
+  }
+}

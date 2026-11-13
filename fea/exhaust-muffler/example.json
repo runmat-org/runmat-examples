@@ -1,0 +1,32 @@
+{
+  "id": "exhaust-muffler",
+  "title": "Exhaust muffler transmission loss",
+  "pickerTitle": "Exhaust muffler transmission loss",
+  "pickerLine": "FEA studies",
+  "line": "Transmission loss of a two-chamber exhaust muffler from 50 Hz to 2 kHz, against at least 15 dB in the 500 Hz band.",
+  "description": "A two-chamber muffler in 1.5 mm aluminized steel: a 50 mm inlet pipe, a 180 mm bore shell split by a baffle into two 170 mm chambers tuned to a quarter wave at 500 Hz, and a 50 mm tail pipe. The gas inside is its own body in the RunMat MCAD part. The study sweeps one-third-octave bands from 50 Hz to 2 kHz and reports the transmission loss against at least 15 dB at 500 Hz.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "exhaust-muffler.fea",
+  "roles": [
+    "automotive",
+    "thermal_fluids",
+    "research",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "exhaust-muffler",
+  "thumbnailAlt": "Transmission loss of a two-chamber exhaust muffler across one-third-octave bands, solved in RunMat",
+  "origin": {
+    "page": "/simulation/acoustics",
+    "key": "website:simulation/acoustics/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/exhaust-muffler/muffler.part",
+    "geometry": "geometry/, exported from muffler.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's figure"
+  }
+}

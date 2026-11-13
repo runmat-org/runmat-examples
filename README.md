@@ -31,7 +31,7 @@ An example folder holds only files a user would keep. Generators, render scripts
 | `line` | One short line under the name. |
 | `description` | What the example does, a few sentences. |
 | `topic`, `topicLabel`, `group` | Where it sits in the catalog. `group` is the gallery group, or `Page hero` for a page's lead example. |
-| `kind` | `script` or `study`. |
+| `kind` | `script`, `study`, or `design` for a CAD project that opens a `.part` or `.assembly`. |
 | `visual` | `3d`, `study`, `image` or `2d`, detected from the source (see below). |
 | `entry` | Project-relative path the app opens and runs. Matches `[entrypoints.main]` in `runmat.toml`. |
 | `roles` | Role ids from onboarding ("What best describes you?"): `structural`, `aerospace`, `automotive`, `controls_signals`, `thermal_fluids`, `electrical`, `data_quant`, `research`, `teaching`, `student`, `other`. |

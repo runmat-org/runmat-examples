@@ -1,0 +1,58 @@
+// Electric field in the cast-epoxy insulation of a coaxial high-voltage bushing. The conductor bore
+// is 20 mm across, the grounded sleeve 80 mm, and the insulation 100 mm long. The conductor is at
+// 36 kV and the sleeve at 0 V. The run returns the potential, the electric field and its peak, which
+// sits at the conductor surface.
+// Check: between coaxial cylinders E(r) = V / (r ln(b / a)), so the field is 36 kV / (10 mm * ln 4)
+// = 2.60 kV/mm at the conductor and 0.65 kV/mm at the sleeve, and the potential halfway out in
+// log radius (r = 20 mm) is exactly 18.0 kV. The field does not depend on the permittivity.
+geometry bushing {
+    file = "./geometry/coaxial-bushing.step"
+    units = mm
+    region body : solid { select name "Insulation"; expect exactly_one }
+    region conductor_bore : face { select name "Conductor bore"; expect exactly_one }
+    region ground_sleeve : face { select name "Ground sleeve"; expect exactly_one }
+}
+
+mesh bushing on geometry.bushing {
+    tetrahedra {
+        order = quadratic
+        target_size = 3 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Cast epoxy. Relative permittivity 4.2 is a typical value for silica-filled casting resin at power
+// frequency; the field above does not depend on it, the stored energy does. The conductivity is a
+// bulk insulation value, small enough to carry no current here.
+material cast_epoxy {
+    electrical {
+        reference_temperature = 20 degC
+        conductivity = 0.000000000000001 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 4.2
+        relative_permeability = 1
+    }
+}
+
+model energized_bushing {
+    electromagnetic { equation = electrostatics }
+    assign material.cast_epoxy to geometry.bushing.region.body
+    constraint conductor {
+        electrical.potential { target = geometry.bushing.region.conductor_bore; value = 36 kV }
+    }
+    constraint ground {
+        electrical.potential { target = geometry.bushing.region.ground_sleeve; value = 0 V }
+    }
+}
+
+study bushing_field {
+    geometry = geometry.bushing
+    mesh = mesh.bushing
+    model = model.energized_bushing
+    analysis field { electromagnetic static {} }
+    output potential = analysis.field.field.node.electric_potential
+    output electric_field = analysis.field.field.element.electric_field
+    output peak_field = max(magnitude(analysis.field.field.node.electric_field), over = geometry.bushing.region.conductor_bore)
+    output sleeve_field = max(magnitude(analysis.field.field.node.electric_field), over = geometry.bushing.region.ground_sleeve)
+    output mid_potential = interpolate(analysis.field.field.node.electric_potential, at = [20 mm, 0 mm, 50 mm])
+}

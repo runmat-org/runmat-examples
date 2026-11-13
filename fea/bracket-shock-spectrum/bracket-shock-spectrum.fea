@@ -1,0 +1,63 @@
+// Shock response of a steel wall-hook bracket (40 x 50 x 35 mm), bolted at its three mounting holes.
+// The mounting sees a pyrotechnic shock along the wall (Y), given as a 5% damped shock response spectrum:
+// 20 g at 100 Hz rising to a 1000 g plateau from 2 kHz. Modes combine by CQC.
+geometry bracket {
+    file = "./geometry/bracket.step"
+    units = mm
+    region body : solid { select name "WallHook_30mm"; expect exactly_one }
+    region mounting_holes : face { select name "Mounting holes"; expect one_or_more }
+}
+
+mesh bracket on geometry.bracket {
+    tetrahedra {
+        // Linear 6 mm tetrahedra, as in the wall-hook load example, keep the modal basis and result scenes small.
+        order = linear
+        target_size = 6 mm
+        maximum_deviation = 0.15 mm
+    }
+}
+
+material steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+model shocked_bracket {
+    assign material.steel to geometry.bracket.region.body
+    constraint mounting {
+        structural.fixed { target = geometry.bracket.region.mounting_holes }
+    }
+    response_spectrum pyroshock_y {
+        frequencies = [100, 2000, 100000] Hz
+        ordinates = [20, 1000, 1000] g
+        damping_ratio = 0.05
+        response = pseudo_acceleration
+        direction = [0, 1, 0]
+        modal_combination = cqc
+        directional_combination = srss
+        minimum_cumulative_mass_ratio = 0.9
+        truncation_correction = none
+        rigid_response = disabled
+    }
+}
+
+study bracket_shock_spectrum {
+    geometry = geometry.bracket
+    mesh = mesh.bracket
+    model = model.shocked_bracket
+    analysis modes {
+        structural modal { modes = 30 }
+        retain basis
+    }
+    analysis shock after analysis.modes {
+        structural modal_response_spectrum {
+            basis = analysis.modes.state.basis
+            spectra = [model.response_spectrum.pyroshock_y]
+        }
+    }
+    output displacement = analysis.shock.field.node.displacement
+    output von_mises = analysis.shock.field.element.von_mises_stress
+}

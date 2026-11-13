@@ -1,0 +1,30 @@
+{
+  "id": "pipe-wall-shear",
+  "title": "Pipe wall shear stress",
+  "pickerTitle": "Pipe wall shear stress",
+  "pickerLine": "FEA studies",
+  "line": "A steady flow FEA study of the wall shear stress in a 10 mm hydraulic line.",
+  "description": "Steady laminar flow of ISO VG 46 oil at 40 C through a 10 mm bore, 300 mm long, at 1 L/min. The study returns the wall shear stress on the bore, 6.72 Pa in the developed region by Poiseuille, and its peak in the entrance.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "pipe-wall-shear.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "pipe-wall-shear",
+  "thumbnailAlt": "Wall shear stress on the bore of a 10 mm hydraulic line, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-flow",
+    "key": "website:simulation/fluid-flow/pipe-wall-shear",
+    "source": "runmat-examples/fea/pipe-wall-shear/pipe-wall-shear.fea"
+  }
+}

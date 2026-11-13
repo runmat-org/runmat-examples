@@ -1,0 +1,12 @@
+[package]
+name = "bracket-shock-spectrum"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "bracket-shock-spectrum.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,12 @@
+[package]
+name = "listening-room-modes"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "listening-room-modes.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

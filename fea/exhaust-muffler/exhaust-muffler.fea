@@ -1,0 +1,75 @@
+// Transmission loss of a two-chamber exhaust muffler from 50 Hz to 2 kHz in one-third-octave
+// bands. The target is at least 15 dB in the 500 Hz band.
+//
+// Geometry: ./geometry/muffler-air.step, the gas of muffler.part in its `air_only` configuration
+// (the shell is a rigid wall, so only the gas is meshed): a 50 mm inlet pipe, two 180 mm
+// bore chambers 170 mm long split by a 1.5 mm baffle with a 50 mm central opening, and a 50 mm
+// tail pipe. The study solves the gas ("Air"); the shell ("Shell") is taken as rigid.
+//
+// Gas: air at 20 degC (1.204 kg/m^3, 343 m/s). A hot exhaust (about 500 m/s at 350 degC) moves
+// every band up by 500 / 343 = 1.46; change speed_of_sound to see it.
+//
+// Hand check, plane waves: each chamber alone, of area ratio m = (180 / 50)^2 = 12.96, loses
+// TL = 10 log10(1 + (m - 1/m)^2 sin^2(k L) / 4) with L = 170 mm. At 500 Hz, k L = 2 pi 500 /
+// 343 x 0.170 = 1.557, sin^2 = 1.00, so 16.2 dB. Two chambers in series through the baffle's
+// opening add a further loss, so the muffler should reach about 20 to 30 dB at 500 Hz. The
+// plane-wave estimate holds below the chamber's first radial mode, 1.84 c / (pi D) = 1,116 Hz.
+
+geometry muffler {
+    file = "./geometry/muffler-air.step"
+    units = mm
+    region air : solid { select name "Air"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region walls : face { select name "Walls"; expect one_or_more }
+}
+
+// Six quadratic elements per wavelength at 2 kHz: 343 / 2000 / 6 = 28.6 mm; 15 mm puts three or
+// more elements across the 50 mm pipes.
+mesh muffler on geometry.muffler {
+    tetrahedra {
+        order = quadratic
+        target_size = 15 mm
+        maximum_deviation = 0.5 mm
+    }
+}
+
+material air {
+    mass_density = 1.204 kg/m^3
+    acoustic {
+        speed_of_sound = 343 m/s
+        damping_ratio = 0.0
+    }
+}
+
+model exhaust_muffler {
+    assign material.air to geometry.muffler.region.air
+    load walls {
+        acoustic.rigid_wall { target = geometry.muffler.region.walls }
+    }
+    load engine_side {
+        incident_pressure on geometry.muffler.region.inlet = 1 Pa
+    }
+    load tailpipe {
+        acoustic.radiation { target = geometry.muffler.region.outlet }
+    }
+    load_case running { include load.engine_side }
+}
+
+study muffler_sweep {
+    geometry = geometry.muffler
+    mesh = mesh.muffler
+    model = model.exhaust_muffler
+    analysis sound {
+        acoustic harmonic {
+            frequencies = [50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000] Hz
+        }
+    }
+    output pressure = analysis.sound.field.node.acoustic_pressure
+    output spl = level(output.pressure)
+    output transmission_loss = transmission_loss(
+        analysis.sound,
+        incident = geometry.muffler.region.inlet,
+        transmitted = geometry.muffler.region.outlet,
+    )
+}

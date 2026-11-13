@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// The overhead panel in the flight deck roof: the systems switches over the pilots' heads.
+part overhead_panel {
+    sketch s on origin.zx {
+        l1 = line(start = [975.491 mm, 2080 mm], end = [1020.509 mm, 2180 mm])
+        l2 = line(start = [1020.509 mm, 2180 mm], end = [1064.421 mm, 2280 mm])
+        l3 = line(start = [1064.421 mm, 2280 mm], end = [1107.261 mm, 2380 mm])
+        l4 = line(start = [1107.261 mm, 2380 mm], end = [1149.057 mm, 2480 mm])
+        l5 = line(start = [1149.057 mm, 2480 mm], end = [1189.835 mm, 2580 mm])
+        l6 = line(start = [1189.835 mm, 2580 mm], end = [1229.616 mm, 2680 mm])
+        l7 = line(start = [1229.616 mm, 2680 mm], end = [1119.616 mm, 2680 mm])
+        l8 = line(start = [1119.616 mm, 2680 mm], end = [1079.835 mm, 2580 mm])
+        l9 = line(start = [1079.835 mm, 2580 mm], end = [1039.057 mm, 2480 mm])
+        l10 = line(start = [1039.057 mm, 2480 mm], end = [997.261 mm, 2380 mm])
+        l11 = line(start = [997.261 mm, 2380 mm], end = [954.421 mm, 2280 mm])
+        l12 = line(start = [954.421 mm, 2280 mm], end = [910.509 mm, 2180 mm])
+        l13 = line(start = [910.509 mm, 2180 mm], end = [865.491 mm, 2080 mm])
+        l14 = line(start = [865.491 mm, 2080 mm], end = [975.491 mm, 2080 mm])
+    }
+    feature body = extrude(profile = sketch.s, distance = 760 mm, symmetric)
+
+    output overhead_panel = { body = feature.body.body, part_number = "FD-OH-370", material = "aluminum_6061", color = "#3C4148" }
+}

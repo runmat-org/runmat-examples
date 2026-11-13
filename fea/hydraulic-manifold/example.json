@@ -1,0 +1,32 @@
+{
+  "id": "hydraulic-manifold",
+  "title": "Hydraulic manifold pressure drop",
+  "pickerTitle": "Hydraulic manifold pressure drop",
+  "pickerLine": "FEA studies",
+  "line": "Laminar oil flow through a cross-drilled aluminum manifold at 20 L/min, checked against a 1 bar loss budget from P to A.",
+  "description": "A 90 x 80 x 50 mm crossover manifold in 6061-T6 with two drilled lines, P to A and B to T: 12 mm galleries from the side faces and 10 mm work ports from the top. The oil in each line is its own body in the RunMat MCAD part, sharing its passage walls with the block. The study solves steady laminar flow of ISO VG 46 oil at 40 C (Re 922 in the ports) at 20 L/min and reports the pressure drop from P to A against a 1 bar budget.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "hydraulic-manifold.fea",
+  "roles": [
+    "thermal_fluids",
+    "automotive",
+    "structural",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "hydraulic-manifold",
+  "thumbnailAlt": "Oil speed through the drilled passages of an aluminum hydraulic manifold, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-flow",
+    "key": "website:simulation/fluid-flow/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/hydraulic-manifold/manifold.part",
+    "geometry": "geometry/manifold.step, exported from manifold.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's velocity figure"
+  }
+}

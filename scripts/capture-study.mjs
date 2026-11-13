@@ -45,7 +45,9 @@
  * then is not published.
  *
  * Stable output: the run keeps the native, content-derived run id; the manifest is saved as
- * .artifacts/runs/run_example_<id>.json and its createdAt is the capture time pinned in runtime.json.
+ * .artifacts/runs/run_example_<id>.json and its createdAt is when the study was solved: the snapshot file's write
+ * time (a snapshot reused from another folder keeps its own; a native project's run keeps its createdAt). The run
+ * header then shows the real solve time, not the bundle's pinned capture time.
  *
  * Several studies: an example of any kind (a design project with arm and board studies, say) can ship one captured
  * run per study it contains. Name each study with --study <path.fea> followed by its --from-snapshot and --store (or,
@@ -186,7 +188,12 @@ function requireCompleteSnapshot(snapshot) {
  * The app's run format for a native snapshot (port of the runtime's scripts/docs/snapshot-project.mjs). `run` names
  * the study (`docPath`), where its manifest goes and the folder holding the snapshot's scenes and posters.
  */
-function writeRunFormat(project, run, snapshot, capturedAt) {
+/** When a study was solved: its snapshot.json's write time, to the second (the CLI writes it as the solve ends). */
+function solvedAt(snapshotFile) {
+  return new Date(Math.floor(statSync(snapshotFile).mtimeMs / 1000) * 1000).toISOString().replace(".000Z", "Z");
+}
+
+function writeRunFormat(project, run, snapshot, createdAt) {
   const fieldBindings = snapshot.results.field_descriptors.map((descriptor) => ({
     stepId: snapshot.publication.steps[0].procedure_step.step_id, runId: snapshot.run_id, descriptor,
   }));
@@ -216,7 +223,7 @@ function writeRunFormat(project, run, snapshot, capturedAt) {
   });
   const manifest = {
     schemaVersion: 2, runId: snapshot.run_id, docPath: run.docPath,
-    createdAt: capturedAt, status: "completed", cancelled: false, runKind: contracts.FEA_RUN_KIND,
+    createdAt, status: "completed", cancelled: false, runKind: contracts.FEA_RUN_KIND,
     fea: { schemaVersion: contracts.FEA_RUN_MANIFEST_METADATA_SCHEMA_VERSION, datasetObject: object, datasetSrc: src },
     cells: { [contracts.FEA_RUN_CELL_ID]: { figures, kept: [{ id: contracts.feaRunArtifactRefId("dataset"), kind: contracts.FEA_DATASET_ARTIFACT_KIND, src, bytes: metadata.bytes, artifactId: object }] } },
   };
@@ -242,7 +249,7 @@ function publishBundle(example, hash, manifestBytes, bundleFiles) {
   execFileSync("mv", [staging, bundleDir]);
 }
 
-/** Reuses a native snapshot project: checks its sources, renames its run manifest and pins its createdAt. */
+/** Reuses a native snapshot project: checks its sources and renames its run manifest, keeping its createdAt (the solve time). */
 function adoptProject(project, from, example, sources, capturedAt) {
   for (const file of sources) {
     const theirs = join(from, file.path);
@@ -254,7 +261,8 @@ function adoptProject(project, from, example, sources, capturedAt) {
   const runs = walk(join(project, ".artifacts/runs")).filter((path) => /^[^/]+\.json$/.test(path));
   if (runs.length !== 1) throw new Error(`expected one run manifest in ${from}, found ${runs.length}`);
   const manifest = JSON.parse(readFileSync(join(project, ".artifacts/runs", runs[0]), "utf8"));
-  manifest.createdAt = capturedAt;
+  // The native run's own createdAt is when it was solved; keep it.
+  manifest.createdAt ??= capturedAt;
   rmSync(join(project, ".artifacts/runs", runs[0]));
   writeFileSync(join(project, RUN_MANIFEST(example.id)), `${JSON.stringify(manifest, null, 2)}\n`);
 }
@@ -333,7 +341,9 @@ function captureStudies({ dir, where, example }) {
         execFileSync(RUNMAT, ["snapshot", study, "--out", `${run.snapshotDir}/snapshot.json`], { cwd: project, stdio: "inherit" });
         snapshot = JSON.parse(readFileSync(join(project, run.snapshotDir, "snapshot.json"), "utf8"));
         requireCompleteSnapshot(snapshot);
+        run.solvedAt = solvedAt(join(project, run.snapshotDir, "snapshot.json"));
       } else {
+        run.solvedAt = solvedAt(join(entry.snapshot, "snapshot.json"));
         cpSync(entry.snapshot, join(project, run.snapshotDir), { recursive: true });
         snapshot = JSON.parse(readFileSync(join(project, run.snapshotDir, "snapshot.json"), "utf8"));
         requireCompleteSnapshot(snapshot);
@@ -344,7 +354,7 @@ function captureStudies({ dir, where, example }) {
         cpSync(join(entry.store, evidence), target);
         run.storePaths = partialStore(entry.store, project);
       }
-      writeRunFormat(project, run, snapshot, capturedAt);
+      writeRunFormat(project, run, snapshot, run.solvedAt);
       run.runId = snapshot.run_id;
       run.figures = snapshot.views.length;
       run.analysisStore = RUNMAT ? "included" : run.storePaths === null ? "omitted" : "partial";
@@ -429,13 +439,13 @@ for (const { dir, where, example } of MULTI ? [] : selected) {
       mkdirSync(dirname(join(project, evidence)), { recursive: true });
       cpSync(join(resolve(STORE), evidence), join(project, evidence));
       partial = partialStore(resolve(STORE), project);
-      writeRunFormat(project, entryRun(example), snapshot, capturedAt);
+      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(resolve(FROM_SNAPSHOT), "snapshot.json")));
     } else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
       execFileSync(RUNMAT, ["snapshot", example.entry, "--out", ".snapshot/snapshot.json"], { cwd: project, stdio: "inherit" });
       const snapshot = JSON.parse(readFileSync(join(project, ".snapshot/snapshot.json"), "utf8"));
       requireCompleteSnapshot(snapshot);
-      writeRunFormat(project, entryRun(example), snapshot, capturedAt);
+      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(project, ".snapshot/snapshot.json")));
     }
     const sourcePaths = new Set(sources.map((file) => file.path));
     const run = JSON.parse(readFileSync(join(project, RUN_MANIFEST(example.id)), "utf8"));

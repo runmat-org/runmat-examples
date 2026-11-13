@@ -1,0 +1,15 @@
+schema_version = 1
+resolver_version = "1"
+packages = []
+edges = []
+graph_digest = "sha256:6405d346bd5a757c5eb8faecfe23afeae588b3df6f58352311335f65d8a25d77"
+
+[root]
+manifest_digest = "sha256:3671bf4fa2f890bc6cd3b53bba4c97469b612da1edcd8a847a95ab03f713cf3b"
+package = "workspace:local/duct-pulse"
+
+[selection]
+target = "aarch64-apple-darwin"
+groups = ["runtime"]
+root_features = []
+host_capabilities = ["network", "native-library", "mex", "jvm", "subprocess"]

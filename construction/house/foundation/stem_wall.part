@@ -1,0 +1,403 @@
+runmat 0.7
+std 1
+
+// The perimeter stem wall: 8 in cast-in-place concrete from the top of the footing to the top
+// of the slab, its outside face on the building line. One #4 continuous bar 3 in below the top
+// carries the anchor-bolt line; the #4 dowels from the footing lap into it (footing.part).
+part stem_wall {
+    feature base = plane.offset(base = origin.xy, distance = -22 in)
+    sketch wall_s on plane.base {
+        ro0 = line(start = [0 in, 0 in], end = [480 in, 0 in])
+        ro1 = line(start = [480 in, 0 in], end = [480 in, 360 in])
+        ro2 = line(start = [480 in, 360 in], end = [0 in, 360 in])
+        ro3 = line(start = [0 in, 360 in], end = [0 in, 0 in])
+        ri0 = line(start = [8 in, 8 in], end = [472 in, 8 in])
+        ri1 = line(start = [472 in, 8 in], end = [472 in, 352 in])
+        ri2 = line(start = [472 in, 352 in], end = [8 in, 352 in])
+        ri3 = line(start = [8 in, 352 in], end = [8 in, 8 in])
+    }
+    feature wall = extrude(profile = sketch.wall_s, distance = 22 in, mode = new)
+    feature bar_x0 = plane.offset(base = origin.yz, distance = 1.5 in)
+    sketch bars_x_s on plane.bar_x0 {
+        c0 = circle(center = [4.5 in, -3.25 in], radius = 0.25 in)
+        c1 = circle(center = [355.5 in, -3.25 in], radius = 0.25 in)
+    }
+    feature bars_x = extrude(profile = sketch.bars_x_s, distance = 477 in, mode = new)
+    feature bar_y0 = plane.offset(base = origin.zx, distance = 1.5 in)
+    sketch bars_y_s on plane.bar_y0 {
+        c0 = circle(center = [-2.75 in, 4.5 in], radius = 0.25 in)
+        c1 = circle(center = [-2.75 in, 475.5 in], radius = 0.25 in)
+    }
+    feature bars_y = extrude(profile = sketch.bars_y_s, distance = 357 in, mode = new)
+
+    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    feature hw_pl2 = plane.offset(base = origin.xy, distance = -3.5 in)
+    feature hw_pl1 = plane.offset(base = origin.xy, distance = -22 in)
+    feature hw_pl0 = plane.offset(base = origin.xy, distance = -10 in)
+    sketch hw_0_s on plane.hw_pl0 {
+        c = circle(center = [12 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_0 = extrude(profile = sketch.hw_0_s, distance = 10 in, mode = cut)
+    sketch hw_1_s on plane.hw_pl0 {
+        c = circle(center = [60 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_1 = extrude(profile = sketch.hw_1_s, distance = 10 in, mode = cut)
+    sketch hw_2_s on plane.hw_pl0 {
+        c = circle(center = [108 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_2 = extrude(profile = sketch.hw_2_s, distance = 10 in, mode = cut)
+    sketch hw_3_s on plane.hw_pl0 {
+        c = circle(center = [156 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_3 = extrude(profile = sketch.hw_3_s, distance = 10 in, mode = cut)
+    sketch hw_4_s on plane.hw_pl0 {
+        c = circle(center = [198 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_4 = extrude(profile = sketch.hw_4_s, distance = 10 in, mode = cut)
+    sketch hw_5_s on plane.hw_pl0 {
+        c = circle(center = [252.75 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_5 = extrude(profile = sketch.hw_5_s, distance = 10 in, mode = cut)
+    sketch hw_6_s on plane.hw_pl0 {
+        c = circle(center = [300.75 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_6 = extrude(profile = sketch.hw_6_s, distance = 10 in, mode = cut)
+    sketch hw_7_s on plane.hw_pl0 {
+        c = circle(center = [346.5 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_7 = extrude(profile = sketch.hw_7_s, distance = 10 in, mode = cut)
+    sketch hw_8_s on plane.hw_pl0 {
+        c = circle(center = [394.5 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_8 = extrude(profile = sketch.hw_8_s, distance = 10 in, mode = cut)
+    sketch hw_9_s on plane.hw_pl0 {
+        c = circle(center = [442.5 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_9 = extrude(profile = sketch.hw_9_s, distance = 10 in, mode = cut)
+    sketch hw_10_s on plane.hw_pl0 {
+        c = circle(center = [471.25 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_10 = extrude(profile = sketch.hw_10_s, distance = 10 in, mode = cut)
+    sketch hw_11_s on plane.hw_pl0 {
+        c = circle(center = [468 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_11 = extrude(profile = sketch.hw_11_s, distance = 10 in, mode = cut)
+    sketch hw_12_s on plane.hw_pl0 {
+        c = circle(center = [420 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_12 = extrude(profile = sketch.hw_12_s, distance = 10 in, mode = cut)
+    sketch hw_13_s on plane.hw_pl0 {
+        c = circle(center = [372 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_13 = extrude(profile = sketch.hw_13_s, distance = 10 in, mode = cut)
+    sketch hw_14_s on plane.hw_pl0 {
+        c = circle(center = [324 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_14 = extrude(profile = sketch.hw_14_s, distance = 10 in, mode = cut)
+    sketch hw_15_s on plane.hw_pl0 {
+        c = circle(center = [276 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_15 = extrude(profile = sketch.hw_15_s, distance = 10 in, mode = cut)
+    sketch hw_16_s on plane.hw_pl0 {
+        c = circle(center = [263 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_16 = extrude(profile = sketch.hw_16_s, distance = 10 in, mode = cut)
+    sketch hw_17_s on plane.hw_pl0 {
+        c = circle(center = [170.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_17 = extrude(profile = sketch.hw_17_s, distance = 10 in, mode = cut)
+    sketch hw_18_s on plane.hw_pl0 {
+        c = circle(center = [122.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_18 = extrude(profile = sketch.hw_18_s, distance = 10 in, mode = cut)
+    sketch hw_19_s on plane.hw_pl0 {
+        c = circle(center = [74.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_19 = extrude(profile = sketch.hw_19_s, distance = 10 in, mode = cut)
+    sketch hw_20_s on plane.hw_pl0 {
+        c = circle(center = [26.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_20 = extrude(profile = sketch.hw_20_s, distance = 10 in, mode = cut)
+    sketch hw_21_s on plane.hw_pl0 {
+        c = circle(center = [8.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_21 = extrude(profile = sketch.hw_21_s, distance = 10 in, mode = cut)
+    sketch hw_22_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 346.5 in], radius = 0.3281 in)
+    }
+    feature hw_22 = extrude(profile = sketch.hw_22_s, distance = 10 in, mode = cut)
+    sketch hw_23_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 298.5 in], radius = 0.3281 in)
+    }
+    feature hw_23 = extrude(profile = sketch.hw_23_s, distance = 10 in, mode = cut)
+    sketch hw_24_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 250.5 in], radius = 0.3281 in)
+    }
+    feature hw_24 = extrude(profile = sketch.hw_24_s, distance = 10 in, mode = cut)
+    sketch hw_25_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 202.5 in], radius = 0.3281 in)
+    }
+    feature hw_25 = extrude(profile = sketch.hw_25_s, distance = 10 in, mode = cut)
+    sketch hw_26_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 154.5 in], radius = 0.3281 in)
+    }
+    feature hw_26 = extrude(profile = sketch.hw_26_s, distance = 10 in, mode = cut)
+    sketch hw_27_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 109.5 in], radius = 0.3281 in)
+    }
+    feature hw_27 = extrude(profile = sketch.hw_27_s, distance = 10 in, mode = cut)
+    sketch hw_28_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 61.5 in], radius = 0.3281 in)
+    }
+    feature hw_28 = extrude(profile = sketch.hw_28_s, distance = 10 in, mode = cut)
+    sketch hw_29_s on plane.hw_pl0 {
+        c = circle(center = [2.75 in, 13.5 in], radius = 0.3281 in)
+    }
+    feature hw_29 = extrude(profile = sketch.hw_29_s, distance = 10 in, mode = cut)
+    sketch hw_30_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 17.5 in], radius = 0.3281 in)
+    }
+    feature hw_30 = extrude(profile = sketch.hw_30_s, distance = 10 in, mode = cut)
+    sketch hw_31_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 63.5 in], radius = 0.3281 in)
+    }
+    feature hw_31 = extrude(profile = sketch.hw_31_s, distance = 10 in, mode = cut)
+    sketch hw_32_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 111.5 in], radius = 0.3281 in)
+    }
+    feature hw_32 = extrude(profile = sketch.hw_32_s, distance = 10 in, mode = cut)
+    sketch hw_33_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 159.5 in], radius = 0.3281 in)
+    }
+    feature hw_33 = extrude(profile = sketch.hw_33_s, distance = 10 in, mode = cut)
+    sketch hw_34_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 207.5 in], radius = 0.3281 in)
+    }
+    feature hw_34 = extrude(profile = sketch.hw_34_s, distance = 10 in, mode = cut)
+    sketch hw_35_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 255.5 in], radius = 0.3281 in)
+    }
+    feature hw_35 = extrude(profile = sketch.hw_35_s, distance = 10 in, mode = cut)
+    sketch hw_36_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 303.5 in], radius = 0.3281 in)
+    }
+    feature hw_36 = extrude(profile = sketch.hw_36_s, distance = 10 in, mode = cut)
+    sketch hw_37_s on plane.hw_pl0 {
+        c = circle(center = [477.25 in, 347.5 in], radius = 0.3281 in)
+    }
+    feature hw_37 = extrude(profile = sketch.hw_37_s, distance = 10 in, mode = cut)
+    sketch hw_38_s on plane.hw_pl1 {
+        c = circle(center = [4.25 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_38 = extrude(profile = sketch.hw_38_s, distance = 22 in, mode = cut)
+    sketch hw_39_s on plane.hw_pl1 {
+        c = circle(center = [475.75 in, 2.75 in], radius = 0.3281 in)
+    }
+    feature hw_39 = extrude(profile = sketch.hw_39_s, distance = 22 in, mode = cut)
+    sketch hw_40_s on plane.hw_pl1 {
+        c = circle(center = [475.75 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_40 = extrude(profile = sketch.hw_40_s, distance = 22 in, mode = cut)
+    sketch hw_41_s on plane.hw_pl1 {
+        c = circle(center = [4.25 in, 357.25 in], radius = 0.3281 in)
+    }
+    feature hw_41 = extrude(profile = sketch.hw_41_s, distance = 22 in, mode = cut)
+    sketch hw_42_s on plane.hw_pl1 {
+        c = circle(center = [2.75 in, 350.25 in], radius = 0.3281 in)
+    }
+    feature hw_42 = extrude(profile = sketch.hw_42_s, distance = 22 in, mode = cut)
+    sketch hw_43_s on plane.hw_pl1 {
+        c = circle(center = [2.75 in, 9.75 in], radius = 0.3281 in)
+    }
+    feature hw_43 = extrude(profile = sketch.hw_43_s, distance = 22 in, mode = cut)
+    sketch hw_44_s on plane.hw_pl1 {
+        c = circle(center = [477.25 in, 9.75 in], radius = 0.3281 in)
+    }
+    feature hw_44 = extrude(profile = sketch.hw_44_s, distance = 22 in, mode = cut)
+    sketch hw_45_s on plane.hw_pl1 {
+        c = circle(center = [477.25 in, 350.25 in], radius = 0.3281 in)
+    }
+    feature hw_45 = extrude(profile = sketch.hw_45_s, distance = 22 in, mode = cut)
+    sketch hw_46_s on plane.hw_pl1 {
+        c = circle(center = [24 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_46 = extrude(profile = sketch.hw_46_s, distance = 18 in, mode = cut)
+    sketch hw_47_s on plane.hw_pl1 {
+        c = circle(center = [456 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_47 = extrude(profile = sketch.hw_47_s, distance = 18 in, mode = cut)
+    sketch hw_48_s on plane.hw_pl1 {
+        c = circle(center = [72 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_48 = extrude(profile = sketch.hw_48_s, distance = 18 in, mode = cut)
+    sketch hw_49_s on plane.hw_pl1 {
+        c = circle(center = [408 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_49 = extrude(profile = sketch.hw_49_s, distance = 18 in, mode = cut)
+    sketch hw_50_s on plane.hw_pl1 {
+        c = circle(center = [120 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_50 = extrude(profile = sketch.hw_50_s, distance = 18 in, mode = cut)
+    sketch hw_51_s on plane.hw_pl1 {
+        c = circle(center = [360 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_51 = extrude(profile = sketch.hw_51_s, distance = 18 in, mode = cut)
+    sketch hw_52_s on plane.hw_pl1 {
+        c = circle(center = [168 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_52 = extrude(profile = sketch.hw_52_s, distance = 18 in, mode = cut)
+    sketch hw_53_s on plane.hw_pl1 {
+        c = circle(center = [312 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_53 = extrude(profile = sketch.hw_53_s, distance = 18 in, mode = cut)
+    sketch hw_54_s on plane.hw_pl1 {
+        c = circle(center = [216 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_54 = extrude(profile = sketch.hw_54_s, distance = 18 in, mode = cut)
+    sketch hw_55_s on plane.hw_pl1 {
+        c = circle(center = [264 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_55 = extrude(profile = sketch.hw_55_s, distance = 18 in, mode = cut)
+    sketch hw_56_s on plane.hw_pl1 {
+        c = circle(center = [264 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_56 = extrude(profile = sketch.hw_56_s, distance = 18 in, mode = cut)
+    sketch hw_57_s on plane.hw_pl1 {
+        c = circle(center = [216 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_57 = extrude(profile = sketch.hw_57_s, distance = 18 in, mode = cut)
+    sketch hw_58_s on plane.hw_pl1 {
+        c = circle(center = [312 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_58 = extrude(profile = sketch.hw_58_s, distance = 18 in, mode = cut)
+    sketch hw_59_s on plane.hw_pl1 {
+        c = circle(center = [168 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_59 = extrude(profile = sketch.hw_59_s, distance = 18 in, mode = cut)
+    sketch hw_60_s on plane.hw_pl1 {
+        c = circle(center = [360 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_60 = extrude(profile = sketch.hw_60_s, distance = 18 in, mode = cut)
+    sketch hw_61_s on plane.hw_pl1 {
+        c = circle(center = [120 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_61 = extrude(profile = sketch.hw_61_s, distance = 18 in, mode = cut)
+    sketch hw_62_s on plane.hw_pl1 {
+        c = circle(center = [408 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_62 = extrude(profile = sketch.hw_62_s, distance = 18 in, mode = cut)
+    sketch hw_63_s on plane.hw_pl1 {
+        c = circle(center = [72 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_63 = extrude(profile = sketch.hw_63_s, distance = 18 in, mode = cut)
+    sketch hw_64_s on plane.hw_pl1 {
+        c = circle(center = [456 in, 4 in], radius = 0.2656 in)
+    }
+    feature hw_64 = extrude(profile = sketch.hw_64_s, distance = 18 in, mode = cut)
+    sketch hw_65_s on plane.hw_pl1 {
+        c = circle(center = [24 in, 356 in], radius = 0.2656 in)
+    }
+    feature hw_65 = extrude(profile = sketch.hw_65_s, distance = 18 in, mode = cut)
+    sketch hw_66_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 36 in], radius = 0.2656 in)
+    }
+    feature hw_66 = extrude(profile = sketch.hw_66_s, distance = 18 in, mode = cut)
+    sketch hw_67_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 324 in], radius = 0.2656 in)
+    }
+    feature hw_67 = extrude(profile = sketch.hw_67_s, distance = 18 in, mode = cut)
+    sketch hw_68_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 84 in], radius = 0.2656 in)
+    }
+    feature hw_68 = extrude(profile = sketch.hw_68_s, distance = 18 in, mode = cut)
+    sketch hw_69_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 276 in], radius = 0.2656 in)
+    }
+    feature hw_69 = extrude(profile = sketch.hw_69_s, distance = 18 in, mode = cut)
+    sketch hw_70_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 132 in], radius = 0.2656 in)
+    }
+    feature hw_70 = extrude(profile = sketch.hw_70_s, distance = 18 in, mode = cut)
+    sketch hw_71_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 228 in], radius = 0.2656 in)
+    }
+    feature hw_71 = extrude(profile = sketch.hw_71_s, distance = 18 in, mode = cut)
+    sketch hw_72_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 180 in], radius = 0.2656 in)
+    }
+    feature hw_72 = extrude(profile = sketch.hw_72_s, distance = 18 in, mode = cut)
+    sketch hw_73_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 180 in], radius = 0.2656 in)
+    }
+    feature hw_73 = extrude(profile = sketch.hw_73_s, distance = 18 in, mode = cut)
+    sketch hw_74_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 228 in], radius = 0.2656 in)
+    }
+    feature hw_74 = extrude(profile = sketch.hw_74_s, distance = 18 in, mode = cut)
+    sketch hw_75_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 132 in], radius = 0.2656 in)
+    }
+    feature hw_75 = extrude(profile = sketch.hw_75_s, distance = 18 in, mode = cut)
+    sketch hw_76_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 276 in], radius = 0.2656 in)
+    }
+    feature hw_76 = extrude(profile = sketch.hw_76_s, distance = 18 in, mode = cut)
+    sketch hw_77_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 84 in], radius = 0.2656 in)
+    }
+    feature hw_77 = extrude(profile = sketch.hw_77_s, distance = 18 in, mode = cut)
+    sketch hw_78_s on plane.hw_pl1 {
+        c = circle(center = [4 in, 324 in], radius = 0.2656 in)
+    }
+    feature hw_78 = extrude(profile = sketch.hw_78_s, distance = 18 in, mode = cut)
+    sketch hw_79_s on plane.hw_pl1 {
+        c = circle(center = [476 in, 36 in], radius = 0.2656 in)
+    }
+    feature hw_79 = extrude(profile = sketch.hw_79_s, distance = 18 in, mode = cut)
+    sketch hw_80_s on plane.hw_pl2 {
+        c = circle(center = [120 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_80 = extrude(profile = sketch.hw_80_s, distance = 3.5 in, mode = cut)
+    sketch hw_81_s on plane.hw_pl2 {
+        c = circle(center = [232 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_81 = extrude(profile = sketch.hw_81_s, distance = 3.5 in, mode = cut)
+    sketch hw_82_s on plane.hw_pl2 {
+        c = circle(center = [360 in, 144 in], radius = 0.3281 in)
+    }
+    feature hw_82 = extrude(profile = sketch.hw_82_s, distance = 3.5 in, mode = cut)
+    sketch hw_83_s on plane.hw_pl2 {
+        c = circle(center = [120 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_83 = extrude(profile = sketch.hw_83_s, distance = 3.5 in, mode = cut)
+    sketch hw_84_s on plane.hw_pl2 {
+        c = circle(center = [232 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_84 = extrude(profile = sketch.hw_84_s, distance = 3.5 in, mode = cut)
+    sketch hw_85_s on plane.hw_pl2 {
+        c = circle(center = [360 in, 224 in], radius = 0.3281 in)
+    }
+    feature hw_85 = extrude(profile = sketch.hw_85_s, distance = 3.5 in, mode = cut)
+    // end connector holes all
+    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    feature mep_all_p_zx_2 = plane.offset(base = origin.zx, distance = 365.8929 in)
+    feature mep_all_p_zx_1 = plane.offset(base = origin.zx, distance = 355.0714 in)
+    feature mep_all_p_zx_0 = plane.offset(base = origin.zx, distance = 344.25 in)
+    sketch mep_all_0_s on plane.mep_all_p_zx_0 {
+        c = circle(center = [-10.1101 in, 280 in], radius = 1.9851 in)
+    }
+    feature mep_all_0 = extrude(profile = sketch.mep_all_0_s, distance = 10.8214 in, mode = cut)
+    sketch mep_all_1_s on plane.mep_all_p_zx_1 {
+        c = circle(center = [-10.3304 in, 280 in], radius = 1.9851 in)
+    }
+    feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 10.8214 in, mode = cut)
+    sketch mep_all_2_s on plane.mep_all_p_zx_2 {
+        c = circle(center = [-10.5506 in, 280 in], radius = 1.9851 in)
+    }
+    feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 10.8214 in, mode = cut)
+    // end MEP penetrations all
+    output stem_wall = { body = feature.wall.body, part_number = "F-2", material = "material.concrete" }
+    material = { body = feature.bars_x.body, material = "material.steel_rebar_grade_60" }
+    material = { body = feature.bars_y.body, material = "material.steel_rebar_grade_60" }
+    region top : face = { select = [feature.wall.face.end], expect = at_least_one, label = "Top of stem wall, sill bearing" }
+}

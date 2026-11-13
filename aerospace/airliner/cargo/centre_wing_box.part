@@ -1,0 +1,24 @@
+runmat 0.7
+std 1
+
+// The centre wing box: the spars and skins carried across the fuselage between the wing roots.
+part centre_wing_box {
+    feature datum = plane.offset(base = origin.yz, distance = 14213.423 mm)
+    sketch s on plane.datum {
+        l1 = line(start = [-1400 mm, -1304.734 mm], end = [1400 mm, -1304.734 mm])
+        l2 = line(start = [1400 mm, -1304.734 mm], end = [1400 mm, -727.304 mm])
+        l3 = line(start = [1400 mm, -727.304 mm], end = [-1400 mm, -727.304 mm])
+        l4 = line(start = [-1400 mm, -727.304 mm], end = [-1400 mm, -1304.734 mm])
+    }
+    feature box = extrude(profile = sketch.s, distance = 3000.294 mm)
+    feature in_at = plane.offset(base = origin.yz, distance = 14238.423 mm)
+    sketch c on plane.in_at {
+        l1 = line(start = [-1375 mm, -1279.734 mm], end = [1375 mm, -1279.734 mm])
+        l2 = line(start = [1375 mm, -1279.734 mm], end = [1375 mm, -752.304 mm])
+        l3 = line(start = [1375 mm, -752.304 mm], end = [-1375 mm, -752.304 mm])
+        l4 = line(start = [-1375 mm, -752.304 mm], end = [-1375 mm, -1279.734 mm])
+    }
+    feature cell = extrude(profile = sketch.c, distance = 2950.294 mm, mode = cut)
+
+    output centre_wing_box = { body = feature.box.body, part_number = "WNG-CB-500", material = "aluminum_7075", color = "#A7B596" }
+}

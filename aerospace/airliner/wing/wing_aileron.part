@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// The aileron.
+part wing_aileron {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 12400 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[1355.418 mm, 8181.81 mm], [1329.407 mm, 8391.847 mm], [1302.052 mm, 8585.533 mm], [1274.984 mm, 8758.093 mm], [1249.842 mm, 8905.31 mm], [1228.219 mm, 9023.622 mm], [1211.563 mm, 9110.192 mm], [1201.051 mm, 9162.965 mm], [1197.457 mm, 9180.694 mm]])
+        c2 = line(start = c1.end, end = [1190.51 mm, 9180.231 mm])
+        c3 = spline(points = [c2.end, [1189.289 mm, 9162.189 mm], [1185.688 mm, 9108.539 mm], [1179.883 mm, 9020.697 mm], [1172.116 mm, 8900.965 mm], [1162.657 mm, 8752.459 mm], [1151.784 mm, 8579.005 mm], [1139.813 mm, 8385.037 mm], [1127.166 mm, 8175.469 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 15700 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1614.939 mm, 9250.101 mm], [1598.353 mm, 9391.044 mm], [1580.88 mm, 9521.03 mm], [1563.569 mm, 9636.852 mm], [1547.475 mm, 9735.676 mm], [1533.625 mm, 9815.106 mm], [1522.952 mm, 9873.23 mm], [1516.216 mm, 9908.665 mm], [1513.912 mm, 9920.57 mm]])
+        c2 = line(start = c1.end, end = [1509.563 mm, 9920.28 mm])
+        c3 = spline(points = [c2.end, [1508.851 mm, 9908.179 mm], [1506.752 mm, 9872.195 mm], [1503.362 mm, 9813.274 mm], [1498.811 mm, 9732.956 mm], [1493.241 mm, 9633.324 mm], [1486.798 mm, 9516.942 mm], [1479.649 mm, 9386.779 mm], [1472.032 mm, 9246.131 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature piece = loft(profiles = [sketch.s0, sketch.s1])
+
+    output wing_aileron = { body = feature.piece.body, part_number = "WNG-AL-650", material = "aluminum_2024", color = "#B1B7BF" }
+}

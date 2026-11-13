@@ -1,0 +1,265 @@
+runmat 0.7
+std 1
+
+// Bath fixtures on the second floor, in building coordinates: the hall bath (60 in tub, toilet,
+// 36 in vanity) and the primary bath (36 x 48 in shower with glass, toilet, 60 in double vanity),
+// on the tile floor. Simple bodies for coordination with the plumbing lane.
+part baths {
+    feature xy_p122_25 = plane.offset(base = origin.xy, distance = 122.25 in)
+    feature xy_p124_25 = plane.offset(base = origin.xy, distance = 124.25 in)
+    feature xy_p137_25 = plane.offset(base = origin.xy, distance = 137.25 in)
+    feature xy_p127 = plane.offset(base = origin.xy, distance = 127 in)
+    feature xy_p156_75 = plane.offset(base = origin.xy, distance = 156.75 in)
+    feature xy_p150_25 = plane.offset(base = origin.xy, distance = 150.25 in)
+    feature xy_p125_25 = plane.offset(base = origin.xy, distance = 125.25 in)
+    // Hall bath: tub in the north-west corner, toilet under the window, vanity on the east wall
+    sketch tub_s on plane.xy_p122_25 {
+        l0_0 = line(start = [114.5 in, 293.9364 in], end = [144.5 in, 293.9364 in])
+        l0_1 = line(start = [144.5 in, 293.9364 in], end = [144.5 in, 353.9364 in])
+        l0_2 = line(start = [144.5 in, 353.9364 in], end = [114.5 in, 353.9364 in])
+        l0_3 = line(start = [114.5 in, 353.9364 in], end = [114.5 in, 293.9364 in])
+    }
+    feature tub = extrude(profile = sketch.tub_s, distance = 18 in, mode = new)
+    sketch tub_basin_s on plane.xy_p124_25 {
+        l0_0 = line(start = [116.5 in, 295.9364 in], end = [142.5 in, 295.9364 in])
+        l0_1 = line(start = [142.5 in, 295.9364 in], end = [142.5 in, 351.9364 in])
+        l0_2 = line(start = [142.5 in, 351.9364 in], end = [116.5 in, 351.9364 in])
+        l0_3 = line(start = [116.5 in, 351.9364 in], end = [116.5 in, 295.9364 in])
+    }
+    feature tub_basin = extrude(profile = sketch.tub_basin_s, distance = 16 in, mode = cut)
+    sketch tank_hall_s on plane.xy_p137_25 {
+        l0_0 = line(start = [160 in, 345.9364 in], end = [180 in, 345.9364 in])
+        l0_1 = line(start = [180 in, 345.9364 in], end = [180 in, 353.9364 in])
+        l0_2 = line(start = [180 in, 353.9364 in], end = [160 in, 353.9364 in])
+        l0_3 = line(start = [160 in, 353.9364 in], end = [160 in, 345.9364 in])
+    }
+    feature tank_hall = extrude(profile = sketch.tank_hall_s, distance = 15 in, mode = new)
+    sketch bowl_hall_s on plane.xy_p122_25 {
+        l0_0 = line(start = [162.5 in, 325.9364 in], end = [177.5 in, 325.9364 in])
+        l0_1 = line(start = [177.5 in, 325.9364 in], end = [177.5 in, 345.9364 in])
+        l0_2 = line(start = [177.5 in, 345.9364 in], end = [162.5 in, 345.9364 in])
+        l0_3 = line(start = [162.5 in, 345.9364 in], end = [162.5 in, 325.9364 in])
+    }
+    feature bowl_hall = extrude(profile = sketch.bowl_hall_s, distance = 15 in, mode = new)
+    sketch vanity_hall_s on plane.xy_p122_25 {
+        l0_0 = line(start = [219 in, 262 in], end = [240 in, 262 in])
+        l0_1 = line(start = [240 in, 262 in], end = [240 in, 298 in])
+        l0_2 = line(start = [240 in, 298 in], end = [219 in, 298 in])
+        l0_3 = line(start = [219 in, 298 in], end = [219 in, 262 in])
+    }
+    feature vanity_hall = extrude(profile = sketch.vanity_hall_s, distance = 34.5 in, mode = new)
+    sketch vanity_hall_hollow_s on plane.xy_p127 {
+        l0_0 = line(start = [219.75 in, 262.75 in], end = [240 in, 262.75 in])
+        l0_1 = line(start = [240 in, 262.75 in], end = [240 in, 297.25 in])
+        l0_2 = line(start = [240 in, 297.25 in], end = [219.75 in, 297.25 in])
+        l0_3 = line(start = [219.75 in, 297.25 in], end = [219.75 in, 262.75 in])
+    }
+    feature vanity_hall_hollow = extrude(profile = sketch.vanity_hall_hollow_s, distance = 29.75 in, mode = cut)
+    sketch vanity_hall_kick_s on plane.xy_p122_25 {
+        l0_0 = line(start = [219 in, 262 in], end = [222 in, 262 in])
+        l0_1 = line(start = [222 in, 262 in], end = [222 in, 298 in])
+        l0_2 = line(start = [222 in, 298 in], end = [219 in, 298 in])
+        l0_3 = line(start = [219 in, 298 in], end = [219 in, 262 in])
+    }
+    feature vanity_hall_kick = extrude(profile = sketch.vanity_hall_kick_s, distance = 4 in, mode = cut)
+    sketch vtop_hall_s on plane.xy_p156_75 {
+        l0_0 = line(start = [218 in, 262 in], end = [240 in, 262 in])
+        l0_1 = line(start = [240 in, 262 in], end = [240 in, 298 in])
+        l0_2 = line(start = [240 in, 298 in], end = [218 in, 298 in])
+        l0_3 = line(start = [218 in, 298 in], end = [218 in, 262 in])
+    }
+    feature vtop_hall = extrude(profile = sketch.vtop_hall_s, distance = 1.5 in, mode = new)
+    sketch vbasin_hall_s on plane.xy_p150_25 {
+        l0_0 = line(start = [222 in, 272 in], end = [236 in, 272 in])
+        l0_1 = line(start = [236 in, 272 in], end = [236 in, 288 in])
+        l0_2 = line(start = [236 in, 288 in], end = [222 in, 288 in])
+        l0_3 = line(start = [222 in, 288 in], end = [222 in, 272 in])
+    }
+    feature vbasin_hall = extrude(profile = sketch.vbasin_hall_s, distance = 8 in, mode = cut)
+    // Primary bath: 36 x 48 in shower in the north-west corner, toilet under the window, double vanity
+    sketch shower_base_s on plane.xy_p122_25 {
+        l0_0 = line(start = [244.5 in, 317.9364 in], end = [292.5 in, 317.9364 in])
+        l0_1 = line(start = [292.5 in, 317.9364 in], end = [292.5 in, 353.9364 in])
+        l0_2 = line(start = [292.5 in, 353.9364 in], end = [244.5 in, 353.9364 in])
+        l0_3 = line(start = [244.5 in, 353.9364 in], end = [244.5 in, 317.9364 in])
+    }
+    feature shower_base = extrude(profile = sketch.shower_base_s, distance = 3 in, mode = new)
+    sketch glass_e_s on plane.xy_p125_25 {
+        l0_0 = line(start = [292.5 in, 317.9364 in], end = [292.875 in, 317.9364 in])
+        l0_1 = line(start = [292.875 in, 317.9364 in], end = [292.875 in, 353.9364 in])
+        l0_2 = line(start = [292.875 in, 353.9364 in], end = [292.5 in, 353.9364 in])
+        l0_3 = line(start = [292.5 in, 353.9364 in], end = [292.5 in, 317.9364 in])
+    }
+    feature glass_e = extrude(profile = sketch.glass_e_s, distance = 72 in, mode = new)
+    sketch glass_s_s on plane.xy_p125_25 {
+        l0_0 = line(start = [244.5 in, 317.5614 in], end = [268.5 in, 317.5614 in])
+        l0_1 = line(start = [268.5 in, 317.5614 in], end = [268.5 in, 317.9364 in])
+        l0_2 = line(start = [268.5 in, 317.9364 in], end = [244.5 in, 317.9364 in])
+        l0_3 = line(start = [244.5 in, 317.9364 in], end = [244.5 in, 317.5614 in])
+    }
+    feature glass_s = extrude(profile = sketch.glass_s_s, distance = 72 in, mode = new)
+    sketch tank_primary_s on plane.xy_p137_25 {
+        l0_0 = line(start = [305 in, 345.9364 in], end = [325 in, 345.9364 in])
+        l0_1 = line(start = [325 in, 345.9364 in], end = [325 in, 353.9364 in])
+        l0_2 = line(start = [325 in, 353.9364 in], end = [305 in, 353.9364 in])
+        l0_3 = line(start = [305 in, 353.9364 in], end = [305 in, 345.9364 in])
+    }
+    feature tank_primary = extrude(profile = sketch.tank_primary_s, distance = 15 in, mode = new)
+    sketch bowl_primary_s on plane.xy_p122_25 {
+        l0_0 = line(start = [307.5 in, 325.9364 in], end = [322.5 in, 325.9364 in])
+        l0_1 = line(start = [322.5 in, 325.9364 in], end = [322.5 in, 345.9364 in])
+        l0_2 = line(start = [322.5 in, 345.9364 in], end = [307.5 in, 345.9364 in])
+        l0_3 = line(start = [307.5 in, 345.9364 in], end = [307.5 in, 325.9364 in])
+    }
+    feature bowl_primary = extrude(profile = sketch.bowl_primary_s, distance = 15 in, mode = new)
+    sketch vanity_primary_s on plane.xy_p122_25 {
+        l0_0 = line(start = [246 in, 228.5 in], end = [306 in, 228.5 in])
+        l0_1 = line(start = [306 in, 228.5 in], end = [306 in, 249.5 in])
+        l0_2 = line(start = [306 in, 249.5 in], end = [246 in, 249.5 in])
+        l0_3 = line(start = [246 in, 249.5 in], end = [246 in, 228.5 in])
+    }
+    feature vanity_primary = extrude(profile = sketch.vanity_primary_s, distance = 34.5 in, mode = new)
+    sketch vanity_primary_hollow_s on plane.xy_p127 {
+        l0_0 = line(start = [246.75 in, 228.5 in], end = [305.25 in, 228.5 in])
+        l0_1 = line(start = [305.25 in, 228.5 in], end = [305.25 in, 248.75 in])
+        l0_2 = line(start = [305.25 in, 248.75 in], end = [246.75 in, 248.75 in])
+        l0_3 = line(start = [246.75 in, 248.75 in], end = [246.75 in, 228.5 in])
+    }
+    feature vanity_primary_hollow = extrude(profile = sketch.vanity_primary_hollow_s, distance = 29.75 in, mode = cut)
+    sketch vanity_primary_kick_s on plane.xy_p122_25 {
+        l0_0 = line(start = [246 in, 246.5 in], end = [306 in, 246.5 in])
+        l0_1 = line(start = [306 in, 246.5 in], end = [306 in, 249.5 in])
+        l0_2 = line(start = [306 in, 249.5 in], end = [246 in, 249.5 in])
+        l0_3 = line(start = [246 in, 249.5 in], end = [246 in, 246.5 in])
+    }
+    feature vanity_primary_kick = extrude(profile = sketch.vanity_primary_kick_s, distance = 4 in, mode = cut)
+    sketch vtop_primary_s on plane.xy_p156_75 {
+        l0_0 = line(start = [246 in, 228.5 in], end = [306 in, 228.5 in])
+        l0_1 = line(start = [306 in, 228.5 in], end = [306 in, 250.5 in])
+        l0_2 = line(start = [306 in, 250.5 in], end = [246 in, 250.5 in])
+        l0_3 = line(start = [246 in, 250.5 in], end = [246 in, 228.5 in])
+    }
+    feature vtop_primary = extrude(profile = sketch.vtop_primary_s, distance = 1.5 in, mode = new)
+    sketch vbasin_p1_s on plane.xy_p150_25 {
+        l0_0 = line(start = [254 in, 233 in], end = [270 in, 233 in])
+        l0_1 = line(start = [270 in, 233 in], end = [270 in, 247 in])
+        l0_2 = line(start = [270 in, 247 in], end = [254 in, 247 in])
+        l0_3 = line(start = [254 in, 247 in], end = [254 in, 233 in])
+    }
+    feature vbasin_p1 = extrude(profile = sketch.vbasin_p1_s, distance = 8 in, mode = cut)
+    sketch vbasin_p2_s on plane.xy_p150_25 {
+        l0_0 = line(start = [282 in, 233 in], end = [298 in, 233 in])
+        l0_1 = line(start = [298 in, 233 in], end = [298 in, 247 in])
+        l0_2 = line(start = [298 in, 247 in], end = [282 in, 247 in])
+        l0_3 = line(start = [282 in, 247 in], end = [282 in, 233 in])
+    }
+    feature vbasin_p2 = extrude(profile = sketch.vbasin_p2_s, distance = 8 in, mode = cut)
+
+    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    feature mep_all_p_xy_8 = plane.offset(base = origin.xy, distance = 114.0896 in)
+    feature mep_all_p_xy_7 = plane.offset(base = origin.xy, distance = 115.3302 in)
+    feature mep_all_p_xy_6 = plane.offset(base = origin.xy, distance = 116.65 in)
+    feature mep_all_p_xy_5 = plane.offset(base = origin.xy, distance = 116.4125 in)
+    feature mep_all_p_xy_4 = plane.offset(base = origin.xy, distance = 112.3146 in)
+    feature mep_all_p_xy_3 = plane.offset(base = origin.xy, distance = 113.0958 in)
+    feature mep_all_p_xy_2 = plane.offset(base = origin.xy, distance = 115.226 in)
+    feature mep_all_p_xy_1 = plane.offset(base = origin.xy, distance = 118.1875 in)
+    feature mep_all_p_xy_0 = plane.offset(base = origin.xy, distance = 116.9875 in)
+    sketch mep_all_0_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [122.5 in, 355.5 in], radius = 0.5 in)
+    }
+    feature mep_all_0 = extrude(profile = sketch.mep_all_0_s, distance = 35.2625 in, mode = cut)
+    sketch mep_all_1_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [125 in, 355.5 in], radius = 0.5 in)
+    }
+    feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 34.0625 in, mode = cut)
+    sketch mep_all_2_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [164 in, 349 in], radius = 0.5 in)
+    }
+    feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 11.2625 in, mode = cut)
+    sketch mep_all_3_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [233.5 in, 276 in], radius = 0.5 in)
+    }
+    feature mep_all_3 = extrude(profile = sketch.mep_all_3_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_4_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [232 in, 284 in], radius = 0.5 in)
+    }
+    feature mep_all_4 = extrude(profile = sketch.mep_all_4_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_5_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [242 in, 330 in], radius = 0.5 in)
+    }
+    feature mep_all_5 = extrude(profile = sketch.mep_all_5_s, distance = 53.2625 in, mode = cut)
+    sketch mep_all_6_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [243.3 in, 332 in], radius = 0.5 in)
+    }
+    feature mep_all_6 = extrude(profile = sketch.mep_all_6_s, distance = 52.0625 in, mode = cut)
+    sketch mep_all_7_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [258.5 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_7 = extrude(profile = sketch.mep_all_7_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_8_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [265.5 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_8 = extrude(profile = sketch.mep_all_8_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_9_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [290 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_9 = extrude(profile = sketch.mep_all_9_s, distance = 15.2625 in, mode = cut)
+    sketch mep_all_10_s on plane.mep_all_p_xy_1 {
+        c = circle(center = [297 in, 244 in], radius = 0.5 in)
+    }
+    feature mep_all_10 = extrude(profile = sketch.mep_all_10_s, distance = 14.0625 in, mode = cut)
+    sketch mep_all_11_s on plane.mep_all_p_xy_0 {
+        c = circle(center = [307.5 in, 349 in], radius = 0.5 in)
+    }
+    feature mep_all_11 = extrude(profile = sketch.mep_all_11_s, distance = 11.2625 in, mode = cut)
+    sketch mep_all_12_s on plane.mep_all_p_xy_2 {
+        c = circle(center = [133.5 in, 349 in], radius = 1.05 in)
+    }
+    feature mep_all_12 = extrude(profile = sketch.mep_all_12_s, distance = 9.024 in, mode = cut)
+    sketch mep_all_13_s on plane.mep_all_p_xy_3 {
+        c = circle(center = [170 in, 342 in], radius = 1.875 in)
+    }
+    feature mep_all_13 = extrude(profile = sketch.mep_all_13_s, distance = 9.1542 in, mode = cut)
+    sketch mep_all_14_s on plane.mep_all_p_xy_4 {
+        c = circle(center = [315 in, 342 in], radius = 1.875 in)
+    }
+    feature mep_all_14 = extrude(profile = sketch.mep_all_14_s, distance = 9.9354 in, mode = cut)
+    sketch mep_all_15_s on plane.mep_all_p_xy_5 {
+        c = circle(center = [268.5 in, 336 in], radius = 1.3125 in)
+    }
+    feature mep_all_15 = extrude(profile = sketch.mep_all_15_s, distance = 8.8375 in, mode = cut)
+    sketch mep_all_16_s on plane.mep_all_p_xy_6 {
+        c = circle(center = [228 in, 280 in], radius = 1.05 in)
+    }
+    feature mep_all_16 = extrude(profile = sketch.mep_all_16_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_17_s on plane.mep_all_p_xy_6 {
+        c = circle(center = [262 in, 242 in], radius = 1.05 in)
+    }
+    feature mep_all_17 = extrude(profile = sketch.mep_all_17_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_18_s on plane.mep_all_p_xy_6 {
+        c = circle(center = [293.5 in, 242 in], radius = 1.05 in)
+    }
+    feature mep_all_18 = extrude(profile = sketch.mep_all_18_s, distance = 15.6 in, mode = cut)
+    sketch mep_all_19_s on plane.mep_all_p_xy_7 {
+        c = circle(center = [133.5 in, 356 in], radius = 1.05 in)
+    }
+    feature mep_all_19 = extrude(profile = sketch.mep_all_19_s, distance = 109.6198 in, mode = cut)
+    sketch mep_all_20_s on plane.mep_all_p_xy_8 {
+        c = circle(center = [242.6 in, 346 in], radius = 1.3125 in)
+    }
+    feature mep_all_20 = extrude(profile = sketch.mep_all_20_s, distance = 111.0979 in, mode = cut)
+    // end MEP penetrations all
+    output baths = { body = feature.tub.body, part_number = "B-1", material = "material.enameled_steel_bathtub", color = "#F3F3F0", label = "Bathtub, 60 x 30 in" }
+    output baths_toilet_hall = { body = feature.bowl_hall.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet" }
+    output baths_toilet_primary = { body = feature.bowl_primary.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet" }
+    output baths_tank_hall = { body = feature.tank_hall.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet tank" }
+    output baths_tank_primary = { body = feature.tank_primary.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet tank" }
+    output baths_shower_base = { body = feature.shower_base.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Shower base" }
+    output baths_vanity_tops = { body = feature.vtop_hall.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Vanity top" }
+    output baths_vanity_top_primary = { body = feature.vtop_primary.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Vanity top" }
+    material = { body = feature.vanity_hall.body, material = "material.birch_plywood_cabinet" }
+    material = { body = feature.vanity_primary.body, material = "material.birch_plywood_cabinet" }
+    material = { body = feature.glass_e.body, material = "material.glass_tempered" }
+    material = { body = feature.glass_s.body, material = "material.glass_tempered" }
+}

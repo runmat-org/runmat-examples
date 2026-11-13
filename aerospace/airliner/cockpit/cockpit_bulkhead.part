@@ -1,0 +1,53 @@
+runmat 0.7
+std 1
+
+// The flight deck bulkhead with the cockpit door's opening, 800 mm wide and 1900 mm tall.
+part cockpit_bulkhead {
+    feature datum = plane.offset(base = origin.yz, distance = 3600 mm)
+    sketch s on plane.datum {
+        l1 = line(start = [1789.916 mm, -400 mm], end = [1809.213 mm, -274.316 mm])
+        l2 = line(start = [1809.213 mm, -274.316 mm], end = [1818.491 mm, -148.632 mm])
+        l3 = line(start = [1818.491 mm, -148.632 mm], end = [1817.902 mm, -22.948 mm])
+        l4 = line(start = [1817.902 mm, -22.948 mm], end = [1807.437 mm, 102.736 mm])
+        l5 = line(start = [1807.437 mm, 102.736 mm], end = [1786.922 mm, 228.42 mm])
+        l6 = line(start = [1786.922 mm, 228.42 mm], end = [1756.006 mm, 354.104 mm])
+        l7 = line(start = [1756.006 mm, 354.104 mm], end = [1714.125 mm, 479.788 mm])
+        l8 = line(start = [1714.125 mm, 479.788 mm], end = [1660.45 mm, 605.471 mm])
+        l9 = line(start = [1660.45 mm, 605.471 mm], end = [1593.79 mm, 731.155 mm])
+        l10 = line(start = [1593.79 mm, 731.155 mm], end = [1512.429 mm, 856.839 mm])
+        l11 = line(start = [1512.429 mm, 856.839 mm], end = [1413.831 mm, 982.523 mm])
+        l12 = line(start = [1413.831 mm, 982.523 mm], end = [1294.062 mm, 1108.207 mm])
+        l13 = line(start = [1294.062 mm, 1108.207 mm], end = [1146.507 mm, 1233.891 mm])
+        l14 = line(start = [1146.507 mm, 1233.891 mm], end = [958.417 mm, 1359.575 mm])
+        l15 = line(start = [958.417 mm, 1359.575 mm], end = [697.746 mm, 1485.259 mm])
+        l16 = line(start = [697.746 mm, 1485.259 mm], end = [139.065 mm, 1610.943 mm])
+        l17 = line(start = [139.065 mm, 1610.943 mm], end = [-139.065 mm, 1610.943 mm])
+        l18 = line(start = [-139.065 mm, 1610.943 mm], end = [-697.746 mm, 1485.259 mm])
+        l19 = line(start = [-697.746 mm, 1485.259 mm], end = [-958.417 mm, 1359.575 mm])
+        l20 = line(start = [-958.417 mm, 1359.575 mm], end = [-1146.507 mm, 1233.891 mm])
+        l21 = line(start = [-1146.507 mm, 1233.891 mm], end = [-1294.062 mm, 1108.207 mm])
+        l22 = line(start = [-1294.062 mm, 1108.207 mm], end = [-1413.831 mm, 982.523 mm])
+        l23 = line(start = [-1413.831 mm, 982.523 mm], end = [-1512.429 mm, 856.839 mm])
+        l24 = line(start = [-1512.429 mm, 856.839 mm], end = [-1593.79 mm, 731.155 mm])
+        l25 = line(start = [-1593.79 mm, 731.155 mm], end = [-1660.45 mm, 605.471 mm])
+        l26 = line(start = [-1660.45 mm, 605.471 mm], end = [-1714.125 mm, 479.788 mm])
+        l27 = line(start = [-1714.125 mm, 479.788 mm], end = [-1756.006 mm, 354.104 mm])
+        l28 = line(start = [-1756.006 mm, 354.104 mm], end = [-1786.922 mm, 228.42 mm])
+        l29 = line(start = [-1786.922 mm, 228.42 mm], end = [-1807.437 mm, 102.736 mm])
+        l30 = line(start = [-1807.437 mm, 102.736 mm], end = [-1817.902 mm, -22.948 mm])
+        l31 = line(start = [-1817.902 mm, -22.948 mm], end = [-1818.491 mm, -148.632 mm])
+        l32 = line(start = [-1818.491 mm, -148.632 mm], end = [-1809.213 mm, -274.316 mm])
+        l33 = line(start = [-1809.213 mm, -274.316 mm], end = [-1789.916 mm, -400 mm])
+        l34 = line(start = [-1789.916 mm, -400 mm], end = [1789.916 mm, -400 mm])
+    }
+    feature wall = extrude(profile = sketch.s, distance = 40 mm)
+    sketch d on plane.datum {
+        l1 = line(start = [-400 mm, -400 mm], end = [400 mm, -400 mm])
+        l2 = line(start = [400 mm, -400 mm], end = [400 mm, 1500 mm])
+        l3 = line(start = [400 mm, 1500 mm], end = [-400 mm, 1500 mm])
+        l4 = line(start = [-400 mm, 1500 mm], end = [-400 mm, -400 mm])
+    }
+    feature doorway = extrude(profile = sketch.d, distance = 40 mm, mode = cut)
+
+    output cockpit_bulkhead = { body = feature.wall.body, part_number = "FD-BH-310", material = "composite", color = "#C9CDD2" }
+}

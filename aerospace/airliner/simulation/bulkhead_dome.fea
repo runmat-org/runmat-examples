@@ -1,0 +1,79 @@
+// The aft pressure bulkhead at ultimate cabin pressure: the 4 mm 2024-T3 dome that closes the
+// cabin at x = 29,900 mm, loaded on its cabin side.
+//
+// Pressure: the limit differential is the 59.3 kPa (8.6 psi) of window_cutout.fea (a cabin held
+// at 2,440 m while flying at 12,500 m, the class's maximum normal differential). Ultimate load is
+// limit times the 1.5 factor of safety: 1.5 x 59.3 kPa = 89.0 kPa. At ultimate the structure
+// must carry the load without failing, so the check is against the tensile strength.
+//
+// Geometry: ./geometry/bulkhead_sector.step, exported from bulkhead_sector.assembly: the
+// bulkhead's own profile (fuselage/aft_pressure_bulkhead.part) turned through 10 degrees. The
+// load and the supports repeat round the axis, so the two cut faces are planes of symmetry. The
+// rim, where the dome meets the fuselage frame at x = 29,900 mm, is held fixed (the frame ring is
+// far stiffer than the 4 mm dome). The 80 mm hole at the apex is left free.
+//
+// Hand check: the dome is 800 mm deep over a 1,950 mm base radius, a sphere of radius
+// R = (1950^2 + 800^2) / (2 x 800) = 2,777 mm. A pressurized spherical shell carries
+// sigma = p R / (2 t) = 89.0 kPa x 2,777 mm / (2 x 4 mm) = 30.9 MPa in both directions. The fixed
+// rim adds bending in a band about 0.76 sqrt(R t) = 80 mm wide; for a clamped spherical edge the
+// meridional stress there reaches about 1.6 times the membrane stress on the surfaces, about
+// 50 MPa. The ultimate tensile strength of 2024-T3 sheet (A-basis) is 440 MPa.
+
+geometry dome {
+    file = "./geometry/bulkhead_sector.step"
+    units = mm
+    region body : solid { select name "aft_pressure_bulkhead (sweep 10°)"; expect exactly_one }
+    region cabin_side : face { select name "cabin_side"; expect one_or_more }
+    region rim : face { select name "rim"; expect one_or_more }
+    region cut_start : face { select name "cut_start"; expect exactly_one }
+    region cut_end : face { select name "cut_end"; expect exactly_one }
+}
+
+mesh dome on geometry.dome {
+    tetrahedra {
+        order = quadratic
+        target_size = 8 mm
+        maximum_deviation = 0.5 mm
+    }
+}
+
+material aluminum_2024_t3 {
+    mass_density = 2780 kg/m^3
+    elastic {
+        youngs_modulus = 73.1 GPa
+        poisson_ratio = 0.33
+    }
+}
+
+model ultimate_pressure {
+    assign material.aluminum_2024_t3 to geometry.dome.region.body
+    constraint frame_ring {
+        structural.fixed { target = geometry.dome.region.rim }
+    }
+    constraint sector_start {
+        structural.symmetry { target = geometry.dome.region.cut_start }
+    }
+    constraint sector_end {
+        structural.symmetry { target = geometry.dome.region.cut_end }
+    }
+    load cabin {
+        pressure on geometry.dome.region.cabin_side = 89.0 kPa
+    }
+    load_case ultimate { include load.cabin }
+}
+
+study bulkhead_dome {
+    geometry = geometry.dome
+    mesh = mesh.dome
+    model = model.ultimate_pressure
+    analysis static { structural static {} }
+    output displacement = analysis.static.field.node.displacement
+    output von_mises = analysis.static.field.element.von_mises_stress
+    output peak_stress = max(analysis.static.field.element.von_mises_stress, over = geometry.dome.region.body)
+    output peak_displacement = max(magnitude(analysis.static.field.node.displacement), over = geometry.dome.region.body)
+    assessment below_ultimate_strength {
+        value = output.peak_stress
+        maximum = 440 MPa
+        evidence = authored_samples
+    }
+}

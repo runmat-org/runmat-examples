@@ -1,0 +1,101 @@
+runmat 0.7
+std 1
+
+// An exterior door unit for the opening schedule: D1, the 36 x 80 in entry door (insulated steel
+// slab, U-0.20), and D2, the 72 x 80 in sliding patio door (two vinyl panels with tempered
+// double-pane low-E glass, U-0.30, SHGC 0.25). The frame runs from 1 in outside the studs to the
+// gypsum face, so it trims the wall's full depth. Origin at the bottom corner of the rough opening
+// on the outside face of the studs: x along the wall, y inward, z up; the sill sits on the sill pan.
+part door {
+    input w : length = 37.75 in
+    input h : length = 82 in
+    feature zx_m1 = plane.offset(base = origin.zx, distance = -1 in)
+    feature zx_p1 = plane.offset(base = origin.zx, distance = 1 in)
+    feature zx_m0_5 = plane.offset(base = origin.zx, distance = -0.5 in)
+    feature zx_m0_0625 = plane.offset(base = origin.zx, distance = -0.0625 in)
+    feature zx_p0_625 = plane.offset(base = origin.zx, distance = 0.625 in)
+    feature zx_p1_5 = plane.offset(base = origin.zx, distance = 1.5 in)
+    feature zx_p1_9375 = plane.offset(base = origin.zx, distance = 1.9375 in)
+    feature zx_p2_625 = plane.offset(base = origin.zx, distance = 2.625 in)
+    // The frame: 3/4 in jambs and head, a 3/4 in aluminum sill, from 1 in outside the studs to the gypsum face
+    sketch frame_s on plane.zx_m1 {
+        l0_0 = line(start = [0.0625 in, 0.125 in], end = [input.h + 0.0625 in, 0.125 in])
+        l0_1 = line(start = [input.h + 0.0625 in, 0.125 in], end = [input.h + 0.0625 in, input.w + 0.125 in])
+        l0_2 = line(start = [input.h + 0.0625 in, input.w + 0.125 in], end = [0.0625 in, input.w + 0.125 in])
+        l0_3 = line(start = [0.0625 in, input.w + 0.125 in], end = [0.0625 in, 0.125 in])
+        l1_0 = line(start = [0.8125 in, 0.875 in], end = [input.h - 0.6875 in, 0.875 in])
+        l1_1 = line(start = [input.h - 0.6875 in, 0.875 in], end = [input.h - 0.6875 in, input.w - 0.625 in])
+        l1_2 = line(start = [input.h - 0.6875 in, input.w - 0.625 in], end = [0.8125 in, input.w - 0.625 in])
+        l1_3 = line(start = [0.8125 in, input.w - 0.625 in], end = [0.8125 in, 0.875 in])
+    }
+    feature frame = extrude(profile = sketch.frame_s, distance = 7.0156 in, mode = new)
+    sketch d1_slab_s on plane.zx_p1 {
+        l0_0 = line(start = [0.9375 in, 1 in], end = [80.9375 in, 1 in])
+        l0_1 = line(start = [80.9375 in, 1 in], end = [80.9375 in, 37 in])
+        l0_2 = line(start = [80.9375 in, 37 in], end = [0.9375 in, 37 in])
+        l0_3 = line(start = [0.9375 in, 37 in], end = [0.9375 in, 1 in])
+    }
+    feature d1_slab = extrude(profile = sketch.d1_slab_s, distance = 1.75 in, mode = new, suppressed = true)
+    sketch d2_fixed_s on plane.zx_m0_5 {
+        l0_0 = line(start = [0.8125 in, 0.875 in], end = [81.3125 in, 0.875 in])
+        l0_1 = line(start = [81.3125 in, 0.875 in], end = [81.3125 in, 37.375 in])
+        l0_2 = line(start = [81.3125 in, 37.375 in], end = [0.8125 in, 37.375 in])
+        l0_3 = line(start = [0.8125 in, 37.375 in], end = [0.8125 in, 0.875 in])
+        l1_0 = line(start = [3.3125 in, 3.375 in], end = [78.8125 in, 3.375 in])
+        l1_1 = line(start = [78.8125 in, 3.375 in], end = [78.8125 in, 34.875 in])
+        l1_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
+        l1_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
+    }
+    feature d2_fixed = extrude(profile = sketch.d2_fixed_s, distance = 1.75 in, mode = new, suppressed = true)
+    sketch d2_fixed_lite0_s on plane.zx_m0_0625 {
+        l0_0 = line(start = [3.3125 in, 3.375 in], end = [78.8125 in, 3.375 in])
+        l0_1 = line(start = [78.8125 in, 3.375 in], end = [78.8125 in, 34.875 in])
+        l0_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
+        l0_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
+    }
+    feature d2_fixed_lite0 = extrude(profile = sketch.d2_fixed_lite0_s, distance = 0.1875 in, mode = new, suppressed = true)
+    sketch d2_fixed_lite1_s on plane.zx_p0_625 {
+        l0_0 = line(start = [3.3125 in, 3.375 in], end = [78.8125 in, 3.375 in])
+        l0_1 = line(start = [78.8125 in, 3.375 in], end = [78.8125 in, 34.875 in])
+        l0_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
+        l0_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
+    }
+    feature d2_fixed_lite1 = extrude(profile = sketch.d2_fixed_lite1_s, distance = 0.1875 in, mode = new, suppressed = true)
+    sketch d2_sliding_s on plane.zx_p1_5 {
+        l0_0 = line(start = [0.8125 in, 36.625 in], end = [81.3125 in, 36.625 in])
+        l0_1 = line(start = [81.3125 in, 36.625 in], end = [81.3125 in, 73.125 in])
+        l0_2 = line(start = [81.3125 in, 73.125 in], end = [0.8125 in, 73.125 in])
+        l0_3 = line(start = [0.8125 in, 73.125 in], end = [0.8125 in, 36.625 in])
+        l1_0 = line(start = [3.3125 in, 39.125 in], end = [78.8125 in, 39.125 in])
+        l1_1 = line(start = [78.8125 in, 39.125 in], end = [78.8125 in, 70.625 in])
+        l1_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
+        l1_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
+    }
+    feature d2_sliding = extrude(profile = sketch.d2_sliding_s, distance = 1.75 in, mode = new, suppressed = true)
+    sketch d2_sliding_lite0_s on plane.zx_p1_9375 {
+        l0_0 = line(start = [3.3125 in, 39.125 in], end = [78.8125 in, 39.125 in])
+        l0_1 = line(start = [78.8125 in, 39.125 in], end = [78.8125 in, 70.625 in])
+        l0_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
+        l0_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
+    }
+    feature d2_sliding_lite0 = extrude(profile = sketch.d2_sliding_lite0_s, distance = 0.1875 in, mode = new, suppressed = true)
+    sketch d2_sliding_lite1_s on plane.zx_p2_625 {
+        l0_0 = line(start = [3.3125 in, 39.125 in], end = [78.8125 in, 39.125 in])
+        l0_1 = line(start = [78.8125 in, 39.125 in], end = [78.8125 in, 70.625 in])
+        l0_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
+        l0_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
+    }
+    feature d2_sliding_lite1 = extrude(profile = sketch.d2_sliding_lite1_s, distance = 0.1875 in, mode = new, suppressed = true)
+
+    output door = { body = feature.frame.body, part_number = "D1", material = "material.aluminum_door_frame", color = "#D9D6CF", label = "Door frame and sill" }
+    material = { body = feature.d1_slab.body, material = "material.steel_insulated_door" }
+    material = { body = feature.d2_fixed.body, material = "material.pvc_door_panel" }
+    material = { body = feature.d2_fixed_lite0.body, material = "material.glass_low_e_tempered" }
+    material = { body = feature.d2_fixed_lite1.body, material = "material.glass_low_e_tempered" }
+    material = { body = feature.d2_sliding.body, material = "material.pvc_door_panel" }
+    material = { body = feature.d2_sliding_lite0.body, material = "material.glass_low_e_tempered" }
+    material = { body = feature.d2_sliding_lite1.body, material = "material.glass_low_e_tempered" }
+
+    configuration D1 = { w = 37.75 in, h = 82 in, features = { d1_slab = { suppressed = false } }, part_number = "D1", description = "Entry door, insulated steel, 36 x 80 in, U-0.20" }
+    configuration D2 = { w = 73.75 in, h = 82 in, features = { d2_fixed = { suppressed = false }, d2_fixed_lite0 = { suppressed = false }, d2_fixed_lite1 = { suppressed = false }, d2_sliding = { suppressed = false }, d2_sliding_lite0 = { suppressed = false }, d2_sliding_lite1 = { suppressed = false } }, part_number = "D2", description = "Patio door, sliding, 72 x 80 in, tempered double-pane low-E, U-0.30, SHGC 0.25" }
+}

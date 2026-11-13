@@ -1,0 +1,32 @@
+runmat 0.7
+std 1
+
+// A horizontal stabilizer ahead of the elevator hinge: NACA 0010, swept 33° with 7° dihedral.
+part stabilizer {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 400 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[659.917 mm, 6020 mm], [681.38 mm, 5738.913 mm], [700.631 mm, 5445.876 mm], [716.164 mm, 5148.868 mm], [726.442 mm, 4855.974 mm], [730.051 mm, 4575.169 mm], [725.926 mm, 4314.099 mm], [713.549 mm, 4079.872 mm], [693.066 mm, 3878.865 mm], [665.249 mm, 3716.551 mm], [631.296 mm, 3597.349 mm], [592.518 mm, 3524.504 mm], [550 mm, 3500 mm], [507.482 mm, 3524.504 mm], [468.704 mm, 3597.349 mm], [434.751 mm, 3716.551 mm], [406.934 mm, 3878.865 mm], [386.451 mm, 4079.872 mm], [374.074 mm, 4314.099 mm], [369.949 mm, 4575.169 mm], [373.558 mm, 4855.974 mm], [383.836 mm, 5148.868 mm], [399.369 mm, 5445.876 mm], [418.62 mm, 5738.913 mm], [440.083 mm, 6020 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 6300 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1312.597 mm, 8206.507 mm], [1320.05 mm, 8108.908 mm], [1326.734 mm, 8007.159 mm], [1332.128 mm, 7904.031 mm], [1335.696 mm, 7802.331 mm], [1336.949 mm, 7704.83 mm], [1335.517 mm, 7614.181 mm], [1331.219 mm, 7532.852 mm], [1324.107 mm, 7463.058 mm], [1314.448 mm, 7406.699 mm], [1302.659 mm, 7365.309 mm], [1289.195 mm, 7340.016 mm], [1274.432 mm, 7331.507 mm], [1259.668 mm, 7340.016 mm], [1246.204 mm, 7365.309 mm], [1234.415 mm, 7406.699 mm], [1224.756 mm, 7463.058 mm], [1217.644 mm, 7532.852 mm], [1213.346 mm, 7614.181 mm], [1211.914 mm, 7704.83 mm], [1213.167 mm, 7802.331 mm], [1216.735 mm, 7904.031 mm], [1222.129 mm, 8007.159 mm], [1228.813 mm, 8108.908 mm], [1236.266 mm, 8206.507 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature surface = loft(profiles = [sketch.s0, sketch.s1])
+    feature ist0 = plane.offset(base = origin.zx, distance = input.side * 403 mm)
+    sketch is0 on plane.ist0 {
+        c1 = spline(points = [[657.502 mm, 6017.87 mm], [678.92 mm, 5736.995 mm], [698.116 mm, 5444.283 mm], [713.589 mm, 5147.691 mm], [723.805 mm, 4855.284 mm], [727.359 mm, 4575.016 mm], [723.192 mm, 4314.509 mm], [710.796 mm, 4080.853 mm], [690.324 mm, 3880.416 mm], [662.564 mm, 3718.684 mm], [628.765 mm, 3600.153 mm], [590.532 mm, 3528.322 mm], [550.304 mm, 3504.948 mm], [510.204 mm, 3528.322 mm], [471.972 mm, 3600.153 mm], [438.173 mm, 3718.684 mm], [410.413 mm, 3880.416 mm], [389.941 mm, 4080.853 mm], [377.545 mm, 4314.509 mm], [373.378 mm, 4575.016 mm], [376.932 mm, 4855.284 mm], [387.148 mm, 5147.691 mm], [402.62 mm, 5444.283 mm], [421.816 mm, 5736.995 mm], [443.235 mm, 6017.87 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature ist1 = plane.offset(base = origin.zx, distance = input.side * 6297 mm)
+    sketch is1 on plane.ist1 {
+        c1 = spline(points = [[1309.518 mm, 8202.154 mm], [1316.94 mm, 8104.581 mm], [1323.582 mm, 8002.963 mm], [1328.925 mm, 7900.055 mm], [1332.439 mm, 7798.649 mm], [1333.639 mm, 7701.497 mm], [1332.163 mm, 7611.237 mm], [1327.838 mm, 7530.323 mm], [1320.724 mm, 7460.966 mm], [1311.103 mm, 7405.081 mm], [1299.447 mm, 7364.283 mm], [1286.502 mm, 7339.956 mm], [1273.999 mm, 7332.558 mm], [1261.624 mm, 7339.956 mm], [1248.68 mm, 7364.283 mm], [1237.023 mm, 7405.081 mm], [1227.403 mm, 7460.966 mm], [1220.288 mm, 7530.323 mm], [1215.963 mm, 7611.237 mm], [1214.487 mm, 7701.497 mm], [1215.687 mm, 7798.649 mm], [1219.201 mm, 7900.055 mm], [1224.544 mm, 8002.963 mm], [1231.187 mm, 8104.581 mm], [1238.608 mm, 8202.154 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature hollow = loft(profiles = [sketch.is0, sketch.is1], mode = cut)
+
+    output stabilizer = { body = feature.surface.body, part_number = "EMP-HT-710", material = "composite", color = "#E4E7EB" }
+}

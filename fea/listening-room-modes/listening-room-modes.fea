@@ -1,0 +1,57 @@
+// Room modes of a rigid-walled listening room, 5 m long, 4 m wide and 2.8 m high. The run returns
+// the twelve lowest natural frequencies of the room air with their pressure mode shapes.
+//
+// Geometry: ./geometry/listening-room.step, the room air ("Air") with its floor, ceiling and four
+// walls. Every surface is taken as rigid, so the first mode is the uniform 0 Hz pressure state.
+//
+// Air at 20 degC: 1.204 kg/m^3, 343 m/s.
+//
+// Hand check, rigid rectangular room: f = (c / 2) sqrt((l / Lx)^2 + (m / Ly)^2 + (n / Lz)^2).
+//   (l, m, n)   Hz        (l, m, n)   Hz
+//   (0, 0, 0)    0.0      (1, 0, 1)   70.2
+//   (1, 0, 0)   34.3      (0, 1, 1)   74.8
+//   (0, 1, 0)   42.9      (2, 1, 0)   80.9
+//   (1, 1, 0)   54.9      (1, 1, 1)   82.3
+//   (0, 0, 1)   61.3      (0, 2, 0)   85.8
+//   (2, 0, 0)   68.6      (2, 0, 1)   92.0
+
+geometry room {
+    file = "./geometry/listening-room.step"
+    units = mm
+    region air : solid { select name "Air"; expect exactly_one }
+    region floor : face { select name "Floor"; expect exactly_one }
+    region ceiling : face { select name "Ceiling"; expect exactly_one }
+    region walls : face { select name "Walls"; expect one_or_more }
+}
+
+// Six quadratic elements per wavelength at 100 Hz: 343 / 100 / 6 = 0.57 m.
+mesh room on geometry.room {
+    tetrahedra {
+        order = quadratic
+        target_size = 400 mm
+        maximum_deviation = 2 mm
+    }
+}
+
+material air {
+    mass_density = 1.204 kg/m^3
+    acoustic {
+        speed_of_sound = 343 m/s
+        damping_ratio = 0.0
+    }
+}
+
+model rigid_room {
+    assign material.air to geometry.room.region.air
+    load floor { acoustic.rigid_wall { target = geometry.room.region.floor } }
+    load ceiling { acoustic.rigid_wall { target = geometry.room.region.ceiling } }
+    load walls { acoustic.rigid_wall { target = geometry.room.region.walls } }
+}
+
+study room_modes {
+    geometry = geometry.room
+    mesh = mesh.room
+    model = model.rigid_room
+    analysis modes { acoustic modal { modes = 12 } }
+    output mode_shapes = analysis.modes.field.node.acoustic_pressure
+}

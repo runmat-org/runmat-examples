@@ -1,0 +1,132 @@
+runmat 0.7
+std 1
+
+// The cabin reading-light driver: one per triple seat row, above the ceiling panel, driving the
+// row's three reading lights as one series string at 333 mA. The 28 V DC cabin bus comes in
+// through a fuse, a series Schottky and a 33 V TVS. A 60 V hysteretic step-down LED driver
+// regulates the string's current from the drop across a high-side sense resistor, so the light
+// stays the same brightness over the bus's 22 to 29 V. The seat's dimming signal, a 5 V PWM from
+// the passenger service unit, switches the driver's ADJ pin. The board is 60 x 30 mm, two layers.
+circuit reading_light {
+    root = main
+    net_class power = { track_width = "0.50 mm" }
+    net_class signal = { track_width = "0.20 mm" }
+
+    // 60 V 1 A hysteretic step-down LED driver with an internal switch: output current
+    // 0.1 V / R_sense; ADJ below 0.2 V turns the switch off (PWM dimming).
+    part "LEDBUCK-60V-1A" = {
+        manufacturer = "Generic",
+        description = "60 V 1 A hysteretic step-down LED driver, high-side current sense, SOT-23-5",
+        category = driver,
+        package = "SOT23-5",
+        params = { vin_max = "60 V", iout_max = "1 A", vsense = "100 mV" },
+        pins = [
+            { name = SW, pad = "1", type = power_out },
+            { name = GND, pad = "2", type = power_in },
+            { name = ADJ, pad = "3", type = input },
+            { name = ISENSE, pad = "4", type = input },
+            { name = VIN, pad = "5", type = power_in }
+        ]
+    }
+
+    part "D-SCHOTTKY-60V-2A" = {
+        manufacturer = "Generic",
+        description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A",
+        category = diode,
+        package = "D2010",
+        params = { vr_max = "60 V", if_max = "2 A" },
+        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+    }
+
+    part "TVS-33V-600W" = {
+        manufacturer = "Generic",
+        description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)",
+        category = diode,
+        package = "D2010",
+        params = { v_standoff = "33 V", v_clamp = "53 V" },
+        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+    }
+
+    part "FUSE-0A5-1206" = {
+        manufacturer = "Generic",
+        description = "0.5 A slow-blow chip fuse, 63 V, 1206",
+        category = fuse,
+        package = "F1206",
+        params = { current = "0.5 A", voltage = "63 V" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "R0805-0R30" = {
+        manufacturer = "Generic",
+        description = "0.30 Ohm 1 % 0.25 W current-sense resistor, 0805",
+        category = resistor,
+        package = "R0805",
+        params = { resistance = "0.3 ohm", power_rating = "0.25 W" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "L1812-68U" = {
+        manufacturer = "Generic",
+        description = "68 uH 0.8 A shielded power inductor",
+        category = inductor,
+        package = "L1812",
+        params = { inductance = "68 uH", current = "0.8 A" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "CONN-1X04" = {
+        manufacturer = "Generic",
+        description = "4-way 2.54 mm header",
+        category = connector,
+        package = "PinHeader1x04",
+        pins = [
+            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive }
+        ]
+    }
+
+    part "CONN-1X02" = {
+        manufacturer = "Generic",
+        description = "2-way 2.54 mm header",
+        category = connector,
+        package = "PinHeader1x02",
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    sheet main {
+        component J1 = { part = "CONN-1X04" }
+        component F1 = { part = "FUSE-0A5-1206" }
+        component D1 = { part = "D-SCHOTTKY-60V-2A", power = 0.08 }
+        component D2 = { part = "TVS-33V-600W" }
+        component C1 = { part = "C1206-10U-50V" }
+        component C2 = { part = "C0603-1U-50V" }
+        component U1 = { part = "LEDBUCK-60V-1A", power = 0.15 }
+        component R1 = { part = "R0805-0R30", power = 0.035 }
+        component L1 = { part = "L1812-68U", power = 0.05 }
+        component D3 = { part = "D-SCHOTTKY-60V-2A", power = 0.1 }
+        component J2 = { part = "CONN-1X02" }
+        // Dimming: 1 kOhm in series from the PWM line, 100 kOhm to ground holds the light off
+        // when the line is open.
+        component R2 = { part = "R0402-1K" }
+        component R3 = { part = "R0402-100K" }
+        component H1 = { part = "MH-M3" }
+        component H2 = { part = "MH-M3" }
+        net GND = { class = power, global = true, power_flag = true }
+        net V28_IN = { class = power, power_flag = true }
+        net V28 = { class = power, power_flag = true }
+        net LED_A = { class = power }
+        net LED_K = { class = power }
+        net SW = { class = power }
+        // Cabin bus: 28 V, return, dimming PWM, signal ground.
+        connect = [net.V28_IN, "J1.1", "F1.1"]
+        connect = [net.V28_FUSED, "F1.2", D1.A]
+        connect = [net.V28, D1.K, D2.K, "C1.1", "C2.1", U1.VIN, "R1.1", D3.K]
+        connect = [net.LED_A, U1.ISENSE, "R1.2", "J2.1"]
+        connect = [net.LED_K, "J2.2", "L1.1"]
+        connect = [net.SW, U1.SW, "L1.2", D3.A]
+        connect = [net.DIM, "J1.3", "R2.1"]
+        connect = [net.ADJ, U1.ADJ, "R2.2", "R3.1"]
+        connect = [net.GND, "J1.2", "J1.4", D2.A, "C1.2", "C2.2", U1.GND, "R3.2"]
+        no_erc = ["H1.1", "H2.1"]
+    }
+}

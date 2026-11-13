@@ -1,0 +1,14 @@
+runmat 0.7
+std 1
+
+// The core cowl and its nozzle, aft of the fan cowl.
+part core_nozzle {
+    sketch s on origin.xy {
+        c1 = spline(points = [[2900 mm, 0 mm], [2900 mm, 400 mm], [3100 mm, 790 mm], [3700 mm, 760 mm], [4300 mm, 590 mm]])
+        c2_1 = line(start = c1.end, end = [4300 mm, 0 mm])
+        c2 = line(start = c2_1.end, end = c1.start)
+    }
+    feature body = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+
+    output core_nozzle = { body = feature.body.body, part_number = "NAC-CN-940", material = "titanium", color = "#8A9097" }
+}

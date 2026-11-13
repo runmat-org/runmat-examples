@@ -1,0 +1,24 @@
+runmat 0.7
+std 1
+
+// The main gear bays: a roof, side walls and pressure walls fore and aft, open below.
+part gear_bay {
+    feature datum = plane.offset(base = origin.yz, distance = 17400 mm)
+    sketch s on plane.datum {
+        l1 = line(start = [-1050 mm, -1550 mm], end = [1050 mm, -1550 mm])
+        l2 = line(start = [1050 mm, -1550 mm], end = [1050 mm, -570 mm])
+        l3 = line(start = [1050 mm, -570 mm], end = [-1050 mm, -570 mm])
+        l4 = line(start = [-1050 mm, -570 mm], end = [-1050 mm, -1550 mm])
+    }
+    feature bay = extrude(profile = sketch.s, distance = 2200 mm)
+    feature in_at = plane.offset(base = origin.yz, distance = 17415 mm)
+    sketch c on plane.in_at {
+        l1 = line(start = [-1035 mm, -1551 mm], end = [1035 mm, -1551 mm])
+        l2 = line(start = [1035 mm, -1551 mm], end = [1035 mm, -585 mm])
+        l3 = line(start = [1035 mm, -585 mm], end = [-1035 mm, -585 mm])
+        l4 = line(start = [-1035 mm, -585 mm], end = [-1035 mm, -1551 mm])
+    }
+    feature well = extrude(profile = sketch.c, distance = 2170 mm, mode = cut)
+
+    output gear_bay = { body = feature.bay.body, part_number = "FUS-GB-820", material = "aluminum_2024", color = "#A7B596" }
+}

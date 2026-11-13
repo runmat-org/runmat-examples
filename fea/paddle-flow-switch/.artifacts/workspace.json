@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/paddle-flow-switch.fea",
+      "/flow_switch.part"
+    ],
+    "activeFile": "/paddle-flow-switch.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "displacement"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the tip deflection against the 1 mm trip travel",
+      "Find the flow speed at which the tip moves 1 mm",
+      "Thicken the paddle to 0.6 mm and compare the deflection"
+    ]
+  }
+}

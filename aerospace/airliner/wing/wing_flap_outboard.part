@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// The outboard flap.
+part wing_flap_outboard {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 6400 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[896.455 mm, 6239.82 mm], [851.125 mm, 6575.512 mm], [803.581 mm, 6885 mm], [756.63 mm, 7160.668 mm], [713.083 mm, 7395.799 mm], [675.666 mm, 7584.727 mm], [646.862 mm, 7722.945 mm], [628.689 mm, 7807.191 mm], [622.477 mm, 7835.493 mm]])
+        c2 = line(start = c1.end, end = [610.023 mm, 7834.663 mm])
+        c3 = spline(points = [c2.end, [607.601 mm, 7805.8 mm], [600.473 mm, 7719.98 mm], [589.008 mm, 7579.482 mm], [573.735 mm, 7388.01 mm], [555.249 mm, 7150.566 mm], [534.179 mm, 6873.295 mm], [511.218 mm, 6563.302 mm], [487.244 mm, 6228.453 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 12400 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1355.418 mm, 8181.81 mm], [1329.407 mm, 8391.847 mm], [1302.052 mm, 8585.533 mm], [1274.984 mm, 8758.093 mm], [1249.842 mm, 8905.31 mm], [1228.219 mm, 9023.622 mm], [1211.563 mm, 9110.192 mm], [1201.051 mm, 9162.965 mm], [1197.457 mm, 9180.694 mm]])
+        c2 = line(start = c1.end, end = [1190.51 mm, 9180.231 mm])
+        c3 = spline(points = [c2.end, [1189.289 mm, 9162.189 mm], [1185.688 mm, 9108.539 mm], [1179.883 mm, 9020.697 mm], [1172.116 mm, 8900.965 mm], [1162.657 mm, 8752.459 mm], [1151.784 mm, 8579.005 mm], [1139.813 mm, 8385.037 mm], [1127.166 mm, 8175.469 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature piece = loft(profiles = [sketch.s0, sketch.s1])
+
+    output wing_flap_outboard = { body = feature.piece.body, part_number = "WNG-FL-640", material = "aluminum_2024", color = "#B1B7BF" }
+}

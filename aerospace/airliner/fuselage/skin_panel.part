@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// A skin panel: 45° of the barrel, one section long, 3 mm thick.
+part skin_panel {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1977 mm], end = [8000 mm, 1977 mm])
+        l2 = line(start = [8000 mm, 1977 mm], end = [8000 mm, 1980 mm])
+        l3 = line(start = [8000 mm, 1980 mm], end = [0 mm, 1980 mm])
+        l4 = line(start = [0 mm, 1980 mm], end = [0 mm, 1977 mm])
+    }
+    feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 45 deg)
+
+    output skin_panel = { body = feature.panel.body, part_number = "FUS-SK-300", material = "aluminum_2024", color = "#F4F5F7" }
+}

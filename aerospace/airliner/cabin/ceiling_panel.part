@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// The ceiling over one barrel section: the lining's crown between the two rows of bins.
+part ceiling_panel {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1800 mm], end = [8000 mm, 1800 mm])
+        l2 = line(start = [8000 mm, 1800 mm], end = [8000 mm, 1808 mm])
+        l3 = line(start = [8000 mm, 1808 mm], end = [0 mm, 1808 mm])
+        l4 = line(start = [0 mm, 1808 mm], end = [0 mm, 1800 mm])
+    }
+    feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 64 deg)
+
+    output ceiling_panel = { body = feature.panel.body, part_number = "CAB-LN-510", material = "polycarbonate", color = "#ECEDEF" }
+}

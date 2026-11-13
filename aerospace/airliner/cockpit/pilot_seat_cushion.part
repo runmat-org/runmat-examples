@@ -1,0 +1,27 @@
+runmat 0.7
+std 1
+
+// A pilot seat's cushion, back and headrest, 520 mm wide.
+part pilot_seat_cushion {
+    sketch s on origin.zx {
+        c1 = spline(points = [[409.451 mm, -222.005 mm], [418.133 mm, -242.912 mm], [437.657 mm, -254.367 mm]])
+        c2 = line(start = c1.end, end = [477.343 mm, -260.633 mm])
+        c3 = spline(points = [c2.end, [497.089 mm, -255.299 mm], [506.286 mm, -237.03 mm]])
+        c4 = line(start = c3.end, end = [523.714 mm, 142.03 mm])
+        c5 = spline(points = [c4.end, [532.9 mm, 162.988 mm], [552.62 mm, 174.597 mm]])
+        c6 = line(start = c5.end, end = [1242.38 mm, 289.403 mm])
+        c7 = spline(points = [c6.end, [1264.37 mm, 300.59 mm], [1278.854 mm, 320.563 mm]])
+        c8 = line(start = c7.end, end = [1291.146 mm, 357.437 mm])
+        c9 = spline(points = [c8.end, [1290.354 mm, 380.691 mm], [1276.703 mm, 399.532 mm]])
+        c10 = line(start = c9.end, end = [1263.297 mm, 408.468 mm])
+        c11 = spline(points = [c10.end, [1238.696 mm, 418.005 mm], [1212.356 mm, 419.548 mm]])
+        c12 = line(start = c11.end, end = [497.644 mm, 304.452 mm])
+        c13 = spline(points = [c12.end, [471 mm, 297.168 mm], [445.689 mm, 286.108 mm]])
+        c14 = line(start = c13.end, end = [424.311 mm, 273.892 mm])
+        c15 = spline(points = [c14.end, [407.458 mm, 255.769 mm], [400.549 mm, 232.005 mm]])
+        c16 = line(start = c15.end, end = c1.start)
+    }
+    feature body = extrude(profile = sketch.s, distance = 520 mm, symmetric)
+
+    output pilot_seat_cushion = { body = feature.body.body, part_number = "FD-ST-320", material = "leather", color = "#3A3E44" }
+}

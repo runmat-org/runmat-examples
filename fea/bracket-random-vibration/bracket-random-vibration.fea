@@ -1,0 +1,68 @@
+// Random vibration of a steel wall-hook bracket (40 x 50 x 35 mm), bolted at its three mounting holes.
+// The mounting is shaken along the wall (Y) by a 20 to 2000 Hz base-acceleration PSD shaped like the
+// NASA GEVS component qualification profile: 0.026 g^2/Hz at 20 Hz, rising to a 0.16 g^2/Hz plateau
+// from 50 to 800 Hz, and falling to 0.026 g^2/Hz at 2000 Hz (14.2 g RMS). The breakpoints follow the
+// profile's 6 dB per octave slopes. 3% modal damping.
+geometry bracket {
+    file = "./geometry/bracket.step"
+    units = mm
+    region body : solid { select name "WallHook_30mm"; expect exactly_one }
+    region mounting_holes : face { select name "Mounting holes"; expect one_or_more }
+}
+
+mesh bracket on geometry.bracket {
+    tetrahedra {
+        // Linear 6 mm tetrahedra, as in the wall-hook load example, keep the modal basis and result scenes small.
+        order = linear
+        target_size = 6 mm
+        maximum_deviation = 0.15 mm
+    }
+}
+
+material steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+model shaken_bracket {
+    assign material.steel to geometry.bracket.region.body
+    constraint mounting {
+        structural.fixed { target = geometry.bracket.region.mounting_holes }
+    }
+    random_excitation qualification {
+        frequencies = [20, 30, 40, 50, 800, 1000, 1250, 1600, 2000] Hz
+        channels = [
+            { id = "y", quantity = base_acceleration, direction = [0, 1, 0] },
+        ]
+        spectral_density_real = [
+            [[0.026]], [[0.0585]], [[0.104]], [[0.16]], [[0.16]],
+            [[0.1024]], [[0.0655]], [[0.04]], [[0.026]],
+        ] g^2/Hz
+        convention = one_sided_per_hertz
+        interpolation = linear_frequency
+        extrapolation = reject
+    }
+}
+
+study bracket_random_vibration {
+    geometry = geometry.bracket
+    mesh = mesh.bracket
+    model = model.shaken_bracket
+    analysis modes {
+        structural modal { modes = 20 }
+        retain basis
+    }
+    analysis random after analysis.modes {
+        structural random_response {
+            basis = analysis.modes.state.basis
+            excitation = model.random_excitation.qualification
+            modal_damping_ratio = 0.03
+            minimum_cumulative_mass_ratio = 0.8
+        }
+    }
+    output displacement = analysis.random.field.node.displacement
+    output von_mises = analysis.random.field.element.von_mises_stress
+}

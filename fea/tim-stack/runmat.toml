@@ -1,0 +1,12 @@
+[package]
+name = "tim-stack"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "tim-stack.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

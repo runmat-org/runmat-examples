@@ -1,0 +1,15 @@
+schema_version = 1
+resolver_version = "1"
+packages = []
+edges = []
+graph_digest = "sha256:7554e4b8e1b8d50031eeda95d9a988222b96404423a78a43305d3ddced3e045a"
+
+[root]
+manifest_digest = "sha256:8d6126f06f07679d723ab2be529dfeafdf799f08c9d870a8006921de50bea9b5"
+package = "workspace:local/cantilever-impact"
+
+[selection]
+target = "aarch64-apple-darwin"
+groups = ["runtime"]
+root_features = []
+host_capabilities = ["network", "native-library", "mex", "jvm", "subprocess"]

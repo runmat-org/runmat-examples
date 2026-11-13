@@ -1,0 +1,28 @@
+runmat 0.7
+std 1
+
+// A two-story wood-framed house, 40 x 30 ft with a 6:12 gable roof: the entry assembly. The
+// skeleton sets the grids, levels and frames; the foundation, framing, envelope and interior
+// attach to it, and the MEP systems place in building coordinates. The studies join here as they
+// are built.
+assembly house {
+    use part house_skeleton as skeleton
+    use assembly foundation from "./foundation" as foundation {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building } }
+    }
+    use assembly framing from "./framing" as framing {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building } }
+    }
+    use assembly envelope from "./envelope" as envelope {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building } }
+    }
+    use assembly interior from "./interior" as interior {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building } }
+    }
+    use assembly mep from "./mep" as mep {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building } }
+    }
+
+    view hero = { from = [-0.62, -0.7, 0.36], up = [0, 0, 1], default = true }
+    view back = { from = [0.6, 0.72, 0.34], up = [0, 0, 1] }
+}

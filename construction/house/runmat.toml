@@ -1,0 +1,12 @@
+[package]
+name = "construction-house"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "house.assembly"
+
+[desktop.artifacts]
+root = ".artifacts"

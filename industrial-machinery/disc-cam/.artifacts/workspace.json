@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/disc_cam.part",
+      "/camRadius.m"
+    ],
+    "activeFile": "/disc_cam.part"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "hidden",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "agent": {
+    "suggestions": [
+      "Raise the lift to 10 mm and show how the base circle changes",
+      "Lower the pressure-angle limit to 25 deg",
+      "Plot the cam's pitch radius against angle from camRadius.m"
+    ]
+  }
+}

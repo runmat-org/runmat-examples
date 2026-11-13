@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/lowpass.circuit",
+      "/rcResistor.m"
+    ],
+    "activeFile": "/lowpass.circuit"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "hidden",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "agent": {
+    "suggestions": [
+      "Move the corner to 1 kHz and re-run the corner simulation",
+      "Swap C1 for a 1 uF capacitor and keep the corner at 160 Hz",
+      "Add a second RC stage and measure the -3 dB point"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// A stringer the length of one barrel section, under the skin at the crown.
+part stringer {
+    sketch s on origin.yz {
+        l1 = line(start = [-12 mm, 1937 mm], end = [12 mm, 1937 mm])
+        l2 = line(start = [12 mm, 1937 mm], end = [12 mm, 1977 mm])
+        l3 = line(start = [12 mm, 1977 mm], end = [-12 mm, 1977 mm])
+        l4 = line(start = [-12 mm, 1977 mm], end = [-12 mm, 1937 mm])
+    }
+    feature body = extrude(profile = sketch.s, distance = 8000 mm)
+
+    output stringer = { body = feature.body.body, part_number = "FUS-ST-200", material = "aluminum_7075", color = "#A7B596" }
+}

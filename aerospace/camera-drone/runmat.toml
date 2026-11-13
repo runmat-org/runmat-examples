@@ -1,0 +1,12 @@
+[package]
+name = "aerospace-camera-drone"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "drone.assembly"
+
+[desktop.artifacts]
+root = ".artifacts"

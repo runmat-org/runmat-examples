@@ -1,0 +1,109 @@
+// Laminar water in a uniformly heated copper tube: 8 mm bore, 12 mm outside, 240 mm long. Water
+// enters at 25 degC and 4.3 mm/s (Re = 40); a heater wrapped on the outside puts 10 W into the
+// tube. The run returns the wall and centerline temperatures 180 mm from the inlet, in the
+// thermally developed region, the mean outlet temperature and the pressure drop, with the
+// temperature, velocity and pressure fields.
+//
+// Geometry: ./geometry/heated-tube.step: the tube ("Tube") with its bore, heated outer surface and
+// ends, and the water in the bore ("Water") with its inlet, outlet and wall. The tube ends are
+// insulated.
+//
+// Water at 300 K (Incropera, Table A.6): 997 kg/m^3, 855e-6 Pa s, 0.613 W/m/K, 4179 J/kg/K,
+// Pr = 5.83. Copper at 300 K (Incropera, Table A.1): 8933 kg/m^3, 401 W/m/K, 385 J/kg/K.
+//
+// Hand check, developed laminar flow with uniform wall flux (Nu = 48/11 = 4.364):
+// - m_dot c = 997 x 0.004288 x 5.027e-5 x 4179 = 0.898 W/K, so the water warms 10 / 0.898 =
+//   11.1 K; the bulk temperature 180 mm along is 25 + 11.1 x 0.75 = 33.35 degC.
+// - Bore flux q = 10 / (pi x 0.008 x 0.240) = 1658 W/m^2. The thermal entry length is about
+//   0.05 Re Pr d = 93 mm, so the section at 180 mm is developed.
+// - Wall minus bulk: q d / (4.364 k) = 1658 x 0.008 / (4.364 x 0.613) = 4.96 K, so the wall reads
+//   38.3 degC. Wall minus centerline: (3/4) q R / k = 8.11 K, so the centerline reads 30.2 degC.
+//   The run's Nusselt number is q d / (k (T_wall - 33.35 degC)).
+// - Outlet mixed-mean temperature 36.1 degC.
+// - Pressure drop, Hagen-Poiseuille: 32 mu U L / d^2 = 32 x 855e-6 x 0.004288 x 0.240 / 0.008^2
+//   = 0.44 Pa.
+
+geometry tube {
+    file = "./geometry/heated-tube.step"
+    units = mm
+    interfaces = shared
+    region tube : solid { select name "Tube"; expect exactly_one }
+    region water : cell { select name "Water"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region channel_wall : face { select name "Channel wall"; expect exactly_one }
+    region tube_bore : face { select name "Tube bore"; expect exactly_one }
+    region heated_surface : face { select name "Heated surface"; expect exactly_one }
+}
+
+// About thirteen cells across the bore.
+mesh tube on geometry.tube {
+    tetrahedra {
+        order = linear
+        target_size = 1.5 mm
+        maximum_deviation = 0.05 mm
+        refine bore { on = geometry.tube.region.channel_wall; target_size = 0.6 mm }
+    }
+}
+
+material copper {
+    mass_density = 8933 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0000165 K^-1
+        conductivity = 401 W/m/K
+        specific_heat = 385 J/kg/K
+    }
+}
+
+material water {
+    mass_density = 997 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.000855 Pa*s
+    }
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.000276 K^-1
+        conductivity = 0.613 W/m/K
+        specific_heat = 4179 J/kg/K
+    }
+}
+
+model heated_flow {
+    thermal { reference_temperature = 298.15 K }
+    assign material.copper to geometry.tube.region.tube
+    assign material.water to geometry.tube.region.water
+    // 10 W over the 9.048e-3 m^2 outer surface.
+    load heater { heat_flux on geometry.tube.region.heated_surface = 1105.2 W/m^2 }
+    constraint inlet_flow {
+        fluid.velocity { target = geometry.tube.region.inlet; value = [0.004288 m/s, 0 m/s, 0 m/s] }
+    }
+    constraint inlet_temperature {
+        thermal.temperature { target = geometry.tube.region.inlet; value = 298.15 K }
+    }
+    constraint walls { fluid.no_slip_wall { target = geometry.tube.region.channel_wall } }
+    load outlet { fluid.outlet_pressure { target = geometry.tube.region.outlet; value = 0 Pa } }
+    interface wetted_bore {
+        conjugate_heat_transfer.perfect {
+            primary = geometry.tube.region.tube_bore
+            secondary = geometry.tube.region.channel_wall
+        }
+    }
+}
+
+study tube_nusselt {
+    geometry = geometry.tube
+    mesh = mesh.tube
+    model = model.heated_flow
+    analysis operating_point { conjugate_heat_transfer steady {} }
+    output temperature = analysis.operating_point.field.node.temperature
+    output velocity = analysis.operating_point.field.cell.fluid_velocity
+    output pressure = analysis.operating_point.field.cell.fluid_pressure
+    output wall_temperature_180 = interpolate(output.temperature, at = [180 mm, 4 mm, 0 mm])
+    output centerline_temperature_180 = interpolate(output.temperature, at = [180 mm, 0 mm, 0 mm])
+    output outlet_temperature = mean(output.temperature, over = geometry.tube.region.outlet)
+    output pressure_drop = pressure_drop(analysis.operating_point, from = geometry.tube.region.inlet, to = geometry.tube.region.outlet)
+}

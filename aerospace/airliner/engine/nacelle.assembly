@@ -1,0 +1,14 @@
+runmat 0.7
+std 1
+
+// An engine nacelle: cowl, fan, spinner, core nozzle, exhaust plug and pylon; the inlet at the origin.
+assembly nacelle {
+    use part cowl as cowl
+    use part fan as fan {
+        placement = { placement = offset, offset = { translation = [560 mm, 0 mm, 0 mm] } }
+    }
+    use part spinner as spinner
+    use part core_nozzle as core
+    use part plug as plug
+    use part pylon as pylon
+}

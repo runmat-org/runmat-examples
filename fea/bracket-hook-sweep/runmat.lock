@@ -1,0 +1,15 @@
+schema_version = 1
+resolver_version = "1"
+packages = []
+edges = []
+graph_digest = "sha256:4bbd656d335ba38e236200a8d46e9d3b45e471a4e1247a2efc791a2fe3c8f30a"
+
+[root]
+manifest_digest = "sha256:3e4b2feaa4034672e2601fdc82221aa33ea313e60240c5c680bc3197bcbf0d3d"
+package = "workspace:local/bracket-hook-sweep"
+
+[selection]
+target = "aarch64-apple-darwin"
+groups = ["runtime"]
+root_features = []
+host_capabilities = ["network", "native-library", "mex", "jvm", "subprocess"]

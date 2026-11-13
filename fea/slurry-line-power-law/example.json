@@ -1,0 +1,30 @@
+{
+  "id": "slurry-line-power-law",
+  "title": "Slurry line pressure drop",
+  "pickerTitle": "Slurry line pressure drop",
+  "pickerLine": "FEA studies",
+  "line": "A steady flow FEA study of a shear-thinning power-law slurry in a 25 mm pipe.",
+  "description": "Steady laminar flow of a coal slurry (power-law, n = 0.4, K = 0.2 Pa s^0.4, 1500 kg/m^3) through a 25 mm pipe, 400 mm long, at 0.05 m/s. The study returns the pressure drop, 44 Pa by the power-law closed form, and the blunted velocity profile.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "slurry-line-power-law.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "slurry-line-power-law",
+  "thumbnailAlt": "Velocity profile of a shear-thinning slurry in a 25 mm pipe, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-flow",
+    "key": "website:simulation/fluid-flow/slurry-line-power-law",
+    "source": "runmat-examples/fea/slurry-line-power-law/slurry-line-power-law.fea"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "industrial-machinery-disc-cam",
+  "title": "A disc cam shaped by its motion law",
+  "pickerTitle": "Disc cam from its motion law",
+  "pickerLine": "Industrial machinery CAD",
+  "line": "A disc cam whose base circle and profile come from MATLAB functions for its cycloidal motion law.",
+  "description": "A dwell-rise-dwell-return disc cam modeled as a .part file. Its dimensions come from MATLAB code in the same folder: camBaseRadius.m sizes the base circle to keep the pressure angle under its limit, and camRadius.m gives the pitch radius around the cam from a cycloidal motion law. Change the lift, the rise angle or the pressure-angle limit, and the profile regenerates from the functions.",
+  "topic": "industrial-machinery",
+  "topicLabel": "Industrial machinery",
+  "group": null,
+  "kind": "design",
+  "visual": "3d",
+  "entry": "disc_cam.part",
+  "tags": ["cad", "part", "cam", "matlab-values"],
+  "roles": [
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "disc-cam-cad",
+  "thumbnailAlt": "A disc cam with a cycloidal lobe, rendered by RunMat",
+  "origin": {
+    "page": "/industries/industrial-machinery",
+    "key": "runmat-cad:disc-cam",
+    "source": "runmat-cad/crates/runmat-design-tools/tests/fixtures/disc_cam",
+    "thumbnail": null
+  }
+}

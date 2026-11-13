@@ -1,0 +1,29 @@
+{
+  "id": "listening-room-modes",
+  "title": "Listening room modes",
+  "pickerTitle": "Listening room modes",
+  "pickerLine": "FEA studies",
+  "line": "An acoustic modal FEA study of a rigid-walled 5 x 4 x 2.8 m listening room.",
+  "description": "Room modes of the air in a 5 x 4 x 2.8 m listening room with rigid walls. The study returns the twelve lowest natural frequencies and their pressure mode shapes, from the 34.3 Hz length mode to 92 Hz, each matching the rectangular-room formula.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "listening-room-modes.fea",
+  "roles": [
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "listening-room-modes",
+  "thumbnailAlt": "Pressure mode shape of a listening room, solved in RunMat",
+  "origin": {
+    "page": "/simulation/acoustics",
+    "key": "website:simulation/acoustics/listening-room-modes",
+    "source": "runmat-examples/fea/listening-room-modes/listening-room-modes.fea"
+  }
+}

@@ -1,0 +1,55 @@
+runmat 0.7
+std 1
+
+// A display unit: a 200 mm square screen standing 8 mm proud of the panel face, and its
+// aluminium case behind it, 190 mm square and 110 mm deep, set into a pocket in the instrument
+// panel. The case is open to the screen, with 2.5 mm walls and back, and four M3 bosses on the
+// back that carry the controller board (electrical/display_unit) 7.5 mm off the back wall, at
+// x = -100 mm, its components facing the screen. The origin is the panel face at the screen's
+// center; x points aft, toward the pilot.
+part display_unit {
+    sketch s on origin.yz {
+        l1 = line(start = [-100 mm, -100 mm], end = [100 mm, -100 mm])
+        l2 = line(start = [100 mm, -100 mm], end = [100 mm, 100 mm])
+        l3 = line(start = [100 mm, 100 mm], end = [-100 mm, 100 mm])
+        l4 = line(start = [-100 mm, 100 mm], end = [-100 mm, -100 mm])
+    }
+    feature screen = extrude(profile = sketch.s, distance = 8 mm)
+
+    sketch case_s on origin.yz {
+        l1 = line(start = [-95 mm, -95 mm], end = [95 mm, -95 mm])
+        l2 = line(start = [95 mm, -95 mm], end = [95 mm, 95 mm])
+        l3 = line(start = [95 mm, 95 mm], end = [-95 mm, 95 mm])
+        l4 = line(start = [-95 mm, 95 mm], end = [-95 mm, -95 mm])
+    }
+    feature case = extrude(profile = sketch.case_s, distance = 110 mm, reverse, mode = new)
+
+    sketch cavity_s on origin.yz {
+        l1 = line(start = [-92.5 mm, -92.5 mm], end = [92.5 mm, -92.5 mm])
+        l2 = line(start = [92.5 mm, -92.5 mm], end = [92.5 mm, 92.5 mm])
+        l3 = line(start = [92.5 mm, 92.5 mm], end = [-92.5 mm, 92.5 mm])
+        l4 = line(start = [-92.5 mm, 92.5 mm], end = [-92.5 mm, -92.5 mm])
+    }
+    feature cavity = extrude(profile = sketch.cavity_s, distance = 100 mm, reverse, mode = cut)
+
+    // The bosses stand where the cut below leaves them: the floor of the cavity between them is
+    // cut down to the back wall.
+    feature boss_top = plane.offset(base = origin.yz, distance = -100 mm)
+    sketch floor_s on plane.boss_top {
+        l1 = line(start = [-92.5 mm, -92.5 mm], end = [92.5 mm, -92.5 mm])
+        l2 = line(start = [92.5 mm, -92.5 mm], end = [92.5 mm, 92.5 mm])
+        l3 = line(start = [92.5 mm, 92.5 mm], end = [-92.5 mm, 92.5 mm])
+        l4 = line(start = [-92.5 mm, 92.5 mm], end = [-92.5 mm, -92.5 mm])
+        b1 = circle(center = [55 mm, 45 mm], radius = 4 mm)
+        b2 = circle(center = [-55 mm, 45 mm], radius = 4 mm)
+        b3 = circle(center = [-55 mm, -45 mm], radius = 4 mm)
+        b4 = circle(center = [55 mm, -45 mm], radius = 4 mm)
+    }
+    feature floor = extrude(profile = sketch.floor_s, distance = 7.5 mm, reverse, mode = cut)
+
+    region back : face = { select = [feature.case.face.end], expect = exactly_one, label = "case_back" }
+    region screen_face : face = { select = [feature.screen.face.end], expect = exactly_one, label = "screen_face" }
+
+    output display_unit = { body = feature.screen.body, part_number = "FD-DU-340", material = "glass", color = "#0D1318" }
+    output case = { body = feature.case.body, part_number = "FD-DU-341", material = "aluminum_6061", color = "#3C4148" }
+}

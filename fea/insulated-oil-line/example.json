@@ -1,0 +1,30 @@
+{
+  "id": "insulated-oil-line",
+  "title": "Insulated oil line heat loss",
+  "pickerTitle": "Insulated oil line heat loss",
+  "pickerLine": "FEA studies",
+  "line": "A steady conjugate heat transfer FEA study of hot oil in a lagged steel pipe losing heat to still air.",
+  "description": "Engine oil at 127 C flowing in a 1 in schedule 40 steel pipe with 25 mm of glass-fiber lagging, cooled outside by natural convection and radiation to 25 C. The study returns the jacket surface temperature and the heat lost; the radial resistance network gives 28 W/m and a 36 C surface.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "insulated-oil-line.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "insulated-oil-line",
+  "thumbnailAlt": "Temperature through the lagging of a hot-oil line, solved in RunMat",
+  "origin": {
+    "page": "/simulation/conjugate-heat-transfer",
+    "key": "website:simulation/conjugate-heat-transfer/insulated-oil-line",
+    "source": "runmat-examples/fea/insulated-oil-line/insulated-oil-line.fea"
+  }
+}

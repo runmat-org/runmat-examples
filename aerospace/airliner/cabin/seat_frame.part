@@ -1,0 +1,40 @@
+runmat 0.7
+std 1
+
+// A seat's frame: two leg plates and two cross tubes under the cushion.
+part seat_frame {
+    feature leg0_at = plane.offset(base = origin.zx, distance = -180 mm)
+    sketch leg0_s on plane.leg0_at {
+        l1 = line(start = [0 mm, -210 mm], end = [0 mm, -160 mm])
+        l2 = line(start = [0 mm, -160 mm], end = [360 mm, -90 mm])
+        l3 = line(start = [360 mm, -90 mm], end = [360 mm, 180 mm])
+        l4 = line(start = [360 mm, 180 mm], end = [0 mm, 240 mm])
+        l5 = line(start = [0 mm, 240 mm], end = [0 mm, 290 mm])
+        l6 = line(start = [0 mm, 290 mm], end = [405 mm, 230 mm])
+        l7 = line(start = [405 mm, 230 mm], end = [405 mm, -200 mm])
+        l8 = line(start = [405 mm, -200 mm], end = [0 mm, -210 mm])
+    }
+    feature leg0 = extrude(profile = sketch.leg0_s, distance = 20 mm)
+    feature leg1_at = plane.offset(base = origin.zx, distance = 160 mm)
+    sketch leg1_s on plane.leg1_at {
+        l1 = line(start = [0 mm, -210 mm], end = [0 mm, -160 mm])
+        l2 = line(start = [0 mm, -160 mm], end = [360 mm, -90 mm])
+        l3 = line(start = [360 mm, -90 mm], end = [360 mm, 180 mm])
+        l4 = line(start = [360 mm, 180 mm], end = [0 mm, 240 mm])
+        l5 = line(start = [0 mm, 240 mm], end = [0 mm, 290 mm])
+        l6 = line(start = [0 mm, 290 mm], end = [405 mm, 230 mm])
+        l7 = line(start = [405 mm, 230 mm], end = [405 mm, -200 mm])
+        l8 = line(start = [405 mm, -200 mm], end = [0 mm, -210 mm])
+    }
+    feature leg1 = extrude(profile = sketch.leg1_s, distance = 20 mm, mode = add)
+    sketch tube0_s on origin.zx {
+        c = circle(center = [385 mm, -140 mm], radius = 18 mm)
+    }
+    feature tube0 = extrude(profile = sketch.tube0_s, distance = 400 mm, symmetric, mode = add)
+    sketch tube1_s on origin.zx {
+        c = circle(center = [385 mm, 200 mm], radius = 18 mm)
+    }
+    feature tube1 = extrude(profile = sketch.tube1_s, distance = 400 mm, symmetric, mode = add)
+
+    output seat_frame = { body = feature.leg0.body, part_number = "CAB-ST-110", material = "aluminum_7075", color = "#8C9299" }
+}

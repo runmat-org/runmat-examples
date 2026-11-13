@@ -1,0 +1,23 @@
+runmat 0.7
+std 1
+
+// The rudder, aft of the hinge line at 70 % chord.
+part rudder {
+    feature st0 = plane.offset(base = origin.xy, distance = 1500 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[5620 mm, 188.081 mm], [6091.912 mm, 143.513 mm], [6504.581 mm, 100.541 mm], [6842.648 mm, 62.474 mm], [7093.533 mm, 32.432 mm], [7247.898 mm, 13.131 mm], [7300 mm, 6.468 mm]])
+        c2 = line(start = c1.end, end = [7300 mm, -6.468 mm])
+        c3 = spline(points = [c2.end, [7247.898 mm, -13.131 mm], [7093.533 mm, -32.432 mm], [6842.648 mm, -62.474 mm], [6504.581 mm, -100.541 mm], [6091.912 mm, -143.513 mm], [5620 mm, -188.081 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.xy, distance = 8000 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[8003.359 mm, 58.775 mm], [8150.832 mm, 44.848 mm], [8279.79 mm, 31.419 mm], [8385.437 mm, 19.523 mm], [8463.838 mm, 10.135 mm], [8512.077 mm, 4.103 mm], [8528.359 mm, 2.021 mm]])
+        c2 = line(start = c1.end, end = [8528.359 mm, -2.021 mm])
+        c3 = spline(points = [c2.end, [8512.077 mm, -4.103 mm], [8463.838 mm, -10.135 mm], [8385.437 mm, -19.523 mm], [8279.79 mm, -31.419 mm], [8150.832 mm, -44.848 mm], [8003.359 mm, -58.775 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature surface = loft(profiles = [sketch.s0, sketch.s1])
+
+    output rudder = { body = feature.surface.body, part_number = "EMP-RD-705", material = "composite", color = "#E4E7EB" }
+}

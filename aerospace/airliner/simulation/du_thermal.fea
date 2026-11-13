@@ -1,0 +1,119 @@
+// The cockpit display unit's controller board at full backlight, in its case behind the screen:
+// the board's losses pass through the four bosses into the aluminium case, whose back takes the
+// avionics cooling air drawn through the instrument panel.
+//
+// Geometry: ./geometry/du_thermal.step, exported from du_thermal.assembly: the screen and case
+// (cockpit/display_unit.part) and the board as a 120 x 100 x 1.6 mm plate on the bosses'
+// tops (du_board_thermal.part). The air inside the case is left out (conservative).
+//
+// Heat: the board's power map, the `power` of each component in
+// ../electrical/display_unit/du_controller.circuit: the backlight driver U3 1.10 W (boost switch
+// and six sinks: 12.3 W of LEDs at about 92 % plus 0.5 V of sink headroom x 60 mA x 6), its
+// inductor L2 0.25 W and diode D3 0.20 W; the input Schottky D1 0.35 W (0.75 A at 22 V,
+// 0.47 V); the 5 V buck U1 0.35 W (0.6 A at 85 %) and its inductor 0.05 W; the 3.3 V LDO U2
+// 0.15 W (1.7 V x 90 mA); the MCU 0.20 W. That is 2.65 W over the plate's 19,149 mm^3,
+// 1.384e5 W/m^3, spread evenly. The backlight's LEDs sit in the screen's own backlight frame,
+// which has its own heat path to the panel, and are not in this study.
+//
+// Board: four layers of 1 oz copper (140 um in 1.6 mm, 8.75 % of the thickness) spread heat in
+// plane at about 34 W/m/K: 0.0875 x 385 + 0.9125 x 0.3. Case: 6061-T6 (167 W/m/K). Screen:
+// glass, 1.0 W/m/K. Cooling: forced convection at 20 W/m^2/K on the case's back from 40 degC
+// avionics cooling air, and natural convection at 5 W/m^2/K on the screen's face to 40 degC
+// cockpit air (a hot-day cockpit).
+//
+// Hand check: the case's back (0.19 x 0.19 m) gives 0.72 W/K, so at 2.65 W the case runs about
+// 3.7 K over the air. Each boss (8 mm across, 7.5 mm tall) is 0.89 K/W and carries a quarter of
+// the heat, 0.6 K. Across the board, uniform heat flowing to four bosses from up to 71 mm away
+// through a 1.6 mm, 34 W/m/K plate is about 4 K. So the board peaks near 48 degC, well inside
+// the 85 degC rating of its parts.
+//
+// Solved (RunMat 0.7.1 release CLI, 2026-11-11, 6 mm linear tetrahedra, 4.18 million elements):
+// the hottest point is 329.5 K (56.4 degC), on the board, the only heat source; the coolest is
+// 314.0 K (40.8 degC), at the middle of the screen's face. The board runs 8 K hotter than the
+// hand check, which takes the spreading to the bosses as one uniform path; the peak is still
+// 28.6 K inside the parts' 85 degC rating.
+
+geometry du {
+    file = "./geometry/du_thermal.step"
+    units = mm
+    interfaces = shared
+    region board : solid { select name "du_board_thermal"; expect exactly_one }
+    region case : solid { select name "case"; expect exactly_one }
+    region screen : solid { select name "display_unit"; expect exactly_one }
+    region case_back : face { select name "case_back"; expect exactly_one }
+    region screen_face : face { select name "screen_face"; expect exactly_one }
+}
+
+mesh du on geometry.du {
+    tetrahedra {
+        order = linear
+        target_size = 6 mm
+        maximum_deviation = 0.2 mm
+    }
+}
+
+material board_stack {
+    mass_density = 1900 kg/m^3
+    thermal {
+        reference_temperature = 313.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.000016 K^-1
+        conductivity = 34 W/m/K
+        specific_heat = 1100 J/kg/K
+    }
+}
+
+material aluminum_6061 {
+    mass_density = 2700 kg/m^3
+    thermal {
+        reference_temperature = 313.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0000236 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+    }
+}
+
+material glass {
+    mass_density = 2500 kg/m^3
+    thermal {
+        reference_temperature = 313.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.000009 K^-1
+        conductivity = 1.0 W/m/K
+        specific_heat = 840 J/kg/K
+    }
+}
+
+model full_backlight {
+    thermal { reference_temperature = 313.15 K }
+    assign material.board_stack to geometry.du.region.board
+    assign material.aluminum_6061 to geometry.du.region.case
+    assign material.glass to geometry.du.region.screen
+    load board_losses { heat_generation on geometry.du.region.board = 1.384e5 W/m^3 }
+    load cooling_air {
+        thermal.convection {
+            target = geometry.du.region.case_back
+            ambient_temperature = 313.15 K
+            coefficient = 20 W/m^2/K
+        }
+    }
+    load cockpit_air {
+        thermal.convection {
+            target = geometry.du.region.screen_face
+            ambient_temperature = 313.15 K
+            coefficient = 5 W/m^2/K
+        }
+    }
+}
+
+study du_temperature {
+    geometry = geometry.du
+    mesh = mesh.du
+    model = model.full_backlight
+    analysis heat { thermal steady {} }
+    output temperature = analysis.heat.field.node.temperature
+    output heat_flux = analysis.heat.field.element.heat_flux
+    output peak_board_temperature = max(analysis.heat.field.node.temperature, over = geometry.du.region.board)
+    output peak_case_temperature = max(analysis.heat.field.node.temperature, over = geometry.du.region.case)
+}

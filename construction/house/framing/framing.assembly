@@ -1,0 +1,365 @@
+runmat 0.7
+std 1
+
+// The structure above the foundation: the exterior walls of both floors with their shear-wall
+// sheathing, the second-floor framing on its beams and posts, the roof trusses at 24 in o.c., and
+// the connectors of the load path (anchor bolts, hold-downs, joist hangers, truss ties). Walls,
+// floor, roof and posts attach to the skeleton frames; hardware is placed at its stations.
+assembly framing {
+    // Walls and shear walls, one configuration per wall line and level
+    use part wall_framing as wall_a_l1 {
+        configuration = { select = named, name = wall_a_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 } }
+    }
+    use part shear_wall as sheathing_a_l1 {
+        configuration = { select = named, name = wall_a_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 } }
+    }
+    use part wall_framing as wall_d_l1 {
+        configuration = { select = named, name = wall_d_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 } }
+    }
+    use part shear_wall as sheathing_d_l1 {
+        configuration = { select = named, name = wall_d_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 } }
+    }
+    use part wall_framing as wall_1_l1 {
+        configuration = { select = named, name = wall_1_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 } }
+    }
+    use part shear_wall as sheathing_1_l1 {
+        configuration = { select = named, name = wall_1_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 } }
+    }
+    use part wall_framing as wall_5_l1 {
+        configuration = { select = named, name = wall_5_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 } }
+    }
+    use part shear_wall as sheathing_5_l1 {
+        configuration = { select = named, name = wall_5_l1 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 } }
+    }
+    use part wall_framing as wall_a_l2 {
+        configuration = { select = named, name = wall_a_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 } }
+    }
+    use part shear_wall as sheathing_a_l2 {
+        configuration = { select = named, name = wall_a_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 } }
+    }
+    use part wall_framing as wall_d_l2 {
+        configuration = { select = named, name = wall_d_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 } }
+    }
+    use part shear_wall as sheathing_d_l2 {
+        configuration = { select = named, name = wall_d_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 } }
+    }
+    use part wall_framing as wall_1_l2 {
+        configuration = { select = named, name = wall_1_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 } }
+    }
+    use part shear_wall as sheathing_1_l2 {
+        configuration = { select = named, name = wall_1_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 } }
+    }
+    use part wall_framing as wall_5_l2 {
+        configuration = { select = named, name = wall_5_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 } }
+    }
+    use part shear_wall as sheathing_5_l2 {
+        configuration = { select = named, name = wall_5_l2 }
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 } }
+    }
+    // Second floor, posts and roof
+    use part floor_system as floor_l2 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = floor_l2 } }
+    }
+    use part post_base from hardware as post_base_b2 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b2 } }
+    }
+    use part post as post_b2 {
+        placement = { placement = offset, offset = { translation = [120 in, 144 in, 1 in] } }
+    }
+    use part post_base from hardware as post_base_b3 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b3 } }
+    }
+    use part post as post_b3 {
+        placement = { placement = offset, offset = { translation = [232 in, 144 in, 1 in] } }
+    }
+    use part post_base from hardware as post_base_b4 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b4 } }
+    }
+    use part post as post_b4 {
+        placement = { placement = offset, offset = { translation = [360 in, 144 in, 1 in] } }
+    }
+    use part post_base from hardware as post_base_c2 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c2 } }
+    }
+    use part post as post_c2 {
+        placement = { placement = offset, offset = { translation = [120 in, 224 in, 1 in] } }
+    }
+    use part post_base from hardware as post_base_c3 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c3 } }
+    }
+    use part post as post_c3 {
+        placement = { placement = offset, offset = { translation = [232 in, 224 in, 1 in] } }
+    }
+    use part post_base from hardware as post_base_c4 {
+        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c4 } }
+    }
+    use part post as post_c4 {
+        placement = { placement = offset, offset = { translation = [360 in, 224 in, 1 in] } }
+    }
+    use part roof_truss as truss {
+        configuration = { select = named, name = common }
+        placement = { placement = offset, offset = { translation = [24 in, 0 in, 218.875 in] } }
+    }
+    use part roof_truss as gable_west {
+        configuration = { select = named, name = gable_end }
+        placement = { placement = offset, offset = { translation = [0.75 in, 0 in, 218.875 in] } }
+    }
+    use part roof_truss as gable_east {
+        configuration = { select = named, name = gable_end }
+        placement = { placement = offset, offset = { translation = [479.25 in, 0 in, 218.875 in] } }
+    }
+    pattern trusses = linear(seeds = [truss], direction = [1, 0, 0], spacing = 24 in, count = 19)
+    // Truss ties at both bearings of every common truss
+    use part truss_tie from hardware as tie_south {
+        placement = { placement = offset, offset = { translation = [24.786 in, 0 in, 218.875 in] } }
+    }
+    use part truss_tie from hardware as tie_north {
+        placement = { placement = offset, offset = { translation = [23.214 in, 360 in, 218.875 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    pattern ties_south = linear(seeds = [tie_south], direction = [1, 0, 0], spacing = 24 in, count = 19)
+    pattern ties_north = linear(seeds = [tie_north], direction = [1, 0, 0], spacing = 24 in, count = 19)
+    // Joist hangers on the beams, the stair header and the trimmers
+    use part joist_hanger from hardware as hangers_ab_0 {
+        configuration = { select = named, name = single }
+        placement = { placement = offset, offset = { translation = [16 in, 142.25 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    pattern hangers_ab = linear(seeds = [hangers_ab_0], direction = [1, 0, 0], spacing = 16 in, count = 29)
+    use part joist_hanger from hardware as hangers_b_0 {
+        configuration = { select = named, name = single }
+        placement = { placement = offset, offset = { translation = [16 in, 145.75 in, 109.125 in] } }
+    }
+    pattern hangers_b = linear(seeds = [hangers_b_0], direction = [1, 0, 0], spacing = 16 in, count = 29, skip = [{ instance = linear, step = 9 }])
+    use part joist_hanger from hardware as hangers_c_0 {
+        configuration = { select = named, name = single }
+        placement = { placement = offset, offset = { translation = [16 in, 222.25 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    pattern hangers_c = linear(seeds = [hangers_c_0], direction = [1, 0, 0], spacing = 16 in, count = 29, skip = [{ instance = linear, step = 9 }, { instance = linear, step = 10 }, { instance = linear, step = 11 }, { instance = linear, step = 12 }, { instance = linear, step = 13 }, { instance = linear, step = 14 }, { instance = linear, step = 15 }, { instance = linear, step = 16 }, { instance = linear, step = 17 }])
+    use part joist_hanger from hardware as hangers_cd_0 {
+        configuration = { select = named, name = single }
+        placement = { placement = offset, offset = { translation = [16 in, 225.75 in, 109.125 in] } }
+    }
+    pattern hangers_cd = linear(seeds = [hangers_cd_0], direction = [1, 0, 0], spacing = 16 in, count = 29)
+    use part joist_hanger from hardware as hangers_tail_0 {
+        configuration = { select = named, name = single }
+        placement = { placement = offset, offset = { translation = [176 in, 178.5 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    pattern hangers_tail = linear(seeds = [hangers_tail_0], direction = [1, 0, 0], spacing = 16 in, count = 8)
+    use part joist_hanger from hardware as hanger_double_1 {
+        configuration = { select = named, name = double }
+        placement = { placement = offset, offset = { translation = [161.6875 in, 145.75 in, 109.125 in] } }
+    }
+    use part joist_hanger from hardware as hanger_double_2 {
+        configuration = { select = named, name = double }
+        placement = { placement = offset, offset = { translation = [161.6875 in, 222.25 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part joist_hanger from hardware as hanger_double_3 {
+        configuration = { select = named, name = double }
+        placement = { placement = offset, offset = { translation = [298.3125 in, 145.75 in, 109.125 in] } }
+    }
+    use part joist_hanger from hardware as hanger_double_4 {
+        configuration = { select = named, name = double }
+        placement = { placement = offset, offset = { translation = [298.3125 in, 222.25 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part joist_hanger from hardware as hanger_lvl_5 {
+        configuration = { select = named, name = lvl }
+        placement = { placement = offset, offset = { translation = [164 in, 179.375 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part joist_hanger from hardware as hanger_lvl_6 {
+        configuration = { select = named, name = lvl }
+        placement = { placement = offset, offset = { translation = [296 in, 179.375 in, 109.125 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    // Anchor bolts along every first-floor sill, and hold-downs at both ends of every wall
+    use part anchor_bolt from hardware as anchor_a_1 {
+        placement = { placement = offset, offset = { translation = [12 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_2 {
+        placement = { placement = offset, offset = { translation = [60 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_3 {
+        placement = { placement = offset, offset = { translation = [108 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_4 {
+        placement = { placement = offset, offset = { translation = [156 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_5 {
+        placement = { placement = offset, offset = { translation = [198 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_6 {
+        placement = { placement = offset, offset = { translation = [252.75 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_7 {
+        placement = { placement = offset, offset = { translation = [300.75 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_8 {
+        placement = { placement = offset, offset = { translation = [346.5 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_9 {
+        placement = { placement = offset, offset = { translation = [394.5 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_10 {
+        placement = { placement = offset, offset = { translation = [442.5 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_a_11 {
+        placement = { placement = offset, offset = { translation = [471.25 in, 2.75 in, 1.5 in] } }
+    }
+    use part anchor_bolt from hardware as anchor_d_1 {
+        placement = { placement = offset, offset = { translation = [468 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_2 {
+        placement = { placement = offset, offset = { translation = [420 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_3 {
+        placement = { placement = offset, offset = { translation = [372 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_4 {
+        placement = { placement = offset, offset = { translation = [324 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_5 {
+        placement = { placement = offset, offset = { translation = [276 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_6 {
+        placement = { placement = offset, offset = { translation = [263 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_7 {
+        placement = { placement = offset, offset = { translation = [170.75 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_8 {
+        placement = { placement = offset, offset = { translation = [122.75 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_9 {
+        placement = { placement = offset, offset = { translation = [74.75 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_10 {
+        placement = { placement = offset, offset = { translation = [26.75 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_d_11 {
+        placement = { placement = offset, offset = { translation = [8.75 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_1 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 346.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_2 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 298.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_3 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 250.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_4 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 202.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_5 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 154.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_6 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 109.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_7 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 61.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_1_8 {
+        placement = { placement = offset, offset = { translation = [2.75 in, 13.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_1 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 17.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_2 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 63.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_3 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 111.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_4 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 159.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_5 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 207.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_6 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 255.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_7 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 303.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part anchor_bolt from hardware as anchor_5_8 {
+        placement = { placement = offset, offset = { translation = [477.25 in, 347.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_a_l1_start {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [3 in, 2.75 in, 1.5 in] } }
+    }
+    use part hold_down from hardware as hold_down_a_l1_end {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [477 in, 2.75 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -180 deg } } }
+    }
+    use part hold_down from hardware as hold_down_d_l1_start {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [477 in, 357.25 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -180 deg } } }
+    }
+    use part hold_down from hardware as hold_down_d_l1_end {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [3 in, 357.25 in, 1.5 in] } }
+    }
+    use part hold_down from hardware as hold_down_1_l1_start {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [2.75 in, 351.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_1_l1_end {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [2.75 in, 8.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_5_l1_start {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [477.25 in, 8.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_5_l1_end {
+        configuration = { select = named, name = foundation }
+        placement = { placement = offset, offset = { translation = [477.25 in, 351.5 in, 1.5 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_a_l2_start {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [3 in, 2.75 in, 123.25 in] } }
+    }
+    use part hold_down from hardware as hold_down_a_l2_end {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [477 in, 2.75 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -180 deg } } }
+    }
+    use part hold_down from hardware as hold_down_d_l2_start {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [477 in, 357.25 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -180 deg } } }
+    }
+    use part hold_down from hardware as hold_down_d_l2_end {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [3 in, 357.25 in, 123.25 in] } }
+    }
+    use part hold_down from hardware as hold_down_1_l2_start {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [2.75 in, 351.5 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_1_l2_end {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [2.75 in, 8.5 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_5_l2_start {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [477.25 in, 8.5 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+    }
+    use part hold_down from hardware as hold_down_5_l2_end {
+        configuration = { select = named, name = floor_to_floor }
+        placement = { placement = offset, offset = { translation = [477.25 in, 351.5 in, 123.25 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = -90 deg } } }
+    }
+}

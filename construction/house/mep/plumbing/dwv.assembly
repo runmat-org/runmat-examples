@@ -1,0 +1,13 @@
+runmat 0.7
+std 1
+
+
+// Drain, waste and vent: the bath branches, the 3 in stack in its chase, the building drain, the kitchen sink and the vents.
+assembly dwv {
+    use part dwv_piping as dwv_piping {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+    use part plumbing_chase as plumbing_chase {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+}

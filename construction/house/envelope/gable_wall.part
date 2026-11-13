@@ -1,0 +1,81 @@
+runmat 0.7
+std 1
+
+// The gable-end cladding above the second-floor plates of walls 1 and 5: 7/16 in OSB on the
+// gable-end truss studs, then the same water-resistive barrier, lath and three-coat stucco as the
+// walls below (exterior_wall.part). Its top edge is the roof plane (the top of the top chords), so
+// the roof sheathing runs over it. Local axes as the second-floor wall frames of walls 1 and 5:
+// x along the wall, y inward, z up from the second floor.
+part gable_wall {
+    feature zx_m0_4375 = plane.offset(base = origin.zx, distance = -0.4375 in)
+    feature zx_m1_375 = plane.offset(base = origin.zx, distance = -1.375 in)
+    feature zx_m1_25 = plane.offset(base = origin.zx, distance = -1.25 in)
+    feature zx_m0_875 = plane.offset(base = origin.zx, distance = -0.875 in)
+    feature zx_m0_625 = plane.offset(base = origin.zx, distance = -0.625 in)
+    feature zx_m0_5 = plane.offset(base = origin.zx, distance = -0.5 in)
+    feature zx_m0_4688 = plane.offset(base = origin.zx, distance = -0.4688 in)
+    sketch osb_s on plane.zx_m0_4375 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature osb = extrude(profile = sketch.osb_s, distance = 0.4375 in, mode = new)
+    sketch stucco_finish_s on plane.zx_m1_375 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature stucco_finish = extrude(profile = sketch.stucco_finish_s, distance = 0.125 in, mode = new)
+    sketch stucco_brown_s on plane.zx_m1_25 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature stucco_brown = extrude(profile = sketch.stucco_brown_s, distance = 0.375 in, mode = new)
+    sketch stucco_scratch_s on plane.zx_m0_875 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature stucco_scratch = extrude(profile = sketch.stucco_scratch_s, distance = 0.25 in, mode = new)
+    sketch lath_s on plane.zx_m0_625 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature lath = extrude(profile = sketch.lath_s, distance = 0.125 in, mode = new)
+    sketch wrb_outer_s on plane.zx_m0_5 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature wrb_outer = extrude(profile = sketch.wrb_outer_s, distance = 0.0312 in, mode = new)
+    sketch wrb_inner_s on plane.zx_m0_4688 {
+        l0_0 = line(start = [97.125 in, -5.5 in], end = [97.125 in, 354.5 in])
+        l0_1 = line(start = [97.125 in, 354.5 in], end = [104.5381 in, 354.5 in])
+        l0_2 = line(start = [104.5381 in, 354.5 in], end = [194.5381 in, 174.5 in])
+        l0_3 = line(start = [194.5381 in, 174.5 in], end = [104.5381 in, -5.5 in])
+        l0_4 = line(start = [104.5381 in, -5.5 in], end = [97.125 in, -5.5 in])
+    }
+    feature wrb_inner = extrude(profile = sketch.wrb_inner_s, distance = 0.0312 in, mode = new)
+
+    output gable_wall = { body = feature.osb.body, part_number = "EW-G", material = "material.osb", label = "7/16 in OSB gable sheathing" }
+    output gable_wall_stucco_finish = { body = feature.stucco_finish.body, part_number = "EW-G", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco finish coat, 1/8 in" }
+    output gable_wall_stucco_brown = { body = feature.stucco_brown.body, part_number = "EW-G", material = "material.stucco_brown_coat", color = "#B9AE98", label = "Stucco brown coat, 3/8 in" }
+    output gable_wall_stucco_scratch = { body = feature.stucco_scratch.body, part_number = "EW-G", material = "material.stucco_scratch_coat", color = "#A49C8C", label = "Stucco scratch coat, 3/8 in with the lath" }
+    output gable_wall_lath = { body = feature.lath.body, part_number = "EW-G", material = "material.galvanized_steel_lath", label = "Self-furring expanded metal lath, 2.5 lb/sq yd" }
+    output gable_wall_wrb_outer = { body = feature.wrb_outer.body, part_number = "EW-G", material = "material.asphalt_saturated_kraft_wrb", label = "WRB, outer layer, Grade D 60-minute building paper" }
+    output gable_wall_wrb_inner = { body = feature.wrb_inner.body, part_number = "EW-G", material = "material.asphalt_saturated_kraft_wrb", color = "#5A4A3A", label = "WRB, inner layer, Grade D 60-minute building paper" }
+}

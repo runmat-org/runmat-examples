@@ -1,0 +1,46 @@
+runmat 0.7
+std 1
+
+// A galley: three cart bays and a worktop open to the aisle.
+part galley {
+    sketch s on origin.yz {
+        l1 = line(start = [250 mm, -400 mm], end = [1700 mm, -400 mm])
+        l2 = line(start = [1700 mm, -400 mm], end = [1760 mm, 300 mm])
+        l3 = line(start = [1760 mm, 300 mm], end = [1440 mm, 1000 mm])
+        l4 = line(start = [1440 mm, 1000 mm], end = [900 mm, 1480 mm])
+        l5 = line(start = [900 mm, 1480 mm], end = [250 mm, 1480 mm])
+        l6 = line(start = [250 mm, 1480 mm], end = [250 mm, -400 mm])
+    }
+    feature box = extrude(profile = sketch.s, distance = 860 mm)
+    feature face = plane.offset(base = origin.yz, distance = 260 mm)
+    sketch bay0 on plane.face {
+        l1 = line(start = [330 mm, -380 mm], end = [660 mm, -380 mm])
+        l2 = line(start = [660 mm, -380 mm], end = [660 mm, 650 mm])
+        l3 = line(start = [660 mm, 650 mm], end = [330 mm, 650 mm])
+        l4 = line(start = [330 mm, 650 mm], end = [330 mm, -380 mm])
+    }
+    feature cart0 = extrude(profile = sketch.bay0, distance = 700 mm, mode = cut)
+    sketch bay1 on plane.face {
+        l1 = line(start = [690 mm, -380 mm], end = [1020 mm, -380 mm])
+        l2 = line(start = [1020 mm, -380 mm], end = [1020 mm, 650 mm])
+        l3 = line(start = [1020 mm, 650 mm], end = [690 mm, 650 mm])
+        l4 = line(start = [690 mm, 650 mm], end = [690 mm, -380 mm])
+    }
+    feature cart1 = extrude(profile = sketch.bay1, distance = 700 mm, mode = cut)
+    sketch bay2 on plane.face {
+        l1 = line(start = [1050 mm, -380 mm], end = [1380 mm, -380 mm])
+        l2 = line(start = [1380 mm, -380 mm], end = [1380 mm, 650 mm])
+        l3 = line(start = [1380 mm, 650 mm], end = [1050 mm, 650 mm])
+        l4 = line(start = [1050 mm, 650 mm], end = [1050 mm, -380 mm])
+    }
+    feature cart2 = extrude(profile = sketch.bay2, distance = 700 mm, mode = cut)
+    sketch w on plane.face {
+        l1 = line(start = [330 mm, 700 mm], end = [1100 mm, 700 mm])
+        l2 = line(start = [1100 mm, 700 mm], end = [1100 mm, 950 mm])
+        l3 = line(start = [1100 mm, 950 mm], end = [330 mm, 950 mm])
+        l4 = line(start = [330 mm, 950 mm], end = [330 mm, 700 mm])
+    }
+    feature worktop = extrude(profile = sketch.w, distance = 400 mm, mode = cut)
+
+    output galley = { body = feature.box.body, part_number = "CAB-GL-600", material = "polycarbonate", color = "#D3D6DA" }
+}

@@ -1,0 +1,360 @@
+runmat 0.7
+std 1
+
+// The cockpit display unit's controller board, inside the display unit's case behind the screen.
+// It takes the 28 V DC aircraft bus through a fuse, a series Schottky and a 33 V TVS, makes 5 V
+// with a 60 V buck and 3.3 V with an LDO, and drives the screen's LED backlight (six strings of
+// eleven white LEDs at 60 mA each) with a six-channel boost driver. A Cortex-M4-class MCU reads
+// the panel dimming input and the on discrete, sets the backlight's PWM and talks to the panel's
+// timing controller over SPI. The board is 120 x 100 mm on four M3 bosses in the case.
+circuit du_controller {
+    root = main
+    net_class power = { track_width = "0.50 mm" }
+    net_class supply = { track_width = "0.30 mm" }
+    net_class digital = { track_width = "0.15 mm" }
+
+    // 60 V 2 A synchronous buck, 500 kHz, 0.8 V reference: the 28 V bus's 50 V surges stay
+    // under its input rating, which a 36 V part would not.
+    part "BUCK-60V-2A" = {
+        manufacturer = "Generic",
+        description = "60 V 2 A synchronous buck, 500 kHz, 0.8 V reference, SOT-23-6",
+        category = regulator,
+        package = "SOT23-6",
+        params = { vin_max = "60 V", iout_max = "2 A" },
+        pins = [
+            { name = BST, pad = "1", type = passive },
+            { name = GND, pad = "2", type = power_in },
+            { name = FB, pad = "3", type = input },
+            { name = EN, pad = "4", type = input },
+            { name = VIN, pad = "5", type = power_in },
+            { name = SW, pad = "6", type = power_out }
+        ]
+    }
+
+    // Six-channel LED backlight driver: a 60 V boost switch and six 60 mA current sinks, string
+    // current set by ISET (1,200 / R amps), output limited by the OVP divider (1.2 V threshold).
+    part "LEDDRV-6CH-60V" = {
+        manufacturer = "Generic",
+        description = "Six-channel boost LED driver, 60 V switch, 6 x 60 mA sinks, PWM dimming, QFN-24 4 x 4 mm",
+        category = driver,
+        package = "QFN24_4mm_P0.5_EP2.6",
+        params = { vin_max = "40 V", vsw_max = "60 V", isink_max = "60 mA" },
+        pins = [
+            { name = VIN, pad = "1", type = power_in },
+            { name = VCC, pad = "2", type = power_out },
+            { name = EN, pad = "3", type = input },
+            { name = PWM, pad = "4", type = input },
+            { name = ISET, pad = "5", type = passive },
+            { name = COMP, pad = "6", type = passive },
+            { name = FSET, pad = "7", type = passive },
+            { name = AGND, pad = "8", type = power_in },
+            { name = LED1, pad = "9", type = passive },
+            { name = LED2, pad = "10", type = passive },
+            { name = LED3, pad = "11", type = passive },
+            { name = LED4, pad = "12", type = passive },
+            { name = LED5, pad = "13", type = passive },
+            { name = LED6, pad = "14", type = passive },
+            { name = FAULT, pad = "15", type = open_collector },
+            { name = OVP, pad = "16", type = input },
+            { name = NC1, pad = "17", type = no_connect },
+            { name = NC2, pad = "18", type = no_connect },
+            { name = SW, pads = ["19", "20", "21"], type = passive },
+            { name = PGND, pads = ["22", "23", "25"], type = power_in },
+            { name = NC3, pad = "24", type = no_connect }
+        ]
+    }
+
+    part "D-SCHOTTKY-60V-2A" = {
+        manufacturer = "Generic",
+        description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A",
+        category = diode,
+        package = "D2010",
+        params = { vr_max = "60 V", if_max = "2 A" },
+        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+    }
+
+    part "TVS-33V-600W" = {
+        manufacturer = "Generic",
+        description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)",
+        category = diode,
+        package = "D2010",
+        params = { v_standoff = "33 V", v_clamp = "53 V" },
+        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+    }
+
+    part "FUSE-2A-1206" = {
+        manufacturer = "Generic",
+        description = "2 A slow-blow chip fuse, 63 V, 1206",
+        category = fuse,
+        package = "F1206",
+        params = { current = "2 A", voltage = "63 V" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "L1812-22U" = {
+        manufacturer = "Generic",
+        description = "22 uH 2.2 A shielded power inductor",
+        category = inductor,
+        package = "L1812",
+        params = { inductance = "22 uH", current = "2.2 A" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "C1210-2U2-100V" = {
+        manufacturer = "Generic",
+        description = "2.2 uF 100 V X7R ceramic capacitor, 1210",
+        category = capacitor,
+        package = "C1210",
+        params = { capacitance = "2.2 uF", voltage_rating = "100 V" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "R0402-330K" = {
+        manufacturer = "Generic",
+        description = "330 kOhm 1 % 0402 resistor",
+        category = resistor,
+        package = "R0402",
+        params = { resistance = "330 kohm" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "R0402-20K" = {
+        manufacturer = "Generic",
+        description = "20 kOhm 1 % 0402 resistor",
+        category = resistor,
+        package = "R0402",
+        params = { resistance = "20 kohm" },
+        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+    }
+
+    part "CONN-1X05" = {
+        manufacturer = "Generic",
+        description = "5-way 2.54 mm header, the harness from the case's circular connector",
+        category = connector,
+        package = "PinHeader1x05",
+        pins = [
+            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
+            { name = "5", pad = "5", type = passive }
+        ]
+    }
+
+    part "CONN-1X06" = {
+        manufacturer = "Generic",
+        description = "6-way 2.54 mm header",
+        category = connector,
+        package = "PinHeader1x06",
+        pins = [
+            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
+            { name = "5", pad = "5", type = passive }, { name = "6", pad = "6", type = passive }
+        ]
+    }
+
+    part "CONN-1X08" = {
+        manufacturer = "Generic",
+        description = "8-way 2.54 mm header",
+        category = connector,
+        package = "PinHeader1x08",
+        pins = [
+            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
+            { name = "5", pad = "5", type = passive }, { name = "6", pad = "6", type = passive },
+            { name = "7", pad = "7", type = passive }, { name = "8", pad = "8", type = passive }
+        ]
+    }
+
+    // 28 V input protection, the 5 V buck, the 3.3 V LDO and the bus voltage sense.
+    sheet power {
+        port V28_SENSE : out
+        component F1 = { part = "FUSE-2A-1206" }
+        component D1 = { part = "D-SCHOTTKY-60V-2A", power = 0.35 }
+        component D2 = { part = "TVS-33V-600W" }
+        component C1 = { part = "C1206-10U-50V" }
+        component C2 = { part = "C1206-10U-50V" }
+        component U1 = { part = "BUCK-60V-2A", power = 0.35 }
+        component L1 = { part = "L1210-10U", power = 0.05 }
+        component C3 = { part = "C0402-100N" }
+        component C4 = { part = "C0805-22U" }
+        component C5 = { part = "C0805-22U" }
+        component R1 = { part = "R0402-52K3" }
+        component R2 = { part = "R0402-10K" }
+        component R3 = { part = "R0402-100K" }
+        component U2 = { part = "LDO-3V3-SOT23", power = 0.15 }
+        component C6 = { part = "C0402-1U" }
+        component C7 = { part = "C0402-1U" }
+        component R4 = { part = "R0402-200K" }
+        component R5 = { part = "R0402-10K" }
+        component C8 = { part = "C0402-100N" }
+        net GND = { class = supply, global = true }
+        net V28_IN = { class = power, global = true }
+        net V28 = { class = power, global = true }
+        net "+5V" = { class = supply, global = true }
+        net "+3V3" = { class = supply, global = true }
+        net SW5 = { class = power }
+        // Fuse, then the series Schottky against a reversed bus, then the TVS across the
+        // protected rail.
+        connect = [net.V28_IN, "F1.1"]
+        connect = [net.V28_FUSED, "F1.2", D1.A]
+        connect = [net.V28, D1.K, D2.K, "C1.1", "C2.1", U1.VIN, "R3.1", "R4.1"]
+        connect = [net.EN5, U1.EN, "R3.2"]
+        connect = [net.SW5, U1.SW, "L1.1", "C3.2"]
+        connect = [net.BST5, U1.BST, "C3.1"]
+        connect = ["net.+5V", "L1.2", "C4.1", "C5.1", "R1.1", U2.VIN, U2.EN, "C6.1"]
+        connect = [net.FB5, U1.FB, "R1.2", "R2.1"]
+        connect = ["net.+3V3", U2.VOUT, "C7.1"]
+        connect = [net.V28_DIV, port.V28_SENSE, "R4.2", "R5.1", "C8.1"]
+        connect = [net.GND, D2.A, "C1.2", "C2.2", U1.GND, "C4.2", "C5.2", "R2.2", U2.GND, "C6.2", "C7.2", "R5.2", "C8.2"]
+    }
+
+    // The backlight: boost from the protected 28 V rail to the strings' anode (VLED, about 34 V)
+    // and six 60 mA sinks on the strings' cathodes.
+    sheet backlight {
+        port BL_EN : in
+        port BL_PWM : in
+        port BL_FAULT : out
+        component U3 = { part = "LEDDRV-6CH-60V", power = 1.1 }
+        component L2 = { part = "L1812-22U", power = 0.25 }
+        component D3 = { part = "D-SCHOTTKY-60V-2A", power = 0.2 }
+        component C9 = { part = "C1206-10U-50V" }
+        component C10 = { part = "C1210-2U2-100V" }
+        component C11 = { part = "C1210-2U2-100V" }
+        component C12 = { part = "C0402-1U" }
+        component C13 = { part = "C0402-10N" }
+        component R6 = { part = "R0402-20K" }
+        component R7 = { part = "R0402-100K" }
+        component R8 = { part = "R0402-330K" }
+        component R9 = { part = "R0402-10K" }
+        component R10 = { part = "R0402-10K" }
+        component J3 = { part = "CONN-1X08" }
+        net GND = { class = supply, global = true }
+        net V28 = { class = power, global = true }
+        net "+3V3" = { class = supply, global = true }
+        net VLED = { class = power }
+        net SWL = { class = power }
+        connect = [net.V28, U3.VIN, "C9.1", "L2.1"]
+        connect = [net.SWL, U3.SW, "L2.2", D3.A]
+        connect = [net.VLED, D3.K, "C10.1", "C11.1", "R8.1", "J3.1", "J3.2"]
+        connect = [net.OVP, U3.OVP, "R8.2", "R9.1"]
+        connect = [net.VCC_BL, U3.VCC, "C12.1"]
+        connect = [net.COMP, U3.COMP, "C13.1"]
+        connect = [net.ISET, U3.ISET, "R6.1"]
+        connect = [net.FSET, U3.FSET, "R7.1"]
+        connect = [net.BL_EN, port.BL_EN, U3.EN]
+        connect = [net.BL_PWM, port.BL_PWM, U3.PWM]
+        connect = [net.BL_FAULT, port.BL_FAULT, U3.FAULT, "R10.2"]
+        connect = ["net.+3V3", "R10.1"]
+        connect = [net.LED1, U3.LED1, "J3.3"]
+        connect = [net.LED2, U3.LED2, "J3.4"]
+        connect = [net.LED3, U3.LED3, "J3.5"]
+        connect = [net.LED4, U3.LED4, "J3.6"]
+        connect = [net.LED5, U3.LED5, "J3.7"]
+        connect = [net.LED6, U3.LED6, "J3.8"]
+        connect = [net.GND, U3.AGND, U3.PGND, "C9.2", "C10.2", "C11.2", "C12.2", "C13.2", "R6.2", "R7.2", "R9.2"]
+    }
+
+    // The MCU with its crystal, decoupling, reset and boot straps, the dimming and on-discrete
+    // inputs, the panel's SPI and a status LED.
+    sheet mcu {
+        port V28_SENSE : in
+        port DIM_IN : in
+        port DISC_ON : in
+        port BL_EN : out
+        port BL_PWM : out
+        port BL_FAULT : in
+        port SPI_SCK : out
+        port SPI_MOSI : out
+        port PANEL_CS : out
+        port PANEL_EN : out
+        component U4 = { part = "MCU-M4-LQFP48", power = 0.2 }
+        component Y1 = { part = "XTAL-3225" }
+        component C14 = { part = "C0402-12P" }
+        component C15 = { part = "C0402-12P" }
+        component C16 = { part = "C0402-100N" }
+        component C17 = { part = "C0402-100N" }
+        component C18 = { part = "C0402-100N" }
+        component C19 = { part = "C0402-1U" }
+        component C20 = { part = "C0603-4U7" }
+        component C21 = { part = "C0402-100N" }
+        component R11 = { part = "R0402-10K" }
+        component R12 = { part = "R0402-10K" }
+        // Dimming bus, 0-5 V: halved into the ADC, filtered at 160 Hz.
+        component R13 = { part = "R0402-10K" }
+        component R14 = { part = "R0402-10K" }
+        component C22 = { part = "C0402-100N" }
+        // On discrete, ground/open: pulled up at the MCU, 22 kOhm in series from the pin.
+        component R15 = { part = "R0402-22K" }
+        component R16 = { part = "R0402-10K" }
+        component R17 = { part = "R0402-1K" }
+        component D4 = { part = "LED0603-G" }
+        net GND = { class = supply, global = true }
+        net "+3V3" = { class = supply, global = true }
+        connect = [net.V28_SENSE, port.V28_SENSE, U4.PA0]
+        connect = [net.DIM_IN, port.DIM_IN, "R13.1"]
+        connect = [net.DIM_ADC, U4.PA1, "R13.2", "R14.1", "C22.1"]
+        connect = [net.DISC_ON, port.DISC_ON, "R15.1"]
+        connect = [net.DISC_MCU, U4.PA2, "R15.2", "R16.2"]
+        connect = [net.BL_EN, port.BL_EN, U4.PB1]
+        connect = [net.BL_PWM, port.BL_PWM, U4.PA8]
+        connect = [net.BL_FAULT, port.BL_FAULT, U4.PB2]
+        connect = [net.SPI_SCK, port.SPI_SCK, U4.PA5]
+        connect = [net.SPI_MOSI, port.SPI_MOSI, U4.PA7]
+        connect = [net.PANEL_CS, port.PANEL_CS, U4.PB4]
+        connect = [net.PANEL_EN, port.PANEL_EN, U4.PB3]
+        connect = ["net.+3V3", U4.VDD, U4.VDDA, "C16.1", "C17.1", "C18.1", "C19.1", "R11.2", "R16.1"]
+        connect = [net.GND, U4.VSS, U4.VSSA, "C14.2", "C15.2", "C16.2", "C17.2", "C18.2", "C19.2", "C20.2", "C21.2", "R12.2", "R14.2", "C22.2", D4.K]
+        connect = [net.VCAP, U4.VCAP, "C20.1"]
+        connect = [net.NRST, U4.NRST, "C21.1", "R11.1"]
+        connect = [net.BOOT0, U4.BOOT0, "R12.1"]
+        connect = [net.OSC_IN, U4.OSC_IN, "Y1.1", "C14.1"]
+        connect = [net.OSC_OUT, U4.OSC_OUT, "Y1.2", "C15.1"]
+        connect = [net.LED_STATUS, U4.PC13, "R17.1"]
+        connect = [net.LED_K, "R17.2", D4.A]
+        no_erc = [U4.PC14, U4.PC15, U4.PA3, U4.PA4, U4.PA6, U4.PA9, U4.PA10, U4.PA11, U4.PA12, U4.PA13, U4.PA14, U4.PA15, U4.PB0, U4.PB5, U4.PB6, U4.PB7, U4.PB8, U4.PB9, U4.PB10, U4.PB12, U4.PB13, U4.PB14, U4.PB15]
+    }
+
+    // The aircraft connector's header, the panel's timing-controller header and the case's four
+    // mounting bosses.
+    sheet connectors {
+        port DIM_IN : out
+        port DISC_ON : out
+        port SPI_SCK : in
+        port SPI_MOSI : in
+        port PANEL_CS : in
+        port PANEL_EN : in
+        component J1 = { part = "CONN-1X05" }
+        component J2 = { part = "CONN-1X06" }
+        component H1 = { part = "MH-M3" }
+        component H2 = { part = "MH-M3" }
+        component H3 = { part = "MH-M3" }
+        component H4 = { part = "MH-M3" }
+        net GND = { class = supply, global = true }
+        net V28_IN = { class = power, global = true }
+        net "+5V" = { class = supply, global = true }
+        // Aircraft side: 28 V, 28 V return, dimming, on discrete, signal ground.
+        connect = [net.V28_IN, "J1.1"]
+        connect = [net.GND, "J1.2", "J1.5"]
+        connect = [net.DIM_IN, port.DIM_IN, "J1.3"]
+        connect = [net.DISC_ON, port.DISC_ON, "J1.4"]
+        // Panel timing controller: 5 V, ground, SPI clock and data, chip select, enable.
+        connect = ["net.+5V", "J2.1"]
+        connect = [net.GND, "J2.2"]
+        connect = [net.SPI_SCK, port.SPI_SCK, "J2.3"]
+        connect = [net.SPI_MOSI, port.SPI_MOSI, "J2.4"]
+        connect = [net.PANEL_CS, port.PANEL_CS, "J2.5"]
+        connect = [net.PANEL_EN, port.PANEL_EN, "J2.6"]
+        no_erc = ["H1.1", "H2.1", "H3.1", "H4.1"]
+    }
+
+    sheet main {
+        net GND = { class = supply, global = true, power_flag = true }
+        net V28_IN = { class = power, global = true, power_flag = true }
+        net V28 = { class = power, global = true, power_flag = true }
+        net "+5V" = { class = supply, global = true, power_flag = true }
+        net "+3V3" = { class = supply, global = true, power_flag = true }
+        instance pwr = { sheet = power, bind = { V28_SENSE = net.V28_SENSE } }
+        instance bl = { sheet = backlight, bind = { BL_EN = net.BL_EN, BL_PWM = net.BL_PWM, BL_FAULT = net.BL_FAULT } }
+        instance mcu = { sheet = mcu, bind = { V28_SENSE = net.V28_SENSE, DIM_IN = net.DIM_IN, DISC_ON = net.DISC_ON, BL_EN = net.BL_EN, BL_PWM = net.BL_PWM, BL_FAULT = net.BL_FAULT, SPI_SCK = net.SPI_SCK, SPI_MOSI = net.SPI_MOSI, PANEL_CS = net.PANEL_CS, PANEL_EN = net.PANEL_EN } }
+        instance conn = { sheet = connectors, bind = { DIM_IN = net.DIM_IN, DISC_ON = net.DISC_ON, SPI_SCK = net.SPI_SCK, SPI_MOSI = net.SPI_MOSI, PANEL_CS = net.PANEL_CS, PANEL_EN = net.PANEL_EN } }
+    }
+}

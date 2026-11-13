@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/drone.assembly",
+      "/electrical/flight_controller/flight_controller.circuit",
+      "/electrical/esc/esc.circuit.layout",
+      "/simulation/arm_modal.fea"
+    ],
+    "activeFile": "/drone.assembly"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "hidden",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "agent": {
+    "suggestions": [
+      "Check the arm's first mode against the prop-pass frequency",
+      "Run the 5 V buck start-up and explain the ripple",
+      "Explode the stack and make an assembly drawing"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+runmat 0.7
+std 1
+
+// The wing-to-body fairing: a long blister shell under the wing box, cut back to the fuselage skin.
+part fairing {
+    sketch s on origin.xy {
+        c1 = spline(points = [[0 mm, 0 mm], [785.714 mm, 743.053 mm], [1571.429 mm, 979.131 mm], [2357.143 mm, 1129.996 mm], [3142.857 mm, 1232.175 mm], [3928.571 mm, 1299.245 mm], [4714.286 mm, 1337.532 mm], [5500 mm, 1350 mm], [6285.714 mm, 1337.532 mm], [7071.429 mm, 1299.245 mm], [7857.143 mm, 1232.175 mm], [8642.857 mm, 1129.996 mm], [9428.571 mm, 979.131 mm], [10214.286 mm, 743.053 mm], [11000 mm, 0 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature blister = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+    sketch i on origin.xy {
+        c1 = spline(points = [[330 mm, 492.876 mm], [1068.571 mm, 822.605 mm], [1807.143 mm, 1010.877 mm], [2545.714 mm, 1138.261 mm], [3284.286 mm, 1226.594 mm], [4022.857 mm, 1285.277 mm], [4761.429 mm, 1318.99 mm], [5500 mm, 1330 mm], [6238.571 mm, 1318.99 mm], [6977.143 mm, 1285.277 mm], [7715.714 mm, 1226.594 mm], [8454.286 mm, 1138.261 mm], [9192.857 mm, 1010.877 mm], [9931.429 mm, 822.605 mm], [10670 mm, 492.876 mm]])
+        c2_1 = line(start = c1.end, end = [10670 mm, 0 mm])
+        c2_2 = line(start = c2_1.end, end = [330 mm, 0 mm])
+        c2 = line(start = c2_2.end, end = c1.start)
+    }
+    feature hollow = revolve(profile = sketch.i, axis = origin.x, angle = 360 deg, mode = cut)
+    sketch body_line on origin.yz {
+        c = circle(center = [0 mm, 1250 mm], radius = 1978 mm)
+    }
+    feature skin_line = extrude(profile = sketch.body_line, distance = 11000 mm, mode = cut)
+
+    output fairing = { body = feature.blister.body, part_number = "FUS-FR-050", material = "composite", color = "#C7CCD3" }
+}

@@ -1,0 +1,14 @@
+runmat 0.7
+std 1
+
+// The spinner at the fan's hub.
+part spinner {
+    sketch s on origin.xy {
+        c1 = spline(points = [[140 mm, 0 mm], [175 mm, 120 mm], [280 mm, 230 mm], [440 mm, 300 mm], [620 mm, 320 mm]])
+        c2_1 = line(start = c1.end, end = [620 mm, 0 mm])
+        c2 = line(start = c2_1.end, end = c1.start)
+    }
+    feature body = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+
+    output spinner = { body = feature.body.body, part_number = "NAC-SP-920", material = "composite", color = "#363C44" }
+}

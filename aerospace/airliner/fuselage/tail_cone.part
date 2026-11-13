@@ -1,0 +1,37 @@
+runmat 0.7
+std 1
+
+// The tail cone: a 5 mm skin lofted aft through circles from the barrel, closing and sweeping up to the APU exhaust.
+part tail_cone {
+    sketch s0 on origin.yz {
+        c = circle(center = [0 mm, 0 mm], radius = 1980 mm)
+    }
+    sketch i0 on origin.yz {
+        c = circle(center = [0 mm, 0 mm], radius = 1975 mm)
+    }
+    feature st1 = plane.offset(base = origin.yz, distance = 3000 mm)
+    sketch s1 on plane.st1 {
+        c = circle(center = [0 mm, 120 mm], radius = 1760 mm)
+    }
+    sketch i1 on plane.st1 {
+        c = circle(center = [0 mm, 120 mm], radius = 1755 mm)
+    }
+    feature st2 = plane.offset(base = origin.yz, distance = 5600 mm)
+    sketch s2 on plane.st2 {
+        c = circle(center = [0 mm, 520 mm], radius = 1150 mm)
+    }
+    sketch i2 on plane.st2 {
+        c = circle(center = [0 mm, 520 mm], radius = 1145 mm)
+    }
+    feature st3 = plane.offset(base = origin.yz, distance = 8800 mm)
+    sketch s3 on plane.st3 {
+        c = circle(center = [0 mm, 980 mm], radius = 320 mm)
+    }
+    sketch i3 on plane.st3 {
+        c = circle(center = [0 mm, 980 mm], radius = 315 mm)
+    }
+    feature cone = loft(profiles = [sketch.s0, sketch.s1, sketch.s2, sketch.s3])
+    feature hollow = loft(profiles = [sketch.i0, sketch.i1, sketch.i2, sketch.i3], mode = cut)
+
+    output tail_cone = { body = feature.cone.body, part_number = "FUS-TC-020", material = "aluminum_2024", color = "#F4F5F7" }
+}

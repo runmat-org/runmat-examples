@@ -1,0 +1,32 @@
+runmat 0.7
+std 1
+
+// The airliner's skeleton: its main sizes and the frames its assemblies attach to.
+part airliner_skeleton {
+    input span : length = 34000 mm
+    input root_chord : length = 6400 mm
+    input tip_chord : length = 1550 mm
+    input fuselage_radius : length = 1980 mm
+    input frame_pitch : length = 500 mm
+    input rib_pitch : length = 650 mm
+
+    feature fuselage = frame(frame = at, origin = point(0 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
+    feature wing_root = frame(frame = at, origin = point(12600 mm, 0 mm, -1250 mm), z = origin.z, x = origin.x)
+    feature tail = frame(frame = at, origin = point(29200 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
+    feature main_gear_starboard = frame(frame = at, origin = point(18300 mm, 3000 mm, -1150 mm), z = origin.z, x = origin.x)
+    feature main_gear_port = frame(frame = at, origin = point(18300 mm, -3000 mm, -1150 mm), z = origin.z, x = origin.x)
+    feature nose_gear = frame(frame = at, origin = point(4600 mm, 0 mm, -1700 mm), z = origin.z, x = origin.x)
+
+    publish fuselage = datum(datum = { datum = feature, feature = fuselage })
+    publish wing_root = datum(datum = { datum = feature, feature = wing_root })
+    publish tail = datum(datum = { datum = feature, feature = tail })
+    publish main_gear_starboard = datum(datum = { datum = feature, feature = main_gear_starboard })
+    publish main_gear_port = datum(datum = { datum = feature, feature = main_gear_port })
+    publish nose_gear = datum(datum = { datum = feature, feature = nose_gear })
+    publish span = value(input = span)
+    publish root_chord = value(input = root_chord)
+    publish tip_chord = value(input = tip_chord)
+    publish fuselage_radius = value(input = fuselage_radius)
+    publish frame_pitch = value(input = frame_pitch)
+    publish rib_pitch = value(input = rib_pitch)
+}

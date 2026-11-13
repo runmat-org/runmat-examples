@@ -1,0 +1,31 @@
+{
+  "id": "compliant-tube-pulse",
+  "title": "Pulse in a compliant tube",
+  "pickerTitle": "Pulse in a compliant tube",
+  "pickerLine": "FEA studies",
+  "line": "A transient fluid-structure FEA study of a pressure pulse traveling along a silicone tube full of water.",
+  "description": "A 4 ms surge of inflow enters a silicone tube (10 mm bore, 1 mm wall, 200 mm long) full of water; fluid and wall are solved together. The study samples the pressure 50 mm and 150 mm from the inlet; the Moens-Korteweg wave speed, 15 to 17 m/s, sets the 6 to 7 ms travel time between them.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "compliant-tube-pulse.fea",
+  "roles": [
+    "thermal_fluids",
+    "research",
+    "student",
+    "teaching",
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "compliant-tube-pulse",
+  "thumbnailAlt": "Pressure pulse traveling along a compliant silicone tube, solved in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-structure",
+    "key": "website:simulation/fluid-structure/compliant-tube-pulse",
+    "source": "runmat-examples/fea/compliant-tube-pulse/compliant-tube-pulse.fea"
+  }
+}

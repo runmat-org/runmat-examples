@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/hydraulic-manifold.fea",
+      "/manifold.part"
+    ],
+    "activeFile": "/hydraulic-manifold.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "velocity"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the pressure drop from P to A and compare it with the 1 bar budget",
+      "Find the flow rate at which port A passes Re 2000",
+      "Open up port A to 12 mm and compare the pressure drop"
+    ]
+  }
+}

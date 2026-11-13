@@ -1,0 +1,82 @@
+// A main gear strut in a level landing at the limit sink rate, with the wheels' spin-up drag.
+//
+// Mass: DESIGN-NOTES gives no weights, so this study assumes a 66,000 kg design landing weight,
+// typical of a 38 m twin-engine narrow-body (maximum take-off weight about 78,000 kg).
+//
+// Load: the landing rules set a 3.05 m/s (10 ft/s) limit sink rate at the design landing weight,
+// with wing lift equal to the weight. Each main leg takes half the airplane's vertical energy,
+// 0.5 x 33,000 kg x 3.05^2 = 153.5 kJ. The shock strut absorbs it over a 400 mm stroke at
+// 85 % efficiency and the tyres over 100 mm at 47 %, 0.387 m in all, so the leg's vertical
+// reaction is 153.5 kJ / 0.387 m = 397 kN (the gear load factor is 2 x 397 kN / 647 kN = 1.23).
+// The spin-up case adds a drag load of 25 % of the vertical, 99 kN aft. Both act here at the
+// axle end of the strut; the tyres' contact point is below it, which the study leaves out.
+// These are limit loads; ultimate is 1.5 times them.
+//
+// Geometry: ./geometry/main_gear_strut.step, exported from main_gear_strut.assembly: the strut
+// as main_gear.assembly sizes it, a 230 mm 300M steel cylinder 2,500 mm long with the oleo's
+// 180 mm bore open at the axle end and stopping 200 mm short of the trunnion. The trunnion end
+// is held fixed. 300M: E = 205 GPa, yield 1,586 MPa, tensile strength 1,930 MPa.
+//
+// Hand check: as a cantilever fixed at the trunnion, the drag bends the strut most where the
+// tube starts, 2.3 m above the axle: 99 kN x 2.3 m = 227.7 kN m. The tube's I is
+// pi (230^4 - 180^4) / 64 = 8.58e7 mm^4 and its section modulus 7.46e5 mm^3, so bending there is
+// 305 MPa; the vertical load adds 397 kN / 16,100 mm^2 = 24.7 MPa of compression, so the peak
+// is about 330 MPa at limit and 495 MPa at ultimate, against 1,586 MPa yield and 1,930 MPa
+// strength. The solid top's root (Z = 1.195e6 mm^3) sees 207 MPa from the full 247.5 kN m. The
+// axle end moves aft by about D L^3 / (3 E I) = 29 mm on the tube's I (a little less with the
+// solid top).
+//
+// Solved (RunMat 0.7.1 release CLI, 2026-11-10): peak element von Mises stress 325.5 MPa against the
+// hand check's 330 MPa where the tube starts; the axle end moves 27.6 mm against the hand
+// check's 29 mm. The assessment passes: 325.5 MPa is 21 % of the 1,586 MPa yield.
+
+geometry strut {
+    file = "./geometry/main_gear_strut.step"
+    units = mm
+    region body : solid { select name "gear_strut (bore 90 mm, length 2500 mm, radius 115 mm)"; expect exactly_one }
+    region trunnion : face { select name "trunnion"; expect exactly_one }
+    region axle_end : face { select name "axle_end"; expect exactly_one }
+}
+
+mesh strut on geometry.strut {
+    tetrahedra {
+        order = quadratic
+        target_size = 30 mm
+        maximum_deviation = 1 mm
+    }
+}
+
+material steel_300m {
+    mass_density = 7830 kg/m^3
+    elastic {
+        youngs_modulus = 205 GPa
+        poisson_ratio = 0.29
+    }
+}
+
+model landing {
+    assign material.steel_300m to geometry.strut.region.body
+    constraint trunnion {
+        structural.fixed { target = geometry.strut.region.trunnion }
+    }
+    load ground {
+        force on geometry.strut.region.axle_end = [99000, 0, 397000] N
+    }
+    load_case level_landing_spin_up { include load.ground }
+}
+
+study main_gear_landing {
+    geometry = geometry.strut
+    mesh = mesh.strut
+    model = model.landing
+    analysis static { structural static {} }
+    output displacement = analysis.static.field.node.displacement
+    output von_mises = analysis.static.field.element.von_mises_stress
+    output peak_stress = max(analysis.static.field.element.von_mises_stress, over = geometry.strut.region.body)
+    output axle_deflection = max(magnitude(analysis.static.field.node.displacement), over = geometry.strut.region.axle_end)
+    assessment below_yield_at_limit {
+        value = output.peak_stress
+        maximum = 1586 MPa
+        evidence = authored_samples
+    }
+}

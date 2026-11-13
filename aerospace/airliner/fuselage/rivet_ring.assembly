@@ -1,0 +1,10 @@
+runmat 0.7
+std 1
+
+// A ring of flush rivets through the skin onto one frame, one at each stringer.
+assembly rivet_ring {
+    use part rivet from hardware as rivet {
+        placement = { placement = offset, offset = { translation = [20 mm, 0 mm, 1980 mm] } }
+    }
+    pattern around = circular(seeds = [rivet], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 24, angle = 360 deg)
+}

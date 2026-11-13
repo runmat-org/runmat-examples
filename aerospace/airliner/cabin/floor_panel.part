@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// The cabin floor over one barrel section: honeycomb panels on the floor beams.
+part floor_panel {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, -1775.749 mm], end = [8000 mm, -1775.749 mm])
+        l2 = line(start = [8000 mm, -1775.749 mm], end = [8000 mm, 1775.749 mm])
+        l3 = line(start = [8000 mm, 1775.749 mm], end = [0 mm, 1775.749 mm])
+        l4 = line(start = [0 mm, 1775.749 mm], end = [0 mm, -1775.749 mm])
+    }
+    feature panel = extrude(profile = sketch.s, distance = 10 mm)
+
+    output floor_panel = { body = feature.panel.body, part_number = "FUS-FP-410", material = "composite", color = "#6A7078" }
+}

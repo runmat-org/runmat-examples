@@ -1,0 +1,12 @@
+[package]
+name = "duct-pulse"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "duct-pulse.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

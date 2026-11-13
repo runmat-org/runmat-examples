@@ -1,0 +1,12 @@
+[package]
+name = "chip-cold-plate-power-step"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "chip-cold-plate-power-step.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

@@ -1,0 +1,384 @@
+runmat 0.7
+std 1
+
+use "library/devices.circuit"
+
+// The branch circuits of the house, one sheet per circuit: each device in the order the cable
+// reaches it, with GFCI protection on the load side of a GFCI receptacle and AFCI protection at
+// the breaker where NEC 210.12 asks for it. The breakers, their ratings and wire gauges are the
+// panel schedule in service.circuit; here each circuit starts at its breaker's load terminal.
+// Schematic only: these devices are wired in the field, and electrical.assembly places them.
+circuit branch_circuits {
+    root = feeds
+    sheet feeds {
+        text from_panel = "Each feed is the load terminal of its breaker in service.circuit."
+        net N = { global = true, power_flag = true }
+        net EG = { global = true, power_flag = true }
+        net C1A = { power_flag = true }
+        net C1B = { power_flag = true }
+        instance c1 = { sheet = c1 }
+        text load_c1 = "1: Range"
+        connect = [net.C1A, instance.c1.L1]
+        connect = [net.C1B, instance.c1.L2]
+        net C5A = { power_flag = true }
+        net C5B = { power_flag = true }
+        instance c5 = { sheet = c5 }
+        text load_c5 = "5: Dryer"
+        connect = [net.C5A, instance.c5.L1]
+        connect = [net.C5B, instance.c5.L2]
+        net C9A = { power_flag = true }
+        net C9B = { power_flag = true }
+        instance c9 = { sheet = c9 }
+        text load_c9 = "9: Water heater"
+        connect = [net.C9A, instance.c9.L1]
+        connect = [net.C9B, instance.c9.L2]
+        net C13A = { power_flag = true }
+        net C13B = { power_flag = true }
+        instance c13 = { sheet = c13 }
+        text load_c13 = "13: Air handler"
+        connect = [net.C13A, instance.c13.L1]
+        connect = [net.C13B, instance.c13.L2]
+        net C17A = { power_flag = true }
+        net C17B = { power_flag = true }
+        instance c17 = { sheet = c17 }
+        text load_c17 = "17: Heat pump"
+        connect = [net.C17A, instance.c17.L1]
+        connect = [net.C17B, instance.c17.L2]
+        net C2 = { power_flag = true }
+        instance c2 = { sheet = c2 }
+        text load_c2 = "2: Kitchen counter N"
+        connect = [net.C2, instance.c2.HOT]
+        net C4 = { power_flag = true }
+        instance c4 = { sheet = c4 }
+        text load_c4 = "4: Kitchen counter E"
+        connect = [net.C4, instance.c4.HOT]
+        net C6 = { power_flag = true }
+        instance c6 = { sheet = c6 }
+        text load_c6 = "6: Refrigerator"
+        connect = [net.C6, instance.c6.HOT]
+        net C8 = { power_flag = true }
+        instance c8 = { sheet = c8 }
+        text load_c8 = "8: Dishwasher, disposal"
+        connect = [net.C8, instance.c8.HOT]
+        net C10 = { power_flag = true }
+        instance c10 = { sheet = c10 }
+        text load_c10 = "10: Laundry"
+        connect = [net.C10, instance.c10.HOT]
+        net C12 = { power_flag = true }
+        instance c12 = { sheet = c12 }
+        text load_c12 = "12: Hall bath"
+        connect = [net.C12, instance.c12.HOT]
+        net C14 = { power_flag = true }
+        instance c14 = { sheet = c14 }
+        text load_c14 = "14: Primary bath"
+        connect = [net.C14, instance.c14.HOT]
+        net C16 = { power_flag = true }
+        instance c16 = { sheet = c16 }
+        text load_c16 = "16: Outdoor receptacles"
+        connect = [net.C16, instance.c16.HOT]
+        net C18 = { power_flag = true }
+        instance c18 = { sheet = c18 }
+        text load_c18 = "18: Living room, foyer"
+        connect = [net.C18, instance.c18.HOT]
+        net C20 = { power_flag = true }
+        instance c20 = { sheet = c20 }
+        text load_c20 = "20: Dining, kitchen lights"
+        connect = [net.C20, instance.c20.HOT]
+        net C22 = { power_flag = true }
+        instance c22 = { sheet = c22 }
+        text load_c22 = "22: Den, utility room"
+        connect = [net.C22, instance.c22.HOT]
+        net C24 = { power_flag = true }
+        instance c24 = { sheet = c24 }
+        text load_c24 = "24: Bedroom 3"
+        connect = [net.C24, instance.c24.HOT]
+        net C26 = { power_flag = true }
+        instance c26 = { sheet = c26 }
+        text load_c26 = "26: Primary bedroom"
+        connect = [net.C26, instance.c26.HOT]
+        net C28 = { power_flag = true }
+        instance c28 = { sheet = c28 }
+        text load_c28 = "28: Bedroom 2, hall"
+        connect = [net.C28, instance.c28.HOT]
+        net C30 = { power_flag = true }
+        instance c30 = { sheet = c30 }
+        text load_c30 = "30: Bath lights, fans"
+        connect = [net.C30, instance.c30.HOT]
+    }
+
+    // Circuit 1: Range, kitchen east wall. 6/3 Cu NM-B (55 A at 60 C), 6 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c1 {
+        text wiring = "Circuit 1: Range, kitchen east wall. Cable 6/3 Cu NM-B (55 A at 60 C)."
+        port L1 : power
+        port L2 : power
+        component X101 = { part = "RCPT-14-50R" }
+        connect = [port.L1, X101.X]
+        connect = [port.L2, X101.Y]
+        connect = [net.N, X101.W]
+        connect = [net.EG, X101.G]
+    }
+
+    // Circuit 5: Dryer, utility room. 10/3 Cu NM-B, 10 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c5 {
+        text wiring = "Circuit 5: Dryer, utility room. Cable 10/3 Cu NM-B."
+        port L1 : power
+        port L2 : power
+        component X501 = { part = "RCPT-14-30R" }
+        connect = [port.L1, X501.X]
+        connect = [port.L2, X501.Y]
+        connect = [net.N, X501.W]
+        connect = [net.EG, X501.G]
+    }
+
+    // Circuit 9: Water heater, utility room. 10/2 Cu NM-B, 10 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c9 {
+        text wiring = "Circuit 9: Water heater, utility room. Cable 10/2 Cu NM-B."
+        port L1 : power
+        port L2 : power
+        component WH901 = { part = "WH-50G-4500" }
+        connect = [port.L1, WH901.L1]
+        connect = [port.L2, WH901.L2]
+        connect = [net.EG, WH901.GND]
+    }
+
+    // Circuit 13: Air handler with 10 kW heat strips, utility room. 4/2 Cu NM-B (70 A at 60 C), 4 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c13 {
+        text wiring = "Circuit 13: Air handler with 10 kW heat strips, utility room. Cable 4/2 Cu NM-B (70 A at 60 C)."
+        port L1 : power
+        port L2 : power
+        component DS1301 = { part = "DISC-60A-NF" }
+        component AH1301 = { part = "AHU-3T-10KW" }
+        connect = [port.L1, DS1301.L1, AH1301.L1]
+        connect = [port.L2, DS1301.L2, AH1301.L2]
+        connect = [net.EG, DS1301.GND, AH1301.GND]
+    }
+
+    // Circuit 17: Heat pump condenser, outside wall 5. 10/2 Cu NM-B to the disconnect, 10 AWG THWN in liquidtight to the unit, 10 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c17 {
+        text wiring = "Circuit 17: Heat pump condenser, outside wall 5. Cable 10/2 Cu NM-B to the disconnect, 10 AWG THWN in liquidtight to the unit."
+        port L1 : power
+        port L2 : power
+        component DS1701 = { part = "DISC-60A-NF" }
+        component HP1701 = { part = "HP-3T" }
+        connect = [port.L1, DS1701.L1, HP1701.L1]
+        connect = [port.L2, DS1701.L2, HP1701.L2]
+        connect = [net.EG, DS1701.GND, HP1701.GND]
+    }
+
+    // Circuit 2: Kitchen small appliance 1: counter receptacles, north wall. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c2 {
+        text wiring = "Circuit 2: Kitchen small appliance 1: counter receptacles, north wall. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X201 = { part = "GFCI-20A-TR" }
+        component X202 = { part = "RCPT-20A-TR" }
+        component X203 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X201.LINE_H]
+        connect = [net.N, X201.LINE_N]
+        connect = [net.EG, X201.GND, X202.GND, X203.GND]
+        connect = [net.P2H, X201.LOAD_H, X202.HOT, X203.HOT]
+        connect = [net.P2N, X201.LOAD_N, X202.NEU, X203.NEU]
+    }
+
+    // Circuit 4: Kitchen small appliance 2: counter receptacles, east wall. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c4 {
+        text wiring = "Circuit 4: Kitchen small appliance 2: counter receptacles, east wall. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X401 = { part = "GFCI-20A-TR" }
+        component X402 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X401.LINE_H]
+        connect = [net.N, X401.LINE_N]
+        connect = [net.EG, X401.GND, X402.GND]
+        connect = [net.P4H, X401.LOAD_H, X402.HOT]
+        connect = [net.P4N, X401.LOAD_N, X402.NEU]
+    }
+
+    // Circuit 6: Refrigerator. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c6 {
+        text wiring = "Circuit 6: Refrigerator. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X601 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X601.HOT]
+        connect = [net.N, X601.NEU]
+        connect = [net.EG, X601.GND]
+    }
+
+    // Circuit 8: Dishwasher and disposal, under the sink. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c8 {
+        text wiring = "Circuit 8: Dishwasher and disposal, under the sink. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X801 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X801.HOT]
+        connect = [net.N, X801.NEU]
+        connect = [net.EG, X801.GND]
+    }
+
+    // Circuit 10: Laundry receptacle, utility room. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c10 {
+        text wiring = "Circuit 10: Laundry receptacle, utility room. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X1001 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X1001.HOT]
+        connect = [net.N, X1001.NEU]
+        connect = [net.EG, X1001.GND]
+    }
+
+    // Circuit 12: Hall bath receptacle. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c12 {
+        text wiring = "Circuit 12: Hall bath receptacle. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X1201 = { part = "GFCI-20A-TR" }
+        no_erc = [X1201.LOAD_H, X1201.LOAD_N]
+        connect = [port.HOT, X1201.LINE_H]
+        connect = [net.N, X1201.LINE_N]
+        connect = [net.EG, X1201.GND]
+    }
+
+    // Circuit 14: Primary bath receptacles. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c14 {
+        text wiring = "Circuit 14: Primary bath receptacles. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X1401 = { part = "GFCI-20A-TR" }
+        component X1402 = { part = "RCPT-20A-TR" }
+        connect = [port.HOT, X1401.LINE_H]
+        connect = [net.N, X1401.LINE_N]
+        connect = [net.EG, X1401.GND, X1402.GND]
+        connect = [net.P14H, X1401.LOAD_H, X1402.HOT]
+        connect = [net.P14N, X1401.LOAD_N, X1402.NEU]
+    }
+
+    // Circuit 16: Outdoor receptacles, front and back. 12/2 Cu NM-B, 12 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c16 {
+        text wiring = "Circuit 16: Outdoor receptacles, front and back. Cable 12/2 Cu NM-B."
+        port HOT : power
+        component X1601 = { part = "GFCI-20A-WR" }
+        component X1602 = { part = "RCPT-20A-WR" }
+        connect = [port.HOT, X1601.LINE_H]
+        connect = [net.N, X1601.LINE_N]
+        connect = [net.EG, X1601.GND, X1602.GND]
+        connect = [net.P16H, X1601.LOAD_H, X1602.HOT]
+        connect = [net.P16N, X1601.LOAD_N, X1602.NEU]
+    }
+
+    // Circuit 18: Living room and foyer: receptacles and lights. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c18 {
+        text wiring = "Circuit 18: Living room and foyer: receptacles and lights. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X1801 = { part = "RCPT-15A-TR" }
+        component X1802 = { part = "RCPT-15A-TR" }
+        component X1803 = { part = "RCPT-15A-TR" }
+        component S1801 = { part = "SW-1P-15A" }
+        component L1801 = { part = "LUM-CEIL-LED" }
+        component S1802 = { part = "SW-1P-15A" }
+        component L1802 = { part = "LUM-WALL-EXT" }
+        connect = [port.HOT, X1801.HOT, X1802.HOT, X1803.HOT, S1801.LINE, S1802.LINE]
+        connect = [net.N, X1801.NEU, X1802.NEU, X1803.NEU, L1801.NEU, L1802.NEU]
+        connect = [net.EG, X1801.GND, X1802.GND, X1803.GND, S1801.GND, L1801.GND, S1802.GND, L1802.GND]
+        connect = [net.SW18_1, S1801.LOAD, L1801.HOT]
+        connect = [net.SW18_2, S1802.LOAD, L1802.HOT]
+    }
+
+    // Circuit 20: Dining room and kitchen lights. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c20 {
+        text wiring = "Circuit 20: Dining room and kitchen lights. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X2001 = { part = "RCPT-15A-TR" }
+        component X2002 = { part = "RCPT-15A-TR" }
+        component S2001 = { part = "SW-1P-15A" }
+        component L2001 = { part = "LUM-CEIL-LED" }
+        component S2002 = { part = "SW-1P-15A" }
+        component L2002 = { part = "LUM-CEIL-LED" }
+        connect = [port.HOT, X2001.HOT, X2002.HOT, S2001.LINE, S2002.LINE]
+        connect = [net.N, X2001.NEU, X2002.NEU, L2001.NEU, L2002.NEU]
+        connect = [net.EG, X2001.GND, X2002.GND, S2001.GND, L2001.GND, S2002.GND, L2002.GND]
+        connect = [net.SW20_1, S2001.LOAD, L2001.HOT]
+        connect = [net.SW20_2, S2002.LOAD, L2002.HOT]
+    }
+
+    // Circuit 22: Den and utility room: receptacles and lights, first-floor smoke alarm. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c22 {
+        text wiring = "Circuit 22: Den and utility room: receptacles and lights, first-floor smoke alarm. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X2201 = { part = "RCPT-15A-TR" }
+        component X2202 = { part = "RCPT-15A-TR" }
+        component S2201 = { part = "SW-1P-15A" }
+        component L2201 = { part = "LUM-CEIL-LED" }
+        component S2202 = { part = "SW-1P-15A" }
+        component L2202 = { part = "LUM-CEIL-LED" }
+        component SD2201 = { part = "SMOKE-CO-120" }
+        connect = [port.HOT, X2201.HOT, X2202.HOT, S2201.LINE, S2202.LINE, SD2201.HOT]
+        connect = [net.N, X2201.NEU, X2202.NEU, L2201.NEU, L2202.NEU, SD2201.NEU]
+        connect = [net.EG, X2201.GND, X2202.GND, S2201.GND, L2201.GND, S2202.GND, L2202.GND, SD2201.GND]
+        connect = [net.SW22_1, S2201.LOAD, L2201.HOT]
+        connect = [net.SW22_2, S2202.LOAD, L2202.HOT]
+    }
+
+    // Circuit 24: Bedroom 3: receptacles, light, smoke alarm. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c24 {
+        text wiring = "Circuit 24: Bedroom 3: receptacles, light, smoke alarm. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X2401 = { part = "RCPT-15A-TR" }
+        component X2402 = { part = "RCPT-15A-TR" }
+        component X2403 = { part = "RCPT-15A-TR" }
+        component S2401 = { part = "SW-1P-15A" }
+        component L2401 = { part = "LUM-CEIL-LED" }
+        component SD2401 = { part = "SMOKE-CO-120" }
+        connect = [port.HOT, X2401.HOT, X2402.HOT, X2403.HOT, S2401.LINE, SD2401.HOT]
+        connect = [net.N, X2401.NEU, X2402.NEU, X2403.NEU, L2401.NEU, SD2401.NEU]
+        connect = [net.EG, X2401.GND, X2402.GND, X2403.GND, S2401.GND, L2401.GND, SD2401.GND]
+        connect = [net.SW24_1, S2401.LOAD, L2401.HOT]
+    }
+
+    // Circuit 26: Primary bedroom and closet: receptacles, lights, smoke alarm. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c26 {
+        text wiring = "Circuit 26: Primary bedroom and closet: receptacles, lights, smoke alarm. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X2601 = { part = "RCPT-15A-TR" }
+        component X2602 = { part = "RCPT-15A-TR" }
+        component X2603 = { part = "RCPT-15A-TR" }
+        component X2604 = { part = "RCPT-15A-TR" }
+        component S2601 = { part = "SW-1P-15A" }
+        component L2601 = { part = "LUM-CEIL-LED" }
+        component S2602 = { part = "SW-1P-15A" }
+        component L2602 = { part = "LUM-CEIL-LED" }
+        component SD2601 = { part = "SMOKE-CO-120" }
+        connect = [port.HOT, X2601.HOT, X2602.HOT, X2603.HOT, X2604.HOT, S2601.LINE, S2602.LINE, SD2601.HOT]
+        connect = [net.N, X2601.NEU, X2602.NEU, X2603.NEU, X2604.NEU, L2601.NEU, L2602.NEU, SD2601.NEU]
+        connect = [net.EG, X2601.GND, X2602.GND, X2603.GND, X2604.GND, S2601.GND, L2601.GND, S2602.GND, L2602.GND, SD2601.GND]
+        connect = [net.SW26_1, S2601.LOAD, L2601.HOT]
+        connect = [net.SW26_2, S2602.LOAD, L2602.HOT]
+    }
+
+    // Circuit 28: Bedroom 2 and hall: receptacles, lights, smoke alarms. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c28 {
+        text wiring = "Circuit 28: Bedroom 2 and hall: receptacles, lights, smoke alarms. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component X2801 = { part = "RCPT-15A-TR" }
+        component X2802 = { part = "RCPT-15A-TR" }
+        component S2801 = { part = "SW-1P-15A" }
+        component L2801 = { part = "LUM-CEIL-LED" }
+        component S2802 = { part = "SW-1P-15A" }
+        component L2802 = { part = "LUM-CEIL-LED" }
+        component SD2801 = { part = "SMOKE-CO-120" }
+        component SD2802 = { part = "SMOKE-CO-120" }
+        connect = [port.HOT, X2801.HOT, X2802.HOT, S2801.LINE, S2802.LINE, SD2801.HOT, SD2802.HOT]
+        connect = [net.N, X2801.NEU, X2802.NEU, L2801.NEU, L2802.NEU, SD2801.NEU, SD2802.NEU]
+        connect = [net.EG, X2801.GND, X2802.GND, S2801.GND, L2801.GND, S2802.GND, L2802.GND, SD2801.GND, SD2802.GND]
+        connect = [net.SW28_1, S2801.LOAD, L2801.HOT]
+        connect = [net.SW28_2, S2802.LOAD, L2802.HOT]
+    }
+
+    // Circuit 30: Bath lights and exhaust fans. 14/2 Cu NM-B, 14 AWG on the breaker in the panel schedule (service.circuit).
+    sheet c30 {
+        text wiring = "Circuit 30: Bath lights and exhaust fans. Cable 14/2 Cu NM-B."
+        port HOT : power
+        component S3001 = { part = "SW-1P-15A" }
+        component F3001 = { part = "FAN-BATH-80" }
+        component S3002 = { part = "SW-1P-15A" }
+        component F3002 = { part = "FAN-BATH-80" }
+        connect = [port.HOT, S3001.LINE, S3002.LINE]
+        connect = [net.SW30_1, S3001.LOAD, F3001.HOT]
+        connect = [net.EG, S3001.GND, F3001.GND, S3002.GND, F3002.GND]
+        connect = [net.N, F3001.NEU, F3002.NEU]
+        connect = [net.SW30_2, S3002.LOAD, F3002.HOT]
+    }
+}

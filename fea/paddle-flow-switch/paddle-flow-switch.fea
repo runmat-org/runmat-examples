@@ -1,0 +1,98 @@
+// A paddle flow switch in a 2-inch tee: steady oil flow at 1 m/s bends the spring-steel paddle,
+// and the switch trips at 1 mm of tip travel. Fluid and paddle are solved together.
+//
+// Geometry: ./geometry/flow_switch.step, exported from flow_switch.part: the tee ("Tee", 52.5 mm
+// run bore, 27 mm switch boss), the oil in it ("Oil") and a 0.5 x 24 x 82 mm EN 1.4310 paddle
+// ("Paddle") clamped at the top of the boss ("Paddle root").
+//
+// Oil: ISO VG 46 at 40 degC, 861 kg/m^3, 46 cSt (0.0396 Pa s). Re = 1 x 0.0525 / 46e-6 = 1140.
+// Paddle: EN 1.4310 spring hard (EN 10151): E = 185 GPa, nu = 0.3, proof strength about
+// 1,300 MPa.
+//
+// Hand check: about 864 mm^2 of paddle sits in the run, its centroid 64 mm below the clamp;
+// with a drag coefficient of 2 (40 % of the bore is blocked) the oil pushes F = 2 x 0.5 x 861 x
+// 1^2 x 864e-6 = 0.74 N. As a cantilever (I = 24 x 0.5^3 / 12 = 0.25 mm^4, E I = 46,250 N mm^2)
+// it bends F a^3 / (3 E I) = 1.40 mm at the load and 1.40 + F a^2 / (2 E I) x 18 = 1.99 mm at
+// the tip, past the 1 mm trip. The root stress is F a c / I = 0.74 x 64 x 0.25 / 0.25 = 47 MPa,
+// 4 % of the proof strength.
+
+geometry switch {
+    file = "./geometry/flow_switch.step"
+    units = mm
+    interfaces = shared
+    region oil : cell { select name "Oil"; expect exactly_one }
+    region paddle : solid { select name "Paddle"; expect exactly_one }
+    region tee : solid { select name "Tee"; expect exactly_one }
+    region inlet : face { select name "Inlet"; expect exactly_one }
+    region outlet : face { select name "Outlet"; expect exactly_one }
+    region pipe_wall : face { select name "Pipe wall"; expect one_or_more }
+    region paddle_wetted : face { select name "Paddle wetted"; expect one_or_more }
+    region paddle_surface : face { select name "Paddle surface"; expect one_or_more }
+    region paddle_root : face { select name "Paddle root"; expect exactly_one }
+    region tee_ends : face { select name "Tee ends"; expect one_or_more }
+}
+
+mesh switch on geometry.switch {
+    tetrahedra {
+        order = linear
+        target_size = 4 mm
+        maximum_deviation = 0.1 mm
+        refine paddle { on = geometry.switch.region.paddle; target_size = 0.5 mm }
+    }
+}
+
+material iso_vg_46 {
+    mass_density = 861 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+material spring_steel {
+    mass_density = 7900 kg/m^3
+    elastic {
+        youngs_modulus = 185 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+material carbon_steel {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+model rated_flow {
+    assign material.iso_vg_46 to geometry.switch.region.oil
+    assign material.spring_steel to geometry.switch.region.paddle
+    assign material.carbon_steel to geometry.switch.region.tee
+    constraint inflow {
+        fluid.velocity { target = geometry.switch.region.inlet; value = [1 m/s, 0 m/s, 0 m/s] }
+    }
+    load outflow {
+        fluid.outlet_pressure { target = geometry.switch.region.outlet; value = 0 Pa }
+    }
+    constraint walls { fluid.no_slip_wall { target = geometry.switch.region.pipe_wall } }
+    constraint clamp { structural.fixed { target = geometry.switch.region.paddle_root } }
+    constraint line { structural.fixed { target = geometry.switch.region.tee_ends } }
+    interface wetted {
+        fluid_structure.no_slip {
+            primary = geometry.switch.region.paddle_wetted
+            secondary = geometry.switch.region.paddle_surface
+        }
+    }
+}
+
+study paddle_deflection {
+    geometry = geometry.switch
+    mesh = mesh.switch
+    model = model.rated_flow
+    analysis equilibrium { fluid_structure_interaction steady {} }
+    output displacement = analysis.equilibrium.field.node.displacement
+    output velocity = analysis.equilibrium.field.cell.fluid_velocity
+    output pressure = analysis.equilibrium.field.cell.fluid_pressure
+    output tip_deflection = max(magnitude(output.displacement), over = geometry.switch.region.paddle)
+}

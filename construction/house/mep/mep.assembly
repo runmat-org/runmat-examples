@@ -1,0 +1,20 @@
+runmat 0.7
+std 1
+
+
+// Mechanical, electrical and plumbing, in building coordinates (the house places it at the
+// skeleton's building frame). DESIGN-NOTES, "MEP", gives the sizing.
+assembly mep {
+    use assembly electrical from "./electrical" as electrical {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+    use assembly supply from "./plumbing" as supply {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+    use assembly dwv from "./plumbing" as dwv {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+    use assembly hvac from "./hvac" as hvac {
+        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+    }
+}

@@ -1,0 +1,18 @@
+runmat 0.7
+std 1
+
+// A wing rib between the spars, its section scaled to the station's chord and thickness.
+part rib {
+    input chord : length = 6400 mm
+    input thickness : real = 0.145
+
+    sketch s on origin.zx {
+        c1 = spline(points = [[input.chord * (0.012435 + input.thickness * 0.447907) - 16 mm, input.chord * 0.154], [input.chord * (0.015235 + input.thickness * 0.479771) - 16 mm, input.chord * 0.204748], [input.chord * (0.017574 + input.thickness * 0.496783) - 16 mm, input.chord * 0.260677], [input.chord * (0.019216 + input.thickness * 0.499241) - 16 mm, input.chord * 0.320806], [input.chord * (0.019968 + input.thickness * 0.488193) - 16 mm, input.chord * 0.38408], [input.chord * (0.019864 + input.thickness * 0.465315) - 16 mm, input.chord * 0.449388], [input.chord * (0.019258 + input.thickness * 0.432719) - 16 mm, input.chord * 0.515584], [input.chord * (0.01817 + input.thickness * 0.39262) - 16 mm, input.chord * 0.581507], [input.chord * (0.016638 + input.thickness * 0.347237) - 16 mm, input.chord * 0.646]])
+        c2 = line(start = c1.end, end = [input.chord * (0.016638 + input.thickness * -0.347237) + 16 mm, input.chord * 0.646])
+        c3 = spline(points = [c2.end, [input.chord * (0.01817 + input.thickness * -0.39262) + 16 mm, input.chord * 0.581507], [input.chord * (0.019258 + input.thickness * -0.432719) + 16 mm, input.chord * 0.515584], [input.chord * (0.019864 + input.thickness * -0.465315) + 16 mm, input.chord * 0.449388], [input.chord * (0.019968 + input.thickness * -0.488193) + 16 mm, input.chord * 0.38408], [input.chord * (0.019216 + input.thickness * -0.499241) + 16 mm, input.chord * 0.320806], [input.chord * (0.017574 + input.thickness * -0.496783) + 16 mm, input.chord * 0.260677], [input.chord * (0.015235 + input.thickness * -0.479771) + 16 mm, input.chord * 0.204748], [input.chord * (0.012435 + input.thickness * -0.447907) + 16 mm, input.chord * 0.154]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature web = extrude(profile = sketch.s, distance = 20 mm)
+
+    output rib = { body = feature.web.body, part_number = "WNG-RB-400", material = "aluminum_7075", color = "#A7B596" }
+}

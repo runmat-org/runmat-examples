@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// A fuselage frame: a ring 147 mm deep and 40 mm wide under the skin.
+part frame {
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1830 mm], end = [40 mm, 1830 mm])
+        l2 = line(start = [40 mm, 1830 mm], end = [40 mm, 1977 mm])
+        l3 = line(start = [40 mm, 1977 mm], end = [0 mm, 1977 mm])
+        l4 = line(start = [0 mm, 1977 mm], end = [0 mm, 1830 mm])
+    }
+    feature ring = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+
+    output frame = { body = feature.ring.body, part_number = "FUS-FR-100", material = "aluminum_7075", color = "#A7B596" }
+}

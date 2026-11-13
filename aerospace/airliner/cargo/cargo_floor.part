@@ -1,0 +1,16 @@
+runmat 0.7
+std 1
+
+// A cargo hold floor with its roller tracks, the length of one hold.
+part cargo_floor {
+    feature datum = plane.offset(base = origin.xy, distance = -1702 mm)
+    sketch s on plane.datum {
+        l1 = line(start = [0 mm, -691.997 mm], end = [6800 mm, -691.997 mm])
+        l2 = line(start = [6800 mm, -691.997 mm], end = [6800 mm, 691.997 mm])
+        l3 = line(start = [6800 mm, 691.997 mm], end = [0 mm, 691.997 mm])
+        l4 = line(start = [0 mm, 691.997 mm], end = [0 mm, -691.997 mm])
+    }
+    feature floor = extrude(profile = sketch.s, distance = 12 mm)
+
+    output cargo_floor = { body = feature.floor.body, part_number = "FUS-CF-800", material = "composite", color = "#5D6369" }
+}

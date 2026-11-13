@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/exhaust-muffler.fea",
+      "/muffler.part"
+    ],
+    "activeFile": "/exhaust-muffler.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "transmission_loss"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the transmission loss in the 500 Hz band against 15 dB",
+      "Lengthen both chambers to 200 mm and compare the loss at 400 Hz",
+      "Set the speed of sound to 500 m/s for hot exhaust and find the new peak"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+// A steel bar, 16 x 16 mm and 200 mm long, held between two rigid walls and heated 150 K (20 C to
+// 170 C). The walls stop it growing but let its ends slide sideways, so the bar carries a uniform
+// axial stress E alpha dT until it yields. One quarter of the bar is modeled, cut on its two
+// mid-planes. The heating is applied in load steps with J2 plasticity, and the run returns the
+// stress and displacement at full heating.
+// Check: the bar first yields when E alpha dT = fy, at dT = 275 MPa / (210 GPa * 12e-6 /K) =
+// 109.1 K, a load factor of 0.727. Elastic, 150 K would give 378 MPa; the run should hold the
+// von Mises stress at 275 MPa (275.01 MPa on the E/10000 hardening slope), with a plastic strain
+// of 4.9e-4. The elastic modulus is held at its 20 C value; EN 1993-1-2 gives a factor of about
+// 0.93 at 170 C, which would move first yield to about 117 K.
+geometry bar {
+    file = "./geometry/quarter-bar.step"
+    units = mm
+    region body : solid { select name "Bar quarter"; expect exactly_one }
+    region end_a : face { select name "End A"; expect exactly_one }
+    region end_b : face { select name "End B"; expect exactly_one }
+    region mid_plane_y : face { select name "Mid-plane Y"; expect exactly_one }
+    region mid_plane_z : face { select name "Mid-plane Z"; expect exactly_one }
+}
+
+mesh bar on geometry.bar {
+    tetrahedra {
+        order = quadratic
+        target_size = 2 mm
+        maximum_deviation = 0.1 mm
+    }
+}
+
+// Structural steel S275: E, nu, density and expansion from EN 1993-1-1, 3.2.6; yield strength for
+// thicknesses up to 16 mm from EN 10025-2; the E/10000 hardening slope is the nominal plateau that
+// EN 1993-1-5, Annex C.6 allows in finite-element models.
+material steel_s275 {
+    mass_density = 7850 kg/m^3
+    elastic {
+        youngs_modulus = 210 GPa
+        poisson_ratio = 0.3
+    }
+    plastic {
+        law = "j2_isotropic_linear_hardening"
+        yield_stress = 275 MPa
+        isotropic_hardening_modulus = 21 MPa
+    }
+    thermal {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 45 W/m/K
+        specific_heat = 600 J/kg/K
+        expansion_coefficient = 0.000012 K^-1
+    }
+}
+
+model restrained_bar {
+    thermomechanical { reference_temperature = 293.15 K }
+    assign material.steel_s275 to geometry.bar.region.body
+    constraint wall_a {
+        structural.symmetry { target = geometry.bar.region.end_a }
+    }
+    constraint wall_b {
+        structural.symmetry { target = geometry.bar.region.end_b }
+    }
+    constraint mid_plane_y {
+        structural.symmetry { target = geometry.bar.region.mid_plane_y }
+    }
+    constraint mid_plane_z {
+        structural.symmetry { target = geometry.bar.region.mid_plane_z }
+    }
+    load heating {
+        temperature_field on geometry.bar.region.body = 443.15 K
+    }
+    load_case heated { include load.heating }
+}
+
+study bar_yield {
+    geometry = geometry.bar
+    mesh = mesh.bar
+    model = model.restrained_bar
+    analysis heating {
+        thermomechanical nonlinear {
+            start_load_factor = 0
+            end_load_factor = 1
+        }
+    }
+    output stress = analysis.heating.field.element.stress
+    output von_mises = analysis.heating.field.element.von_mises_stress
+    output displacement = analysis.heating.field.node.displacement
+    output peak_von_mises = max(analysis.heating.field.element.von_mises_stress, over = geometry.bar.region.body)
+}

@@ -1,0 +1,53 @@
+runmat 0.7
+std 1
+
+// A cabin window frame: the 7075-T6 ring round the skin's window cutout, inside the skin. It
+// takes the pane's pressure load at its seat and puts back the hoop load path the cutout takes
+// out of the skin. 40 mm wide, 8 mm thick, round a 230 x 250 mm cutout with 80 mm corners (the
+// cabin window's outline), and fastened to the skin by twelve 4 mm fasteners on the ring's mid-
+// line. Drawn flat; over its 330 mm the fuselage's 1,977 mm radius bows it by 7 mm. x runs along
+// the fuselage and y round it; the seat (the face toward the cabin) is at z = 0.
+part window_frame {
+    sketch ring_s on origin.xy {
+        ol1 = line(start = [-35 mm, -165 mm], end = [35 mm, -165 mm])
+        oa1 = arc(center = [35 mm, -45 mm], start = ol1.end, end = [155 mm, -45 mm])
+        ol2 = line(start = oa1.end, end = [155 mm, 45 mm])
+        oa2 = arc(center = [35 mm, 45 mm], start = ol2.end, end = [35 mm, 165 mm])
+        ol3 = line(start = oa2.end, end = [-35 mm, 165 mm])
+        oa3 = arc(center = [-35 mm, 45 mm], start = ol3.end, end = [-155 mm, 45 mm])
+        ol4 = line(start = oa3.end, end = [-155 mm, -45 mm])
+        oa4 = arc(center = [-35 mm, -45 mm], start = ol4.end, end = ol1.start)
+        il1 = line(start = [-35 mm, -125 mm], end = [35 mm, -125 mm])
+        ia1 = arc(center = [35 mm, -45 mm], start = il1.end, end = [115 mm, -45 mm])
+        il2 = line(start = ia1.end, end = [115 mm, 45 mm])
+        ia2 = arc(center = [35 mm, 45 mm], start = il2.end, end = [35 mm, 125 mm])
+        il3 = line(start = ia2.end, end = [-35 mm, 125 mm])
+        ia3 = arc(center = [-35 mm, 45 mm], start = il3.end, end = [-115 mm, 45 mm])
+        il4 = line(start = ia3.end, end = [-115 mm, -45 mm])
+        ia4 = arc(center = [-35 mm, -45 mm], start = il4.end, end = il1.start)
+    }
+    feature ring = extrude(profile = sketch.ring_s, distance = 8 mm)
+    feature skin_side = plane.offset(base = origin.xy, distance = 8 mm)
+    sketch fastener_s on plane.skin_side {
+        a = point(at = [-35.000 mm, -145.000 mm])
+        b = point(at = [35.000 mm, -145.000 mm])
+        c = point(at = [-35.000 mm, 145.000 mm])
+        d = point(at = [35.000 mm, 145.000 mm])
+        e = point(at = [-135.000 mm, -45.000 mm])
+        f = point(at = [-135.000 mm, 45.000 mm])
+        g = point(at = [135.000 mm, -45.000 mm])
+        h = point(at = [135.000 mm, 45.000 mm])
+        i = point(at = [105.711 mm, 115.711 mm])
+        j = point(at = [-105.711 mm, 115.711 mm])
+        k = point(at = [-105.711 mm, -115.711 mm])
+        l = point(at = [105.711 mm, -115.711 mm])
+    }
+    feature fastener_holes = hole(
+        face = feature.ring.face.end,
+        at = { a = sketch.fastener_s.a.at, b = sketch.fastener_s.b.at, c = sketch.fastener_s.c.at, d = sketch.fastener_s.d.at, e = sketch.fastener_s.e.at, f = sketch.fastener_s.f.at, g = sketch.fastener_s.g.at, h = sketch.fastener_s.h.at, i = sketch.fastener_s.i.at, j = sketch.fastener_s.j.at, k = sketch.fastener_s.k.at, l = sketch.fastener_s.l.at },
+        spec = { standard = iso, size = "M4", fit = close },
+        through_all
+    )
+
+    output window_frame = { body = feature.ring.body, part_number = "FUS-WF-041", material = "aluminum_7075", color = "#A7B596" }
+}

@@ -1,0 +1,19 @@
+runmat 0.7
+std 1
+
+// A cabin window pane, flat, extruded outward through the skin.
+part cabin_window {
+    sketch s on origin.zx {
+        l1 = line(start = [-45 mm, -115 mm], end = [45 mm, -115 mm])
+        a1 = arc(center = [45 mm, -35 mm], start = l1.end, end = [125 mm, -35 mm])
+        l2 = line(start = a1.end, end = [125 mm, 35 mm])
+        a2 = arc(center = [45 mm, 35 mm], start = l2.end, end = [45 mm, 115 mm])
+        l3 = line(start = a2.end, end = [-45 mm, 115 mm])
+        a3 = arc(center = [-45 mm, 35 mm], start = l3.end, end = [-125 mm, 35 mm])
+        l4 = line(start = a3.end, end = [-125 mm, -35 mm])
+        a4 = arc(center = [-45 mm, -35 mm], start = l4.end, end = l1.start)
+    }
+    feature pane = extrude(profile = sketch.s, distance = 12 mm)
+
+    output cabin_window = { body = feature.pane.body, part_number = "FUS-WN-040", material = "glass", color = "#252E38" }
+}

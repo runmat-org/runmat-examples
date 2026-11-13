@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// The upper wing-box skin between the spars, 4 mm thick, root to tip.
+part wing_box_skin_upper {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 1400 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[585.957 mm, 1589.797 mm], [631.753 mm, 1900.736 mm], [661.701 mm, 2246.091 mm], [674.518 mm, 2619.063 mm], [669.882 mm, 3012.281 mm], [649.462 mm, 3415.274 mm], [617.35 mm, 3822.415 mm], [575.683 mm, 4227.092 mm], [526.696 mm, 4621.848 mm]])
+        c2 = line(start = c1.end, end = [522.732 mm, 4621.317 mm])
+        c3 = spline(points = [c2.end, [571.709 mm, 4226.638 mm], [613.367 mm, 3822.051 mm], [645.47 mm, 3415.012 mm], [665.885 mm, 3012.149 mm], [670.519 mm, 2619.105 mm], [657.708 mm, 2246.329 mm], [627.779 mm, 1901.197 mm], [582.021 mm, 1590.513 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 17000 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[1728.156 mm, 8889.903 mm], [1738.076 mm, 8969.992 mm], [1744.777 mm, 9058.851 mm], [1747.914 mm, 9154.765 mm], [1747.342 mm, 9255.876 mm], [1743.392 mm, 9359.711 mm], [1736.994 mm, 9464.705 mm], [1728.568 mm, 9569.101 mm], [1718.556 mm, 9670.981 mm]])
+        c2 = line(start = c1.end, end = [1714.579 mm, 9670.558 mm])
+        c3 = spline(points = [c2.end, [1724.584 mm, 9568.743 mm], [1733.005 mm, 9464.421 mm], [1739.397 mm, 9359.51 mm], [1743.343 mm, 9255.782 mm], [1743.915 mm, 9154.817 mm], [1740.783 mm, 9059.065 mm], [1734.095 mm, 8970.386 mm], [1724.201 mm, 8890.501 mm]])
+        c4 = line(start = c3.end, end = c1.start)
+    }
+    feature piece = loft(profiles = [sketch.s0, sketch.s1])
+
+    output wing_box_skin_upper = { body = feature.piece.body, part_number = "WNG-SK-600", material = "aluminum_2024", color = "#A8AFB8" }
+}

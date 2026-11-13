@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// A spar web at 15 % chord, root to tip.
+part wing_front_spar {
+    input side : real = 1
+
+    feature st0 = plane.offset(base = origin.zx, distance = input.side * 1400 mm)
+    sketch s0 on plane.st0 {
+        l1 = line(start = [-166.09 mm, 1598.423 mm], end = [582.021 mm, 1598.423 mm])
+        l2 = line(start = [582.021 mm, 1598.423 mm], end = [582.021 mm, 1628.423 mm])
+        l3 = line(start = [582.021 mm, 1628.423 mm], end = [-166.09 mm, 1628.423 mm])
+        l4 = line(start = [-166.09 mm, 1628.423 mm], end = [-166.09 mm, 1598.423 mm])
+    }
+    feature st1 = plane.offset(base = origin.zx, distance = input.side * 17000 mm)
+    sketch s1 on plane.st1 {
+        l1 = line(start = [1587.45 mm, 8879.425 mm], end = [1724.201 mm, 8879.425 mm])
+        l2 = line(start = [1724.201 mm, 8879.425 mm], end = [1724.201 mm, 8909.425 mm])
+        l3 = line(start = [1724.201 mm, 8909.425 mm], end = [1587.45 mm, 8909.425 mm])
+        l4 = line(start = [1587.45 mm, 8909.425 mm], end = [1587.45 mm, 8879.425 mm])
+    }
+    feature web = loft(profiles = [sketch.s0, sketch.s1])
+
+    output wing_front_spar = { body = feature.web.body, part_number = "WNG-SP-500", material = "aluminum_7075", color = "#A7B596" }
+}

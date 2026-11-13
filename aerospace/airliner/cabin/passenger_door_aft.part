@@ -1,0 +1,29 @@
+runmat 0.7
+std 1
+
+// A door, 820 mm wide and 1850 mm tall: its outer skin, 6 mm proud of the fuselage; to starboard, or to port in the opposite hand.
+part passenger_door_aft {
+    input side : real = 1
+
+    sketch s on origin.xy {
+        l1 = line(start = [0 mm, 1986 mm], end = [820 mm, 1986 mm])
+        l2 = line(start = [820 mm, 1986 mm], end = [820 mm, 1989 mm])
+        l3 = line(start = [820 mm, 1989 mm], end = [0 mm, 1989 mm])
+        l4 = line(start = [0 mm, 1989 mm], end = [0 mm, 1986 mm])
+    }
+    feature skin = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
+    feature side = plane.offset(base = origin.zx, distance = (input.side - 1) * 1090 mm)
+    sketch o on plane.side {
+        c1 = spline(points = [[-270 mm, 0 mm], [-354 mm, 36 mm], [-390 mm, 120 mm]])
+        c2 = line(start = c1.end, end = [-390 mm, 700 mm])
+        c3 = spline(points = [c2.end, [-354 mm, 784 mm], [-270 mm, 820 mm]])
+        c4 = line(start = c3.end, end = [1340 mm, 820 mm])
+        c5 = spline(points = [c4.end, [1424 mm, 784 mm], [1460 mm, 700 mm]])
+        c6 = line(start = c5.end, end = [1460 mm, 120 mm])
+        c7 = spline(points = [c6.end, [1424 mm, 36 mm], [1340 mm, 0 mm]])
+        c8 = line(start = c7.end, end = c1.start)
+    }
+    feature cut = extrude(profile = sketch.o, distance = 2180 mm, mode = intersect)
+
+    output passenger_door_aft = { body = feature.skin.body, part_number = "FUS-DR-720", material = "aluminum_2024", color = "#EEF0F2" }
+}

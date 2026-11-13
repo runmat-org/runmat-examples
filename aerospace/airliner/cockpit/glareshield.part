@@ -1,0 +1,19 @@
+runmat 0.7
+std 1
+
+// The glareshield over the instrument panel, carrying the flight control unit.
+part glareshield {
+    sketch s on origin.zx {
+        c1 = spline(points = [[412 mm, 1309 mm], [403.6 mm, 1307.2 mm], [400 mm, 1315 mm]])
+        c2 = line(start = c1.end, end = [400 mm, 1685 mm])
+        c3 = spline(points = [c2.end, [404.5 mm, 1695.5 mm], [415 mm, 1700 mm]])
+        c4 = line(start = c3.end, end = [430 mm, 1700 mm])
+        c5 = spline(points = [c4.end, [440.961 mm, 1695.524 mm], [446.536 mm, 1685.079 mm]])
+        c6 = line(start = c5.end, end = [478.464 mm, 1374.921 mm])
+        c7 = spline(points = [c6.end, [475.939 mm, 1361.776 mm], [468 mm, 1351 mm]])
+        c8 = line(start = c7.end, end = c1.start)
+    }
+    feature shield = extrude(profile = sketch.s, distance = 1580.567 mm, symmetric)
+
+    output glareshield = { body = feature.shield.body, part_number = "FD-GS-330", material = "polycarbonate", color = "#2A2E33" }
+}

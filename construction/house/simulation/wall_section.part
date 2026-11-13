@@ -1,0 +1,89 @@
+runmat 0.7
+std 1
+
+// A section through the house's exterior wall for the wall_thermal study: the layers of
+// envelope/exterior_wall.part and framing/shear_wall.part at their modeled thicknesses, outside to
+// inside, across half of one 16 in stud bay. x runs along the wall from the centre of a stud
+// (x = 0) to the centre of the insulated bay (x = 8 in = 203.2 mm); both are planes of symmetry,
+// so the half bay stands for the whole wall away from openings, plates and corners. y runs inward
+// from the outside face of the studs, as in the wall parts; z is a 5 mm slice of the wall's
+// height (the heat flows in x and y only). The metal lath inside the scratch coat and the 1/64 in
+// vapor retarder are left out: the lath is open mesh inside the plaster, and the retarder's
+// thermal resistance is nil (DESIGN-NOTES, "Envelope"). The gypsum board sits on the studs.
+part wall_section {
+    sketch stucco_finish_s on origin.xy {
+        e0 = line(start = [0 mm, -34.925 mm], end = [203.2 mm, -34.925 mm])
+        e1 = line(start = [203.2 mm, -34.925 mm], end = [203.2 mm, -31.75 mm])
+        e2 = line(start = [203.2 mm, -31.75 mm], end = [0 mm, -31.75 mm])
+        e3 = line(start = [0 mm, -31.75 mm], end = [0 mm, -34.925 mm])
+    }
+    feature stucco_finish = extrude(profile = sketch.stucco_finish_s, distance = 5 mm, mode = new)
+    sketch stucco_brown_s on origin.xy {
+        e0 = line(start = [0 mm, -31.75 mm], end = [203.2 mm, -31.75 mm])
+        e1 = line(start = [203.2 mm, -31.75 mm], end = [203.2 mm, -22.225 mm])
+        e2 = line(start = [203.2 mm, -22.225 mm], end = [0 mm, -22.225 mm])
+        e3 = line(start = [0 mm, -22.225 mm], end = [0 mm, -31.75 mm])
+    }
+    feature stucco_brown = extrude(profile = sketch.stucco_brown_s, distance = 5 mm, mode = new)
+    sketch stucco_scratch_s on origin.xy {
+        e0 = line(start = [0 mm, -22.225 mm], end = [203.2 mm, -22.225 mm])
+        e1 = line(start = [203.2 mm, -22.225 mm], end = [203.2 mm, -12.7 mm])
+        e2 = line(start = [203.2 mm, -12.7 mm], end = [0 mm, -12.7 mm])
+        e3 = line(start = [0 mm, -12.7 mm], end = [0 mm, -22.225 mm])
+    }
+    feature stucco_scratch = extrude(profile = sketch.stucco_scratch_s, distance = 5 mm, mode = new)
+    sketch wrb_outer_s on origin.xy {
+        e0 = line(start = [0 mm, -12.7 mm], end = [203.2 mm, -12.7 mm])
+        e1 = line(start = [203.2 mm, -12.7 mm], end = [203.2 mm, -11.9062 mm])
+        e2 = line(start = [203.2 mm, -11.9062 mm], end = [0 mm, -11.9062 mm])
+        e3 = line(start = [0 mm, -11.9062 mm], end = [0 mm, -12.7 mm])
+    }
+    feature wrb_outer = extrude(profile = sketch.wrb_outer_s, distance = 5 mm, mode = new)
+    sketch wrb_inner_s on origin.xy {
+        e0 = line(start = [0 mm, -11.9062 mm], end = [203.2 mm, -11.9062 mm])
+        e1 = line(start = [203.2 mm, -11.9062 mm], end = [203.2 mm, -11.1125 mm])
+        e2 = line(start = [203.2 mm, -11.1125 mm], end = [0 mm, -11.1125 mm])
+        e3 = line(start = [0 mm, -11.1125 mm], end = [0 mm, -11.9062 mm])
+    }
+    feature wrb_inner = extrude(profile = sketch.wrb_inner_s, distance = 5 mm, mode = new)
+    sketch osb_s on origin.xy {
+        e0 = line(start = [0 mm, -11.1125 mm], end = [203.2 mm, -11.1125 mm])
+        e1 = line(start = [203.2 mm, -11.1125 mm], end = [203.2 mm, 0 mm])
+        e2 = line(start = [203.2 mm, 0 mm], end = [0 mm, 0 mm])
+        e3 = line(start = [0 mm, 0 mm], end = [0 mm, -11.1125 mm])
+    }
+    feature osb = extrude(profile = sketch.osb_s, distance = 5 mm, mode = new)
+    sketch stud_s on origin.xy {
+        e0 = line(start = [0 mm, 0 mm], end = [19.05 mm, 0 mm])
+        e1 = line(start = [19.05 mm, 0 mm], end = [19.05 mm, 139.7 mm])
+        e2 = line(start = [19.05 mm, 139.7 mm], end = [0 mm, 139.7 mm])
+        e3 = line(start = [0 mm, 139.7 mm], end = [0 mm, 0 mm])
+    }
+    feature stud = extrude(profile = sketch.stud_s, distance = 5 mm, mode = new)
+    sketch batt_s on origin.xy {
+        e0 = line(start = [19.05 mm, 0 mm], end = [203.2 mm, 0 mm])
+        e1 = line(start = [203.2 mm, 0 mm], end = [203.2 mm, 139.7 mm])
+        e2 = line(start = [203.2 mm, 139.7 mm], end = [19.05 mm, 139.7 mm])
+        e3 = line(start = [19.05 mm, 139.7 mm], end = [19.05 mm, 0 mm])
+    }
+    feature batt = extrude(profile = sketch.batt_s, distance = 5 mm, mode = new)
+    sketch gypsum_s on origin.xy {
+        e0 = line(start = [0 mm, 139.7 mm], end = [203.2 mm, 139.7 mm])
+        e1 = line(start = [203.2 mm, 139.7 mm], end = [203.2 mm, 152.4 mm])
+        e2 = line(start = [203.2 mm, 152.4 mm], end = [0 mm, 152.4 mm])
+        e3 = line(start = [0 mm, 152.4 mm], end = [0 mm, 139.7 mm])
+    }
+    feature gypsum = extrude(profile = sketch.gypsum_s, distance = 5 mm, mode = new)
+    // The room-side face of the gypsum (y = 6 in) and the weather face of the finish coat (y = -1 3/8 in).
+    region inside_face : face = { select = [feature.gypsum.face.side(gypsum_s.e2)], expect = exactly_one }
+    region outside_face : face = { select = [feature.stucco_finish.face.side(stucco_finish_s.e0)], expect = exactly_one }
+    output stucco_finish = { body = feature.stucco_finish.body, part_number = "WT-1", material = "material.stucco_finish_coat" }
+    output stucco_brown = { body = feature.stucco_brown.body, part_number = "WT-1", material = "material.stucco_brown_coat" }
+    output stucco_scratch = { body = feature.stucco_scratch.body, part_number = "WT-1", material = "material.stucco_scratch_coat" }
+    output wrb_outer = { body = feature.wrb_outer.body, part_number = "WT-1", material = "material.asphalt_saturated_kraft_wrb" }
+    output wrb_inner = { body = feature.wrb_inner.body, part_number = "WT-1", material = "material.asphalt_saturated_kraft_wrb" }
+    output osb = { body = feature.osb.body, part_number = "WT-1", material = "material.osb" }
+    output stud = { body = feature.stud.body, part_number = "WT-1", material = "material.douglas_fir_lumber" }
+    output batt = { body = feature.batt.body, part_number = "WT-1", material = "material.fiberglass_batt" }
+    output gypsum = { body = feature.gypsum.body, part_number = "WT-1", material = "material.gypsum_board" }
+}

@@ -1,0 +1,16 @@
+runmat 0.7
+std 1
+
+// A countersunk rivet, axis along z: its head sits flush, 1 mm under the skin's outer face.
+part rivet {
+    sketch s on origin.yz {
+        l1 = line(start = [0 mm, -16 mm], end = [2.4 mm, -16 mm])
+        l2 = line(start = [2.4 mm, -16 mm], end = [2.4 mm, -3.6 mm])
+        l3 = line(start = [2.4 mm, -3.6 mm], end = [5 mm, -1 mm])
+        l4 = line(start = [5 mm, -1 mm], end = [0 mm, -1 mm])
+        l5 = line(start = [0 mm, -1 mm], end = [0 mm, -16 mm])
+    }
+    feature body = revolve(profile = sketch.s, axis = origin.z, angle = 360 deg)
+
+    output rivet = { body = feature.body.body, part_number = "MS20426AD6", material = "aluminum_2117", color = "#BFC4CB" }
+}

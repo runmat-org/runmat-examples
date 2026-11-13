@@ -1,0 +1,19 @@
+runmat 0.7
+std 1
+
+// An armrest between two seats, on a post from the seat frame.
+part seat_armrest {
+    sketch s on origin.zx {
+        l1 = line(start = [595 mm, -150 mm], end = [595 mm, 200 mm])
+        l2 = line(start = [595 mm, 200 mm], end = [420 mm, 200 mm])
+        l3 = line(start = [420 mm, 200 mm], end = [420 mm, 245 mm])
+        l4 = line(start = [420 mm, 245 mm], end = [595 mm, 245 mm])
+        l5 = line(start = [595 mm, 245 mm], end = [595 mm, 300 mm])
+        l6 = line(start = [595 mm, 300 mm], end = [645 mm, 300 mm])
+        l7 = line(start = [645 mm, 300 mm], end = [645 mm, -150 mm])
+        l8 = line(start = [645 mm, -150 mm], end = [595 mm, -150 mm])
+    }
+    feature body = extrude(profile = sketch.s, distance = 40 mm, symmetric)
+
+    output seat_armrest = { body = feature.body.body, part_number = "CAB-ST-130", material = "polycarbonate", color = "#4C535B" }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "busbar-fault-pulse"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "busbar-fault-pulse.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

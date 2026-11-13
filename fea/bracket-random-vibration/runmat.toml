@@ -1,0 +1,12 @@
+[package]
+name = "bracket-random-vibration"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "bracket-random-vibration.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

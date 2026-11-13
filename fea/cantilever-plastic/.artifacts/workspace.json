@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/cantilever-plastic.fea"
+    ],
+    "activeFile": "/cantilever-plastic.fea"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "pinned",
+      "tab": "results"
+    },
+    "feaResults": true
+  },
+  "resultView": {
+    "kind": "fea",
+    "output": "stress"
+  },
+  "agent": {
+    "suggestions": [
+      "Report the peak stress at the root and how far yielding spreads",
+      "Find the tip load at which the root first yields",
+      "Unload the beam and report the residual tip deflection"
+    ]
+  }
+}

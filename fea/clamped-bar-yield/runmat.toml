@@ -1,0 +1,12 @@
+[package]
+name = "clamped-bar-yield"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "clamped-bar-yield.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

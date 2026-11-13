@@ -1,0 +1,32 @@
+runmat 0.7
+std 1
+
+// An oleo strut hanging from its trunnion: a 300M steel cylinder with the shock absorber's bore
+// open at the axle end, stopping 200 mm short of the trunnion end. Length, radius and bore
+// radius are inputs.
+part gear_strut {
+    input length : length = 2500 mm
+    input radius : length = 115 mm
+    input bore : length = 90 mm
+
+    sketch s on origin.xy {
+        c = circle(center = [0 mm, 0 mm], radius = input.radius)
+    }
+    feature strut = extrude(profile = sketch.s, distance = input.length)
+    sketch b on origin.xy {
+        c = circle(center = [0 mm, 0 mm], radius = input.bore)
+    }
+    feature cylinder_bore = extrude(profile = sketch.b, distance = input.length - 200 mm, mode = cut)
+
+    // The top end seats in the trunnion; the bottom end carries the axle.
+    region trunnion : face = { select = [feature.strut.face.end], expect = exactly_one, label = "trunnion" }
+    region axle_end : face = { select = [feature.strut.face.start], expect = exactly_one, label = "axle_end" }
+
+    // The outside slides in the trunnion's bushes; the bore takes the oleo's piston seals.
+    datum A = { on = feature.strut.face.side(s.c) }
+    size outside = { on = [feature.strut.face.side(s.c)], size = 230 mm ± 0.05 mm }
+    size bore_size = { on = [feature.cylinder_bore.face.side(b.c)], size = 180 mm ± [0.063 mm, 0 mm] }
+    tolerance bore_coaxial = { characteristic = position, on = [feature.cylinder_bore.face.side(b.c)], tolerance = 0.05 mm, diametral = true, datums = [{ label = "A" }] }
+
+    output gear_strut = { body = feature.strut.body, part_number = "LG-ST-800", material = "steel_300m", color = "#A2A8AF" }
+}

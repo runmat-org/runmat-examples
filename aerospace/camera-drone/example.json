@@ -1,0 +1,38 @@
+{
+  "id": "aerospace-camera-drone",
+  "title": "A foldable camera drone, shell to boards to studies",
+  "pickerTitle": "Camera drone: body, boards and studies",
+  "pickerLine": "Aerospace design",
+  "line": "A foldable photography drone: lofted two-part shell, folding arms, a 3-axis gimbal, a flight controller and a 4-in-1 ESC, with circuit, thermal and modal studies.",
+  "description": "A generic foldable camera drone in one project. The body is a smooth lofted shell split into upper and lower halves, with vents, a status window and a flush rear battery; four arms fold on hinge pivots with cowled motor pods and folding props; a 3-axis gimbal hangs under the nose. The flight controller and the 4-in-1 ESC are schematics with routed four-layer boards on bosses inside the shell. The flight controller simulates its 5 V buck start-up and setpoint tolerance, the ESC its gate-drive switching; the arm has modal and hinge-load studies, and the ESC a thermal study inside the shell.",
+  "topic": "aerospace",
+  "topicLabel": "Aerospace",
+  "group": null,
+  "kind": "design",
+  "visual": "3d",
+  "entry": "drone.assembly",
+  "tags": [
+    "cad",
+    "assembly",
+    "pcb",
+    "circuit-simulation",
+    "fea",
+    "drawing"
+  ],
+  "roles": [
+    "aerospace",
+    "electrical",
+    "structural"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "camera-drone",
+  "thumbnailAlt": "A foldable camera drone with its arms unfolded and a gimbal camera under the nose, rendered by RunMat",
+  "origin": {
+    "page": "/industries/aerospace",
+    "key": "runmat-cad:drone",
+    "source": "runmat-cad/crates/runmat-cad/wasm/tests/drone",
+    "thumbnail": null
+  }
+}

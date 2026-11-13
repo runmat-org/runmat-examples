@@ -1,0 +1,32 @@
+{
+  "id": "paddle-flow-switch",
+  "title": "Paddle flow switch deflection",
+  "pickerTitle": "Paddle flow switch deflection",
+  "pickerLine": "FEA studies",
+  "line": "Steady oil flow at 1 m/s bends the spring-steel paddle of a flow switch in a 2-inch tee; fluid and paddle are solved together against a 1 mm trip travel.",
+  "description": "A paddle flow switch in a 2-inch schedule 40 tee: the oil in the tee and a 0.5 x 24 x 82 mm EN 1.4310 spring-steel paddle clamped in the switch boss, each its own body in the RunMat MCAD part. The fluid-structure study solves laminar ISO VG 46 oil at 40 C and 1 m/s (Re 1140) with the paddle's bending, and reports the tip deflection against the 1 mm trip travel and the stress at the paddle's root.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "paddle-flow-switch.fea",
+  "roles": [
+    "thermal_fluids",
+    "structural",
+    "automotive",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "paddle-flow-switch",
+  "thumbnailAlt": "Spring-steel paddle of a flow switch hanging across the bore of a pipe tee, modeled in RunMat",
+  "origin": {
+    "page": "/simulation/fluid-structure",
+    "key": "website:simulation/fluid-structure/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/paddle-flow-switch/flow_switch.part",
+    "geometry": "geometry/, exported from flow_switch.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's figure"
+  }
+}

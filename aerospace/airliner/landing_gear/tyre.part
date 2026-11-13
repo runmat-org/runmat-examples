@@ -1,0 +1,15 @@
+runmat 0.7
+std 1
+
+// A tyre: its section turned about the axle (y). The rim radius and section are inputs.
+part tyre {
+    input rim : length = 440 mm
+    input tube : length = 170 mm
+
+    sketch s on origin.xy {
+        c = circle(center = [input.rim, 0 mm], radius = input.tube)
+    }
+    feature tyre = revolve(profile = sketch.s, axis = origin.y, angle = 360 deg)
+
+    output tyre = { body = feature.tyre.body, part_number = "LG-TY-810", material = "rubber" }
+}

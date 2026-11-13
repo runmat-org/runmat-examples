@@ -1,0 +1,32 @@
+{
+  "id": "brake-disc",
+  "title": "Brake disc temperature and thermal stress",
+  "pickerTitle": "Brake disc temperature and thermal stress",
+  "pickerLine": "FEA studies",
+  "line": "Temperature and thermal stress of a ventilated grey-iron front brake disc holding a car at 50 km/h down an 8 % grade.",
+  "description": "A 300 x 28 mm ventilated front disc in EN-GJL-250 grey iron with 36 radial vanes and a 32 mm deep hat, a parametric RunMat MCAD part. The study takes a long downhill drag stop, 4.7 kW into each front disc, solves the steady temperature with the air cooling of the faces, vanes and hat, then the thermal stress with the hub held at its bolt holes, and reports both against the iron's 250 MPa tensile strength.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": "Page hero",
+  "kind": "study",
+  "visual": "study",
+  "entry": "brake-disc.fea",
+  "roles": [
+    "automotive",
+    "structural",
+    "thermal_fluids",
+    "research"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "brake-disc",
+  "thumbnailAlt": "Temperature of a ventilated brake disc in a downhill drag stop, hottest across the friction ring, solved in RunMat",
+  "origin": {
+    "page": "/simulation/thermomechanical",
+    "key": "website:simulation/thermomechanical/hero",
+    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/brake-disc/disc.part",
+    "geometry": "geometry/, exported from disc.part by runmat-cad (cad_sim_parts)",
+    "thumbnail": "pending: the solved run's figure"
+  }
+}

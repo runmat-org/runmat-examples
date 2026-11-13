@@ -1,0 +1,12 @@
+[package]
+name = "rail-thermal-buckling"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "rail-thermal-buckling.fea"
+
+[desktop.artifacts]
+root = ".artifacts"

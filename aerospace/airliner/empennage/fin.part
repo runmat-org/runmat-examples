@@ -1,0 +1,30 @@
+runmat 0.7
+std 1
+
+// The vertical fin ahead of the rudder hinge: NACA 0011, swept 38°.
+part fin {
+    feature st0 = plane.offset(base = origin.xy, distance = 1500 mm)
+    sketch s0 on plane.st0 {
+        c1 = spline(points = [[5620 mm, 188.081 mm], [5182.754 mm, 224.806 mm], [4726.919 mm, 257.746 mm], [4264.905 mm, 284.326 mm], [3809.292 mm, 301.911 mm], [3372.485 mm, 308.087 mm], [2966.377 mm, 301.028 mm], [2602.024 mm, 279.85 mm], [2289.346 mm, 244.802 mm], [2036.857 mm, 197.203 mm], [1851.431 mm, 139.106 mm], [1738.117 mm, 72.753 mm], [1700 mm, 0 mm], [1738.117 mm, -72.753 mm], [1851.431 mm, -139.106 mm], [2036.857 mm, -197.203 mm], [2289.346 mm, -244.802 mm], [2602.024 mm, -279.85 mm], [2966.377 mm, -301.028 mm], [3372.485 mm, -308.087 mm], [3809.292 mm, -301.911 mm], [4264.905 mm, -284.326 mm], [4726.919 mm, -257.746 mm], [5182.754 mm, -224.806 mm], [5620 mm, -188.081 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature st1 = plane.offset(base = origin.xy, distance = 8000 mm)
+    sketch s1 on plane.st1 {
+        c1 = spline(points = [[8003.359 mm, 58.775 mm], [7866.72 mm, 70.252 mm], [7724.271 mm, 80.546 mm], [7579.892 mm, 88.852 mm], [7437.513 mm, 94.347 mm], [7301.011 mm, 96.277 mm], [7174.102 mm, 94.071 mm], [7060.241 mm, 87.453 mm], [6962.53 mm, 76.501 mm], [6883.627 mm, 61.626 mm], [6825.681 mm, 43.471 mm], [6790.271 mm, 22.735 mm], [6778.359 mm, 0 mm], [6790.271 mm, -22.735 mm], [6825.681 mm, -43.471 mm], [6883.627 mm, -61.626 mm], [6962.53 mm, -76.501 mm], [7060.241 mm, -87.453 mm], [7174.102 mm, -94.071 mm], [7301.011 mm, -96.277 mm], [7437.513 mm, -94.347 mm], [7579.892 mm, -88.852 mm], [7724.271 mm, -80.546 mm], [7866.72 mm, -70.252 mm], [8003.359 mm, -58.775 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature surface = loft(profiles = [sketch.s0, sketch.s1])
+    feature ist0 = plane.offset(base = origin.xy, distance = 1503 mm)
+    sketch is0 on plane.ist0 {
+        c1 = spline(points = [[5617.834 mm, 185.3 mm], [5180.848 mm, 221.973 mm], [4725.388 mm, 254.849 mm], [4263.843 mm, 281.359 mm], [3808.771 mm, 298.874 mm], [3372.553 mm, 304.988 mm], [2967.06 mm, 297.885 mm], [2603.328 mm, 276.688 mm], [2291.269 mm, 241.658 mm], [2039.411 mm, 194.131 mm], [1854.706 mm, 136.219 mm], [1742.433 mm, 70.479 mm], [1705.343 mm, -0.058 mm], [1742.433 mm, -70.479 mm], [1854.706 mm, -136.219 mm], [2039.411 mm, -194.131 mm], [2291.269 mm, -241.658 mm], [2603.328 mm, -276.688 mm], [2967.06 mm, -297.885 mm], [3372.553 mm, -304.988 mm], [3808.771 mm, -298.874 mm], [4263.843 mm, -281.359 mm], [4725.388 mm, -254.849 mm], [5180.848 mm, -221.973 mm], [5617.834 mm, -185.3 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature ist1 = plane.offset(base = origin.xy, distance = 7997 mm)
+    sketch is1 on plane.ist1 {
+        c1 = spline(points = [[7998.993 mm, 56.114 mm], [7862.338 mm, 67.561 mm], [7719.975 mm, 77.811 mm], [7575.772 mm, 86.065 mm], [7433.645 mm, 91.501 mm], [7297.455 mm, 93.374 mm], [7170.903 mm, 91.119 mm], [7057.432 mm, 84.469 mm], [6960.141 mm, 73.512 mm], [6881.709 mm, 58.679 mm], [6824.366 mm, 40.673 mm], [6789.925 mm, 20.509 mm], [6779.015 mm, -0.058 mm], [6789.925 mm, -20.509 mm], [6824.366 mm, -40.673 mm], [6881.709 mm, -58.679 mm], [6960.141 mm, -73.512 mm], [7057.432 mm, -84.469 mm], [7170.903 mm, -91.119 mm], [7297.455 mm, -93.374 mm], [7433.645 mm, -91.501 mm], [7575.772 mm, -86.065 mm], [7719.975 mm, -77.811 mm], [7862.338 mm, -67.561 mm], [7998.993 mm, -56.114 mm]])
+        c2 = line(start = c1.end, end = c1.start)
+    }
+    feature hollow = loft(profiles = [sketch.is0, sketch.is1], mode = cut)
+
+    output fin = { body = feature.surface.body, part_number = "EMP-VT-700", material = "composite", color = "#E4E7EB" }
+}

@@ -1,0 +1,214 @@
+runmat 0.7
+std 1
+
+// Both wings: slat and leading edge, box skins over the front and rear spars and 24 ribs at the
+// rib pitch, flaps and aileron, the winglet, flush rivet rows along the spar caps, and the engine
+// on its pylon, to starboard; the port wing is their mirror image. The origin is the leading edge
+// at the aircraft's centreline.
+assembly wing {
+    input rib_pitch : length = 650 mm
+    input root_station : length = 1400 mm
+    input semispan : length = 17000 mm
+    input root_chord : length = 6400 mm
+    input tip_chord : length = 1550 mm
+    input root_thickness : real = 0.145
+    input tip_thickness : real = 0.105
+
+    use part wing_leading_edge as leading_edge
+    use part wing_slat as slat
+    use part wing_box_skin_upper as box_skin_upper
+    use part wing_box_skin_lower as box_skin_lower
+    use part wing_flap_inboard as flap_inboard
+    use part wing_flap_outboard as flap_outboard
+    use part wing_aileron as aileron
+    use part wing_trailing_edge_tip as trailing_edge_tip
+    use part wing_front_spar as front_spar
+    use part wing_rear_spar as rear_spar
+    use part wing_winglet as winglet
+    use part rib as rib1 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 0 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [764.288 mm, 1500 mm, 144.434 mm] } }
+    }
+    use part rib as rib2 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 1 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [1095.479 mm, 2150 mm, 207.021 mm] } }
+    }
+    use part rib as rib3 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 2 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [1426.67 mm, 2800 mm, 269.609 mm] } }
+    }
+    use part rib as rib4 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 3 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [1757.861 mm, 3450 mm, 332.197 mm] } }
+    }
+    use part rib as rib5 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 4 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [2089.053 mm, 4100 mm, 394.785 mm] } }
+    }
+    use part rib as rib6 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 5 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [2420.244 mm, 4750 mm, 457.373 mm] } }
+    }
+    use part rib as rib7 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 6 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [2751.435 mm, 5400 mm, 519.961 mm] } }
+    }
+    use part rib as rib8 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 7 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [3082.626 mm, 6050 mm, 582.548 mm] } }
+    }
+    use part rib as rib9 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 8 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [3413.818 mm, 6700 mm, 645.136 mm] } }
+    }
+    use part rib as rib10 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 9 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [3745.009 mm, 7350 mm, 707.724 mm] } }
+    }
+    use part rib as rib11 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 10 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [4076.2 mm, 8000 mm, 770.312 mm] } }
+    }
+    use part rib as rib12 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 11 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [4407.391 mm, 8650 mm, 832.9 mm] } }
+    }
+    use part rib as rib13 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 12 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [4738.583 mm, 9300 mm, 895.488 mm] } }
+    }
+    use part rib as rib14 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 13 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [5069.774 mm, 9950 mm, 958.076 mm] } }
+    }
+    use part rib as rib15 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 14 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [5400.965 mm, 10600 mm, 1020.663 mm] } }
+    }
+    use part rib as rib16 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 15 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [5732.156 mm, 11250 mm, 1083.251 mm] } }
+    }
+    use part rib as rib17 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 16 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [6063.348 mm, 11900 mm, 1145.839 mm] } }
+    }
+    use part rib as rib18 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 17 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [6394.539 mm, 12550 mm, 1208.427 mm] } }
+    }
+    use part rib as rib19 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 18 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [6725.73 mm, 13200 mm, 1271.015 mm] } }
+    }
+    use part rib as rib20 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 19 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [7056.921 mm, 13850 mm, 1333.603 mm] } }
+    }
+    use part rib as rib21 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 20 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [7388.113 mm, 14500 mm, 1396.191 mm] } }
+    }
+    use part rib as rib22 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 21 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [7719.304 mm, 15150 mm, 1458.778 mm] } }
+    }
+    use part rib as rib23 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 22 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [8050.495 mm, 15800 mm, 1521.366 mm] } }
+    }
+    use part rib as rib24 {
+        configuration = { select = inputs, values = { chord = input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord), thickness = ((input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)) + (((input.root_station + 100 mm + 23 * input.rib_pitch) - input.root_station) / (input.semispan - input.root_station)) * (input.tip_chord * input.tip_thickness - (input.root_chord - (input.root_station / input.semispan) * (input.root_chord - input.tip_chord)) * (input.root_thickness - (input.root_station / input.semispan) * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)) } }
+        placement = { placement = offset, offset = { translation = [8381.686 mm, 16450 mm, 1583.954 mm] } }
+    }
+    use part rivet from hardware as rivet_front_upper {
+        placement = { placement = offset, offset = { translation = [1690.338 mm, 1460 mm, 602.609 mm] } }
+    }
+    pattern front_upper_cap = linear(seeds = [rivet_front_upper], direction = [0.420362, 0.904977, 0.065663], spacing = 150 mm, count = 114)
+    use part rivet from hardware as rivet_front_lower {
+        placement = { placement = offset, offset = { translation = [1736.12 mm, 1460 mm, -166.838 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 180 deg } } }
+    }
+    pattern front_lower_cap = linear(seeds = [rivet_front_lower], direction = [0.417313, 0.903051, 0.101728], spacing = 150 mm, count = 114)
+    use part rivet from hardware as rivet_rear_upper {
+        placement = { placement = offset, offset = { translation = [4569.272 mm, 1460 mm, 540.571 mm] } }
+    }
+    pattern rear_upper_cap = linear(seeds = [rivet_rear_upper], direction = [0.310081, 0.947984, 0.071946], spacing = 150 mm, count = 109)
+    use part rivet from hardware as rivet_rear_lower {
+        placement = { placement = offset, offset = { translation = [4553.45 mm, 1460 mm, -57.727 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 180 deg } } }
+    }
+    pattern rear_lower_cap = linear(seeds = [rivet_rear_lower], direction = [0.309994, 0.945336, 0.101215], spacing = 150 mm, count = 109)
+    use assembly nacelle from "../engine" as engine {
+        placement = { placement = offset, offset = { translation = [255.245 mm, 5800 mm, -991.524 mm] } }
+    }
+
+    mirror leading_edge_port = {
+        seeds = [leading_edge],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_leading_edge } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror slat_port = {
+        seeds = [slat],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_slat } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror box_skin_upper_port = {
+        seeds = [box_skin_upper],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_box_skin_upper } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror box_skin_lower_port = {
+        seeds = [box_skin_lower],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_box_skin_lower } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror flap_inboard_port = {
+        seeds = [flap_inboard],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_flap_inboard } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror flap_outboard_port = {
+        seeds = [flap_outboard],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_flap_outboard } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror aileron_port = {
+        seeds = [aileron],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_aileron } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror trailing_edge_tip_port = {
+        seeds = [trailing_edge_tip],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_trailing_edge_tip } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror front_spar_port = {
+        seeds = [front_spar],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_front_spar } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror rear_spar_port = {
+        seeds = [rear_spar],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_rear_spar } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror winglet_port = {
+        seeds = [winglet],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = opposite(source = { definition = { kind = part, name = wing_winglet } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror ribs_port = {
+        seeds = [rib1, rib2, rib3, rib4, rib5, rib6, rib7, rib8, rib9, rib10, rib11, rib12, rib13, rib14, rib15, rib16, rib17, rib18, rib19, rib20, rib21, rib22, rib23, rib24],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = symmetric(point = [0 mm, 10 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror rivets_port = {
+        seeds = [front_upper_cap, front_lower_cap, rear_upper_cap, rear_lower_cap],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = symmetric(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+    mirror engine_port = {
+        seeds = [engine],
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        hand = symmetric(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+    }
+}

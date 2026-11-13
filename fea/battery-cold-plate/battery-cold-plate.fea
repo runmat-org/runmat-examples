@@ -1,0 +1,155 @@
+// Conjugate heat transfer in battery module M01 and its liquid cold plate: the eight cells at
+// 20 W each (160 W), the gap filler under them, the aluminum plate and the laminar coolant in
+// its four-pass serpentine, solved together. Coolant enters at 25 degC; the cell limit is
+// 45 degC.
+//
+// Geometry: ./geometry/m01-cold-plate.step, exported from m01_cold_plate.part: the cells
+// ("M01 cell 1" to "M01 cell 8", 34 x 500 x 95 mm at a 36 mm pitch), a 3 mm gap-filler pad
+// under each ("Gap filler"), the 296 x 520 x 8 mm plate with a 1 mm land under each pad
+// ("Cold plate") and the coolant in its 14 x 4 mm channel ("Coolant").
+//
+// Flow: 2 L/min of 50/50 water-glycol (1070 kg/m^3, 3.5 mPa s, 0.38 W/m/K, 3300 J/kg/K):
+// 0.595 m/s in the 56 mm^2 channel, Re = 1070 x 0.595 x 6.22e-3 / 3.5e-3 = 1130, laminar.
+//
+// Hand checks:
+// - Coolant rise: 160 W / (rho Q cp) = 160 / (1070 x 3.333e-5 x 3300) = 1.36 K.
+// - Pressure drop: 2,215 mm of channel at a Darcy f Re of 66 (aspect 0.29):
+//   66 / 1130 x 2.215 / 6.22e-3 x 0.5 x 1070 x 0.595^2 = 3.9 kPa, plus about 1.1 kPa in the six
+//   bends: about 5 kPa.
+// - Peak cell: each cell's 20 W crosses 0.017 m^2 of its own bottom. The gap filler, 0.003 / 3 =
+//   1.0e-3 m^2 K/W, adds 1.2 K; the land and plate about 0.05 K; the channel's film, Nu = 4.4
+//   (h = 4.4 x 0.38 / 6.22e-3 = 269 W/m^2/K) over the 0.0165 m^2 of channel under each cell,
+//   4.5 K; the cell's own height, Q H^2 / (2 k) = 12,384 x 0.095^2 / 40, 2.8 K. With the
+//   coolant's 1.4 K rise, the hottest cell top sits near 25 + 1.4 + 1.2 + 4.5 + 2.8 = 35 degC,
+//   10 K under the limit.
+
+geometry module {
+    file = "./geometry/m01-cold-plate.step"
+    units = mm
+    interfaces = shared
+    region cell_1 : solid { select name "M01 cell 1"; expect exactly_one }
+    region cell_2 : solid { select name "M01 cell 2"; expect exactly_one }
+    region cell_3 : solid { select name "M01 cell 3"; expect exactly_one }
+    region cell_4 : solid { select name "M01 cell 4"; expect exactly_one }
+    region cell_5 : solid { select name "M01 cell 5"; expect exactly_one }
+    region cell_6 : solid { select name "M01 cell 6"; expect exactly_one }
+    region cell_7 : solid { select name "M01 cell 7"; expect exactly_one }
+    region cell_8 : solid { select name "M01 cell 8"; expect exactly_one }
+    region gap_filler : solid { select name "Gap filler"; expect one_or_more }
+    region plate : solid { select name "Cold plate"; expect exactly_one }
+    region coolant : cell { select name "Coolant"; expect exactly_one }
+    region inlet : face { select name "Coolant inlet"; expect exactly_one }
+    region outlet : face { select name "Coolant outlet"; expect exactly_one }
+    region channel_wall : face { select name "Channel wall"; expect one_or_more }
+    region plate_wall : face { select name "Plate channel wall"; expect one_or_more }
+}
+
+mesh module on geometry.module {
+    tetrahedra {
+        order = linear
+        target_size = 12 mm
+        maximum_deviation = 0.2 mm
+        refine channel { on = geometry.module.region.channel_wall; target_size = 2 mm }
+        refine gap_filler { on = geometry.module.region.gap_filler; target_size = 3 mm }
+        refine plate { on = geometry.module.region.plate; target_size = 4 mm }
+    }
+}
+
+material li_ion_cell {
+    mass_density = 2500 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.00001 K^-1
+        conductivity = 20 W/m/K
+        specific_heat = 1000 J/kg/K
+    }
+}
+
+material gap_filler {
+    mass_density = 3100 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0002 K^-1
+        conductivity = 3 W/m/K
+        specific_heat = 1000 J/kg/K
+    }
+}
+
+material aluminum_3003 {
+    mass_density = 2730 kg/m^3
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0000232 K^-1
+        conductivity = 160 W/m/K
+        specific_heat = 893 J/kg/K
+    }
+}
+
+material water_glycol_50 {
+    mass_density = 1070 kg/m^3
+    fluid {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0035 Pa*s
+    }
+    thermal {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 0.38 W/m/K
+        specific_heat = 3300 J/kg/K
+        expansion_coefficient = 0.0006 K^-1
+    }
+}
+
+model module_cooling {
+    thermal { reference_temperature = 298.15 K }
+    assign material.li_ion_cell to geometry.module.region.cell_1
+    assign material.li_ion_cell to geometry.module.region.cell_2
+    assign material.li_ion_cell to geometry.module.region.cell_3
+    assign material.li_ion_cell to geometry.module.region.cell_4
+    assign material.li_ion_cell to geometry.module.region.cell_5
+    assign material.li_ion_cell to geometry.module.region.cell_6
+    assign material.li_ion_cell to geometry.module.region.cell_7
+    assign material.li_ion_cell to geometry.module.region.cell_8
+    assign material.gap_filler to geometry.module.region.gap_filler
+    assign material.aluminum_3003 to geometry.module.region.plate
+    assign material.water_glycol_50 to geometry.module.region.coolant
+    load cell_1_heat { heat_generation on geometry.module.region.cell_1 = 12383.9 W/m^3 }
+    load cell_2_heat { heat_generation on geometry.module.region.cell_2 = 12383.9 W/m^3 }
+    load cell_3_heat { heat_generation on geometry.module.region.cell_3 = 12383.9 W/m^3 }
+    load cell_4_heat { heat_generation on geometry.module.region.cell_4 = 12383.9 W/m^3 }
+    load cell_5_heat { heat_generation on geometry.module.region.cell_5 = 12383.9 W/m^3 }
+    load cell_6_heat { heat_generation on geometry.module.region.cell_6 = 12383.9 W/m^3 }
+    load cell_7_heat { heat_generation on geometry.module.region.cell_7 = 12383.9 W/m^3 }
+    load cell_8_heat { heat_generation on geometry.module.region.cell_8 = 12383.9 W/m^3 }
+    constraint inlet_flow {
+        fluid.velocity { target = geometry.module.region.inlet; value = [0 m/s, -0.595 m/s, 0 m/s] }
+    }
+    constraint inlet_temperature {
+        thermal.temperature { target = geometry.module.region.inlet; value = 298.15 K }
+    }
+    constraint walls { fluid.no_slip_wall { target = geometry.module.region.channel_wall } }
+    load outlet { fluid.outlet_pressure { target = geometry.module.region.outlet; value = 0 Pa } }
+    interface wall_transfer {
+        conjugate_heat_transfer.perfect {
+            primary = geometry.module.region.plate_wall
+            secondary = geometry.module.region.channel_wall
+        }
+    }
+}
+
+study module_cold_plate {
+    geometry = geometry.module
+    mesh = mesh.module
+    model = model.module_cooling
+    analysis operating_point { conjugate_heat_transfer steady {} }
+    output temperature = analysis.operating_point.field.node.temperature
+    output velocity = analysis.operating_point.field.cell.fluid_velocity
+    output pressure = analysis.operating_point.field.cell.fluid_pressure
+    output peak_end_cell_temperature = max(output.temperature, over = geometry.module.region.cell_1)
+    output peak_mid_cell_temperature = max(output.temperature, over = geometry.module.region.cell_4)
+    output peak_outlet_temperature = max(output.temperature, over = geometry.module.region.outlet)
+    output inlet_pressure = max(output.pressure, over = geometry.module.region.inlet)
+}

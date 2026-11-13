@@ -1,0 +1,32 @@
+{
+  "id": "bracket-random-vibration",
+  "title": "Bracket random vibration",
+  "pickerTitle": "Bracket random vibration",
+  "pickerLine": "FEA studies",
+  "line": "A random vibration FEA study of a steel bracket under a 14.2 g RMS base PSD.",
+  "description": "Random vibration of a steel wall-hook bracket (40 x 50 x 35 mm) bolted at its three mounting holes. The mounting is shaken along the wall by a 20 to 2000 Hz base-acceleration PSD shaped like a component qualification profile (14.2 g RMS), with 3% modal damping. The study returns RMS displacement and RMS von Mises stress.",
+  "topic": "fea",
+  "topicLabel": "FEA studies",
+  "group": null,
+  "kind": "study",
+  "visual": "study",
+  "entry": "bracket-random-vibration.fea",
+  "roles": [
+    "aerospace",
+    "automotive",
+    "research",
+    "structural",
+    "student",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
+  "theme": "bracket-random-vibration",
+  "thumbnailAlt": "RMS displacement of a steel bracket under random base vibration, solved in RunMat",
+  "origin": {
+    "page": "/simulation/structural",
+    "key": "website:simulation/structural/bracket-random-vibration",
+    "source": "runmat-examples/fea/bracket-random-vibration/bracket-random-vibration.fea"
+  }
+}

@@ -1,0 +1,10 @@
+runmat 0.7
+std 1
+
+// The foundation: perimeter and pad footings, the stem wall and the slab on grade, in building
+// coordinates from the skeleton's building frame.
+assembly foundation {
+    use part footing as footing
+    use part stem_wall as stem_wall
+    use part slab_on_grade as slab
+}
