@@ -6,7 +6,7 @@ version = "0.1.0"
 roots = ["."]
 
 [entrypoints.main]
-path = "lorenz-attractor.m"
+path = "lorenz-attractor-animate.m"
 
 [desktop.artifacts]
 root = ".artifacts"

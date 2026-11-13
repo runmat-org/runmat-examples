@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "editor": {
     "openFiles": [
-      "/lorenz-attractor.m"
+      "/lorenz-attractor-animate.m"
     ],
-    "activeFile": "/lorenz-attractor.m"
+    "activeFile": "/lorenz-attractor-animate.m"
   },
   "panels": {
     "files": true,
