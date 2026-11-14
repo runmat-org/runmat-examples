@@ -1,24 +1,74 @@
 runmat 0.7
 std 1
 
-// The gimbal's yaw arm: a die-cast bracket from the yaw motor under the nose down to the roll
-// motor behind the camera. Its origin is the yaw axis at the yaw motor's underside.
+// The gimbal's yaw arm: an L-bracket machined from 6061-T6 plate that hangs the roll motor from
+// the yaw motor's rotor. Its origin is the yaw axis at the yaw motor's underside, x forward.
+//
+// - The plate (3 mm) bolts to the yaw motor's rotor on four M1.6 screws on an 8 mm circle around
+//   a 3 mm bore for the camera's leads. Its front is an R7 arc that stops at x 6, clear of the
+//   camera's back over the whole pitch travel (the back's 15.3 mm swing reaches x 6.6 at the
+//   plate's underside). Two 2 mm lightening holes sit between the screws.
+// - The drop carries the roll motor on its front face, 12 mm under the plate. The seat is a 5 mm
+//   bore on the roll axis for the motor's hub and leads, with four M1.6 screws on a 10 mm circle;
+//   the drop ends in an R7 arc around the seat.
+// - The drop's root has an R0.4 inside radius, the largest that clears the roll motor's can
+//   (0.5 mm under the plate). Every hole wall is 1.1 mm or more from an edge or another hole.
+// - `wall` is the drop's thickness. The drop grows aft, so the seat face stays at x -5.5.
 part gimbal_yaw_arm {
+    input wall : length = 3.5 mm
+
+    let back = -5.5 mm - input.wall
+
     feature top_base = plane.offset(base = origin.xy, distance = -3 mm)
     sketch plate_s on plane.top_base {
-        p1 = line(start = [-9 mm, -7 mm], end = [3 mm, -7 mm])
-        p2 = line(start = [3 mm, -7 mm], end = [3 mm, 7 mm])
-        p3 = line(start = [3 mm, 7 mm], end = [-9 mm, 7 mm])
-        p4 = line(start = [-9 mm, 7 mm], end = [-9 mm, -7 mm])
+        p1 = line(start = [let.back, -7 mm], end = [-1 mm, -7 mm])
+        p2 = arc(center = [-1 mm, 0 mm], start = [-1 mm, -7 mm], end = [-1 mm, 7 mm])
+        p3 = line(start = [-1 mm, 7 mm], end = [let.back, 7 mm])
+        p4 = line(start = [let.back, 7 mm], end = [let.back, -7 mm])
     }
     feature plate = extrude(profile = sketch.plate_s, distance = 3 mm)
-    feature drop_base = plane.offset(base = origin.yz, distance = -9 mm)
+    feature drop_base = plane.offset(base = origin.yz, distance = let.back)
     sketch drop_s on plane.drop_base {
-        d1 = line(start = [-7 mm, -21 mm], end = [7 mm, -21 mm])
-        d2 = line(start = [7 mm, -21 mm], end = [7 mm, 0 mm])
-        d3 = line(start = [7 mm, 0 mm], end = [-7 mm, 0 mm])
-        d4 = line(start = [-7 mm, 0 mm], end = [-7 mm, -21 mm])
+        d1 = line(start = [7 mm, 0 mm], end = [-7 mm, 0 mm])
+        d2 = line(start = [-7 mm, 0 mm], end = [-7 mm, -12 mm])
+        d3 = arc(center = [0 mm, -12 mm], start = [-7 mm, -12 mm], end = [7 mm, -12 mm])
+        d4 = line(start = [7 mm, -12 mm], end = [7 mm, 0 mm])
     }
-    feature drop = extrude(profile = sketch.drop_s, distance = 3.5 mm, mode = add)
+    feature drop = extrude(profile = sketch.drop_s, distance = input.wall, mode = add)
+    feature root = fillet(edges = [edges_between(feature.plate.face.start, feature.drop.face.end)], radius = 0.4 mm)
+
+    feature yaw_bore = hole(face = feature.plate.face.end, at = { c = point(0 mm, 0 mm, 0 mm) }, diameter = 3 mm, through_all)
+    feature yaw_screws = hole(
+        face = feature.plate.face.end,
+        at = {
+            s1 = point(2.83 mm, 2.83 mm, 0 mm),
+            s2 = point(-2.83 mm, 2.83 mm, 0 mm),
+            s3 = point(-2.83 mm, -2.83 mm, 0 mm),
+            s4 = point(2.83 mm, -2.83 mm, 0 mm)
+        },
+        diameter = 1.8 mm,
+        through_all
+    )
+    feature lightening = hole(
+        face = feature.plate.face.end,
+        at = { l1 = point(0 mm, 4.6 mm, 0 mm), l2 = point(0 mm, -4.6 mm, 0 mm) },
+        diameter = 2 mm,
+        through_all
+    )
+    feature seat_bore = hole(face = feature.drop.face.end, at = { c = point(-5.5 mm, 0 mm, -12 mm) }, diameter = 5 mm, through_all)
+    feature seat_screws = hole(
+        face = feature.drop.face.end,
+        at = {
+            s1 = point(-5.5 mm, 3.54 mm, -8.46 mm),
+            s2 = point(-5.5 mm, -3.54 mm, -8.46 mm),
+            s3 = point(-5.5 mm, -3.54 mm, -15.54 mm),
+            s4 = point(-5.5 mm, 3.54 mm, -15.54 mm)
+        },
+        diameter = 1.8 mm,
+        through_all
+    )
+
+    region mount : face = { select = [feature.plate.face.end], expect = exactly_one, label = "Yaw motor mount" }
+    region seat : face = { select = [feature.drop.face.end], expect = exactly_one, label = "Roll motor seat" }
     output gimbal_yaw_arm = { body = feature.plate.body, part_number = "CD-GB-520", material = "aluminum_6061", color = "#2A2D32" }
 }

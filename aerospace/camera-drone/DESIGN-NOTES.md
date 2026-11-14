@@ -5,6 +5,39 @@ what changed and the margin that resulted. Hand checks are labelled "hand estima
 from a study or simulation in this folder is labelled "solved". An entry whose study has not run
 yet reads "solve pending" and is updated when the result lands.
 
+## 2026-11-14: Gimbal yaw arm: a plain L-plate → a machined arm with a real motor seat
+
+- **Requirement.** The yaw arm (CD-GB-520) hangs the roll motor, yoke, pitch motor, camera and
+  lens (52.3 g, centre of mass 17.7 mm ahead of the yaw axis) from the yaw motor's rotor. It
+  must carry a 1 m/s touchdown with its stress under 184 MPa (6061-T6 yield, 276 MPa, over a
+  factor of 1.5), bolt to both motors, and clear the camera over its whole pitch travel.
+- **Problem.** The arm was two plain plates, 3.7 g, with no screw holes or seat for either
+  motor, so it could not be made or assembled as drawn.
+- **Change.** `mechanical/gimbal/gimbal_yaw_arm.part`, machined from 6061-T6 plate (3.0 g):
+  - Plate: four M1.6 clearance holes (1.8 mm) on an 8 mm circle for the yaw motor's rotor, a
+    3 mm bore on the yaw axis for the camera's leads, and two 2 mm lightening holes between the
+    screws. Its front is an R7 arc ending at x 6 mm; the camera's back swings to x 6.6 mm at the
+    plate's underside, so it clears at every pitch.
+  - Drop: the roll motor's seat, a 5 mm bore on the roll axis for the motor's hub and leads and
+    four M1.6 clearance holes on a 10 mm circle. The drop ends in an R7 arc around the seat.
+  - Root: an R0.4 inside radius, the largest that clears the roll motor's can, 0.5 mm under the
+    plate. Every hole is 1.1 mm or more from an edge or another hole.
+  - `wall` (3.5 mm) sets the drop's thickness. It grows aft, so the seat face stays put.
+  - `simulation/yaw_arm_landing.fea` on `simulation/yaw_arm_study.assembly`: the plate held at
+    the yaw motor, and the payload as the roll motor bolted on the seat plus a stiff block out to
+    its centre of mass, where 13.1 N acts down (52.3 g at 250 m/s², as `arm_landing.fea`).
+- **Evidence.**
+  - The drone's interference check (`drone.assembly`, `drone_folded.assembly`): no common
+    material between the arm and the motors, yoke, camera or belly, with the drop at 3.5 mm
+    and at 5.5 mm (the plate and drop 2 mm further aft). The only overlaps are the four stack
+    screws' threads in the heatsink, as before.
+  - Hand estimate: 13.1 N at 23.2 mm from the seat face is 304 N mm on the 14 mm wide drop. That
+    is about 11 MPa of bending at 3.5 mm (Z = 28.6 mm³) and 4.3 MPa at 5.5 mm (Z = 70.6 mm³),
+    before the concentration at the root.
+  - Study: solve pending.
+- **Result.** The arm is a part a shop can machine and a fitter can bolt up, 0.8 g lighter, with
+  the same envelope.
+
 ## 2026-11-10: ESC component power for the board thermal study
 
 - **Requirement.** A board thermal study reads each component's power from the circuit, so the

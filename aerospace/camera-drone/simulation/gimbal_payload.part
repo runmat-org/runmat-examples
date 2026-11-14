@@ -1,0 +1,25 @@
+runmat 0.7
+std 1
+
+// Study stand-in for what the gimbal's yaw arm carries, in the arm's frame: the roll motor
+// (17 x 5 mm) on the arm's seat 12 mm under the plate, and ahead of it the yoke, pitch motor,
+// camera and lens. Together they weigh 52.3 g with the centre of mass 17.7 mm ahead of the yaw
+// axis. The motor's back face bears on the seat around its bore and screws; one stiff block runs
+// from the motor's front face to the centre of mass, where the study applies the load.
+part gimbal_payload {
+    feature seat = plane.offset(base = origin.yz, distance = -5.5 mm)
+    sketch motor_s on plane.seat {
+        c = circle(center = [0 mm, -12 mm], radius = 8.5 mm)
+    }
+    feature motor = extrude(profile = sketch.motor_s, distance = 5 mm)
+    feature front = plane.offset(base = origin.yz, distance = -0.5 mm)
+    sketch block_s on plane.front {
+        b1 = line(start = [-7 mm, -16 mm], end = [7 mm, -16 mm])
+        b2 = line(start = [7 mm, -16 mm], end = [7 mm, -8 mm])
+        b3 = line(start = [7 mm, -8 mm], end = [-7 mm, -8 mm])
+        b4 = line(start = [-7 mm, -8 mm], end = [-7 mm, -16 mm])
+    }
+    feature block = extrude(profile = sketch.block_s, distance = 18.2 mm, mode = add)
+    region load_point : face = { select = [feature.block.face.end], expect = exactly_one }
+    output gimbal_payload = { body = feature.motor.body, material = "aluminum_6061", color = "#8A9099" }
+}

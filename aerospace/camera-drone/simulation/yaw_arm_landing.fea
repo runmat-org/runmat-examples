@@ -1,0 +1,67 @@
+// The gimbal's yaw arm on a hard landing. The arm's plate is bolted to the yaw motor's rotor
+// (held here); its drop carries the roll motor, yoke, pitch motor, camera and lens.
+//
+// Geometry: ./geometry/yaw_arm_study.step, exported from yaw_arm_study.assembly (the arm's
+// 3.5 mm drop and the payload stand-in: the roll motor seated on the arm's seat face and a stiff
+// block out to the payload's centre of mass). `wall` in ../mechanical/gimbal/gimbal_yaw_arm.part
+// is the drop's thickness to change.
+//
+// Load: a 1 m/s touchdown stopped over the skids' 2 mm is 250 m/s^2 (as arm_landing.fea). On the
+// payload's 52.3 g that is 13.1 N down at its centre of mass, 17.7 mm ahead of the yaw axis: a
+// 304 N mm moment that the drop carries in bending from the seat up to its root.
+//
+// Material: 6061-T6, yield 276 MPa; the 184 MPa limit is its yield over a factor of 1.5.
+
+geometry gimbal {
+    file = "./geometry/yaw_arm_study.step"
+    units = mm
+    interfaces = shared
+    region yaw_arm : solid { select name "gimbal_yaw_arm"; expect exactly_one }
+    region payload : solid { select name "gimbal_payload"; expect exactly_one }
+    region mount : face { select name "mount"; expect exactly_one }
+    region load_point : face { select name "load_point"; expect exactly_one }
+}
+
+mesh gimbal on geometry.gimbal {
+    tetrahedra {
+        order = quadratic
+        target_size = 0.8 mm
+        maximum_deviation = 0.05 mm
+    }
+}
+
+material aluminum_6061_t6 {
+    mass_density = 2700 kg/m^3
+    elastic {
+        youngs_modulus = 68.9 GPa
+        poisson_ratio = 0.33
+    }
+}
+
+model landing {
+    assign material.aluminum_6061_t6 to geometry.gimbal.region.yaw_arm
+    assign material.aluminum_6061_t6 to geometry.gimbal.region.payload
+    constraint yaw_motor {
+        structural.fixed { target = geometry.gimbal.region.mount }
+    }
+    load payload_inertia {
+        force on geometry.gimbal.region.load_point = [0, 0, -13.1] N
+    }
+    load_case hard_landing { include load.payload_inertia }
+}
+
+study yaw_arm_landing {
+    geometry = geometry.gimbal
+    mesh = mesh.gimbal
+    model = model.landing
+    analysis static { structural static {} }
+    output displacement = analysis.static.field.node.displacement
+    output von_mises = analysis.static.field.element.von_mises_stress
+    output peak_stress = max(analysis.static.field.element.von_mises_stress, over = geometry.gimbal.region.yaw_arm)
+    output peak_displacement = max(magnitude(analysis.static.field.node.displacement), over = geometry.gimbal.region.yaw_arm)
+    assessment stays_below_184_mpa {
+        value = output.peak_stress
+        maximum = 184 MPa
+        evidence = authored_samples
+    }
+}
