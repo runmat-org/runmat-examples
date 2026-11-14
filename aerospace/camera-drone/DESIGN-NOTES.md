@@ -34,9 +34,18 @@ yet reads "solve pending" and is updated when the result lands.
   - Hand estimate: 13.1 N at 23.2 mm from the seat face is 304 N mm on the 14 mm wide drop. That
     is about 11 MPa of bending at 3.5 mm (Z = 28.6 mm³) and 4.3 MPa at 5.5 mm (Z = 70.6 mm³),
     before the concentration at the root.
-  - Study: solve pending.
+  - Study: `yaw_arm_landing.fea`, solved natively (quadratic tets at 0.8 mm, 0.05 mm deviation;
+    about 15 min at 3.5 mm and 21 min at 5.5 mm). The peak sits on the seat face just under the
+    root radius, where the roll motor's bonded face ends (x -5.5, z -3.6 mm):
+    - 3.5 mm drop: element peak 76.3 MPa; 5.9 % of the arm's surface is over 20 MPa, all in
+      the root band.
+    - 5.5 mm drop (scratch copy, not committed): element peak 50.2 MPa; 0.06 % over 20 MPa.
+    - The back face at the root reads about 8 MPa (3.5 mm) and 4 MPa (5.5 mm), close to the
+      hand estimate. The peak is at the edge of a bonded stand-in, so its value depends on the
+      mesh; the drop between the walls does not.
 - **Result.** The arm is a part a shop can machine and a fitter can bolt up, 0.8 g lighter, with
-  the same envelope.
+  the same envelope. At 3.5 mm it holds the landing with a 2.4 × margin on 184 MPa (3.7 × at
+  5.5 mm), so the 3.5 mm drop stays.
 
 ## 2026-11-10: ESC component power for the board thermal study
 
