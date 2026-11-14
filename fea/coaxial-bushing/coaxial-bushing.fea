@@ -52,7 +52,7 @@ study bushing_field {
     analysis field { electromagnetic static {} }
     output potential = analysis.field.field.node.electric_potential
     output electric_field = analysis.field.field.element.electric_field
-    output peak_field = max(magnitude(analysis.field.field.node.electric_field), over = geometry.bushing.region.conductor_bore)
-    output sleeve_field = max(magnitude(analysis.field.field.node.electric_field), over = geometry.bushing.region.ground_sleeve)
+    output peak_field = max(magnitude(analysis.field.field.element.electric_field), over = geometry.bushing.region.conductor_bore)
+    output sleeve_field = max(magnitude(analysis.field.field.element.electric_field), over = geometry.bushing.region.ground_sleeve)
     output mid_potential = interpolate(analysis.field.field.node.electric_potential, at = [20 mm, 0 mm, 50 mm])
 }
