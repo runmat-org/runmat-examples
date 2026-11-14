@@ -677,8 +677,18 @@ and the study uses that value. The difference moves the whole-wall U-factor from
     the cavity's.
   - The stud is 9.4 % of the half bay's width. As parallel paths, U = 0.281 W/m²·K, 8.72 W/m², and
     0.00886 W through the 203.2 x 5 mm study slice.
-- **Solved.** Solve pending.
-- **Result.** Solve pending.
+- **Solved.** 2026-11-13 with the RunMat CLI build runmat-g58-32d2578123 (sha256 17f5fd07…4994263d).
+  The mesh has 447,962 quadratic tetrahedra and 666,882 nodes. Study definition sha256 6324b960…a3e60484,
+  mesh sha256 fcce781b…9655cf, wall_thermal.fea sha256 a8ded590…584914f6.
+- **Result.**
+  - 0.008940 W crosses the 203.2 x 5 mm slice: in at the room face, out at the weather face, the two
+    agreeing to 0.016 %. That is 8.80 W/m² at 31 K, so U = 0.284 W/m²·K, 0.9 % above the parallel-path
+    0.281.
+  - The room face runs from 19.22 °C over the stud to 20.09 °C mid-cavity, mean 19.95 °C. The weather
+    face averages -9.74 °C.
+  - At the room surface the stud drops 1.78 K below the air against 0.91 K mid-cavity, 1.95 ×. That is
+    less than the 2.56 × of the 1-D paths because heat spreads sideways from the cavity into the stud.
+    The same sideways path is why the solved U sits slightly above the parallel-path estimate.
 
 ### Envelope heat loss at the design difference (hand estimate)
 
