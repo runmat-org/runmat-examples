@@ -4,8 +4,8 @@ std 1
 // A generic foldable camera drone, 249 g class to 900 g class by its battery: one lofted upper
 // and lower shell split along the body's waist; four folding arms on tilted hinge pins (the rear
 // arms fold forward and down under the body, the front arms back and up over them); cowled motor
-// pods with folding two-blade props; a 3-axis gimbal under the nose; two landing skids under the
-// belly; a battery mid-body over the props' thrust centre, its lid part of the shell; downward
+// pods with folding two-blade props; a 3-axis gimbal under the nose; a battery
+// mid-body over the props' thrust centre, its lid part of the shell; downward
 // and forward vision sensors; and the 4-in-1 ESC and flight controller inside on the ESC heatsink's standoffs. The
 // fold inputs stow it: drone_folded.assembly sets them.
 assembly drone {
@@ -22,14 +22,6 @@ assembly drone {
     use part body_top from "./mechanical/body" as body_top
     use part battery from "./mechanical/body" as battery
     use part light_pipe from "./mechanical/body" as light_pipe
-
-    // Landing gear: a skid under each side of the belly, either side of the heatsink's fins.
-    use part landing_skid from "./mechanical/body" as skid_left {
-        configuration = { select = inputs, values = { side = 34 mm } }
-    }
-    use part landing_skid from "./mechanical/body" as skid_right {
-        configuration = { select = inputs, values = { side = -34 mm } }
-    }
 
     // The radio's two antennas, upright inside the side walls behind the board stack.
     use part antenna from "./mechanical/body" as antenna_left {
