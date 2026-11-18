@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "bundle": {
-    "sha256": "c45107bca118895c562c150743902bcb60cc8a219182a0560470068019010b38",
-    "files": 30,
-    "bytes": 23915871
+    "sha256": "797ff26d046cb6a4e5ed25d4531e4ea62c810f138e9d60d88cdb074b050c0f5a",
+    "files": 29,
+    "bytes": 20251088
   },
   "sourceSha256": "07a6754bf4d554413c22a1d68e94cfc9a48c18b714fecca005a4b33f15b416b7",
   "runmat": {
-    "version": "0.7.0",
+    "version": "0.7.2",
     "fingerprint": null
   },
   "device": "cpu_reference",
