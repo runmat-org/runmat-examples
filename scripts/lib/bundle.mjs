@@ -139,3 +139,19 @@ export function bundleViolations(manifestBytes, files, limits) {
   if (total > limits.totalBytes) found.push(`${mb(total)} in all, over the ${mb(limits.totalBytes)} limit (largest: ${largest})`);
   return found;
 }
+
+/**
+ * The FEA dataset's field bindings for a snapshot's run, each with the render topology the bundle's own analysis
+ * store holds (`renderTopology`, as the runtime writes it on a binding). A bundle that carries the native store
+ * (`storeIncluded`) keeps what the run's published step records. A partial or omitted store carries no render
+ * tiles, so its bindings say "absent": Desktop then shows the run's saved figures and doesn't draw a field scene
+ * from tiles the bundle left out (the reader reports "render LOD object is missing" otherwise).
+ */
+export function snapshotFieldBindings(snapshot, storeIncluded) {
+  const step = snapshot.publication.steps[0];
+  const renderTopology = storeIncluded ? step.render_topology : "absent";
+  return snapshot.results.field_descriptors.map((descriptor) => ({
+    stepId: step.procedure_step.step_id, runId: snapshot.run_id, descriptor,
+    ...(renderTopology ? { renderTopology } : {}),
+  }));
+}

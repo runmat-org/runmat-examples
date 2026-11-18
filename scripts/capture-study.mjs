@@ -28,7 +28,8 @@
  * output that holds one value (`output peak_temperature = max(...)`). Meshes, observations and every other field's
  * chunks stay out. The pin records analysisStore "partial": the run opens with its figures and results, Desktop and
  * the guide read the one-value outputs, and paging other fields or reassessing needs a new run. A store without a
- * publication binding records "omitted".
+ * publication binding records "omitted". Neither carries render tiles, so the run's field bindings say
+ * renderTopology "absent" and Desktop shows the saved figures instead of drawing a field scene.
  *
  * With --from-project, the capture reuses a native snapshot project the runtime already produced (for example a docs
  * example's project/files folder). Its source files must equal the example's. With --from-bundle, it reuses the
@@ -71,7 +72,7 @@ import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, bundleLimits, bundleViolations, listExamples, projectManifest, readJsonFile, sha256, sourceFiles, sourceSha256, studySlug } from "./lib/bundle.mjs";
+import { PIN_PATH, ROOT, RUNTIME_PATH, RUN_MANIFEST, bundleLimits, bundleViolations, listExamples, projectManifest, readJsonFile, sha256, snapshotFieldBindings, sourceFiles, sourceSha256, studySlug } from "./lib/bundle.mjs";
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => {
@@ -193,10 +194,8 @@ function solvedAt(snapshotFile) {
   return new Date(Math.floor(statSync(snapshotFile).mtimeMs / 1000) * 1000).toISOString().replace(".000Z", "Z");
 }
 
-function writeRunFormat(project, run, snapshot, createdAt) {
-  const fieldBindings = snapshot.results.field_descriptors.map((descriptor) => ({
-    stepId: snapshot.publication.steps[0].procedure_step.step_id, runId: snapshot.run_id, descriptor,
-  }));
+function writeRunFormat(project, run, snapshot, createdAt, storeIncluded) {
+  const fieldBindings = snapshotFieldBindings(snapshot, storeIncluded);
   const dataset = {
     schemaVersion: contracts.FEA_RUN_DATASET_SCHEMA_VERSION, kind: contracts.FEA_RUN_DATASET_KIND,
     sessionId: snapshot.run_id, docPath: run.docPath,
@@ -354,7 +353,7 @@ function captureStudies({ dir, where, example }) {
         cpSync(join(entry.store, evidence), target);
         run.storePaths = partialStore(entry.store, project);
       }
-      writeRunFormat(project, run, snapshot, run.solvedAt);
+      writeRunFormat(project, run, snapshot, run.solvedAt, Boolean(RUNMAT));
       run.runId = snapshot.run_id;
       run.figures = snapshot.views.length;
       run.analysisStore = RUNMAT ? "included" : run.storePaths === null ? "omitted" : "partial";
@@ -439,13 +438,13 @@ for (const { dir, where, example } of MULTI ? [] : selected) {
       mkdirSync(dirname(join(project, evidence)), { recursive: true });
       cpSync(join(resolve(STORE), evidence), join(project, evidence));
       partial = partialStore(resolve(STORE), project);
-      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(resolve(FROM_SNAPSHOT), "snapshot.json")));
+      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(resolve(FROM_SNAPSHOT), "snapshot.json")), false);
     } else {
       mkdirSync(join(project, ".snapshot"), { recursive: true });
       execFileSync(RUNMAT, ["snapshot", example.entry, "--out", ".snapshot/snapshot.json"], { cwd: project, stdio: "inherit" });
       const snapshot = JSON.parse(readFileSync(join(project, ".snapshot/snapshot.json"), "utf8"));
       requireCompleteSnapshot(snapshot);
-      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(project, ".snapshot/snapshot.json")));
+      writeRunFormat(project, entryRun(example), snapshot, solvedAt(join(project, ".snapshot/snapshot.json")), true);
     }
     const sourcePaths = new Set(sources.map((file) => file.path));
     const run = JSON.parse(readFileSync(join(project, RUN_MANIFEST(example.id)), "utf8"));
