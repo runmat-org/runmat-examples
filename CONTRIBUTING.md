@@ -108,3 +108,7 @@ node scripts/build-readme.mjs --mosaic   # the catalog and the header pictures (
 ```
 
 `node scripts/validate.mjs` fails when the catalog is out of date.
+
+## Example READMEs
+
+Every example has a README.md: its title, the Open in RunMat badge (for an example with a thumbnail), what it computes and the result, the problem, how the example works, the results from its run, what to try, its files, and related links ending with Download RunMat. `node scripts/check-readmes.mjs` checks the structure and links; `validate.mjs` runs it.

@@ -154,6 +154,12 @@ for (const [group, count] of Object.entries(counts)) console.log(`  ${group}: ${
   if (check.status !== 0) errors.push(check.stderr.trim() || "README.md catalog check failed");
 }
 
+// Each example's README follows the template (scripts/check-readmes.mjs).
+{
+  const check = spawnSync(process.execPath, [join(ROOT, "scripts", "check-readmes.mjs")], { encoding: "utf8" });
+  if (check.status !== 0) errors.push(...check.stderr.trim().split("\n").filter((line) => line.startsWith("error: ")).map((line) => line.slice(7)));
+}
+
 for (const warning of warnings) console.warn(`warning: ${warning}`);
 for (const error of errors) console.error(`error: ${error}`);
 if (errors.length > 0) {
