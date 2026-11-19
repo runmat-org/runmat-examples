@@ -55,8 +55,7 @@ center yield 98.3%, outer ring 87.1%
 
 The map shows failed dies scattered thinly across the center and gathering in the outer rows.
 The center yield of 98.3 % matches the 98.0 % the model gives at r = 0, within the scatter of a few
-hundred dies. The outer ring loses about one die in eight, so most of the wafer's loss comes from
-its last 22 mm.
+hundred dies. The outer ring, the last 22 mm of radius, loses about one die in eight.
 
 ## What to try
 
