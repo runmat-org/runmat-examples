@@ -76,3 +76,4 @@ R1 evaluates to 9.947 kΩ, as the schematic shows under R1. The `f3db` measure r
 - [Electronics and semiconductors in RunMat](https://runmat.com/industries/electronics-semiconductors)
 - [RunMat ECAD](https://runmat.com/pcb-design)
 - [Junction temperature](../junction-temperature) and [ADC characterization](../adc-enob)
+- [Download RunMat](https://runmat.com/download)

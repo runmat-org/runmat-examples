@@ -82,3 +82,4 @@ anything mounted on it.
 - [Bracket random vibration](../../fea/bracket-random-vibration): the same kind of input applied to a meshed bracket in an FEA study
 - [Shock response spectrum](../shock-response-spectrum) and [flight-test vibration against its limit](../flight-test-psd)
 - Function reference: [`logspace`](https://runmat.com/docs/reference/builtins/logspace), [`trapz`](https://runmat.com/docs/reference/builtins/trapz), [`loglog`](https://runmat.com/docs/reference/builtins/loglog)
+- [Download RunMat](https://runmat.com/download)

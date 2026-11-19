@@ -80,3 +80,4 @@ structure moves, not how far. The tips of the tines move most, and the stem bare
 - [Modal analysis guide](https://runmat.com/docs/simulation/guides/modal-analysis) and [mesh refinement guide](https://runmat.com/docs/simulation/guides/mesh-refinement)
 - [Cantilever beam frequency response](../cantilever-harmonic) and [heated bar natural frequencies](../heated-bar-modes)
 - [Random vibration response of one mode](../../aerospace/random-vibration): what a natural frequency does under a random vibration test
+- [Download RunMat](https://runmat.com/download)
