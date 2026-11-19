@@ -1,66 +1,114 @@
-# House
+# Two-story wood-frame house model: foundation, framing, envelope, MEP and a wall heat-loss study
 
-A two-story, wood-framed single-family house on a 40 x 30 ft footprint with a 6:12 gable roof,
-modeled as RunMat parts and assemblies in feet and inches.
+[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=construction-house)
 
-This version holds the structure, the envelope, the interior and the MEP systems:
+A two-story, wood-framed, stucco-clad single-family house on a 40 × 30 ft footprint with a 6:12
+gable roof, about 2,400 sq ft over two floors, modeled as parts and assemblies in feet and inches.
+It holds the foundation, the structural framing, the envelope, the interior, the electrical,
+plumbing and HVAC systems, four drawing sheets and a heat-conduction study of the exterior wall.
+The study gives the wall a U-factor of 0.284 W/m²·K, with the stud as a thermal bridge.
 
-- `house_skeleton.part`: grid lines A-D and 1-5, the levels from the top of the footing to the ridge,
-  the two roof planes, and a frame for every assembly and every window and door opening.
-- `foundation/`: the perimeter footing and six pad footings with their reinforcement, the 8 in stem
-  wall, and the slab on grade with its vapor retarder, sub-slab and edge insulation and gravel base.
-- `framing/`: the exterior walls of both floors (2x6 studs at 16 in o.c., insulated headers), their
-  OSB shear-wall sheathing, the second floor (I-joists, LVL beams, posts, the stair opening), and the
-  roof trusses at 24 in o.c. with gable-end trusses.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".artifacts/thumbnail.webp">
+  <img alt="A two-story stucco house with a gable roof, seen from the south-west, rendered by RunMat" src=".artifacts/thumbnail.light.webp">
+</picture>
+
+## The problem
+
+A house design has to carry its loads to the soil, keep weather and heat out, and fit its pipes,
+ducts and cables through the framing without cutting it where it matters. This one follows US
+residential practice: IRC-style light-frame construction, with loads from ASCE 7-16 and wood design
+values from the NDS (2018) and SDPWS (2021).
+
+The assumed site is a suburban lot, Exposure C, with 30 psf ground snow, seismic design category C
+and clay-silt soil. Design loads include 40 psf floor live, 25 psf roof snow, 115 mph wind and an
+equivalent lateral seismic force of 6.2 kips at strength level. Wind governs the lateral design: the
+ASD wind base shear is 9.7 kips across the building and 7.7 kips along it, against 4.3 kips for
+seismic. [DESIGN-NOTES.md](DESIGN-NOTES.md) sizes the footings, framing, headers and shear walls
+from these loads, and gives the envelope layers, the floor plan and the MEP sizing.
+
+## How the example works
+
+1. **A skeleton sets the layout.** `house_skeleton.part` holds grid lines A–D and 1–5, the levels
+   from the top of the footing to the ridge, the two roof planes, and a frame for every assembly and
+   every window and door opening. `house.assembly` places the foundation, framing, envelope,
+   interior and MEP on it.
+
+2. **Structure.** `foundation/` holds the perimeter and pad footings with their reinforcement, the
+   8 in stem wall and the slab on grade. `framing/` holds 2x6 exterior walls at 16 in o.c. with OSB
+   shear-wall sheathing, the I-joist second floor on LVL beams, and roof trusses at 24 in o.c.
+   `wall_framing.part` and `shear_wall.part` carry one configuration per wall line and level
+   (`wall_a_l1` … `wall_5_l2`), each setting its openings' rough sizes and headers.
+
+3. **Envelope and interior.** The wall layers run from three-coat stucco on metal lath through two
+   layers of building paper, OSB, R-21 batts and a vapor retarder to gypsum. The roof has shingles,
+   R-38 attic insulation and vented soffits. `interior/` holds the partitions, stair, cabinets and
+   bath fixtures for five rooms downstairs and three bedrooms and two baths upstairs.
+
+4. **MEP.** `mep/electrical/service.circuit` is the one-line from the meter to the 200 A panel,
+   with the panel schedule as its breakers, and `branch_circuits.circuit` draws each branch
+   circuit's wiring. The electrical, plumbing and HVAC assemblies route cables, pipes and ducts
+   through bored holes in the joists, beams and plates. Each run is swept along its centerline.
+
+5. **The wall study.** `simulation/wall_thermal.fea` solves steady conduction through half of one
+   16 in stud bay, from the center of a stud to the center of the cavity, with 21 °C room air and
+   -10 °C outdoor air on film coefficients:
+
+   ```
+   analysis heat { thermal steady {} }
+   output heat_through_room_face = flux(analysis.heat.field.element.heat_flux, through = geometry.wall.region.inside_face)
+   ```
+
+## Results
+
+The electrical load calculation (NEC 220.82, optional method) comes to 30,840 VA, 128.5 A at
+240 V, on the 200 A service. The 3-ton heat pump's supply trunk carries 1,200 cfm at 1,540 ft/min.
+
+The wall study, solved on 447,962 quadratic tetrahedra:
+
+| Quantity | Hand estimate (parallel paths) | Solved |
+| --- | --- | --- |
+| U-factor | 0.281 W/m²·K | 0.284 W/m²·K |
+| Heat flux at 31 K | 8.72 W/m² | 8.80 W/m² |
+| Heat through the 203.2 × 5 mm slice | 0.00886 W | 0.008940 W |
+
+The heat in at the room face and out at the weather face agree to 0.016 %. The room face runs from
+19.22 °C over the stud to 20.09 °C mid-cavity. At the room surface the stud sits 1.78 K below the
+air against 0.91 K mid-cavity, 1.95 ×. The 1-D paths predict 2.56 ×, and the difference is heat
+spreading sideways from the cavity into the stud. That same sideways path puts the solved U-factor
+0.9 % above the parallel-path estimate.
+
+A hand estimate in the notes takes the walls, windows and doors together: 118.6 W/K, 3,679 W at
+31 K. The opaque wall carries 60 % of that heat, and the windows a third from 11 % of the area.
+
+## What to try
+
+1. Open `house.assembly` and use Section to cut through a wall, the roof or the foundation.
+2. Open `mep/electrical/branch_circuits.circuit` for the branch-circuit wiring diagrams.
+3. In `simulation/wall_thermal.fea`, change a layer's conductivity, run `wall_heat_loss`, and read
+   `heat_through_room_face` and the coldest room surface over the stud.
+4. Change `simulation/wall_section.part`, for example to add continuous exterior insulation, then
+   re-export `wall_thermal.assembly` to `simulation/geometry/wall_thermal.step` and run the study.
+
+## Files
+
+- `house.assembly`: the entry; places the foundation, framing, envelope, interior and MEP on the skeleton.
+- `house_skeleton.part`: grid lines, levels, roof planes and the frames for assemblies and openings.
+- `foundation/`: footings, stem wall and slab on grade with their reinforcement and insulation.
+- `framing/`: wall framing, shear-wall sheathing, the floor system, posts and roof trusses.
 - `+hardware/`: anchor bolts, hold-downs, joist hangers, truss ties and post bases.
-- `envelope/`: the wall layers outside and inside the framing (three-coat stucco on metal lath, two
-  layers of building paper, R-21 batts, a vapor retarder and gypsum), with a weep screed at the base
-  and flashing at every opening; the gable cladding; the roof (shingles, underlayment, sheathing,
-  ridge vent, fascia, vented soffits) with the second-floor ceiling, R-38 attic insulation and eave
-  baffles; and the windows (W1 to W5) and doors (D1, D2) of the opening schedule at their openings.
-- `interior/`: the partitions and stair guards, interior doors, the stair, the floor finishes and the
-  first-floor ceiling, the kitchen cabinets and vanities (plywood carcasses with toe kicks), and the
-  bath fixtures: a living room, dining area, kitchen, den and utility room downstairs, and three
-  bedrooms and two baths upstairs.
-- `mep/`: the electrical, plumbing and HVAC systems. `electrical/service.circuit` is the one-line
-  from the meter to the 200 A panel with the panel schedule; `electrical/branch_circuits.circuit`
-  draws each branch circuit's wiring (schematic only, from the device library in
-  `electrical/library/devices.circuit`); `electrical/electrical.assembly` places the meter, panel,
-  boxes, devices and luminaires and routes cables through bored joists, beams and plates. Every run
-  is swept along its centerline, with the profile following the path through the bends.
-  `plumbing/supply.assembly` holds the water heater, PEX manifold and the hot and cold runs to the
-  kitchen, the laundry and every second-floor bath fixture; `plumbing/dwv.assembly` the bath drain
-  branches, the 3 in stack in its first-floor chase, the building drain under the slab, the kitchen
-  sink drain and the vents through the roof; `hvac/hvac.assembly` the air handler, plenum, soffit
-  trunk, the riser and attic trunk to the second-floor registers, the first-floor return, the condenser and the
-  line set.
-- `simulation/`: the FEA studies. `wall_thermal.fea` is a steady heat-conduction study of the
-  exterior wall in winter (21 °C inside, -10 °C outside). It gives the heat flux and U-factor
-  through a stud bay and shows the stud as a thermal bridge. Its geometry is a section through
-  the wall's layers, `wall_section.part`, placed by `wall_thermal.assembly` and exported to
-  `geometry/wall_thermal.step`.
-- `house.assembly`: the entry; it places the foundation, framing, envelope, interior and MEP on the skeleton.
+- `envelope/`: exterior wall layers, gable walls, the roof, and windows W1–W5 and doors D1, D2.
+- `interior/`: partitions, interior doors, the stair, floor finishes, kitchen and baths.
+- `mep/`: the electrical service and branch circuits, plumbing supply and DWV, and HVAC assemblies.
+- `drawings/`: floor plans, elevations, a building section and the exterior wall section detail.
+- `simulation/`: the wall heat-loss study, its wall-section part and assembly, and the exported STEP.
+- `DESIGN-NOTES.md`: loads, load path, member sizing, envelope, floor plan, MEP sizing and study results.
+- `runmat.toml`: the project file.
 
-`DESIGN-NOTES.md` gives the design loads, the load path, the sizing of the footings, framing,
-headers and shear walls, and the opening schedule. It also gives the reason for each envelope layer,
-the wall and ceiling R-values, the window U-factors, the floor plan room by room, the stair
-geometry, and the MEP sizing: the service load calculation, the panel schedule with wire gauges,
-pipe sizes and fixture units, and the duct sizes.
+## Related
 
-Open `house.assembly` and use Section to cut through a wall, the roof or the foundation. Open
-`mep/electrical/branch_circuits.circuit` for the wiring diagrams. Plumbing is routed to every
-fixture. The HVAC supply reaches the utility room, the den and the second-floor bedrooms, baths and
-closet; the first-floor living, dining and kitchen branches and the second-floor return are not
-routed yet. The routed cables cover the utility room, the den and the kitchen's north
-wall so far; the other branch circuits are drawn in the circuit file but not yet routed. The
-drawings are not built yet.
-
-## Run the wall study
-
-Open `simulation/wall_thermal.fea` from the Files tree and run the study `wall_heat_loss`. It
-plots the temperature through the wall, with the cold line over the stud, and reports the heat
-through the room face and the temperature at each layer boundary. From a terminal, run
-`runmat run simulation/wall_thermal.fea` in the project folder. To compare other layer choices,
-edit a material's conductivity, or change `wall_section.part` and re-export
-`wall_thermal.assembly` to `simulation/geometry/wall_thermal.step`. `DESIGN-NOTES.md`, "Studies",
-gives the results and the hand check.
+- [RunMat MCAD](https://runmat.com/cad)
+- [Build an assembly](https://runmat.com/docs/mcad/guides/build-an-assembly), [make a drawing](https://runmat.com/docs/mcad/guides/make-a-drawing) and the [steady heat transfer guide](https://runmat.com/docs/simulation/guides/steady-heat-transfer)
+- [Thermal simulation in RunMat](https://runmat.com/simulation/thermal)
+- [Narrow-body airliner](../../aerospace/airliner) and [thermal interface stack](../../fea/tim-stack)
+- [Download RunMat](https://runmat.com/download)
