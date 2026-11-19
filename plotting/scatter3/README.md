@@ -8,7 +8,7 @@ low at the center, highest at a radius of about 0.45 and lower again at the rim.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".artifacts/thumbnail.webp">
-  <img alt="A dome of points colored from blue at the bottom to red at the top, rendered by RunMat" src=".artifacts/thumbnail.light.webp">
+  <img alt="A disc of points rising to a raised ring with a low center, colored from blue (low) to red (high), rendered by RunMat" src=".artifacts/thumbnail.light.webp">
 </picture>
 
 ## The problem

@@ -22,7 +22,7 @@
     "migrate_matlab_code"
   ],
   "theme": "plotting-scatter3",
-  "thumbnailAlt": "A dome of points colored from blue at the bottom to red at the top, rendered by RunMat",
+  "thumbnailAlt": "A disc of points rising to a raised ring with a low center, colored from blue (low) to red (high), rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
     "key": "website:math/plotting/scatter3"
