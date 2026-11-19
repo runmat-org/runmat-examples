@@ -64,8 +64,8 @@ the fields are columns, the log can be counted, filtered and summarized like any
 All 240 lines match the pattern. INFO lines make up 182, or 76 %; WARN 41 and ERROR 17. WARN lines
 read "load above limit", and their loads run from 1167.4 to 1299.6 N, averaging 1233.1 N. INFO
 loads stay between 934.5 and 1130.8 N, so the warning threshold sits between 1130.8 and 1167.4 N.
-ERROR lines report sensor dropouts at ordinary loads, between 994.1 and 1105.2 N, so they are not
-caused by overload.
+ERROR lines report sensor dropouts at ordinary loads, between 994.1 and 1105.2 N, so they do not
+coincide with overloads.
 
 ## What to try
 

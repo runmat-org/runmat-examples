@@ -52,7 +52,7 @@ so plots get a date axis and the warmest window can be reported by time.
 ## Results
 
 The 336 hourly readings follow the daily cycle plus noise. The rolling mean is flat across each
-day's cycle and climbs steadily, from about 24.5 °C after the first full day to about 26 °C at the
+day's cycle and climbs steadily, from about 24 °C after the first day to about 26 °C at the
 end, matching the 0.15 °C/day rise. During the first 23 hours the window holds fewer than 24
 readings, so the mean there still follows part of the daily cycle; the figure shows it dip and
 recover on September 1. The warmest 24-hour window ends late in the record, where the trend is
