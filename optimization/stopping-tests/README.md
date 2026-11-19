@@ -4,7 +4,7 @@
 
 This example minimizes Rosenbrock's function with `fminunc` at five tolerance settings, from 10⁻²
 to 10⁻¹⁰, and records the evaluations spent and the distance left to the true minimum at (1, 1).
-Tightening from 10⁻² to 10⁻⁶ cuts the error from 0.50 to 1.6 × 10⁻⁸ for 126 more evaluations.
+Tightening from 10⁻² to 10⁻⁶ cuts the error from 0.50 to 1.6 × 10⁻⁸ for 125 more evaluations.
 Tighter settings add up to 55 more evaluations and do not reduce the error further.
 
 <picture>
@@ -48,7 +48,7 @@ tolerance 1e-08: exitflag 1, 306 evaluations, error 1.6e-08
 tolerance 1e-10: exitflag 2, 306 evaluations, error 1.6e-08
 ```
 
-At 10⁻² the solver stops halfway along the valley, 0.50 from the minimum, on a small-step test
+At 10⁻² the solver stops 0.50 from the minimum, on a small-step test
 (exit flag 2). At 10⁻⁶ it stops on the gradient test (exit flag 1) with an error of 1.6 × 10⁻⁸.
 Below that the error stays at 1.6 × 10⁻⁸ while the cost rises to 306 evaluations: the floor set by
 finite-difference gradients in double precision. The figure shows the error falling steeply and
