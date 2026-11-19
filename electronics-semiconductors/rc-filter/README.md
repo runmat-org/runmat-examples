@@ -1,5 +1,7 @@
 # RC low-pass filter with its resistor sized by a .m function
 
+[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=electronics-rc-filter)
+
 `lowpass.circuit` is a first-order RC low-pass filter whose resistor value is computed, not typed.
 The component line calls `rcResistor.m` with the corner frequency and the capacitor, and the
 function returns R = 1 / (2π · fc · C): 9.947 kΩ for a 160 Hz corner with 100 nF. The
@@ -10,8 +12,6 @@ checks the measured corner against a 150–170 Hz spec.
   <source media="(prefers-color-scheme: dark)" srcset=".artifacts/thumbnail.webp">
   <img alt="Schematic of the RC low-pass filter in RunMat" src=".artifacts/thumbnail.light.webp">
 </picture>
-
-[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=electronics-rc-filter)
 
 ## The problem
 

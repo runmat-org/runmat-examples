@@ -1,5 +1,7 @@
 # Random vibration response of one mode with Miles' equation
 
+[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=aerospace-random-vibration)
+
 This example applies the GEVS component random vibration spectrum to a bracket's mounting face and
 computes the response of the bracket's first mode, at 180 Hz with Q = 10. The 14.1 g RMS input
 becomes a 21.2 g RMS response. Miles' equation predicts 21.3 g RMS, which puts the 3-sigma peak at
@@ -9,8 +11,6 @@ becomes a 21.2 g RMS response. Miles' equation predicts 21.3 g RMS, which puts t
   <source media="(prefers-color-scheme: dark)" srcset=".artifacts/thumbnail.webp">
   <img alt="GEVS input spectrum and the response of a 180 Hz mode, rendered by RunMat" src=".artifacts/thumbnail.light.webp">
 </picture>
-
-[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=aerospace-random-vibration)
 
 ## The problem
 

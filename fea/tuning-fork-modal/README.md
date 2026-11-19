@@ -1,12 +1,12 @@
 # Natural frequencies of a steel tuning fork: a modal FEA study
 
+[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=tuning-fork-modal&run=0)
+
 This study finds the first two natural frequencies and mode shapes of a steel tuning fork held at
 the end of its stem. It imports the fork from a STEP file, meshes it with quadratic tetrahedra and
 solves the modal eigenproblem. Mode 1 is at 364.67 Hz and mode 2 at 475.17 Hz.
 
 <img alt="Mode 1 of the steel tuning fork, colored by relative amplitude, solved in RunMat" src=".artifacts/thumbnail.webp">
-
-[![Open in RunMat](https://runmat.com/badges/open-in-runmat.svg)](https://runmat.com/sandbox?example=tuning-fork-modal&run=0)
 
 ## The problem
 
