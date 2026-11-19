@@ -16,7 +16,7 @@
   ],
   "goals": [],
   "theme": "defense-cfar-detection",
-  "thumbnailAlt": "A range profile with its CFAR threshold and four detections, rendered by RunMat",
+  "thumbnailAlt": "A range profile with its CFAR threshold and three detections, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
     "key": "website:industries/defense/cfar-detection"

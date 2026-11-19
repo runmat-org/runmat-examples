@@ -10,7 +10,7 @@ probability of 10⁻⁵. Three targets are detected, at cells 410, 1200 and 1650
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".artifacts/thumbnail.webp">
-  <img alt="A range profile with its CFAR threshold and four detections, rendered by RunMat" src=".artifacts/thumbnail.light.webp">
+  <img alt="A range profile with its CFAR threshold and three detections, rendered by RunMat" src=".artifacts/thumbnail.light.webp">
 </picture>
 
 ## The problem
