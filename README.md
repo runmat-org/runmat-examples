@@ -14,11 +14,11 @@ already drawn.
 
 ## Open an example
 
-- **In the browser:** every example's README has an **Open in RunMat** link that opens it in the
-  RunMat sandbox. Nothing to install.
+- **In your browser:** click **Open in RunMat** on any example to open it in RunMat in your
+  browser. Nothing to install, and no sign-in needed. FEA studies open with their solved results;
+  solving one again asks you to sign in.
 - **On your computer:** clone this repository, open any example folder in
-  [RunMat Desktop](https://runmat.com/download), and press Run. Every folder has a `runmat.toml`,
-  so RunMat opens it as a project with its entry file ready.
+  [RunMat Desktop](https://runmat.com/download), and press Run.
 
 ## Featured
 
@@ -61,10 +61,15 @@ already drawn.
 
 ## What is RunMat?
 
-RunMat runs code written in the MATLAB language, solves FEA studies (structural, thermal, fluid,
-electromagnetic and acoustic), and models parts, assemblies and circuit boards, in one app on
-your desktop or in your browser. Learn more at [runmat.com](https://runmat.com), or see what it
-does for [simulation](https://runmat.com/simulation), [CAD](https://runmat.com/cad) and
+RunMat works as if MATLAB, Ansys, SolidWorks and Altium were merged into one cohesive product.
+Math, simulations, mechanical parts and circuit boards are written as strongly typed,
+cross-referencing code that's compiled and checked like software, so you and your AI agents can
+design complex systems end to end. It runs existing MATLAB-language code as written, and its
+simulations cover structural, thermal, fluid, electromagnetic and acoustic studies, on your
+desktop or in your browser.
+
+Learn more at [runmat.com](https://runmat.com), or see what it does for
+[simulation](https://runmat.com/simulation), [CAD](https://runmat.com/cad) and
 [PCB design](https://runmat.com/pcb-design).
 
 ## All examples
