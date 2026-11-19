@@ -229,7 +229,7 @@ concrete (mode Is), 2,100 lb with CD = 1.6. Bolt stations, from the start of eac
   (components and cladding, roof zone 1, less 0.6 D); ties rated at least 400 lb.
 - Post bases: standoff bases with straps, anchored into the slab over the pads.
 
-## Opening schedule (for the envelope lane)
+## Opening schedule
 
 H2's windows and doors must use these rough openings. The framing leaves exactly these openings,
 and the skeleton publishes a frame at each one (`opening_<wall>_l<level>_<n>`): at the bottom corner
@@ -348,7 +348,7 @@ zone 3 ceiling value of R-38 (U-0.030).
   at least 1 in).
 - **Eave depth:** the trusses have a standard 3 1/2 in heel, so the insulation thins toward the eaves.
   It is 8 1/2 in deep over the inside face of the walls (about R-22) and full depth from 18 in in.
-  A raised-heel truss would give full depth over the plates; the framing lane can make that change.
+  A raised-heel truss would give full depth over the plates.
 - **Eaves and rakes:** 2x6 fascia on the plumb-cut tails, vented aluminum soffits level with the tail
   ends, and stucco returns closing the soffit ends at the gables. Sheathing and shingles run 2 to
   2 1/2 in past the gable stucco.

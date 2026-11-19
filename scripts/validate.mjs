@@ -7,7 +7,7 @@
  * whose files exist. A missing light thumbnail is a warning (the app falls back to the dark one).
  * The only dot-folder allowed inside an example is .artifacts/.
  *
- * Captured runs (PHASE2.md): an example's pin, .artifacts/capture.json, must match its source (sourceSha256) and the
+ * Captured runs: an example's pin, .artifacts/capture.json, must match its source (sourceSha256) and the
  * runtime pinned in runtime.json, so a changed source or a new runtime fails until the example is recaptured.
  * An example without a pin is a warning; `--require-runs` makes it an error once every example is captured.
  * With `--runs <dir>` (the local bundle folder), each pinned bundle is also checked file by file, and the
@@ -106,7 +106,7 @@ for (const group of groups) {
       const workspace = readJson(workspacePath, where);
       if (workspace) examplesWorkspace.set(where, workspace);
       if (workspace) {
-        // The app reads editor.openFiles and editor.activeFile (PHASE2.md section 1).
+        // The app reads editor.openFiles and editor.activeFile.
         const editor = workspace.editor ?? {};
         const files = editor.openFiles ?? [];
         if (!Array.isArray(files) || files.length === 0) errors.push(`${where}: workspace editor.openFiles is empty`);

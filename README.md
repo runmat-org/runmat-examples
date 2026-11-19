@@ -63,7 +63,7 @@ The layout the app restores when the example opens:
 
 ## Captured runs
 
-Every example opens in its finished run: figures drawn, results loaded, nothing running until Run. The run itself stays out of git. It is published as an immutable bundle (see [PHASE2.md](PHASE2.md) section 6), and the example keeps a pin, `.artifacts/capture.json`, with the bundle's hash, the source hash and the RunMat version.
+Every example opens in its finished run: figures drawn, results loaded, nothing running until Run. The run itself stays out of git. It is published as an immutable bundle, and the example keeps a pin, `.artifacts/capture.json`, with the bundle's hash, the source hash and the RunMat version.
 
 ```sh
 node scripts/capture.mjs --only <id>          # a script example, through the app's sandbox on http://localhost:1001
