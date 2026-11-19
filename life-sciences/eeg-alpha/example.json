@@ -19,8 +19,6 @@
   "thumbnailAlt": "EEG power spectra with eyes open and closed, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/eeg-alpha",
-    "source": "website/content/industries/life-sciences/eeg-alpha.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/eeg-alpha.webp"
+    "key": "website:industries/life-sciences/eeg-alpha"
   }
 }

@@ -24,8 +24,6 @@
   "thumbnailAlt": "Box plots of three suppliers with the ANOVA result in the title, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/three-batches-anova",
-    "source": "website/content/math/statistics/examples/three-batches-anova.m",
-    "thumbnail": "website/public/math-assets/statistics/three-batches-anova.webp"
+    "key": "website:math/statistics/three-batches-anova"
   }
 }

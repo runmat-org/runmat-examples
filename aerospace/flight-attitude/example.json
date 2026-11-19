@@ -22,8 +22,6 @@
   "thumbnailAlt": "Pitch from accelerometer tilt, gyro integration and a Kalman estimate against the reference, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/flight-attitude",
-    "source": "website/content/industries/aerospace/flight-attitude.m",
-    "thumbnail": "website/public/industries-assets/aerospace/flight-attitude.webp"
+    "key": "website:industries/aerospace/flight-attitude"
   }
 }

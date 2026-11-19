@@ -23,8 +23,6 @@
   "thumbnailAlt": "Darcy friction factor against Reynolds number for four wall roughness values, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/colebrook-friction",
-    "source": "website/content/math/optimization/examples/colebrook-friction.m",
-    "thumbnail": "website/public/math-assets/optimization/colebrook-friction.webp"
+    "key": "website:math/optimization/colebrook-friction"
   }
 }

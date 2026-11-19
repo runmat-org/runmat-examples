@@ -21,8 +21,6 @@
   "thumbnailAlt": "Degree-2 and degree-6 polynomial fits to the same samples, extrapolated past the last sample, rendered by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/choose-degree",
-    "source": "website/content/math/curve-fitting/examples/choose-degree.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/choose-degree.webp"
+    "key": "website:math/curve-fitting/choose-degree"
   }
 }

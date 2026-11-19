@@ -26,8 +26,6 @@
   "thumbnailAlt": "Contour lines around two peaks and a trough, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/contour",
-    "source": "website/content/math/plotting/examples/contour.m",
-    "thumbnail": "website/public/math-assets/plotting/contour.webp"
+    "key": "website:math/plotting/contour"
   }
 }

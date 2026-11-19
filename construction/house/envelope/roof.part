@@ -551,7 +551,7 @@ part roof {
     }
     feature baffles_19 = extrude(profile = sketch.baf_19_s, distance = 17.714 in, mode = new)
 
-    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_xy_9 = plane.offset(base = origin.xy, distance = 222.8125 in)
     feature mep_all_p_zx_8 = plane.offset(base = origin.zx, distance = 298.8125 in)
     feature mep_all_p_xy_7 = plane.offset(base = origin.xy, distance = 114.0896 in)

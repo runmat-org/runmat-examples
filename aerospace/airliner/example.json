@@ -11,7 +11,13 @@
   "kind": "design",
   "visual": "3d",
   "entry": "airliner.assembly",
-  "tags": ["cad", "assembly", "aircraft", "patterns", "section-view"],
+  "tags": [
+    "cad",
+    "assembly",
+    "aircraft",
+    "patterns",
+    "section-view"
+  ],
   "roles": [
     "aerospace",
     "structural"
@@ -24,8 +30,6 @@
   "thumbnailAlt": "A generic twin-engine narrow-body airliner seen from ahead and below, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "runmat-cad:aircraft",
-    "source": "runmat-cad/crates/runmat-cad/wasm/tests/aircraft_text",
-    "thumbnail": null
+    "key": "examples:aerospace/airliner"
   }
 }

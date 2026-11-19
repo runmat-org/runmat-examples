@@ -25,8 +25,6 @@
   "thumbnailAlt": "A decaying oscillation drawn point by point with animatedline, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/animated-line",
-    "source": "website/content/math/plotting/examples/animated-line.m",
-    "thumbnail": "website/public/math-assets/plotting/animated-line.webp"
+    "key": "website:math/plotting/animated-line"
   }
 }

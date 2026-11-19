@@ -20,8 +20,6 @@
   "thumbnailAlt": "A modulated carrier, its band-passed signal with envelope, and its instantaneous frequency, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/am-envelope",
-    "source": "website/content/math/signal-processing/examples/am-envelope.m",
-    "thumbnail": "website/public/math-assets/signal-processing/am-envelope.webp"
+    "key": "website:math/signal-processing/am-envelope"
   }
 }

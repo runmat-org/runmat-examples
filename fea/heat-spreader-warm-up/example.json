@@ -25,8 +25,6 @@
   "thumbnailAlt": "Temperature of an aluminum heat spreader warming up from a 20 W pad, solved in RunMat",
   "origin": {
     "page": "/simulation/thermal",
-    "key": "website:simulation/thermal/heat-spreader-warm-up",
-    "source": "runmat-examples/fea/heat-spreader-warm-up/heat-spreader-warm-up.fea",
-    "geometry": "geometry/heat-spreader.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+    "key": "website:simulation/thermal/heat-spreader-warm-up"
   }
 }

@@ -26,8 +26,6 @@
   "thumbnailAlt": "A damped oscillation solved with ode45 inside its exponential decay envelope, rendered by RunMat",
   "origin": {
     "page": "/math/differential-equations",
-    "key": "website:math/differential-equations/damped-oscillator",
-    "source": "website/content/math/differential-equations/examples/damped-oscillator.m",
-    "thumbnail": "website/public/math-assets/differential-equations/damped-oscillator.webp"
+    "key": "website:math/differential-equations/damped-oscillator"
   }
 }

@@ -19,8 +19,6 @@
   "thumbnailAlt": "Implied volatilities by strike with a fitted quadratic smile, rendered by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/vol-smile",
-    "source": "website/content/industries/quant/vol-smile.m",
-    "thumbnail": "website/public/industries-assets/quant/vol-smile.webp"
+    "key": "website:industries/quant/vol-smile"
   }
 }

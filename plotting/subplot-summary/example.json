@@ -25,8 +25,6 @@
   "thumbnailAlt": "Four panels summarizing a test run under one title, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/subplot-summary",
-    "source": "website/content/math/plotting/examples/subplot-summary.m",
-    "thumbnail": "website/public/math-assets/plotting/subplot-summary.webp"
+    "key": "website:math/plotting/subplot-summary"
   }
 }

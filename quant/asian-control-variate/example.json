@@ -20,8 +20,6 @@
   "thumbnailAlt": "Arithmetic against geometric Asian payoffs, nearly on one line, rendered by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/asian-control-variate",
-    "source": "website/content/industries/quant/asian-control-variate.m",
-    "thumbnail": "website/public/industries-assets/quant/asian-control-variate.webp"
+    "key": "website:industries/quant/asian-control-variate"
   }
 }

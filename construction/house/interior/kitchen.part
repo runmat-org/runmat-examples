@@ -4,7 +4,7 @@ std 1
 // The kitchen, in building coordinates, along the north and east walls of the first floor: base
 // cabinets 34 1/2 in high and 24 in deep (3/4 in plywood carcasses on 4 in toe kicks) under a 1 1/2 in stone countertop at 36 1/2 in above the
 // slab, a sink centered on the window W5, a 30 in range, a refrigerator and wall cabinets clear of
-// the window. Simple bodies for coordination: the plumbing and electrical lanes connect to them.
+// the window. Simple bodies the plumbing and electrical runs connect to.
 part kitchen {
     feature xy_p0_5 = plane.offset(base = origin.xy, distance = 0.5 in)
     feature xy_p5_25 = plane.offset(base = origin.xy, distance = 5.25 in)
@@ -208,7 +208,7 @@ part kitchen {
     }
     feature upper_e_hollow = extrude(profile = sketch.upper_e_hollow_s, distance = 28.5 in, mode = cut)
 
-    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_xy_1 = plane.offset(base = origin.xy, distance = -8.95 in)
     feature mep_all_p_zx_0 = plane.offset(base = origin.zx, distance = 349.05 in)
     sketch mep_all_0_s on plane.mep_all_p_zx_0 {

@@ -23,8 +23,6 @@
   "thumbnailAlt": "A price series above its 21-day annualized volatility, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/drawdown-and-volatility",
-    "source": "website/content/math/finance/examples/drawdown-and-volatility.m",
-    "thumbnail": "website/public/math-assets/finance/drawdown-and-volatility.webp"
+    "key": "website:math/finance/drawdown-and-volatility"
   }
 }

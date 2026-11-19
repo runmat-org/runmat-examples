@@ -26,8 +26,6 @@
   "thumbnailAlt": "Prey and predator populations over time beside their closed orbit in the phase plane, rendered by RunMat",
   "origin": {
     "page": "/math/differential-equations",
-    "key": "website:math/differential-equations/predator-prey",
-    "source": "website/content/math/differential-equations/examples/predator-prey.m",
-    "thumbnail": "website/public/math-assets/differential-equations/predator-prey.webp"
+    "key": "website:math/differential-equations/predator-prey"
   }
 }

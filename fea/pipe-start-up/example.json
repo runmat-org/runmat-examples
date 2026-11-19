@@ -24,7 +24,6 @@
   "thumbnailAlt": "Oil speed building up in a 10 mm line after a step pressure, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-flow",
-    "key": "website:simulation/fluid-flow/pipe-start-up",
-    "source": "runmat-examples/fea/pipe-start-up/pipe-start-up.fea"
+    "key": "website:simulation/fluid-flow/pipe-start-up"
   }
 }

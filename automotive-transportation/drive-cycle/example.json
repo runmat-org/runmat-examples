@@ -21,8 +21,6 @@
   "thumbnailAlt": "Battery power of an EV over the EPA urban drive cycle, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/drive-cycle",
-    "source": "website/content/industries/automotive-transportation/drive-cycle.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/drive-cycle.webp"
+    "key": "website:industries/automotive-transportation/drive-cycle"
   }
 }

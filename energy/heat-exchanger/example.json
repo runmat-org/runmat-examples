@@ -19,8 +19,6 @@
   "thumbnailAlt": "Hot and cold outlet temperatures against heat-transfer area, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/heat-exchanger",
-    "source": "website/content/industries/energy/heat-exchanger.m",
-    "thumbnail": "website/public/industries-assets/energy/heat-exchanger.webp"
+    "key": "website:industries/energy/heat-exchanger"
   }
 }

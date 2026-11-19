@@ -24,8 +24,6 @@
   "thumbnailAlt": "A heatmap of mean force for three fixtures over seven hours, with the values in the cells, rendered by RunMat",
   "origin": {
     "page": "/math/data-tables",
-    "key": "website:math/data-tables/pivot-heatmap",
-    "source": "website/content/math/data-tables/examples/pivot-heatmap/analysis.m",
-    "thumbnail": "website/public/math-assets/data-tables/pivot-heatmap.webp"
+    "key": "website:math/data-tables/pivot-heatmap"
   }
 }

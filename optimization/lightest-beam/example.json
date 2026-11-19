@@ -19,8 +19,6 @@
   "thumbnailAlt": "Area contours of beam sections with the deflection and depth limits and the optimum marked, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/lightest-beam",
-    "source": "website/content/math/optimization/examples/lightest-beam.m",
-    "thumbnail": "website/public/math-assets/optimization/lightest-beam.webp"
+    "key": "website:math/optimization/lightest-beam"
   }
 }

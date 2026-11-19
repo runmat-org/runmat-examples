@@ -26,7 +26,6 @@
   "thumbnailAlt": "Tip displacement of a steel cantilever beam after an impact pulse, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/cantilever-impact",
-    "source": "runmat-examples/fea/cantilever-impact/cantilever-impact.fea"
+    "key": "website:simulation/structural/cantilever-impact"
   }
 }

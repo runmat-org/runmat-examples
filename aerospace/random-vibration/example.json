@@ -22,8 +22,6 @@
   "thumbnailAlt": "GEVS input spectrum and the response of a 180 Hz mode, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/random-vibration",
-    "source": "website/content/industries/aerospace/random-vibration.m",
-    "thumbnail": "website/public/industries-assets/aerospace/random-vibration.webp"
+    "key": "website:industries/aerospace/random-vibration"
   }
 }

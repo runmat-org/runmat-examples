@@ -19,8 +19,6 @@
   "thumbnailAlt": "Stator current spectrum around 60 Hz with sidebands from a broken rotor bar, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/motor-current",
-    "source": "website/content/industries/industrial-machinery/motor-current.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/motor-current.webp"
+    "key": "website:industries/industrial-machinery/motor-current"
   }
 }

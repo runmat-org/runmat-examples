@@ -67,7 +67,8 @@ export function sourceFiles(dir) {
       const path = join(current, name);
       const rel = relative(dir, path).split("\\").join("/");
       if (statSync(path).isDirectory()) walk(path);
-      else if (rel !== "example.json") files.push({ path: rel, bytes: readFileSync(path) });
+      // The catalog record and the README describe the example; they are not run inputs.
+      else if (rel !== "example.json" && rel !== "README.md") files.push({ path: rel, bytes: readFileSync(path) });
     }
   };
   walk(dir);

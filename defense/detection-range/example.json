@@ -19,8 +19,6 @@
   "thumbnailAlt": "Detection range of an X-band radar against radar cross-section on log axes, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/detection-range",
-    "source": "website/content/industries/defense/detection-range.m",
-    "thumbnail": "website/public/industries-assets/defense/detection-range.webp"
+    "key": "website:industries/defense/detection-range"
   }
 }

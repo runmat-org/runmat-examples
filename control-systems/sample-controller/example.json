@@ -23,8 +23,6 @@
   "thumbnailAlt": "Continuous and sampled step responses of the same loop, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/sample-controller",
-    "source": "website/content/math/control-systems/examples/sample-controller.m",
-    "thumbnail": "website/public/math-assets/control-systems/sample-controller.webp"
+    "key": "website:math/control-systems/sample-controller"
   }
 }

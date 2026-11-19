@@ -22,8 +22,6 @@
   "thumbnailAlt": "Engine order lines crossing a bracket's first two modes over engine speed, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/bracket-orders",
-    "source": "website/content/industries/automotive-transportation/bracket-orders.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/bracket-orders.webp"
+    "key": "website:industries/automotive-transportation/bracket-orders"
   }
 }

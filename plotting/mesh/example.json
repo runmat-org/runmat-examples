@@ -25,8 +25,6 @@
   "thumbnailAlt": "A saddle-shaped wireframe surface, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/mesh",
-    "source": "website/content/math/plotting/examples/mesh.m",
-    "thumbnail": "website/public/math-assets/plotting/mesh.webp"
+    "key": "website:math/plotting/mesh"
   }
 }

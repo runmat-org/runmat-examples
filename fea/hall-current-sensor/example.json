@@ -24,9 +24,6 @@
   "thumbnailAlt": "Magnetic flux density in a gapped ferrite current-sensor core round a 500 A conductor, solved in RunMat",
   "origin": {
     "page": "/simulation/electromagnetic",
-    "key": "website:simulation/electromagnetic/hero",
-    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/hall-current-sensor/sensor.part",
-    "geometry": "geometry/, exported from sensor.part by runmat-cad (cad_sim_parts)",
-    "thumbnail": "pending: the solved run's figure"
+    "key": "website:simulation/electromagnetic/hero"
   }
 }

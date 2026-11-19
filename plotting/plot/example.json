@@ -26,8 +26,6 @@
   "thumbnailAlt": "A damped sine wave between its two dashed envelopes, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/plot",
-    "source": "website/content/math/plotting/examples/plot.m",
-    "thumbnail": "website/public/math-assets/plotting/plot.webp"
+    "key": "website:math/plotting/plot"
   }
 }

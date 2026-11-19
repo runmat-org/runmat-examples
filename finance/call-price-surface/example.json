@@ -22,8 +22,6 @@
   "thumbnailAlt": "A Black-Scholes call price surface over spot and time to expiry, drawn by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/hero",
-    "source": "website/content/math/finance/hero.m",
-    "thumbnail": "website/public/math-assets/finance/hero.webp"
+    "key": "website:math/finance/hero"
   }
 }

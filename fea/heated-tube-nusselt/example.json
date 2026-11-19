@@ -24,7 +24,6 @@
   "thumbnailAlt": "Water temperature in a heated copper tube, solved in RunMat",
   "origin": {
     "page": "/simulation/conjugate-heat-transfer",
-    "key": "website:simulation/conjugate-heat-transfer/heated-tube-nusselt",
-    "source": "runmat-examples/fea/heated-tube-nusselt/heated-tube-nusselt.fea"
+    "key": "website:simulation/conjugate-heat-transfer/heated-tube-nusselt"
   }
 }

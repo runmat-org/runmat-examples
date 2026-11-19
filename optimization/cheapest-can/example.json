@@ -22,8 +22,6 @@
   "thumbnailAlt": "Surface area of a one-liter can against its radius, with the minimum marked, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/cheapest-can",
-    "source": "website/content/math/optimization/examples/cheapest-can.m",
-    "thumbnail": "website/public/math-assets/optimization/cheapest-can.webp"
+    "key": "website:math/optimization/cheapest-can"
   }
 }

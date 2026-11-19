@@ -19,8 +19,6 @@
   "thumbnailAlt": "Stability lobe diagram of limiting depth of cut against spindle speed, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/stability-lobes",
-    "source": "website/content/industries/industrial-machinery/stability-lobes.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/stability-lobes.webp"
+    "key": "website:industries/industrial-machinery/stability-lobes"
   }
 }

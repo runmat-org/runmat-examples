@@ -21,8 +21,6 @@
   "thumbnailAlt": "Heat sink sized by hand, drawn by RunMat",
   "origin": {
     "page": "/industries/electronics-semiconductors",
-    "key": "website:industries/electronics-semiconductors/heatsink-hand",
-    "source": "website/content/industries/electronics-semiconductors/heatsink-hand.m",
-    "thumbnail": "website/public/industries-assets/electronics-semiconductors/heatsink-hand.webp"
+    "key": "website:industries/electronics-semiconductors/heatsink-hand"
   }
 }

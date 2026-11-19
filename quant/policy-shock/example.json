@@ -21,8 +21,6 @@
   "thumbnailAlt": "Impulse responses of inflation, the output gap and the policy rate over 20 quarters, rendered by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/policy-shock",
-    "source": "website/content/industries/quant/policy-shock.m",
-    "thumbnail": "website/public/industries-assets/quant/policy-shock.webp"
+    "key": "website:industries/quant/policy-shock"
   }
 }

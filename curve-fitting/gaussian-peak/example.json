@@ -22,8 +22,6 @@
   "thumbnailAlt": "A Gaussian peak with a sloping background fitted to noisy counts, rendered by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/gaussian-peak",
-    "source": "website/content/math/curve-fitting/examples/gaussian-peak.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/gaussian-peak.webp"
+    "key": "website:math/curve-fitting/gaussian-peak"
   }
 }

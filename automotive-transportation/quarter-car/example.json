@@ -19,8 +19,6 @@
   "thumbnailAlt": "Body acceleration RMS of a quarter car against damping, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/quarter-car",
-    "source": "website/content/industries/automotive-transportation/quarter-car.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/quarter-car.webp"
+    "key": "website:industries/automotive-transportation/quarter-car"
   }
 }

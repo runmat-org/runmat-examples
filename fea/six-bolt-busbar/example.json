@@ -24,9 +24,6 @@
   "thumbnailAlt": "Temperature of a six-bolt copper busbar carrying 400 A, hottest just before the output bolt, solved in RunMat",
   "origin": {
     "page": "/simulation/electrothermal",
-    "key": "website:simulation/electrothermal/hero",
-    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/six-bolt-busbar/busbar.part",
-    "geometry": "geometry/, exported from busbar.part by runmat-cad (cad_sim_parts)",
-    "thumbnail": ".artifacts/thumbnail.webp and thumbnail.light.webp: the solved run's temperature poster (dark and light)"
+    "key": "website:simulation/electrothermal/hero"
   }
 }

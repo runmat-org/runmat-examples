@@ -27,8 +27,6 @@
   "thumbnailAlt": "The first three mode shapes of a chain of six masses, rendered by RunMat",
   "origin": {
     "page": "/math/linear-algebra",
-    "key": "website:math/linear-algebra/spring-mass-modes",
-    "source": "website/content/math/linear-algebra/examples/spring-mass-modes.m",
-    "thumbnail": "website/public/math-assets/linear-algebra/spring-mass-modes.webp"
+    "key": "website:math/linear-algebra/spring-mass-modes"
   }
 }

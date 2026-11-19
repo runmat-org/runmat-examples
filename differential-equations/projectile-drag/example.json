@@ -26,8 +26,6 @@
   "thumbnailAlt": "The flight path of a projectile with quadratic drag, rendered by RunMat",
   "origin": {
     "page": "/math/differential-equations",
-    "key": "website:math/differential-equations/projectile-drag",
-    "source": "website/content/math/differential-equations/examples/projectile-drag.m",
-    "thumbnail": "website/public/math-assets/differential-equations/projectile-drag.webp"
+    "key": "website:math/differential-equations/projectile-drag"
   }
 }

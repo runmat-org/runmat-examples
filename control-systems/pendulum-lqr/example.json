@@ -23,8 +23,6 @@
   "thumbnailAlt": "Cart position, pendulum angle and control force as LQR balances an inverted pendulum, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/pendulum-lqr",
-    "source": "website/content/math/control-systems/examples/pendulum-lqr.m",
-    "thumbnail": "website/public/math-assets/control-systems/pendulum-lqr.webp"
+    "key": "website:math/control-systems/pendulum-lqr"
   }
 }

@@ -21,8 +21,6 @@
   "thumbnailAlt": "Rotor bending mode, drawn by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/rotor",
-    "source": "website/content/industries/industrial-machinery/rotor.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/rotor.webp"
+    "key": "website:industries/industrial-machinery/rotor"
   }
 }

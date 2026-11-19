@@ -19,8 +19,6 @@
   "thumbnailAlt": "Par yields and the fitted Nelson-Siegel curve out to 30 years, rendered by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/yield-curve",
-    "source": "website/content/industries/quant/yield-curve.m",
-    "thumbnail": "website/public/industries-assets/quant/yield-curve.webp"
+    "key": "website:industries/quant/yield-curve"
   }
 }

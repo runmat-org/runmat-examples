@@ -6,7 +6,7 @@ std 1
 // utility room on its return platform, the supply plenum and the trunk in a soffit along the
 // utility room and den, two ceiling-height supply registers, the return grille, the condenser on
 // its pad outside wall 5 and the refrigerant line set through wall 5 and the floor joist space.
-// Lane H5: the second-floor supply: a 11 x 10 in riser from the soffit trunk through the floor joist bay
+// The second-floor supply: a 11 x 10 in riser from the soffit trunk through the floor joist bay
 // and a framed chase in the primary bedroom to the attic, a 12 x 8 in trunk along the attic at y = 15 ft,
 // and 6 in round branches between the trusses to a ceiling register in each second-floor room.
 part hvac_equipment {

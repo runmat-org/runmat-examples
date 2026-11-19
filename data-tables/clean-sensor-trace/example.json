@@ -22,8 +22,6 @@
   "thumbnailAlt": "A raw temperature trace with dropouts and spikes above the cleaned trace and its moving mean, rendered by RunMat",
   "origin": {
     "page": "/math/data-tables",
-    "key": "website:math/data-tables/clean-sensor-trace",
-    "source": "website/content/math/data-tables/examples/clean-sensor-trace.m",
-    "thumbnail": "website/public/math-assets/data-tables/clean-sensor-trace.webp"
+    "key": "website:math/data-tables/clean-sensor-trace"
   }
 }

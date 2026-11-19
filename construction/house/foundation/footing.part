@@ -203,7 +203,7 @@ part footing {
     }
     feature dowels = extrude(profile = sketch.dowels_s, distance = 24 in, mode = new)
 
-    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_pl0 = plane.offset(base = origin.xy, distance = -25 in)
     sketch hw_0_s on plane.hw_pl0 {
         c = circle(center = [4.25 in, 2.75 in], radius = 0.3281 in)

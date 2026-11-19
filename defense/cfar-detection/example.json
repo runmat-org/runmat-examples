@@ -19,8 +19,6 @@
   "thumbnailAlt": "A range profile with its CFAR threshold and four detections, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/cfar-detection",
-    "source": "website/content/industries/defense/cfar-detection.m",
-    "thumbnail": "website/public/industries-assets/defense/cfar-detection.webp"
+    "key": "website:industries/defense/cfar-detection"
   }
 }

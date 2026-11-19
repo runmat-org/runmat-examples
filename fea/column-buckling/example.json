@@ -26,7 +26,6 @@
   "thumbnailAlt": "First buckling mode of a steel column under axial load, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/column-buckling",
-    "source": "runmat-examples/fea/column-buckling/column-buckling.fea"
+    "key": "website:simulation/structural/column-buckling"
   }
 }

@@ -511,7 +511,7 @@ part wall_framing {
     }
     feature o4_rough_sill = extrude(profile = sketch.o4_rough_sill_s, distance = 5.5 in, mode = new)
 
-    // Connector holes (lane H4) 1_l1 for wall_1_l1: bored holes, cast-in voids and seat reliefs
+    // Connector holes 1_l1 for wall_1_l1: bored holes, cast-in voids and seat reliefs
     feature hw_1_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
     feature hw_1_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_1_l1_0_s on plane.hw_1_l1_pl0 {
@@ -579,7 +579,7 @@ part wall_framing {
     }
     feature hw_1_l1_15 = extrude(profile = sketch.hw_1_l1_15_s, distance = 6.575 in, mode = cut, suppressed = true)
     // end connector holes 1_l1 wall_1_l1
-    // Connector holes (lane H4) 1_l2 for wall_1_l2: bored holes, cast-in voids and seat reliefs
+    // Connector holes 1_l2 for wall_1_l2: bored holes, cast-in voids and seat reliefs
     feature hw_1_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_1_l2_0_s on plane.hw_1_l2_pl0 {
         c = circle(center = [351.75 in, 4.25 in], radius = 0.3438 in)
@@ -598,7 +598,7 @@ part wall_framing {
     }
     feature hw_1_l2_3 = extrude(profile = sketch.hw_1_l2_3_s, distance = 4.9 in, mode = cut, suppressed = true)
     // end connector holes 1_l2 wall_1_l2
-    // Connector holes (lane H4) 5_l1 for wall_5_l1: bored holes, cast-in voids and seat reliefs
+    // Connector holes 5_l1 for wall_5_l1: bored holes, cast-in voids and seat reliefs
     feature hw_5_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
     feature hw_5_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_5_l1_0_s on plane.hw_5_l1_pl0 {
@@ -666,7 +666,7 @@ part wall_framing {
     }
     feature hw_5_l1_15 = extrude(profile = sketch.hw_5_l1_15_s, distance = 6.575 in, mode = cut, suppressed = true)
     // end connector holes 5_l1 wall_5_l1
-    // Connector holes (lane H4) 5_l2 for wall_5_l2: bored holes, cast-in voids and seat reliefs
+    // Connector holes 5_l2 for wall_5_l2: bored holes, cast-in voids and seat reliefs
     feature hw_5_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_5_l2_0_s on plane.hw_5_l2_pl0 {
         c = circle(center = [-2.75 in, 4.25 in], radius = 0.3438 in)
@@ -685,7 +685,7 @@ part wall_framing {
     }
     feature hw_5_l2_3 = extrude(profile = sketch.hw_5_l2_3_s, distance = 4.9 in, mode = cut, suppressed = true)
     // end connector holes 5_l2 wall_5_l2
-    // Connector holes (lane H4) a_l1 for wall_a_l1: bored holes, cast-in voids and seat reliefs
+    // Connector holes a_l1 for wall_a_l1: bored holes, cast-in voids and seat reliefs
     feature hw_a_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
     feature hw_a_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_a_l1_0_s on plane.hw_a_l1_pl0 {
@@ -749,7 +749,7 @@ part wall_framing {
     }
     feature hw_a_l1_14 = extrude(profile = sketch.hw_a_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
     // end connector holes a_l1 wall_a_l1
-    // Connector holes (lane H4) a_l2 for wall_a_l2: bored holes, cast-in voids and seat reliefs
+    // Connector holes a_l2 for wall_a_l2: bored holes, cast-in voids and seat reliefs
     feature hw_a_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_a_l2_0_s on plane.hw_a_l2_pl0 {
         c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
@@ -760,7 +760,7 @@ part wall_framing {
     }
     feature hw_a_l2_1 = extrude(profile = sketch.hw_a_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
     // end connector holes a_l2 wall_a_l2
-    // Connector holes (lane H4) d_l1 for wall_d_l1: bored holes, cast-in voids and seat reliefs
+    // Connector holes d_l1 for wall_d_l1: bored holes, cast-in voids and seat reliefs
     feature hw_d_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
     feature hw_d_l1_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_d_l1_0_s on plane.hw_d_l1_pl0 {
@@ -824,7 +824,7 @@ part wall_framing {
     }
     feature hw_d_l1_14 = extrude(profile = sketch.hw_d_l1_14_s, distance = 6.575 in, mode = cut, suppressed = true)
     // end connector holes d_l1 wall_d_l1
-    // Connector holes (lane H4) d_l2 for wall_d_l2: bored holes, cast-in voids and seat reliefs
+    // Connector holes d_l2 for wall_d_l2: bored holes, cast-in voids and seat reliefs
     feature hw_d_l2_pl0 = plane.offset(base = origin.xy, distance = 0 in)
     sketch hw_d_l2_0_s on plane.hw_d_l2_pl0 {
         c = circle(center = [4.25 in, 2.75 in], radius = 0.3438 in)
@@ -835,7 +835,7 @@ part wall_framing {
     }
     feature hw_d_l2_1 = extrude(profile = sketch.hw_d_l2_1_s, distance = 4.9 in, mode = cut, suppressed = true)
     // end connector holes d_l2 wall_d_l2
-    // MEP penetrations (lane H3) for wall_5_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_5_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_5_l1_p_xy_3 = plane.offset(base = origin.xy, distance = 11.125 in)
     feature mep_wall_5_l1_p_zx_2 = plane.offset(base = origin.zx, distance = -8 in)
     feature mep_wall_5_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 43.5 in)
@@ -857,14 +857,14 @@ part wall_framing {
     }
     feature mep_wall_5_l1_3 = extrude(profile = sketch.mep_wall_5_l1_3_s, distance = 105.75 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_5_l1
-    // MEP penetrations (lane H3) for wall_a_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_a_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_a_l1_p_xy_0 = plane.offset(base = origin.xy, distance = 17.5 in)
     sketch mep_wall_a_l1_0_s on plane.mep_wall_a_l1_p_xy_0 {
         c = circle(center = [376 in, 4.75 in], radius = 0.375 in)
     }
     feature mep_wall_a_l1_0 = extrude(profile = sketch.mep_wall_a_l1_0_s, distance = 101.05 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_a_l1
-    // MEP penetrations (lane H3) for wall_d_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_d_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_d_l1_p_zx_8 = plane.offset(base = origin.zx, distance = 6.0156 in)
     feature mep_wall_d_l1_p_xy_7 = plane.offset(base = origin.xy, distance = 29.05 in)
     feature mep_wall_d_l1_p_yz_6 = plane.offset(base = origin.yz, distance = 39.05 in)
@@ -919,7 +919,7 @@ part wall_framing {
     }
     feature mep_wall_d_l1_10 = extrude(profile = sketch.mep_wall_d_l1_10_s, distance = 4.9344 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_d_l1
-    // MEP penetrations (lane H3) for wall_d_l2: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_d_l2: bored holes and box cut-outs where the runs pass
     feature mep_wall_d_l2_p_xy_3 = plane.offset(base = origin.xy, distance = -6.4198 in)
     feature mep_wall_d_l2_p_xy_2 = plane.offset(base = origin.xy, distance = -3.5625 in)
     feature mep_wall_d_l2_p_xy_1 = plane.offset(base = origin.xy, distance = -4.7625 in)

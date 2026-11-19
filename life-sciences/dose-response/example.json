@@ -21,8 +21,6 @@
   "thumbnailAlt": "Assay responses against dose with a fitted Hill curve, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/dose-response",
-    "source": "website/content/industries/life-sciences/dose-response.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/dose-response.webp"
+    "key": "website:industries/life-sciences/dose-response"
   }
 }

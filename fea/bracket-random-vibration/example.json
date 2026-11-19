@@ -26,7 +26,6 @@
   "thumbnailAlt": "RMS displacement of a steel bracket under random base vibration, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/bracket-random-vibration",
-    "source": "runmat-examples/fea/bracket-random-vibration/bracket-random-vibration.fea"
+    "key": "website:simulation/structural/bracket-random-vibration"
   }
 }

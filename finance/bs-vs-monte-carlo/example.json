@@ -24,8 +24,6 @@
   "thumbnailAlt": "A Monte Carlo price settling inside its two-standard-error band around the Black-Scholes price, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/bs-vs-monte-carlo",
-    "source": "website/content/math/finance/examples/bs-vs-monte-carlo.m",
-    "thumbnail": "website/public/math-assets/finance/bs-vs-monte-carlo.webp"
+    "key": "website:math/finance/bs-vs-monte-carlo"
   }
 }

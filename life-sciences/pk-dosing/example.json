@@ -21,8 +21,6 @@
   "thumbnailAlt": "Plasma concentration over eight doses reaching steady state, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/pk-dosing",
-    "source": "website/content/industries/life-sciences/pk-dosing.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/pk-dosing.webp"
+    "key": "website:industries/life-sciences/pk-dosing"
   }
 }

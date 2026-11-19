@@ -22,8 +22,6 @@
   "thumbnailAlt": "Nyquist plots for two gains, one encircling the critical point at -1, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/nyquist-stability",
-    "source": "website/content/math/control-systems/examples/nyquist-stability.m",
-    "thumbnail": "website/public/math-assets/control-systems/nyquist-stability.webp"
+    "key": "website:math/control-systems/nyquist-stability"
   }
 }

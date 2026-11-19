@@ -24,9 +24,6 @@
   "thumbnailAlt": "Spring-steel paddle of a flow switch hanging across the bore of a pipe tee, modeled in RunMat",
   "origin": {
     "page": "/simulation/fluid-structure",
-    "key": "website:simulation/fluid-structure/hero",
-    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/paddle-flow-switch/flow_switch.part",
-    "geometry": "geometry/, exported from flow_switch.part by runmat-cad (cad_sim_parts)",
-    "thumbnail": "pending: the solved run's figure"
+    "key": "website:simulation/fluid-structure/hero"
   }
 }

@@ -23,7 +23,6 @@
   "thumbnailAlt": "Pressure mode shape of a listening room, solved in RunMat",
   "origin": {
     "page": "/simulation/acoustics",
-    "key": "website:simulation/acoustics/listening-room-modes",
-    "source": "runmat-examples/fea/listening-room-modes/listening-room-modes.fea"
+    "key": "website:simulation/acoustics/listening-room-modes"
   }
 }

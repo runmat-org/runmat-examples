@@ -19,8 +19,6 @@
   "thumbnailAlt": "Noisy decay data with an exponential fit above a stem plot of the residuals, rendered by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/exponential-decay",
-    "source": "website/content/math/curve-fitting/examples/exponential-decay.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/exponential-decay.webp"
+    "key": "website:math/curve-fitting/exponential-decay"
   }
 }

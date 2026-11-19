@@ -22,8 +22,6 @@
   "thumbnailAlt": "Temperature of twelve cells rising over three US06 cycles, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/module-temperature",
-    "source": "website/content/industries/automotive-transportation/module-temperature.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/module-temperature.webp"
+    "key": "website:industries/automotive-transportation/module-temperature"
   }
 }

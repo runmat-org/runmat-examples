@@ -26,7 +26,6 @@
   "thumbnailAlt": "Stress in a steel cantilever beam loaded past first yield, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/cantilever-plastic",
-    "source": "runmat-examples/fea/cantilever-plastic/cantilever-plastic.fea"
+    "key": "website:simulation/structural/cantilever-plastic"
   }
 }

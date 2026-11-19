@@ -11,7 +11,14 @@
   "kind": "design",
   "visual": "3d",
   "entry": "house.assembly",
-  "tags": ["cad", "assembly", "construction", "mep", "circuit", "section-view"],
+  "tags": [
+    "cad",
+    "assembly",
+    "construction",
+    "mep",
+    "circuit",
+    "section-view"
+  ],
   "roles": [
     "structural",
     "electrical"
@@ -23,9 +30,7 @@
   "theme": "house-cad",
   "thumbnailAlt": "A two-story stucco house with a gable roof, seen from the south-west, rendered by RunMat",
   "origin": {
-    "page": "/industries/construction",
-    "key": "runmat-cad:house",
-    "source": "runmat-examples/construction/house",
-    "thumbnail": null
+    "page": "/cad",
+    "key": "examples:construction/house"
   }
 }

@@ -25,8 +25,6 @@
   "thumbnailAlt": "Solar, wind and hydro generation stacked from 2018 to 2025, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/area",
-    "source": "website/content/math/plotting/examples/area.m",
-    "thumbnail": "website/public/math-assets/plotting/area.webp"
+    "key": "website:math/plotting/area"
   }
 }

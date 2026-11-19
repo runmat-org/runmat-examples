@@ -22,8 +22,6 @@
   "thumbnailAlt": "Battery module temperatures, drawn by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/module",
-    "source": "website/content/industries/automotive-transportation/module.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/module.webp"
+    "key": "website:industries/automotive-transportation/module"
   }
 }

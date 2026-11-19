@@ -23,8 +23,6 @@
   "thumbnailAlt": "A time trace above its spectrogram, showing a steady 60 Hz line and a rising sweep, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/spectrogram-check",
-    "source": "website/content/math/signal-processing/examples/spectrogram-check.m",
-    "thumbnail": "website/public/math-assets/signal-processing/spectrogram-check.webp"
+    "key": "website:math/signal-processing/spectrogram-check"
   }
 }

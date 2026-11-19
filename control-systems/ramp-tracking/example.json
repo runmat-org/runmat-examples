@@ -23,8 +23,6 @@
   "thumbnailAlt": "A ramp reference and the closed-loop output lagging it by a constant amount, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/ramp-tracking",
-    "source": "website/content/math/control-systems/examples/ramp-tracking.m",
-    "thumbnail": "website/public/math-assets/control-systems/ramp-tracking.webp"
+    "key": "website:math/control-systems/ramp-tracking"
   }
 }

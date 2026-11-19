@@ -21,8 +21,6 @@
   "thumbnailAlt": "Position of a servo axis after a 10 mm step, with overshoot, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/servo-axis",
-    "source": "website/content/industries/industrial-machinery/servo-axis.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/servo-axis.webp"
+    "key": "website:industries/industrial-machinery/servo-axis"
   }
 }

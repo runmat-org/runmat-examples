@@ -19,8 +19,6 @@
   "thumbnailAlt": "Yield curves through a cycle, drawn by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/yield-curves",
-    "source": "website/content/industries/quant/yield-curves.m",
-    "thumbnail": "website/public/industries-assets/quant/yield-curves.webp"
+    "key": "website:industries/quant/yield-curves"
   }
 }

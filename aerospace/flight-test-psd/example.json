@@ -24,8 +24,6 @@
   "thumbnailAlt": "Shelf vibration spectra at takeoff, climb and cruise against the qualification limit, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/flight-test-psd",
-    "source": "website/content/industries/aerospace/flight-test-psd.m",
-    "thumbnail": "website/public/industries-assets/aerospace/flight-test-psd.webp"
+    "key": "website:industries/aerospace/flight-test-psd"
   }
 }

@@ -20,8 +20,6 @@
   "thumbnailAlt": "The spectrum, the Butterworth response, filter against filtfilt over time, and the Welch spectrum before and after, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/remove-tone",
-    "source": "website/content/math/signal-processing/examples/remove-tone.m",
-    "thumbnail": "website/public/math-assets/signal-processing/remove-tone.webp"
+    "key": "website:math/signal-processing/remove-tone"
   }
 }

@@ -23,8 +23,6 @@
   "thumbnailAlt": "Pole-zero map of three second-order systems beside their step responses, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/damping-overshoot",
-    "source": "website/content/math/control-systems/examples/damping-overshoot.m",
-    "thumbnail": "website/public/math-assets/control-systems/damping-overshoot.webp"
+    "key": "website:math/control-systems/damping-overshoot"
   }
 }

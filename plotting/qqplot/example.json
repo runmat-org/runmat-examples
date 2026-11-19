@@ -25,8 +25,6 @@
   "thumbnailAlt": "Residual quantiles against normal quantiles along a reference line, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/qqplot",
-    "source": "website/content/math/plotting/examples/qqplot.m",
-    "thumbnail": "website/public/math-assets/plotting/qqplot.webp"
+    "key": "website:math/plotting/qqplot"
   }
 }

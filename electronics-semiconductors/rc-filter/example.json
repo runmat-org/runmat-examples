@@ -11,15 +11,21 @@
   "kind": "design",
   "visual": "2d",
   "entry": "lowpass.circuit",
-  "tags": ["circuit", "circuit-simulation", "matlab-values"],
-  "roles": ["electrical"],
-  "goals": ["build_simulations"],
+  "tags": [
+    "circuit",
+    "circuit-simulation",
+    "matlab-values"
+  ],
+  "roles": [
+    "electrical"
+  ],
+  "goals": [
+    "build_simulations"
+  ],
   "theme": "rc-filter",
   "thumbnailAlt": "An RC low-pass filter schematic, drawn by RunMat",
   "origin": {
     "page": "/industries/electronics-semiconductors",
-    "key": "runmat-cad:rc-filter",
-    "source": "runmat-cad/crates/runmat-design-tools/tests/fixtures/rc_filter",
-    "thumbnail": null
+    "key": "examples:electronics-semiconductors/rc-filter"
   }
 }

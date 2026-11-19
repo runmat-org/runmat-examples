@@ -26,8 +26,6 @@
   "thumbnailAlt": "The Lorenz attractor, solved and drawn by RunMat",
   "origin": {
     "page": "/math/differential-equations",
-    "key": "website:math/differential-equations/hero",
-    "source": "website/content/math/differential-equations/lorenz-attractor-animate.m",
-    "thumbnail": "website/public/math-assets/differential-equations/hero.webp"
+    "key": "website:math/differential-equations/hero"
   }
 }

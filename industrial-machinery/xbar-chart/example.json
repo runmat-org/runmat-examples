@@ -22,8 +22,6 @@
   "thumbnailAlt": "X-bar chart of a bore diameter crossing its upper control limit, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/xbar-chart",
-    "source": "website/content/industries/industrial-machinery/xbar-chart.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/xbar-chart.webp"
+    "key": "website:industries/industrial-machinery/xbar-chart"
   }
 }

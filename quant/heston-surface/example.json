@@ -21,8 +21,6 @@
   "thumbnailAlt": "Heston volatility surface, drawn by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/heston-surface",
-    "source": "website/content/industries/quant/heston-surface.m",
-    "thumbnail": "website/public/industries-assets/quant/heston-surface.webp"
+    "key": "website:industries/quant/heston-surface"
   }
 }

@@ -21,8 +21,6 @@
   "thumbnailAlt": "Terminal voltage of a cell through a 50 A pulse with the fitted model over it, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/cell-model",
-    "source": "website/content/industries/automotive-transportation/cell-model.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/cell-model.webp"
+    "key": "website:industries/automotive-transportation/cell-model"
   }
 }

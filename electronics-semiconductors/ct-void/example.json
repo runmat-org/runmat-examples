@@ -20,8 +20,6 @@
   "thumbnailAlt": "A CT slice of a potted module showing a void, rendered by RunMat",
   "origin": {
     "page": "/industries/electronics-semiconductors",
-    "key": "website:industries/electronics-semiconductors/ct-void",
-    "source": "website/content/industries/electronics-semiconductors/ct-void.m",
-    "thumbnail": "website/public/industries-assets/electronics-semiconductors/ct-void.webp"
+    "key": "website:industries/electronics-semiconductors/ct-void"
   }
 }

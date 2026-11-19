@@ -27,8 +27,6 @@
   "thumbnailAlt": "A low-pass gain curve against frequency on a log axis, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/semilogx",
-    "source": "website/content/math/plotting/examples/semilogx.m",
-    "thumbnail": "website/public/math-assets/plotting/semilogx.webp"
+    "key": "website:math/plotting/semilogx"
   }
 }

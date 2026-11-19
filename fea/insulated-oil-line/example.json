@@ -24,7 +24,6 @@
   "thumbnailAlt": "Temperature through the lagging of a hot-oil line, solved in RunMat",
   "origin": {
     "page": "/simulation/conjugate-heat-transfer",
-    "key": "website:simulation/conjugate-heat-transfer/insulated-oil-line",
-    "source": "runmat-examples/fea/insulated-oil-line/insulated-oil-line.fea"
+    "key": "website:simulation/conjugate-heat-transfer/insulated-oil-line"
   }
 }

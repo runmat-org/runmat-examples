@@ -23,8 +23,6 @@
   "thumbnailAlt": "Step responses of a thermal plant under P and PI control, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/pi-controller",
-    "source": "website/content/math/control-systems/examples/pi-controller.m",
-    "thumbnail": "website/public/math-assets/control-systems/pi-controller.webp"
+    "key": "website:math/control-systems/pi-controller"
   }
 }

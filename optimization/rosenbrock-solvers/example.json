@@ -19,8 +19,6 @@
   "thumbnailAlt": "Contours of Rosenbrock's function beside the evaluation count of each solver, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/rosenbrock-solvers",
-    "source": "website/content/math/optimization/examples/rosenbrock-solvers.m",
-    "thumbnail": "website/public/math-assets/optimization/rosenbrock-solvers.webp"
+    "key": "website:math/optimization/rosenbrock-solvers"
   }
 }

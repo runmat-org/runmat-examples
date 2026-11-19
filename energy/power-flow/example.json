@@ -19,8 +19,6 @@
   "thumbnailAlt": "Bus voltages of the IEEE 14-bus case against 0.95 and 1.05 pu, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/power-flow",
-    "source": "website/content/industries/energy/power-flow.m",
-    "thumbnail": "website/public/industries-assets/energy/power-flow.webp"
+    "key": "website:industries/energy/power-flow"
   }
 }

@@ -19,8 +19,6 @@
   "thumbnailAlt": "Range-Doppler map of three targets and ground clutter from an X-band radar, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/range-doppler",
-    "source": "website/content/industries/defense/range-doppler.m",
-    "thumbnail": "website/public/industries-assets/defense/range-doppler.webp"
+    "key": "website:industries/defense/range-doppler"
   }
 }

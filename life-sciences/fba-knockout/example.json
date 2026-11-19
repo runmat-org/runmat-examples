@@ -19,8 +19,6 @@
   "thumbnailAlt": "Bar chart of growth kept after each single-reaction knockout, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/fba-knockout",
-    "source": "website/content/industries/life-sciences/fba-knockout.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/fba-knockout.webp"
+    "key": "website:industries/life-sciences/fba-knockout"
   }
 }

@@ -27,8 +27,6 @@
   "thumbnailAlt": "A histogram of cycle times with a kernel density curve showing two peaks, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/kernel-density",
-    "source": "website/content/math/statistics/examples/kernel-density.m",
-    "thumbnail": "website/public/math-assets/statistics/kernel-density.webp"
+    "key": "website:math/statistics/kernel-density"
   }
 }

@@ -25,8 +25,6 @@
   "thumbnailAlt": "Joule loss density crowding toward the surface of a copper conductor at 1 kHz, solved in RunMat",
   "origin": {
     "page": "/simulation/electrothermal",
-    "key": "website:simulation/electrothermal/round-conductor-ac",
-    "source": "runmat-examples/fea/round-conductor-ac/round-conductor-ac.fea",
-    "geometry": "geometry/round-conductor.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+    "key": "website:simulation/electrothermal/round-conductor-ac"
   }
 }

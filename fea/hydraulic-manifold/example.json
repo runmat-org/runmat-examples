@@ -24,9 +24,6 @@
   "thumbnailAlt": "Oil speed through the drilled passages of an aluminum hydraulic manifold, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-flow",
-    "key": "website:simulation/fluid-flow/hero",
-    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/hydraulic-manifold/manifold.part",
-    "geometry": "geometry/manifold.step, exported from manifold.part by runmat-cad (cad_sim_parts)",
-    "thumbnail": "pending: the solved run's velocity figure"
+    "key": "website:simulation/fluid-flow/hero"
   }
 }

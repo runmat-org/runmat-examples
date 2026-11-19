@@ -22,8 +22,6 @@
   "thumbnailAlt": "Board and case temperature of a wearable over an hour against the 43 C limit, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/wearable-temperature",
-    "source": "website/content/industries/life-sciences/wearable-temperature.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/wearable-temperature.webp"
+    "key": "website:industries/life-sciences/wearable-temperature"
   }
 }

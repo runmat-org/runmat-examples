@@ -19,8 +19,6 @@
   "thumbnailAlt": "Bode plot of a second-order low-pass filter with the -3 dB point marked, drawn by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/hero",
-    "source": "website/content/math/control-systems/hero.m",
-    "thumbnail": "website/public/math-assets/control-systems/hero.webp"
+    "key": "website:math/control-systems/hero"
   }
 }

@@ -22,8 +22,6 @@
   "thumbnailAlt": "Envelope spectrum with peaks at the bearing's outer-race defect frequency and its harmonics, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/bearing-envelope",
-    "source": "website/content/industries/industrial-machinery/bearing-envelope.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/bearing-envelope.webp"
+    "key": "website:industries/industrial-machinery/bearing-envelope"
   }
 }

@@ -27,8 +27,6 @@
   "thumbnailAlt": "The running estimate of an interference probability inside its standard-error band, drawn by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/hero",
-    "source": "website/content/math/statistics/hero.m",
-    "thumbnail": "website/public/math-assets/statistics/hero.webp"
+    "key": "website:math/statistics/hero"
   }
 }

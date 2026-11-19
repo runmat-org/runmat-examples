@@ -220,7 +220,7 @@ part stair {
     }
     feature handrail = extrude(profile = sketch.handrail_s, distance = 1.75 in, mode = new)
 
-    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_relief_pl0 = plane.offset(base = origin.xy, distance = 109.0625 in)
     // The stringers are relieved 1/32 in around the hangers of the doubled trimmers (seat, sides, flanges)
     sketch hw_reliefs_s on plane.hw_relief_pl0 {

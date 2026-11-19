@@ -21,8 +21,6 @@
   "thumbnailAlt": "Wafer bow against film thickness, rendered by RunMat",
   "origin": {
     "page": "/industries/electronics-semiconductors",
-    "key": "website:industries/electronics-semiconductors/wafer-bow",
-    "source": "website/content/industries/electronics-semiconductors/wafer-bow.m",
-    "thumbnail": "website/public/industries-assets/electronics-semiconductors/wafer-bow.webp"
+    "key": "website:industries/electronics-semiconductors/wafer-bow"
   }
 }

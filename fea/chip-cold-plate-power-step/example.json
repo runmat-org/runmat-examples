@@ -25,7 +25,6 @@
   "thumbnailAlt": "Temperature of a water-cooled aluminum block under a 50 W die, solved in RunMat",
   "origin": {
     "page": "/simulation/conjugate-heat-transfer",
-    "key": "website:simulation/conjugate-heat-transfer/chip-cold-plate-power-step",
-    "source": "runmat-examples/fea/chip-cold-plate-power-step/chip-cold-plate-power-step.fea"
+    "key": "website:simulation/conjugate-heat-transfer/chip-cold-plate-power-step"
   }
 }

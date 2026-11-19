@@ -1380,7 +1380,7 @@ part exterior_wall {
     }
     feature batt_5_l2 = extrude(profile = sketch.batt_5_l2_s, distance = 5.5 in, mode = new, suppressed = true)
 
-    // MEP penetrations (lane H3) for wall_5_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_5_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_5_l1_p_xy_3 = plane.offset(base = origin.xy, distance = 11.125 in)
     feature mep_wall_5_l1_p_zx_2 = plane.offset(base = origin.zx, distance = -8 in)
     feature mep_wall_5_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 4 in)
@@ -1408,7 +1408,7 @@ part exterior_wall {
     }
     feature mep_wall_5_l1_3 = extrude(profile = sketch.mep_wall_5_l1_3_s, distance = 105.75 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_5_l1
-    // MEP penetrations (lane H3) for wall_a_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_a_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_a_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 14.5 in)
     feature mep_wall_a_l1_p_zx_0 = plane.offset(base = origin.zx, distance = -1.375 in)
     sketch mep_wall_a_l1_0_s on plane.mep_wall_a_l1_p_zx_0 {
@@ -1423,7 +1423,7 @@ part exterior_wall {
     }
     feature mep_wall_a_l1_1 = extrude(profile = sketch.mep_wall_a_l1_1_s, distance = 3 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_a_l1
-    // MEP penetrations (lane H3) for wall_d_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_d_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_d_l1_p_zx_9 = plane.offset(base = origin.zx, distance = 6.0156 in)
     feature mep_wall_d_l1_p_xy_8 = plane.offset(base = origin.xy, distance = 21 in)
     feature mep_wall_d_l1_p_xy_7 = plane.offset(base = origin.xy, distance = 29.05 in)
@@ -1492,7 +1492,7 @@ part exterior_wall {
     }
     feature mep_wall_d_l1_11 = extrude(profile = sketch.mep_wall_d_l1_11_s, distance = 4.9344 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_d_l1
-    // MEP penetrations (lane H3) for wall_d_l2: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_d_l2: bored holes and box cut-outs where the runs pass
     feature mep_wall_d_l2_p_xy_3 = plane.offset(base = origin.xy, distance = -6.4198 in)
     feature mep_wall_d_l2_p_xy_2 = plane.offset(base = origin.xy, distance = -3.5625 in)
     feature mep_wall_d_l2_p_xy_1 = plane.offset(base = origin.xy, distance = -4.7625 in)

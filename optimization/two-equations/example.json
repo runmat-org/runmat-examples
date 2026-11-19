@@ -22,8 +22,6 @@
   "thumbnailAlt": "A circle and an exponential curve with the two solutions fsolve found, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/two-equations",
-    "source": "website/content/math/optimization/examples/two-equations.m",
-    "thumbnail": "website/public/math-assets/optimization/two-equations.webp"
+    "key": "website:math/optimization/two-equations"
   }
 }

@@ -30,7 +30,7 @@ part stem_wall {
     }
     feature bars_y = extrude(profile = sketch.bars_y_s, distance = 357 in, mode = new)
 
-    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_pl2 = plane.offset(base = origin.xy, distance = -3.5 in)
     feature hw_pl1 = plane.offset(base = origin.xy, distance = -22 in)
     feature hw_pl0 = plane.offset(base = origin.xy, distance = -10 in)
@@ -379,7 +379,7 @@ part stem_wall {
     }
     feature hw_85 = extrude(profile = sketch.hw_85_s, distance = 3.5 in, mode = cut)
     // end connector holes all
-    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_zx_2 = plane.offset(base = origin.zx, distance = 365.8929 in)
     feature mep_all_p_zx_1 = plane.offset(base = origin.zx, distance = 355.0714 in)
     feature mep_all_p_zx_0 = plane.offset(base = origin.zx, distance = 344.25 in)

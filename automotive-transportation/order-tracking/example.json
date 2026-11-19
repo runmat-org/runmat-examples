@@ -19,8 +19,6 @@
   "thumbnailAlt": "Order spectrum of a 4-cylinder run-up with the second order dominant, rendered by RunMat",
   "origin": {
     "page": "/industries/automotive-transportation",
-    "key": "website:industries/automotive-transportation/order-tracking",
-    "source": "website/content/industries/automotive-transportation/order-tracking.m",
-    "thumbnail": "website/public/industries-assets/automotive-transportation/order-tracking.webp"
+    "key": "website:industries/automotive-transportation/order-tracking"
   }
 }

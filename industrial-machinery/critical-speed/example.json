@@ -19,8 +19,6 @@
   "thumbnailAlt": "Bar chart of the shaft's first critical speed by three methods, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "website:industries/industrial-machinery/critical-speed",
-    "source": "website/content/industries/industrial-machinery/critical-speed.m",
-    "thumbnail": "website/public/industries-assets/industrial-machinery/critical-speed.webp"
+    "key": "website:industries/industrial-machinery/critical-speed"
   }
 }

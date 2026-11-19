@@ -26,9 +26,7 @@
   "theme": "tuning-fork-modal",
   "thumbnailAlt": "First vibration mode of a steel tuning fork, solved in RunMat",
   "origin": {
-    "page": "/docs (FEA examples)",
-    "key": "website:docs-assets/examples/tuning-fork-modal",
-    "source": "desktop/src/lib/examples/sources/tuning-fork-modal/tuning-fork-modal.fea",
-    "thumbnail": "desktop/src/lib/examples/thumbnails/tuning-fork-modal.webp"
+    "page": "/simulation/structural",
+    "key": "website:docs-assets/examples/tuning-fork-modal"
   }
 }

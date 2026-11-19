@@ -24,7 +24,6 @@
   "thumbnailAlt": "Velocity profile of a shear-thinning slurry in a 25 mm pipe, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-flow",
-    "key": "website:simulation/fluid-flow/slurry-line-power-law",
-    "source": "runmat-examples/fea/slurry-line-power-law/slurry-line-power-law.fea"
+    "key": "website:simulation/fluid-flow/slurry-line-power-law"
   }
 }

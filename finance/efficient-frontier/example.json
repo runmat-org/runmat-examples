@@ -22,8 +22,6 @@
   "thumbnailAlt": "The minimum-variance frontier with four assets plotted by volatility and expected return, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/efficient-frontier",
-    "source": "website/content/math/finance/examples/efficient-frontier.m",
-    "thumbnail": "website/public/math-assets/finance/efficient-frontier.webp"
+    "key": "website:math/finance/efficient-frontier"
   }
 }

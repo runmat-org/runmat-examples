@@ -27,8 +27,6 @@
   "thumbnailAlt": "A histogram with its fitted normal curve beside a QQ plot, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/fit-distribution",
-    "source": "website/content/math/statistics/examples/fit-distribution.m",
-    "thumbnail": "website/public/math-assets/statistics/fit-distribution.webp"
+    "key": "website:math/statistics/fit-distribution"
   }
 }

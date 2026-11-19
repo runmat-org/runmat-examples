@@ -22,8 +22,6 @@
   "thumbnailAlt": "Implied volatility against strike, forming a smile, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/volatility-smile",
-    "source": "website/content/math/finance/examples/volatility-smile.m",
-    "thumbnail": "website/public/math-assets/finance/volatility-smile.webp"
+    "key": "website:math/finance/volatility-smile"
   }
 }

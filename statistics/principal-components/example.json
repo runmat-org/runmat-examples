@@ -24,8 +24,6 @@
   "thumbnailAlt": "Variance explained by each principal component beside the scores on the first two, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/principal-components",
-    "source": "website/content/math/statistics/examples/principal-components.m",
-    "thumbnail": "website/public/math-assets/statistics/principal-components.webp"
+    "key": "website:math/statistics/principal-components"
   }
 }

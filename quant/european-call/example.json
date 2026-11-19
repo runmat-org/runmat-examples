@@ -22,8 +22,6 @@
   "thumbnailAlt": "Monte Carlo estimate of a European call converging on the Black-Scholes price, rendered by RunMat",
   "origin": {
     "page": "/industries/quant",
-    "key": "website:industries/quant/european-call",
-    "source": "website/content/industries/quant/european-call.m",
-    "thumbnail": "website/public/industries-assets/quant/european-call.webp"
+    "key": "website:industries/quant/european-call"
   }
 }

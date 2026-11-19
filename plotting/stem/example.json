@@ -25,8 +25,6 @@
   "thumbnailAlt": "Stems for the samples of a decaying sinusoid, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/stem",
-    "source": "website/content/math/plotting/examples/stem.m",
-    "thumbnail": "website/public/math-assets/plotting/stem.webp"
+    "key": "website:math/plotting/stem"
   }
 }

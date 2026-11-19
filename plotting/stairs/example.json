@@ -26,8 +26,6 @@
   "thumbnailAlt": "A first-order step response drawn as steps, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/stairs",
-    "source": "website/content/math/plotting/examples/stairs.m",
-    "thumbnail": "website/public/math-assets/plotting/stairs.webp"
+    "key": "website:math/plotting/stairs"
   }
 }

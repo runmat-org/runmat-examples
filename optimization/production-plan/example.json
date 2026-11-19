@@ -22,8 +22,6 @@
   "thumbnailAlt": "Feasible region of a linear program with the optimum marked, drawn by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/hero",
-    "source": "website/content/math/optimization/hero.m",
-    "thumbnail": "website/public/math-assets/optimization/hero.webp"
+    "key": "website:math/optimization/hero"
   }
 }

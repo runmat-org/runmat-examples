@@ -23,8 +23,6 @@
   "thumbnailAlt": "A filled-contour efficiency map interpolated from 36 measured points, shown as dots, rendered by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/lookup-table",
-    "source": "website/content/math/curve-fitting/examples/lookup-table.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/lookup-table.webp"
+    "key": "website:math/curve-fitting/lookup-table"
   }
 }

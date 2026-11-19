@@ -25,8 +25,6 @@
   "thumbnailAlt": "Filled contour bands of an interference pattern, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/contourf",
-    "source": "website/content/math/plotting/examples/contourf.m",
-    "thumbnail": "website/public/math-assets/plotting/contourf.webp"
+    "key": "website:math/plotting/contourf"
   }
 }

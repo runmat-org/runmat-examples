@@ -24,8 +24,6 @@
   "thumbnailAlt": "Counts of INFO, WARN and ERROR lines from a controller log as bars, rendered by RunMat",
   "origin": {
     "page": "/math/data-tables",
-    "key": "website:math/data-tables/text-log",
-    "source": "website/content/math/data-tables/examples/text-log/analysis.m",
-    "thumbnail": "website/public/math-assets/data-tables/text-log.webp"
+    "key": "website:math/data-tables/text-log"
   }
 }

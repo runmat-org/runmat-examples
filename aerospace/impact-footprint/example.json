@@ -21,8 +21,6 @@
   "thumbnailAlt": "Impact points of 4,000 dispersed trajectories with a 3-sigma ellipse, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/impact-footprint",
-    "source": "website/content/industries/aerospace/impact-footprint.m",
-    "thumbnail": "website/public/industries-assets/aerospace/impact-footprint.webp"
+    "key": "website:industries/aerospace/impact-footprint"
   }
 }

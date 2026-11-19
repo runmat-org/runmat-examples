@@ -137,7 +137,7 @@ part floor_finishes {
     }
     feature ceiling_l1 = extrude(profile = sketch.ceiling_l1_s, distance = 0.5 in, mode = new)
 
-    // Connector holes (lane H4) for all: bored holes, cast-in voids and seat reliefs
+    // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_relief_pl0 = plane.offset(base = origin.xy, distance = 109.0625 in)
     // Joist-hanger seats sit 0.048 in under the joists; the ceiling board is relieved 1/16 in over each
     sketch hw_reliefs_s on plane.hw_relief_pl0 {
@@ -624,7 +624,7 @@ part floor_finishes {
     }
     feature hw_reliefs = extrude(profile = sketch.hw_reliefs_s, distance = 0.0625 in, mode = cut)
     // end connector holes all
-    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_xy_27 = plane.offset(base = origin.xy, distance = -8.95 in)
     feature mep_all_p_xy_26 = plane.offset(base = origin.xy, distance = -10 in)
     feature mep_all_p_xy_25 = plane.offset(base = origin.xy, distance = 114.0896 in)

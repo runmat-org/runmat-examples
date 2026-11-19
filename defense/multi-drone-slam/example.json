@@ -22,8 +22,6 @@
   "thumbnailAlt": "Point-cloud map of mountain terrain built by four drones, with their LIDAR rays and flight paths, rendered by RunMat",
   "origin": {
     "page": "/",
-    "key": "website:home/slam",
-    "source": "website/content/home/slam",
-    "thumbnail": "website/public/home-assets/hero/slam/slam-dark.webp"
+    "key": "website:home/slam"
   }
 }

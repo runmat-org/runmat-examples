@@ -22,8 +22,6 @@
   "thumbnailAlt": "Starting points on a contour plot of peaks, colored by where fminunc stops, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/local-minima",
-    "source": "website/content/math/optimization/examples/local-minima.m",
-    "thumbnail": "website/public/math-assets/optimization/local-minima.webp"
+    "key": "website:math/optimization/local-minima"
   }
 }

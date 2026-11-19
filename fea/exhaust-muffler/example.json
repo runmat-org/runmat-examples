@@ -24,9 +24,6 @@
   "thumbnailAlt": "Transmission loss of a two-chamber exhaust muffler across one-third-octave bands, solved in RunMat",
   "origin": {
     "page": "/simulation/acoustics",
-    "key": "website:simulation/acoustics/hero",
-    "source": "runmat-cad crates/runmat-cad/wasm/tests/sim/exhaust-muffler/muffler.part",
-    "geometry": "geometry/, exported from muffler.part by runmat-cad (cad_sim_parts)",
-    "thumbnail": "pending: the solved run's figure"
+    "key": "website:simulation/acoustics/hero"
   }
 }

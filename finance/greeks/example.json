@@ -22,8 +22,6 @@
   "thumbnailAlt": "Call delta and gamma against spot for three expiries, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/greeks",
-    "source": "website/content/math/finance/examples/greeks.m",
-    "thumbnail": "website/public/math-assets/finance/greeks.webp"
+    "key": "website:math/finance/greeks"
   }
 }

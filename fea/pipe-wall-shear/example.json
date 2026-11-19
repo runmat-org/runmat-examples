@@ -24,7 +24,6 @@
   "thumbnailAlt": "Wall shear stress on the bore of a 10 mm hydraulic line, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-flow",
-    "key": "website:simulation/fluid-flow/pipe-wall-shear",
-    "source": "runmat-examples/fea/pipe-wall-shear/pipe-wall-shear.fea"
+    "key": "website:simulation/fluid-flow/pipe-wall-shear"
   }
 }

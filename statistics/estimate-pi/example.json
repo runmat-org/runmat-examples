@@ -29,8 +29,6 @@
   "thumbnailAlt": "The error of a Monte Carlo estimate of pi against the number of points, beside a one-over-root-N line, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/estimate-pi",
-    "source": "website/content/math/statistics/examples/estimate-pi.m",
-    "thumbnail": "website/public/math-assets/statistics/estimate-pi.webp"
+    "key": "website:math/statistics/estimate-pi"
   }
 }

@@ -22,8 +22,6 @@
   "thumbnailAlt": "A histogram of one-day P&L with the 99% value at risk marked, rendered by RunMat",
   "origin": {
     "page": "/math/finance",
-    "key": "website:math/finance/value-at-risk",
-    "source": "website/content/math/finance/examples/value-at-risk.m",
-    "thumbnail": "website/public/math-assets/finance/value-at-risk.webp"
+    "key": "website:math/finance/value-at-risk"
   }
 }

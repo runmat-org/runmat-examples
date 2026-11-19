@@ -19,8 +19,6 @@
   "thumbnailAlt": "Metabolic phase plane, drawn by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/phase-plane",
-    "source": "website/content/industries/life-sciences/phase-plane.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/phase-plane.webp"
+    "key": "website:industries/life-sciences/phase-plane"
   }
 }

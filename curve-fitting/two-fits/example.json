@@ -22,8 +22,6 @@
   "thumbnailAlt": "A degree-6 polynomial and an exponential fit to the same samples, drawn by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/hero",
-    "source": "website/content/math/curve-fitting/hero.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/hero.webp"
+    "key": "website:math/curve-fitting/hero"
   }
 }

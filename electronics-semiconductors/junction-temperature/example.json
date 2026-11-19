@@ -21,8 +21,6 @@
   "thumbnailAlt": "Junction temperature against power with the 150 C limit, rendered by RunMat",
   "origin": {
     "page": "/industries/electronics-semiconductors",
-    "key": "website:industries/electronics-semiconductors/junction-temperature",
-    "source": "website/content/industries/electronics-semiconductors/junction-temperature.m",
-    "thumbnail": "website/public/industries-assets/electronics-semiconductors/junction-temperature.webp"
+    "key": "website:industries/electronics-semiconductors/junction-temperature"
   }
 }

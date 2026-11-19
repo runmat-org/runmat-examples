@@ -22,8 +22,6 @@
   "thumbnailAlt": "Error and function evaluations of fminunc at five tolerance settings, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/stopping-tests",
-    "source": "website/content/math/optimization/examples/stopping-tests.m",
-    "thumbnail": "website/public/math-assets/optimization/stopping-tests.webp"
+    "key": "website:math/optimization/stopping-tests"
   }
 }

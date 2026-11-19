@@ -22,8 +22,6 @@
   "thumbnailAlt": "Bar chart of the shadow price of each machine-hour limit, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/shadow-prices",
-    "source": "website/content/math/optimization/examples/shadow-prices.m",
-    "thumbnail": "website/public/math-assets/optimization/shadow-prices.webp"
+    "key": "website:math/optimization/shadow-prices"
   }
 }

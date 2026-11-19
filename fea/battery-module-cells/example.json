@@ -24,9 +24,6 @@
   "thumbnailAlt": "Temperature of eight battery cells on a cold plate, from 301.1 K at the bottoms to 303.9 K at the tops, solved in RunMat",
   "origin": {
     "page": "/simulation/thermal",
-    "key": "website:simulation/thermal/hero",
-    "source": "build Mac ~/runs/q-hero-pack/study/m01-cells-thermal.fea (run snap-cellsp2, CLI runmat-proximity-b32655585d)",
-    "geometry": "build Mac ~/runs/q-hero-pack/study/geometry/m01-cells.step",
-    "thumbnail": "snap-cellsp2/temperature.png"
+    "key": "website:simulation/thermal/hero"
   }
 }

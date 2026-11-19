@@ -19,8 +19,6 @@
   "thumbnailAlt": "A sensor calibration line above its residuals inside a shaded 95% prediction band, rendered by RunMat",
   "origin": {
     "page": "/math/curve-fitting",
-    "key": "website:math/curve-fitting/prediction-band",
-    "source": "website/content/math/curve-fitting/examples/prediction-band.m",
-    "thumbnail": "website/public/math-assets/curve-fitting/prediction-band.webp"
+    "key": "website:math/curve-fitting/prediction-band"
   }
 }

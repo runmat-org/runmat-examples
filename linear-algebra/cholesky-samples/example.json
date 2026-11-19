@@ -25,8 +25,6 @@
   "thumbnailAlt": "Two thousand correlated random points drawn with a Cholesky factor, rendered by RunMat",
   "origin": {
     "page": "/math/linear-algebra",
-    "key": "website:math/linear-algebra/cholesky-samples",
-    "source": "website/content/math/linear-algebra/examples/cholesky-samples.m",
-    "thumbnail": "website/public/math-assets/linear-algebra/cholesky-samples.webp"
+    "key": "website:math/linear-algebra/cholesky-samples"
   }
 }

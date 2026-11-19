@@ -20,8 +20,6 @@
   "thumbnailAlt": "Radar measurements, the extended Kalman filter track and the true path of a turning target, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/track-filter",
-    "source": "website/content/industries/defense/track-filter.m",
-    "thumbnail": "website/public/industries-assets/defense/track-filter.webp"
+    "key": "website:industries/defense/track-filter"
   }
 }

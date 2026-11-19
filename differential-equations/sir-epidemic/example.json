@@ -26,8 +26,6 @@
   "thumbnailAlt": "Susceptible, infected and recovered fractions of a population over 160 days, rendered by RunMat",
   "origin": {
     "page": "/math/differential-equations",
-    "key": "website:math/differential-equations/sir-epidemic",
-    "source": "website/content/math/differential-equations/examples/sir-epidemic.m",
-    "thumbnail": "website/public/math-assets/differential-equations/sir-epidemic.webp"
+    "key": "website:math/differential-equations/sir-epidemic"
   }
 }

@@ -23,8 +23,6 @@
   "thumbnailAlt": "Closed-loop step responses for three proportional gains, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/gain-sweep",
-    "source": "website/content/math/control-systems/examples/gain-sweep.m",
-    "thumbnail": "website/public/math-assets/control-systems/gain-sweep.webp"
+    "key": "website:math/control-systems/gain-sweep"
   }
 }

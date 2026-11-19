@@ -19,8 +19,6 @@
   "thumbnailAlt": "Bus 14 voltage rising with solar at the bus against a 3% rise limit, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/hosting-capacity",
-    "source": "website/content/industries/energy/hosting-capacity.m",
-    "thumbnail": "website/public/industries-assets/energy/hosting-capacity.webp"
+    "key": "website:industries/energy/hosting-capacity"
   }
 }

@@ -25,7 +25,6 @@
   "thumbnailAlt": "Oil speed through a 10 mm hydraulic line, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-flow",
-    "key": "website:simulation/fluid-flow/hydraulic-line-poiseuille",
-    "source": "runmat-examples/fea/hydraulic-line-poiseuille/hydraulic-line-poiseuille.fea"
+    "key": "website:simulation/fluid-flow/hydraulic-line-poiseuille"
   }
 }

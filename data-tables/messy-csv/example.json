@@ -22,8 +22,6 @@
   "thumbnailAlt": "Force against time for three fixtures from a rig log, read with the right import options, rendered by RunMat",
   "origin": {
     "page": "/math/data-tables",
-    "key": "website:math/data-tables/messy-csv",
-    "source": "website/content/math/data-tables/examples/messy-csv/analysis.m",
-    "thumbnail": "website/public/math-assets/data-tables/messy-csv.webp"
+    "key": "website:math/data-tables/messy-csv"
   }
 }

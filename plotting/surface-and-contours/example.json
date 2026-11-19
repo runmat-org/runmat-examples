@@ -25,8 +25,6 @@
   "thumbnailAlt": "A surface on the left and its filled contours on the right, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/surface-and-contours",
-    "source": "website/content/math/plotting/examples/surface-and-contours.m",
-    "thumbnail": "website/public/math-assets/plotting/surface-and-contours.webp"
+    "key": "website:math/plotting/surface-and-contours"
   }
 }

@@ -27,8 +27,6 @@
   "thumbnailAlt": "A plate vibration mode computed with eigs and drawn by RunMat",
   "origin": {
     "page": "/math/linear-algebra",
-    "key": "website:math/linear-algebra/hero",
-    "source": "website/content/math/linear-algebra/plate-mode.m",
-    "thumbnail": "website/public/math-assets/linear-algebra/hero.webp"
+    "key": "website:math/linear-algebra/hero"
   }
 }

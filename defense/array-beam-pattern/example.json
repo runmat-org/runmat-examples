@@ -19,8 +19,6 @@
   "thumbnailAlt": "Beam patterns of a 16-element array with uniform and Hamming weights, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/array-beam-pattern",
-    "source": "website/content/industries/defense/array-beam-pattern.m",
-    "thumbnail": "website/public/industries-assets/defense/array-beam-pattern.webp"
+    "key": "website:industries/defense/array-beam-pattern"
   }
 }

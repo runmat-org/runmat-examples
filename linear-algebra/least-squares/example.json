@@ -25,8 +25,6 @@
   "thumbnailAlt": "Noisy samples of cos(4t) and a degree-9 least-squares fit, rendered by RunMat",
   "origin": {
     "page": "/math/linear-algebra",
-    "key": "website:math/linear-algebra/least-squares",
-    "source": "website/content/math/linear-algebra/examples/least-squares.m",
-    "thumbnail": "website/public/math-assets/linear-algebra/least-squares.webp"
+    "key": "website:math/linear-algebra/least-squares"
   }
 }

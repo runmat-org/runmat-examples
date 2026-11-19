@@ -26,7 +26,6 @@
   "thumbnailAlt": "Steady vibration amplitude of a steel cantilever beam driven near its first bending mode, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/cantilever-harmonic",
-    "source": "runmat-examples/fea/cantilever-harmonic/cantilever-harmonic.fea"
+    "key": "website:simulation/structural/cantilever-harmonic"
   }
 }

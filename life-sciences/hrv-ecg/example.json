@@ -19,8 +19,6 @@
   "thumbnailAlt": "Beat-to-beat intervals over two minutes of ECG, rendered by RunMat",
   "origin": {
     "page": "/industries/life-sciences",
-    "key": "website:industries/life-sciences/hrv-ecg",
-    "source": "website/content/industries/life-sciences/hrv-ecg.m",
-    "thumbnail": "website/public/industries-assets/life-sciences/hrv-ecg.webp"
+    "key": "website:industries/life-sciences/hrv-ecg"
   }
 }

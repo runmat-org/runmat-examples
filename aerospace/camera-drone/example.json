@@ -31,8 +31,6 @@
   "thumbnailAlt": "A foldable camera drone with its arms unfolded and a gimbal camera under the nose, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "runmat-cad:drone",
-    "source": "runmat-cad/crates/runmat-cad/wasm/tests/drone",
-    "thumbnail": null
+    "key": "examples:aerospace/camera-drone"
   }
 }

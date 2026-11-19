@@ -145,7 +145,7 @@ part shear_wall {
     }
     feature o4 = extrude(profile = sketch.o4_s, distance = 0.4375 in, mode = cut)
 
-    // MEP penetrations (lane H3) for wall_5_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_5_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_5_l1_p_xy_1 = plane.offset(base = origin.xy, distance = 11.125 in)
     feature mep_wall_5_l1_p_zx_0 = plane.offset(base = origin.zx, distance = -8 in)
     sketch mep_wall_5_l1_0_s on plane.mep_wall_5_l1_p_zx_0 {
@@ -157,14 +157,14 @@ part shear_wall {
     }
     feature mep_wall_5_l1_1 = extrude(profile = sketch.mep_wall_5_l1_1_s, distance = 105.75 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_5_l1
-    // MEP penetrations (lane H3) for wall_a_l1: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_a_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_a_l1_p_zx_0 = plane.offset(base = origin.zx, distance = -1.375 in)
     sketch mep_wall_a_l1_0_s on plane.mep_wall_a_l1_p_zx_0 {
         c = circle(center = [60 in, 358 in], radius = 1.25 in)
     }
     feature mep_wall_a_l1_0 = extrude(profile = sketch.mep_wall_a_l1_0_s, distance = 15.375 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_a_l1
-    // MEP penetrations (lane H3) for wall_d_l2: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for wall_d_l2: bored holes and box cut-outs where the runs pass
     feature mep_wall_d_l2_p_xy_0 = plane.offset(base = origin.xy, distance = -6.4198 in)
     sketch mep_wall_d_l2_0_s on plane.mep_wall_d_l2_p_xy_0 {
         c = circle(center = [346.5 in, 4 in], radius = 1.05 in)

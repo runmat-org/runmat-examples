@@ -22,8 +22,6 @@
   "thumbnailAlt": "A root locus reaching the imaginary axis at the marked points, where the gain equals its margin, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/margins-three-ways",
-    "source": "website/content/math/control-systems/examples/margins-three-ways.m",
-    "thumbnail": "website/public/math-assets/control-systems/margins-three-ways.webp"
+    "key": "website:math/control-systems/margins-three-ways"
   }
 }

@@ -3,7 +3,7 @@ std 1
 
 // Bath fixtures on the second floor, in building coordinates: the hall bath (60 in tub, toilet,
 // 36 in vanity) and the primary bath (36 x 48 in shower with glass, toilet, 60 in double vanity),
-// on the tile floor. Simple bodies for coordination with the plumbing lane.
+// on the tile floor. Simple bodies the plumbing connects to.
 part baths {
     feature xy_p122_25 = plane.offset(base = origin.xy, distance = 122.25 in)
     feature xy_p124_25 = plane.offset(base = origin.xy, distance = 124.25 in)
@@ -155,7 +155,7 @@ part baths {
     }
     feature vbasin_p2 = extrude(profile = sketch.vbasin_p2_s, distance = 8 in, mode = cut)
 
-    // MEP penetrations (lane H3) for all: bored holes and box cut-outs where the runs pass
+    // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_xy_8 = plane.offset(base = origin.xy, distance = 114.0896 in)
     feature mep_all_p_xy_7 = plane.offset(base = origin.xy, distance = 115.3302 in)
     feature mep_all_p_xy_6 = plane.offset(base = origin.xy, distance = 116.65 in)

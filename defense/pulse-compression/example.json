@@ -19,8 +19,6 @@
   "thumbnailAlt": "Raw radar return and the matched-filter output resolving two targets near 12 km, rendered by RunMat",
   "origin": {
     "page": "/industries/defense",
-    "key": "website:industries/defense/pulse-compression",
-    "source": "website/content/industries/defense/pulse-compression.m",
-    "thumbnail": "website/public/industries-assets/defense/pulse-compression.webp"
+    "key": "website:industries/defense/pulse-compression"
   }
 }

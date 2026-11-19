@@ -24,10 +24,7 @@
   "theme": "bracket-hook-load",
   "thumbnailAlt": "Displacement of a steel wall-hook bracket under a hanging load, solved in RunMat",
   "origin": {
-    "page": "desktop sign-in scene",
-    "key": "desktop:scripts/sign-in-scene/bracket-hook-load",
-    "source": "desktop/scripts/sign-in-scene/bracket-hook-load.fea",
-    "geometry": "desktop/src/workspace/default-sandbox-files/cad/bracket.stp",
-    "thumbnail": "desktop/public/js/sign-in/bracket-hook/displacement.webp"
+    "page": "/simulation/structural",
+    "key": "examples:fea/bracket-hook-load"
   }
 }

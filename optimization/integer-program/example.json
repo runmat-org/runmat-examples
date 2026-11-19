@@ -22,8 +22,6 @@
   "thumbnailAlt": "Feasible region of a small integer program with its integer points and both optima, rendered by RunMat",
   "origin": {
     "page": "/math/optimization",
-    "key": "website:math/optimization/integer-program",
-    "source": "website/content/math/optimization/examples/integer-program.m",
-    "thumbnail": "website/public/math-assets/optimization/integer-program.webp"
+    "key": "website:math/optimization/integer-program"
   }
 }

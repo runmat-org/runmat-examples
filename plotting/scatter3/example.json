@@ -25,8 +25,6 @@
   "thumbnailAlt": "A dome of points colored from blue at the bottom to red at the top, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/scatter3",
-    "source": "website/content/math/plotting/examples/scatter3.m",
-    "thumbnail": "website/public/math-assets/plotting/scatter3.webp"
+    "key": "website:math/plotting/scatter3"
   }
 }

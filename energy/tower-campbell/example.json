@@ -22,8 +22,6 @@
   "thumbnailAlt": "Tower first frequency against 1P and 3P lines over rotor speed, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/tower-campbell",
-    "source": "website/content/industries/energy/tower-campbell.m",
-    "thumbnail": "website/public/industries-assets/energy/tower-campbell.webp"
+    "key": "website:industries/energy/tower-campbell"
   }
 }

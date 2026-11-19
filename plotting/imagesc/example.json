@@ -25,8 +25,6 @@
   "thumbnailAlt": "A scalar field drawn with imagesc and a colorbar, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/imagesc",
-    "source": "website/content/math/plotting/examples/imagesc.m",
-    "thumbnail": "website/public/math-assets/plotting/imagesc.webp"
+    "key": "website:math/plotting/imagesc"
   }
 }

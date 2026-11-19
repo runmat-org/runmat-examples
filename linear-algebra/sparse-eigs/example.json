@@ -27,8 +27,6 @@
   "thumbnailAlt": "The five smallest eigenvalues from eigs beside the exact values, rendered by RunMat",
   "origin": {
     "page": "/math/linear-algebra",
-    "key": "website:math/linear-algebra/sparse-eigs",
-    "source": "website/content/math/linear-algebra/examples/sparse-eigs.m",
-    "thumbnail": "website/public/math-assets/linear-algebra/sparse-eigs.webp"
+    "key": "website:math/linear-algebra/sparse-eigs"
   }
 }

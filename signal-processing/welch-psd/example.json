@@ -20,8 +20,6 @@
   "thumbnailAlt": "A single-run FFT magnitude above a Welch PSD estimate of the same signal, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/welch-psd",
-    "source": "website/content/math/signal-processing/examples/welch-psd.m",
-    "thumbnail": "website/public/math-assets/signal-processing/welch-psd.webp"
+    "key": "website:math/signal-processing/welch-psd"
   }
 }

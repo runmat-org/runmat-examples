@@ -27,8 +27,6 @@
   "thumbnailAlt": "Side-by-side box plots of two batches with the t-test result in the title, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/two-batches",
-    "source": "website/content/math/statistics/examples/two-batches.m",
-    "thumbnail": "website/public/math-assets/statistics/two-batches.webp"
+    "key": "website:math/statistics/two-batches"
   }
 }

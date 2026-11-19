@@ -27,8 +27,6 @@
   "thumbnailAlt": "The bootstrap distribution of a median with the 95% interval marked, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/bootstrap-median",
-    "source": "website/content/math/statistics/examples/bootstrap-median.m",
-    "thumbnail": "website/public/math-assets/statistics/bootstrap-median.webp"
+    "key": "website:math/statistics/bootstrap-median"
   }
 }

@@ -25,8 +25,6 @@
   "thumbnailAlt": "Two lobed patterns on polar axes, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/polarplot",
-    "source": "website/content/math/plotting/examples/polarplot.m",
-    "thumbnail": "website/public/math-assets/plotting/polarplot.webp"
+    "key": "website:math/plotting/polarplot"
   }
 }

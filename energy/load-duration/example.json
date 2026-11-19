@@ -19,8 +19,6 @@
   "thumbnailAlt": "A utility's hourly load for a year sorted from highest to lowest, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/load-duration",
-    "source": "website/content/industries/energy/load-duration.m",
-    "thumbnail": "website/public/industries-assets/energy/load-duration.webp"
+    "key": "website:industries/energy/load-duration"
   }
 }

@@ -22,8 +22,6 @@
   "thumbnailAlt": "A regression line with its prediction band beside residuals against fitted values, rendered by RunMat",
   "origin": {
     "page": "/math/statistics",
-    "key": "website:math/statistics/regression-diagnostics",
-    "source": "website/content/math/statistics/examples/regression-diagnostics.m",
-    "thumbnail": "website/public/math-assets/statistics/regression-diagnostics.webp"
+    "key": "website:math/statistics/regression-diagnostics"
   }
 }

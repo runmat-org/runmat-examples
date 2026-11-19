@@ -11,7 +11,12 @@
   "kind": "design",
   "visual": "3d",
   "entry": "disc_cam.part",
-  "tags": ["cad", "part", "cam", "matlab-values"],
+  "tags": [
+    "cad",
+    "part",
+    "cam",
+    "matlab-values"
+  ],
   "roles": [
     "structural"
   ],
@@ -22,8 +27,6 @@
   "thumbnailAlt": "A disc cam with a cycloidal lobe, rendered by RunMat",
   "origin": {
     "page": "/industries/industrial-machinery",
-    "key": "runmat-cad:disc-cam",
-    "source": "runmat-cad/crates/runmat-design-tools/tests/fixtures/disc_cam",
-    "thumbnail": null
+    "key": "examples:industrial-machinery/disc-cam"
   }
 }

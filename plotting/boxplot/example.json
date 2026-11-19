@@ -25,8 +25,6 @@
   "thumbnailAlt": "Box plots of tensile strength for four batches with outliers marked, rendered by RunMat",
   "origin": {
     "page": "/math/plotting",
-    "key": "website:math/plotting/boxplot",
-    "source": "website/content/math/plotting/examples/boxplot.m",
-    "thumbnail": "website/public/math-assets/plotting/boxplot.webp"
+    "key": "website:math/plotting/boxplot"
   }
 }

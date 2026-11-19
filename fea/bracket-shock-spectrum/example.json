@@ -26,7 +26,6 @@
   "thumbnailAlt": "Peak displacement of a steel bracket under a shock response spectrum, solved in RunMat",
   "origin": {
     "page": "/simulation/structural",
-    "key": "website:simulation/structural/bracket-shock-spectrum",
-    "source": "runmat-examples/fea/bracket-shock-spectrum/bracket-shock-spectrum.fea"
+    "key": "website:simulation/structural/bracket-shock-spectrum"
   }
 }

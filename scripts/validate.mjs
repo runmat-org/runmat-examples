@@ -17,6 +17,7 @@
  * desktop/src/lib/examples/run-bundle.ts). The pin's file count and total are checked always; with `--runs`, each
  * file and project.json are checked too. A bundle over a limit does not open already run, so it is an error.
  */
+import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -186,6 +187,12 @@ if (!LIMITS) warnings.push("bundle size limits not checked: runmat-private is no
 const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
 console.log(`${total} examples`);
 for (const [group, count] of Object.entries(counts)) console.log(`  ${group}: ${count}`);
+// The root README's catalog is generated from the example.json records; it must match them.
+{
+  const check = spawnSync(process.execPath, [join(ROOT, "scripts", "build-readme.mjs"), "--check"], { encoding: "utf8" });
+  if (check.status !== 0) errors.push(check.stderr.trim() || "README.md catalog check failed");
+}
+
 for (const warning of warnings) console.warn(`warning: ${warning}`);
 for (const error of errors) console.error(`error: ${error}`);
 if (errors.length > 0) {

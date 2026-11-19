@@ -25,8 +25,6 @@
   "thumbnailAlt": "Temperature falling along an aluminum pin fin from its 80 C base, solved in RunMat",
   "origin": {
     "page": "/simulation/thermal",
-    "key": "website:simulation/thermal/pin-fin-convection",
-    "source": "runmat-examples/fea/pin-fin-convection/pin-fin-convection.fea",
-    "geometry": "geometry/pin-fin.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+    "key": "website:simulation/thermal/pin-fin-convection"
   }
 }

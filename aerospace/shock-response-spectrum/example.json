@@ -23,8 +23,6 @@
   "thumbnailAlt": "Shock response spectrum of a decaying multi-tone transient against its peak input, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/shock-response-spectrum",
-    "source": "website/content/industries/aerospace/shock-response-spectrum.m",
-    "thumbnail": "website/public/industries-assets/aerospace/shock-response-spectrum.webp"
+    "key": "website:industries/aerospace/shock-response-spectrum"
   }
 }

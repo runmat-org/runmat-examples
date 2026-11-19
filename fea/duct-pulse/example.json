@@ -23,7 +23,6 @@
   "thumbnailAlt": "Sound pulse traveling down an air duct, solved in RunMat",
   "origin": {
     "page": "/simulation/acoustics",
-    "key": "website:simulation/acoustics/duct-pulse",
-    "source": "runmat-examples/fea/duct-pulse/duct-pulse.fea"
+    "key": "website:simulation/acoustics/duct-pulse"
   }
 }

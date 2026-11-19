@@ -22,8 +22,6 @@
   "thumbnailAlt": "Bode plot of a mass-spring-damper with a resonant peak near 10 rad/s, rendered by RunMat",
   "origin": {
     "page": "/math/control-systems",
-    "key": "website:math/control-systems/bode-resonance",
-    "source": "website/content/math/control-systems/examples/bode-resonance.m",
-    "thumbnail": "website/public/math-assets/control-systems/bode-resonance.webp"
+    "key": "website:math/control-systems/bode-resonance"
   }
 }

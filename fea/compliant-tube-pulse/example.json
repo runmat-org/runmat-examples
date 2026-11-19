@@ -25,7 +25,6 @@
   "thumbnailAlt": "Pressure pulse traveling along a compliant silicone tube, solved in RunMat",
   "origin": {
     "page": "/simulation/fluid-structure",
-    "key": "website:simulation/fluid-structure/compliant-tube-pulse",
-    "source": "runmat-examples/fea/compliant-tube-pulse/compliant-tube-pulse.fea"
+    "key": "website:simulation/fluid-structure/compliant-tube-pulse"
   }
 }

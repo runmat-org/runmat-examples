@@ -23,8 +23,6 @@
   "thumbnailAlt": "A noisy 16-QAM constellation at 20 dB SNR, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/qam16-constellation",
-    "source": "website/content/math/signal-processing/examples/qam16-constellation.m",
-    "thumbnail": "website/public/math-assets/signal-processing/qam16-constellation.webp"
+    "key": "website:math/signal-processing/qam16-constellation"
   }
 }

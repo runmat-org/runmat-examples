@@ -6,8 +6,7 @@
 // heatsink clears its window by 0.1 mm or more, so the shell carries none of the heat.
 //
 // Heat: copied by hand from the ESC's gate_drive simulation and its parts, because the FEA does
-// not yet take a circuit's losses or a routed board as a heat source (brief to the FEA lane,
-// 2026-11-05). Per channel at 20 A: conduction in the two conducting FETs 20^2 x 1.6 mOhm x 2 =
+// not yet take a circuit's losses or a routed board as a heat source. Per channel at 20 A: conduction in the two conducting FETs 20^2 x 1.6 mOhm x 2 =
 // 1.28 W; switching 0.5 x 22.2 V x 20 A x (7 ns + 7 ns) x 48 kHz = 0.15 W (7 ns edges from the
 // simulation); gate drive 6 x 35 nC x 10 V x 48 kHz = 0.10 W; the three current shunts at most
 // 20^2 x 0.5 mOhm = 0.20 W (one shunt carrying the full 20 A); the phase copper, about one 2 oz

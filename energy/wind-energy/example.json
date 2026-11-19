@@ -19,8 +19,6 @@
   "thumbnailAlt": "Histogram of hourly wind speed with a fitted Weibull density, rendered by RunMat",
   "origin": {
     "page": "/industries/energy",
-    "key": "website:industries/energy/wind-energy",
-    "source": "website/content/industries/energy/wind-energy.m",
-    "thumbnail": "website/public/industries-assets/energy/wind-energy.webp"
+    "key": "website:industries/energy/wind-energy"
   }
 }

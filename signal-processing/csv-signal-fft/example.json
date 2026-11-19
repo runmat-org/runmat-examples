@@ -22,8 +22,6 @@
   "thumbnailAlt": "Recorded CSV data, the prepared uniform signal and its single-sided amplitude spectrum, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/csv-signal-fft",
-    "source": "website/content/math/signal-processing/examples/csv-signal-fft/analysis.m",
-    "thumbnail": "website/public/math-assets/signal-processing/csv-signal-fft.webp"
+    "key": "website:math/signal-processing/csv-signal-fft"
   }
 }

@@ -22,8 +22,6 @@
   "thumbnailAlt": "Board and case temperatures of an avionics unit over a three-hour flight against the board limit, rendered by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/avionics-thermal",
-    "source": "website/content/industries/aerospace/avionics-thermal.m",
-    "thumbnail": "website/public/industries-assets/aerospace/avionics-thermal.webp"
+    "key": "website:industries/aerospace/avionics-thermal"
   }
 }

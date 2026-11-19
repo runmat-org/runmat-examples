@@ -24,8 +24,6 @@
   "thumbnailAlt": "Temperature along a copper fuse element at 120 A, hottest at its middle, solved in RunMat",
   "origin": {
     "page": "/simulation/electrothermal",
-    "key": "website:simulation/electrothermal/fuse-link-overload",
-    "source": "runmat-examples/fea/fuse-link-overload/fuse-link-overload.fea",
-    "geometry": "geometry/fuse-element.step, written by oct-13-2026/website/physics/studies/card-examples/generate-card-geometry.cc (Open CASCADE)"
+    "key": "website:simulation/electrothermal/fuse-link-overload"
   }
 }

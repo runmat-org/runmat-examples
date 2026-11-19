@@ -23,8 +23,6 @@
   "thumbnailAlt": "Spectrogram of a motor run-up, rendered by RunMat",
   "origin": {
     "page": "/math/signal-processing",
-    "key": "website:math/signal-processing/hero",
-    "source": "website/content/math/signal-processing/run-up-spectrogram.m",
-    "thumbnail": "website/public/math-assets/signal-processing/hero.webp"
+    "key": "website:math/signal-processing/hero"
   }
 }

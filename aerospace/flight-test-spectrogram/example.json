@@ -21,8 +21,6 @@
   "thumbnailAlt": "Flight-test spectrogram, drawn by RunMat",
   "origin": {
     "page": "/industries/aerospace",
-    "key": "website:industries/aerospace/flight-test-spectrogram",
-    "source": "website/content/industries/aerospace/flight-test-spectrogram.m",
-    "thumbnail": "website/public/industries-assets/aerospace/flight-test-spectrogram.webp"
+    "key": "website:industries/aerospace/flight-test-spectrogram"
   }
 }
