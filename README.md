@@ -347,3 +347,7 @@ does for [simulation](https://runmat.com/simulation), [CAD](https://runmat.com/c
 ## Contributing
 
 [CONTRIBUTING.md](CONTRIBUTING.md) describes the layout of an example and how to add one.
+
+## License
+
+The examples in this repository are licensed under the [Apache License 2.0](LICENSE): copy them, change them and use them in your own work. RunMat itself is distributed under its own license; see [runmat.com/license](https://runmat.com/license).
