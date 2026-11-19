@@ -22,12 +22,42 @@ already drawn.
 
 ## Featured
 
-| | | |
-| --- | --- | --- |
-| [![The airliner](aerospace/airliner/.artifacts/thumbnail.webp)](aerospace/airliner) | [![The camera drone](aerospace/camera-drone/.artifacts/thumbnail.webp)](aerospace/camera-drone) | [![The house](construction/house/.artifacts/thumbnail.webp)](construction/house) |
-| **[A narrow-body airliner, inside and out](aerospace/airliner)**<br>Parts and assemblies, with its cabin, flight deck and cargo holds. | **[A foldable camera drone](aerospace/camera-drone)**<br>Shell, folding arms, gimbal and circuit boards, with circuit, thermal and modal studies. | **[A two-story house, foundation to roof](construction/house)**<br>Framing, envelope layers, and the electrical, plumbing and HVAC routed through the framing. |
-| [![The tuning fork's first mode](fea/tuning-fork-modal/.artifacts/thumbnail.webp)](fea/tuning-fork-modal) | [![Random vibration response](aerospace/random-vibration/.artifacts/thumbnail.webp)](aerospace/random-vibration) | [![The RC filter schematic](electronics-semiconductors/rc-filter/.artifacts/thumbnail.webp)](electronics-semiconductors/rc-filter) |
-| **[Tuning fork modes](fea/tuning-fork-modal)**<br>A modal FEA study: natural frequencies and mode shapes from a STEP file. | **[Random vibration of one mode](aerospace/random-vibration)**<br>A qualification spectrum through a 180 Hz mode, checked against Miles' equation. | **[An RC filter sized by a function](electronics-semiconductors/rc-filter)**<br>A circuit whose resistor comes from its corner frequency, with an AC simulation. |
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="aerospace/airliner"><img src="aerospace/airliner/.artifacts/thumbnail.webp" alt="The airliner"></a><br>
+      <b><a href="aerospace/airliner">A narrow-body airliner, inside and out</a></b><br>
+      Parts and assemblies, with its cabin, flight deck and cargo holds.
+    </td>
+    <td width="33%" valign="top">
+      <a href="aerospace/camera-drone"><img src="aerospace/camera-drone/.artifacts/thumbnail.webp" alt="The camera drone"></a><br>
+      <b><a href="aerospace/camera-drone">A foldable camera drone</a></b><br>
+      Shell, folding arms, gimbal and circuit boards, with circuit, thermal and modal studies.
+    </td>
+    <td width="33%" valign="top">
+      <a href="construction/house"><img src="construction/house/.artifacts/thumbnail.webp" alt="The house"></a><br>
+      <b><a href="construction/house">A two-story house, foundation to roof</a></b><br>
+      Framing, envelope layers, and the electrical, plumbing and HVAC routed through the framing.
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="fea/tuning-fork-modal"><img src="fea/tuning-fork-modal/.artifacts/thumbnail.webp" alt="The tuning fork's first mode"></a><br>
+      <b><a href="fea/tuning-fork-modal">Tuning fork modes</a></b><br>
+      A modal FEA study: natural frequencies and mode shapes from a STEP file.
+    </td>
+    <td width="33%" valign="top">
+      <a href="aerospace/random-vibration"><img src="aerospace/random-vibration/.artifacts/thumbnail.webp" alt="Random vibration response"></a><br>
+      <b><a href="aerospace/random-vibration">Random vibration of one mode</a></b><br>
+      A qualification spectrum through a 180 Hz mode, checked against Miles' equation.
+    </td>
+    <td width="33%" valign="top">
+      <a href="electronics-semiconductors/rc-filter"><img src="electronics-semiconductors/rc-filter/.artifacts/thumbnail.webp" alt="The RC filter schematic"></a><br>
+      <b><a href="electronics-semiconductors/rc-filter">An RC filter sized by a function</a></b><br>
+      A circuit whose resistor comes from its corner frequency, with an AC simulation.
+    </td>
+  </tr>
+</table>
 
 ## What is RunMat?
 
