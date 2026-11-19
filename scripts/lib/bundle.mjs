@@ -1,5 +1,5 @@
 /*
- * Shared by capture.mjs and validate.mjs: which files make up an example's source, its source hash, and the
+ * Shared by validate.mjs and the RunMat capture tooling: which files make up an example's source, its source hash, and the
  * content-addressed bundle a captured run is published as.
  *
  * A bundle is one example as a complete project: its source files plus the run the app wrote under
@@ -102,43 +102,6 @@ export function projectManifest(id, entry, files, runManifests = [RUN_MANIFEST(i
 
 export function readJsonFile(path) {
   return JSON.parse(readFileSync(path, "utf8"));
-}
-
-/**
- * The bounds a bundle must fit, read from the app's loader (desktop/src/lib/examples/run-bundle.ts,
- * EXAMPLE_RUN_LIMITS, which matches the desktop importer in shared/runmat-example-package). A bundle over any of them
- * does not open already run: the app falls back to running the example. Returns null when runmat-private is not
- * checked out next to this repository (set RUNMAT_PRIVATE_DIR).
- */
-export function bundleLimits(privateDir = process.env.RUNMAT_PRIVATE_DIR ?? join(ROOT, "../runmat-private")) {
-  const path = join(privateDir, "desktop/src/lib/examples/run-bundle.ts");
-  if (!existsSync(path)) return null;
-  const block = /EXAMPLE_RUN_LIMITS\s*=\s*\{([^}]*)\}/.exec(readFileSync(path, "utf8"))?.[1];
-  if (!block) throw new Error(`${path}: EXAMPLE_RUN_LIMITS not found`);
-  const value = (key) => {
-    const expression = new RegExp(`${key}:\\s*([0-9*\\s]+),`).exec(block)?.[1];
-    if (!expression) throw new Error(`${path}: EXAMPLE_RUN_LIMITS.${key} not found`);
-    return expression.split("*").reduce((product, factor) => product * Number(factor.trim()), 1);
-  };
-  return { manifestBytes: value("manifestBytes"), fileBytes: value("fileBytes"), totalBytes: value("totalBytes"), files: value("files") };
-}
-
-const mb = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-
-/**
- * Where a bundle breaks the limits: one line per broken bound, naming the largest files. `files` holds
- * {path, bytes} with bytes a Buffer or a byte count; `manifestBytes` is project.json's size.
- */
-export function bundleViolations(manifestBytes, files, limits) {
-  const sized = files.map((file) => ({ path: file.path, bytes: typeof file.bytes === "number" ? file.bytes : file.bytes.length }));
-  const total = sized.reduce((sum, file) => sum + file.bytes, 0);
-  const largest = [...sized].sort((a, b) => b.bytes - a.bytes).slice(0, 3).map((file) => `${file.path} ${mb(file.bytes)}`).join(", ");
-  const found = [];
-  if (manifestBytes > limits.manifestBytes) found.push(`project.json is ${mb(manifestBytes)}, over the ${mb(limits.manifestBytes)} limit`);
-  if (sized.length > limits.files) found.push(`${sized.length} files, over the ${limits.files}-file limit`);
-  for (const file of sized) if (file.bytes > limits.fileBytes) found.push(`${file.path} is ${mb(file.bytes)}, over the ${mb(limits.fileBytes)} per-file limit`);
-  if (total > limits.totalBytes) found.push(`${mb(total)} in all, over the ${mb(limits.totalBytes)} limit (largest: ${largest})`);
-  return found;
 }
 
 /**

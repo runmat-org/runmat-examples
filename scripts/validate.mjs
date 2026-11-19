@@ -10,19 +10,14 @@
  * Captured runs: an example's pin, .artifacts/capture.json, must match its source (sourceSha256) and the
  * runtime pinned in runtime.json, so a changed source or a new runtime fails until the example is recaptured.
  * An example without a pin is a warning; `--require-runs` makes it an error once every example is captured.
- * With `--runs <dir>` (the local bundle folder), each pinned bundle is also checked file by file, and the
- * workspace.json resultView must name a figure the run has.
- *
- * Size: every pin must fit the app's bundle limits (EXAMPLE_RUN_LIMITS in runmat-private's
- * desktop/src/lib/examples/run-bundle.ts). The pin's file count and total are checked always; with `--runs`, each
- * file and project.json are checked too. A bundle over a limit does not open already run, so it is an error.
+ * The published bundles themselves are checked by the RunMat maintainers' capture tooling.
  */
 import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { PIN_PATH, RUNTIME_PATH, bundleLimits, bundleViolations, sha256, sourceSha256 } from "./lib/bundle.mjs";
+import { PIN_PATH, RUNTIME_PATH, sourceSha256 } from "./lib/bundle.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const KINDS = new Set(["script", "study", "design"]);
@@ -31,12 +26,9 @@ const REQUIRED = ["id", "title", "pickerTitle", "pickerLine", "description", "to
 
 const args = process.argv.slice(2);
 const REQUIRE_RUNS = args.includes("--require-runs");
-const RUNS_DIR = args.includes("--runs") ? args[args.indexOf("--runs") + 1] : process.env.RUNMAT_EXAMPLE_RUNS_DIR;
 const runtime = existsSync(RUNTIME_PATH) ? JSON.parse(readFileSync(RUNTIME_PATH, "utf8")) : null;
 const DIGEST = /^[0-9a-f]{64}$/;
 let pinned = 0;
-const LIMITS = bundleLimits();
-const examplesWorkspace = new Map();
 
 const errors = [];
 const warnings = [];
@@ -105,7 +97,6 @@ for (const group of groups) {
     if (!existsSync(workspacePath)) errors.push(`${where}: no .artifacts/workspace.json`);
     else {
       const workspace = readJson(workspacePath, where);
-      if (workspace) examplesWorkspace.set(where, workspace);
       if (workspace) {
         // The app reads editor.openFiles and editor.activeFile.
         const editor = workspace.editor ?? {};
@@ -136,7 +127,7 @@ for (const group of groups) {
 function checkPin(dir, where, example) {
   const pinPath = join(dir, PIN_PATH);
   if (!existsSync(pinPath)) {
-    (REQUIRE_RUNS ? errors : warnings).push(`${where}: no captured run (${PIN_PATH}); run node scripts/capture.mjs --only ${example.id}`);
+    (REQUIRE_RUNS ? errors : warnings).push(`${where}: no captured run (${PIN_PATH}); a maintainer captures it`);
     return;
   }
   const pin = readJson(pinPath, where);
@@ -152,38 +143,8 @@ function checkPin(dir, where, example) {
   else if (pinnedVersion && pin.runmat?.version !== pinnedVersion) errors.push(`${where}: stale pin, captured on RunMat ${pin.runmat?.version}, runtime.json pins ${pinnedVersion}; recapture it`);
   else if (!pinnedVersion) warnings.push(`${where}: runtime.json pins no ${example.kind === "study" ? "studies.version" : "runmat.version"}`);
   if (!["cpu_reference", "gpu"].includes(pin.device)) errors.push(`${where}: pin device must be cpu_reference or gpu, not ${pin.device}`);
-  if (LIMITS && (pin.bundle.files > LIMITS.files || pin.bundle.bytes > LIMITS.totalBytes)) {
-    errors.push(`${where}: captured run is ${pin.bundle.files} files, ${(pin.bundle.bytes / 1024 / 1024).toFixed(1)} MB, over the app's bundle limits (${LIMITS.files} files, ${LIMITS.totalBytes / 1024 / 1024} MB); it would not open already run`);
-  }
-  if (RUNS_DIR) checkBundle(where, example, pin);
 }
 
-/** The local bundle: project.json hashes to the pin, every file matches, and resultView exists in the run. */
-function checkBundle(where, example, pin) {
-  const base = join(RUNS_DIR, example.id, pin.bundle.sha256);
-  if (!existsSync(join(base, "project.json"))) {
-    warnings.push(`${where}: bundle ${pin.bundle.sha256.slice(0, 12)} is not in ${RUNS_DIR}`);
-    return;
-  }
-  const manifestBytes = readFileSync(join(base, "project.json"));
-  if (sha256(manifestBytes) !== pin.bundle.sha256) {
-    errors.push(`${where}: bundle project.json does not hash to the pin`);
-    return;
-  }
-  const manifest = JSON.parse(manifestBytes.toString("utf8"));
-  if (LIMITS) for (const problem of bundleViolations(manifestBytes.length, manifest.files, LIMITS)) errors.push(`${where}: bundle too large to open already run: ${problem}`);
-  for (const file of manifest.files) {
-    const path = join(base, "files", file.path);
-    if (!existsSync(path)) errors.push(`${where}: bundle file ${file.path} is missing`);
-    else if (sha256(readFileSync(path)) !== file.sha256) errors.push(`${where}: bundle file ${file.path} does not match its sha256`);
-  }
-  const run = JSON.parse(readFileSync(join(base, "files", manifest.run_manifest), "utf8"));
-  const handles = Object.values(run.cells ?? {}).flatMap((cell) => (cell.figures ?? []).map((figure) => figure.handle));
-  const view = examplesWorkspace.get(where)?.resultView;
-  if (view?.kind === "figure" && !handles.includes(view.figure)) errors.push(`${where}: resultView names figure ${view.figure}, which the captured run does not have (${handles.join(", ") || "none"})`);
-}
-
-if (!LIMITS) warnings.push("bundle size limits not checked: runmat-private is not next to this repository (set RUNMAT_PRIVATE_DIR)");
 const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
 console.log(`${total} examples`);
 for (const [group, count] of Object.entries(counts)) console.log(`  ${group}: ${count}`);
