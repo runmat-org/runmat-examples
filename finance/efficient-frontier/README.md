@@ -15,8 +15,8 @@ lower than the 10 % volatility of the least risky asset on its own. It holds 69.
 ## The problem
 
 Portfolio construction starts from the trade-off between expected return and risk. For a set of
-assets with expected returns μ and covariance matrix Σ, Markowitz's question is: for each target
-return m, which fully invested weights w give the smallest variance?
+assets with expected returns μ and covariance matrix Σ, Markowitz's problem is to find, for each target
+return m, the fully invested weights w with the smallest variance:
 
 $$\min_w\ w^\top \Sigma w \quad \text{subject to} \quad \mathbf{1}^\top w = 1,\ \ \mu^\top w = m$$
 
