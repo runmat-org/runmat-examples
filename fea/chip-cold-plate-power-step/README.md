@@ -1,53 +1,112 @@
-# Chip cold plate power step
+# Chip cold plate warm-up after a 50 W power step: a transient conjugate heat transfer FEA study
 
-Warm-up of a water-cooled aluminum block after a die on it switches on. Card example for
-**transient** conjugate heat transfer on `/simulation/conjugate-heat-transfer`.
+This study follows a water-cooled aluminum cold plate from the moment a 20 × 20 mm die on it
+switches on at 50 W. The 80 × 40 × 12 mm 6061-T6 block carries one straight 6 mm channel with water
+at 0.25 m/s entering at 25 °C. The study solves the water flow and the heat in the block and the
+water together for 150 s, and samples the die temperature as it climbs. Hand checks put the die
+near 46 °C at steady state, with a time constant of about 35 s, and the water 1.70 K warmer at the
+outlet.
 
-## Setup
+## The problem
 
-| Item | Value |
+When a processor or power device switches on, its cold plate takes time to warm up. The transient
+sets how hot the die runs through a short burst of load and how long the plate takes to settle, so
+it matters for duty cycles and for control loops that read the die temperature.
+
+The flow is laminar: 0.25 m/s in the 6 mm bore is 7.05 × 10⁻³ kg/s with Re = 1749. The hand checks
+in the study's header estimate the steady state in three parts:
+
+- **Water rise.** Q / (ṁc) = 50 / (7.05 × 10⁻³ × 4179) = 1.70 K mixed mean, so the water leaves at
+  26.7 °C.
+- **Film.** The 80 mm channel is in its thermal entrance. Shah's mean Nusselt number for uniform
+  flux, with Gz = Re Pr d / L = 765, is
+
+  $$Nu = 1.953\,Gz^{1/3} = 17.9, \qquad h = \frac{17.9 \times 0.613}{0.006} = 1825\ \text{W/m}^2\text{K}$$
+
+  Over 1.51 × 10⁻³ m² of channel wall, that is an 18 K drop. Fully developed flow (Nu = 4.36) would
+  give 74 K, an upper bound the short channel never reaches.
+- **Conduction** through the 4 mm of aluminum under the die adds at most 3 K.
+
+Together the die settles near 25 + 0.9 + 18 + 2 = 46 °C. The block stores ρcV = 2700 × 896 ×
+3.61 × 10⁻⁵ = 87 J/K behind about 0.4 K/W, so τ ≈ 35 s: about 63 % of the final rise by 35 s and
+95 % by 105 s.
+
+## How the study works
+
+1. **Geometry and mesh.** `geometry/chip-cold-plate.step` holds the block (`Cold plate`) and the
+   water in its channel (`Coolant`) as separate bodies that share the channel wall. Linear
+   tetrahedra at 2.5 mm, refined to 0.75 mm on the channel wall.
+
+2. **Materials.** 6061-T6 aluminum (2,700 kg/m³, 167 W/m·K, 896 J/kg·K, ASM) and water at 300 K
+   (997 kg/m³, 855 × 10⁻⁶ Pa·s, 0.613 W/m·K, 4,179 J/kg·K, Incropera Table A.6).
+
+3. **Loads and flow.** 125 kW/m² on the die footprint (50 W on 400 mm²) from t = 0, 0.25 m/s at
+   25 °C into the inlet, 0 Pa at the outlet, no slip on the wall and perfect thermal contact across
+   it. The other outer faces are insulated.
+
+   ```
+   load die_power { heat_flux on geometry.plate.region.die = 125000 W/m^2 }
+   ```
+
+4. **Transient analysis.** 0 to 150 s in 1 s steps, starting the block and the water at 25 °C:
+
+   ```
+   analysis warm_up {
+       conjugate_heat_transfer transient {
+           start_time = 0 s
+           end_time = 150 s
+           time_step = 1 s
+       }
+       initial_conditions = [model.initial.block_start, model.initial.coolant_start]
+   }
+   ```
+
+5. **Outputs.** The peak die temperature, the mean water temperature on the outlet face, and the
+   die temperature sampled at eight times:
+
+   ```
+   output die_temperature_history {
+       value = sample(
+           output.peak_die_temperature,
+           over = time,
+           at = [5 s, 10 s, 20 s, 35 s, 50 s, 75 s, 105 s, 150 s],
+       )
+   ```
+
+## Results
+
+| Quantity | Hand check |
 | --- | --- |
-| Geometry | `geometry/chip-cold-plate.step`: `Cold plate`, 80 × 40 × 12 mm, with one straight 6 mm drilled channel along x (axis at y = 20, z = 5 mm), and `Coolant`, the water in the channel. Faces `Die footprint` (20 × 20 mm centered on the top), `Plate channel wall`, `Plate exterior`; `Inlet`, `Outlet`, `Channel wall` |
-| Solid | 6061-T6 aluminum (ASM): 2700 kg/m³, 167 W/m·K, 896 J/kg·K |
-| Fluid | Water at 300 K (Incropera, Table A.6): 997 kg/m³, 855e-6 Pa·s, 0.613 W/m·K, 4179 J/kg·K, Pr = 5.83 |
-| Flow | Uniform 0.25 m/s at 25 °C into `Inlet` (7.05e-3 kg/s, Re = 1749); `Outlet` at 0 Pa |
-| Heat | 125 kW/m² on `Die footprint` (50 W), on from t = 0; other outer faces insulated |
-| Wetted wall | No slip; perfect thermal contact between `Plate channel wall` and `Channel wall` |
-| Start | Block and water at the model's 25 °C reference temperature |
-| Mesh | Linear tetrahedra, 2.5 mm, 0.75 mm on the channel wall |
-| Analysis | `conjugate_heat_transfer transient`, 0 to 150 s in 1 s steps |
+| Reynolds number | 1749 |
+| Water outlet rise, mixed mean | 1.70 K |
+| Film drop at the channel wall | 18 K |
+| Steady die temperature | about 46 °C |
+| Time constant | about 35 s |
 
-## Outputs
+The study returns the die temperature history, the final `peak_die_temperature` and
+`outlet_temperature`, and the final temperature, velocity and pressure fields. Plot the history
+against 1 − e^(−t/τ) with τ = 35 s to compare it with the lumped hand check. The outlet value is an
+area mean over the face, which weights the slower, warmer water near the wall less than the mixed
+mean does, so it reads a little under 26.7 °C. The uniform inlet profile makes the entrance film
+stronger than Shah's estimate, so a steady die temperature a few kelvin under 46 °C is consistent.
 
-- `die_temperature_history`: peak temperature on the die footprint at 5, 10, 20, 35, 50, 75,
-  105 and 150 s.
-- `peak_die_temperature`, `outlet_temperature` (area-mean over the outlet): final values.
-- `temperature`, `velocity`, `pressure`: final fields.
+## What to try
 
-## Hand check
+1. Raise the inlet velocity to 0.28 m/s, which keeps the flow laminar at Re 1959. The hand check
+   gives a water rise of 1.52 K; look at how much the die temperature falls with it.
+2. Raise the die load to 100 W (`heat_flux` 250,000 W/m²). All the hand-check drops double, so the
+   die settles near 67 °C.
+3. Extend `end_time` to 300 s and check that the die history has flattened.
 
-- **Outlet rise** at steady state: Q / (ṁ c) = 50 / (7.05e-3 × 4179) = **1.70 K** (mixed mean),
-  so the water leaves at 26.7 °C. The area-mean on the outlet face weights the slower, warmer
-  water near the wall less than the mixed mean does, so it reads a little lower.
-- **Film**: the velocity profile develops in about 0.05 Re d = 525 mm and the temperature profile
-  far later, so the 80 mm channel is in its thermal entrance. Shah's mean Nusselt number for a
-  developed velocity profile with uniform flux is Nu = 1.953 Gz^(1/3) with Gz = Re Pr d / L =
-  1749 × 5.83 × 0.006 / 0.080 = 765, so Nu = 17.9 and h = 17.9 × 0.613 / 0.006 = 1825 W/m²·K.
-  Over the 1.51e-3 m² channel wall that is 50 / (1825 × 1.51e-3) = **18 K**. Fully developed flow
-  (Nu = 4.36, 74 K) is an upper bound the channel never reaches.
-- **Conduction** through the 4 mm of aluminum under the die: at most 0.004 / (167 × 4e-4) × 50 =
-  3 K; spreading into the block makes it smaller.
-- **Steady die temperature**: about 25 + 0.9 + 18 + 2 = **46 °C**. The uniform inlet profile makes
-  the entrance film stronger than Shah's estimate, so a run reading a few kelvin lower is
-  consistent.
-- **Time constant**: the block stores ρ c V = 2700 × 896 × 3.61e-5 = 87 J/K behind about
-  (46 − 25) / 50 = 0.42 K/W, so τ ≈ 35 s: about 63 % of the final rise by 35 s and 95 % by 105 s.
+## Files
 
-## Note on the start state
+- `chip-cold-plate-power-step.fea`: the transient conjugate heat transfer study, with its hand checks in the header.
+- `geometry/chip-cold-plate.step`: the block and the water as STEP, with the body and face names the study selects.
+- `runmat.toml`: the project file.
 
-`runmat check` (integration 9bb447a159) refuses a `conjugate_heat_transfer transient` that
-selects an `initial_conditions` entry: native execution admits only a fresh, independent step.
-The study therefore starts from the default state, which it takes to be the model's 298.15 K
-reference temperature.
+## Related
 
-Geometry: written with Open CASCADE by `oct-13-2026/website/physics/studies/card-examples/generate-card-fixtures.cc` (in the runmat-acc-2 workspace). The bodies are fragmented together so their shared faces line up exactly, and the study reads them with `interfaces = shared`. Studies select faces and bodies by their CAD names.
+- [Conjugate heat transfer in RunMat](https://runmat.com/simulation/conjugate-heat-transfer)
+- [Conjugate heat transfer physics reference](https://runmat.com/docs/simulation/physics/conjugate-heat-transfer) and [transient study guide](https://runmat.com/docs/simulation/language/guides/transient-study-with-generated-inputs)
+- [EV battery module on a liquid cold plate](../battery-cold-plate) and [heated tube Nusselt number](../heated-tube-nusselt)
+- [Download RunMat](https://runmat.com/download)
