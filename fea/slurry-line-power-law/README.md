@@ -1,38 +1,93 @@
-# Slurry line pressure drop
+# Pressure drop of a shear-thinning slurry in a pipe: a power-law CFD study
 
-Steady laminar flow of a shear-thinning slurry through a straight pipe. Card example for
-**non-Newtonian** flow on `/simulation/fluid-flow`.
+This study solves steady laminar flow of a coal slurry through a 25 mm pipe, 400 mm long, at a mean
+speed of 0.05 m/s (1.47 L/min). The slurry is shear-thinning, modeled as a power-law fluid with
+n = 0.4 and K = 0.2 Pa·s⁰·⁴. The study returns the pressure drop, the peak speed and the velocity
+profile. The power-law closed form gives a 44 Pa drop and a centerline speed of 0.079 m/s, against
+0.100 m/s for a Newtonian fluid at the same mean speed.
 
-## Setup
+## The problem
 
-| Item | Value |
+Slurries, pastes, polymer melts, foods and drilling muds get thinner as they are sheared faster. A
+pressure-drop estimate made with one viscosity can be far off, because the apparent viscosity
+changes across the pipe: high at the slow center, low at the fast-sheared wall. The power-law
+(Ostwald–de Waele) model, τ = Kγ̇ⁿ, captures that with two constants. This slurry is the worked
+example in Darby and Chhabra, *Chemical Engineering Fluid Mechanics*: n = 0.4, an apparent
+viscosity of 200 cP at 1 s⁻¹ (so K = 0.2 Pa·s⁰·⁴), and a specific gravity of 1.5.
+
+The Metzner–Reed Reynolds number is 44, so the flow is laminar and develops within about
+0.05 Re_MR D = 55 mm. For developed laminar power-law flow, the wall shear rate is
+
+$$\dot\gamma_w = \frac{3n+1}{4n}\,\frac{8V}{D} = 1.375 \times \frac{8 \times 0.05}{0.025} = 22\ \text{s}^{-1}$$
+
+so τw = Kγ̇wⁿ = 0.2 × 22⁰·⁴ = 0.689 Pa, and
+
+$$\Delta P = \frac{4\,\tau_w\,L}{D} = \frac{4 \times 0.689 \times 0.400}{0.025} = 44\ \text{Pa}$$
+
+plus a small entrance loss. The profile is blunter than a parabola: the centerline speed is
+V(3n + 1)/(n + 1) = 0.079 m/s.
+
+## How the study works
+
+1. **Geometry and mesh.** `geometry/slurry-line-d25x400.step` holds the slurry in the bore as body
+   `Slurry`, with faces `Inlet`, `Outlet` and `Wall`. The pipe is a rigid wall, so it is not
+   meshed. Linear tetrahedra at 2.5 mm, ten cells across the bore.
+
+2. **Material.** The slurry as a power-law fluid:
+
+   ```
+   material coal_slurry {
+       mass_density = 1500 kg/m^3
+       fluid {
+           law = power_law
+           consistency = 0.2
+           power_index = 0.4
+       }
+   }
+   ```
+
+3. **Boundaries.** A uniform 0.05 m/s at the inlet, no slip on the wall and 0 Pa gauge at the
+   outlet.
+
+4. **Study.** A steady fluid analysis, with the pressure drop and the peak speed:
+
+   ```
+   analysis flow { fluid steady {} }
+   output pressure_drop = pressure_drop(analysis.flow, from = geometry.line.region.inlet, to = geometry.line.region.outlet)
+   output peak_speed = max(magnitude(output.velocity), over = geometry.line.region.slurry)
+   ```
+
+## Results
+
+| Quantity | Power-law closed form |
 | --- | --- |
-| Geometry | `geometry/slurry-line-d25x400.step`: the slurry in a 25 mm bore, 400 mm long, along +x. Body `Slurry`; faces `Inlet`, `Outlet`, `Wall` |
-| Fluid | Coal slurry from the worked example in Darby and Chhabra, *Chemical Engineering Fluid Mechanics*: power law, n = 0.4, apparent viscosity 200 cP at 1 s⁻¹ (K = 0.2 Pa·s⁰·⁴), specific gravity 1.5 |
-| Inlet | Uniform 0.05 m/s (1.47 L/min) |
-| Wall | No slip |
-| Outlet | 0 Pa gauge |
-| Mesh | Linear tetrahedra, 2.5 mm (ten cells across the bore) |
-| Analysis | `fluid steady` |
+| Metzner–Reed Reynolds number | 44 |
+| Wall shear rate | 22 s⁻¹ |
+| Wall shear stress | 0.689 Pa |
+| `pressure_drop` | 44 Pa, plus a small entrance loss |
+| `peak_speed`, centerline | 0.079 m/s (Newtonian: 0.100 m/s) |
 
-Metzner–Reed Reynolds number:
-Re_MR = ρ V²⁻ⁿ Dⁿ / (K 8ⁿ⁻¹ ((3n+1)/(4n))ⁿ) = 1500 × 0.05¹·⁶ × 0.025⁰·⁴ / (0.2 × 8⁻⁰·⁶ × 1.375⁰·⁴) = 44,
-laminar. The profile develops within about 0.05 Re_MR D = 55 mm.
+The study also returns the velocity and pressure fields. A section of the velocity field past the
+first 55 mm shows the blunted profile: flatter across the middle than a parabola, with the shear
+concentrated near the wall.
 
-## Outputs
+## What to try
 
-- `pressure_drop`: mean inlet pressure minus mean outlet pressure, Pa.
-- `peak_speed`: largest speed, on the axis.
-- `velocity`, `pressure`: cell fields.
+1. Double the inlet speed to 0.1 m/s. The pressure drop rises only to 58 Pa, a factor of 2⁰·⁴ = 1.32,
+   because the slurry thins as it is sheared harder.
+2. Set `power_index` to 1 for a Newtonian fluid of 0.2 Pa·s. The drop becomes 205 Pa and the
+   centerline 0.100 m/s.
+3. Compare the section profile with `power_index` 0.4 and 1 to see the blunting directly.
 
-## Hand check
+## Files
 
-Developed laminar power-law flow in a pipe:
+- `slurry-line-power-law.fea`: the non-Newtonian flow study, with the power-law hand check in its header.
+- `geometry/slurry-line-d25x400.step`: the slurry in the bore as STEP, with the body and face names the study selects.
+- `runmat.toml`: the project file.
 
-- Wall shear rate ((3n + 1) / (4n)) × 8V / D = 1.375 × 8 × 0.05 / 0.025 = 22 s⁻¹.
-- Wall shear stress τw = K × 22⁰·⁴ = 0.2 × 3.44 = 0.689 Pa.
-- Pressure drop ΔP = 4 τw L / D = 4 × 0.689 × 0.400 / 0.025 = **44 Pa**, plus a small entrance loss.
-- Centerline speed V (3n + 1) / (n + 1) = 0.05 × 2.2 / 1.4 = **0.079 m/s**. A Newtonian fluid at
-  the same mean speed peaks at 0.100 m/s.
+## Related
 
-Geometry: written with Open CASCADE by `oct-13-2026/website/physics/studies/card-examples/generate-card-fixtures.cc` (in the runmat-acc-2 workspace). Studies select faces and bodies by their CAD names.
+- [Fluid flow simulation in RunMat](https://runmat.com/simulation/fluid-flow)
+- [Fluid materials reference](https://runmat.com/docs/simulation/language/reference/fluid-materials) and [fluid physics reference](https://runmat.com/docs/simulation/physics/fluid)
+- [Hydraulic line pressure drop](../hydraulic-line-poiseuille) and [pipe wall shear stress](../pipe-wall-shear)
+- [Download RunMat](https://runmat.com/download)

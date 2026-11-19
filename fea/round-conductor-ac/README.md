@@ -1,42 +1,90 @@
-# AC resistance of a round conductor
+# AC resistance and skin effect in a round copper conductor: a harmonic electromagnetic FEA study
 
-AC resistance of a round copper conductor, 20 mm in diameter, at 50 Hz and 1 kHz. A 30 mm length carries 1000 A and returns through a coaxial, perfectly conducting shell; the space between is air. The study solves the full field with skin effect at each frequency and reports the power delivered, which gives Rac/Rdc against the Bessel-function solution for a round wire.
+This study finds the AC resistance of a 20 mm copper rod at 50 Hz and 1 kHz. A 30 mm length carries
+1000 A peak and returns through a coaxial, perfectly conducting shell, with air between. At each
+frequency the study solves the full field with skin effect in the copper and returns the loss
+density, and the run reports the power delivered at the terminals. The exact Bessel-function
+solution gives Rac/Rdc = 1.027 at 50 Hz and 2.662 at 1 kHz.
 
-## Files
+## The problem
 
-| File | What it is |
-| --- | --- |
-| `round-conductor-ac.fea` | The study, with its hand check in the header. |
-| `geometry/round-conductor.step` | The part as STEP, written with Open CASCADE, with the body and face names the study selects. |
+Alternating current crowds toward a conductor's surface, so the inner copper carries less of it and
+the resistance rises with frequency. The depth over which the current falls by 1/e is the skin
+depth, δ = √(2 / (ωμσ)): 9.35 mm at 50 Hz and 2.09 mm at 1 kHz in copper. For busbars and cables at
+power frequency, and for windings and leads at kilohertz, the AC resistance sets the loss and the
+temperature rise.
 
-Names in the STEP file: bodies `Conductor` and `Air`; faces `Terminal in`, `Terminal out`, `Return shell` and `End plates`.
+A round wire of radius a has an exact solution:
 
-## The part
+$$\frac{Z}{R_{dc}} = \frac{ka}{2}\,\frac{J_0(ka)}{J_1(ka)}, \qquad k = \frac{1-j}{\delta}$$
 
-- Copper rod, 20 mm diameter, 30 mm long.
-- Coaxial air space out to 15 mm radius. Its outer cylinder (`Return shell`) and end annuli (`End plates`) are the return path.
+Its real part is Rac/Rdc. With copper at σ = 58 MS/m (IEC 60028), the 30 mm rod's DC resistance is
+1.646 µΩ, so 1000 A peak dissipates 0.823 W at DC. The perfectly conducting return adds only
+reactance, so all the loss is in the rod.
 
-## Setup
+## How the study works
 
-- 1000 A (peak) into `Terminal in`; `Terminal out` at 0 V.
-- `Return shell` and `End plates` grounded (tangential E = 0), a perfectly conducting coaxial return.
-- Frequencies 50 Hz and 1 kHz, each solved on its own.
-- Copper σ = 58 MS/m (IEC 60028), μr = 1. Air σ = 0.
+1. **Geometry and mesh.** `geometry/round-conductor.step` holds the rod (`Conductor`, 20 mm
+   diameter, 30 mm long) and a coaxial air space out to 15 mm radius (`Air`), sharing their faces.
+   The air's outer cylinder is `Return shell` and its end annuli are `End plates`. Linear tetrahedra
+   at 1.2 mm, under the 2.09 mm skin depth at 1 kHz.
 
-## Hand check
+2. **Materials.** Copper at 58 MS/m and air with zero conductivity, both at μr = 1.
 
-For a round wire of radius a, Z/Rdc = (ka/2) J₀(ka) / J₁(ka) with k = (1 − j)/δ and δ = √(2 / (ωμσ)). The perfectly conducting return adds only reactance.
+3. **Model.** 1000 A into `Terminal in`, `Terminal out` at 0 V, and the shell and end plates
+   grounded, which makes them a perfectly conducting coaxial return:
 
-| | 50 Hz | 1 kHz |
+   ```
+   constraint return_path {
+       magnetic.vector_potential_ground { target = geometry.conductor.region.return_shell }
+   }
+   load drive {
+       electric_current on geometry.conductor.region.terminal_in = 1000 A
+   }
+   ```
+
+4. **Study.** A harmonic electromagnetic analysis at both frequencies, each solved on its own, with
+   the Joule loss density and its peak in the rod:
+
+   ```
+   analysis field { electromagnetic harmonic { frequencies = [50, 1000] Hz } }
+   output loss_density = analysis.field.field.element.joule_power_density
+   output peak_loss_density = max(analysis.field.field.element.joule_power_density, over = geometry.conductor.region.rod)
+   ```
+
+## Results
+
+| Quantity | 50 Hz | 1 kHz |
 | --- | --- | --- |
 | Skin depth δ | 9.35 mm | 2.09 mm |
 | a/δ | 1.07 | 4.79 |
-| Rac / Rdc | **1.027** | **2.662** |
-| Loss at 1000 A peak (Rdc = 1.646 μΩ, DC loss 0.823 W) | 0.845 W | 2.191 W |
-| Peak loss density at the surface, ½ρ\|J(a)\|² | 0.099 MW/m³ | 1.109 MW/m³ |
+| Rac / Rdc, exact | 1.027 | 2.662 |
+| Loss at 1000 A peak | 0.845 W | 2.191 W |
+| Peak loss density at the surface | 0.099 MW/m³ | 1.109 MW/m³ |
 
-## Expected result
+The study returns the loss density and `peak_loss_density` at each frequency, and the run reports
+the terminal voltage, current and complex power. Divide the delivered power, ½Re(UĪ), by the
+0.823 W DC loss to get Rac/Rdc, and compare with 1.027 and 2.662, within 2 %. `peak_loss_density`
+is an element average, so it reads a few percent under the surface values. On a cross-section of
+the 1 kHz loss density, compare how far in from the surface the loss reaches with the 2.09 mm skin
+depth.
 
-The run's terminal report gives the delivered power, ½Re(U Ī), at each frequency. Dividing by the DC loss of 0.823 W should give Rac/Rdc = 1.027 at 50 Hz and 2.662 at 1 kHz, within 2 %. `peak_loss_density` is an element average and reads a few percent under the surface values above.
+## What to try
 
-Outputs: loss_density, peak_loss_density (per frequency); terminal voltage, current and complex power in the run report.
+1. Add 400 Hz to `frequencies`. The exact solution gives δ = 3.30 mm and Rac/Rdc = 1.782.
+2. Change the list to 60 Hz for a 60 Hz grid. The exact solution gives Rac/Rdc = 1.038.
+3. Coarsen `target_size` to 3 mm, coarser than the 1 kHz skin depth, and compare the 1 kHz loss
+   with 2.191 W.
+
+## Files
+
+- `round-conductor-ac.fea`: the harmonic electromagnetic study, with the Bessel-function check in its header.
+- `geometry/round-conductor.step`: the rod and the air space as STEP, with the body and face names the study selects.
+- `runmat.toml`: the project file.
+
+## Related
+
+- [Electrothermal simulation in RunMat](https://runmat.com/simulation/electrothermal)
+- [Electromagnetic physics reference](https://runmat.com/docs/simulation/physics/electromagnetic) and [electromagnetic loads](https://runmat.com/docs/simulation/loads/electromagnetic)
+- [Copper busbar resistance with a bolt hole](../busbar-resistance) and [coaxial bushing electric field](../coaxial-bushing)
+- [Download RunMat](https://runmat.com/download)

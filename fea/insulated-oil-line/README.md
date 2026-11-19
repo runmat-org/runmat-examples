@@ -1,56 +1,107 @@
-# Insulated oil line heat loss
+# Heat loss from an insulated hot-oil pipe: a conjugate heat transfer FEA study with convection and radiation
 
-Hot oil in a lagged steel pipe losing heat to still air. Card example for **outer faces**
-(convection and radiation outside a conjugate model) on `/simulation/conjugate-heat-transfer`.
+This study solves engine oil at 127 °C flowing through a 1-inch schedule 40 steel pipe lagged with
+25 mm of glass-fiber blanket, together with conduction in the pipe and the jacket. Outside, the
+jacket loses heat to 25 °C still air by natural convection and radiation. The study returns the
+jacket's surface temperature, the pipe's peak temperature and the oil outlet temperature, and its
+energy closure gives the heat lost. The radial resistance network gives 28 W/m and a 36 °C surface.
 
-## Setup
+## The problem
 
-| Item | Value |
-| --- | --- |
-| Geometry | `geometry/insulated-oil-line.step`, a 150 mm length along x: `Oil` (26.64 mm bore), `Pipe` (1 in schedule 40, 33.40 mm outside) and `Jacket` (25 mm lagging, 83.40 mm outside). Faces `Inlet`, `Outlet`, `Oil wall`; `Pipe bore`, `Pipe outside`, `Pipe ends`; `Jacket inside`, `Jacket surface`, `Jacket ends` |
-| Oil | Engine oil at 400 K (Incropera, Table A.5): 825.1 kg/m³, 0.00874 Pa·s, 0.134 W/m·K, 2337 J/kg·K, Pr = 152 |
-| Pipe | AISI 1010 steel (Incropera, Table A.1): 7832 kg/m³, 63.9 W/m·K, 434 J/kg·K |
-| Jacket | Glass-fiber blanket, 16 kg/m³ (Incropera, Table A.3): 0.046 W/m·K, 835 J/kg·K |
-| Flow | Uniform 0.1 m/s at 400 K (126.85 °C) into `Inlet` (Re = 251); `Outlet` at 0 Pa |
-| Wetted wall | No slip; perfect thermal contact between `Pipe bore` and `Oil wall`; pipe and jacket share their mesh at `Pipe outside` |
-| Outside | `Jacket surface`: convection 3.9 W/m²·K to 25 °C and radiation with emissivity 0.90 (white acrylic paint, Incropera Table A.11) to 25 °C surroundings. The cut ends are insulated, as along a long run |
-| Mesh | Linear tetrahedra, 5 mm, 1.5 mm on the oil wall, 1.7 mm in the pipe |
-| Analysis | `conjugate_heat_transfer steady` |
+Lagging on a hot line has two jobs: hold the heat loss to an acceptable figure and keep the outer
+surface cool enough to touch. Both come from the same series of thermal resistances, from the oil
+through the pipe wall and the insulation to the air. The insulation dominates, but the outside
+film matters too. Here radiation, at 5.7 W/m²·K, carries more heat than convection at 3.9 W/m²·K.
 
-The 3.9 W/m²·K is the Churchill–Chu natural-convection coefficient for a horizontal 83.4 mm
-cylinder about 11 K above 25 °C air: Ra = 5.8e5, Nu = 12.5, h = 12.5 × 0.0264 / 0.0834.
-
-## Outputs
-
-- `jacket_surface_temperature` (area-mean) and `peak_jacket_surface_temperature`.
-- `peak_pipe_temperature`.
-- `oil_outlet_temperature`: area-mean over the outlet.
-- `temperature`, `velocity`, `pressure`: fields. The run's energy closure reports the heat
-  lost by convection and radiation.
-
-## Hand check
-
-Radial resistances per meter of line:
+Per meter of line, the hand check in the study's header adds four resistances:
 
 | Layer | Resistance (m·K/W) |
 | --- | --- |
-| Oil film: thermally developing over 150 mm, Gz = Re Pr d / L = 6800, Nu = 1.953 Gz^(1/3) = 37, h = 186 W/m²·K; 1 / (h π d) | 0.064 |
-| Pipe wall: ln(16.70 / 13.32) / (2π × 63.9) | 0.0006 |
-| Jacket: ln(41.70 / 16.70) / (2π × 0.046) | 3.166 |
-| Outside: 3.9 W/m²·K convection plus 0.9σ(Ts² + Ta²)(Ts + Ta) = 5.7 W/m²·K radiation at Ts = 36 °C, over π × 0.0834 m | 0.396 |
+| Oil film, thermally developing over 150 mm: Gz = 6800, Nu = 1.953 Gz^(1/3) = 37, h = 186 W/m²·K | 0.064 |
+| Steel pipe wall, ln(16.70 / 13.32) / (2π × 63.9) | 0.0006 |
+| Glass-fiber jacket, ln(41.70 / 16.70) / (2π × 0.046) | 3.166 |
+| Outer surface: 3.9 W/m²·K convection plus 5.7 W/m²·K radiation over π × 0.0834 m | 0.396 |
 | Total | 3.63 |
 
-- Heat loss: (126.85 − 25) / 3.63 = **28 W/m**, 4.2 W over this 150 mm length.
-- Jacket surface: 25 + 28 × 0.396 = **36 °C**.
-- Pipe: within 2 K of the oil, about **125 °C**.
-- The oil cools by 4.2 / (825.1 × 0.1 × 5.574e-4 × 2337) = 0.04 K, so the outlet reads within
-  0.1 K of 126.85 °C.
+The line loses (126.85 − 25) / 3.63 = 28 W/m, 4.2 W over the modeled 150 mm, and the jacket surface
+sits at 25 + 28 × 0.396 = 36 °C. The convection coefficient is the Churchill–Chu value for a
+horizontal 83.4 mm cylinder about 11 K above the air (Ra = 5.8 × 10⁵, Nu = 12.5). The radiation
+term is 0.9σ(Ts² + Ta²)(Ts + Ta) at Ts = 36 °C, for white acrylic paint at emissivity 0.90.
 
-## Note on radiation
+## How the study works
 
-`runmat check` accepts `thermal.radiation` here. The thermal loads reference says the
-canonical thermal procedure still rejects surface radiation at run time; if the run refuses it,
-the fallback is a linearized coefficient h_r = 5.7 W/m²·K added to the convection (9.6 W/m²·K
-in total), which gives the same hand-check numbers.
+1. **Geometry and mesh.** `geometry/insulated-oil-line.step` holds a 150 mm length of line as three
+   bodies sharing their faces: `Oil` (26.64 mm bore), `Pipe` (33.40 mm outside) and `Jacket`
+   (83.40 mm outside). Linear tetrahedra at 5 mm, refined to 1.5 mm on the oil wall and 1.7 mm in
+   the pipe. The cut ends are insulated, as along a long run.
 
-Geometry: written with Open CASCADE by `oct-13-2026/website/physics/studies/card-examples/generate-card-fixtures.cc` (in the runmat-acc-2 workspace). The bodies are fragmented together so their shared faces line up exactly, and the study reads them with `interfaces = shared`. Studies select faces and bodies by their CAD names.
+2. **Materials.** From Incropera: engine oil at 400 K (825.1 kg/m³, 0.00874 Pa·s, 0.134 W/m·K,
+   Pr = 152), AISI 1010 steel (63.9 W/m·K) and a 16 kg/m³ glass-fiber blanket (0.046 W/m·K).
+
+3. **Flow.** Oil at 0.1 m/s and 400 K into the inlet (Re = 251, laminar), 0 Pa at the outlet, no
+   slip on the wall, and perfect thermal contact between the oil and the pipe bore.
+
+4. **Outer faces.** Natural convection and radiation on the jacket surface, both to 25 °C:
+
+   ```
+   load still_air {
+       thermal.convection {
+           target = geometry.line.region.jacket_surface
+           ambient_temperature = 298.15 K
+           coefficient = 3.9 W/m^2/K
+       }
+   }
+   load surroundings {
+       thermal.radiation {
+           target = geometry.line.region.jacket_surface
+           ambient_temperature = 298.15 K
+           emissivity = 0.9
+       }
+   }
+   ```
+
+5. **Study and outputs.** A steady conjugate heat transfer analysis, with surface, pipe and outlet
+   temperatures:
+
+   ```
+   analysis operating_point { conjugate_heat_transfer steady {} }
+   output jacket_surface_temperature = mean(output.temperature, over = geometry.line.region.jacket_surface)
+   output peak_pipe_temperature = max(output.temperature, over = geometry.line.region.pipe)
+   ```
+
+## Results
+
+| Quantity | Hand check |
+| --- | --- |
+| Heat loss | 28 W/m, 4.2 W over 150 mm |
+| `jacket_surface_temperature` | 36 °C |
+| `peak_pipe_temperature` | within 2 K of the oil, about 125 °C |
+| `oil_outlet_temperature` | within 0.1 K of 126.85 °C |
+
+The study also returns `peak_jacket_surface_temperature` and the temperature, velocity and pressure
+fields; its energy closure reports the heat lost by convection and radiation, to compare with
+4.2 W. The oil cools only 0.04 K over the short length, so the temperature field is almost entirely
+a radial drop across the jacket.
+
+## What to try
+
+1. Change the jacket's `conductivity` to 0.035 W/m·K. With the same outer coefficients, the network
+   gives 22 W/m and a surface at 33.7 °C.
+2. Remove the `surroundings` radiation load. With convection alone at 3.9 W/m²·K, the network gives
+   24 W/m and a surface near 49 °C. A hotter surface also raises the natural-convection coefficient,
+   so treat that as an upper bound.
+3. Raise the oil temperature to 150 °C (423.15 K) and compare the surface temperature with a
+   touch-safe limit.
+
+## Files
+
+- `insulated-oil-line.fea`: the conjugate heat transfer study, with the radial resistance network in its header.
+- `geometry/insulated-oil-line.step`: the oil, pipe and jacket as STEP, with the body and face names the study selects.
+- `runmat.toml`: the project file.
+
+## Related
+
+- [Conjugate heat transfer in RunMat](https://runmat.com/simulation/conjugate-heat-transfer)
+- [Thermal loads](https://runmat.com/docs/simulation/loads/thermal) and [steady heat transfer guide](https://runmat.com/docs/simulation/guides/steady-heat-transfer)
+- [Heated tube Nusselt number](../heated-tube-nusselt) and [pin fin with a convecting tip](../pin-fin-convection)
+- [Download RunMat](https://runmat.com/download)
