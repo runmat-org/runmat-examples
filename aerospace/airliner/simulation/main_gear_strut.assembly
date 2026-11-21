@@ -1,8 +1,10 @@
 // The main gear strut as main_gear.assembly sizes it (2,500 mm long, 230 mm diameter, 180 mm bore), for
 // main_gear_landing.fea. The trunnion end is at the top (z = 2,500 mm), the axle end at z = 0.
 // Exported to geometry/main_gear_strut.step.
+import { gear_strut } from "../landing_gear/gear_strut.part"
+
 assembly main_gear_strut {
-    use part gear_strut from "../landing_gear/gear_strut.part" as strut {
+    instance strut : gear_strut = {
         configuration = { select = inputs, values = { length = 2500 mm, radius = 115 mm, bore = 90 mm } }
     }
 }

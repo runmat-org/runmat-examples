@@ -1,26 +1,33 @@
 // A generic twin-engine narrow-body airliner, 38 m long with a 35 m span.
+import { airliner_skeleton } from "./airliner_skeleton.part"
+import { fuselage } from "./fuselage/fuselage.assembly"
+import { wing } from "./wing/wing.assembly"
+import { empennage } from "./empennage/empennage.assembly"
+import { main_gear } from "./landing_gear/main_gear.assembly"
+import { nose_gear } from "./landing_gear/nose_gear.assembly"
+
 assembly airliner {
     input span : length = 34000 mm
     input frame_pitch : length = 500 mm
     input rib_pitch : length = 650 mm
 
-    use part airliner_skeleton as skeleton
-    use assembly fuselage from "./fuselage/fuselage.assembly" as fuselage {
+    instance skeleton : airliner_skeleton
+    instance fuselage : fuselage = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = fuselage })
     }
-    use assembly wing from "./wing/wing.assembly" as wing {
+    instance wing : wing = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = wing_root })
     }
-    use assembly empennage from "./empennage/empennage.assembly" as empennage {
+    instance empennage : empennage = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = tail })
     }
-    use assembly main_gear from "./landing_gear/main_gear.assembly" as main_gear_starboard {
+    instance main_gear_starboard : main_gear = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard })
     }
-    use assembly main_gear from "./landing_gear/main_gear.assembly" as main_gear_port {
+    instance main_gear_port : main_gear = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_port })
     }
-    use assembly nose_gear from "./landing_gear/nose_gear.assembly" as nose_gear {
+    instance nose_gear : nose_gear = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = nose_gear })
     }
 

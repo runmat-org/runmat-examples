@@ -2,9 +2,12 @@
 // (cockpit/display_unit.part) and the controller board's thermal plate on the case's four bosses
 // (board underside at x = -100 mm, as cockpit.assembly places the board). Exported to
 // geometry/du_thermal.step.
+import { display_unit } from "../cockpit/display_unit.part"
+import { du_board_thermal } from "./du_board_thermal.part"
+
 assembly du_thermal {
-    use part display_unit from "../cockpit/display_unit.part" as display_unit
-    use part du_board_thermal as du_board {
+    instance display_unit : display_unit
+    instance du_board : du_board_thermal = {
         placement = offset(translation = [-100 mm, 0 mm, 0 mm])
     }
 }

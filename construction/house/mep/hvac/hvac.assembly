@@ -1,6 +1,8 @@
 // The heat pump system: air handler, plenum, soffit trunk, the riser and attic trunk to the second floor, registers, return, condenser and line set.
+import { hvac_equipment } from "./hvac_equipment.part"
+
 assembly hvac {
-    use part hvac_equipment as hvac_equipment {
+    instance hvac_equipment : hvac_equipment = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

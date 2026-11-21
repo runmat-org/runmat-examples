@@ -2,8 +2,10 @@
 // profile turned through 10 degrees instead of a full turn. The dome's load and supports repeat
 // round the axis, so the sector's two cut faces are planes of symmetry. Exported to
 // geometry/bulkhead_sector.step.
+import { aft_pressure_bulkhead } from "../fuselage/aft_pressure_bulkhead.part"
+
 assembly bulkhead_sector {
-    use part aft_pressure_bulkhead from "../fuselage/aft_pressure_bulkhead.part" as bulkhead {
+    instance bulkhead : aft_pressure_bulkhead = {
         configuration = { select = inputs, values = { sweep = 10 deg } }
     }
 }

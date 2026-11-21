@@ -2,6 +2,8 @@
 // room, 8'-6" east of grid 1, looking east, between two trusses. It shows the footings and stem
 // walls, the slab, the 2x6 walls A and D, the I-joist floor on beams B and C, the Fink truss
 // beyond the cut and the stair rising east. The roof plan beside it carries the cutting line.
+import { house } from "../house.assembly"
+
 drawing building_section {
     format d = {
         size = { size = ansi, name = D }
@@ -19,7 +21,7 @@ drawing building_section {
 
     sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
 
-    view roof = standard(orientation = top, sheet = "1", model = { assembly = house, from = "../house.assembly" }, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
+    view roof = standard(orientation = top, sheet = "1", model = house, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
     view a_a = section(
         from = roof,
         plane = origin.yz,
@@ -28,7 +30,7 @@ drawing building_section {
         label = A,
         title = "BUILDING SECTION A-A",
         sheet = "1",
-        model = { assembly = house, from = "../house.assembly" },
+        model = house,
         at = [520, 300],
         display = visible_lines,
         exclude = [[{ name = mep }]],

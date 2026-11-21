@@ -1,26 +1,31 @@
 // The nose landing gear leg: oleo strut, axle and two wheels.
+import { gear_strut } from "./gear_strut.part"
+import { axle } from "./axle.part"
+import { tyre } from "./tyre.part"
+import { hub } from "./hub.part"
+
 assembly nose_gear {
-    use part gear_strut as strut {
+    instance strut : gear_strut = {
         configuration = { select = inputs, values = { length = 2150 mm, radius = 80 mm, bore = 60 mm } }
         placement = offset(translation = [0 mm, 0 mm, -2150 mm])
     }
-    use part axle as axle {
+    instance axle : axle = {
         configuration = { select = inputs, values = { length = 740 mm } }
         placement = offset(translation = [0 mm, 0 mm, -2150 mm])
     }
-    use part tyre as inboard_tyre {
+    instance inboard_tyre : tyre = {
         configuration = { select = inputs, values = { rim = 270 mm, tube = 110 mm } }
         placement = offset(translation = [0 mm, -260 mm, -2150 mm])
     }
-    use part hub as inboard_hub {
+    instance inboard_hub : hub = {
         configuration = { select = inputs, values = { radius = 270 mm } }
         placement = offset(translation = [0 mm, -260 mm, -2150 mm])
     }
-    use part tyre as outboard_tyre {
+    instance outboard_tyre : tyre = {
         configuration = { select = inputs, values = { rim = 270 mm, tube = 110 mm } }
         placement = offset(translation = [0 mm, 260 mm, -2150 mm])
     }
-    use part hub as outboard_hub {
+    instance outboard_hub : hub = {
         configuration = { select = inputs, values = { radius = 270 mm } }
         placement = offset(translation = [0 mm, 260 mm, -2150 mm])
     }

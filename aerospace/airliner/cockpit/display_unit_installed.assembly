@@ -1,8 +1,11 @@
 // One display unit as installed: the screen and case, and the controller board on the case's
 // bosses (as cockpit.assembly places it), for the display unit's assembly drawing.
+import { display_unit } from "./display_unit.part"
+import { du_controller } from "../electrical/display_unit/du_controller.circuit"
+
 assembly display_unit_installed {
-    use part display_unit as display_unit
-    use circuit du_controller from "../electrical/display_unit" as controller {
+    instance display_unit : display_unit
+    instance controller : du_controller = {
         placement = offset(translation = [-100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
 }

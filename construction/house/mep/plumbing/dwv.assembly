@@ -1,9 +1,12 @@
 // Drain, waste and vent: the bath branches, the 3 in stack in its chase, the building drain, the kitchen sink and the vents.
+import { dwv_piping } from "./dwv_piping.part"
+import { plumbing_chase } from "./plumbing_chase.part"
+
 assembly dwv {
-    use part dwv_piping as dwv_piping {
+    instance dwv_piping : dwv_piping = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
-    use part plumbing_chase as plumbing_chase {
+    instance plumbing_chase : plumbing_chase = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

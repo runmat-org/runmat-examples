@@ -1,16 +1,21 @@
 // Mechanical, electrical and plumbing, in building coordinates (the house places it at the
 // skeleton's building frame). DESIGN-NOTES, "MEP", gives the sizing.
+import { electrical } from "./electrical/electrical.assembly"
+import { supply } from "./plumbing/supply.assembly"
+import { dwv } from "./plumbing/dwv.assembly"
+import { hvac } from "./hvac/hvac.assembly"
+
 assembly mep {
-    use assembly electrical from "./electrical/electrical.assembly" as electrical {
+    instance electrical : electrical = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
-    use assembly supply from "./plumbing/supply.assembly" as supply {
+    instance supply : supply = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
-    use assembly dwv from "./plumbing/dwv.assembly" as dwv {
+    instance dwv : dwv = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
-    use assembly hvac from "./hvac/hvac.assembly" as hvac {
+    instance hvac : hvac = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

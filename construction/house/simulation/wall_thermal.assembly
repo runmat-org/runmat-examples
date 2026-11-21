@@ -1,7 +1,9 @@
 // The wall_thermal study's geometry: the exterior-wall section of wall_section.part, exported to
 // geometry/wall_thermal.step for wall_thermal.fea.
+import { wall_section } from "./wall_section.part"
+
 assembly wall_thermal {
-    use part wall_section as wall_section {
+    instance wall_section : wall_section = {
         placement = offset(translation = [0 mm, 0 mm, 0 mm])
     }
 }

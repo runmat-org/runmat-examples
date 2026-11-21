@@ -1,10 +1,15 @@
 // The empennage: fin and rudder, the starboard stabilizer and elevator and their mirror images to
 // port, on the tail frame.
+import { fin } from "./fin.part"
+import { rudder } from "./rudder.part"
+import { stabilizer } from "./stabilizer.part"
+import { elevator } from "./elevator.part"
+
 assembly empennage {
-    use part fin as fin
-    use part rudder as rudder
-    use part stabilizer as stabilizer_starboard
-    use part elevator as elevator_starboard
+    instance fin : fin
+    instance rudder : rudder
+    instance stabilizer_starboard : stabilizer
+    instance elevator_starboard : elevator
 
     mirror stabilizer_port = {
         seeds = [stabilizer_starboard]

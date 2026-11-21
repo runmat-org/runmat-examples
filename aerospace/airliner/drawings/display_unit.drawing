@@ -1,6 +1,8 @@
 // The cockpit display unit's assembly drawing at 1:2 on A3, third-angle projection: the side
 // elevation, section A-A across the case showing the controller board on its bosses, an
 // isometric, balloons on the items and the parts list.
+import { display_unit_installed } from "../cockpit/display_unit_installed.assembly"
+
 drawing display_unit {
     format a3 = {
         size = { size = iso, name = A3 }
@@ -17,17 +19,17 @@ drawing display_unit {
 
     sheet "1" = { format = a3, scale = [1, 2], projection = third_angle }
 
-    view front = standard(orientation = front, sheet = "1", model = { assembly = display_unit_installed, from = "../cockpit/display_unit_installed.assembly" }, at = [75, 180], display = visible_lines)
+    view front = standard(orientation = front, sheet = "1", model = display_unit_installed, at = [75, 180], display = visible_lines)
     view a_a = section(
         from = front,
         plane = origin.xy,
         label = A,
         sheet = "1",
-        model = { assembly = display_unit_installed, from = "../cockpit/display_unit_installed.assembly" },
+        model = display_unit_installed,
         at = [190, 180],
         display = visible_lines,
     )
-    view iso = standard(orientation = isometric, sheet = "1", model = { assembly = display_unit_installed, from = "../cockpit/display_unit_installed.assembly" }, at = [330, 215], scale = [1, 3], display = visible_lines)
+    view iso = standard(orientation = isometric, sheet = "1", model = display_unit_installed, at = [330, 215], scale = [1, 3], display = visible_lines)
 
     annotation b1 = balloon(occurrence = [{ name = display_unit }], table = parts, view = iso)
     annotation b2 = balloon(occurrence = [{ name = controller }], table = parts, view = a_a)

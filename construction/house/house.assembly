@@ -2,21 +2,28 @@
 // skeleton sets the grids, levels and frames; the foundation, framing, envelope and interior
 // attach to it, and the MEP systems place in building coordinates. The studies join here as they
 // are built.
+import { house_skeleton } from "./house_skeleton.part"
+import { foundation } from "./foundation/foundation.assembly"
+import { framing } from "./framing/framing.assembly"
+import { envelope } from "./envelope/envelope.assembly"
+import { interior } from "./interior/interior.assembly"
+import { mep } from "./mep/mep.assembly"
+
 assembly house {
-    use part house_skeleton as skeleton
-    use assembly foundation from "./foundation/foundation.assembly" as foundation {
+    instance skeleton : house_skeleton
+    instance foundation : foundation = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly framing from "./framing/framing.assembly" as framing {
+    instance framing : framing = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly envelope from "./envelope/envelope.assembly" as envelope {
+    instance envelope : envelope = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly interior from "./interior/interior.assembly" as interior {
+    instance interior : interior = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly mep from "./mep/mep.assembly" as mep {
+    instance mep : mep = {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
 

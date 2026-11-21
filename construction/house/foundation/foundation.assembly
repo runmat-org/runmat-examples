@@ -1,7 +1,11 @@
 // The foundation: perimeter and pad footings, the stem wall and the slab on grade, in building
 // coordinates from the skeleton's building frame.
+import { footing } from "./footing.part"
+import { stem_wall } from "./stem_wall.part"
+import { slab_on_grade } from "./slab_on_grade.part"
+
 assembly foundation {
-    use part footing as footing
-    use part stem_wall as stem_wall
-    use part slab_on_grade as slab
+    instance footing : footing
+    instance stem_wall : stem_wall
+    instance slab : slab_on_grade
 }

@@ -1,34 +1,42 @@
 // Below the cabin floor: the cargo floors and containers, the centre wing box and the main
 // gear bays.
+import { cargo_floor } from "./cargo_floor.part"
+import { cargo_floor_aft } from "./cargo_floor_aft.part"
+import { cargo_container } from "./cargo_container.part"
+import { hold_liner } from "./hold_liner.part"
+import { hold_liner_aft } from "./hold_liner_aft.part"
+import { centre_wing_box } from "./centre_wing_box.part"
+import { gear_bay } from "./gear_bay.part"
+
 assembly hold {
     input container_pitch : length = 1560 mm
 
-    use part cargo_floor as cargo_floor_forward {
+    instance cargo_floor_forward : cargo_floor = {
         placement = offset(translation = [6100 mm, 0 mm, 0 mm])
     }
-    use part cargo_floor_aft as cargo_floor_aft {
+    instance cargo_floor_aft : cargo_floor_aft = {
         placement = offset(translation = [19700 mm, 0 mm, 0 mm])
     }
-    use part cargo_container as container_forward {
+    instance container_forward : cargo_container = {
         placement = offset(translation = [6300 mm, 0 mm, 0 mm])
     }
-    use part cargo_container as container_aft {
+    instance container_aft : cargo_container = {
         placement = offset(translation = [19900 mm, 0 mm, 0 mm])
     }
-    use part hold_liner as hold_liner_starboard {
+    instance hold_liner_starboard : hold_liner = {
         placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
     }
-    use part hold_liner as hold_liner_port {
+    instance hold_liner_port : hold_liner = {
         placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
     }
-    use part hold_liner_aft as hold_liner_aft_starboard {
+    instance hold_liner_aft_starboard : hold_liner_aft = {
         placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
     }
-    use part hold_liner_aft as hold_liner_aft_port {
+    instance hold_liner_aft_port : hold_liner_aft = {
         placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
     }
-    use part centre_wing_box as centre_wing_box
-    use part gear_bay as gear_bays
+    instance centre_wing_box : centre_wing_box
+    instance gear_bays : gear_bay
 
     pattern containers_forward = linear(seeds = [container_forward], direction = [1, 0, 0], spacing = input.container_pitch, count = 4)
     pattern containers_aft = linear(seeds = [container_aft], direction = [1, 0, 0], spacing = input.container_pitch, count = 4)

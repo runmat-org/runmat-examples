@@ -5,6 +5,22 @@
 // belly; a battery mid-body over the props' thrust centre, its lid part of the shell; downward
 // and forward vision sensors; and the 4-in-1 ESC and flight controller inside on the ESC heatsink's standoffs. The
 // fold inputs stow it: drone_folded.assembly sets them.
+import { body_bottom } from "./mechanical/body/body_bottom.part"
+import { body_top } from "./mechanical/body/body_top.part"
+import { battery } from "./mechanical/body/battery.part"
+import { light_pipe } from "./mechanical/body/light_pipe.part"
+import { landing_skid } from "./mechanical/body/landing_skid.part"
+import { antenna } from "./mechanical/body/antenna.part"
+import { arm_station } from "./mechanical/arm/arm_station.assembly"
+import { gimbal } from "./mechanical/gimbal/gimbal.assembly"
+import { vision_sensor } from "./mechanical/body/vision_sensor.part"
+import { esc_heatsink } from "./electrical/esc/esc_heatsink.part"
+import { thermal_pad } from "./electrical/esc/thermal_pad.part"
+import { esc } from "./electrical/esc/esc.circuit"
+import { flight_controller } from "./electrical/flight_controller/flight_controller.circuit"
+import { spacer } from "./mechanical/+hardware/spacer.part"
+import { screw } from "./mechanical/+hardware/screw.part"
+
 assembly drone {
     input fold_front : angle = 0 deg
     input fold_rear : angle = 0 deg
@@ -15,24 +31,24 @@ assembly drone {
     input pitch : angle = -12 deg
 
     // Body: the two shells, the battery in its bay and the status window.
-    use part body_bottom from "./mechanical/body/body_bottom.part" as body_bottom
-    use part body_top from "./mechanical/body/body_top.part" as body_top
-    use part battery from "./mechanical/body/battery.part" as battery
-    use part light_pipe from "./mechanical/body/light_pipe.part" as light_pipe
+    instance body_bottom : body_bottom
+    instance body_top : body_top
+    instance battery : battery
+    instance light_pipe : light_pipe
 
     // Landing gear: a skid under each side of the belly, either side of the heatsink's fins.
-    use part landing_skid from "./mechanical/body/landing_skid.part" as skid_left {
+    instance skid_left : landing_skid = {
         configuration = { select = inputs, values = { side = 34 mm } }
     }
-    use part landing_skid from "./mechanical/body/landing_skid.part" as skid_right {
+    instance skid_right : landing_skid = {
         configuration = { select = inputs, values = { side = -34 mm } }
     }
 
     // The radio's two antennas, upright inside the side walls behind the board stack.
-    use part antenna from "./mechanical/body/antenna.part" as antenna_left {
+    instance antenna_left : antenna = {
         placement = offset(translation = [-25 mm, 38 mm, 14 mm])
     }
-    use part antenna from "./mechanical/body/antenna.part" as antenna_right {
+    instance antenna_right : antenna = {
         placement = offset(translation = [-25 mm, -38 mm, 14 mm])
     }
 
@@ -43,40 +59,40 @@ assembly drone {
     // front arms rise as they swing back over the rear ones, and the rear pins lean 28 deg so the
     // rear arms drop as they swing forward under them. The right arms are the left ones'
     // mirror images, so their blade inputs are mirrored too.
-    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_front_left {
+    instance arm_front_left : arm_station = {
         configuration = { select = inputs, values = { fold = input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = -20 deg, blade_a = input.blade_a, blade_b = input.blade_b } }
         placement = offset(translation = [44 mm, 52 mm, 24 mm], rotation = euler(yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg))
     }
-    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_front_right {
+    instance arm_front_right : arm_station = {
         configuration = { select = inputs, values = { fold = -input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = 20 deg, blade_a = -input.blade_b - 180 deg, blade_b = -input.blade_a - 180 deg } }
         placement = offset(translation = [44 mm, -52 mm, 24 mm], rotation = euler(yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg))
     }
-    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_rear_left {
+    instance arm_rear_left : arm_station = {
         configuration = { select = inputs, values = { fold = -input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = -28 deg, blade_a = input.rear_blade_a, blade_b = input.rear_blade_b } }
         placement = offset(translation = [-66 mm, 44 mm, 13 mm], rotation = euler(yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg))
     }
-    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_rear_right {
+    instance arm_rear_right : arm_station = {
         configuration = { select = inputs, values = { fold = input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = 28 deg, blade_a = -input.rear_blade_b - 180 deg, blade_b = -input.rear_blade_a - 180 deg } }
         placement = offset(translation = [-66 mm, -44 mm, 13 mm], rotation = euler(yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg))
     }
 
     // The 3-axis gimbal and camera under the nose.
-    use assembly gimbal from "./mechanical/gimbal/gimbal.assembly" as gimbal {
+    instance gimbal : gimbal = {
         configuration = { select = inputs, values = { pitch = input.pitch } }
         placement = offset(translation = [74 mm, 0 mm, 11 mm])
     }
 
     // Vision sensors: a forward stereo pair in the nose and a downward pair under the belly.
-    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_front_left {
+    instance vision_front_left : vision_sensor = {
         placement = offset(translation = [97 mm, 6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
-    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_front_right {
+    instance vision_front_right : vision_sensor = {
         placement = offset(translation = [97 mm, -6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
-    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_down_left {
+    instance vision_down_left : vision_sensor = {
         placement = offset(translation = [-28 mm, 11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
-    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_down_right {
+    instance vision_down_right : vision_sensor = {
         placement = offset(translation = [-28 mm, -11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
 
@@ -84,23 +100,23 @@ assembly drone {
     // pedestal. The boards stand on the heatsink's standoffs: the 4-in-1 ESC on their tops, the
     // flight controller 10 mm above it on nylon spacers, both held by four M3 x 18 screws into
     // the standoffs' tapped holes (4.8 mm of thread engaged, 1.6 x the diameter).
-    use part esc_heatsink from "./electrical/esc/esc_heatsink.part" as esc_heatsink {
+    instance esc_heatsink : esc_heatsink = {
         placement = offset(translation = [25 mm, 0 mm, 0 mm])
     }
-    use part thermal_pad from "./electrical/esc/thermal_pad.part" as thermal_pad {
+    instance thermal_pad : thermal_pad = {
         placement = offset(translation = [25 mm, 0 mm, 9.5 mm])
     }
-    use circuit esc from "./electrical/esc" as esc {
+    instance esc : esc = {
         placement = offset(translation = [25 mm, 0 mm, 10 mm])
     }
-    use circuit flight_controller from "./electrical/flight_controller" as flight_controller {
+    instance flight_controller : flight_controller = {
         placement = offset(translation = [25 mm, 0 mm, 21.6 mm])
     }
-    use part spacer from "./mechanical/+hardware/spacer.part" as spacer {
+    instance spacer : spacer = {
         configuration = { select = inputs, values = { height = 10 mm } }
         placement = offset(translation = [9.75 mm, -15.25 mm, 11.6 mm])
     }
-    use part screw from "./mechanical/+hardware/screw.part" as stack_screw {
+    instance stack_screw : screw = {
         configuration = { select = inputs, values = { length = 18 mm } }
         placement = offset(translation = [9.75 mm, -15.25 mm, 23.2 mm])
     }

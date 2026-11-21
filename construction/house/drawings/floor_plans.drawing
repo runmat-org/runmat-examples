@@ -1,6 +1,8 @@
 // The first- and second-floor plans at 1/4 in = 1 ft on ANSI D: horizontal cuts 4 ft above each
 // floor, keeping what is below the cut and seen from above, as plans are drawn. The key elevation
 // at 1/16 in = 1 ft carries the two cutting lines.
+import { house } from "../house.assembly"
+
 drawing floor_plans {
     format d = {
         size = { size = ansi, name = D }
@@ -18,7 +20,7 @@ drawing floor_plans {
 
     sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
 
-    view key = standard(orientation = front, sheet = "1", model = { assembly = house, from = "../house.assembly" }, at = [75, 495], scale = [1, 192], display = visible_lines, exclude = [[{ name = mep }]])
+    view key = standard(orientation = front, sheet = "1", model = house, at = [75, 495], scale = [1, 192], display = visible_lines, exclude = [[{ name = mep }]])
     view first = section(
         from = key,
         plane = origin.xy,
@@ -27,7 +29,7 @@ drawing floor_plans {
         label = A,
         title = "FIRST FLOOR PLAN",
         sheet = "1",
-        model = { assembly = house, from = "../house.assembly" },
+        model = house,
         at = [250, 260],
         display = visible_lines,
         exclude = [[{ name = mep }]],
@@ -41,7 +43,7 @@ drawing floor_plans {
         label = B,
         title = "SECOND FLOOR PLAN",
         sheet = "1",
-        model = { assembly = house, from = "../house.assembly" },
+        model = house,
         at = [615, 260],
         display = visible_lines,
         exclude = [[{ name = mep }]],

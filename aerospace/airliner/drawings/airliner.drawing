@@ -1,6 +1,8 @@
 // The airliner's general arrangement at 1:200 on A2, third-angle projection: the side
 // elevation, the plan above it and the front view beside it, balloons on the top-level
 // assemblies, the parts list and the overall dimensions in the notes.
+import { airliner } from "../airliner.assembly"
+
 drawing airliner {
     format a2 = {
         size = { size = iso, name = A2 }
@@ -15,9 +17,9 @@ drawing airliner {
 
     sheet "1" = { format = a2, scale = [1, 200], projection = third_angle }
 
-    view front = standard(orientation = front, sheet = "1", model = { assembly = airliner, from = "../airliner.assembly" }, at = [150, 105], display = visible_lines)
-    view top = projected(from = front, direction = up, sheet = "1", model = { assembly = airliner, from = "../airliner.assembly" }, at = [150, 280], display = visible_lines)
-    view right = projected(from = front, direction = right, sheet = "1", model = { assembly = airliner, from = "../airliner.assembly" }, at = [390, 105], display = visible_lines)
+    view front = standard(orientation = front, sheet = "1", model = airliner, at = [150, 105], display = visible_lines)
+    view top = projected(from = front, direction = up, sheet = "1", model = airliner, at = [150, 280], display = visible_lines)
+    view right = projected(from = front, direction = right, sheet = "1", model = airliner, at = [390, 105], display = visible_lines)
 
     annotation b1 = balloon(occurrence = [{ name = fuselage }], table = parts, view = front)
     annotation b2 = balloon(occurrence = [{ name = wing }], table = parts, view = top)

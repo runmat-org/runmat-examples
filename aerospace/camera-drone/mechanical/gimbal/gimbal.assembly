@@ -2,31 +2,37 @@
 // motor behind the camera, the roll yoke around the camera head, and the pitch motor on the
 // yoke's left side. `pitch` tilts the camera head (negative looks down). Its origin is the
 // yaw axis at the belly.
+import { gimbal_motor } from "./gimbal_motor.part"
+import { gimbal_yaw_arm } from "./gimbal_yaw_arm.part"
+import { gimbal_yoke } from "./gimbal_yoke.part"
+import { camera_head } from "./camera_head.part"
+import { lens } from "./lens.part"
+
 assembly gimbal {
     input pitch : angle = -12 deg
 
-    use part gimbal_motor as yaw_motor {
+    instance yaw_motor : gimbal_motor = {
         configuration = { select = named, name = yaw }
         placement = offset(translation = [0 mm, 0 mm, -1 mm])
     }
-    use part gimbal_yaw_arm as yaw_arm {
+    instance yaw_arm : gimbal_yaw_arm = {
         placement = offset(translation = [0 mm, 0 mm, -4 mm])
     }
-    use part gimbal_motor as roll_motor {
+    instance roll_motor : gimbal_motor = {
         configuration = { select = named, name = roll }
         placement = offset(translation = [-3 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
-    use part gimbal_yoke as yoke {
+    instance yoke : gimbal_yoke = {
         placement = offset(translation = [-0.5 mm, 0 mm, -16 mm])
     }
-    use part gimbal_motor as pitch_motor {
+    instance pitch_motor : gimbal_motor = {
         configuration = { select = named, name = pitch }
         placement = offset(translation = [19 mm, 21.25 mm, -16 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 90 deg))
     }
-    use part camera_head as camera {
+    instance camera : camera_head = {
         placement = offset(translation = [19 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch))
     }
-    use part lens as lens {
+    instance lens : lens = {
         placement = offset(translation = [19 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch))
     }
 }

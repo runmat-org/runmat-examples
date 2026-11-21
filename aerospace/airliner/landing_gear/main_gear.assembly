@@ -1,26 +1,31 @@
 // A main landing gear leg: oleo strut, axle and two wheels.
+import { gear_strut } from "./gear_strut.part"
+import { axle } from "./axle.part"
+import { tyre } from "./tyre.part"
+import { hub } from "./hub.part"
+
 assembly main_gear {
-    use part gear_strut as strut {
+    instance strut : gear_strut = {
         configuration = { select = inputs, values = { length = 2500 mm, radius = 115 mm } }
         placement = offset(translation = [0 mm, 0 mm, -2500 mm])
     }
-    use part axle as axle {
+    instance axle : axle = {
         configuration = { select = inputs, values = { length = 1180 mm } }
         placement = offset(translation = [0 mm, 0 mm, -2500 mm])
     }
-    use part tyre as inboard_tyre {
+    instance inboard_tyre : tyre = {
         configuration = { select = inputs, values = { rim = 440 mm, tube = 170 mm } }
         placement = offset(translation = [0 mm, -420 mm, -2500 mm])
     }
-    use part hub as inboard_hub {
+    instance inboard_hub : hub = {
         configuration = { select = inputs, values = { radius = 440 mm } }
         placement = offset(translation = [0 mm, -420 mm, -2500 mm])
     }
-    use part tyre as outboard_tyre {
+    instance outboard_tyre : tyre = {
         configuration = { select = inputs, values = { rim = 440 mm, tube = 170 mm } }
         placement = offset(translation = [0 mm, 420 mm, -2500 mm])
     }
-    use part hub as outboard_hub {
+    instance outboard_hub : hub = {
         configuration = { select = inputs, values = { radius = 440 mm } }
         placement = offset(translation = [0 mm, 420 mm, -2500 mm])
     }

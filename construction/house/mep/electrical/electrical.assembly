@@ -1,9 +1,12 @@
 // The electrical installation in building coordinates: the placed devices and the routed cables.
+import { electrical_devices } from "./electrical_devices.part"
+import { cable_runs } from "./cable_runs.part"
+
 assembly electrical {
-    use part electrical_devices as electrical_devices {
+    instance electrical_devices : electrical_devices = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
-    use part cable_runs as cable_runs {
+    instance cable_runs : cable_runs = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

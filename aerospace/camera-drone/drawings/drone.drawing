@@ -1,6 +1,8 @@
 // The camera drone's assembly drawing at 1:2 on A2, third-angle projection: the front view with
 // the plan view above it, an isometric at 1:1.6 beside them, balloons on the main items, the
 // parts list beside the title block and the general notes above it.
+import { drone } from "../drone.assembly"
+
 drawing drone {
     format a2 = {
         size = { size = iso, name = A2 }
@@ -15,9 +17,9 @@ drawing drone {
 
     sheet "1" = { format = a2, scale = [1, 2], projection = third_angle }
 
-    view front = standard(orientation = front, sheet = "1", model = { assembly = drone, from = "../drone.assembly" }, at = [121, 80], display = visible_lines)
-    view top = projected(from = front, direction = up, sheet = "1", model = { assembly = drone, from = "../drone.assembly" }, at = [121, 215], display = visible_lines)
-    view iso = standard(orientation = isometric, sheet = "1", model = { assembly = drone, from = "../drone.assembly" }, at = [400, 325], scale = [5, 8], display = visible_lines)
+    view front = standard(orientation = front, sheet = "1", model = drone, at = [121, 80], display = visible_lines)
+    view top = projected(from = front, direction = up, sheet = "1", model = drone, at = [121, 215], display = visible_lines)
+    view iso = standard(orientation = isometric, sheet = "1", model = drone, at = [400, 325], scale = [5, 8], display = visible_lines)
 
     annotation b1 = balloon(occurrence = [{ name = body_top }], table = parts, view = iso)
     annotation b2 = balloon(occurrence = [{ name = body_bottom }], table = parts, view = front)

@@ -1,6 +1,8 @@
 // The water supply: water heater, PEX manifold and the routed hot and cold runs.
+import { supply_piping } from "./supply_piping.part"
+
 assembly supply {
-    use part supply_piping as supply_piping {
+    instance supply_piping : supply_piping = {
         placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

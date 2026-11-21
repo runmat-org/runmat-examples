@@ -2,6 +2,8 @@
 // the outer size, the cutout it surrounds (the skin's window cutout, the cabin window's
 // outline) and the fastener holes' callout; section A-A across the ring at the fuselage
 // station of its center; and an isometric.
+import { window_frame } from "../fuselage/window_frame.part"
+
 drawing window_frame {
     format a3 = {
         size = { size = iso, name = A3 }
@@ -19,17 +21,17 @@ drawing window_frame {
 
     sheet "1" = { format = a3, scale = [1, 2], projection = third_angle }
 
-    view top = standard(orientation = top, sheet = "1", model = { part = window_frame, from = "../fuselage/window_frame.part" }, at = [115, 175], display = visible_lines)
+    view top = standard(orientation = top, sheet = "1", model = window_frame, at = [115, 175], display = visible_lines)
     view a_a = section(
         from = top,
         plane = feature.fastener_holes.face.wall(a),
         label = A,
         sheet = "1",
-        model = { part = window_frame, from = "../fuselage/window_frame.part" },
+        model = window_frame,
         at = [115, 55],
         display = visible_lines,
     )
-    view iso = standard(orientation = isometric, sheet = "1", model = { part = window_frame, from = "../fuselage/window_frame.part" }, at = [355, 215], scale = [1, 4], display = visible_lines)
+    view iso = standard(orientation = isometric, sheet = "1", model = window_frame, at = [355, 215], scale = [1, 4], display = visible_lines)
 
     annotation outer_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol4), feature.ring.face.side(ring_s.ol2)], view = top)
     annotation outer_height = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol1), feature.ring.face.side(ring_s.ol3)], view = top)

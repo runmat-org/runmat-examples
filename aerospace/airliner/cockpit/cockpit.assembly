@@ -1,66 +1,78 @@
 // The flight deck: floor, bulkhead and door, instrument panel and glareshield, six display
 // units with their controller boards, the centre pedestal, two control columns and the two pilot seats.
+import { cockpit_floor } from "./cockpit_floor.part"
+import { cockpit_bulkhead } from "./cockpit_bulkhead.part"
+import { instrument_panel } from "./instrument_panel.part"
+import { glareshield } from "./glareshield.part"
+import { pedestal } from "./pedestal.part"
+import { overhead_panel } from "./overhead_panel.part"
+import { display_unit } from "./display_unit.part"
+import { du_controller } from "../electrical/display_unit/du_controller.circuit"
+import { control_column } from "./control_column.part"
+import { seat_frame } from "../cabin/seat_frame.part"
+import { pilot_seat_cushion } from "./pilot_seat_cushion.part"
+
 assembly cockpit {
-    use part cockpit_floor as floor
-    use part cockpit_bulkhead as bulkhead
-    use part instrument_panel as panel
-    use part glareshield as glareshield
-    use part pedestal as pedestal
-    use part overhead_panel as overhead_panel
-    use part display_unit as display1 {
+    instance floor : cockpit_floor
+    instance bulkhead : cockpit_bulkhead
+    instance panel : instrument_panel
+    instance glareshield : glareshield
+    instance pedestal : pedestal
+    instance overhead_panel : overhead_panel
+    instance display1 : display_unit = {
         placement = offset(translation = [1680 mm, -780 mm, 230 mm])
     }
-    use part display_unit as display2 {
+    instance display2 : display_unit = {
         placement = offset(translation = [1680 mm, -540 mm, 230 mm])
     }
-    use part display_unit as display3 {
+    instance display3 : display_unit = {
         placement = offset(translation = [1680 mm, 540 mm, 230 mm])
     }
-    use part display_unit as display4 {
+    instance display4 : display_unit = {
         placement = offset(translation = [1680 mm, 780 mm, 230 mm])
     }
-    use part display_unit as display5 {
+    instance display5 : display_unit = {
         placement = offset(translation = [1680 mm, 0 mm, 280 mm])
     }
-    use part display_unit as display6 {
+    instance display6 : display_unit = {
         placement = offset(translation = [1680 mm, 0 mm, 60 mm])
     }
     // Each display unit's controller board on its case's four bosses, 100 mm forward of the panel
     // face, its components toward the screen (the board's x along y, its y along z).
-    use circuit du_controller from "../electrical/display_unit" as display1_controller {
+    instance display1_controller : du_controller = {
         placement = offset(translation = [1580 mm, -780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use circuit du_controller from "../electrical/display_unit" as display2_controller {
+    instance display2_controller : du_controller = {
         placement = offset(translation = [1580 mm, -540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use circuit du_controller from "../electrical/display_unit" as display3_controller {
+    instance display3_controller : du_controller = {
         placement = offset(translation = [1580 mm, 540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use circuit du_controller from "../electrical/display_unit" as display4_controller {
+    instance display4_controller : du_controller = {
         placement = offset(translation = [1580 mm, 780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use circuit du_controller from "../electrical/display_unit" as display5_controller {
+    instance display5_controller : du_controller = {
         placement = offset(translation = [1580 mm, 0 mm, 280 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use circuit du_controller from "../electrical/display_unit" as display6_controller {
+    instance display6_controller : du_controller = {
         placement = offset(translation = [1580 mm, 0 mm, 60 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
-    use part control_column as column_captain {
+    instance column_captain : control_column = {
         placement = offset(translation = [1740 mm, -540 mm, -400 mm])
     }
-    use part seat_frame from "../cabin/seat_frame.part" as seat_frame_captain {
+    instance seat_frame_captain : seat_frame = {
         placement = offset(translation = [2420 mm, -540 mm, -360 mm])
     }
-    use part pilot_seat_cushion as seat_captain {
+    instance seat_captain : pilot_seat_cushion = {
         placement = offset(translation = [2420 mm, -540 mm, -360 mm])
     }
-    use part control_column as column_first_officer {
+    instance column_first_officer : control_column = {
         placement = offset(translation = [1740 mm, 540 mm, -400 mm])
     }
-    use part seat_frame from "../cabin/seat_frame.part" as seat_frame_first_officer {
+    instance seat_frame_first_officer : seat_frame = {
         placement = offset(translation = [2420 mm, 540 mm, -360 mm])
     }
-    use part pilot_seat_cushion as seat_first_officer {
+    instance seat_first_officer : pilot_seat_cushion = {
         placement = offset(translation = [2420 mm, 540 mm, -360 mm])
     }
 }

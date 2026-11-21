@@ -1,11 +1,24 @@
 // The fuselage: the nose and its cockpit glazing, three barrel sections, the tail cone and the
 // wing-to-body fairing, along x.
+import { nose } from "./nose.part"
+import { nose_lining } from "../cockpit/nose_lining.part"
+import { cockpit_window_front } from "./cockpit_window_front.part"
+import { cockpit_window_side } from "./cockpit_window_side.part"
+import { cockpit_window_aft } from "./cockpit_window_aft.part"
+import { fuselage_section } from "./fuselage_section.assembly"
+import { cockpit } from "../cockpit/cockpit.assembly"
+import { cabin } from "../cabin/cabin.assembly"
+import { hold } from "../cargo/hold.assembly"
+import { tail_cone } from "./tail_cone.part"
+import { aft_pressure_bulkhead } from "./aft_pressure_bulkhead.part"
+import { fairing } from "./fairing.part"
+
 assembly fuselage {
-    use part nose as nose
-    use part nose_lining from "../cockpit/nose_lining.part" as nose_lining
-    use part cockpit_window_front as window_front
-    use part cockpit_window_side as window_side
-    use part cockpit_window_aft as window_aft
+    instance nose : nose
+    instance nose_lining : nose_lining
+    instance window_front : cockpit_window_front
+    instance window_side : cockpit_window_side
+    instance window_aft : cockpit_window_aft
     mirror window_front_port = {
         seeds = [window_front]
         plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
@@ -21,61 +34,41 @@ assembly fuselage {
         plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_aft } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
-    use assembly fuselage_section as forward {
+    instance forward : fuselage_section = {
         placement = offset(translation = [5200 mm, 0 mm, 0 mm])
-        override "window_starboard_fwd@windows_fwd[7]" {
-            suppressed = true
-        }
-        override "window_port_fwd@windows_fwd[7]" {
-            suppressed = true
-        }
-        override "window_starboard_fwd@windows_fwd[6]" {
-            suppressed = true
-        }
-        override "window_port_fwd@windows_fwd[6]" {
-            suppressed = true
-        }
-        override "bin_starboard_fwd@bins_fwd[1]" {
-            suppressed = true
-        }
-        override "bin_port_fwd@bins_fwd[1]" {
-            suppressed = true
+        overrides = {
+            "window_starboard_fwd@windows_fwd[7]" = { suppressed = true }
+            "window_port_fwd@windows_fwd[7]" = { suppressed = true }
+            "window_starboard_fwd@windows_fwd[6]" = { suppressed = true }
+            "window_port_fwd@windows_fwd[6]" = { suppressed = true }
+            "bin_starboard_fwd@bins_fwd[1]" = { suppressed = true }
+            "bin_port_fwd@bins_fwd[1]" = { suppressed = true }
         }
     }
-    use assembly fuselage_section as center {
+    instance center : fuselage_section = {
         placement = offset(translation = [13200 mm, 0 mm, 0 mm])
     }
-    use assembly fuselage_section as aft {
+    instance aft : fuselage_section = {
         placement = offset(translation = [21200 mm, 0 mm, 0 mm])
-        override "window_starboard@windows[6]" {
-            suppressed = true
-        }
-        override "window_port@windows[6]" {
-            suppressed = true
-        }
-        override "window_starboard@windows[7]" {
-            suppressed = true
-        }
-        override "window_port@windows[7]" {
-            suppressed = true
-        }
-        override "bin_starboard@bins[2]" {
-            suppressed = true
-        }
-        override "bin_port@bins[2]" {
-            suppressed = true
+        overrides = {
+            "window_starboard@windows[6]" = { suppressed = true }
+            "window_port@windows[6]" = { suppressed = true }
+            "window_starboard@windows[7]" = { suppressed = true }
+            "window_port@windows[7]" = { suppressed = true }
+            "bin_starboard@bins[2]" = { suppressed = true }
+            "bin_port@bins[2]" = { suppressed = true }
         }
     }
-    use assembly cockpit from "../cockpit/cockpit.assembly" as cockpit
-    use assembly cabin from "../cabin/cabin.assembly" as cabin
-    use assembly hold from "../cargo/hold.assembly" as hold
-    use part tail_cone as tail_cone {
+    instance cockpit : cockpit
+    instance cabin : cabin
+    instance hold : hold
+    instance tail_cone : tail_cone = {
         placement = offset(translation = [29200 mm, 0 mm, 0 mm])
     }
-    use part aft_pressure_bulkhead as aft_pressure_bulkhead {
+    instance aft_pressure_bulkhead : aft_pressure_bulkhead = {
         placement = offset(translation = [29900 mm, 0 mm, 0 mm])
     }
-    use part fairing as fairing {
+    instance fairing : fairing = {
         placement = offset(translation = [11400 mm, 0 mm, -1250 mm])
     }
 }

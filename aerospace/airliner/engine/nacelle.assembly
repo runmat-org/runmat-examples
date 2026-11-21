@@ -1,11 +1,18 @@
 // An engine nacelle: cowl, fan, spinner, core nozzle, exhaust plug and pylon; the inlet at the origin.
+import { cowl } from "./cowl.part"
+import { fan } from "./fan.part"
+import { spinner } from "./spinner.part"
+import { core_nozzle } from "./core_nozzle.part"
+import { plug } from "./plug.part"
+import { pylon } from "./pylon.part"
+
 assembly nacelle {
-    use part cowl as cowl
-    use part fan as fan {
+    instance cowl : cowl
+    instance fan : fan = {
         placement = offset(translation = [560 mm, 0 mm, 0 mm])
     }
-    use part spinner as spinner
-    use part core_nozzle as core
-    use part plug as plug
-    use part pylon as pylon
+    instance spinner : spinner
+    instance core : core_nozzle
+    instance plug : plug
+    instance pylon : pylon
 }

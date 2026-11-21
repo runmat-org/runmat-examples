@@ -3,6 +3,8 @@
 // layer called out from outside to inside and the layer thicknesses dimensioned. The face of the
 // stucco above it carries the cutting line. The layers and thicknesses are the thermal
 // study's (DESIGN-NOTES, "Envelope").
+import { wall_section } from "../simulation/wall_section.part"
+
 drawing wall_section {
     format c = {
         size = { size = ansi, name = C }
@@ -20,7 +22,7 @@ drawing wall_section {
 
     sheet "1" = { format = c, scale = [1, 1], projection = third_angle }
 
-    view face = standard(orientation = front, sheet = "1", model = { part = wall_section, from = "../simulation/wall_section.part" }, at = [200, 385], display = visible_lines)
+    view face = standard(orientation = front, sheet = "1", model = wall_section, at = [200, 385], display = visible_lines)
     view a_a = section(
         from = face,
         plane = origin.xy,
@@ -29,7 +31,7 @@ drawing wall_section {
         label = A,
         title = "EXTERIOR WALL SECTION A-A",
         sheet = "1",
-        model = { part = wall_section, from = "../simulation/wall_section.part" },
+        model = wall_section,
         at = [200, 220],
         display = visible_lines,
     )

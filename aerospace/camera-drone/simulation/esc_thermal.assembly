@@ -1,14 +1,18 @@
 // The ESC's thermal study geometry, as drone.assembly places it: the aluminium heatsink, the gap
 // pad on its pedestal and the ESC board (as its thermal plate) on its standoffs' tops. Exported
 // to geometry/esc_thermal.step for esc_thermal.fea.
+import { esc_heatsink } from "../electrical/esc/esc_heatsink.part"
+import { thermal_pad } from "../electrical/esc/thermal_pad.part"
+import { esc_board_thermal } from "./esc_board_thermal.part"
+
 assembly esc_thermal {
-    use part esc_heatsink from "../electrical/esc/esc_heatsink.part" as esc_heatsink {
+    instance esc_heatsink : esc_heatsink = {
         placement = offset(translation = [10 mm, 0 mm, 0 mm])
     }
-    use part thermal_pad from "../electrical/esc/thermal_pad.part" as thermal_pad {
+    instance thermal_pad : thermal_pad = {
         placement = offset(translation = [10 mm, 0 mm, 9.5 mm])
     }
-    use part esc_board_thermal as esc_board {
+    instance esc_board : esc_board_thermal = {
         placement = offset(translation = [10 mm, 0 mm, 10 mm])
     }
 }
