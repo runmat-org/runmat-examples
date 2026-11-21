@@ -5,22 +5,22 @@ assembly airliner {
     input rib_pitch : length = 650 mm
 
     use part airliner_skeleton as skeleton
-    use assembly fuselage from "./fuselage" as fuselage {
+    use assembly fuselage from "./fuselage/fuselage.assembly" as fuselage {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = fuselage })
     }
-    use assembly wing from "./wing" as wing {
+    use assembly wing from "./wing/wing.assembly" as wing {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = wing_root })
     }
-    use assembly empennage from "./empennage" as empennage {
+    use assembly empennage from "./empennage/empennage.assembly" as empennage {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = tail })
     }
-    use assembly main_gear from "./landing_gear" as main_gear_starboard {
+    use assembly main_gear from "./landing_gear/main_gear.assembly" as main_gear_starboard {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard })
     }
-    use assembly main_gear from "./landing_gear" as main_gear_port {
+    use assembly main_gear from "./landing_gear/main_gear.assembly" as main_gear_port {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_port })
     }
-    use assembly nose_gear from "./landing_gear" as nose_gear {
+    use assembly nose_gear from "./landing_gear/nose_gear.assembly" as nose_gear {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = nose_gear })
     }
 

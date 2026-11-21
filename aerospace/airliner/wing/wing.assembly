@@ -134,7 +134,7 @@ assembly wing {
         placement = offset(translation = [4553.45 mm, 1460 mm, -57.727 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
     pattern rear_lower_cap = linear(seeds = [rivet_rear_lower], direction = [0.309994, 0.945336, 0.101215], spacing = 150 mm, count = 109)
-    use assembly nacelle from "../engine" as engine {
+    use assembly nacelle from "../engine/nacelle.assembly" as engine {
         placement = offset(translation = [255.245 mm, 5800 mm, -991.524 mm])
     }
 

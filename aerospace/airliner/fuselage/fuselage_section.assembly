@@ -21,43 +21,43 @@ assembly fuselage_section {
     use part cabin_window as window_port_fwd {
         placement = offset(translation = [3750 mm, -1940.946 mm, 348.586 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 169.818458 deg))
     }
-    use part floor_beam from "../cabin" as floor_beam {
+    use part floor_beam from "../cabin/floor_beam.part" as floor_beam {
         placement = offset(translation = [0 mm, 0 mm, 0 mm])
     }
-    use part floor_panel from "../cabin" as floor {
+    use part floor_panel from "../cabin/floor_panel.part" as floor {
         placement = offset(translation = [0 mm, 0 mm, -410 mm])
     }
-    use part seat_track from "../cabin" as track0 {
+    use part seat_track from "../cabin/seat_track.part" as track0 {
         placement = offset(translation = [0 mm, -1335 mm, -414 mm])
     }
-    use part seat_track from "../cabin" as track1 {
+    use part seat_track from "../cabin/seat_track.part" as track1 {
         placement = offset(translation = [0 mm, -435 mm, -414 mm])
     }
-    use part seat_track from "../cabin" as track2 {
+    use part seat_track from "../cabin/seat_track.part" as track2 {
         placement = offset(translation = [0 mm, 435 mm, -414 mm])
     }
-    use part seat_track from "../cabin" as track3 {
+    use part seat_track from "../cabin/seat_track.part" as track3 {
         placement = offset(translation = [0 mm, 1335 mm, -414 mm])
     }
-    use part sidewall_lining from "../cabin" as lining_starboard {
+    use part sidewall_lining from "../cabin/sidewall_lining.part" as lining_starboard {
         placement = offset(translation = [250 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -12.457065 deg))
     }
-    use part sidewall_lining from "../cabin" as lining_port {
+    use part sidewall_lining from "../cabin/sidewall_lining.part" as lining_port {
         placement = offset(translation = [250 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 147.17985 deg))
     }
-    use part ceiling_panel from "../cabin" as ceiling {
+    use part ceiling_panel from "../cabin/ceiling_panel.part" as ceiling {
         placement = offset(translation = [0 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 58 deg))
     }
-    use part overhead_bin from "../cabin" as bin_starboard {
+    use part overhead_bin from "../cabin/overhead_bin.part" as bin_starboard {
         placement = offset(translation = [4000 mm, 0 mm, 0 mm])
     }
-    use part overhead_bin from "../cabin" as bin_port {
+    use part overhead_bin from "../cabin/overhead_bin.part" as bin_port {
         placement = offset(translation = [4000 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
     }
-    use part overhead_bin from "../cabin" as bin_starboard_fwd {
+    use part overhead_bin from "../cabin/overhead_bin.part" as bin_starboard_fwd {
         placement = offset(translation = [2400 mm, 0 mm, 0 mm])
     }
-    use part overhead_bin from "../cabin" as bin_port_fwd {
+    use part overhead_bin from "../cabin/overhead_bin.part" as bin_port_fwd {
         placement = offset(translation = [2400 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
     }
 

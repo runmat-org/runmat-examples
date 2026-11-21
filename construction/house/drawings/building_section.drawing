@@ -19,7 +19,7 @@ drawing building_section {
 
     sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
 
-    view roof = standard(orientation = top, sheet = "1", model = { assembly = house, from = ".." }, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
+    view roof = standard(orientation = top, sheet = "1", model = { assembly = house, from = "../house.assembly" }, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
     view a_a = section(
         from = roof,
         plane = origin.yz,
@@ -28,7 +28,7 @@ drawing building_section {
         label = A,
         title = "BUILDING SECTION A-A",
         sheet = "1",
-        model = { assembly = house, from = ".." },
+        model = { assembly = house, from = "../house.assembly" },
         at = [520, 300],
         display = visible_lines,
         exclude = [[{ name = mep }]],

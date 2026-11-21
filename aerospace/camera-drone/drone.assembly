@@ -15,24 +15,24 @@ assembly drone {
     input pitch : angle = -12 deg
 
     // Body: the two shells, the battery in its bay and the status window.
-    use part body_bottom from "./mechanical/body" as body_bottom
-    use part body_top from "./mechanical/body" as body_top
-    use part battery from "./mechanical/body" as battery
-    use part light_pipe from "./mechanical/body" as light_pipe
+    use part body_bottom from "./mechanical/body/body_bottom.part" as body_bottom
+    use part body_top from "./mechanical/body/body_top.part" as body_top
+    use part battery from "./mechanical/body/battery.part" as battery
+    use part light_pipe from "./mechanical/body/light_pipe.part" as light_pipe
 
     // Landing gear: a skid under each side of the belly, either side of the heatsink's fins.
-    use part landing_skid from "./mechanical/body" as skid_left {
+    use part landing_skid from "./mechanical/body/landing_skid.part" as skid_left {
         configuration = { select = inputs, values = { side = 34 mm } }
     }
-    use part landing_skid from "./mechanical/body" as skid_right {
+    use part landing_skid from "./mechanical/body/landing_skid.part" as skid_right {
         configuration = { select = inputs, values = { side = -34 mm } }
     }
 
     // The radio's two antennas, upright inside the side walls behind the board stack.
-    use part antenna from "./mechanical/body" as antenna_left {
+    use part antenna from "./mechanical/body/antenna.part" as antenna_left {
         placement = offset(translation = [-25 mm, 38 mm, 14 mm])
     }
-    use part antenna from "./mechanical/body" as antenna_right {
+    use part antenna from "./mechanical/body/antenna.part" as antenna_right {
         placement = offset(translation = [-25 mm, -38 mm, 14 mm])
     }
 
@@ -43,40 +43,40 @@ assembly drone {
     // front arms rise as they swing back over the rear ones, and the rear pins lean 28 deg so the
     // rear arms drop as they swing forward under them. The right arms are the left ones'
     // mirror images, so their blade inputs are mirrored too.
-    use assembly arm_station from "./mechanical/arm" as arm_front_left {
+    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_front_left {
         configuration = { select = inputs, values = { fold = input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = -20 deg, blade_a = input.blade_a, blade_b = input.blade_b } }
         placement = offset(translation = [44 mm, 52 mm, 24 mm], rotation = euler(yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg))
     }
-    use assembly arm_station from "./mechanical/arm" as arm_front_right {
+    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_front_right {
         configuration = { select = inputs, values = { fold = -input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = 20 deg, blade_a = -input.blade_b - 180 deg, blade_b = -input.blade_a - 180 deg } }
         placement = offset(translation = [44 mm, -52 mm, 24 mm], rotation = euler(yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg))
     }
-    use assembly arm_station from "./mechanical/arm" as arm_rear_left {
+    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_rear_left {
         configuration = { select = inputs, values = { fold = -input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = -28 deg, blade_a = input.rear_blade_a, blade_b = input.rear_blade_b } }
         placement = offset(translation = [-66 mm, 44 mm, 13 mm], rotation = euler(yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg))
     }
-    use assembly arm_station from "./mechanical/arm" as arm_rear_right {
+    use assembly arm_station from "./mechanical/arm/arm_station.assembly" as arm_rear_right {
         configuration = { select = inputs, values = { fold = input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = 28 deg, blade_a = -input.rear_blade_b - 180 deg, blade_b = -input.rear_blade_a - 180 deg } }
         placement = offset(translation = [-66 mm, -44 mm, 13 mm], rotation = euler(yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg))
     }
 
     // The 3-axis gimbal and camera under the nose.
-    use assembly gimbal from "./mechanical/gimbal" as gimbal {
+    use assembly gimbal from "./mechanical/gimbal/gimbal.assembly" as gimbal {
         configuration = { select = inputs, values = { pitch = input.pitch } }
         placement = offset(translation = [74 mm, 0 mm, 11 mm])
     }
 
     // Vision sensors: a forward stereo pair in the nose and a downward pair under the belly.
-    use part vision_sensor from "./mechanical/body" as vision_front_left {
+    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_front_left {
         placement = offset(translation = [97 mm, 6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
-    use part vision_sensor from "./mechanical/body" as vision_front_right {
+    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_front_right {
         placement = offset(translation = [97 mm, -6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
-    use part vision_sensor from "./mechanical/body" as vision_down_left {
+    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_down_left {
         placement = offset(translation = [-28 mm, 11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
-    use part vision_sensor from "./mechanical/body" as vision_down_right {
+    use part vision_sensor from "./mechanical/body/vision_sensor.part" as vision_down_right {
         placement = offset(translation = [-28 mm, -11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
 
@@ -84,10 +84,10 @@ assembly drone {
     // pedestal. The boards stand on the heatsink's standoffs: the 4-in-1 ESC on their tops, the
     // flight controller 10 mm above it on nylon spacers, both held by four M3 x 18 screws into
     // the standoffs' tapped holes (4.8 mm of thread engaged, 1.6 x the diameter).
-    use part esc_heatsink from "./electrical/esc" as esc_heatsink {
+    use part esc_heatsink from "./electrical/esc/esc_heatsink.part" as esc_heatsink {
         placement = offset(translation = [25 mm, 0 mm, 0 mm])
     }
-    use part thermal_pad from "./electrical/esc" as thermal_pad {
+    use part thermal_pad from "./electrical/esc/thermal_pad.part" as thermal_pad {
         placement = offset(translation = [25 mm, 0 mm, 9.5 mm])
     }
     use circuit esc from "./electrical/esc" as esc {
@@ -96,11 +96,11 @@ assembly drone {
     use circuit flight_controller from "./electrical/flight_controller" as flight_controller {
         placement = offset(translation = [25 mm, 0 mm, 21.6 mm])
     }
-    use part spacer from "./mechanical/+hardware" as spacer {
+    use part spacer from "./mechanical/+hardware/spacer.part" as spacer {
         configuration = { select = inputs, values = { height = 10 mm } }
         placement = offset(translation = [9.75 mm, -15.25 mm, 11.6 mm])
     }
-    use part screw from "./mechanical/+hardware" as stack_screw {
+    use part screw from "./mechanical/+hardware/screw.part" as stack_screw {
         configuration = { select = inputs, values = { length = 18 mm } }
         placement = offset(translation = [9.75 mm, -15.25 mm, 23.2 mm])
     }

@@ -2,7 +2,7 @@
 // wing-to-body fairing, along x.
 assembly fuselage {
     use part nose as nose
-    use part nose_lining from "../cockpit" as nose_lining
+    use part nose_lining from "../cockpit/nose_lining.part" as nose_lining
     use part cockpit_window_front as window_front
     use part cockpit_window_side as window_side
     use part cockpit_window_aft as window_aft
@@ -66,9 +66,9 @@ assembly fuselage {
             suppressed = true
         }
     }
-    use assembly cockpit from "../cockpit" as cockpit
-    use assembly cabin from "../cabin" as cabin
-    use assembly hold from "../cargo" as hold
+    use assembly cockpit from "../cockpit/cockpit.assembly" as cockpit
+    use assembly cabin from "../cabin/cabin.assembly" as cabin
+    use assembly hold from "../cargo/hold.assembly" as hold
     use part tail_cone as tail_cone {
         placement = offset(translation = [29200 mm, 0 mm, 0 mm])
     }

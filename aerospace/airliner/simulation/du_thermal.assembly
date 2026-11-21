@@ -3,7 +3,7 @@
 // (board underside at x = -100 mm, as cockpit.assembly places the board). Exported to
 // geometry/du_thermal.step.
 assembly du_thermal {
-    use part display_unit from "../cockpit" as display_unit
+    use part display_unit from "../cockpit/display_unit.part" as display_unit
     use part du_board_thermal as du_board {
         placement = offset(translation = [-100 mm, 0 mm, 0 mm])
     }

@@ -3,8 +3,8 @@
 // arm's length. In the studies the pod carries the motor and propeller as a lumped mass.
 // Exported to geometry/arm_study.step for arm_modal.fea and arm_landing.fea.
 assembly arm_study {
-    use part arm from "../mechanical/arm" as arm
-    use part motor_pod from "../mechanical/propulsion" as motor_pod {
+    use part arm from "../mechanical/arm/arm.part" as arm
+    use part motor_pod from "../mechanical/propulsion/motor_pod.part" as motor_pod {
         placement = attach(own = { anchor = origin }, to = { frame = connector, connector = seat })
     }
     connector seat = { occurrence = [{ name = arm }], anchor = published(name = seat) }

@@ -19,18 +19,18 @@ drawing gear_strut {
 
     sheet "1" = { format = a3, scale = [1, 15], projection = third_angle }
 
-    view front = standard(orientation = front, sheet = "1", model = { part = gear_strut, from = "../landing_gear" }, at = [70, 140], display = hidden_lines)
-    view top = projected(from = front, direction = up, sheet = "1", model = { part = gear_strut, from = "../landing_gear" }, at = [70, 255], display = visible_lines)
+    view front = standard(orientation = front, sheet = "1", model = { part = gear_strut, from = "../landing_gear/gear_strut.part" }, at = [70, 140], display = hidden_lines)
+    view top = projected(from = front, direction = up, sheet = "1", model = { part = gear_strut, from = "../landing_gear/gear_strut.part" }, at = [70, 255], display = visible_lines)
     view a_a = section(
         from = front,
         plane = feature.strut.face.side(s.c),
         label = A,
         sheet = "1",
-        model = { part = gear_strut, from = "../landing_gear" },
+        model = { part = gear_strut, from = "../landing_gear/gear_strut.part" },
         at = [175, 140],
         display = visible_lines,
     )
-    view iso = standard(orientation = isometric, sheet = "1", model = { part = gear_strut, from = "../landing_gear" }, at = [330, 190], scale = [1, 20], display = visible_lines)
+    view iso = standard(orientation = isometric, sheet = "1", model = { part = gear_strut, from = "../landing_gear/gear_strut.part" }, at = [330, 190], scale = [1, 20], display = visible_lines)
 
     annotation length = dimension(style = linear, references = [feature.strut.face.start, feature.strut.face.end], view = front)
     annotation bore_depth = dimension(style = linear, references = [feature.strut.face.start, feature.cylinder_bore.face.end], view = front)

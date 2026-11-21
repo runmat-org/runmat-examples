@@ -3,7 +3,7 @@
 // round the axis, so the sector's two cut faces are planes of symmetry. Exported to
 // geometry/bulkhead_sector.step.
 assembly bulkhead_sector {
-    use part aft_pressure_bulkhead from "../fuselage" as bulkhead {
+    use part aft_pressure_bulkhead from "../fuselage/aft_pressure_bulkhead.part" as bulkhead {
         configuration = { select = inputs, values = { sweep = 10 deg } }
     }
 }

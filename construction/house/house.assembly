@@ -4,19 +4,19 @@
 // are built.
 assembly house {
     use part house_skeleton as skeleton
-    use assembly foundation from "./foundation" as foundation {
+    use assembly foundation from "./foundation/foundation.assembly" as foundation {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly framing from "./framing" as framing {
+    use assembly framing from "./framing/framing.assembly" as framing {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly envelope from "./envelope" as envelope {
+    use assembly envelope from "./envelope/envelope.assembly" as envelope {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly interior from "./interior" as interior {
+    use assembly interior from "./interior/interior.assembly" as interior {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
-    use assembly mep from "./mep" as mep {
+    use assembly mep from "./mep/mep.assembly" as mep {
         placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
     }
 

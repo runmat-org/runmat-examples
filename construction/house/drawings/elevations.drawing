@@ -18,8 +18,8 @@ drawing elevations {
 
     sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
 
-    view south = standard(orientation = front, sheet = "1", model = { assembly = house, from = ".." }, at = [250, 290], title = "SOUTH ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
-    view east = projected(from = south, direction = right, sheet = "1", model = { assembly = house, from = ".." }, at = [620, 290], title = "EAST ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
+    view south = standard(orientation = front, sheet = "1", model = { assembly = house, from = "../house.assembly" }, at = [250, 290], title = "SOUTH ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
+    view east = projected(from = south, direction = right, sheet = "1", model = { assembly = house, from = "../house.assembly" }, at = [620, 290], title = "EAST ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
 
     // Level marks beside the south elevation, at the skeleton's level datums: the first-floor plate
     // and grade on the east side, clear of the second floor and the slab.

@@ -86,10 +86,10 @@ assembly cabin {
     use part passenger_door_aft as passenger_door_aft {
         placement = offset(translation = [28100 mm, 0 mm, 0 mm])
     }
-    use part cargo_door from "../cargo" as cargo_door {
+    use part cargo_door from "../cargo/cargo_door.part" as cargo_door {
         placement = offset(translation = [9400 mm, 0 mm, 0 mm])
     }
-    use part cargo_door_aft from "../cargo" as cargo_door_aft {
+    use part cargo_door_aft from "../cargo/cargo_door_aft.part" as cargo_door_aft {
         placement = offset(translation = [23000 mm, 0 mm, 0 mm])
     }
     mirror passenger_door_port = {

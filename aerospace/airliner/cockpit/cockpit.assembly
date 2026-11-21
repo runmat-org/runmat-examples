@@ -48,7 +48,7 @@ assembly cockpit {
     use part control_column as column_captain {
         placement = offset(translation = [1740 mm, -540 mm, -400 mm])
     }
-    use part seat_frame from "../cabin" as seat_frame_captain {
+    use part seat_frame from "../cabin/seat_frame.part" as seat_frame_captain {
         placement = offset(translation = [2420 mm, -540 mm, -360 mm])
     }
     use part pilot_seat_cushion as seat_captain {
@@ -57,7 +57,7 @@ assembly cockpit {
     use part control_column as column_first_officer {
         placement = offset(translation = [1740 mm, 540 mm, -400 mm])
     }
-    use part seat_frame from "../cabin" as seat_frame_first_officer {
+    use part seat_frame from "../cabin/seat_frame.part" as seat_frame_first_officer {
         placement = offset(translation = [2420 mm, 540 mm, -360 mm])
     }
     use part pilot_seat_cushion as seat_first_officer {

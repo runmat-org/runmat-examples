@@ -6,104 +6,104 @@ assembly framing {
     // Walls and shear walls, one configuration per wall line and level
     use part wall_framing as wall_a_l1 {
         configuration = { select = named, name = wall_a_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_a_l1 })
     }
     use part shear_wall as sheathing_a_l1 {
         configuration = { select = named, name = wall_a_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_a_l1 })
     }
     use part wall_framing as wall_d_l1 {
         configuration = { select = named, name = wall_d_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_d_l1 })
     }
     use part shear_wall as sheathing_d_l1 {
         configuration = { select = named, name = wall_d_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_d_l1 })
     }
     use part wall_framing as wall_1_l1 {
         configuration = { select = named, name = wall_1_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_1_l1 })
     }
     use part shear_wall as sheathing_1_l1 {
         configuration = { select = named, name = wall_1_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_1_l1 })
     }
     use part wall_framing as wall_5_l1 {
         configuration = { select = named, name = wall_5_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_5_l1 })
     }
     use part shear_wall as sheathing_5_l1 {
         configuration = { select = named, name = wall_5_l1 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_5_l1 })
     }
     use part wall_framing as wall_a_l2 {
         configuration = { select = named, name = wall_a_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_a_l2 })
     }
     use part shear_wall as sheathing_a_l2 {
         configuration = { select = named, name = wall_a_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_a_l2 })
     }
     use part wall_framing as wall_d_l2 {
         configuration = { select = named, name = wall_d_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_d_l2 })
     }
     use part shear_wall as sheathing_d_l2 {
         configuration = { select = named, name = wall_d_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_d_l2 })
     }
     use part wall_framing as wall_1_l2 {
         configuration = { select = named, name = wall_1_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_1_l2 })
     }
     use part shear_wall as sheathing_1_l2 {
         configuration = { select = named, name = wall_1_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_1_l2 })
     }
     use part wall_framing as wall_5_l2 {
         configuration = { select = named, name = wall_5_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_5_l2 })
     }
     use part shear_wall as sheathing_5_l2 {
         configuration = { select = named, name = wall_5_l2 }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = wall_5_l2 })
     }
     // Second floor, posts and roof
     use part floor_system as floor_l2 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = floor_l2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = floor_l2 })
     }
     use part post_base from hardware as post_base_b2 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_b2 })
     }
     use part post as post_b2 {
         placement = offset(translation = [120 in, 144 in, 1 in])
     }
     use part post_base from hardware as post_base_b3 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b3 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_b3 })
     }
     use part post as post_b3 {
         placement = offset(translation = [232 in, 144 in, 1 in])
     }
     use part post_base from hardware as post_base_b4 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_b4 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_b4 })
     }
     use part post as post_b4 {
         placement = offset(translation = [360 in, 144 in, 1 in])
     }
     use part post_base from hardware as post_base_c2 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c2 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_c2 })
     }
     use part post as post_c2 {
         placement = offset(translation = [120 in, 224 in, 1 in])
     }
     use part post_base from hardware as post_base_c3 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c3 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_c3 })
     }
     use part post as post_c3 {
         placement = offset(translation = [232 in, 224 in, 1 in])
     }
     use part post_base from hardware as post_base_c4 {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = post_c4 })
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "../house_skeleton.part", name = post_c4 })
     }
     use part post as post_c4 {
         placement = offset(translation = [360 in, 224 in, 1 in])

@@ -2,7 +2,7 @@
 // main_gear_landing.fea. The trunnion end is at the top (z = 2,500 mm), the axle end at z = 0.
 // Exported to geometry/main_gear_strut.step.
 assembly main_gear_strut {
-    use part gear_strut from "../landing_gear" as strut {
+    use part gear_strut from "../landing_gear/gear_strut.part" as strut {
         configuration = { select = inputs, values = { length = 2500 mm, radius = 115 mm, bore = 90 mm } }
     }
 }

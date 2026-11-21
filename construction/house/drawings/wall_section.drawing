@@ -20,7 +20,7 @@ drawing wall_section {
 
     sheet "1" = { format = c, scale = [1, 1], projection = third_angle }
 
-    view face = standard(orientation = front, sheet = "1", model = { part = wall_section, from = "../simulation" }, at = [200, 385], display = visible_lines)
+    view face = standard(orientation = front, sheet = "1", model = { part = wall_section, from = "../simulation/wall_section.part" }, at = [200, 385], display = visible_lines)
     view a_a = section(
         from = face,
         plane = origin.xy,
@@ -29,7 +29,7 @@ drawing wall_section {
         label = A,
         title = "EXTERIOR WALL SECTION A-A",
         sheet = "1",
-        model = { part = wall_section, from = "../simulation" },
+        model = { part = wall_section, from = "../simulation/wall_section.part" },
         at = [200, 220],
         display = visible_lines,
     )
