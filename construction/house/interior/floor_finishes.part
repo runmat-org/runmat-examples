@@ -909,8 +909,8 @@ part floor_finishes {
     // end MEP penetrations all
     output floor_finishes = { body = feature.wood_den.body, part_number = "FF-1", material = material.oak_engineered_flooring, label = "1/2 in engineered oak" }
     output floor_finishes_ceiling_l1 = { body = feature.ceiling_l1.body, part_number = "FF-1", material = material.gypsum_board, label = "1/2 in gypsum ceiling" }
-    material = { body = feature.wood_l1.body, material = material.oak_engineered_flooring }
-    material = { body = feature.wood_l2.body, material = material.oak_engineered_flooring }
-    material = { body = feature.tile_l1.body, material = material.porcelain_tile }
-    material = { body = feature.tile_l2.body, material = material.porcelain_tile }
+    assign material.oak_engineered_flooring to feature.wood_l1.body
+    assign material.oak_engineered_flooring to feature.wood_l2.body
+    assign material.porcelain_tile to feature.tile_l1.body
+    assign material.porcelain_tile to feature.tile_l2.body
 }

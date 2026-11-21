@@ -1069,20 +1069,20 @@ part floor_system {
     feature mep_all_176 = extrude(profile = sketch.mep_all_176_s, distance = 123.7 in, mode = cut)
     // end MEP penetrations all
     output floor_system = { body = feature.subfloor.body, part_number = "FL-2", material = material.osb }
-    material = { body = feature.rim_s.body, material = material.lsl_rim_board }
-    material = { body = feature.rim_n.body, material = material.lsl_rim_board }
-    material = { body = feature.rim_w.body, material = material.lsl_rim_board }
-    material = { body = feature.rim_e.body, material = material.lsl_rim_board }
-    material = { body = feature.beam_b.body, material = material.lvl }
-    material = { body = feature.beam_c.body, material = material.lvl }
-    material = { body = feature.stair_header.body, material = material.lvl }
-    material = { body = feature.joist_ab.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.joist_bc.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.joist_cd.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.trimmer_0.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.trimmer_1.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.trimmer_2.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.trimmer_3.body, material = material.engineered_lumber_i_joist }
-    material = { body = feature.tail.body, material = material.engineered_lumber_i_joist }
+    assign material.lsl_rim_board to feature.rim_s.body
+    assign material.lsl_rim_board to feature.rim_n.body
+    assign material.lsl_rim_board to feature.rim_w.body
+    assign material.lsl_rim_board to feature.rim_e.body
+    assign material.lvl to feature.beam_b.body
+    assign material.lvl to feature.beam_c.body
+    assign material.lvl to feature.stair_header.body
+    assign material.engineered_lumber_i_joist to feature.joist_ab.body
+    assign material.engineered_lumber_i_joist to feature.joist_bc.body
+    assign material.engineered_lumber_i_joist to feature.joist_cd.body
+    assign material.engineered_lumber_i_joist to feature.trimmer_0.body
+    assign material.engineered_lumber_i_joist to feature.trimmer_1.body
+    assign material.engineered_lumber_i_joist to feature.trimmer_2.body
+    assign material.engineered_lumber_i_joist to feature.trimmer_3.body
+    assign material.engineered_lumber_i_joist to feature.tail.body
     region stair_opening : face = { select = [feature.opening.face.side(opening_s.e0), feature.opening.face.side(opening_s.e1), feature.opening.face.side(opening_s.e2), feature.opening.face.side(opening_s.e3)], expect = one_or_more, label = "Stair opening" }
 }

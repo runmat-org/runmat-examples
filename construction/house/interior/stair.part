@@ -243,6 +243,6 @@ part stair {
     output stair = { body = feature.stringer_s1.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
     output stair_stringer_north = { body = feature.stringer_n.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
     output stair_handrail = { body = feature.handrail.body, part_number = "ST-1", material = material.oak, label = "Oak handrail" }
-    material = { body = feature.treads.body, material = material.oak }
-    material = { body = feature.risers.body, material = material.pine_painted_riser }
+    assign material.oak to feature.treads.body
+    assign material.pine_painted_riser to feature.risers.body
 }

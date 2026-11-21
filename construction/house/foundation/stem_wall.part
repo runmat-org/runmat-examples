@@ -394,7 +394,7 @@ part stem_wall {
     feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 10.8214 in, mode = cut)
     // end MEP penetrations all
     output stem_wall = { body = feature.wall.body, part_number = "F-2", material = material.concrete }
-    material = { body = feature.bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.bars_y.body, material = material.steel_rebar_grade_60 }
+    assign material.steel_rebar_grade_60 to feature.bars_x.body
+    assign material.steel_rebar_grade_60 to feature.bars_y.body
     region top : face = { select = [feature.wall.face.end], expect = one_or_more, label = "Top of stem wall, sill bearing" }
 }

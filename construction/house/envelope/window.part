@@ -191,26 +191,26 @@ part window {
     feature w5_right_lite1 = extrude(profile = sketch.w5_right_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
 
     output window = { body = feature.frame.body, part_number = "W2", material = material.pvc_window_frame, color = "#F2F0EA", label = "Window frame" }
-    material = { body = feature.w1_fix_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w1_fix_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w2_lower.body, material = material.pvc_window_sash }
-    material = { body = feature.w2_lower_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w2_lower_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w2_upper.body, material = material.pvc_window_sash }
-    material = { body = feature.w2_upper_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w2_upper_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w3_sash.body, material = material.pvc_window_sash }
-    material = { body = feature.w3_sash_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w3_sash_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w4_sash.body, material = material.pvc_window_sash }
-    material = { body = feature.w4_sash_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w4_sash_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w5_left.body, material = material.pvc_window_sash }
-    material = { body = feature.w5_left_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w5_left_lite1.body, material = material.glass_low_e_argon }
-    material = { body = feature.w5_right.body, material = material.pvc_window_sash }
-    material = { body = feature.w5_right_lite0.body, material = material.glass_low_e_argon }
-    material = { body = feature.w5_right_lite1.body, material = material.glass_low_e_argon }
+    assign material.glass_low_e_argon to feature.w1_fix_lite0.body
+    assign material.glass_low_e_argon to feature.w1_fix_lite1.body
+    assign material.pvc_window_sash to feature.w2_lower.body
+    assign material.glass_low_e_argon to feature.w2_lower_lite0.body
+    assign material.glass_low_e_argon to feature.w2_lower_lite1.body
+    assign material.pvc_window_sash to feature.w2_upper.body
+    assign material.glass_low_e_argon to feature.w2_upper_lite0.body
+    assign material.glass_low_e_argon to feature.w2_upper_lite1.body
+    assign material.pvc_window_sash to feature.w3_sash.body
+    assign material.glass_low_e_argon to feature.w3_sash_lite0.body
+    assign material.glass_low_e_argon to feature.w3_sash_lite1.body
+    assign material.pvc_window_sash to feature.w4_sash.body
+    assign material.glass_low_e_argon to feature.w4_sash_lite0.body
+    assign material.glass_low_e_argon to feature.w4_sash_lite1.body
+    assign material.pvc_window_sash to feature.w5_left.body
+    assign material.glass_low_e_argon to feature.w5_left_lite0.body
+    assign material.glass_low_e_argon to feature.w5_left_lite1.body
+    assign material.pvc_window_sash to feature.w5_right.body
+    assign material.glass_low_e_argon to feature.w5_right_lite0.body
+    assign material.glass_low_e_argon to feature.w5_right_lite1.body
 
     configuration W1 = { w = 60 in, h = 60 in, features = { w1_fix_lite0 = { suppressed = false }, w1_fix_lite1 = { suppressed = false } }, part_number = "W1", description = "Living-room window, fixed, 60 x 60 in, vinyl, double-pane low-E argon, U-0.25, SHGC 0.25" }
     configuration W2 = { w = 36 in, h = 60 in, features = { w2_lower = { suppressed = false }, w2_lower_lite0 = { suppressed = false }, w2_lower_lite1 = { suppressed = false }, w2_upper = { suppressed = false }, w2_upper_lite0 = { suppressed = false }, w2_upper_lite1 = { suppressed = false } }, part_number = "W2", description = "Window, single hung, 36 x 60 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25" }

@@ -939,11 +939,11 @@ part wall_framing {
     feature mep_wall_d_l2_3 = extrude(profile = sketch.mep_wall_d_l2_3_s, distance = 109.6198 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_d_l2
     output wall_framing = { body = feature.top1.body, part_number = "W-A1", material = material.douglas_fir_lumber }
-    material = { body = feature.sill.body, material = material.douglas_fir_lumber_pressure_treated }
-    material = { body = feature.o1_hdr_foam.body, material = material.xps_foam }
-    material = { body = feature.o2_hdr_foam.body, material = material.xps_foam }
-    material = { body = feature.o3_hdr_foam.body, material = material.xps_foam }
-    material = { body = feature.o4_hdr_foam.body, material = material.xps_foam }
+    assign material.douglas_fir_lumber_pressure_treated to feature.sill.body
+    assign material.xps_foam to feature.o1_hdr_foam.body
+    assign material.xps_foam to feature.o2_hdr_foam.body
+    assign material.xps_foam to feature.o3_hdr_foam.body
+    assign material.xps_foam to feature.o4_hdr_foam.body
     region outside_face : face = { select = [feature.top1.face.start], expect = exactly_one, label = "Outside face of framing" }
     export len = value(input = len)
 

@@ -675,44 +675,44 @@ part roof {
     output roof_return_north_west = { body = feature.return_north_west.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
     output roof_return_north_east = { body = feature.return_north_east.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
     output roof_ceiling = { body = feature.ceiling.body, part_number = "RF-1", material = material.gypsum_board, label = "1/2 in sag-resistant gypsum ceiling board" }
-    material = { body = feature.insulation_0.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_0.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_1.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_1.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_2.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_2.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_3.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_3.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_4.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_4.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_5.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_5.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_6.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_6.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_7.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_7.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_8.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_8.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_9.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_9.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_10.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_10.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_11.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_11.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_12.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_12.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_13.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_13.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_14.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_14.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_15.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_15.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_16.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_16.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_17.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_17.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_18.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_18.body, material = material.polystyrene_vent_baffle }
-    material = { body = feature.insulation_19.body, material = material.glass_wool_loose_fill }
-    material = { body = feature.baffles_19.body, material = material.polystyrene_vent_baffle }
+    assign material.glass_wool_loose_fill to feature.insulation_0.body
+    assign material.polystyrene_vent_baffle to feature.baffles_0.body
+    assign material.glass_wool_loose_fill to feature.insulation_1.body
+    assign material.polystyrene_vent_baffle to feature.baffles_1.body
+    assign material.glass_wool_loose_fill to feature.insulation_2.body
+    assign material.polystyrene_vent_baffle to feature.baffles_2.body
+    assign material.glass_wool_loose_fill to feature.insulation_3.body
+    assign material.polystyrene_vent_baffle to feature.baffles_3.body
+    assign material.glass_wool_loose_fill to feature.insulation_4.body
+    assign material.polystyrene_vent_baffle to feature.baffles_4.body
+    assign material.glass_wool_loose_fill to feature.insulation_5.body
+    assign material.polystyrene_vent_baffle to feature.baffles_5.body
+    assign material.glass_wool_loose_fill to feature.insulation_6.body
+    assign material.polystyrene_vent_baffle to feature.baffles_6.body
+    assign material.glass_wool_loose_fill to feature.insulation_7.body
+    assign material.polystyrene_vent_baffle to feature.baffles_7.body
+    assign material.glass_wool_loose_fill to feature.insulation_8.body
+    assign material.polystyrene_vent_baffle to feature.baffles_8.body
+    assign material.glass_wool_loose_fill to feature.insulation_9.body
+    assign material.polystyrene_vent_baffle to feature.baffles_9.body
+    assign material.glass_wool_loose_fill to feature.insulation_10.body
+    assign material.polystyrene_vent_baffle to feature.baffles_10.body
+    assign material.glass_wool_loose_fill to feature.insulation_11.body
+    assign material.polystyrene_vent_baffle to feature.baffles_11.body
+    assign material.glass_wool_loose_fill to feature.insulation_12.body
+    assign material.polystyrene_vent_baffle to feature.baffles_12.body
+    assign material.glass_wool_loose_fill to feature.insulation_13.body
+    assign material.polystyrene_vent_baffle to feature.baffles_13.body
+    assign material.glass_wool_loose_fill to feature.insulation_14.body
+    assign material.polystyrene_vent_baffle to feature.baffles_14.body
+    assign material.glass_wool_loose_fill to feature.insulation_15.body
+    assign material.polystyrene_vent_baffle to feature.baffles_15.body
+    assign material.glass_wool_loose_fill to feature.insulation_16.body
+    assign material.polystyrene_vent_baffle to feature.baffles_16.body
+    assign material.glass_wool_loose_fill to feature.insulation_17.body
+    assign material.polystyrene_vent_baffle to feature.baffles_17.body
+    assign material.glass_wool_loose_fill to feature.insulation_18.body
+    assign material.polystyrene_vent_baffle to feature.baffles_18.body
+    assign material.glass_wool_loose_fill to feature.insulation_19.body
+    assign material.polystyrene_vent_baffle to feature.baffles_19.body
 }

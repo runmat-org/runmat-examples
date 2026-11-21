@@ -29,131 +29,131 @@ circuit service {
         net L2 = { global = true, power_flag = true }
         net N = { global = true, power_flag = true }
         net EG = { global = true }
-        connect = [net.UL1, T1.L1, M1.L1_IN]
-        connect = [net.UL2, T1.L2, M1.L2_IN]
-        connect = [net.UN, T1.N, M1.N_IN]
-        connect = [net.SE1, M1.L1_OUT, CB0.L1_LINE]
-        connect = [net.SE2, M1.L2_OUT, CB0.L2_LINE]
-        connect = [net.N, M1.N_OUT, JP1.N]
-        connect = [net.L1, CB0.L1_LOAD]
-        connect = [net.L2, CB0.L2_LOAD]
-        connect = [net.EG, JP1.EG, E1.GEC, E2.GEC]
+        connect [net.UL1, T1.L1, M1.L1_IN]
+        connect [net.UL2, T1.L2, M1.L2_IN]
+        connect [net.UN, T1.N, M1.N_IN]
+        connect [net.SE1, M1.L1_OUT, CB0.L1_LINE]
+        connect [net.SE2, M1.L2_OUT, CB0.L2_LINE]
+        connect [net.N, M1.N_OUT, JP1.N]
+        connect [net.L1, CB0.L1_LOAD]
+        connect [net.L2, CB0.L2_LOAD]
+        connect [net.EG, JP1.EG, E1.GEC, E2.GEC]
         text panel = "PANEL P1, utility room: 200 A main, 40 spaces"
         // Space 1 and 3.
         text c1 = "1, 3: 50 A 2P GFCI, 6/3 Cu NM-B"
         text c1_load = "Range, kitchen east wall (55 A at 60 C)"
         component CB1 : "BKR-2P-50A-GF"
-        connect = [net.L1, CB1.L1_LINE]
-        connect = [net.L2, CB1.L2_LINE]
-        connect = [net.C1A, CB1.L1_LOAD]
-        connect = [net.C1B, CB1.L2_LOAD]
+        connect [net.L1, CB1.L1_LINE]
+        connect [net.L2, CB1.L2_LINE]
+        connect [net.C1A, CB1.L1_LOAD]
+        connect [net.C1B, CB1.L2_LOAD]
         // Space 5 and 7.
         text c5 = "5, 7: 30 A 2P GFCI, 10/3 Cu NM-B"
         text c5_load = "Dryer, utility room"
         component CB5 : "BKR-2P-30A-GF"
-        connect = [net.L1, CB5.L1_LINE]
-        connect = [net.L2, CB5.L2_LINE]
-        connect = [net.C5A, CB5.L1_LOAD]
-        connect = [net.C5B, CB5.L2_LOAD]
+        connect [net.L1, CB5.L1_LINE]
+        connect [net.L2, CB5.L2_LINE]
+        connect [net.C5A, CB5.L1_LOAD]
+        connect [net.C5B, CB5.L2_LOAD]
         // Space 9 and 11.
         text c9 = "9, 11: 30 A 2P, 10/2 Cu NM-B"
         text c9_load = "Water heater, utility room"
         component CB9 : "BKR-2P-30A"
-        connect = [net.L1, CB9.L1_LINE]
-        connect = [net.L2, CB9.L2_LINE]
-        connect = [net.C9A, CB9.L1_LOAD]
-        connect = [net.C9B, CB9.L2_LOAD]
+        connect [net.L1, CB9.L1_LINE]
+        connect [net.L2, CB9.L2_LINE]
+        connect [net.C9A, CB9.L1_LOAD]
+        connect [net.C9B, CB9.L2_LOAD]
         // Space 13 and 15.
         text c13 = "13, 15: 60 A 2P, 4/2 Cu NM-B"
         text c13_load = "Air handler, 10 kW strips (70 A at 60 C)"
         component CB13 : "BKR-2P-60A"
-        connect = [net.L1, CB13.L1_LINE]
-        connect = [net.L2, CB13.L2_LINE]
-        connect = [net.C13A, CB13.L1_LOAD]
-        connect = [net.C13B, CB13.L2_LOAD]
+        connect [net.L1, CB13.L1_LINE]
+        connect [net.L2, CB13.L2_LINE]
+        connect [net.C13A, CB13.L1_LOAD]
+        connect [net.C13B, CB13.L2_LOAD]
         // Space 17 and 19.
         text c17 = "17, 19: 30 A 2P, 10/2 Cu NM-B, 10 THWN"
         text c17_load = "Heat pump condenser, outside wall 5"
         component CB17 : "BKR-2P-30A"
-        connect = [net.L1, CB17.L1_LINE]
-        connect = [net.L2, CB17.L2_LINE]
-        connect = [net.C17A, CB17.L1_LOAD]
-        connect = [net.C17B, CB17.L2_LOAD]
+        connect [net.L1, CB17.L1_LINE]
+        connect [net.L2, CB17.L2_LINE]
+        connect [net.C17A, CB17.L1_LOAD]
+        connect [net.C17B, CB17.L2_LOAD]
         // Space 2.
         text c2 = "2: 20 A AFCI, 12/2 Cu NM-B. Kitchen counter, north wall"
         component CB2 : "BKR-1P-20A-AFCI"
-        connect = [net.L1, CB2.LINE]
-        connect = [net.C2, CB2.LOAD]
+        connect [net.L1, CB2.LINE]
+        connect [net.C2, CB2.LOAD]
         // Space 4.
         text c4 = "4: 20 A AFCI, 12/2 Cu NM-B. Kitchen counter, east wall"
         component CB4 : "BKR-1P-20A-AFCI"
-        connect = [net.L2, CB4.LINE]
-        connect = [net.C4, CB4.LOAD]
+        connect [net.L2, CB4.LINE]
+        connect [net.C4, CB4.LOAD]
         // Space 6.
         text c6 = "6: 20 A AFCI, 12/2 Cu NM-B. Refrigerator"
         component CB6 : "BKR-1P-20A-AFCI"
-        connect = [net.L1, CB6.LINE]
-        connect = [net.C6, CB6.LOAD]
+        connect [net.L1, CB6.LINE]
+        connect [net.C6, CB6.LOAD]
         // Space 8.
         text c8 = "8: 20 A AFCI/GFCI, 12/2 Cu NM-B. Dishwasher, disposal"
         component CB8 : "BKR-1P-20A-DF"
-        connect = [net.L2, CB8.LINE]
-        connect = [net.C8, CB8.LOAD]
+        connect [net.L2, CB8.LINE]
+        connect [net.C8, CB8.LOAD]
         // Space 10.
         text c10 = "10: 20 A AFCI/GFCI, 12/2 Cu NM-B. Laundry, utility room"
         component CB10 : "BKR-1P-20A-DF"
-        connect = [net.L1, CB10.LINE]
-        connect = [net.C10, CB10.LOAD]
+        connect [net.L1, CB10.LINE]
+        connect [net.C10, CB10.LOAD]
         // Space 12.
         text c12 = "12: 20 A, 12/2 Cu NM-B. Hall bath receptacle"
         component CB12 : "BKR-1P-20A"
-        connect = [net.L2, CB12.LINE]
-        connect = [net.C12, CB12.LOAD]
+        connect [net.L2, CB12.LINE]
+        connect [net.C12, CB12.LOAD]
         // Space 14.
         text c14 = "14: 20 A, 12/2 Cu NM-B. Primary bath receptacles"
         component CB14 : "BKR-1P-20A"
-        connect = [net.L1, CB14.LINE]
-        connect = [net.C14, CB14.LOAD]
+        connect [net.L1, CB14.LINE]
+        connect [net.C14, CB14.LOAD]
         // Space 16.
         text c16 = "16: 20 A, 12/2 Cu NM-B. Outdoor receptacles"
         component CB16 : "BKR-1P-20A"
-        connect = [net.L2, CB16.LINE]
-        connect = [net.C16, CB16.LOAD]
+        connect [net.L2, CB16.LINE]
+        connect [net.C16, CB16.LOAD]
         // Space 18.
         text c18 = "18: 15 A AFCI, 14/2 Cu NM-B. Living room and foyer"
         component CB18 : "BKR-1P-15A-AFCI"
-        connect = [net.L1, CB18.LINE]
-        connect = [net.C18, CB18.LOAD]
+        connect [net.L1, CB18.LINE]
+        connect [net.C18, CB18.LOAD]
         // Space 20.
         text c20 = "20: 15 A AFCI, 14/2 Cu NM-B. Dining and kitchen lights"
         component CB20 : "BKR-1P-15A-AFCI"
-        connect = [net.L2, CB20.LINE]
-        connect = [net.C20, CB20.LOAD]
+        connect [net.L2, CB20.LINE]
+        connect [net.C20, CB20.LOAD]
         // Space 22.
         text c22 = "22: 15 A AFCI, 14/2 Cu NM-B. Den, utility, smoke alarm"
         component CB22 : "BKR-1P-15A-AFCI"
-        connect = [net.L1, CB22.LINE]
-        connect = [net.C22, CB22.LOAD]
+        connect [net.L1, CB22.LINE]
+        connect [net.C22, CB22.LOAD]
         // Space 24.
         text c24 = "24: 15 A AFCI, 14/2 Cu NM-B. Bedroom 3, smoke alarm"
         component CB24 : "BKR-1P-15A-AFCI"
-        connect = [net.L2, CB24.LINE]
-        connect = [net.C24, CB24.LOAD]
+        connect [net.L2, CB24.LINE]
+        connect [net.C24, CB24.LOAD]
         // Space 26.
         text c26 = "26: 15 A AFCI, 14/2 Cu NM-B. Primary bedroom, closet"
         component CB26 : "BKR-1P-15A-AFCI"
-        connect = [net.L1, CB26.LINE]
-        connect = [net.C26, CB26.LOAD]
+        connect [net.L1, CB26.LINE]
+        connect [net.C26, CB26.LOAD]
         // Space 28.
         text c28 = "28: 15 A AFCI, 14/2 Cu NM-B. Bedroom 2, hall, alarms"
         component CB28 : "BKR-1P-15A-AFCI"
-        connect = [net.L2, CB28.LINE]
-        connect = [net.C28, CB28.LOAD]
+        connect [net.L2, CB28.LINE]
+        connect [net.C28, CB28.LOAD]
         // Space 30.
         text c30 = "30: 15 A, 14/2 Cu NM-B. Bath lights and exhaust fans"
         component CB30 : "BKR-1P-15A"
-        connect = [net.L1, CB30.LINE]
-        connect = [net.C30, CB30.LOAD]
+        connect [net.L1, CB30.LINE]
+        connect [net.C30, CB30.LOAD]
         no_erc = [CB1.L1_LOAD, CB1.L2_LOAD, CB5.L1_LOAD, CB5.L2_LOAD, CB9.L1_LOAD, CB9.L2_LOAD, CB13.L1_LOAD, CB13.L2_LOAD, CB17.L1_LOAD, CB17.L2_LOAD, CB2.LOAD, CB4.LOAD, CB6.LOAD, CB8.LOAD, CB10.LOAD, CB12.LOAD, CB14.LOAD, CB16.LOAD, CB18.LOAD, CB20.LOAD, CB22.LOAD, CB24.LOAD, CB26.LOAD, CB28.LOAD, CB30.LOAD]
     }
 }

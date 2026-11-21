@@ -203,9 +203,9 @@ part slab_on_grade {
     feature mep_all_13 = extrude(profile = sketch.mep_all_13_s, distance = 4.95 in, mode = cut)
     // end MEP penetrations all
     output slab_on_grade = { body = feature.slab.body, part_number = "F-3", material = material.concrete }
-    material = { body = feature.vapor_retarder.body, material = material.polyethylene_10_mil }
-    material = { body = feature.sub_slab_insulation.body, material = material.xps_foam }
-    material = { body = feature.gravel_base.body, material = material.crushed_stone_gravel }
-    material = { body = feature.edge_insulation.body, material = material.xps_foam }
+    assign material.polyethylene_10_mil to feature.vapor_retarder.body
+    assign material.xps_foam to feature.sub_slab_insulation.body
+    assign material.crushed_stone_gravel to feature.gravel_base.body
+    assign material.xps_foam to feature.edge_insulation.body
     region top_of_slab : face = { select = [feature.slab.face.end], expect = exactly_one, label = "Top of slab" }
 }

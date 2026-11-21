@@ -236,21 +236,21 @@ part footing {
     feature hw_7 = extrude(profile = sketch.hw_7_s, distance = 3 in, mode = cut)
     // end connector holes all
     output footing = { body = feature.perimeter.body, part_number = "F-1", material = material.concrete }
-    material = { body = feature.bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.dowels.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b2_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b2_bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b3_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b3_bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b4_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_b4_bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c2_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c2_bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c3_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c3_bars_y.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c4_bars_x.body, material = material.steel_rebar_grade_60 }
-    material = { body = feature.pad_c4_bars_y.body, material = material.steel_rebar_grade_60 }
+    assign material.steel_rebar_grade_60 to feature.bars_x.body
+    assign material.steel_rebar_grade_60 to feature.bars_y.body
+    assign material.steel_rebar_grade_60 to feature.dowels.body
+    assign material.steel_rebar_grade_60 to feature.pad_b2_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_b2_bars_y.body
+    assign material.steel_rebar_grade_60 to feature.pad_b3_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_b3_bars_y.body
+    assign material.steel_rebar_grade_60 to feature.pad_b4_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_b4_bars_y.body
+    assign material.steel_rebar_grade_60 to feature.pad_c2_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_c2_bars_y.body
+    assign material.steel_rebar_grade_60 to feature.pad_c3_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_c3_bars_y.body
+    assign material.steel_rebar_grade_60 to feature.pad_c4_bars_x.body
+    assign material.steel_rebar_grade_60 to feature.pad_c4_bars_y.body
     region bearing : face = { select = [feature.perimeter.face.start], expect = one_or_more, label = "Footing bearing on soil" }
     export width = let(name = width)
 }

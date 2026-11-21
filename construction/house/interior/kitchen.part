@@ -222,12 +222,12 @@ part kitchen {
     output kitchen_sink = { body = feature.sink.body, part_number = "K-1", material = material.stainless_304, label = "Sink, 30 x 18 in" }
     output kitchen_range = { body = feature.range.body, part_number = "K-1", material = material.stainless_304, label = "Range, 30 in" }
     output kitchen_refrigerator = { body = feature.refrigerator.body, part_number = "K-1", material = material.stainless_304, label = "Refrigerator, 36 in" }
-    material = { body = feature.sink_base.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.base_north2.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.base_east1.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.base_east2.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.upper_w.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.upper_e.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.top_east1.body, material = material.granite_countertop }
-    material = { body = feature.top_east2.body, material = material.granite_countertop }
+    assign material.birch_plywood_cabinet to feature.sink_base.body
+    assign material.birch_plywood_cabinet to feature.base_north2.body
+    assign material.birch_plywood_cabinet to feature.base_east1.body
+    assign material.birch_plywood_cabinet to feature.base_east2.body
+    assign material.birch_plywood_cabinet to feature.upper_w.body
+    assign material.birch_plywood_cabinet to feature.upper_e.body
+    assign material.granite_countertop to feature.top_east1.body
+    assign material.granite_countertop to feature.top_east2.body
 }

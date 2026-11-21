@@ -1519,24 +1519,24 @@ part exterior_wall {
     output exterior_wall_wrb_inner = { body = feature.wrb_inner.body, part_number = "EW-A1", material = material.asphalt_saturated_kraft_wrb, color = "#5A4A3A", label = "WRB, inner layer, Grade D 60-minute building paper" }
     output exterior_wall_vapor_retarder = { body = feature.vapor_retarder.body, part_number = "EW-A1", material = material.nylon_vapor_retarder, label = "Variable-permeance vapor retarder (Class II dry, Class III humid)" }
     output exterior_wall_gypsum = { body = feature.gypsum.body, part_number = "EW-A1", material = material.gypsum_board, label = "1/2 in gypsum board" }
-    material = { body = feature.batt_a_l1.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_d_l1.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_1_l1.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_5_l1.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_a_l2.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_d_l2.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_1_l2.body, material = material.fiberglass_batt }
-    material = { body = feature.batt_5_l2.body, material = material.fiberglass_batt }
-    material = { body = feature.weep_screed_ad.body, material = material.galvanized_steel_weep_screed }
-    material = { body = feature.weep_screed_15.body, material = material.galvanized_steel_weep_screed }
-    material = { body = feature.o1_pan.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o1_head.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o2_pan.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o2_head.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o3_pan.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o3_head.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o4_pan.body, material = material.galvanized_steel_flashing }
-    material = { body = feature.o4_head.body, material = material.galvanized_steel_flashing }
+    assign material.fiberglass_batt to feature.batt_a_l1.body
+    assign material.fiberglass_batt to feature.batt_d_l1.body
+    assign material.fiberglass_batt to feature.batt_1_l1.body
+    assign material.fiberglass_batt to feature.batt_5_l1.body
+    assign material.fiberglass_batt to feature.batt_a_l2.body
+    assign material.fiberglass_batt to feature.batt_d_l2.body
+    assign material.fiberglass_batt to feature.batt_1_l2.body
+    assign material.fiberglass_batt to feature.batt_5_l2.body
+    assign material.galvanized_steel_weep_screed to feature.weep_screed_ad.body
+    assign material.galvanized_steel_weep_screed to feature.weep_screed_15.body
+    assign material.galvanized_steel_flashing to feature.o1_pan.body
+    assign material.galvanized_steel_flashing to feature.o1_head.body
+    assign material.galvanized_steel_flashing to feature.o2_pan.body
+    assign material.galvanized_steel_flashing to feature.o2_head.body
+    assign material.galvanized_steel_flashing to feature.o3_pan.body
+    assign material.galvanized_steel_flashing to feature.o3_head.body
+    assign material.galvanized_steel_flashing to feature.o4_pan.body
+    assign material.galvanized_steel_flashing to feature.o4_head.body
     region stucco_face : face = { select = [feature.stucco_finish.face.start], expect = one_or_more, label = "Stucco face" }
     region room_face : face = { select = [feature.gypsum.face.end], expect = one_or_more, label = "Room face of the gypsum" }
 

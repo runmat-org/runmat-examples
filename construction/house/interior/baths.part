@@ -255,8 +255,8 @@ part baths {
     output baths_shower_base = { body = feature.shower_base.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Shower base" }
     output baths_vanity_tops = { body = feature.vtop_hall.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Vanity top" }
     output baths_vanity_top_primary = { body = feature.vtop_primary.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Vanity top" }
-    material = { body = feature.vanity_hall.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.vanity_primary.body, material = material.birch_plywood_cabinet }
-    material = { body = feature.glass_e.body, material = material.glass_tempered }
-    material = { body = feature.glass_s.body, material = material.glass_tempered }
+    assign material.birch_plywood_cabinet to feature.vanity_hall.body
+    assign material.birch_plywood_cabinet to feature.vanity_primary.body
+    assign material.glass_tempered to feature.glass_e.body
+    assign material.glass_tempered to feature.glass_s.body
 }

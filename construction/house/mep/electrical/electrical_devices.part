@@ -26,7 +26,7 @@ part electrical_devices {
         l3 = line(start = [352.5 in, -1.375 in], end = [352.5 in, -5.375 in])
     }
     feature meter = extrude(profile = sketch.meter_s, distance = 18 in, mode = new)
-    material = { body = feature.meter.body, material = material.galvanized_steel }
+    assign material.galvanized_steel to feature.meter.body
     sketch panel_s on plane.p_xy_1 {
         l0 = line(start = [356.25 in, 14 in], end = [360 in, 14 in])
         l1 = line(start = [360 in, 14 in], end = [360 in, 28.25 in])
@@ -34,7 +34,7 @@ part electrical_devices {
         l3 = line(start = [356.25 in, 28.25 in], end = [356.25 in, 14 in])
     }
     feature panel = extrude(profile = sketch.panel_s, distance = 30 in, mode = new)
-    material = { body = feature.panel.body, material = material.galvanized_steel }
+    assign material.galvanized_steel to feature.panel.body
     sketch c10_laundry_box_s on plane.p_xy_2 {
         l0 = line(start = [298 in, 109 in], end = [300.5 in, 109 in])
         l1 = line(start = [300.5 in, 109 in], end = [300.5 in, 111 in])
@@ -42,7 +42,7 @@ part electrical_devices {
         l3 = line(start = [298 in, 111 in], end = [298 in, 109 in])
     }
     feature c10_laundry_box = extrude(profile = sketch.c10_laundry_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c10_laundry_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c10_laundry_box.body
     sketch c10_laundry_s on plane.p_xy_3 {
         l0 = line(start = [300.5 in, 108.5 in], end = [300.75 in, 108.5 in])
         l1 = line(start = [300.75 in, 108.5 in], end = [300.75 in, 111.5 in])
@@ -50,7 +50,7 @@ part electrical_devices {
         l3 = line(start = [300.5 in, 111.5 in], end = [300.5 in, 108.5 in])
     }
     feature c10_laundry = extrude(profile = sketch.c10_laundry_s, distance = 5 in, mode = new)
-    material = { body = feature.c10_laundry.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c10_laundry.body
     sketch c5_dryer_box_s on plane.p_xy_4 {
         l0 = line(start = [297.5 in, 124 in], end = [300.5 in, 124 in])
         l1 = line(start = [300.5 in, 124 in], end = [300.5 in, 128 in])
@@ -58,7 +58,7 @@ part electrical_devices {
         l3 = line(start = [297.5 in, 128 in], end = [297.5 in, 124 in])
     }
     feature c5_dryer_box = extrude(profile = sketch.c5_dryer_box_s, distance = 4 in, mode = new)
-    material = { body = feature.c5_dryer_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c5_dryer_box.body
     sketch c5_dryer_s on plane.p_xy_5 {
         l0 = line(start = [300.5 in, 123.5 in], end = [300.75 in, 123.5 in])
         l1 = line(start = [300.75 in, 123.5 in], end = [300.75 in, 128.5 in])
@@ -66,7 +66,7 @@ part electrical_devices {
         l3 = line(start = [300.5 in, 128.5 in], end = [300.5 in, 123.5 in])
     }
     feature c5_dryer = extrude(profile = sketch.c5_dryer_s, distance = 6 in, mode = new)
-    material = { body = feature.c5_dryer.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c5_dryer.body
     sketch c9_water_heater_box_s on plane.p_xy_6 {
         l0 = line(start = [314 in, 134 in], end = [316 in, 134 in])
         l1 = line(start = [316 in, 134 in], end = [316 in, 136.5 in])
@@ -74,7 +74,7 @@ part electrical_devices {
         l3 = line(start = [314 in, 136.5 in], end = [314 in, 134 in])
     }
     feature c9_water_heater_box = extrude(profile = sketch.c9_water_heater_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c9_water_heater_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c9_water_heater_box.body
     sketch c9_water_heater_s on plane.p_xy_7 {
         l0 = line(start = [313.5 in, 133.75 in], end = [316.5 in, 133.75 in])
         l1 = line(start = [316.5 in, 133.75 in], end = [316.5 in, 134 in])
@@ -82,7 +82,7 @@ part electrical_devices {
         l3 = line(start = [313.5 in, 134 in], end = [313.5 in, 133.75 in])
     }
     feature c9_water_heater = extrude(profile = sketch.c9_water_heater_s, distance = 5 in, mode = new)
-    material = { body = feature.c9_water_heater.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c9_water_heater.body
     sketch c2_kitchen_gfci_box_s on plane.p_xy_2 {
         l0 = line(start = [341.5 in, 353.9844 in], end = [343.5 in, 353.9844 in])
         l1 = line(start = [343.5 in, 353.9844 in], end = [343.5 in, 356.48 in])
@@ -90,7 +90,7 @@ part electrical_devices {
         l3 = line(start = [341.5 in, 356.48 in], end = [341.5 in, 353.9844 in])
     }
     feature c2_kitchen_gfci_box = extrude(profile = sketch.c2_kitchen_gfci_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c2_kitchen_gfci_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c2_kitchen_gfci_box.body
     sketch c2_kitchen_gfci_s on plane.p_xy_3 {
         l0 = line(start = [341 in, 353.7344 in], end = [344 in, 353.7344 in])
         l1 = line(start = [344 in, 353.7344 in], end = [344 in, 353.9844 in])
@@ -98,7 +98,7 @@ part electrical_devices {
         l3 = line(start = [341 in, 353.9844 in], end = [341 in, 353.7344 in])
     }
     feature c2_kitchen_gfci = extrude(profile = sketch.c2_kitchen_gfci_s, distance = 5 in, mode = new)
-    material = { body = feature.c2_kitchen_gfci.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c2_kitchen_gfci.body
     sketch c6_refrigerator_box_s on plane.p_xy_8 {
         l0 = line(start = [327 in, 353.9844 in], end = [329 in, 353.9844 in])
         l1 = line(start = [329 in, 353.9844 in], end = [329 in, 356.48 in])
@@ -106,7 +106,7 @@ part electrical_devices {
         l3 = line(start = [327 in, 356.48 in], end = [327 in, 353.9844 in])
     }
     feature c6_refrigerator_box = extrude(profile = sketch.c6_refrigerator_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c6_refrigerator_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c6_refrigerator_box.body
     sketch c6_refrigerator_s on plane.p_xy_9 {
         l0 = line(start = [326.5 in, 353.7344 in], end = [329.5 in, 353.7344 in])
         l1 = line(start = [329.5 in, 353.7344 in], end = [329.5 in, 353.9844 in])
@@ -114,7 +114,7 @@ part electrical_devices {
         l3 = line(start = [326.5 in, 353.9844 in], end = [326.5 in, 353.7344 in])
     }
     feature c6_refrigerator = extrude(profile = sketch.c6_refrigerator_s, distance = 5 in, mode = new)
-    material = { body = feature.c6_refrigerator.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c6_refrigerator.body
     sketch c22_den_box_s on plane.p_xy_10 {
         l0 = line(start = [375 in, 3.5 in], end = [377 in, 3.5 in])
         l1 = line(start = [377 in, 3.5 in], end = [377 in, 6.0156 in])
@@ -122,7 +122,7 @@ part electrical_devices {
         l3 = line(start = [375 in, 6.0156 in], end = [375 in, 3.5 in])
     }
     feature c22_den_box = extrude(profile = sketch.c22_den_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c22_den_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c22_den_box.body
     sketch c22_den_s on plane.p_xy_11 {
         l0 = line(start = [374.5 in, 6.0156 in], end = [377.5 in, 6.0156 in])
         l1 = line(start = [377.5 in, 6.0156 in], end = [377.5 in, 6.2656 in])
@@ -130,7 +130,7 @@ part electrical_devices {
         l3 = line(start = [374.5 in, 6.2656 in], end = [374.5 in, 6.0156 in])
     }
     feature c22_den = extrude(profile = sketch.c22_den_s, distance = 5 in, mode = new)
-    material = { body = feature.c22_den.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c22_den.body
     sketch c22_utility_light_box_s on plane.p_xy_12 {
         l0 = line(start = [342 in, 68 in], end = [346 in, 68 in])
         l1 = line(start = [346 in, 68 in], end = [346 in, 72 in])
@@ -138,7 +138,7 @@ part electrical_devices {
         l3 = line(start = [342 in, 72 in], end = [342 in, 68 in])
     }
     feature c22_utility_light_box = extrude(profile = sketch.c22_utility_light_box_s, distance = 2 in, mode = new)
-    material = { body = feature.c22_utility_light_box.body, material = material.galvanized_steel }
+    assign material.galvanized_steel to feature.c22_utility_light_box.body
     sketch c22_utility_light_s on plane.p_xy_13 {
         l0 = line(start = [338 in, 64 in], end = [350 in, 64 in])
         l1 = line(start = [350 in, 64 in], end = [350 in, 76 in])
@@ -146,7 +146,7 @@ part electrical_devices {
         l3 = line(start = [338 in, 76 in], end = [338 in, 64 in])
     }
     feature c22_utility_light = extrude(profile = sketch.c22_utility_light_s, distance = 2 in, mode = new)
-    material = { body = feature.c22_utility_light.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c22_utility_light.body
     sketch c22_den_light_box_s on plane.p_xy_12 {
         l0 = line(start = [422 in, 68 in], end = [426 in, 68 in])
         l1 = line(start = [426 in, 68 in], end = [426 in, 72 in])
@@ -154,7 +154,7 @@ part electrical_devices {
         l3 = line(start = [422 in, 72 in], end = [422 in, 68 in])
     }
     feature c22_den_light_box = extrude(profile = sketch.c22_den_light_box_s, distance = 2 in, mode = new)
-    material = { body = feature.c22_den_light_box.body, material = material.galvanized_steel }
+    assign material.galvanized_steel to feature.c22_den_light_box.body
     sketch c22_den_light_s on plane.p_xy_13 {
         l0 = line(start = [418 in, 64 in], end = [430 in, 64 in])
         l1 = line(start = [430 in, 64 in], end = [430 in, 76 in])
@@ -162,7 +162,7 @@ part electrical_devices {
         l3 = line(start = [418 in, 76 in], end = [418 in, 64 in])
     }
     feature c22_den_light = extrude(profile = sketch.c22_den_light_s, distance = 2 in, mode = new)
-    material = { body = feature.c22_den_light.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c22_den_light.body
     sketch c13_disconnect_s on plane.p_xy_0 {
         l0 = line(start = [336 in, 130 in], end = [344 in, 130 in])
         l1 = line(start = [344 in, 130 in], end = [344 in, 134 in])
@@ -170,7 +170,7 @@ part electrical_devices {
         l3 = line(start = [336 in, 134 in], end = [336 in, 130 in])
     }
     feature c13_disconnect = extrude(profile = sketch.c13_disconnect_s, distance = 12 in, mode = new)
-    material = { body = feature.c13_disconnect.body, material = material.galvanized_steel }
+    assign material.galvanized_steel to feature.c13_disconnect.body
     sketch c4_kitchen_gfci_box_s on plane.p_xy_2 {
         l0 = line(start = [473.9844 in, 249 in], end = [476.48 in, 249 in])
         l1 = line(start = [476.48 in, 249 in], end = [476.48 in, 251 in])
@@ -178,7 +178,7 @@ part electrical_devices {
         l3 = line(start = [473.9844 in, 251 in], end = [473.9844 in, 249 in])
     }
     feature c4_kitchen_gfci_box = extrude(profile = sketch.c4_kitchen_gfci_box_s, distance = 3 in, mode = new)
-    material = { body = feature.c4_kitchen_gfci_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c4_kitchen_gfci_box.body
     sketch c4_kitchen_gfci_s on plane.p_xy_3 {
         l0 = line(start = [473.7344 in, 248.5 in], end = [473.9844 in, 248.5 in])
         l1 = line(start = [473.9844 in, 248.5 in], end = [473.9844 in, 251.5 in])
@@ -186,7 +186,7 @@ part electrical_devices {
         l3 = line(start = [473.7344 in, 251.5 in], end = [473.7344 in, 248.5 in])
     }
     feature c4_kitchen_gfci = extrude(profile = sketch.c4_kitchen_gfci_s, distance = 5 in, mode = new)
-    material = { body = feature.c4_kitchen_gfci.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c4_kitchen_gfci.body
     sketch c1_range_box_s on plane.p_xy_14 {
         l0 = line(start = [473.9844 in, 227 in], end = [476.48 in, 227 in])
         l1 = line(start = [476.48 in, 227 in], end = [476.48 in, 231 in])
@@ -194,7 +194,7 @@ part electrical_devices {
         l3 = line(start = [473.9844 in, 231 in], end = [473.9844 in, 227 in])
     }
     feature c1_range_box = extrude(profile = sketch.c1_range_box_s, distance = 4 in, mode = new)
-    material = { body = feature.c1_range_box.body, material = material.pvc_electrical_box }
+    assign material.pvc_electrical_box to feature.c1_range_box.body
     sketch c1_range_s on plane.p_xy_15 {
         l0 = line(start = [473.7344 in, 226.5 in], end = [473.9844 in, 226.5 in])
         l1 = line(start = [473.9844 in, 226.5 in], end = [473.9844 in, 231.5 in])
@@ -202,7 +202,7 @@ part electrical_devices {
         l3 = line(start = [473.7344 in, 231.5 in], end = [473.7344 in, 226.5 in])
     }
     feature c1_range = extrude(profile = sketch.c1_range_s, distance = 6 in, mode = new)
-    material = { body = feature.c1_range.body, material = material.pvc_device }
+    assign material.pvc_device to feature.c1_range.body
     output electrical_devices_meter = { body = feature.meter.body, part_number = "E-MTR", material = material.galvanized_steel, label = "Meter socket, 200 A" }
     output electrical_devices_panel = { body = feature.panel.body, part_number = "E-PNL", material = material.galvanized_steel, label = "Main panel, 200 A, 40 spaces, surface mounted" }
     output electrical_devices_c10_laundry_box = { body = feature.c10_laundry_box.body, part_number = "E-BOX", material = material.pvc_electrical_box, label = "Laundry receptacle, 20 A, circuit 10, box" }
