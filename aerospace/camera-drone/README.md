@@ -48,11 +48,14 @@ the change and the margin it reached. Hand checks are labeled "hand estimate" an
    The `service` exploded view lifts the shell, slides the battery out and separates the board
    stack.
 
-2. **Designs that name each other.** Files in one folder use each other directly. A file names a
-   design in another folder with `from`, and a drawing view names its model the same way:
+2. **Designs that name each other.** A file imports each design it names from that design's
+   file. An assembly places it with an `instance` line, and a drawing view names it as its
+   model:
 
    ```
-   use part arm from "../mechanical/arm" as arm
+   import { arm } from "../mechanical/arm/arm.part"
+
+   instance arm : arm
    ```
 
 3. **Circuit simulations with specs.** Each simulation measures its result against a spec. The

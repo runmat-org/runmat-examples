@@ -36,14 +36,16 @@ The main sizes, in millimeters, with x aft from the nose tip, y to starboard and
    frame pitch and rib pitch as inputs, and publishes one frame per major assembly. The top
    assembly places each assembly on its frame.
 
-2. **Assemblies name each other.** Files in one folder use each other directly. A file names a
-   design in another folder with `from`:
+2. **Assemblies name each other.** A file imports each design it places from that design's
+   file, and an `instance` line places it:
 
    ```
-   use part seat_frame from "../cabin" as seat
+   import { seat_frame } from "../cabin/seat_frame.part"
+
+   instance seat_frame_captain : seat_frame
    ```
 
-   Every folder places the flush rivet with `use part rivet from hardware`.
+   Every folder imports the flush rivet from `+hardware/rivet.part`.
 
 3. **Patterns for repeated parts.** Frames, stringers, skin panels, windows, bins, rivet rows and
    seat rows are patterns. The Outline shows each as one row (`rivet × 23`) until you expand it:
