@@ -91,23 +91,23 @@ circuit reading_light {
     }
 
     sheet main {
-        component J1 = { part = "CONN-1X04" }
-        component F1 = { part = "FUSE-0A5-1206" }
-        component D1 = { part = "D-SCHOTTKY-60V-2A", power = 0.08 }
-        component D2 = { part = "TVS-33V-600W" }
-        component C1 = { part = "C1206-10U-50V" }
-        component C2 = { part = "C0603-1U-50V" }
-        component U1 = { part = "LEDBUCK-60V-1A", power = 0.15 }
-        component R1 = { part = "R0805-0R30", power = 0.035 }
-        component L1 = { part = "L1812-68U", power = 0.05 }
-        component D3 = { part = "D-SCHOTTKY-60V-2A", power = 0.1 }
-        component J2 = { part = "CONN-1X02" }
+        component J1 : "CONN-1X04"
+        component F1 : "FUSE-0A5-1206"
+        component D1 : "D-SCHOTTKY-60V-2A" = { power = 0.08 }
+        component D2 : "TVS-33V-600W"
+        component C1 : "C1206-10U-50V"
+        component C2 : "C0603-1U-50V"
+        component U1 : "LEDBUCK-60V-1A" = { power = 0.15 }
+        component R1 : "R0805-0R30" = { power = 0.035 }
+        component L1 : "L1812-68U" = { power = 0.05 }
+        component D3 : "D-SCHOTTKY-60V-2A" = { power = 0.1 }
+        component J2 : "CONN-1X02"
         // Dimming: 1 kOhm in series from the PWM line, 100 kOhm to ground holds the light off
         // when the line is open.
-        component R2 = { part = "R0402-1K" }
-        component R3 = { part = "R0402-100K" }
-        component H1 = { part = "MH-M3" }
-        component H2 = { part = "MH-M3" }
+        component R2 : "R0402-1K"
+        component R3 : "R0402-100K"
+        component H1 : "MH-M3"
+        component H2 : "MH-M3"
         net GND = { class = power, global = true, power_flag = true }
         net V28_IN = { class = power, power_flag = true }
         net V28 = { class = power, power_flag = true }

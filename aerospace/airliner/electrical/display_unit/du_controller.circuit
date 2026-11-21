@@ -164,25 +164,25 @@ circuit du_controller {
     // 28 V input protection, the 5 V buck, the 3.3 V LDO and the bus voltage sense.
     sheet power {
         port V28_SENSE : out
-        component F1 = { part = "FUSE-2A-1206" }
-        component D1 = { part = "D-SCHOTTKY-60V-2A", power = 0.35 }
-        component D2 = { part = "TVS-33V-600W" }
-        component C1 = { part = "C1206-10U-50V" }
-        component C2 = { part = "C1206-10U-50V" }
-        component U1 = { part = "BUCK-60V-2A", power = 0.35 }
-        component L1 = { part = "L1210-10U", power = 0.05 }
-        component C3 = { part = "C0402-100N" }
-        component C4 = { part = "C0805-22U" }
-        component C5 = { part = "C0805-22U" }
-        component R1 = { part = "R0402-52K3" }
-        component R2 = { part = "R0402-10K" }
-        component R3 = { part = "R0402-100K" }
-        component U2 = { part = "LDO-3V3-SOT23", power = 0.15 }
-        component C6 = { part = "C0402-1U" }
-        component C7 = { part = "C0402-1U" }
-        component R4 = { part = "R0402-200K" }
-        component R5 = { part = "R0402-10K" }
-        component C8 = { part = "C0402-100N" }
+        component F1 : "FUSE-2A-1206"
+        component D1 : "D-SCHOTTKY-60V-2A" = { power = 0.35 }
+        component D2 : "TVS-33V-600W"
+        component C1 : "C1206-10U-50V"
+        component C2 : "C1206-10U-50V"
+        component U1 : "BUCK-60V-2A" = { power = 0.35 }
+        component L1 : "L1210-10U" = { power = 0.05 }
+        component C3 : "C0402-100N"
+        component C4 : "C0805-22U"
+        component C5 : "C0805-22U"
+        component R1 : "R0402-52K3"
+        component R2 : "R0402-10K"
+        component R3 : "R0402-100K"
+        component U2 : "LDO-3V3-SOT23" = { power = 0.15 }
+        component C6 : "C0402-1U"
+        component C7 : "C0402-1U"
+        component R4 : "R0402-200K"
+        component R5 : "R0402-10K"
+        component C8 : "C0402-100N"
         net GND = { class = supply, global = true }
         net V28_IN = { class = power, global = true }
         net V28 = { class = power, global = true }
@@ -210,20 +210,20 @@ circuit du_controller {
         port BL_EN : in
         port BL_PWM : in
         port BL_FAULT : out
-        component U3 = { part = "LEDDRV-6CH-60V", power = 1.1 }
-        component L2 = { part = "L1812-22U", power = 0.25 }
-        component D3 = { part = "D-SCHOTTKY-60V-2A", power = 0.2 }
-        component C9 = { part = "C1206-10U-50V" }
-        component C10 = { part = "C1210-2U2-100V" }
-        component C11 = { part = "C1210-2U2-100V" }
-        component C12 = { part = "C0402-1U" }
-        component C13 = { part = "C0402-10N" }
-        component R6 = { part = "R0402-20K" }
-        component R7 = { part = "R0402-100K" }
-        component R8 = { part = "R0402-330K" }
-        component R9 = { part = "R0402-10K" }
-        component R10 = { part = "R0402-10K" }
-        component J3 = { part = "CONN-1X08" }
+        component U3 : "LEDDRV-6CH-60V" = { power = 1.1 }
+        component L2 : "L1812-22U" = { power = 0.25 }
+        component D3 : "D-SCHOTTKY-60V-2A" = { power = 0.2 }
+        component C9 : "C1206-10U-50V"
+        component C10 : "C1210-2U2-100V"
+        component C11 : "C1210-2U2-100V"
+        component C12 : "C0402-1U"
+        component C13 : "C0402-10N"
+        component R6 : "R0402-20K"
+        component R7 : "R0402-100K"
+        component R8 : "R0402-330K"
+        component R9 : "R0402-10K"
+        component R10 : "R0402-10K"
+        component J3 : "CONN-1X08"
         net GND = { class = supply, global = true }
         net V28 = { class = power, global = true }
         net "+3V3" = { class = supply, global = true }
@@ -263,27 +263,27 @@ circuit du_controller {
         port SPI_MOSI : out
         port PANEL_CS : out
         port PANEL_EN : out
-        component U4 = { part = "MCU-M4-LQFP48", power = 0.2 }
-        component Y1 = { part = "XTAL-3225" }
-        component C14 = { part = "C0402-12P" }
-        component C15 = { part = "C0402-12P" }
-        component C16 = { part = "C0402-100N" }
-        component C17 = { part = "C0402-100N" }
-        component C18 = { part = "C0402-100N" }
-        component C19 = { part = "C0402-1U" }
-        component C20 = { part = "C0603-4U7" }
-        component C21 = { part = "C0402-100N" }
-        component R11 = { part = "R0402-10K" }
-        component R12 = { part = "R0402-10K" }
+        component U4 : "MCU-M4-LQFP48" = { power = 0.2 }
+        component Y1 : "XTAL-3225"
+        component C14 : "C0402-12P"
+        component C15 : "C0402-12P"
+        component C16 : "C0402-100N"
+        component C17 : "C0402-100N"
+        component C18 : "C0402-100N"
+        component C19 : "C0402-1U"
+        component C20 : "C0603-4U7"
+        component C21 : "C0402-100N"
+        component R11 : "R0402-10K"
+        component R12 : "R0402-10K"
         // Dimming bus, 0-5 V: halved into the ADC, filtered at 160 Hz.
-        component R13 = { part = "R0402-10K" }
-        component R14 = { part = "R0402-10K" }
-        component C22 = { part = "C0402-100N" }
+        component R13 : "R0402-10K"
+        component R14 : "R0402-10K"
+        component C22 : "C0402-100N"
         // On discrete, ground/open: pulled up at the MCU, 22 kOhm in series from the pin.
-        component R15 = { part = "R0402-22K" }
-        component R16 = { part = "R0402-10K" }
-        component R17 = { part = "R0402-1K" }
-        component D4 = { part = "LED0603-G" }
+        component R15 : "R0402-22K"
+        component R16 : "R0402-10K"
+        component R17 : "R0402-1K"
+        component D4 : "LED0603-G"
         net GND = { class = supply, global = true }
         net "+3V3" = { class = supply, global = true }
         connect = [net.V28_SENSE, port.V28_SENSE, U4.PA0]
@@ -319,12 +319,12 @@ circuit du_controller {
         port SPI_MOSI : in
         port PANEL_CS : in
         port PANEL_EN : in
-        component J1 = { part = "CONN-1X05" }
-        component J2 = { part = "CONN-1X06" }
-        component H1 = { part = "MH-M3" }
-        component H2 = { part = "MH-M3" }
-        component H3 = { part = "MH-M3" }
-        component H4 = { part = "MH-M3" }
+        component J1 : "CONN-1X05"
+        component J2 : "CONN-1X06"
+        component H1 : "MH-M3"
+        component H2 : "MH-M3"
+        component H3 : "MH-M3"
+        component H4 : "MH-M3"
         net GND = { class = supply, global = true }
         net V28_IN = { class = power, global = true }
         net "+5V" = { class = supply, global = true }

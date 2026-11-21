@@ -10,23 +10,23 @@ circuit flight_controller {
 
     sheet power {
         port VBAT_SENSE : out
-        component U2 = { part = "BUCK-36V-2A" }
-        component L1 = { part = "L1210-10U" }
-        component C12 = { part = "C1206-10U-50V" }
-        component C13 = { part = "C1206-10U-50V" }
-        component C14 = { part = "C0402-100N" }
-        component C15 = { part = "C0805-22U" }
-        component C16 = { part = "C0805-22U" }
-        component R6 = { part = "R0402-52K3" }
-        component R7 = { part = "R0402-10K" }
-        component C17 = { part = "C0402-220P" }
-        component R8 = { part = "R0402-100K" }
-        component U3 = { part = "LDO-3V3-SOT23" }
-        component C18 = { part = "C0402-1U" }
-        component C19 = { part = "C0402-1U" }
-        component R9 = { part = "R0402-200K" }
-        component R10 = { part = "R0402-10K" }
-        component C20 = { part = "C0402-100N" }
+        component U2 : "BUCK-36V-2A"
+        component L1 : "L1210-10U"
+        component C12 : "C1206-10U-50V"
+        component C13 : "C1206-10U-50V"
+        component C14 : "C0402-100N"
+        component C15 : "C0805-22U"
+        component C16 : "C0805-22U"
+        component R6 : "R0402-52K3"
+        component R7 : "R0402-10K"
+        component C17 : "C0402-220P"
+        component R8 : "R0402-100K"
+        component U3 : "LDO-3V3-SOT23"
+        component C18 : "C0402-1U"
+        component C19 : "C0402-1U"
+        component R9 : "R0402-200K"
+        component R10 : "R0402-10K"
+        component C20 : "C0402-100N"
         net GND = { class = supply, global = true }
         net VBAT = { class = power, global = true }
         net "+5V" = { class = power, global = true }
@@ -51,13 +51,13 @@ circuit flight_controller {
         port INT : out
         port SCL : in
         port SDA : inout
-        component U4 = { part = "IMU-6AX-LGA14" }
-        component U5 = { part = "BARO-LGA8" }
-        component C21 = { part = "C0402-100N" }
-        component C22 = { part = "C0402-1U" }
-        component C23 = { part = "C0402-100N" }
-        component R11 = { part = "R0402-4K7" }
-        component R12 = { part = "R0402-4K7" }
+        component U4 : "IMU-6AX-LGA14"
+        component U5 : "BARO-LGA8"
+        component C21 : "C0402-100N"
+        component C22 : "C0402-1U"
+        component C23 : "C0402-100N"
+        component R11 : "R0402-4K7"
+        component R12 : "R0402-4K7"
         net GND = { class = supply, global = true }
         net "+3V3" = { class = supply, global = true }
         connect = [net.SCK, port.SCK, U4.SCLK]
@@ -97,27 +97,27 @@ circuit flight_controller {
         port VTX_RX : in
         port GPS_TX : out
         port GPS_RX : in
-        component U1 = { part = "MCU-M4-LQFP48" }
-        component Y1 = { part = "XTAL-3225" }
-        component C1 = { part = "C0402-12P" }
-        component C2 = { part = "C0402-12P" }
-        component C3 = { part = "C0402-100N" }
-        component C4 = { part = "C0402-100N" }
-        component C5 = { part = "C0402-100N" }
-        component C6 = { part = "C0402-100N" }
-        component C7 = { part = "C0402-1U" }
-        component C8 = { part = "C0402-100N" }
-        component C9 = { part = "C0402-1U" }
-        component C10 = { part = "C0603-4U7" }
-        component C11 = { part = "C0402-100N" }
-        component R1 = { part = "R0402-10K" }
+        component U1 : "MCU-M4-LQFP48"
+        component Y1 : "XTAL-3225"
+        component C1 : "C0402-12P"
+        component C2 : "C0402-12P"
+        component C3 : "C0402-100N"
+        component C4 : "C0402-100N"
+        component C5 : "C0402-100N"
+        component C6 : "C0402-100N"
+        component C7 : "C0402-1U"
+        component C8 : "C0402-100N"
+        component C9 : "C0402-1U"
+        component C10 : "C0603-4U7"
+        component C11 : "C0402-100N"
+        component R1 : "R0402-10K"
         // NRST: 10 kOhm pull-up to 3V3 with the 100 nF filter cap (C11), per the MCU's
         // reference design, so reset holds high against noise and releases cleanly at power-up.
-        component R13 = { part = "R0402-10K" }
-        component R4 = { part = "R0402-1K" }
-        component R5 = { part = "R0402-1K" }
-        component D1 = { part = "LED0603-G" }
-        component D2 = { part = "LED0603-G" }
+        component R13 : "R0402-10K"
+        component R4 : "R0402-1K"
+        component R5 : "R0402-1K"
+        component D1 : "LED0603-G"
+        component D2 : "LED0603-G"
         net GND = { class = supply, global = true }
         net "+3V3" = { class = supply, global = true }
         connect = [net.SPI_SCK, port.SPI_SCK, U1.PA5]
@@ -180,18 +180,18 @@ circuit flight_controller {
         port GPS_RX : out
         port SCL : in
         port SDA : inout
-        component J1 = { part = "USBC-RCPT-16P" }
-        component D3 = { part = "D-SCHOTTKY-1A" }
-        component R2 = { part = "R0402-5K1" }
-        component R3 = { part = "R0402-5K1" }
-        component J2 = { part = "CONN-SH-4P" }
-        component J3 = { part = "CONN-SH-8P" }
-        component J4 = { part = "CONN-SH-4P" }
-        component J5 = { part = "CONN-SH-6P" }
-        component H1 = { part = "MH-M3-GROMMET" }
-        component H2 = { part = "MH-M3-GROMMET" }
-        component H3 = { part = "MH-M3-GROMMET" }
-        component H4 = { part = "MH-M3-GROMMET" }
+        component J1 : "USBC-RCPT-16P"
+        component D3 : "D-SCHOTTKY-1A"
+        component R2 : "R0402-5K1"
+        component R3 : "R0402-5K1"
+        component J2 : "CONN-SH-4P"
+        component J3 : "CONN-SH-8P"
+        component J4 : "CONN-SH-4P"
+        component J5 : "CONN-SH-6P"
+        component H1 : "MH-M3-GROMMET"
+        component H2 : "MH-M3-GROMMET"
+        component H3 : "MH-M3-GROMMET"
+        component H4 : "MH-M3-GROMMET"
         net GND = { class = supply, global = true }
         net VBAT = { class = power, global = true }
         net "+5V" = { class = power, global = true }

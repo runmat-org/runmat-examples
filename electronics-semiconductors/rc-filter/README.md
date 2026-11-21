@@ -39,7 +39,7 @@ fc means recomputing R by hand. Here the circuit states the corner, and the resi
    the result read as ohms:
 
    ```circuit
-   component R1 = { part = "R0402-10K", value = rcResistor(fc = 160 Hz, c = 100 nF) as ohm }
+   component R1 : "R0402-10K" = { value = rcResistor(fc = 160 Hz, c = 100 nF) as ohm }
    ```
 
 3. **The schematic.** Input port IN, R1 in series, C1 to ground, output port OUT.

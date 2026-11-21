@@ -108,7 +108,7 @@ circuit branch_circuits {
         text wiring = "Circuit 1: Range, kitchen east wall. Cable 6/3 Cu NM-B (55 A at 60 C)."
         port L1 : power
         port L2 : power
-        component X101 = { part = "RCPT-14-50R" }
+        component X101 : "RCPT-14-50R"
         connect = [port.L1, X101.X]
         connect = [port.L2, X101.Y]
         connect = [net.N, X101.W]
@@ -120,7 +120,7 @@ circuit branch_circuits {
         text wiring = "Circuit 5: Dryer, utility room. Cable 10/3 Cu NM-B."
         port L1 : power
         port L2 : power
-        component X501 = { part = "RCPT-14-30R" }
+        component X501 : "RCPT-14-30R"
         connect = [port.L1, X501.X]
         connect = [port.L2, X501.Y]
         connect = [net.N, X501.W]
@@ -132,7 +132,7 @@ circuit branch_circuits {
         text wiring = "Circuit 9: Water heater, utility room. Cable 10/2 Cu NM-B."
         port L1 : power
         port L2 : power
-        component WH901 = { part = "WH-50G-4500" }
+        component WH901 : "WH-50G-4500"
         connect = [port.L1, WH901.L1]
         connect = [port.L2, WH901.L2]
         connect = [net.EG, WH901.GND]
@@ -143,8 +143,8 @@ circuit branch_circuits {
         text wiring = "Circuit 13: Air handler with 10 kW heat strips, utility room. Cable 4/2 Cu NM-B (70 A at 60 C)."
         port L1 : power
         port L2 : power
-        component DS1301 = { part = "DISC-60A-NF" }
-        component AH1301 = { part = "AHU-3T-10KW" }
+        component DS1301 : "DISC-60A-NF"
+        component AH1301 : "AHU-3T-10KW"
         connect = [port.L1, DS1301.L1, AH1301.L1]
         connect = [port.L2, DS1301.L2, AH1301.L2]
         connect = [net.EG, DS1301.GND, AH1301.GND]
@@ -155,8 +155,8 @@ circuit branch_circuits {
         text wiring = "Circuit 17: Heat pump condenser, outside wall 5. Cable 10/2 Cu NM-B to the disconnect, 10 AWG THWN in liquidtight to the unit."
         port L1 : power
         port L2 : power
-        component DS1701 = { part = "DISC-60A-NF" }
-        component HP1701 = { part = "HP-3T" }
+        component DS1701 : "DISC-60A-NF"
+        component HP1701 : "HP-3T"
         connect = [port.L1, DS1701.L1, HP1701.L1]
         connect = [port.L2, DS1701.L2, HP1701.L2]
         connect = [net.EG, DS1701.GND, HP1701.GND]
@@ -166,9 +166,9 @@ circuit branch_circuits {
     sheet c2 {
         text wiring = "Circuit 2: Kitchen small appliance 1: counter receptacles, north wall. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X201 = { part = "GFCI-20A-TR" }
-        component X202 = { part = "RCPT-20A-TR" }
-        component X203 = { part = "RCPT-20A-TR" }
+        component X201 : "GFCI-20A-TR"
+        component X202 : "RCPT-20A-TR"
+        component X203 : "RCPT-20A-TR"
         connect = [port.HOT, X201.LINE_H]
         connect = [net.N, X201.LINE_N]
         connect = [net.EG, X201.GND, X202.GND, X203.GND]
@@ -180,8 +180,8 @@ circuit branch_circuits {
     sheet c4 {
         text wiring = "Circuit 4: Kitchen small appliance 2: counter receptacles, east wall. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X401 = { part = "GFCI-20A-TR" }
-        component X402 = { part = "RCPT-20A-TR" }
+        component X401 : "GFCI-20A-TR"
+        component X402 : "RCPT-20A-TR"
         connect = [port.HOT, X401.LINE_H]
         connect = [net.N, X401.LINE_N]
         connect = [net.EG, X401.GND, X402.GND]
@@ -193,7 +193,7 @@ circuit branch_circuits {
     sheet c6 {
         text wiring = "Circuit 6: Refrigerator. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X601 = { part = "RCPT-20A-TR" }
+        component X601 : "RCPT-20A-TR"
         connect = [port.HOT, X601.HOT]
         connect = [net.N, X601.NEU]
         connect = [net.EG, X601.GND]
@@ -203,7 +203,7 @@ circuit branch_circuits {
     sheet c8 {
         text wiring = "Circuit 8: Dishwasher and disposal, under the sink. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X801 = { part = "RCPT-20A-TR" }
+        component X801 : "RCPT-20A-TR"
         connect = [port.HOT, X801.HOT]
         connect = [net.N, X801.NEU]
         connect = [net.EG, X801.GND]
@@ -213,7 +213,7 @@ circuit branch_circuits {
     sheet c10 {
         text wiring = "Circuit 10: Laundry receptacle, utility room. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X1001 = { part = "RCPT-20A-TR" }
+        component X1001 : "RCPT-20A-TR"
         connect = [port.HOT, X1001.HOT]
         connect = [net.N, X1001.NEU]
         connect = [net.EG, X1001.GND]
@@ -223,7 +223,7 @@ circuit branch_circuits {
     sheet c12 {
         text wiring = "Circuit 12: Hall bath receptacle. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X1201 = { part = "GFCI-20A-TR" }
+        component X1201 : "GFCI-20A-TR"
         no_erc = [X1201.LOAD_H, X1201.LOAD_N]
         connect = [port.HOT, X1201.LINE_H]
         connect = [net.N, X1201.LINE_N]
@@ -234,8 +234,8 @@ circuit branch_circuits {
     sheet c14 {
         text wiring = "Circuit 14: Primary bath receptacles. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X1401 = { part = "GFCI-20A-TR" }
-        component X1402 = { part = "RCPT-20A-TR" }
+        component X1401 : "GFCI-20A-TR"
+        component X1402 : "RCPT-20A-TR"
         connect = [port.HOT, X1401.LINE_H]
         connect = [net.N, X1401.LINE_N]
         connect = [net.EG, X1401.GND, X1402.GND]
@@ -247,8 +247,8 @@ circuit branch_circuits {
     sheet c16 {
         text wiring = "Circuit 16: Outdoor receptacles, front and back. Cable 12/2 Cu NM-B."
         port HOT : power
-        component X1601 = { part = "GFCI-20A-WR" }
-        component X1602 = { part = "RCPT-20A-WR" }
+        component X1601 : "GFCI-20A-WR"
+        component X1602 : "RCPT-20A-WR"
         connect = [port.HOT, X1601.LINE_H]
         connect = [net.N, X1601.LINE_N]
         connect = [net.EG, X1601.GND, X1602.GND]
@@ -260,13 +260,13 @@ circuit branch_circuits {
     sheet c18 {
         text wiring = "Circuit 18: Living room and foyer: receptacles and lights. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X1801 = { part = "RCPT-15A-TR" }
-        component X1802 = { part = "RCPT-15A-TR" }
-        component X1803 = { part = "RCPT-15A-TR" }
-        component S1801 = { part = "SW-1P-15A" }
-        component L1801 = { part = "LUM-CEIL-LED" }
-        component S1802 = { part = "SW-1P-15A" }
-        component L1802 = { part = "LUM-WALL-EXT" }
+        component X1801 : "RCPT-15A-TR"
+        component X1802 : "RCPT-15A-TR"
+        component X1803 : "RCPT-15A-TR"
+        component S1801 : "SW-1P-15A"
+        component L1801 : "LUM-CEIL-LED"
+        component S1802 : "SW-1P-15A"
+        component L1802 : "LUM-WALL-EXT"
         connect = [port.HOT, X1801.HOT, X1802.HOT, X1803.HOT, S1801.LINE, S1802.LINE]
         connect = [net.N, X1801.NEU, X1802.NEU, X1803.NEU, L1801.NEU, L1802.NEU]
         connect = [net.EG, X1801.GND, X1802.GND, X1803.GND, S1801.GND, L1801.GND, S1802.GND, L1802.GND]
@@ -278,12 +278,12 @@ circuit branch_circuits {
     sheet c20 {
         text wiring = "Circuit 20: Dining room and kitchen lights. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X2001 = { part = "RCPT-15A-TR" }
-        component X2002 = { part = "RCPT-15A-TR" }
-        component S2001 = { part = "SW-1P-15A" }
-        component L2001 = { part = "LUM-CEIL-LED" }
-        component S2002 = { part = "SW-1P-15A" }
-        component L2002 = { part = "LUM-CEIL-LED" }
+        component X2001 : "RCPT-15A-TR"
+        component X2002 : "RCPT-15A-TR"
+        component S2001 : "SW-1P-15A"
+        component L2001 : "LUM-CEIL-LED"
+        component S2002 : "SW-1P-15A"
+        component L2002 : "LUM-CEIL-LED"
         connect = [port.HOT, X2001.HOT, X2002.HOT, S2001.LINE, S2002.LINE]
         connect = [net.N, X2001.NEU, X2002.NEU, L2001.NEU, L2002.NEU]
         connect = [net.EG, X2001.GND, X2002.GND, S2001.GND, L2001.GND, S2002.GND, L2002.GND]
@@ -295,13 +295,13 @@ circuit branch_circuits {
     sheet c22 {
         text wiring = "Circuit 22: Den and utility room: receptacles and lights, first-floor smoke alarm. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X2201 = { part = "RCPT-15A-TR" }
-        component X2202 = { part = "RCPT-15A-TR" }
-        component S2201 = { part = "SW-1P-15A" }
-        component L2201 = { part = "LUM-CEIL-LED" }
-        component S2202 = { part = "SW-1P-15A" }
-        component L2202 = { part = "LUM-CEIL-LED" }
-        component SD2201 = { part = "SMOKE-CO-120" }
+        component X2201 : "RCPT-15A-TR"
+        component X2202 : "RCPT-15A-TR"
+        component S2201 : "SW-1P-15A"
+        component L2201 : "LUM-CEIL-LED"
+        component S2202 : "SW-1P-15A"
+        component L2202 : "LUM-CEIL-LED"
+        component SD2201 : "SMOKE-CO-120"
         connect = [port.HOT, X2201.HOT, X2202.HOT, S2201.LINE, S2202.LINE, SD2201.HOT]
         connect = [net.N, X2201.NEU, X2202.NEU, L2201.NEU, L2202.NEU, SD2201.NEU]
         connect = [net.EG, X2201.GND, X2202.GND, S2201.GND, L2201.GND, S2202.GND, L2202.GND, SD2201.GND]
@@ -313,12 +313,12 @@ circuit branch_circuits {
     sheet c24 {
         text wiring = "Circuit 24: Bedroom 3: receptacles, light, smoke alarm. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X2401 = { part = "RCPT-15A-TR" }
-        component X2402 = { part = "RCPT-15A-TR" }
-        component X2403 = { part = "RCPT-15A-TR" }
-        component S2401 = { part = "SW-1P-15A" }
-        component L2401 = { part = "LUM-CEIL-LED" }
-        component SD2401 = { part = "SMOKE-CO-120" }
+        component X2401 : "RCPT-15A-TR"
+        component X2402 : "RCPT-15A-TR"
+        component X2403 : "RCPT-15A-TR"
+        component S2401 : "SW-1P-15A"
+        component L2401 : "LUM-CEIL-LED"
+        component SD2401 : "SMOKE-CO-120"
         connect = [port.HOT, X2401.HOT, X2402.HOT, X2403.HOT, S2401.LINE, SD2401.HOT]
         connect = [net.N, X2401.NEU, X2402.NEU, X2403.NEU, L2401.NEU, SD2401.NEU]
         connect = [net.EG, X2401.GND, X2402.GND, X2403.GND, S2401.GND, L2401.GND, SD2401.GND]
@@ -329,15 +329,15 @@ circuit branch_circuits {
     sheet c26 {
         text wiring = "Circuit 26: Primary bedroom and closet: receptacles, lights, smoke alarm. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X2601 = { part = "RCPT-15A-TR" }
-        component X2602 = { part = "RCPT-15A-TR" }
-        component X2603 = { part = "RCPT-15A-TR" }
-        component X2604 = { part = "RCPT-15A-TR" }
-        component S2601 = { part = "SW-1P-15A" }
-        component L2601 = { part = "LUM-CEIL-LED" }
-        component S2602 = { part = "SW-1P-15A" }
-        component L2602 = { part = "LUM-CEIL-LED" }
-        component SD2601 = { part = "SMOKE-CO-120" }
+        component X2601 : "RCPT-15A-TR"
+        component X2602 : "RCPT-15A-TR"
+        component X2603 : "RCPT-15A-TR"
+        component X2604 : "RCPT-15A-TR"
+        component S2601 : "SW-1P-15A"
+        component L2601 : "LUM-CEIL-LED"
+        component S2602 : "SW-1P-15A"
+        component L2602 : "LUM-CEIL-LED"
+        component SD2601 : "SMOKE-CO-120"
         connect = [port.HOT, X2601.HOT, X2602.HOT, X2603.HOT, X2604.HOT, S2601.LINE, S2602.LINE, SD2601.HOT]
         connect = [net.N, X2601.NEU, X2602.NEU, X2603.NEU, X2604.NEU, L2601.NEU, L2602.NEU, SD2601.NEU]
         connect = [net.EG, X2601.GND, X2602.GND, X2603.GND, X2604.GND, S2601.GND, L2601.GND, S2602.GND, L2602.GND, SD2601.GND]
@@ -349,14 +349,14 @@ circuit branch_circuits {
     sheet c28 {
         text wiring = "Circuit 28: Bedroom 2 and hall: receptacles, lights, smoke alarms. Cable 14/2 Cu NM-B."
         port HOT : power
-        component X2801 = { part = "RCPT-15A-TR" }
-        component X2802 = { part = "RCPT-15A-TR" }
-        component S2801 = { part = "SW-1P-15A" }
-        component L2801 = { part = "LUM-CEIL-LED" }
-        component S2802 = { part = "SW-1P-15A" }
-        component L2802 = { part = "LUM-CEIL-LED" }
-        component SD2801 = { part = "SMOKE-CO-120" }
-        component SD2802 = { part = "SMOKE-CO-120" }
+        component X2801 : "RCPT-15A-TR"
+        component X2802 : "RCPT-15A-TR"
+        component S2801 : "SW-1P-15A"
+        component L2801 : "LUM-CEIL-LED"
+        component S2802 : "SW-1P-15A"
+        component L2802 : "LUM-CEIL-LED"
+        component SD2801 : "SMOKE-CO-120"
+        component SD2802 : "SMOKE-CO-120"
         connect = [port.HOT, X2801.HOT, X2802.HOT, S2801.LINE, S2802.LINE, SD2801.HOT, SD2802.HOT]
         connect = [net.N, X2801.NEU, X2802.NEU, L2801.NEU, L2802.NEU, SD2801.NEU, SD2802.NEU]
         connect = [net.EG, X2801.GND, X2802.GND, S2801.GND, L2801.GND, S2802.GND, L2802.GND, SD2801.GND, SD2802.GND]
@@ -368,10 +368,10 @@ circuit branch_circuits {
     sheet c30 {
         text wiring = "Circuit 30: Bath lights and exhaust fans. Cable 14/2 Cu NM-B."
         port HOT : power
-        component S3001 = { part = "SW-1P-15A" }
-        component F3001 = { part = "FAN-BATH-80" }
-        component S3002 = { part = "SW-1P-15A" }
-        component F3002 = { part = "FAN-BATH-80" }
+        component S3001 : "SW-1P-15A"
+        component F3001 : "FAN-BATH-80"
+        component S3002 : "SW-1P-15A"
+        component F3002 : "FAN-BATH-80"
         connect = [port.HOT, S3001.LINE, S3002.LINE]
         connect = [net.SW30_1, S3001.LOAD, F3001.HOT]
         connect = [net.EG, S3001.GND, F3001.GND, S3002.GND, F3002.GND]

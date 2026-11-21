@@ -16,46 +16,46 @@ circuit esc {
     sheet channel {
         port SIG : in
         port TLM : inout
-        component MCU = { part = "MCU-QFN32" }
-        component DRV = { part = "GATEDRV-3PH-QFN24" }
+        component MCU : "MCU-QFN32"
+        component DRV : "GATEDRV-3PH-QFN24"
         // Power at full throttle, 20 A a channel (DESIGN-NOTES, "ESC component power"): each FET 0.24 W of
         // conduction and switching, each shunt 0.067 W.
-        component QHA = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component QLA = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component QHB = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component QLB = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component QHC = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component QLC = { part = "NMOS-40V-DFN8", power = 0.24 W }
-        component RGHA = { part = "R0402-10R" }
-        component RGLA = { part = "R0402-10R" }
-        component RGHB = { part = "R0402-10R" }
-        component RGLB = { part = "R0402-10R" }
-        component RGHC = { part = "R0402-10R" }
-        component RGLC = { part = "R0402-10R" }
-        component CBA = { part = "C0402-100N" }
-        component CBB = { part = "C0402-100N" }
-        component CBC = { part = "C0402-100N" }
-        component CVCC = { part = "C0603-1U-50V" }
-        component CDRV = { part = "C0603-1U-50V" }
-        component CMCU = { part = "C0402-100N" }
-        component RBOOT = { part = "R0402-10K" }
+        component QHA : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component QLA : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component QHB : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component QLB : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component QHC : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component QLC : "NMOS-40V-DFN8" = { power = 0.24 W }
+        component RGHA : "R0402-10R"
+        component RGLA : "R0402-10R"
+        component RGHB : "R0402-10R"
+        component RGLB : "R0402-10R"
+        component RGHC : "R0402-10R"
+        component RGLC : "R0402-10R"
+        component CBA : "C0402-100N"
+        component CBB : "C0402-100N"
+        component CBC : "C0402-100N"
+        component CVCC : "C0603-1U-50V"
+        component CDRV : "C0603-1U-50V"
+        component CMCU : "C0402-100N"
+        component RBOOT : "R0402-10K"
         // NRST: 10 kOhm pull-up to 3V3 with a 100 nF filter cap, so the switching noise on the
         // board can't reset the MCU.
-        component RRST = { part = "R0402-10K" }
-        component CRST = { part = "C0402-100N" }
-        component RSHA = { part = "R1206-0M5", power = 0.067 W }
-        component RSHB = { part = "R1206-0M5", power = 0.067 W }
-        component RSHC = { part = "R1206-0M5", power = 0.067 W }
-        component RISA = { part = "R0402-1K" }
-        component RISB = { part = "R0402-1K" }
-        component RISC = { part = "R0402-1K" }
-        component CISA = { part = "C0402-10N" }
-        component CISB = { part = "C0402-10N" }
-        component CISC = { part = "C0402-10N" }
-        component CB1 = { part = "C1206-10U-50V" }
-        component PA = { part = "PAD-WIRE-20AWG" }
-        component PB = { part = "PAD-WIRE-20AWG" }
-        component PC = { part = "PAD-WIRE-20AWG" }
+        component RRST : "R0402-10K"
+        component CRST : "C0402-100N"
+        component RSHA : "R1206-0M5" = { power = 0.067 W }
+        component RSHB : "R1206-0M5" = { power = 0.067 W }
+        component RSHC : "R1206-0M5" = { power = 0.067 W }
+        component RISA : "R0402-1K"
+        component RISB : "R0402-1K"
+        component RISC : "R0402-1K"
+        component CISA : "C0402-10N"
+        component CISB : "C0402-10N"
+        component CISC : "C0402-10N"
+        component CB1 : "C1206-10U-50V"
+        component PA : "PAD-WIRE-20AWG"
+        component PB : "PAD-WIRE-20AWG"
+        component PC : "PAD-WIRE-20AWG"
         net GND = { class = power, global = true }
         net VBAT = { class = power, global = true }
         net "+3V3" = { class = logic_supply, global = true }
@@ -109,18 +109,18 @@ circuit esc {
     }
 
     sheet main {
-        component J1 = { part = "CONN-SH-8P" }
-        component P1 = { part = "PAD-WIRE-12AWG" }
-        component P2 = { part = "PAD-WIRE-12AWG" }
-        component C1 = { part = "C2512-220U-35V" }
-        component C2 = { part = "C2512-220U-35V" }
-        component U1 = { part = "LDO-3V3-SOT23" }
-        component C3 = { part = "C0603-1U-50V" }
-        component C4 = { part = "C0402-1U" }
-        component H1 = { part = "MH-M3-GROMMET" }
-        component H2 = { part = "MH-M3-GROMMET" }
-        component H3 = { part = "MH-M3-GROMMET" }
-        component H4 = { part = "MH-M3-GROMMET" }
+        component J1 : "CONN-SH-8P"
+        component P1 : "PAD-WIRE-12AWG"
+        component P2 : "PAD-WIRE-12AWG"
+        component C1 : "C2512-220U-35V"
+        component C2 : "C2512-220U-35V"
+        component U1 : "LDO-3V3-SOT23"
+        component C3 : "C0603-1U-50V"
+        component C4 : "C0402-1U"
+        component H1 : "MH-M3-GROMMET"
+        component H2 : "MH-M3-GROMMET"
+        component H3 : "MH-M3-GROMMET"
+        component H4 : "MH-M3-GROMMET"
         net GND = { class = power, global = true, power_flag = true }
         net VBAT = { class = power, global = true, power_flag = true }
         net "+3V3" = { class = logic_supply, global = true, power_flag = true }
