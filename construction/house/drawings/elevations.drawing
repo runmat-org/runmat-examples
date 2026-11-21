@@ -1,21 +1,18 @@
-runmat 0.7
-std 1
-
 // The house's exterior elevations at 1/4 in = 1 ft on ANSI D: the south (front) elevation and the
 // east elevation projected beside it, third-angle. The levels, the overall sizes and the roof
 // pitch are marked beside the views; their values are the skeleton's (house_skeleton.part).
 drawing elevations {
     format d = {
-        size = { size = ansi, name = D },
-        standard = asme,
-        units = ft_in,
+        size = { size = ansi, name = D }
+        standard = asme
+        units = ft_in
         title_block = [
             { label = "Title", source = { source = literal, text = "Exterior elevations" } },
             { label = "Project", source = { source = literal, text = "Two-story house, 40 x 30 ft" } },
             { label = "Drawing", source = { source = literal, text = "A-201" } },
             { label = "Scale", source = { source = scale } },
             { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } }
+            { label = "Rev", source = { source = revision } },
         ]
     }
 
@@ -47,9 +44,9 @@ drawing elevations {
             "LEVELS: T.O. FOOTING -1'-10\". GRADE -0'-8\". T.O. SLAB 0'-0\". T.O. PLATE (1ST) 9'-1 1/8\". 2ND FLOOR 10'-1 3/4\". T.O. PLATE (2ND) 18'-2 7/8\".",
             "FLOOR TO FLOOR: 10'-1 3/4\" (1ST TO 2ND). 2ND FLOOR TO T.O. PLATE 8'-1 1/8\".",
             "ROOF: 6:12 GABLE, RIDGE EAST-WEST. 7/8\" THREE-COAT STUCCO WALLS.",
-            "ELECTRICAL ONE-LINE AND PANEL SCHEDULE: MEP/ELECTRICAL/SERVICE.CIRCUIT."
+            "ELECTRICAL ONE-LINE AND PANEL SCHEDULE: MEP/ELECTRICAL/SERVICE.CIRCUIT.",
         ],
         sheet = "1",
-        at = [0, 0]
+        at = [0, 0],
     )
 }

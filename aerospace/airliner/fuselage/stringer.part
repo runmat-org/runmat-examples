@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A stringer the length of one barrel section, under the skin at the crown.
 part stringer {
     sketch s on origin.yz {

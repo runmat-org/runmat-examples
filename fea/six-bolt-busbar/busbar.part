@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A six-bolt EV module busbar in Cu-ETP copper (C11000): a 200 x 30 x 2 mm strap with R5 corners
 // that collects six cells on M8 terminal bolts at a 27 mm pitch and hands their current to the
 // module's output cable on one M10 bolt at its far end.
@@ -39,21 +36,21 @@ part busbar {
     feature cell_bolts = hole(
         face = feature.strap.face.end,
         at = {
-            c1 = point(input.first_bolt, let.mid, input.thickness),
-            c2 = point(input.first_bolt + input.pitch, let.mid, input.thickness),
-            c3 = point(input.first_bolt + input.pitch * 2, let.mid, input.thickness),
-            c4 = point(input.first_bolt + input.pitch * 3, let.mid, input.thickness),
-            c5 = point(input.first_bolt + input.pitch * 4, let.mid, input.thickness),
+            c1 = point(input.first_bolt, let.mid, input.thickness)
+            c2 = point(input.first_bolt + input.pitch, let.mid, input.thickness)
+            c3 = point(input.first_bolt + input.pitch * 2, let.mid, input.thickness)
+            c4 = point(input.first_bolt + input.pitch * 3, let.mid, input.thickness)
+            c5 = point(input.first_bolt + input.pitch * 4, let.mid, input.thickness)
             c6 = point(input.first_bolt + input.pitch * 5, let.mid, input.thickness)
         },
         diameter = input.cell_hole,
-        through_all
+        through_all = true,
     )
     feature output_bolt = hole(
         face = feature.strap.face.end,
         at = { out = point(input.length - input.output_inset, let.mid, input.thickness) },
         diameter = input.output_hole,
-        through_all
+        through_all = true,
     )
 
     region cell_bolt_1 : face = { select = [feature.cell_bolts.face.wall(c1)], expect = exactly_one, label = "Cell bolt 1" }
@@ -74,9 +71,9 @@ part busbar {
             feature.strap.face.side(strap_s.top),
             feature.strap.face.side(strap_s.corner_tl),
             feature.strap.face.side(strap_s.left),
-            feature.strap.face.side(strap_s.corner_bl)
-        ],
-        expect = at_least_one,
+            feature.strap.face.side(strap_s.corner_bl),
+        ]
+        expect = one_or_more
         label = "Exterior"
     }
 

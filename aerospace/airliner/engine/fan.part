@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The fan disk behind the inlet.
 part fan {
     sketch s on origin.yz {

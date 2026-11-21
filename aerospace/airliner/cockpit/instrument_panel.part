@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The main instrument panel across the flight deck, carrying the six display units. Each unit's
 // case sits in a 192 mm square pocket through the panel, 1 mm clear of the case all round, so
 // the avionics cooling air forward of the panel reaches the case's back.

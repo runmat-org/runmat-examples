@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A section through the house's exterior wall for the wall_thermal study: the layers of
 // envelope/exterior_wall.part and framing/shear_wall.part at their modeled thicknesses, outside to
 // inside, across half of one 16 in stud bay. x runs along the wall from the centre of a stud
@@ -77,13 +74,13 @@ part wall_section {
     // The room-side face of the gypsum (y = 6 in) and the weather face of the finish coat (y = -1 3/8 in).
     region inside_face : face = { select = [feature.gypsum.face.side(gypsum_s.e2)], expect = exactly_one }
     region outside_face : face = { select = [feature.stucco_finish.face.side(stucco_finish_s.e0)], expect = exactly_one }
-    output stucco_finish = { body = feature.stucco_finish.body, part_number = "WT-1", material = "material.stucco_finish_coat" }
-    output stucco_brown = { body = feature.stucco_brown.body, part_number = "WT-1", material = "material.stucco_brown_coat" }
-    output stucco_scratch = { body = feature.stucco_scratch.body, part_number = "WT-1", material = "material.stucco_scratch_coat" }
-    output wrb_outer = { body = feature.wrb_outer.body, part_number = "WT-1", material = "material.asphalt_saturated_kraft_wrb" }
-    output wrb_inner = { body = feature.wrb_inner.body, part_number = "WT-1", material = "material.asphalt_saturated_kraft_wrb" }
-    output osb = { body = feature.osb.body, part_number = "WT-1", material = "material.osb" }
-    output stud = { body = feature.stud.body, part_number = "WT-1", material = "material.douglas_fir_lumber" }
-    output batt = { body = feature.batt.body, part_number = "WT-1", material = "material.fiberglass_batt" }
-    output gypsum = { body = feature.gypsum.body, part_number = "WT-1", material = "material.gypsum_board" }
+    output stucco_finish = { body = feature.stucco_finish.body, part_number = "WT-1", material = material.stucco_finish_coat }
+    output stucco_brown = { body = feature.stucco_brown.body, part_number = "WT-1", material = material.stucco_brown_coat }
+    output stucco_scratch = { body = feature.stucco_scratch.body, part_number = "WT-1", material = material.stucco_scratch_coat }
+    output wrb_outer = { body = feature.wrb_outer.body, part_number = "WT-1", material = material.asphalt_saturated_kraft_wrb }
+    output wrb_inner = { body = feature.wrb_inner.body, part_number = "WT-1", material = material.asphalt_saturated_kraft_wrb }
+    output osb = { body = feature.osb.body, part_number = "WT-1", material = material.osb }
+    output stud = { body = feature.stud.body, part_number = "WT-1", material = material.douglas_fir_lumber }
+    output batt = { body = feature.batt.body, part_number = "WT-1", material = material.fiberglass_batt }
+    output gypsum = { body = feature.gypsum.body, part_number = "WT-1", material = material.gypsum_board }
 }

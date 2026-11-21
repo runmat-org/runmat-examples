@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The flight deck bulkhead with the cockpit door's opening, 800 mm wide and 1900 mm tall.
 part cockpit_bulkhead {
     feature datum = plane.offset(base = origin.yz, distance = 3600 mm)

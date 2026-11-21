@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The core cowl and its nozzle, aft of the fan cowl.
 part core_nozzle {
     sketch s on origin.xy {

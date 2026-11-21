@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A countersunk rivet, axis along z: its head sits flush, 1 mm under the skin's outer face.
 part rivet {
     sketch s on origin.yz {

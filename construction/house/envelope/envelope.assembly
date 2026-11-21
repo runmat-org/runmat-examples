@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The building envelope: the wall layers outside and inside the framing on all eight wall lines,
 // the gable-end cladding, the roof and attic, and the windows and doors of the opening schedule,
 // each attached to its frame in the skeleton.
@@ -8,136 +5,136 @@ assembly envelope {
     // Wall layers, one configuration per wall line and level, on the wall frames
     use part exterior_wall as layers_a_l1 {
         configuration = { select = named, name = wall_a_l1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l1 })
     }
     use part exterior_wall as layers_d_l1 {
         configuration = { select = named, name = wall_d_l1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l1 })
     }
     use part exterior_wall as layers_1_l1 {
         configuration = { select = named, name = wall_1_l1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l1 })
     }
     use part exterior_wall as layers_5_l1 {
         configuration = { select = named, name = wall_5_l1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l1 })
     }
     use part exterior_wall as layers_a_l2 {
         configuration = { select = named, name = wall_a_l2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_a_l2 })
     }
     use part exterior_wall as layers_d_l2 {
         configuration = { select = named, name = wall_d_l2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_d_l2 })
     }
     use part exterior_wall as layers_1_l2 {
         configuration = { select = named, name = wall_1_l2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 })
     }
     use part exterior_wall as layers_5_l2 {
         configuration = { select = named, name = wall_5_l2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 })
     }
     use part gable_wall as gable_1 {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_1_l2 })
     }
     use part gable_wall as gable_5 {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = wall_5_l2 })
     }
     use part roof as roof {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = building } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = building })
     }
     // Windows and doors at the opening frames, by the opening schedule
     use part window as w1_a_l1_1 {
         configuration = { select = named, name = W1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_1 })
     }
     use part door as d1_a_l1_2 {
         configuration = { select = named, name = D1 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_2 })
     }
     use part window as w2_a_l1_3 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_3 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_3 })
     }
     use part window as w2_a_l1_4 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_4 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l1_4 })
     }
     use part window as w5_d_l1_1 {
         configuration = { select = named, name = W5 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_1 })
     }
     use part door as d2_d_l1_2 {
         configuration = { select = named, name = D2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_2 })
     }
     use part window as w2_d_l1_3 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_3 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l1_3 })
     }
     use part window as w2_1_l1_1 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l1_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l1_1 })
     }
     use part window as w2_1_l1_2 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l1_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l1_2 })
     }
     use part window as w2_5_l1_1 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l1_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l1_1 })
     }
     use part window as w2_5_l1_2 {
         configuration = { select = named, name = W2 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l1_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l1_2 })
     }
     use part window as w3_a_l2_1 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_1 })
     }
     use part window as w3_a_l2_2 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_2 })
     }
     use part window as w3_a_l2_3 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_3 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_3 })
     }
     use part window as w3_a_l2_4 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_4 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_a_l2_4 })
     }
     use part window as w3_d_l2_1 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_1 })
     }
     use part window as w4_d_l2_2 {
         configuration = { select = named, name = W4 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_2 })
     }
     use part window as w4_d_l2_3 {
         configuration = { select = named, name = W4 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_3 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_3 })
     }
     use part window as w3_d_l2_4 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_4 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_d_l2_4 })
     }
     use part window as w3_1_l2_1 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l2_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l2_1 })
     }
     use part window as w3_1_l2_2 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l2_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_1_l2_2 })
     }
     use part window as w3_5_l2_1 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l2_1 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l2_1 })
     }
     use part window as w3_5_l2_2 {
         configuration = { select = named, name = W3 }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l2_2 } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, from = "..", name = opening_5_l2_2 })
     }
 }

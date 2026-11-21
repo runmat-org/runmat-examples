@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // An interior partition: 2x4 studs at 16 in o.c. on a bottom plate, a double top plate, and 1/2 in
 // gypsum board on both faces (4 1/2 in overall). Partitions carry no load: they stop under the
 // ceiling board, and their doors take a flat 2x4 header over king studs. Each configuration is one
@@ -284,9 +281,9 @@ part partitions {
     }
     feature mep_p2_baths_2 = extrude(profile = sketch.mep_p2_baths_2_s, distance = 111.0979 in, mode = cut, suppressed = true)
     // end MEP penetrations p2_baths
-    output partitions = { body = feature.top1.body, part_number = "IP", material = "material.douglas_fir_lumber", label = "2x4 framing, Douglas fir-larch stud grade" }
-    output partitions_gypsum_a = { body = feature.gypsum_a.body, part_number = "IP", material = "material.gypsum_board", label = "1/2 in gypsum board" }
-    output partitions_gypsum_b = { body = feature.gypsum_b.body, part_number = "IP", material = "material.gypsum_board", label = "1/2 in gypsum board" }
+    output partitions = { body = feature.top1.body, part_number = "IP", material = material.douglas_fir_lumber, label = "2x4 framing, Douglas fir-larch stud grade" }
+    output partitions_gypsum_a = { body = feature.gypsum_a.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
+    output partitions_gypsum_b = { body = feature.gypsum_b.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
 
     configuration p1_stair = { len = 150 in, h = 108.625 in, n = 9, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-101", description = "Partition, first floor" }
     configuration p1_utility_w = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 54 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], features = { mep_p1_utility_w_0 = { suppressed = false }, mep_p1_utility_w_1 = { suppressed = false }, mep_p1_utility_w_2 = { suppressed = false }, mep_p1_utility_w_3 = { suppressed = false } }, part_number = "IP-102", description = "Partition, first floor" }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // An exterior door unit for the opening schedule: D1, the 36 x 80 in entry door (insulated steel
 // slab, U-0.20), and D2, the 72 x 80 in sliding patio door (two vinyl panels with tempered
 // double-pane low-E glass, U-0.30, SHGC 0.25). The frame runs from 1 in outside the studs to the
@@ -87,14 +84,14 @@ part door {
     }
     feature d2_sliding_lite1 = extrude(profile = sketch.d2_sliding_lite1_s, distance = 0.1875 in, mode = new, suppressed = true)
 
-    output door = { body = feature.frame.body, part_number = "D1", material = "material.aluminum_door_frame", color = "#D9D6CF", label = "Door frame and sill" }
-    material = { body = feature.d1_slab.body, material = "material.steel_insulated_door" }
-    material = { body = feature.d2_fixed.body, material = "material.pvc_door_panel" }
-    material = { body = feature.d2_fixed_lite0.body, material = "material.glass_low_e_tempered" }
-    material = { body = feature.d2_fixed_lite1.body, material = "material.glass_low_e_tempered" }
-    material = { body = feature.d2_sliding.body, material = "material.pvc_door_panel" }
-    material = { body = feature.d2_sliding_lite0.body, material = "material.glass_low_e_tempered" }
-    material = { body = feature.d2_sliding_lite1.body, material = "material.glass_low_e_tempered" }
+    output door = { body = feature.frame.body, part_number = "D1", material = material.aluminum_door_frame, color = "#D9D6CF", label = "Door frame and sill" }
+    material = { body = feature.d1_slab.body, material = material.steel_insulated_door }
+    material = { body = feature.d2_fixed.body, material = material.pvc_door_panel }
+    material = { body = feature.d2_fixed_lite0.body, material = material.glass_low_e_tempered }
+    material = { body = feature.d2_fixed_lite1.body, material = material.glass_low_e_tempered }
+    material = { body = feature.d2_sliding.body, material = material.pvc_door_panel }
+    material = { body = feature.d2_sliding_lite0.body, material = material.glass_low_e_tempered }
+    material = { body = feature.d2_sliding_lite1.body, material = material.glass_low_e_tempered }
 
     configuration D1 = { w = 37.75 in, h = 82 in, features = { d1_slab = { suppressed = false } }, part_number = "D1", description = "Entry door, insulated steel, 36 x 80 in, U-0.20" }
     configuration D2 = { w = 73.75 in, h = 82 in, features = { d2_fixed = { suppressed = false }, d2_fixed_lite0 = { suppressed = false }, d2_fixed_lite1 = { suppressed = false }, d2_sliding = { suppressed = false }, d2_sliding_lite0 = { suppressed = false }, d2_sliding_lite1 = { suppressed = false } }, part_number = "D2", description = "Patio door, sliding, 72 x 80 in, tempered double-pane low-E, U-0.30, SHGC 0.25" }

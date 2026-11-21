@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A spar web at 15 % chord, root to tip.
 part wing_front_spar {
     input side : real = 1

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A lower-deck container: a sloped base for the hold's curve, full width, 1530 mm long.
 part cargo_container {
     sketch s on origin.yz {

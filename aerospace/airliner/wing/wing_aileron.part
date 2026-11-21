@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The aileron.
 part wing_aileron {
     input side : real = 1

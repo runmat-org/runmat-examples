@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A horizontal stabilizer ahead of the elevator hinge: NACA 0010, swept 33° with 7° dihedral.
 part stabilizer {
     input side : real = 1

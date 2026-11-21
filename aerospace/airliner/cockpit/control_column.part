@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A control column: a post from the floor, leaning aft, with the yoke across its top.
 part control_column {
     sketch p on origin.zx {
@@ -9,7 +6,7 @@ part control_column {
         l3 = line(start = [640 mm, 130 mm], end = [640 mm, 70 mm])
         l4 = line(start = [640 mm, 70 mm], end = [0 mm, 0 mm])
     }
-    feature post = extrude(profile = sketch.p, distance = 60 mm, symmetric)
+    feature post = extrude(profile = sketch.p, distance = 60 mm, symmetric = true)
     feature yoke_at = plane.offset(base = origin.yz, distance = 80 mm)
     sketch y on plane.yoke_at {
         l1 = line(start = [-170 mm, 600 mm], end = [170 mm, 600 mm])

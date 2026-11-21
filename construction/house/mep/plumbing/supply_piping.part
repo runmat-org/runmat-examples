@@ -1,7 +1,3 @@
-runmat 0.7
-std 1
-
-
 // The domestic water supply, in building coordinates: the 3/4 in PEX service from under the slab, the
 // 50 gal electric water heater, the home-run PEX manifold, and 1/2 in PEX hot and cold runs to
 // the washer box and the kitchen sink, routed through bored I-joist webs and LVL beams.
@@ -61,7 +57,7 @@ part supply_piping {
         l3 = line(start = [301 in, 131 in], end = [301 in, 109 in])
     }
     feature water_heater = extrude(profile = sketch.water_heater_s, distance = 59 in, mode = new)
-    material = { body = feature.water_heater.body, material = "material.galvanized_steel" }
+    material = { body = feature.water_heater.body, material = material.galvanized_steel }
     sketch manifold_s on plane.p_xy_1 {
         l0 = line(start = [300.5 in, 70 in], end = [303.5 in, 70 in])
         l1 = line(start = [303.5 in, 70 in], end = [303.5 in, 96 in])
@@ -69,7 +65,7 @@ part supply_piping {
         l3 = line(start = [300.5 in, 96 in], end = [300.5 in, 70 in])
     }
     feature manifold = extrude(profile = sketch.manifold_s, distance = 6 in, mode = new)
-    material = { body = feature.manifold.body, material = "material.pex" }
+    material = { body = feature.manifold.body, material = material.pex }
     sketch washer_box_s on plane.p_xy_2 {
         l0 = line(start = [300.5 in, 86 in], end = [303.5 in, 86 in])
         l1 = line(start = [303.5 in, 86 in], end = [303.5 in, 96 in])
@@ -77,7 +73,7 @@ part supply_piping {
         l3 = line(start = [300.5 in, 96 in], end = [300.5 in, 86 in])
     }
     feature washer_box = extrude(profile = sketch.washer_box_s, distance = 8 in, mode = new)
-    material = { body = feature.washer_box.body, material = "material.pvc_device" }
+    material = { body = feature.washer_box.body, material = material.pvc_device }
     sketch service_0_path on plane.p_yz_3 {
         l0 = line(start = [30 in, -14 in], end = [30 in, 40 in])
         l1 = line(start = [30 in, 40 in], end = [74 in, 40 in])
@@ -87,7 +83,7 @@ part supply_piping {
         c = circle(center = [302 in, 30 in], radius = 0.4375 in)
     }
     feature service_0 = sweep(profile = sketch.service_0_p, path = sketch.service_0_path, follow_path = true)
-    material = { body = feature.service_0.body, material = "material.pex" }
+    material = { body = feature.service_0.body, material = material.pex }
     sketch heater_cold_0_path on plane.p_zx_5 {
         l0 = line(start = [57.5 in, 303.5 in], end = [57.5 in, 308 in])
         l1 = line(start = [57.5 in, 308 in], end = [66 in, 308 in])
@@ -96,7 +92,7 @@ part supply_piping {
         c = circle(center = [92 in, 57.5 in], radius = 0.3125 in)
     }
     feature heater_cold_0 = sweep(profile = sketch.heater_cold_0_p, path = sketch.heater_cold_0_path, follow_path = true)
-    material = { body = feature.heater_cold_0.body, material = "material.pex" }
+    material = { body = feature.heater_cold_0.body, material = material.pex }
     sketch heater_cold_1_path on plane.p_yz_7 {
         l0 = line(start = [92 in, 66 in], end = [118 in, 66 in])
         l1 = line(start = [118 in, 66 in], end = [118 in, 60 in])
@@ -105,7 +101,7 @@ part supply_piping {
         c = circle(center = [66 in, 308 in], radius = 0.3125 in)
     }
     feature heater_cold_1 = sweep(profile = sketch.heater_cold_1_p, path = sketch.heater_cold_1_path, follow_path = true)
-    material = { body = feature.heater_cold_1.body, material = "material.pex" }
+    material = { body = feature.heater_cold_1.body, material = material.pex }
     sketch heater_hot_0_path on plane.p_yz_8 {
         l0 = line(start = [118 in, 60 in], end = [118 in, 68 in])
         l1 = line(start = [118 in, 68 in], end = [80 in, 68 in])
@@ -114,7 +110,7 @@ part supply_piping {
         c = circle(center = [316 in, 118 in], radius = 0.3125 in)
     }
     feature heater_hot_0 = sweep(profile = sketch.heater_hot_0_p, path = sketch.heater_hot_0_path, follow_path = true)
-    material = { body = feature.heater_hot_0.body, material = "material.pex" }
+    material = { body = feature.heater_hot_0.body, material = material.pex }
     sketch heater_hot_1_path on plane.p_zx_10 {
         l0 = line(start = [68 in, 316 in], end = [68 in, 302 in])
         l1 = line(start = [68 in, 302 in], end = [60 in, 302 in])
@@ -123,7 +119,7 @@ part supply_piping {
         c = circle(center = [80 in, 68 in], radius = 0.3125 in)
     }
     feature heater_hot_1 = sweep(profile = sketch.heater_hot_1_p, path = sketch.heater_hot_1_path, follow_path = true)
-    material = { body = feature.heater_hot_1.body, material = "material.pex" }
+    material = { body = feature.heater_hot_1.body, material = material.pex }
     sketch washer_cold_0_path on plane.p_zx_11 {
         l0 = line(start = [54 in, 302 in], end = [48 in, 302 in])
     }
@@ -131,7 +127,7 @@ part supply_piping {
         c = circle(center = [302 in, 89 in], radius = 0.3125 in)
     }
     feature washer_cold_0 = sweep(profile = sketch.washer_cold_0_p, path = sketch.washer_cold_0_path, follow_path = true)
-    material = { body = feature.washer_cold_0.body, material = "material.pex" }
+    material = { body = feature.washer_cold_0.body, material = material.pex }
     sketch washer_hot_0_path on plane.p_zx_12 {
         l0 = line(start = [54 in, 302 in], end = [48 in, 302 in])
     }
@@ -139,7 +135,7 @@ part supply_piping {
         c = circle(center = [302 in, 93 in], radius = 0.3125 in)
     }
     feature washer_hot_0 = sweep(profile = sketch.washer_hot_0_p, path = sketch.washer_hot_0_path, follow_path = true)
-    material = { body = feature.washer_hot_0.body, material = "material.pex" }
+    material = { body = feature.washer_hot_0.body, material = material.pex }
     sketch sink_cold_0_path on plane.p_zx_13 {
         l0 = line(start = [60 in, 301.5 in], end = [115.85 in, 301.5 in])
         l1 = line(start = [115.85 in, 301.5 in], end = [115.85 in, 324 in])
@@ -148,7 +144,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 75 in], radius = 0.3125 in)
     }
     feature sink_cold_0 = sweep(profile = sketch.sink_cold_0_p, path = sketch.sink_cold_0_path, follow_path = true)
-    material = { body = feature.sink_cold_0.body, material = "material.pex" }
+    material = { body = feature.sink_cold_0.body, material = material.pex }
     sketch sink_cold_1_path on plane.p_xy_14 {
         l0 = line(start = [324 in, 75 in], end = [324 in, 345 in])
         l1 = line(start = [324 in, 345 in], end = [338.5 in, 345 in])
@@ -158,7 +154,7 @@ part supply_piping {
         c = circle(center = [115.85 in, 324 in], radius = 0.3125 in)
     }
     feature sink_cold_1 = sweep(profile = sketch.sink_cold_1_p, path = sketch.sink_cold_1_path, follow_path = true)
-    material = { body = feature.sink_cold_1.body, material = "material.pex" }
+    material = { body = feature.sink_cold_1.body, material = material.pex }
     sketch sink_cold_2_path on plane.p_yz_15 {
         l0 = line(start = [355.25 in, 115.85 in], end = [355.25 in, 18 in])
         l1 = line(start = [355.25 in, 18 in], end = [353.9844 in, 18 in])
@@ -167,7 +163,7 @@ part supply_piping {
         c = circle(center = [338.5 in, 355.25 in], radius = 0.3125 in)
     }
     feature sink_cold_2 = sweep(profile = sketch.sink_cold_2_p, path = sketch.sink_cold_2_path, follow_path = true)
-    material = { body = feature.sink_cold_2.body, material = "material.pex" }
+    material = { body = feature.sink_cold_2.body, material = material.pex }
     sketch sink_hot_0_path on plane.p_zx_16 {
         l0 = line(start = [60 in, 301.5 in], end = [116.4 in, 301.5 in])
         l1 = line(start = [116.4 in, 301.5 in], end = [116.4 in, 326.5 in])
@@ -176,7 +172,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 84 in], radius = 0.3125 in)
     }
     feature sink_hot_0 = sweep(profile = sketch.sink_hot_0_p, path = sketch.sink_hot_0_path, follow_path = true)
-    material = { body = feature.sink_hot_0.body, material = "material.pex" }
+    material = { body = feature.sink_hot_0.body, material = material.pex }
     sketch sink_hot_1_path on plane.p_xy_17 {
         l0 = line(start = [326.5 in, 84 in], end = [326.5 in, 345 in])
         l1 = line(start = [326.5 in, 345 in], end = [348.5 in, 345 in])
@@ -186,7 +182,7 @@ part supply_piping {
         c = circle(center = [116.4 in, 326.5 in], radius = 0.3125 in)
     }
     feature sink_hot_1 = sweep(profile = sketch.sink_hot_1_p, path = sketch.sink_hot_1_path, follow_path = true)
-    material = { body = feature.sink_hot_1.body, material = "material.pex" }
+    material = { body = feature.sink_hot_1.body, material = material.pex }
     sketch sink_hot_2_path on plane.p_yz_18 {
         l0 = line(start = [355.25 in, 116.4 in], end = [355.25 in, 18 in])
         l1 = line(start = [355.25 in, 18 in], end = [353.9844 in, 18 in])
@@ -195,7 +191,7 @@ part supply_piping {
         c = circle(center = [348.5 in, 355.25 in], radius = 0.3125 in)
     }
     feature sink_hot_2 = sweep(profile = sketch.sink_hot_2_p, path = sketch.sink_hot_2_path, follow_path = true)
-    material = { body = feature.sink_hot_2.body, material = "material.pex" }
+    material = { body = feature.sink_hot_2.body, material = material.pex }
     sketch bath_hall_hot_0_path on plane.p_zx_19 {
         l0 = line(start = [60 in, 301.5 in], end = [114 in, 301.5 in])
         l1 = line(start = [114 in, 301.5 in], end = [114 in, 307 in])
@@ -204,7 +200,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 95 in], radius = 0.3125 in)
     }
     feature bath_hall_hot_0 = sweep(profile = sketch.bath_hall_hot_0_p, path = sketch.bath_hall_hot_0_path, follow_path = true)
-    material = { body = feature.bath_hall_hot_0.body, material = "material.pex" }
+    material = { body = feature.bath_hall_hot_0.body, material = material.pex }
     sketch bath_hall_hot_1_path on plane.p_yz_20 {
         l0 = line(start = [95 in, 114 in], end = [232.5 in, 114 in])
         l1 = line(start = [232.5 in, 114 in], end = [232.5 in, 118.5 in])
@@ -213,7 +209,7 @@ part supply_piping {
         c = circle(center = [114 in, 307 in], radius = 0.3125 in)
     }
     feature bath_hall_hot_1 = sweep(profile = sketch.bath_hall_hot_1_p, path = sketch.bath_hall_hot_1_path, follow_path = true)
-    material = { body = feature.bath_hall_hot_1.body, material = "material.pex" }
+    material = { body = feature.bath_hall_hot_1.body, material = material.pex }
     sketch bath_hall_hot_hdr_w_0_path on plane.p_zx_21 {
         l0 = line(start = [118.5 in, 307 in], end = [118.5 in, 125 in])
     }
@@ -221,7 +217,7 @@ part supply_piping {
         c = circle(center = [232.5 in, 118.5 in], radius = 0.3125 in)
     }
     feature bath_hall_hot_hdr_w_0 = sweep(profile = sketch.bath_hall_hot_hdr_w_0_p, path = sketch.bath_hall_hot_hdr_w_0_path, follow_path = true)
-    material = { body = feature.bath_hall_hot_hdr_w_0.body, material = "material.pex" }
+    material = { body = feature.bath_hall_hot_hdr_w_0.body, material = material.pex }
     sketch bath_hall_cold_0_path on plane.p_zx_22 {
         l0 = line(start = [60 in, 301.5 in], end = [114 in, 301.5 in])
         l1 = line(start = [114 in, 301.5 in], end = [114 in, 309.5 in])
@@ -230,7 +226,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 87 in], radius = 0.3125 in)
     }
     feature bath_hall_cold_0 = sweep(profile = sketch.bath_hall_cold_0_p, path = sketch.bath_hall_cold_0_path, follow_path = true)
-    material = { body = feature.bath_hall_cold_0.body, material = "material.pex" }
+    material = { body = feature.bath_hall_cold_0.body, material = material.pex }
     sketch bath_hall_cold_1_path on plane.p_yz_23 {
         l0 = line(start = [87 in, 114 in], end = [235 in, 114 in])
         l1 = line(start = [235 in, 114 in], end = [235 in, 117.3 in])
@@ -239,7 +235,7 @@ part supply_piping {
         c = circle(center = [114 in, 309.5 in], radius = 0.3125 in)
     }
     feature bath_hall_cold_1 = sweep(profile = sketch.bath_hall_cold_1_p, path = sketch.bath_hall_cold_1_path, follow_path = true)
-    material = { body = feature.bath_hall_cold_1.body, material = "material.pex" }
+    material = { body = feature.bath_hall_cold_1.body, material = material.pex }
     sketch bath_hall_cold_hdr_w_0_path on plane.p_zx_24 {
         l0 = line(start = [117.3 in, 309.5 in], end = [117.3 in, 122.5 in])
     }
@@ -247,7 +243,7 @@ part supply_piping {
         c = circle(center = [235 in, 117.3 in], radius = 0.3125 in)
     }
     feature bath_hall_cold_hdr_w_0 = sweep(profile = sketch.bath_hall_cold_hdr_w_0_p, path = sketch.bath_hall_cold_hdr_w_0_path, follow_path = true)
-    material = { body = feature.bath_hall_cold_hdr_w_0.body, material = "material.pex" }
+    material = { body = feature.bath_hall_cold_hdr_w_0.body, material = material.pex }
     sketch bath_primary_cold_0_path on plane.p_zx_25 {
         l0 = line(start = [60 in, 301.5 in], end = [114 in, 301.5 in])
         l1 = line(start = [114 in, 301.5 in], end = [114 in, 317.5 in])
@@ -256,7 +252,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 72 in], radius = 0.3125 in)
     }
     feature bath_primary_cold_0 = sweep(profile = sketch.bath_primary_cold_0_p, path = sketch.bath_primary_cold_0_path, follow_path = true)
-    material = { body = feature.bath_primary_cold_0.body, material = "material.pex" }
+    material = { body = feature.bath_primary_cold_0.body, material = material.pex }
     sketch bath_primary_cold_1_path on plane.p_yz_26 {
         l0 = line(start = [72 in, 114 in], end = [237.5 in, 114 in])
         l1 = line(start = [237.5 in, 114 in], end = [237.5 in, 117.3 in])
@@ -265,7 +261,7 @@ part supply_piping {
         c = circle(center = [114 in, 317.5 in], radius = 0.3125 in)
     }
     feature bath_primary_cold_1 = sweep(profile = sketch.bath_primary_cold_1_p, path = sketch.bath_primary_cold_1_path, follow_path = true)
-    material = { body = feature.bath_primary_cold_1.body, material = "material.pex" }
+    material = { body = feature.bath_primary_cold_1.body, material = material.pex }
     sketch bath_primary_cold_hdr_w_0_path on plane.p_zx_27 {
         l0 = line(start = [117.3 in, 317.5 in], end = [117.3 in, 242 in])
     }
@@ -273,7 +269,7 @@ part supply_piping {
         c = circle(center = [237.5 in, 117.3 in], radius = 0.3125 in)
     }
     feature bath_primary_cold_hdr_w_0 = sweep(profile = sketch.bath_primary_cold_hdr_w_0_p, path = sketch.bath_primary_cold_hdr_w_0_path, follow_path = true)
-    material = { body = feature.bath_primary_cold_hdr_w_0.body, material = "material.pex" }
+    material = { body = feature.bath_primary_cold_hdr_w_0.body, material = material.pex }
     sketch bath_primary_hot_0_path on plane.p_zx_28 {
         l0 = line(start = [60 in, 301.5 in], end = [114 in, 301.5 in])
         l1 = line(start = [114 in, 301.5 in], end = [114 in, 312 in])
@@ -282,7 +278,7 @@ part supply_piping {
         c = circle(center = [301.5 in, 78 in], radius = 0.3125 in)
     }
     feature bath_primary_hot_0 = sweep(profile = sketch.bath_primary_hot_0_p, path = sketch.bath_primary_hot_0_path, follow_path = true)
-    material = { body = feature.bath_primary_hot_0.body, material = "material.pex" }
+    material = { body = feature.bath_primary_hot_0.body, material = material.pex }
     sketch bath_primary_hot_1_path on plane.p_yz_29 {
         l0 = line(start = [78 in, 114 in], end = [240 in, 114 in])
         l1 = line(start = [240 in, 114 in], end = [240 in, 118.5 in])
@@ -291,7 +287,7 @@ part supply_piping {
         c = circle(center = [114 in, 312 in], radius = 0.3125 in)
     }
     feature bath_primary_hot_1 = sweep(profile = sketch.bath_primary_hot_1_p, path = sketch.bath_primary_hot_1_path, follow_path = true)
-    material = { body = feature.bath_primary_hot_1.body, material = "material.pex" }
+    material = { body = feature.bath_primary_hot_1.body, material = material.pex }
     sketch bath_primary_hot_hdr_w_0_path on plane.p_zx_30 {
         l0 = line(start = [118.5 in, 312 in], end = [118.5 in, 243.3 in])
     }
@@ -299,7 +295,7 @@ part supply_piping {
         c = circle(center = [240 in, 118.5 in], radius = 0.3125 in)
     }
     feature bath_primary_hot_hdr_w_0 = sweep(profile = sketch.bath_primary_hot_hdr_w_0_p, path = sketch.bath_primary_hot_hdr_w_0_path, follow_path = true)
-    material = { body = feature.bath_primary_hot_hdr_w_0.body, material = "material.pex" }
+    material = { body = feature.bath_primary_hot_hdr_w_0.body, material = material.pex }
     sketch bath_stub_0_0_path on plane.p_yz_31 {
         l0 = line(start = [235 in, 117.3 in], end = [355.5 in, 117.3 in])
         l1 = line(start = [355.5 in, 117.3 in], end = [355.5 in, 152.25 in])
@@ -308,7 +304,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 122.5 in], radius = 0.3125 in)
     }
     feature bath_stub_0_0 = sweep(profile = sketch.bath_stub_0_0_p, path = sketch.bath_stub_0_0_path, follow_path = true)
-    material = { body = feature.bath_stub_0_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_0_0.body, material = material.pex }
     sketch bath_stub_1_0_path on plane.p_yz_32 {
         l0 = line(start = [232.5 in, 118.5 in], end = [355.5 in, 118.5 in])
         l1 = line(start = [355.5 in, 118.5 in], end = [355.5 in, 152.25 in])
@@ -317,7 +313,7 @@ part supply_piping {
         c = circle(center = [118.5 in, 125 in], radius = 0.3125 in)
     }
     feature bath_stub_1_0 = sweep(profile = sketch.bath_stub_1_0_p, path = sketch.bath_stub_1_0_path, follow_path = true)
-    material = { body = feature.bath_stub_1_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_1_0.body, material = material.pex }
     sketch bath_stub_2_0_path on plane.p_yz_33 {
         l0 = line(start = [235 in, 117.3 in], end = [349 in, 117.3 in])
         l1 = line(start = [349 in, 117.3 in], end = [349 in, 128.25 in])
@@ -326,7 +322,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 164 in], radius = 0.3125 in)
     }
     feature bath_stub_2_0 = sweep(profile = sketch.bath_stub_2_0_p, path = sketch.bath_stub_2_0_path, follow_path = true)
-    material = { body = feature.bath_stub_2_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_2_0.body, material = material.pex }
     sketch bath_stub_3_0_path on plane.p_yz_34 {
         l0 = line(start = [235 in, 117.3 in], end = [276 in, 117.3 in])
         l1 = line(start = [276 in, 117.3 in], end = [276 in, 132.25 in])
@@ -335,7 +331,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 233.5 in], radius = 0.3125 in)
     }
     feature bath_stub_3_0 = sweep(profile = sketch.bath_stub_3_0_p, path = sketch.bath_stub_3_0_path, follow_path = true)
-    material = { body = feature.bath_stub_3_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_3_0.body, material = material.pex }
     sketch bath_stub_4_0_path on plane.p_yz_35 {
         l0 = line(start = [232.5 in, 118.5 in], end = [284 in, 118.5 in])
         l1 = line(start = [284 in, 118.5 in], end = [284 in, 132.25 in])
@@ -344,7 +340,7 @@ part supply_piping {
         c = circle(center = [118.5 in, 232 in], radius = 0.3125 in)
     }
     feature bath_stub_4_0 = sweep(profile = sketch.bath_stub_4_0_p, path = sketch.bath_stub_4_0_path, follow_path = true)
-    material = { body = feature.bath_stub_4_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_4_0.body, material = material.pex }
     sketch bath_stub_5_0_path on plane.p_yz_36 {
         l0 = line(start = [237.5 in, 117.3 in], end = [330 in, 117.3 in])
         l1 = line(start = [330 in, 117.3 in], end = [330 in, 170.25 in])
@@ -353,7 +349,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 242 in], radius = 0.3125 in)
     }
     feature bath_stub_5_0 = sweep(profile = sketch.bath_stub_5_0_p, path = sketch.bath_stub_5_0_path, follow_path = true)
-    material = { body = feature.bath_stub_5_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_5_0.body, material = material.pex }
     sketch bath_stub_6_0_path on plane.p_yz_37 {
         l0 = line(start = [240 in, 118.5 in], end = [332 in, 118.5 in])
         l1 = line(start = [332 in, 118.5 in], end = [332 in, 170.25 in])
@@ -362,7 +358,7 @@ part supply_piping {
         c = circle(center = [118.5 in, 243.3 in], radius = 0.3125 in)
     }
     feature bath_stub_6_0 = sweep(profile = sketch.bath_stub_6_0_p, path = sketch.bath_stub_6_0_path, follow_path = true)
-    material = { body = feature.bath_stub_6_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_6_0.body, material = material.pex }
     sketch bath_stub_7_0_path on plane.p_yz_38 {
         l0 = line(start = [237.5 in, 117.3 in], end = [244 in, 117.3 in])
         l1 = line(start = [244 in, 117.3 in], end = [244 in, 132.25 in])
@@ -371,7 +367,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 258.5 in], radius = 0.3125 in)
     }
     feature bath_stub_7_0 = sweep(profile = sketch.bath_stub_7_0_p, path = sketch.bath_stub_7_0_path, follow_path = true)
-    material = { body = feature.bath_stub_7_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_7_0.body, material = material.pex }
     sketch bath_stub_8_0_path on plane.p_yz_39 {
         l0 = line(start = [240 in, 118.5 in], end = [244 in, 118.5 in])
         l1 = line(start = [244 in, 118.5 in], end = [244 in, 132.25 in])
@@ -380,7 +376,7 @@ part supply_piping {
         c = circle(center = [118.5 in, 265.5 in], radius = 0.3125 in)
     }
     feature bath_stub_8_0 = sweep(profile = sketch.bath_stub_8_0_p, path = sketch.bath_stub_8_0_path, follow_path = true)
-    material = { body = feature.bath_stub_8_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_8_0.body, material = material.pex }
     sketch bath_stub_9_0_path on plane.p_yz_40 {
         l0 = line(start = [237.5 in, 117.3 in], end = [244 in, 117.3 in])
         l1 = line(start = [244 in, 117.3 in], end = [244 in, 132.25 in])
@@ -389,7 +385,7 @@ part supply_piping {
         c = circle(center = [117.3 in, 290 in], radius = 0.3125 in)
     }
     feature bath_stub_9_0 = sweep(profile = sketch.bath_stub_9_0_p, path = sketch.bath_stub_9_0_path, follow_path = true)
-    material = { body = feature.bath_stub_9_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_9_0.body, material = material.pex }
     sketch bath_stub_10_0_path on plane.p_yz_41 {
         l0 = line(start = [240 in, 118.5 in], end = [244 in, 118.5 in])
         l1 = line(start = [244 in, 118.5 in], end = [244 in, 132.25 in])
@@ -398,7 +394,7 @@ part supply_piping {
         c = circle(center = [118.5 in, 297 in], radius = 0.3125 in)
     }
     feature bath_stub_10_0 = sweep(profile = sketch.bath_stub_10_0_p, path = sketch.bath_stub_10_0_path, follow_path = true)
-    material = { body = feature.bath_stub_10_0.body, material = "material.pex" }
+    material = { body = feature.bath_stub_10_0.body, material = material.pex }
     sketch bath_stub_11_0_path on plane.p_yz_42 {
         l0 = line(start = [237.5 in, 117.3 in], end = [349 in, 117.3 in])
         l1 = line(start = [349 in, 117.3 in], end = [349 in, 128.25 in])
@@ -407,35 +403,35 @@ part supply_piping {
         c = circle(center = [117.3 in, 307.5 in], radius = 0.3125 in)
     }
     feature bath_stub_11_0 = sweep(profile = sketch.bath_stub_11_0_p, path = sketch.bath_stub_11_0_path, follow_path = true)
-    material = { body = feature.bath_stub_11_0.body, material = "material.pex" }
-    output supply_piping_water_heater = { body = feature.water_heater.body, part_number = "P-WH", material = "material.galvanized_steel", label = "Water heater, 50 gal electric" }
-    output supply_piping_manifold = { body = feature.manifold.body, part_number = "P-MAN", material = "material.pex", label = "PEX manifold, 3/4 in, 8 port" }
-    output supply_piping_washer_box = { body = feature.washer_box.body, part_number = "P-WB", material = "material.pvc_device", label = "Washer outlet box" }
-    output supply_piping_service = { body = feature.service_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 3/4 in, service" }
-    output supply_piping_heater_cold = { body = feature.heater_cold_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, heater cold" }
-    output supply_piping_heater_hot = { body = feature.heater_hot_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, heater hot" }
-    output supply_piping_washer_cold = { body = feature.washer_cold_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, washer cold" }
-    output supply_piping_washer_hot = { body = feature.washer_hot_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, washer hot" }
-    output supply_piping_sink_cold = { body = feature.sink_cold_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, sink cold" }
-    output supply_piping_sink_hot = { body = feature.sink_hot_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, sink hot" }
-    output supply_piping_bath_hall_hot = { body = feature.bath_hall_hot_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, hall hot home run" }
-    output supply_piping_bath_hall_hot_hdr_w = { body = feature.bath_hall_hot_hdr_w_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, hall hot header" }
-    output supply_piping_bath_hall_cold = { body = feature.bath_hall_cold_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, hall cold home run" }
-    output supply_piping_bath_hall_cold_hdr_w = { body = feature.bath_hall_cold_hdr_w_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, hall cold header" }
-    output supply_piping_bath_primary_cold = { body = feature.bath_primary_cold_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, primary cold home run" }
-    output supply_piping_bath_primary_cold_hdr_w = { body = feature.bath_primary_cold_hdr_w_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, primary cold header" }
-    output supply_piping_bath_primary_hot = { body = feature.bath_primary_hot_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, primary hot home run" }
-    output supply_piping_bath_primary_hot_hdr_w = { body = feature.bath_primary_hot_hdr_w_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in, primary hot header" }
-    output supply_piping_bath_stub_0 = { body = feature.bath_stub_0_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the tub valve, cold" }
-    output supply_piping_bath_stub_1 = { body = feature.bath_stub_1_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the tub valve, hot" }
-    output supply_piping_bath_stub_2 = { body = feature.bath_stub_2_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the hall toilet" }
-    output supply_piping_bath_stub_3 = { body = feature.bath_stub_3_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the hall lavatory, cold" }
-    output supply_piping_bath_stub_4 = { body = feature.bath_stub_4_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the hall lavatory, hot" }
-    output supply_piping_bath_stub_5 = { body = feature.bath_stub_5_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the shower valve, cold" }
-    output supply_piping_bath_stub_6 = { body = feature.bath_stub_6_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the shower valve, hot" }
-    output supply_piping_bath_stub_7 = { body = feature.bath_stub_7_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the primary lavatory 1, cold" }
-    output supply_piping_bath_stub_8 = { body = feature.bath_stub_8_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the primary lavatory 1, hot" }
-    output supply_piping_bath_stub_9 = { body = feature.bath_stub_9_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the primary lavatory 2, cold" }
-    output supply_piping_bath_stub_10 = { body = feature.bath_stub_10_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the primary lavatory 2, hot" }
-    output supply_piping_bath_stub_11 = { body = feature.bath_stub_11_0.body, part_number = "P-PEX", material = "material.pex", label = "PEX 1/2 in to the primary toilet" }
+    material = { body = feature.bath_stub_11_0.body, material = material.pex }
+    output supply_piping_water_heater = { body = feature.water_heater.body, part_number = "P-WH", material = material.galvanized_steel, label = "Water heater, 50 gal electric" }
+    output supply_piping_manifold = { body = feature.manifold.body, part_number = "P-MAN", material = material.pex, label = "PEX manifold, 3/4 in, 8 port" }
+    output supply_piping_washer_box = { body = feature.washer_box.body, part_number = "P-WB", material = material.pvc_device, label = "Washer outlet box" }
+    output supply_piping_service = { body = feature.service_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 3/4 in, service" }
+    output supply_piping_heater_cold = { body = feature.heater_cold_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, heater cold" }
+    output supply_piping_heater_hot = { body = feature.heater_hot_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, heater hot" }
+    output supply_piping_washer_cold = { body = feature.washer_cold_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, washer cold" }
+    output supply_piping_washer_hot = { body = feature.washer_hot_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, washer hot" }
+    output supply_piping_sink_cold = { body = feature.sink_cold_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, sink cold" }
+    output supply_piping_sink_hot = { body = feature.sink_hot_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, sink hot" }
+    output supply_piping_bath_hall_hot = { body = feature.bath_hall_hot_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, hall hot home run" }
+    output supply_piping_bath_hall_hot_hdr_w = { body = feature.bath_hall_hot_hdr_w_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, hall hot header" }
+    output supply_piping_bath_hall_cold = { body = feature.bath_hall_cold_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, hall cold home run" }
+    output supply_piping_bath_hall_cold_hdr_w = { body = feature.bath_hall_cold_hdr_w_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, hall cold header" }
+    output supply_piping_bath_primary_cold = { body = feature.bath_primary_cold_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, primary cold home run" }
+    output supply_piping_bath_primary_cold_hdr_w = { body = feature.bath_primary_cold_hdr_w_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, primary cold header" }
+    output supply_piping_bath_primary_hot = { body = feature.bath_primary_hot_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, primary hot home run" }
+    output supply_piping_bath_primary_hot_hdr_w = { body = feature.bath_primary_hot_hdr_w_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in, primary hot header" }
+    output supply_piping_bath_stub_0 = { body = feature.bath_stub_0_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the tub valve, cold" }
+    output supply_piping_bath_stub_1 = { body = feature.bath_stub_1_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the tub valve, hot" }
+    output supply_piping_bath_stub_2 = { body = feature.bath_stub_2_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the hall toilet" }
+    output supply_piping_bath_stub_3 = { body = feature.bath_stub_3_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the hall lavatory, cold" }
+    output supply_piping_bath_stub_4 = { body = feature.bath_stub_4_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the hall lavatory, hot" }
+    output supply_piping_bath_stub_5 = { body = feature.bath_stub_5_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the shower valve, cold" }
+    output supply_piping_bath_stub_6 = { body = feature.bath_stub_6_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the shower valve, hot" }
+    output supply_piping_bath_stub_7 = { body = feature.bath_stub_7_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the primary lavatory 1, cold" }
+    output supply_piping_bath_stub_8 = { body = feature.bath_stub_8_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the primary lavatory 1, hot" }
+    output supply_piping_bath_stub_9 = { body = feature.bath_stub_9_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the primary lavatory 2, cold" }
+    output supply_piping_bath_stub_10 = { body = feature.bath_stub_10_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the primary lavatory 2, hot" }
+    output supply_piping_bath_stub_11 = { body = feature.bath_stub_11_0.body, part_number = "P-PEX", material = material.pex, label = "PEX 1/2 in to the primary toilet" }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The outboard flap.
 part wing_flap_outboard {
     input side : real = 1

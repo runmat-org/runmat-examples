@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A standoff post base: a 1 in steel standoff under a 6x6 post, with straps up two faces,
 // anchored into the slab over the pad footing. Origin on the top of the slab at the post axis.
 part post_base {
@@ -30,5 +27,5 @@ part post_base {
         e3 = line(start = [-2.87 in, 1.5 in], end = [-2.87 in, -1.5 in])
     }
     feature strap_b = extrude(profile = sketch.strap_b_s, distance = 6 in, mode = new)
-    output post_base = { body = feature.plate.body, part_number = "PB-66", material = "material.galvanized_steel" }
+    output post_base = { body = feature.plate.body, part_number = "PB-66", material = material.galvanized_steel }
 }

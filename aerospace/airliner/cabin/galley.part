@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A galley: three cart bays and a worktop open to the aisle.
 part galley {
     sketch s on origin.yz {

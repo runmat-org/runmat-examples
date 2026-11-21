@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The second-floor framing, from the top of the first-floor top plates: 11 7/8 in I-joists at
 // 16 in o.c. spanning north-south, a 1 1/8 in rim board all round, two flush 3 1/2 x 11 7/8 in
 // LVL beams on grids B and C (on posts at grids 2, 3 and 4 and on the end walls), the stair
@@ -1071,21 +1068,21 @@ part floor_system {
     }
     feature mep_all_176 = extrude(profile = sketch.mep_all_176_s, distance = 123.7 in, mode = cut)
     // end MEP penetrations all
-    output floor_system = { body = feature.subfloor.body, part_number = "FL-2", material = "material.osb" }
-    material = { body = feature.rim_s.body, material = "material.lsl_rim_board" }
-    material = { body = feature.rim_n.body, material = "material.lsl_rim_board" }
-    material = { body = feature.rim_w.body, material = "material.lsl_rim_board" }
-    material = { body = feature.rim_e.body, material = "material.lsl_rim_board" }
-    material = { body = feature.beam_b.body, material = "material.lvl" }
-    material = { body = feature.beam_c.body, material = "material.lvl" }
-    material = { body = feature.stair_header.body, material = "material.lvl" }
-    material = { body = feature.joist_ab.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.joist_bc.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.joist_cd.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.trimmer_0.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.trimmer_1.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.trimmer_2.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.trimmer_3.body, material = "material.engineered_lumber_i_joist" }
-    material = { body = feature.tail.body, material = "material.engineered_lumber_i_joist" }
-    region stair_opening : face = { select = [feature.opening.face.side(opening_s.e0), feature.opening.face.side(opening_s.e1), feature.opening.face.side(opening_s.e2), feature.opening.face.side(opening_s.e3)], expect = at_least_one, label = "Stair opening" }
+    output floor_system = { body = feature.subfloor.body, part_number = "FL-2", material = material.osb }
+    material = { body = feature.rim_s.body, material = material.lsl_rim_board }
+    material = { body = feature.rim_n.body, material = material.lsl_rim_board }
+    material = { body = feature.rim_w.body, material = material.lsl_rim_board }
+    material = { body = feature.rim_e.body, material = material.lsl_rim_board }
+    material = { body = feature.beam_b.body, material = material.lvl }
+    material = { body = feature.beam_c.body, material = material.lvl }
+    material = { body = feature.stair_header.body, material = material.lvl }
+    material = { body = feature.joist_ab.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.joist_bc.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.joist_cd.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.trimmer_0.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.trimmer_1.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.trimmer_2.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.trimmer_3.body, material = material.engineered_lumber_i_joist }
+    material = { body = feature.tail.body, material = material.engineered_lumber_i_joist }
+    region stair_opening : face = { select = [feature.opening.face.side(opening_s.e0), feature.opening.face.side(opening_s.e1), feature.opening.face.side(opening_s.e2), feature.opening.face.side(opening_s.e3)], expect = one_or_more, label = "Stair opening" }
 }

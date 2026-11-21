@@ -1,10 +1,6 @@
-runmat 0.7
-std 1
-
-
 // The heat pump system: air handler, plenum, soffit trunk, the riser and attic trunk to the second floor, registers, return, condenser and line set.
 assembly hvac {
     use part hvac_equipment as hvac_equipment {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

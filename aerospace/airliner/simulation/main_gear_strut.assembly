@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The main gear strut as main_gear.assembly sizes it (2,500 mm long, 230 mm diameter, 180 mm bore), for
 // main_gear_landing.fea. The trunnion end is at the top (z = 2,500 mm), the axle end at z = 0.
 // Exported to geometry/main_gear_strut.step.

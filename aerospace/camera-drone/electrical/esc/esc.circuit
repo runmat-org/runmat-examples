@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The 4-in-1 ESC: four identical motor channels, each a small MCU that reads its motor signal
 // and runs field-oriented control, a three-phase gate driver with bootstrap high sides, and three
 // half bridges of 40 V N-channel MOSFETs, each with its own low-side current shunt and filter. The battery comes in on
@@ -155,9 +152,9 @@ circuit esc {
         source LC = { p = net.INLC, dc = 3.3 V }
         source EN = { p = net.DRV_EN, dc = 3.3 V }
         source IMOT = { p = net.PHA, n = net.PHB, dc = 20 A, current = true }
-        model "GATEDRV-3PH-QFN24" = { library = "esc_models.lib", subckt = GATEDRV3, pins = [INHA, INLA, INHB, INLB, INHC, INLC, EN, GND, VCC, VDRV, BSTA, GHA, SHA, GLA, BSTB, GHB, SHB, GLB, BSTC, GHC, SHC, GLC, FAULT] }
-        model "NMOS-40V-DFN8" = { library = "esc_models.lib", subckt = NMOS40, pins = [D, G, S] }
-        analysis edges = tran { stop = 14 us, step = 2 ns }
+        spice_model "GATEDRV-3PH-QFN24" = { library = "esc_models.lib", subckt = GATEDRV3, pins = [INHA, INLA, INHB, INLB, INHC, INLC, EN, GND, VCC, VDRV, BSTA, GHA, SHA, GLA, BSTB, GHB, SHB, GLB, BSTC, GHC, SHC, GLC, FAULT] }
+        spice_model "NMOS-40V-DFN8" = { library = "esc_models.lib", subckt = NMOS40, pins = [D, G, S] }
+        analysis edges : tran = { stop = 14 us, step = 2 ns }
         probe = [net.INHA, net.GHA, net.GLA, net.PHA, "QHA.D"]
         measure rise = { of = edges, rise_time = net.PHA, from = 0.9 us, to = 4 us, spec = { max = 40 ns } }
         measure overshoot = { of = edges, max = net.PHA, from = 0.5 us, to = 4 us, spec = { max = 30 V } }
@@ -178,9 +175,9 @@ circuit esc {
         source IPC = { p = net.GND, n = net.SRCC, current = true, pulse = { from = 0 A, to = -10 A, delay = 20 us, rise = 1 us, fall = 1 us, width = 200 us, period = 400 us } }
         tolerance resistors = { match = "R*", value = 1 % }
         tolerance capacitors = { match = "C*", value = 10 % }
-        analysis step = tran { stop = 120 us, step = 100 ns }
-        analysis response = ac { from = 100 Hz, to = 10 MHz, points = 100 }
-        analysis spread = monte_carlo { of = response, runs = 1000, seed = 7 }
+        analysis step : tran = { stop = 120 us, step = 100 ns }
+        analysis response : ac = { from = 100 Hz, to = 10 MHz, points = 100 }
+        analysis spread : monte_carlo = { of = response, runs = 1000, seed = 7 }
         probe = [net.ISENSE_A, net.ISENSE_B, net.ISENSE_C, net.SRCA]
         measure f3db = { of = response, bandwidth = net.ISENSE_A, spec = { min = 14 kHz, max = 18 kHz } }
         measure sense = { of = step, average = net.ISENSE_A, from = 100 us, to = 120 us, spec = { min = 9.5 mV, max = 10.5 mV } }

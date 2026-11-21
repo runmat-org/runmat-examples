@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The leading-edge slat, engine to tip.
 part wing_slat {
     input side : real = 1

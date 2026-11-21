@@ -1,34 +1,31 @@
-runmat 0.7
-std 1
-
 // Below the cabin floor: the cargo floors and containers, the centre wing box and the main
 // gear bays.
 assembly hold {
     input container_pitch : length = 1560 mm
 
     use part cargo_floor as cargo_floor_forward {
-        placement = { placement = offset, offset = { translation = [6100 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [6100 mm, 0 mm, 0 mm])
     }
     use part cargo_floor_aft as cargo_floor_aft {
-        placement = { placement = offset, offset = { translation = [19700 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [19700 mm, 0 mm, 0 mm])
     }
     use part cargo_container as container_forward {
-        placement = { placement = offset, offset = { translation = [6300 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [6300 mm, 0 mm, 0 mm])
     }
     use part cargo_container as container_aft {
-        placement = { placement = offset, offset = { translation = [19900 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [19900 mm, 0 mm, 0 mm])
     }
     use part hold_liner as hold_liner_starboard {
-        placement = { placement = offset, offset = { translation = [6100 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = -69.865789 deg } } }
+        placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
     }
     use part hold_liner as hold_liner_port {
-        placement = { placement = offset, offset = { translation = [6100 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 198.461458 deg } } }
+        placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
     }
     use part hold_liner_aft as hold_liner_aft_starboard {
-        placement = { placement = offset, offset = { translation = [19700 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = -69.865789 deg } } }
+        placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
     }
     use part hold_liner_aft as hold_liner_aft_port {
-        placement = { placement = offset, offset = { translation = [19700 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 198.461458 deg } } }
+        placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
     }
     use part centre_wing_box as centre_wing_box
     use part gear_bay as gear_bays

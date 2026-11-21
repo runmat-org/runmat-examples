@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A business seat's cushion and back, 500 mm wide, in leather.
 part seat_cushion_business {
     sketch s on origin.zx {
@@ -21,7 +18,7 @@ part seat_cushion_business {
         c15 = spline(points = [c14.end, [407.458 mm, 255.769 mm], [400.549 mm, 232.005 mm]])
         c16 = line(start = c15.end, end = c1.start)
     }
-    feature body = extrude(profile = sketch.s, distance = 500 mm, symmetric)
+    feature body = extrude(profile = sketch.s, distance = 500 mm, symmetric = true)
 
     output seat_cushion_business = { body = feature.body.body, part_number = "CAB-ST-220", material = "leather", color = "#5A2E3B" }
 }

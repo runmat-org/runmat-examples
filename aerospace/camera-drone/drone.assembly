@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A generic foldable camera drone, 249 g class to 900 g class by its battery: one lofted upper
 // and lower shell split along the body's waist; four folding arms on tilted hinge pins (the rear
 // arms fold forward and down under the body, the front arms back and up over them); cowled motor
@@ -33,10 +30,10 @@ assembly drone {
 
     // The radio's two antennas, upright inside the side walls behind the board stack.
     use part antenna from "./mechanical/body" as antenna_left {
-        placement = { placement = offset, offset = { translation = [-25 mm, 38 mm, 14 mm] } }
+        placement = offset(translation = [-25 mm, 38 mm, 14 mm])
     }
     use part antenna from "./mechanical/body" as antenna_right {
-        placement = { placement = offset, offset = { translation = [-25 mm, -38 mm, 14 mm] } }
+        placement = offset(translation = [-25 mm, -38 mm, 14 mm])
     }
 
     // The arms on their hinges. Each station's arm is arm.part's `length` plus a length offset:
@@ -48,39 +45,39 @@ assembly drone {
     // mirror images, so their blade inputs are mirrored too.
     use assembly arm_station from "./mechanical/arm" as arm_front_left {
         configuration = { select = inputs, values = { fold = input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = -20 deg, blade_a = input.blade_a, blade_b = input.blade_b } }
-        placement = { placement = offset, offset = { translation = [44 mm, 52 mm, 24 mm], rotation = { rotation = euler, yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg } } }
+        placement = offset(translation = [44 mm, 52 mm, 24 mm], rotation = euler(yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg))
     }
     use assembly arm_station from "./mechanical/arm" as arm_front_right {
         configuration = { select = inputs, values = { fold = -input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = 20 deg, blade_a = -input.blade_b - 180 deg, blade_b = -input.blade_a - 180 deg } }
-        placement = { placement = offset, offset = { translation = [44 mm, -52 mm, 24 mm], rotation = { rotation = euler, yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg } } }
+        placement = offset(translation = [44 mm, -52 mm, 24 mm], rotation = euler(yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg))
     }
     use assembly arm_station from "./mechanical/arm" as arm_rear_left {
         configuration = { select = inputs, values = { fold = -input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = -28 deg, blade_a = input.rear_blade_a, blade_b = input.rear_blade_b } }
-        placement = { placement = offset, offset = { translation = [-66 mm, 44 mm, 13 mm], rotation = { rotation = euler, yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg } } }
+        placement = offset(translation = [-66 mm, 44 mm, 13 mm], rotation = euler(yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg))
     }
     use assembly arm_station from "./mechanical/arm" as arm_rear_right {
         configuration = { select = inputs, values = { fold = input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = 28 deg, blade_a = -input.rear_blade_b - 180 deg, blade_b = -input.rear_blade_a - 180 deg } }
-        placement = { placement = offset, offset = { translation = [-66 mm, -44 mm, 13 mm], rotation = { rotation = euler, yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg } } }
+        placement = offset(translation = [-66 mm, -44 mm, 13 mm], rotation = euler(yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg))
     }
 
     // The 3-axis gimbal and camera under the nose.
     use assembly gimbal from "./mechanical/gimbal" as gimbal {
         configuration = { select = inputs, values = { pitch = input.pitch } }
-        placement = { placement = offset, offset = { translation = [74 mm, 0 mm, 11 mm] } }
+        placement = offset(translation = [74 mm, 0 mm, 11 mm])
     }
 
     // Vision sensors: a forward stereo pair in the nose and a downward pair under the belly.
     use part vision_sensor from "./mechanical/body" as vision_front_left {
-        placement = { placement = offset, offset = { translation = [97 mm, 6 mm, 31 mm], rotation = { rotation = axis_angle, axis = [0, 1, 0], angle = 90 deg } } }
+        placement = offset(translation = [97 mm, 6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
     use part vision_sensor from "./mechanical/body" as vision_front_right {
-        placement = { placement = offset, offset = { translation = [97 mm, -6 mm, 31 mm], rotation = { rotation = axis_angle, axis = [0, 1, 0], angle = 90 deg } } }
+        placement = offset(translation = [97 mm, -6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
     }
     use part vision_sensor from "./mechanical/body" as vision_down_left {
-        placement = { placement = offset, offset = { translation = [-28 mm, 11 mm, 2.6 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 180 deg } } }
+        placement = offset(translation = [-28 mm, 11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
     use part vision_sensor from "./mechanical/body" as vision_down_right {
-        placement = { placement = offset, offset = { translation = [-28 mm, -11 mm, 2.6 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = 180 deg } } }
+        placement = offset(translation = [-28 mm, -11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
     }
 
     // The ESC's heatsink in the belly window (its fins in the downwash) and the gap pad on its
@@ -88,44 +85,44 @@ assembly drone {
     // flight controller 10 mm above it on nylon spacers, both held by four M3 x 18 screws into
     // the standoffs' tapped holes (4.8 mm of thread engaged, 1.6 x the diameter).
     use part esc_heatsink from "./electrical/esc" as esc_heatsink {
-        placement = { placement = offset, offset = { translation = [25 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [25 mm, 0 mm, 0 mm])
     }
     use part thermal_pad from "./electrical/esc" as thermal_pad {
-        placement = { placement = offset, offset = { translation = [25 mm, 0 mm, 9.5 mm] } }
+        placement = offset(translation = [25 mm, 0 mm, 9.5 mm])
     }
     use circuit esc from "./electrical/esc" as esc {
-        placement = { placement = offset, offset = { translation = [25 mm, 0 mm, 10 mm] } }
+        placement = offset(translation = [25 mm, 0 mm, 10 mm])
     }
     use circuit flight_controller from "./electrical/flight_controller" as flight_controller {
-        placement = { placement = offset, offset = { translation = [25 mm, 0 mm, 21.6 mm] } }
+        placement = offset(translation = [25 mm, 0 mm, 21.6 mm])
     }
     use part spacer from "./mechanical/+hardware" as spacer {
         configuration = { select = inputs, values = { height = 10 mm } }
-        placement = { placement = offset, offset = { translation = [9.75 mm, -15.25 mm, 11.6 mm] } }
+        placement = offset(translation = [9.75 mm, -15.25 mm, 11.6 mm])
     }
     use part screw from "./mechanical/+hardware" as stack_screw {
         configuration = { select = inputs, values = { length = 18 mm } }
-        placement = { placement = offset, offset = { translation = [9.75 mm, -15.25 mm, 23.2 mm] } }
+        placement = offset(translation = [9.75 mm, -15.25 mm, 23.2 mm])
     }
     pattern stack = grid(seeds = [spacer, stack_screw], first = [1, 0, 0], first_spacing = 30.5 mm, first_count = 2, second = [0, 1, 0], second_spacing = 30.5 mm, second_count = 2)
 
     exploded service = {
         steps = [
-            { id = lift_top, occurrences = [[{ name = body_top }], [{ name = light_pipe }]], motion = { motion = "translate", direction = { direction = "vector", vector = [0, 0, 1] }, distance = 95 mm } },
-            { id = battery_out, occurrences = [[{ name = battery }]], motion = { motion = "translate", direction = { direction = "vector", vector = [-9, 0, 20] }, distance = 165 mm } },
-            { id = lift_fc, occurrences = [[{ name = flight_controller }], [{ name = stack_screw }]], motion = { motion = "translate", direction = { direction = "vector", vector = [0, 0, 1] }, distance = 50 mm } },
-            { id = lift_esc, occurrences = [[{ name = esc }], [{ name = spacer }]], motion = { motion = "translate", direction = { direction = "vector", vector = [0, 0, 1] }, distance = 25 mm } },
-            { id = gimbal_down, occurrences = [[{ name = gimbal }]], motion = { motion = "translate", direction = { direction = "vector", vector = [0, 0, -1] }, distance = 40 mm } }
-        ],
+            { id = lift_top, occurrences = [[{ name = body_top }], [{ name = light_pipe }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 95 mm) },
+            { id = battery_out, occurrences = [[{ name = battery }]], motion = translate(direction = { direction = "vector", vector = [-9, 0, 20] }, distance = 165 mm) },
+            { id = lift_fc, occurrences = [[{ name = flight_controller }], [{ name = stack_screw }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 50 mm) },
+            { id = lift_esc, occurrences = [[{ name = esc }], [{ name = spacer }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 25 mm) },
+            { id = gimbal_down, occurrences = [[{ name = gimbal }]], motion = translate(direction = { direction = "vector", vector = [0, 0, -1] }, distance = 40 mm) },
+        ]
         lines = [
             { id = trail_top, occurrence = [{ name = body_top }] },
             { id = trail_battery, occurrence = [{ name = battery }] },
             { id = trail_fc, occurrence = [{ name = flight_controller }] },
             { id = trail_esc, occurrence = [{ name = esc }] },
-            { id = trail_gimbal, occurrence = [{ name = gimbal }] }
+            { id = trail_gimbal, occurrence = [{ name = gimbal }] },
         ]
     }
 
     // Opens three-quarters from the front left, above, so the nose, gimbal and all four props read.
-    view hero = { from = [0.78, 0.62, 0.42], up = [0, 0, 1], default = true }
+    camera hero = { from = [0.78, 0.62, 0.42], up = [0, 0, 1], default = true }
 }

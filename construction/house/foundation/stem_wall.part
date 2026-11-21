@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The perimeter stem wall: 8 in cast-in-place concrete from the top of the footing to the top
 // of the slab, its outside face on the building line. One #4 continuous bar 3 in below the top
 // carries the anchor-bolt line; the #4 dowels from the footing lap into it (footing.part).
@@ -396,8 +393,8 @@ part stem_wall {
     }
     feature mep_all_2 = extrude(profile = sketch.mep_all_2_s, distance = 10.8214 in, mode = cut)
     // end MEP penetrations all
-    output stem_wall = { body = feature.wall.body, part_number = "F-2", material = "material.concrete" }
-    material = { body = feature.bars_x.body, material = "material.steel_rebar_grade_60" }
-    material = { body = feature.bars_y.body, material = "material.steel_rebar_grade_60" }
-    region top : face = { select = [feature.wall.face.end], expect = at_least_one, label = "Top of stem wall, sill bearing" }
+    output stem_wall = { body = feature.wall.body, part_number = "F-2", material = material.concrete }
+    material = { body = feature.bars_x.body, material = material.steel_rebar_grade_60 }
+    material = { body = feature.bars_y.body, material = material.steel_rebar_grade_60 }
+    region top : face = { select = [feature.wall.face.end], expect = one_or_more, label = "Top of stem wall, sill bearing" }
 }

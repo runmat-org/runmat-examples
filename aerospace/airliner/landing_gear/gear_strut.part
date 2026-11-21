@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // An oleo strut hanging from its trunnion: a 300M steel cylinder with the shock absorber's bore
 // open at the axle end, stopping 200 mm short of the trunnion end. Length, radius and bore
 // radius are inputs.

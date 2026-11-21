@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A cargo hold's sidewall liner, one side, inside the frames from the cargo floor to the floor beams.
 part hold_liner {
     sketch s on origin.xy {

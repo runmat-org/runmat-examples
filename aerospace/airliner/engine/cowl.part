@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The nacelle cowl: a rounded inlet lip swelling to 1.1 m and closing over the core, turned about x.
 part cowl {
     sketch s on origin.xy {

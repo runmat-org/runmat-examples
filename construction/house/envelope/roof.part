@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The roof and attic over the trusses, in building coordinates: laminated asphalt shingles on a
 // synthetic underlayment on 7/16 in OSB sheathing, a ridge vent over a 2 in slot at the ridge, 2x6
 // fascia on the truss tails, vented aluminum soffits closed at the gables by stucco returns, the
@@ -662,60 +659,60 @@ part roof {
     }
     feature mep_all_17 = extrude(profile = sketch.mep_all_17_s, distance = 45.1875 in, mode = cut)
     // end MEP penetrations all
-    output roof = { body = feature.shingles_south.body, part_number = "RF-1", material = "material.asphalt_shingle", color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
-    output roof_shingles_north = { body = feature.shingles_north.body, part_number = "RF-1", material = "material.asphalt_shingle", color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
-    output roof_underlayment = { body = feature.underlayment_south.body, part_number = "RF-1", material = "material.polypropylene_synthetic_underlayment", color = "#3C6E8F", label = "Synthetic underlayment" }
-    output roof_underlayment_north = { body = feature.underlayment_north.body, part_number = "RF-1", material = "material.polypropylene_synthetic_underlayment", color = "#3C6E8F", label = "Synthetic underlayment" }
-    output roof_sheathing = { body = feature.sheathing_south.body, part_number = "RF-1", material = "material.osb", label = "7/16 in OSB roof sheathing with H-clips" }
-    output roof_sheathing_north = { body = feature.sheathing_north.body, part_number = "RF-1", material = "material.osb", label = "7/16 in OSB roof sheathing with H-clips" }
-    output roof_ridge_vent = { body = feature.ridge_vent.body, part_number = "RF-1", material = "material.polypropylene_ridge_vent", color = "#3A3D42", label = "Ridge vent under cap shingles" }
-    output roof_fascia = { body = feature.fascia_south.body, part_number = "RF-1", material = "material.douglas_fir_lumber", color = "#E8E4DA", label = "2x6 fascia, primed" }
-    output roof_fascia_north = { body = feature.fascia_north.body, part_number = "RF-1", material = "material.douglas_fir_lumber", color = "#E8E4DA", label = "2x6 fascia, primed" }
-    output roof_soffit = { body = feature.soffit_south.body, part_number = "RF-1", material = "material.aluminum_vented_soffit", color = "#EDEBE6", label = "Vented aluminum soffit" }
-    output roof_soffit_north = { body = feature.soffit_north.body, part_number = "RF-1", material = "material.aluminum_vented_soffit", color = "#EDEBE6", label = "Vented aluminum soffit" }
-    output roof_return_south_west = { body = feature.return_south_west.body, part_number = "RF-1", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_south_east = { body = feature.return_south_east.body, part_number = "RF-1", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_north_west = { body = feature.return_north_west.body, part_number = "RF-1", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_north_east = { body = feature.return_north_east.body, part_number = "RF-1", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_ceiling = { body = feature.ceiling.body, part_number = "RF-1", material = "material.gypsum_board", label = "1/2 in sag-resistant gypsum ceiling board" }
-    material = { body = feature.insulation_0.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_0.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_1.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_1.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_2.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_2.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_3.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_3.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_4.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_4.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_5.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_5.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_6.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_6.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_7.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_7.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_8.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_8.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_9.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_9.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_10.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_10.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_11.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_11.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_12.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_12.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_13.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_13.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_14.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_14.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_15.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_15.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_16.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_16.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_17.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_17.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_18.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_18.body, material = "material.polystyrene_vent_baffle" }
-    material = { body = feature.insulation_19.body, material = "material.glass_wool_loose_fill" }
-    material = { body = feature.baffles_19.body, material = "material.polystyrene_vent_baffle" }
+    output roof = { body = feature.shingles_south.body, part_number = "RF-1", material = material.asphalt_shingle, color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
+    output roof_shingles_north = { body = feature.shingles_north.body, part_number = "RF-1", material = material.asphalt_shingle, color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
+    output roof_underlayment = { body = feature.underlayment_south.body, part_number = "RF-1", material = material.polypropylene_synthetic_underlayment, color = "#3C6E8F", label = "Synthetic underlayment" }
+    output roof_underlayment_north = { body = feature.underlayment_north.body, part_number = "RF-1", material = material.polypropylene_synthetic_underlayment, color = "#3C6E8F", label = "Synthetic underlayment" }
+    output roof_sheathing = { body = feature.sheathing_south.body, part_number = "RF-1", material = material.osb, label = "7/16 in OSB roof sheathing with H-clips" }
+    output roof_sheathing_north = { body = feature.sheathing_north.body, part_number = "RF-1", material = material.osb, label = "7/16 in OSB roof sheathing with H-clips" }
+    output roof_ridge_vent = { body = feature.ridge_vent.body, part_number = "RF-1", material = material.polypropylene_ridge_vent, color = "#3A3D42", label = "Ridge vent under cap shingles" }
+    output roof_fascia = { body = feature.fascia_south.body, part_number = "RF-1", material = material.douglas_fir_lumber, color = "#E8E4DA", label = "2x6 fascia, primed" }
+    output roof_fascia_north = { body = feature.fascia_north.body, part_number = "RF-1", material = material.douglas_fir_lumber, color = "#E8E4DA", label = "2x6 fascia, primed" }
+    output roof_soffit = { body = feature.soffit_south.body, part_number = "RF-1", material = material.aluminum_vented_soffit, color = "#EDEBE6", label = "Vented aluminum soffit" }
+    output roof_soffit_north = { body = feature.soffit_north.body, part_number = "RF-1", material = material.aluminum_vented_soffit, color = "#EDEBE6", label = "Vented aluminum soffit" }
+    output roof_return_south_west = { body = feature.return_south_west.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
+    output roof_return_south_east = { body = feature.return_south_east.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
+    output roof_return_north_west = { body = feature.return_north_west.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
+    output roof_return_north_east = { body = feature.return_north_east.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
+    output roof_ceiling = { body = feature.ceiling.body, part_number = "RF-1", material = material.gypsum_board, label = "1/2 in sag-resistant gypsum ceiling board" }
+    material = { body = feature.insulation_0.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_0.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_1.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_1.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_2.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_2.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_3.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_3.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_4.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_4.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_5.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_5.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_6.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_6.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_7.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_7.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_8.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_8.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_9.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_9.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_10.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_10.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_11.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_11.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_12.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_12.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_13.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_13.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_14.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_14.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_15.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_15.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_16.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_16.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_17.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_17.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_18.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_18.body, material = material.polystyrene_vent_baffle }
+    material = { body = feature.insulation_19.body, material = material.glass_wool_loose_fill }
+    material = { body = feature.baffles_19.body, material = material.polystyrene_vent_baffle }
 }

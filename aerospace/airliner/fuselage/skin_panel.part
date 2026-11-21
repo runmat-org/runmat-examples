@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A skin panel: 45° of the barrel, one section long, 3 mm thick.
 part skin_panel {
     sketch s on origin.xy {

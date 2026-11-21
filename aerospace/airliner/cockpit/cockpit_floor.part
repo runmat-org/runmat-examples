@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The flight deck and forward cabin floor, from the rudder pedals aft to the first barrel section.
 part cockpit_floor {
     feature datum = plane.offset(base = origin.xy, distance = -410 mm)

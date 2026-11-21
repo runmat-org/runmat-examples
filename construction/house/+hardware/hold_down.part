@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A hold-down: a bent steel bracket screwed to the face of a 2-ply end post, with a 5/8 in
 // threaded rod through its seat. In the foundation configuration the rod runs down through the
 // sill into the stem wall and footing; in floor_to_floor it runs down through the floor to an
@@ -75,7 +72,7 @@ part hold_down {
     }
     feature low_nut = extrude(profile = sketch.low_nut_s, distance = 0.55 in, mode = new, suppressed = true)
 
-    output hold_down = { body = feature.back.body, part_number = "HD-58", material = "material.galvanized_steel" }
+    output hold_down = { body = feature.back.body, part_number = "HD-58", material = material.galvanized_steel }
     configuration foundation = { part_number = "HD-58-F", description = "Hold-down to the foundation" }
     configuration floor_to_floor = { rod_bottom = -20.7 in, features = { low_seat = { suppressed = false }, low_back = { suppressed = false }, low_nut = { suppressed = false } }, part_number = "HD-58-FF", description = "Hold-down, second floor to first floor" }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The flight deck: floor, bulkhead and door, instrument panel and glareshield, six display
 // units with their controller boards, the centre pedestal, two control columns and the two pilot seats.
 assembly cockpit {
@@ -11,59 +8,59 @@ assembly cockpit {
     use part pedestal as pedestal
     use part overhead_panel as overhead_panel
     use part display_unit as display1 {
-        placement = { placement = offset, offset = { translation = [1680 mm, -780 mm, 230 mm] } }
+        placement = offset(translation = [1680 mm, -780 mm, 230 mm])
     }
     use part display_unit as display2 {
-        placement = { placement = offset, offset = { translation = [1680 mm, -540 mm, 230 mm] } }
+        placement = offset(translation = [1680 mm, -540 mm, 230 mm])
     }
     use part display_unit as display3 {
-        placement = { placement = offset, offset = { translation = [1680 mm, 540 mm, 230 mm] } }
+        placement = offset(translation = [1680 mm, 540 mm, 230 mm])
     }
     use part display_unit as display4 {
-        placement = { placement = offset, offset = { translation = [1680 mm, 780 mm, 230 mm] } }
+        placement = offset(translation = [1680 mm, 780 mm, 230 mm])
     }
     use part display_unit as display5 {
-        placement = { placement = offset, offset = { translation = [1680 mm, 0 mm, 280 mm] } }
+        placement = offset(translation = [1680 mm, 0 mm, 280 mm])
     }
     use part display_unit as display6 {
-        placement = { placement = offset, offset = { translation = [1680 mm, 0 mm, 60 mm] } }
+        placement = offset(translation = [1680 mm, 0 mm, 60 mm])
     }
     // Each display unit's controller board on its case's four bosses, 100 mm forward of the panel
     // face, its components toward the screen (the board's x along y, its y along z).
     use circuit du_controller from "../electrical/display_unit" as display1_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, -780 mm, 230 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, -780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use circuit du_controller from "../electrical/display_unit" as display2_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, -540 mm, 230 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, -540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use circuit du_controller from "../electrical/display_unit" as display3_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, 540 mm, 230 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, 540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use circuit du_controller from "../electrical/display_unit" as display4_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, 780 mm, 230 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, 780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use circuit du_controller from "../electrical/display_unit" as display5_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, 0 mm, 280 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, 0 mm, 280 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use circuit du_controller from "../electrical/display_unit" as display6_controller {
-        placement = { placement = offset, offset = { translation = [1580 mm, 0 mm, 60 mm], rotation = { rotation = axis_angle, axis = [1, 1, 1], angle = 120 deg } } }
+        placement = offset(translation = [1580 mm, 0 mm, 60 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
     }
     use part control_column as column_captain {
-        placement = { placement = offset, offset = { translation = [1740 mm, -540 mm, -400 mm] } }
+        placement = offset(translation = [1740 mm, -540 mm, -400 mm])
     }
     use part seat_frame from "../cabin" as seat_frame_captain {
-        placement = { placement = offset, offset = { translation = [2420 mm, -540 mm, -360 mm] } }
+        placement = offset(translation = [2420 mm, -540 mm, -360 mm])
     }
     use part pilot_seat_cushion as seat_captain {
-        placement = { placement = offset, offset = { translation = [2420 mm, -540 mm, -360 mm] } }
+        placement = offset(translation = [2420 mm, -540 mm, -360 mm])
     }
     use part control_column as column_first_officer {
-        placement = { placement = offset, offset = { translation = [1740 mm, 540 mm, -400 mm] } }
+        placement = offset(translation = [1740 mm, 540 mm, -400 mm])
     }
     use part seat_frame from "../cabin" as seat_frame_first_officer {
-        placement = { placement = offset, offset = { translation = [2420 mm, 540 mm, -360 mm] } }
+        placement = offset(translation = [2420 mm, 540 mm, -360 mm])
     }
     use part pilot_seat_cushion as seat_first_officer {
-        placement = { placement = offset, offset = { translation = [2420 mm, 540 mm, -360 mm] } }
+        placement = offset(translation = [2420 mm, 540 mm, -360 mm])
     }
 }

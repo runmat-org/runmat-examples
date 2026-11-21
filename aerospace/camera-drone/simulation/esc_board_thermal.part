@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The 4-in-1 ESC as the thermal study sees it: a 52 x 52 x 1.6 mm plate with the board's
 // outline and its four stack holes. The FEA reads STEP solids and has no reader for a routed
 // board's copper yet, so the board is a plate with the four-layer stack's in-plane conductivity
@@ -23,6 +20,6 @@ part esc_board_thermal {
         h3 = circle(center = [-15.25 mm, -15.25 mm], radius = 1.8 mm)
         h4 = circle(center = [15.25 mm, -15.25 mm], radius = 1.8 mm)
     }
-    feature holes = extrude(profile = sketch.holes_s, through_all, mode = cut)
+    feature holes = extrude(profile = sketch.holes_s, through_all = true, mode = cut)
     output esc_board_thermal = { body = feature.board.body, part_number = "CD-EL-720-TH", material = "composite", color = "#1F5F3A" }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The centre pedestal: throttle quadrant and radio panels between the pilot seats.
 part pedestal {
     sketch s on origin.zx {
@@ -15,7 +12,7 @@ part pedestal {
         c9 = spline(points = [c8.end, [270.006 mm, 1688.945 mm], [250 mm, 1680 mm]])
         c10 = line(start = c9.end, end = c1.start)
     }
-    feature body = extrude(profile = sketch.s, distance = 300 mm, symmetric)
+    feature body = extrude(profile = sketch.s, distance = 300 mm, symmetric = true)
 
     output pedestal = { body = feature.body.body, part_number = "FD-PD-350", material = "aluminum_6061", color = "#3C4148" }
 }

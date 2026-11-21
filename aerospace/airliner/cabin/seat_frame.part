@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A seat's frame: two leg plates and two cross tubes under the cushion.
 part seat_frame {
     feature leg0_at = plane.offset(base = origin.zx, distance = -180 mm)
@@ -30,11 +27,11 @@ part seat_frame {
     sketch tube0_s on origin.zx {
         c = circle(center = [385 mm, -140 mm], radius = 18 mm)
     }
-    feature tube0 = extrude(profile = sketch.tube0_s, distance = 400 mm, symmetric, mode = add)
+    feature tube0 = extrude(profile = sketch.tube0_s, distance = 400 mm, symmetric = true, mode = add)
     sketch tube1_s on origin.zx {
         c = circle(center = [385 mm, 200 mm], radius = 18 mm)
     }
-    feature tube1 = extrude(profile = sketch.tube1_s, distance = 400 mm, symmetric, mode = add)
+    feature tube1 = extrude(profile = sketch.tube1_s, distance = 400 mm, symmetric = true, mode = add)
 
     output seat_frame = { body = feature.leg0.body, part_number = "CAB-ST-110", material = "aluminum_7075", color = "#8C9299" }
 }

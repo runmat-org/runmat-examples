@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 use circuit esc
 
 layout esc {
@@ -2509,58 +2506,58 @@ layout esc {
     keepout "keepout-36" = { outline = [[-10.9, 7.75], [-10.9, 6.7], [-8.35, 6.7], [-8.35, 7.75]], layers = [F.Cu], tracks = true }
     keepout "keepout-37" = { outline = [[-15.15, 7.5], [-15.15, 5], [-14.55, 5], [-14.55, 7.5]], layers = [F.Cu], tracks = true }
     package C_2512_6332Metric_IPCN = {
-        description = "C chip 2512 (6332 metric), IPC-7351B density B",
+        description = "C chip 2512 (6332 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.36, 3.41], at = [-2.925, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.36, 3.41], at = [2.925, 0], layers = smd }
-        ],
-        courtyard = rect([-3.86, -1.96], [3.86, 1.96]),
-        silk = [line([-1.985, -1.71], [1.985, -1.71]), line([-1.985, 1.71], [1.985, 1.71])],
-        fab = [rect([-3.15, -1.6], [3.15, 1.6]), text([0, 0], "${REFERENCE}")],
+            { number = "2", shape = roundrect, size = [1.36, 3.41], at = [2.925, 0], layers = smd },
+        ]
+        courtyard = rect([-3.86, -1.96], [3.86, 1.96])
+        silk = [line([-1.985, -1.71], [1.985, -1.71]), line([-1.985, 1.71], [1.985, 1.71])]
+        fab = [rect([-3.15, -1.6], [3.15, 1.6]), text([0, 0], "${REFERENCE}")]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/C_2512_6332Metric_IPCN.step" }
     }
     package C_0603_1608Metric_IPCN = {
-        description = "C chip 0603 (1608 metric), IPC-7351B density B",
+        description = "C chip 0603 (1608 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.96, 0.96], at = [-0.75, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd }
-        ],
-        courtyard = rect([-1.48, -0.73], [1.48, 0.73]),
-        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)],
+            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd },
+        ]
+        courtyard = rect([-1.48, -0.73], [1.48, 0.73])
+        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)]
         body = { height = 0.45, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
     package C_0402_1005Metric_IPCN = {
-        description = "C chip 0402 (1005 metric), IPC-7351B density B",
+        description = "C chip 0402 (1005 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.515, 0.57], at = [-0.3775, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd }
-        ],
-        courtyard = rect([-0.79, -0.44], [0.79, 0.44]),
-        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)],
+            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd },
+        ]
+        courtyard = rect([-0.79, -0.44], [0.79, 0.44])
+        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)]
         body = { height = 0.35, model = "${RUNMAT_3DMODELS}/C_0402_1005Metric_IPCN.step" }
     }
     package C_1206_3216Metric_IPCN = {
-        description = "C chip 1206 (3216 metric), IPC-7351B density B",
+        description = "C chip 1206 (3216 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 1.81], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.16], [2.31, 1.16]),
-        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])],
-        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.16], [2.31, 1.16])
+        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])]
+        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
     package "MountingHole_3.6mm_Pad4.6mm" = {
-        description = "Mounting hole, drill 3.6 mm, plated pad 4.6 mm",
+        description = "Mounting hole, drill 3.6 mm, plated pad 4.6 mm"
         pads = [
-            { number = "1", shape = circle, size = [4.6, 4.6], at = [0, 0], layers = through, drill = 3.6 }
-        ],
-        courtyard = rect([-2.55, -2.55], [2.55, 2.55]),
-        fab = [rect([-2.3, -2.3], [2.3, 2.3]), text([0, 0], "${REFERENCE}")],
+            { number = "1", shape = circle, size = [4.6, 4.6], at = [0, 0], layers = through, drill = 3.6 },
+        ]
+        courtyard = rect([-2.55, -2.55], [2.55, 2.55])
+        fab = [rect([-2.3, -2.3], [2.3, 2.3]), text([0, 0], "${REFERENCE}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_3.6mm_Pad4.6mm.step" }
     }
     package "JST-SH_1x08_P1mm" = {
-        description = "JST-SH 8 pins",
+        description = "JST-SH 8 pins"
         pads = [
             { number = "1", shape = roundrect, size = [0.6, 1.55], at = [-3.5, -2.125], layers = smd },
             { number = "2", shape = roundrect, size = [0.6, 1.55], at = [-2.5, -2.125], layers = smd },
@@ -2571,39 +2568,39 @@ layout esc {
             { number = "7", shape = roundrect, size = [0.6, 1.55], at = [2.5, -2.125], layers = smd },
             { number = "8", shape = roundrect, size = [0.6, 1.55], at = [3.5, -2.125], layers = smd },
             { number = "MP1", shape = roundrect, size = [1.2, 1.8], at = [-4.85, 1.1], layers = smd },
-            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [4.85, 1.1], layers = smd }
-        ],
-        courtyard = rect([-5.95, -3.4], [5.95, 2.63]),
+            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [4.85, 1.1], layers = smd },
+        ]
+        courtyard = rect([-5.95, -3.4], [5.95, 2.63])
         silk = [
             line([-5.11, -2.235], [-4.06, -2.235]),
             line([4.06, -2.235], [5.11, -2.235]),
             line([5.11, -2.235], [5.11, -0.06]),
             line([-3.99, 2.235], [3.99, 2.235]),
-            line([-5.11, -2.235], [-5.11, -0.06])
-        ],
-        fab = [rect([-5, -2.125], [5, 2.125]), text([0, 0], "${REFERENCE}")],
+            line([-5.11, -2.235], [-5.11, -0.06]),
+        ]
+        fab = [rect([-5, -2.125], [5, 2.125]), text([0, 0], "${REFERENCE}")]
         body = { height = 3, model = "${RUNMAT_3DMODELS}/JST-SH_1x08_P1mm.step" }
     }
     package "MountingHole_2.2mm_Pad4.2mm" = {
-        description = "Mounting hole, drill 2.2 mm, plated pad 4.2 mm",
+        description = "Mounting hole, drill 2.2 mm, plated pad 4.2 mm"
         pads = [
-            { number = "1", shape = circle, size = [4.2, 4.2], at = [0, 0], layers = through, drill = 2.2 }
-        ],
-        courtyard = rect([-2.35, -2.35], [2.35, 2.35]),
-        fab = [rect([-2.1, -2.1], [2.1, 2.1]), text([0, 0], "${REFERENCE}")],
+            { number = "1", shape = circle, size = [4.2, 4.2], at = [0, 0], layers = through, drill = 2.2 },
+        ]
+        courtyard = rect([-2.35, -2.35], [2.35, 2.35])
+        fab = [rect([-2.1, -2.1], [2.1, 2.1]), text([0, 0], "${REFERENCE}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_2.2mm_Pad4.2mm.step" }
     }
     package "MountingHole_1.2mm_Pad2.6mm" = {
-        description = "Mounting hole, drill 1.2 mm, plated pad 2.6 mm",
+        description = "Mounting hole, drill 1.2 mm, plated pad 2.6 mm"
         pads = [
-            { number = "1", shape = circle, size = [2.6, 2.6], at = [0, 0], layers = through, drill = 1.2 }
-        ],
-        courtyard = rect([-1.55, -1.55], [1.55, 1.55]),
-        fab = [rect([-1.3, -1.3], [1.3, 1.3]), text([0, 0], "${REFERENCE}")],
+            { number = "1", shape = circle, size = [2.6, 2.6], at = [0, 0], layers = through, drill = 1.2 },
+        ]
+        courtyard = rect([-1.55, -1.55], [1.55, 1.55])
+        fab = [rect([-1.3, -1.3], [1.3, 1.3]), text([0, 0], "${REFERENCE}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_1.2mm_Pad2.6mm.step" }
     }
     package "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN" = {
-        description = "DFN 8 pins, pitch 0.65 mm, IPC-7351B density B",
+        description = "DFN 8 pins, pitch 0.65 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.585, 0.27], at = [-1.6925, 0.975], layers = smd },
             { number = "2", shape = roundrect, size = [0.585, 0.27], at = [-1.6925, 0.325], layers = smd },
@@ -2613,9 +2610,9 @@ layout esc {
             { number = "6", shape = roundrect, size = [0.885, 0.27], at = [1.5425, -0.325], layers = smd },
             { number = "7", shape = roundrect, size = [0.885, 0.27], at = [1.5425, 0.325], layers = smd },
             { number = "8", shape = roundrect, size = [0.885, 0.27], at = [1.5425, 0.975], layers = smd },
-            { number = "9", shape = roundrect, size = [2.4, 1.8], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.18, thermal = true }
-        ],
-        courtyard = rect([-2.24, -1.9], [2.24, 1.9]),
+            { number = "9", shape = roundrect, size = [2.4, 1.8], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.18, thermal = true },
+        ]
+        courtyard = rect([-2.24, -1.9], [2.24, 1.9])
         silk = [
             line([-1.76, -1.76], [1.76, -1.76]),
             line([1.76, -1.76], [1.76, -1.37]),
@@ -2623,56 +2620,56 @@ layout esc {
             line([-1.76, 1.76], [1.76, 1.76]),
             line([-1.76, -1.76], [-1.76, -1.37]),
             line([-1.76, 1.37], [-1.76, 1.76]),
-            circle([-2.425, 0.975], 0.1, fill = true)
-        ],
-        fab = [rect([-1.65, -1.65], [1.65, 1.65]), text([0, 0], "${REFERENCE}")],
+            circle([-2.425, 0.975], 0.1, fill = true),
+        ]
+        fab = [rect([-1.65, -1.65], [1.65, 1.65]), text([0, 0], "${REFERENCE}")]
         body = {
-            height = 0.8,
+            height = 0.8
             model = "${RUNMAT_3DMODELS}/DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN.step"
         }
     }
     package R_0402_1005Metric_IPCN = {
-        description = "R chip 0402 (1005 metric), IPC-7351B density B",
+        description = "R chip 0402 (1005 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.515, 0.57], at = [-0.3775, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd }
-        ],
-        courtyard = rect([-0.79, -0.44], [0.79, 0.44]),
-        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)],
+            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd },
+        ]
+        courtyard = rect([-0.79, -0.44], [0.79, 0.44])
+        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)]
         body = { height = 0.35, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
     package R_1206_3216Metric_IPCN = {
-        description = "R chip 1206 (3216 metric), IPC-7351B density B",
+        description = "R chip 1206 (3216 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 1.81], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.16], [2.31, 1.16]),
-        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])],
-        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.16], [2.31, 1.16])
+        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])]
+        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/R_1206_3216Metric_IPCN.step" }
     }
     package "SOT-23-5_IPCN" = {
-        description = "SOT-23 5 pins, IPC-7351B density B",
+        description = "SOT-23 5 pins, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0.95], layers = smd },
             { number = "2", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0], layers = smd },
             { number = "3", shape = roundrect, size = [1.58, 0.57], at = [-0.885, -0.95], layers = smd },
             { number = "4", shape = roundrect, size = [1.58, 0.57], at = [0.885, -0.95], layers = smd },
-            { number = "5", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd }
-        ],
-        courtyard = rect([-1.93, -1.7], [1.93, 1.7]),
+            { number = "5", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd },
+        ]
+        courtyard = rect([-1.93, -1.7], [1.93, 1.7])
         silk = [
             line([-0.91, -1.56], [0.91, -1.56]),
             line([0.91, -0.405], [0.91, 0.405]),
             line([-0.91, 1.56], [0.91, 1.56]),
-            circle([-1.975, 0.95], 0.1, fill = true)
-        ],
-        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            circle([-1.975, 0.95], 0.1, fill = true),
+        ]
+        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 1.1, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
     package "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN" = {
-        description = "QFN 24 pins, pitch 0.5 mm, IPC-7351B density B",
+        description = "QFN 24 pins, pitch 0.5 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.835, 0.19], at = [-1.9175, 1.25], layers = smd },
             { number = "2", shape = roundrect, size = [0.835, 0.19], at = [-1.9175, 0.75], layers = smd },
@@ -2698,9 +2695,9 @@ layout esc {
             { number = "22", shape = roundrect, size = [0.19, 0.835], at = [-0.25, 1.9175], layers = smd },
             { number = "23", shape = roundrect, size = [0.19, 0.835], at = [-0.75, 1.9175], layers = smd },
             { number = "24", shape = roundrect, size = [0.19, 0.835], at = [-1.25, 1.9175], layers = smd },
-            { number = "25", shape = roundrect, size = [2.6, 2.6], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.26, thermal = true }
-        ],
-        courtyard = rect([-2.59, -2.59], [2.59, 2.59]),
+            { number = "25", shape = roundrect, size = [2.6, 2.6], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.26, thermal = true },
+        ]
+        courtyard = rect([-2.59, -2.59], [2.59, 2.59])
         silk = [
             line([-2.11, -2.11], [-1.605, -2.11]),
             line([1.605, -2.11], [2.11, -2.11]),
@@ -2710,16 +2707,16 @@ layout esc {
             line([1.605, 2.11], [2.11, 2.11]),
             line([-2.11, -2.11], [-2.11, -1.605]),
             line([-2.11, 1.605], [-2.11, 2.11]),
-            circle([-2.65, 1.25], 0.1, fill = true)
-        ],
-        fab = [rect([-2, -2], [2, 2]), text([0, 0], "${REFERENCE}")],
+            circle([-2.65, 1.25], 0.1, fill = true),
+        ]
+        fab = [rect([-2, -2], [2, 2]), text([0, 0], "${REFERENCE}")]
         body = {
-            height = 0.9,
+            height = 0.9
             model = "${RUNMAT_3DMODELS}/QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN.step"
         }
     }
     package "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN" = {
-        description = "QFN 32 pins, pitch 0.5 mm, IPC-7351B density B",
+        description = "QFN 32 pins, pitch 0.5 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.865, 0.19], at = [-2.4025, 1.75], layers = smd },
             { number = "2", shape = roundrect, size = [0.865, 0.19], at = [-2.4025, 1.25], layers = smd },
@@ -2753,9 +2750,9 @@ layout esc {
             { number = "30", shape = roundrect, size = [0.19, 0.865], at = [-0.75, 2.4025], layers = smd },
             { number = "31", shape = roundrect, size = [0.19, 0.865], at = [-1.25, 2.4025], layers = smd },
             { number = "32", shape = roundrect, size = [0.19, 0.865], at = [-1.75, 2.4025], layers = smd },
-            { number = "33", shape = roundrect, size = [3.3, 3.3], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.33, thermal = true }
-        ],
-        courtyard = rect([-3.09, -3.09], [3.09, 3.09]),
+            { number = "33", shape = roundrect, size = [3.3, 3.3], ratio = 0.05, at = [0, 0], layers = smd, paste_expand = -0.33, thermal = true },
+        ]
+        courtyard = rect([-3.09, -3.09], [3.09, 3.09])
         silk = [
             line([-2.61, -2.61], [-2.105, -2.61]),
             line([2.105, -2.61], [2.61, -2.61]),
@@ -2765,22 +2762,22 @@ layout esc {
             line([2.105, 2.61], [2.61, 2.61]),
             line([-2.61, -2.61], [-2.61, -2.105]),
             line([-2.61, 2.105], [-2.61, 2.61]),
-            circle([-3.135, 1.75], 0.1, fill = true)
-        ],
-        fab = [rect([-2.5, -2.5], [2.5, 2.5]), text([0, 0], "${REFERENCE}")],
+            circle([-3.135, 1.75], 0.1, fill = true),
+        ]
+        fab = [rect([-2.5, -2.5], [2.5, 2.5]), text([0, 0], "${REFERENCE}")]
         body = {
-            height = 0.9,
+            height = 0.9
             model = "${RUNMAT_3DMODELS}/QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN.step"
         }
     }
     sync {
         version = 1
         compare = {
-            ignore = [],
-            ignored_parameters = [],
-            remove_unlinked_footprints = true,
-            relink_by_designator = true,
-            rooms_per_channel = true,
+            ignore = []
+            ignored_parameters = []
+            remove_unlinked_footprints = true
+            relink_by_designator = true
+            rooms_per_channel = true
             classes_per_channel = true
         }
         footprint C1 = "/C1"
@@ -2940,23 +2937,23 @@ layout esc {
         footprint U8 = "/ch[3]/DRV"
         footprint U9 = "/ch[3]/MCU"
         component "/C1" = {
-            designator = C1,
-            package = C_2512_6332Metric_IPCN,
+            designator = C1
+            package = C_2512_6332Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/C2" = {
-            designator = C2,
-            package = C_2512_6332Metric_IPCN,
+            designator = C2
+            package = C_2512_6332Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/C3" = {
-            designator = C3,
-            package = C_0603_1608Metric_IPCN,
+            designator = C3
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/C4" = {
-            designator = C4,
-            package = C_0402_1005Metric_IPCN,
+            designator = C4
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/H1" = { designator = H1, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
@@ -2964,1163 +2961,1163 @@ layout esc {
         component "/H3" = { designator = H3, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
         component "/H4" = { designator = H4, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
         component "/J1" = {
-            designator = J1,
-            package = "JST-SH_1x08_P1mm",
+            designator = J1
+            package = "JST-SH_1x08_P1mm"
             pads = { "1" = VBAT, "2" = GND, "4" = TLM, "5" = M1, "6" = M2, "7" = M3, "8" = M4 }
         }
         component "/P1" = { designator = P1, package = "MountingHole_2.2mm_Pad4.2mm", pads = { "1" = VBAT } }
         component "/P2" = { designator = P2, package = "MountingHole_2.2mm_Pad4.2mm", pads = { "1" = GND } }
         component "/U1" = {
-            designator = U1,
-            package = "SOT-23-5_IPCN",
+            designator = U1
+            package = "SOT-23-5_IPCN"
             pads = { "1" = VBAT, "2" = GND, "3" = VBAT, "5" = "+3V3" }
         }
         component "/ch[0]/CB1" = {
-            designator = C5,
-            package = C_1206_3216Metric_IPCN,
+            designator = C5
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[0]/CBA" = {
-            designator = C6,
-            package = C_0402_1005Metric_IPCN,
+            designator = C6
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/BSTA", "2" = "/ch[0]/PHA" }
         }
         component "/ch[0]/CBB" = {
-            designator = C7,
-            package = C_0402_1005Metric_IPCN,
+            designator = C7
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/BSTB", "2" = "/ch[0]/PHB" }
         }
         component "/ch[0]/CBC" = {
-            designator = C8,
-            package = C_0402_1005Metric_IPCN,
+            designator = C8
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/BSTC", "2" = "/ch[0]/PHC" }
         }
         component "/ch[0]/CDRV" = {
-            designator = C9,
-            package = C_0603_1608Metric_IPCN,
+            designator = C9
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = "/ch[0]/VDRV", "2" = GND }
         }
         component "/ch[0]/CISA" = {
-            designator = C10,
-            package = C_0402_1005Metric_IPCN,
+            designator = C10
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/ISENSE_A", "2" = GND }
         }
         component "/ch[0]/CISB" = {
-            designator = C11,
-            package = C_0402_1005Metric_IPCN,
+            designator = C11
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/ISENSE_B", "2" = GND }
         }
         component "/ch[0]/CISC" = {
-            designator = C12,
-            package = C_0402_1005Metric_IPCN,
+            designator = C12
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/ISENSE_C", "2" = GND }
         }
         component "/ch[0]/CMCU" = {
-            designator = C13,
-            package = C_0402_1005Metric_IPCN,
+            designator = C13
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/ch[0]/CRST" = {
-            designator = C14,
-            package = C_0402_1005Metric_IPCN,
+            designator = C14
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/NRST", "2" = GND }
         }
         component "/ch[0]/CVCC" = {
-            designator = C15,
-            package = C_0603_1608Metric_IPCN,
+            designator = C15
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[0]/DRV" = {
-            designator = U2,
-            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN",
+            designator = U2
+            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN"
             pads = {
-                "1" = "/ch[0]/DRV_EN",
-                "10" = "/ch[0]/VDRV",
-                "11" = "/ch[0]/GLA_D",
-                "12" = "/ch[0]/GHA_D",
-                "13" = "/ch[0]/PHB",
-                "14" = "/ch[0]/GHB_D",
-                "15" = "/ch[0]/BSTB",
-                "16" = "/ch[0]/PHA",
-                "17" = "/ch[0]/BSTA",
-                "18" = "/ch[0]/GLB_D",
-                "19" = "/ch[0]/INHA",
-                "2" = "/ch[0]/FAULT",
-                "20" = "/ch[0]/INLA",
-                "21" = "/ch[0]/INHB",
-                "22" = "/ch[0]/INLB",
-                "23" = "/ch[0]/INHC",
-                "24" = "/ch[0]/INLC",
-                "25" = GND,
-                "3" = "/ch[0]/PHC",
-                "4" = "/ch[0]/GHC_D",
-                "5" = "/ch[0]/GLC_D",
-                "6" = "/ch[0]/BSTC",
-                "7" = VBAT,
-                "8" = GND,
+                "1" = "/ch[0]/DRV_EN"
+                "10" = "/ch[0]/VDRV"
+                "11" = "/ch[0]/GLA_D"
+                "12" = "/ch[0]/GHA_D"
+                "13" = "/ch[0]/PHB"
+                "14" = "/ch[0]/GHB_D"
+                "15" = "/ch[0]/BSTB"
+                "16" = "/ch[0]/PHA"
+                "17" = "/ch[0]/BSTA"
+                "18" = "/ch[0]/GLB_D"
+                "19" = "/ch[0]/INHA"
+                "2" = "/ch[0]/FAULT"
+                "20" = "/ch[0]/INLA"
+                "21" = "/ch[0]/INHB"
+                "22" = "/ch[0]/INLB"
+                "23" = "/ch[0]/INHC"
+                "24" = "/ch[0]/INLC"
+                "25" = GND
+                "3" = "/ch[0]/PHC"
+                "4" = "/ch[0]/GHC_D"
+                "5" = "/ch[0]/GLC_D"
+                "6" = "/ch[0]/BSTC"
+                "7" = VBAT
+                "8" = GND
                 "9" = GND
             }
         }
         component "/ch[0]/MCU" = {
-            designator = U3,
-            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN",
+            designator = U3
+            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN"
             pads = {
-                "1" = "+3V3",
-                "10" = M1,
-                "11" = "/ch[0]/INHA",
-                "12" = "/ch[0]/INLA",
-                "13" = "/ch[0]/INHB",
-                "14" = "/ch[0]/INLB",
-                "15" = "/ch[0]/INHC",
-                "16" = GND,
-                "17" = "+3V3",
-                "18" = "/ch[0]/INLC",
-                "19" = "/ch[0]/DRV_EN",
-                "2" = "/ch[0]/NRST",
-                "20" = "/ch[0]/FAULT",
-                "21" = "/ch[0]/ISENSE_A",
-                "22" = TLM,
-                "23" = "/ch[0]/ISENSE_B",
-                "24" = "/ch[0]/ISENSE_C",
-                "3" = "/ch[0]/BOOT0",
-                "32" = GND,
+                "1" = "+3V3"
+                "10" = M1
+                "11" = "/ch[0]/INHA"
+                "12" = "/ch[0]/INLA"
+                "13" = "/ch[0]/INHB"
+                "14" = "/ch[0]/INLB"
+                "15" = "/ch[0]/INHC"
+                "16" = GND
+                "17" = "+3V3"
+                "18" = "/ch[0]/INLC"
+                "19" = "/ch[0]/DRV_EN"
+                "2" = "/ch[0]/NRST"
+                "20" = "/ch[0]/FAULT"
+                "21" = "/ch[0]/ISENSE_A"
+                "22" = TLM
+                "23" = "/ch[0]/ISENSE_B"
+                "24" = "/ch[0]/ISENSE_C"
+                "3" = "/ch[0]/BOOT0"
+                "32" = GND
                 "33" = GND
             }
         }
         component "/ch[0]/PA" = {
-            designator = P3,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P3
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[0]/PHA" }
         }
         component "/ch[0]/PB" = {
-            designator = P4,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P4
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[0]/PHB" }
         }
         component "/ch[0]/PC" = {
-            designator = P5,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P5
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[0]/PHC" }
         }
         component "/ch[0]/QHA" = {
-            designator = Q1,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q1
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/PHA",
-                "2" = "/ch[0]/PHA",
-                "3" = "/ch[0]/PHA",
-                "4" = "/ch[0]/GHA",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[0]/PHA"
+                "2" = "/ch[0]/PHA"
+                "3" = "/ch[0]/PHA"
+                "4" = "/ch[0]/GHA"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[0]/QHB" = {
-            designator = Q2,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q2
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/PHB",
-                "2" = "/ch[0]/PHB",
-                "3" = "/ch[0]/PHB",
-                "4" = "/ch[0]/GHB",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[0]/PHB"
+                "2" = "/ch[0]/PHB"
+                "3" = "/ch[0]/PHB"
+                "4" = "/ch[0]/GHB"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[0]/QHC" = {
-            designator = Q3,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q3
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/PHC",
-                "2" = "/ch[0]/PHC",
-                "3" = "/ch[0]/PHC",
-                "4" = "/ch[0]/GHC",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[0]/PHC"
+                "2" = "/ch[0]/PHC"
+                "3" = "/ch[0]/PHC"
+                "4" = "/ch[0]/GHC"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[0]/QLA" = {
-            designator = Q4,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q4
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/SRCA",
-                "2" = "/ch[0]/SRCA",
-                "3" = "/ch[0]/SRCA",
-                "4" = "/ch[0]/GLA",
-                "5" = "/ch[0]/PHA",
-                "6" = "/ch[0]/PHA",
-                "7" = "/ch[0]/PHA",
-                "8" = "/ch[0]/PHA",
+                "1" = "/ch[0]/SRCA"
+                "2" = "/ch[0]/SRCA"
+                "3" = "/ch[0]/SRCA"
+                "4" = "/ch[0]/GLA"
+                "5" = "/ch[0]/PHA"
+                "6" = "/ch[0]/PHA"
+                "7" = "/ch[0]/PHA"
+                "8" = "/ch[0]/PHA"
                 "9" = "/ch[0]/PHA"
             }
         }
         component "/ch[0]/QLB" = {
-            designator = Q5,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q5
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/SRCB",
-                "2" = "/ch[0]/SRCB",
-                "3" = "/ch[0]/SRCB",
-                "4" = "/ch[0]/GLB",
-                "5" = "/ch[0]/PHB",
-                "6" = "/ch[0]/PHB",
-                "7" = "/ch[0]/PHB",
-                "8" = "/ch[0]/PHB",
+                "1" = "/ch[0]/SRCB"
+                "2" = "/ch[0]/SRCB"
+                "3" = "/ch[0]/SRCB"
+                "4" = "/ch[0]/GLB"
+                "5" = "/ch[0]/PHB"
+                "6" = "/ch[0]/PHB"
+                "7" = "/ch[0]/PHB"
+                "8" = "/ch[0]/PHB"
                 "9" = "/ch[0]/PHB"
             }
         }
         component "/ch[0]/QLC" = {
-            designator = Q6,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q6
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[0]/SRCC",
-                "2" = "/ch[0]/SRCC",
-                "3" = "/ch[0]/SRCC",
-                "4" = "/ch[0]/GLC",
-                "5" = "/ch[0]/PHC",
-                "6" = "/ch[0]/PHC",
-                "7" = "/ch[0]/PHC",
-                "8" = "/ch[0]/PHC",
+                "1" = "/ch[0]/SRCC"
+                "2" = "/ch[0]/SRCC"
+                "3" = "/ch[0]/SRCC"
+                "4" = "/ch[0]/GLC"
+                "5" = "/ch[0]/PHC"
+                "6" = "/ch[0]/PHC"
+                "7" = "/ch[0]/PHC"
+                "8" = "/ch[0]/PHC"
                 "9" = "/ch[0]/PHC"
             }
         }
         component "/ch[0]/RBOOT" = {
-            designator = R1,
-            package = R_0402_1005Metric_IPCN,
+            designator = R1
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/BOOT0", "2" = GND }
         }
         component "/ch[0]/RGHA" = {
-            designator = R2,
-            package = R_0402_1005Metric_IPCN,
+            designator = R2
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GHA_D", "2" = "/ch[0]/GHA" }
         }
         component "/ch[0]/RGHB" = {
-            designator = R3,
-            package = R_0402_1005Metric_IPCN,
+            designator = R3
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GHB_D", "2" = "/ch[0]/GHB" }
         }
         component "/ch[0]/RGHC" = {
-            designator = R4,
-            package = R_0402_1005Metric_IPCN,
+            designator = R4
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GHC_D", "2" = "/ch[0]/GHC" }
         }
         component "/ch[0]/RGLA" = {
-            designator = R5,
-            package = R_0402_1005Metric_IPCN,
+            designator = R5
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GLA_D", "2" = "/ch[0]/GLA" }
         }
         component "/ch[0]/RGLB" = {
-            designator = R6,
-            package = R_0402_1005Metric_IPCN,
+            designator = R6
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GLB_D", "2" = "/ch[0]/GLB" }
         }
         component "/ch[0]/RGLC" = {
-            designator = R7,
-            package = R_0402_1005Metric_IPCN,
+            designator = R7
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/GLC_D", "2" = "/ch[0]/GLC" }
         }
         component "/ch[0]/RISA" = {
-            designator = R8,
-            package = R_0402_1005Metric_IPCN,
+            designator = R8
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/SRCA", "2" = "/ch[0]/ISENSE_A" }
         }
         component "/ch[0]/RISB" = {
-            designator = R9,
-            package = R_0402_1005Metric_IPCN,
+            designator = R9
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/SRCB", "2" = "/ch[0]/ISENSE_B" }
         }
         component "/ch[0]/RISC" = {
-            designator = R10,
-            package = R_0402_1005Metric_IPCN,
+            designator = R10
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/SRCC", "2" = "/ch[0]/ISENSE_C" }
         }
         component "/ch[0]/RRST" = {
-            designator = R11,
-            package = R_0402_1005Metric_IPCN,
+            designator = R11
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[0]/NRST", "2" = "+3V3" }
         }
         component "/ch[0]/RSHA" = {
-            designator = R12,
-            package = R_1206_3216Metric_IPCN,
+            designator = R12
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[0]/SRCA", "2" = GND }
         }
         component "/ch[0]/RSHB" = {
-            designator = R13,
-            package = R_1206_3216Metric_IPCN,
+            designator = R13
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[0]/SRCB", "2" = GND }
         }
         component "/ch[0]/RSHC" = {
-            designator = R14,
-            package = R_1206_3216Metric_IPCN,
+            designator = R14
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[0]/SRCC", "2" = GND }
         }
         component "/ch[1]/CB1" = {
-            designator = C16,
-            package = C_1206_3216Metric_IPCN,
+            designator = C16
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[1]/CBA" = {
-            designator = C17,
-            package = C_0402_1005Metric_IPCN,
+            designator = C17
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/BSTA", "2" = "/ch[1]/PHA" }
         }
         component "/ch[1]/CBB" = {
-            designator = C18,
-            package = C_0402_1005Metric_IPCN,
+            designator = C18
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/BSTB", "2" = "/ch[1]/PHB" }
         }
         component "/ch[1]/CBC" = {
-            designator = C19,
-            package = C_0402_1005Metric_IPCN,
+            designator = C19
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/BSTC", "2" = "/ch[1]/PHC" }
         }
         component "/ch[1]/CDRV" = {
-            designator = C20,
-            package = C_0603_1608Metric_IPCN,
+            designator = C20
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = "/ch[1]/VDRV", "2" = GND }
         }
         component "/ch[1]/CISA" = {
-            designator = C21,
-            package = C_0402_1005Metric_IPCN,
+            designator = C21
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/ISENSE_A", "2" = GND }
         }
         component "/ch[1]/CISB" = {
-            designator = C22,
-            package = C_0402_1005Metric_IPCN,
+            designator = C22
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/ISENSE_B", "2" = GND }
         }
         component "/ch[1]/CISC" = {
-            designator = C23,
-            package = C_0402_1005Metric_IPCN,
+            designator = C23
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/ISENSE_C", "2" = GND }
         }
         component "/ch[1]/CMCU" = {
-            designator = C24,
-            package = C_0402_1005Metric_IPCN,
+            designator = C24
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/ch[1]/CRST" = {
-            designator = C25,
-            package = C_0402_1005Metric_IPCN,
+            designator = C25
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/NRST", "2" = GND }
         }
         component "/ch[1]/CVCC" = {
-            designator = C26,
-            package = C_0603_1608Metric_IPCN,
+            designator = C26
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[1]/DRV" = {
-            designator = U4,
-            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN",
+            designator = U4
+            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN"
             pads = {
-                "1" = "/ch[1]/DRV_EN",
-                "10" = "/ch[1]/VDRV",
-                "11" = "/ch[1]/GLA_D",
-                "12" = "/ch[1]/GHA_D",
-                "13" = "/ch[1]/PHB",
-                "14" = "/ch[1]/GHB_D",
-                "15" = "/ch[1]/BSTB",
-                "16" = "/ch[1]/PHA",
-                "17" = "/ch[1]/BSTA",
-                "18" = "/ch[1]/GLB_D",
-                "19" = "/ch[1]/INHA",
-                "2" = "/ch[1]/FAULT",
-                "20" = "/ch[1]/INLA",
-                "21" = "/ch[1]/INHB",
-                "22" = "/ch[1]/INLB",
-                "23" = "/ch[1]/INHC",
-                "24" = "/ch[1]/INLC",
-                "25" = GND,
-                "3" = "/ch[1]/PHC",
-                "4" = "/ch[1]/GHC_D",
-                "5" = "/ch[1]/GLC_D",
-                "6" = "/ch[1]/BSTC",
-                "7" = VBAT,
-                "8" = GND,
+                "1" = "/ch[1]/DRV_EN"
+                "10" = "/ch[1]/VDRV"
+                "11" = "/ch[1]/GLA_D"
+                "12" = "/ch[1]/GHA_D"
+                "13" = "/ch[1]/PHB"
+                "14" = "/ch[1]/GHB_D"
+                "15" = "/ch[1]/BSTB"
+                "16" = "/ch[1]/PHA"
+                "17" = "/ch[1]/BSTA"
+                "18" = "/ch[1]/GLB_D"
+                "19" = "/ch[1]/INHA"
+                "2" = "/ch[1]/FAULT"
+                "20" = "/ch[1]/INLA"
+                "21" = "/ch[1]/INHB"
+                "22" = "/ch[1]/INLB"
+                "23" = "/ch[1]/INHC"
+                "24" = "/ch[1]/INLC"
+                "25" = GND
+                "3" = "/ch[1]/PHC"
+                "4" = "/ch[1]/GHC_D"
+                "5" = "/ch[1]/GLC_D"
+                "6" = "/ch[1]/BSTC"
+                "7" = VBAT
+                "8" = GND
                 "9" = GND
             }
         }
         component "/ch[1]/MCU" = {
-            designator = U5,
-            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN",
+            designator = U5
+            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN"
             pads = {
-                "1" = "+3V3",
-                "10" = M2,
-                "11" = "/ch[1]/INHA",
-                "12" = "/ch[1]/INLA",
-                "13" = "/ch[1]/INHB",
-                "14" = "/ch[1]/INLB",
-                "15" = "/ch[1]/INHC",
-                "16" = GND,
-                "17" = "+3V3",
-                "18" = "/ch[1]/INLC",
-                "19" = "/ch[1]/DRV_EN",
-                "2" = "/ch[1]/NRST",
-                "20" = "/ch[1]/FAULT",
-                "21" = "/ch[1]/ISENSE_A",
-                "22" = TLM,
-                "23" = "/ch[1]/ISENSE_B",
-                "24" = "/ch[1]/ISENSE_C",
-                "3" = "/ch[1]/BOOT0",
-                "32" = GND,
+                "1" = "+3V3"
+                "10" = M2
+                "11" = "/ch[1]/INHA"
+                "12" = "/ch[1]/INLA"
+                "13" = "/ch[1]/INHB"
+                "14" = "/ch[1]/INLB"
+                "15" = "/ch[1]/INHC"
+                "16" = GND
+                "17" = "+3V3"
+                "18" = "/ch[1]/INLC"
+                "19" = "/ch[1]/DRV_EN"
+                "2" = "/ch[1]/NRST"
+                "20" = "/ch[1]/FAULT"
+                "21" = "/ch[1]/ISENSE_A"
+                "22" = TLM
+                "23" = "/ch[1]/ISENSE_B"
+                "24" = "/ch[1]/ISENSE_C"
+                "3" = "/ch[1]/BOOT0"
+                "32" = GND
                 "33" = GND
             }
         }
         component "/ch[1]/PA" = {
-            designator = P6,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P6
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[1]/PHA" }
         }
         component "/ch[1]/PB" = {
-            designator = P7,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P7
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[1]/PHB" }
         }
         component "/ch[1]/PC" = {
-            designator = P8,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P8
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[1]/PHC" }
         }
         component "/ch[1]/QHA" = {
-            designator = Q7,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q7
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/PHA",
-                "2" = "/ch[1]/PHA",
-                "3" = "/ch[1]/PHA",
-                "4" = "/ch[1]/GHA",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[1]/PHA"
+                "2" = "/ch[1]/PHA"
+                "3" = "/ch[1]/PHA"
+                "4" = "/ch[1]/GHA"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[1]/QHB" = {
-            designator = Q8,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q8
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/PHB",
-                "2" = "/ch[1]/PHB",
-                "3" = "/ch[1]/PHB",
-                "4" = "/ch[1]/GHB",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[1]/PHB"
+                "2" = "/ch[1]/PHB"
+                "3" = "/ch[1]/PHB"
+                "4" = "/ch[1]/GHB"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[1]/QHC" = {
-            designator = Q9,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q9
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/PHC",
-                "2" = "/ch[1]/PHC",
-                "3" = "/ch[1]/PHC",
-                "4" = "/ch[1]/GHC",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[1]/PHC"
+                "2" = "/ch[1]/PHC"
+                "3" = "/ch[1]/PHC"
+                "4" = "/ch[1]/GHC"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[1]/QLA" = {
-            designator = Q10,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q10
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/SRCA",
-                "2" = "/ch[1]/SRCA",
-                "3" = "/ch[1]/SRCA",
-                "4" = "/ch[1]/GLA",
-                "5" = "/ch[1]/PHA",
-                "6" = "/ch[1]/PHA",
-                "7" = "/ch[1]/PHA",
-                "8" = "/ch[1]/PHA",
+                "1" = "/ch[1]/SRCA"
+                "2" = "/ch[1]/SRCA"
+                "3" = "/ch[1]/SRCA"
+                "4" = "/ch[1]/GLA"
+                "5" = "/ch[1]/PHA"
+                "6" = "/ch[1]/PHA"
+                "7" = "/ch[1]/PHA"
+                "8" = "/ch[1]/PHA"
                 "9" = "/ch[1]/PHA"
             }
         }
         component "/ch[1]/QLB" = {
-            designator = Q11,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q11
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/SRCB",
-                "2" = "/ch[1]/SRCB",
-                "3" = "/ch[1]/SRCB",
-                "4" = "/ch[1]/GLB",
-                "5" = "/ch[1]/PHB",
-                "6" = "/ch[1]/PHB",
-                "7" = "/ch[1]/PHB",
-                "8" = "/ch[1]/PHB",
+                "1" = "/ch[1]/SRCB"
+                "2" = "/ch[1]/SRCB"
+                "3" = "/ch[1]/SRCB"
+                "4" = "/ch[1]/GLB"
+                "5" = "/ch[1]/PHB"
+                "6" = "/ch[1]/PHB"
+                "7" = "/ch[1]/PHB"
+                "8" = "/ch[1]/PHB"
                 "9" = "/ch[1]/PHB"
             }
         }
         component "/ch[1]/QLC" = {
-            designator = Q12,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q12
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[1]/SRCC",
-                "2" = "/ch[1]/SRCC",
-                "3" = "/ch[1]/SRCC",
-                "4" = "/ch[1]/GLC",
-                "5" = "/ch[1]/PHC",
-                "6" = "/ch[1]/PHC",
-                "7" = "/ch[1]/PHC",
-                "8" = "/ch[1]/PHC",
+                "1" = "/ch[1]/SRCC"
+                "2" = "/ch[1]/SRCC"
+                "3" = "/ch[1]/SRCC"
+                "4" = "/ch[1]/GLC"
+                "5" = "/ch[1]/PHC"
+                "6" = "/ch[1]/PHC"
+                "7" = "/ch[1]/PHC"
+                "8" = "/ch[1]/PHC"
                 "9" = "/ch[1]/PHC"
             }
         }
         component "/ch[1]/RBOOT" = {
-            designator = R15,
-            package = R_0402_1005Metric_IPCN,
+            designator = R15
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/BOOT0", "2" = GND }
         }
         component "/ch[1]/RGHA" = {
-            designator = R16,
-            package = R_0402_1005Metric_IPCN,
+            designator = R16
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GHA_D", "2" = "/ch[1]/GHA" }
         }
         component "/ch[1]/RGHB" = {
-            designator = R17,
-            package = R_0402_1005Metric_IPCN,
+            designator = R17
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GHB_D", "2" = "/ch[1]/GHB" }
         }
         component "/ch[1]/RGHC" = {
-            designator = R18,
-            package = R_0402_1005Metric_IPCN,
+            designator = R18
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GHC_D", "2" = "/ch[1]/GHC" }
         }
         component "/ch[1]/RGLA" = {
-            designator = R19,
-            package = R_0402_1005Metric_IPCN,
+            designator = R19
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GLA_D", "2" = "/ch[1]/GLA" }
         }
         component "/ch[1]/RGLB" = {
-            designator = R20,
-            package = R_0402_1005Metric_IPCN,
+            designator = R20
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GLB_D", "2" = "/ch[1]/GLB" }
         }
         component "/ch[1]/RGLC" = {
-            designator = R21,
-            package = R_0402_1005Metric_IPCN,
+            designator = R21
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/GLC_D", "2" = "/ch[1]/GLC" }
         }
         component "/ch[1]/RISA" = {
-            designator = R22,
-            package = R_0402_1005Metric_IPCN,
+            designator = R22
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/SRCA", "2" = "/ch[1]/ISENSE_A" }
         }
         component "/ch[1]/RISB" = {
-            designator = R23,
-            package = R_0402_1005Metric_IPCN,
+            designator = R23
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/SRCB", "2" = "/ch[1]/ISENSE_B" }
         }
         component "/ch[1]/RISC" = {
-            designator = R24,
-            package = R_0402_1005Metric_IPCN,
+            designator = R24
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/SRCC", "2" = "/ch[1]/ISENSE_C" }
         }
         component "/ch[1]/RRST" = {
-            designator = R25,
-            package = R_0402_1005Metric_IPCN,
+            designator = R25
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[1]/NRST", "2" = "+3V3" }
         }
         component "/ch[1]/RSHA" = {
-            designator = R26,
-            package = R_1206_3216Metric_IPCN,
+            designator = R26
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[1]/SRCA", "2" = GND }
         }
         component "/ch[1]/RSHB" = {
-            designator = R27,
-            package = R_1206_3216Metric_IPCN,
+            designator = R27
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[1]/SRCB", "2" = GND }
         }
         component "/ch[1]/RSHC" = {
-            designator = R28,
-            package = R_1206_3216Metric_IPCN,
+            designator = R28
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[1]/SRCC", "2" = GND }
         }
         component "/ch[2]/CB1" = {
-            designator = C27,
-            package = C_1206_3216Metric_IPCN,
+            designator = C27
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[2]/CBA" = {
-            designator = C28,
-            package = C_0402_1005Metric_IPCN,
+            designator = C28
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/BSTA", "2" = "/ch[2]/PHA" }
         }
         component "/ch[2]/CBB" = {
-            designator = C29,
-            package = C_0402_1005Metric_IPCN,
+            designator = C29
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/BSTB", "2" = "/ch[2]/PHB" }
         }
         component "/ch[2]/CBC" = {
-            designator = C30,
-            package = C_0402_1005Metric_IPCN,
+            designator = C30
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/BSTC", "2" = "/ch[2]/PHC" }
         }
         component "/ch[2]/CDRV" = {
-            designator = C31,
-            package = C_0603_1608Metric_IPCN,
+            designator = C31
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = "/ch[2]/VDRV", "2" = GND }
         }
         component "/ch[2]/CISA" = {
-            designator = C32,
-            package = C_0402_1005Metric_IPCN,
+            designator = C32
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/ISENSE_A", "2" = GND }
         }
         component "/ch[2]/CISB" = {
-            designator = C33,
-            package = C_0402_1005Metric_IPCN,
+            designator = C33
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/ISENSE_B", "2" = GND }
         }
         component "/ch[2]/CISC" = {
-            designator = C34,
-            package = C_0402_1005Metric_IPCN,
+            designator = C34
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/ISENSE_C", "2" = GND }
         }
         component "/ch[2]/CMCU" = {
-            designator = C35,
-            package = C_0402_1005Metric_IPCN,
+            designator = C35
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/ch[2]/CRST" = {
-            designator = C36,
-            package = C_0402_1005Metric_IPCN,
+            designator = C36
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/NRST", "2" = GND }
         }
         component "/ch[2]/CVCC" = {
-            designator = C37,
-            package = C_0603_1608Metric_IPCN,
+            designator = C37
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[2]/DRV" = {
-            designator = U6,
-            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN",
+            designator = U6
+            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN"
             pads = {
-                "1" = "/ch[2]/DRV_EN",
-                "10" = "/ch[2]/VDRV",
-                "11" = "/ch[2]/GLA_D",
-                "12" = "/ch[2]/GHA_D",
-                "13" = "/ch[2]/PHB",
-                "14" = "/ch[2]/GHB_D",
-                "15" = "/ch[2]/BSTB",
-                "16" = "/ch[2]/PHA",
-                "17" = "/ch[2]/BSTA",
-                "18" = "/ch[2]/GLB_D",
-                "19" = "/ch[2]/INHA",
-                "2" = "/ch[2]/FAULT",
-                "20" = "/ch[2]/INLA",
-                "21" = "/ch[2]/INHB",
-                "22" = "/ch[2]/INLB",
-                "23" = "/ch[2]/INHC",
-                "24" = "/ch[2]/INLC",
-                "25" = GND,
-                "3" = "/ch[2]/PHC",
-                "4" = "/ch[2]/GHC_D",
-                "5" = "/ch[2]/GLC_D",
-                "6" = "/ch[2]/BSTC",
-                "7" = VBAT,
-                "8" = GND,
+                "1" = "/ch[2]/DRV_EN"
+                "10" = "/ch[2]/VDRV"
+                "11" = "/ch[2]/GLA_D"
+                "12" = "/ch[2]/GHA_D"
+                "13" = "/ch[2]/PHB"
+                "14" = "/ch[2]/GHB_D"
+                "15" = "/ch[2]/BSTB"
+                "16" = "/ch[2]/PHA"
+                "17" = "/ch[2]/BSTA"
+                "18" = "/ch[2]/GLB_D"
+                "19" = "/ch[2]/INHA"
+                "2" = "/ch[2]/FAULT"
+                "20" = "/ch[2]/INLA"
+                "21" = "/ch[2]/INHB"
+                "22" = "/ch[2]/INLB"
+                "23" = "/ch[2]/INHC"
+                "24" = "/ch[2]/INLC"
+                "25" = GND
+                "3" = "/ch[2]/PHC"
+                "4" = "/ch[2]/GHC_D"
+                "5" = "/ch[2]/GLC_D"
+                "6" = "/ch[2]/BSTC"
+                "7" = VBAT
+                "8" = GND
                 "9" = GND
             }
         }
         component "/ch[2]/MCU" = {
-            designator = U7,
-            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN",
+            designator = U7
+            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN"
             pads = {
-                "1" = "+3V3",
-                "10" = M3,
-                "11" = "/ch[2]/INHA",
-                "12" = "/ch[2]/INLA",
-                "13" = "/ch[2]/INHB",
-                "14" = "/ch[2]/INLB",
-                "15" = "/ch[2]/INHC",
-                "16" = GND,
-                "17" = "+3V3",
-                "18" = "/ch[2]/INLC",
-                "19" = "/ch[2]/DRV_EN",
-                "2" = "/ch[2]/NRST",
-                "20" = "/ch[2]/FAULT",
-                "21" = "/ch[2]/ISENSE_A",
-                "22" = TLM,
-                "23" = "/ch[2]/ISENSE_B",
-                "24" = "/ch[2]/ISENSE_C",
-                "3" = "/ch[2]/BOOT0",
-                "32" = GND,
+                "1" = "+3V3"
+                "10" = M3
+                "11" = "/ch[2]/INHA"
+                "12" = "/ch[2]/INLA"
+                "13" = "/ch[2]/INHB"
+                "14" = "/ch[2]/INLB"
+                "15" = "/ch[2]/INHC"
+                "16" = GND
+                "17" = "+3V3"
+                "18" = "/ch[2]/INLC"
+                "19" = "/ch[2]/DRV_EN"
+                "2" = "/ch[2]/NRST"
+                "20" = "/ch[2]/FAULT"
+                "21" = "/ch[2]/ISENSE_A"
+                "22" = TLM
+                "23" = "/ch[2]/ISENSE_B"
+                "24" = "/ch[2]/ISENSE_C"
+                "3" = "/ch[2]/BOOT0"
+                "32" = GND
                 "33" = GND
             }
         }
         component "/ch[2]/PA" = {
-            designator = P9,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P9
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[2]/PHA" }
         }
         component "/ch[2]/PB" = {
-            designator = P10,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P10
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[2]/PHB" }
         }
         component "/ch[2]/PC" = {
-            designator = P11,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P11
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[2]/PHC" }
         }
         component "/ch[2]/QHA" = {
-            designator = Q13,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q13
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/PHA",
-                "2" = "/ch[2]/PHA",
-                "3" = "/ch[2]/PHA",
-                "4" = "/ch[2]/GHA",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[2]/PHA"
+                "2" = "/ch[2]/PHA"
+                "3" = "/ch[2]/PHA"
+                "4" = "/ch[2]/GHA"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[2]/QHB" = {
-            designator = Q14,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q14
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/PHB",
-                "2" = "/ch[2]/PHB",
-                "3" = "/ch[2]/PHB",
-                "4" = "/ch[2]/GHB",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[2]/PHB"
+                "2" = "/ch[2]/PHB"
+                "3" = "/ch[2]/PHB"
+                "4" = "/ch[2]/GHB"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[2]/QHC" = {
-            designator = Q15,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q15
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/PHC",
-                "2" = "/ch[2]/PHC",
-                "3" = "/ch[2]/PHC",
-                "4" = "/ch[2]/GHC",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[2]/PHC"
+                "2" = "/ch[2]/PHC"
+                "3" = "/ch[2]/PHC"
+                "4" = "/ch[2]/GHC"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[2]/QLA" = {
-            designator = Q16,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q16
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/SRCA",
-                "2" = "/ch[2]/SRCA",
-                "3" = "/ch[2]/SRCA",
-                "4" = "/ch[2]/GLA",
-                "5" = "/ch[2]/PHA",
-                "6" = "/ch[2]/PHA",
-                "7" = "/ch[2]/PHA",
-                "8" = "/ch[2]/PHA",
+                "1" = "/ch[2]/SRCA"
+                "2" = "/ch[2]/SRCA"
+                "3" = "/ch[2]/SRCA"
+                "4" = "/ch[2]/GLA"
+                "5" = "/ch[2]/PHA"
+                "6" = "/ch[2]/PHA"
+                "7" = "/ch[2]/PHA"
+                "8" = "/ch[2]/PHA"
                 "9" = "/ch[2]/PHA"
             }
         }
         component "/ch[2]/QLB" = {
-            designator = Q17,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q17
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/SRCB",
-                "2" = "/ch[2]/SRCB",
-                "3" = "/ch[2]/SRCB",
-                "4" = "/ch[2]/GLB",
-                "5" = "/ch[2]/PHB",
-                "6" = "/ch[2]/PHB",
-                "7" = "/ch[2]/PHB",
-                "8" = "/ch[2]/PHB",
+                "1" = "/ch[2]/SRCB"
+                "2" = "/ch[2]/SRCB"
+                "3" = "/ch[2]/SRCB"
+                "4" = "/ch[2]/GLB"
+                "5" = "/ch[2]/PHB"
+                "6" = "/ch[2]/PHB"
+                "7" = "/ch[2]/PHB"
+                "8" = "/ch[2]/PHB"
                 "9" = "/ch[2]/PHB"
             }
         }
         component "/ch[2]/QLC" = {
-            designator = Q18,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q18
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[2]/SRCC",
-                "2" = "/ch[2]/SRCC",
-                "3" = "/ch[2]/SRCC",
-                "4" = "/ch[2]/GLC",
-                "5" = "/ch[2]/PHC",
-                "6" = "/ch[2]/PHC",
-                "7" = "/ch[2]/PHC",
-                "8" = "/ch[2]/PHC",
+                "1" = "/ch[2]/SRCC"
+                "2" = "/ch[2]/SRCC"
+                "3" = "/ch[2]/SRCC"
+                "4" = "/ch[2]/GLC"
+                "5" = "/ch[2]/PHC"
+                "6" = "/ch[2]/PHC"
+                "7" = "/ch[2]/PHC"
+                "8" = "/ch[2]/PHC"
                 "9" = "/ch[2]/PHC"
             }
         }
         component "/ch[2]/RBOOT" = {
-            designator = R29,
-            package = R_0402_1005Metric_IPCN,
+            designator = R29
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/BOOT0", "2" = GND }
         }
         component "/ch[2]/RGHA" = {
-            designator = R30,
-            package = R_0402_1005Metric_IPCN,
+            designator = R30
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GHA_D", "2" = "/ch[2]/GHA" }
         }
         component "/ch[2]/RGHB" = {
-            designator = R31,
-            package = R_0402_1005Metric_IPCN,
+            designator = R31
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GHB_D", "2" = "/ch[2]/GHB" }
         }
         component "/ch[2]/RGHC" = {
-            designator = R32,
-            package = R_0402_1005Metric_IPCN,
+            designator = R32
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GHC_D", "2" = "/ch[2]/GHC" }
         }
         component "/ch[2]/RGLA" = {
-            designator = R33,
-            package = R_0402_1005Metric_IPCN,
+            designator = R33
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GLA_D", "2" = "/ch[2]/GLA" }
         }
         component "/ch[2]/RGLB" = {
-            designator = R34,
-            package = R_0402_1005Metric_IPCN,
+            designator = R34
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GLB_D", "2" = "/ch[2]/GLB" }
         }
         component "/ch[2]/RGLC" = {
-            designator = R35,
-            package = R_0402_1005Metric_IPCN,
+            designator = R35
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/GLC_D", "2" = "/ch[2]/GLC" }
         }
         component "/ch[2]/RISA" = {
-            designator = R36,
-            package = R_0402_1005Metric_IPCN,
+            designator = R36
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/SRCA", "2" = "/ch[2]/ISENSE_A" }
         }
         component "/ch[2]/RISB" = {
-            designator = R37,
-            package = R_0402_1005Metric_IPCN,
+            designator = R37
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/SRCB", "2" = "/ch[2]/ISENSE_B" }
         }
         component "/ch[2]/RISC" = {
-            designator = R38,
-            package = R_0402_1005Metric_IPCN,
+            designator = R38
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/SRCC", "2" = "/ch[2]/ISENSE_C" }
         }
         component "/ch[2]/RRST" = {
-            designator = R39,
-            package = R_0402_1005Metric_IPCN,
+            designator = R39
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[2]/NRST", "2" = "+3V3" }
         }
         component "/ch[2]/RSHA" = {
-            designator = R40,
-            package = R_1206_3216Metric_IPCN,
+            designator = R40
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[2]/SRCA", "2" = GND }
         }
         component "/ch[2]/RSHB" = {
-            designator = R41,
-            package = R_1206_3216Metric_IPCN,
+            designator = R41
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[2]/SRCB", "2" = GND }
         }
         component "/ch[2]/RSHC" = {
-            designator = R42,
-            package = R_1206_3216Metric_IPCN,
+            designator = R42
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[2]/SRCC", "2" = GND }
         }
         component "/ch[3]/CB1" = {
-            designator = C38,
-            package = C_1206_3216Metric_IPCN,
+            designator = C38
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[3]/CBA" = {
-            designator = C39,
-            package = C_0402_1005Metric_IPCN,
+            designator = C39
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/BSTA", "2" = "/ch[3]/PHA" }
         }
         component "/ch[3]/CBB" = {
-            designator = C40,
-            package = C_0402_1005Metric_IPCN,
+            designator = C40
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/BSTB", "2" = "/ch[3]/PHB" }
         }
         component "/ch[3]/CBC" = {
-            designator = C41,
-            package = C_0402_1005Metric_IPCN,
+            designator = C41
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/BSTC", "2" = "/ch[3]/PHC" }
         }
         component "/ch[3]/CDRV" = {
-            designator = C42,
-            package = C_0603_1608Metric_IPCN,
+            designator = C42
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = "/ch[3]/VDRV", "2" = GND }
         }
         component "/ch[3]/CISA" = {
-            designator = C43,
-            package = C_0402_1005Metric_IPCN,
+            designator = C43
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/ISENSE_A", "2" = GND }
         }
         component "/ch[3]/CISB" = {
-            designator = C44,
-            package = C_0402_1005Metric_IPCN,
+            designator = C44
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/ISENSE_B", "2" = GND }
         }
         component "/ch[3]/CISC" = {
-            designator = C45,
-            package = C_0402_1005Metric_IPCN,
+            designator = C45
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/ISENSE_C", "2" = GND }
         }
         component "/ch[3]/CMCU" = {
-            designator = C46,
-            package = C_0402_1005Metric_IPCN,
+            designator = C46
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/ch[3]/CRST" = {
-            designator = C47,
-            package = C_0402_1005Metric_IPCN,
+            designator = C47
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/NRST", "2" = GND }
         }
         component "/ch[3]/CVCC" = {
-            designator = C48,
-            package = C_0603_1608Metric_IPCN,
+            designator = C48
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/ch[3]/DRV" = {
-            designator = U8,
-            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN",
+            designator = U8
+            package = "QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN"
             pads = {
-                "1" = "/ch[3]/DRV_EN",
-                "10" = "/ch[3]/VDRV",
-                "11" = "/ch[3]/GLA_D",
-                "12" = "/ch[3]/GHA_D",
-                "13" = "/ch[3]/PHB",
-                "14" = "/ch[3]/GHB_D",
-                "15" = "/ch[3]/BSTB",
-                "16" = "/ch[3]/PHA",
-                "17" = "/ch[3]/BSTA",
-                "18" = "/ch[3]/GLB_D",
-                "19" = "/ch[3]/INHA",
-                "2" = "/ch[3]/FAULT",
-                "20" = "/ch[3]/INLA",
-                "21" = "/ch[3]/INHB",
-                "22" = "/ch[3]/INLB",
-                "23" = "/ch[3]/INHC",
-                "24" = "/ch[3]/INLC",
-                "25" = GND,
-                "3" = "/ch[3]/PHC",
-                "4" = "/ch[3]/GHC_D",
-                "5" = "/ch[3]/GLC_D",
-                "6" = "/ch[3]/BSTC",
-                "7" = VBAT,
-                "8" = GND,
+                "1" = "/ch[3]/DRV_EN"
+                "10" = "/ch[3]/VDRV"
+                "11" = "/ch[3]/GLA_D"
+                "12" = "/ch[3]/GHA_D"
+                "13" = "/ch[3]/PHB"
+                "14" = "/ch[3]/GHB_D"
+                "15" = "/ch[3]/BSTB"
+                "16" = "/ch[3]/PHA"
+                "17" = "/ch[3]/BSTA"
+                "18" = "/ch[3]/GLB_D"
+                "19" = "/ch[3]/INHA"
+                "2" = "/ch[3]/FAULT"
+                "20" = "/ch[3]/INLA"
+                "21" = "/ch[3]/INHB"
+                "22" = "/ch[3]/INLB"
+                "23" = "/ch[3]/INHC"
+                "24" = "/ch[3]/INLC"
+                "25" = GND
+                "3" = "/ch[3]/PHC"
+                "4" = "/ch[3]/GHC_D"
+                "5" = "/ch[3]/GLC_D"
+                "6" = "/ch[3]/BSTC"
+                "7" = VBAT
+                "8" = GND
                 "9" = GND
             }
         }
         component "/ch[3]/MCU" = {
-            designator = U9,
-            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN",
+            designator = U9
+            package = "QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN"
             pads = {
-                "1" = "+3V3",
-                "10" = M4,
-                "11" = "/ch[3]/INHA",
-                "12" = "/ch[3]/INLA",
-                "13" = "/ch[3]/INHB",
-                "14" = "/ch[3]/INLB",
-                "15" = "/ch[3]/INHC",
-                "16" = GND,
-                "17" = "+3V3",
-                "18" = "/ch[3]/INLC",
-                "19" = "/ch[3]/DRV_EN",
-                "2" = "/ch[3]/NRST",
-                "20" = "/ch[3]/FAULT",
-                "21" = "/ch[3]/ISENSE_A",
-                "22" = TLM,
-                "23" = "/ch[3]/ISENSE_B",
-                "24" = "/ch[3]/ISENSE_C",
-                "3" = "/ch[3]/BOOT0",
-                "32" = GND,
+                "1" = "+3V3"
+                "10" = M4
+                "11" = "/ch[3]/INHA"
+                "12" = "/ch[3]/INLA"
+                "13" = "/ch[3]/INHB"
+                "14" = "/ch[3]/INLB"
+                "15" = "/ch[3]/INHC"
+                "16" = GND
+                "17" = "+3V3"
+                "18" = "/ch[3]/INLC"
+                "19" = "/ch[3]/DRV_EN"
+                "2" = "/ch[3]/NRST"
+                "20" = "/ch[3]/FAULT"
+                "21" = "/ch[3]/ISENSE_A"
+                "22" = TLM
+                "23" = "/ch[3]/ISENSE_B"
+                "24" = "/ch[3]/ISENSE_C"
+                "3" = "/ch[3]/BOOT0"
+                "32" = GND
                 "33" = GND
             }
         }
         component "/ch[3]/PA" = {
-            designator = P12,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P12
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[3]/PHA" }
         }
         component "/ch[3]/PB" = {
-            designator = P13,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P13
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[3]/PHB" }
         }
         component "/ch[3]/PC" = {
-            designator = P14,
-            package = "MountingHole_1.2mm_Pad2.6mm",
+            designator = P14
+            package = "MountingHole_1.2mm_Pad2.6mm"
             pads = { "1" = "/ch[3]/PHC" }
         }
         component "/ch[3]/QHA" = {
-            designator = Q19,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q19
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/PHA",
-                "2" = "/ch[3]/PHA",
-                "3" = "/ch[3]/PHA",
-                "4" = "/ch[3]/GHA",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[3]/PHA"
+                "2" = "/ch[3]/PHA"
+                "3" = "/ch[3]/PHA"
+                "4" = "/ch[3]/GHA"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[3]/QHB" = {
-            designator = Q20,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q20
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/PHB",
-                "2" = "/ch[3]/PHB",
-                "3" = "/ch[3]/PHB",
-                "4" = "/ch[3]/GHB",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[3]/PHB"
+                "2" = "/ch[3]/PHB"
+                "3" = "/ch[3]/PHB"
+                "4" = "/ch[3]/GHB"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[3]/QHC" = {
-            designator = Q21,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q21
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/PHC",
-                "2" = "/ch[3]/PHC",
-                "3" = "/ch[3]/PHC",
-                "4" = "/ch[3]/GHC",
-                "5" = VBAT,
-                "6" = VBAT,
-                "7" = VBAT,
-                "8" = VBAT,
+                "1" = "/ch[3]/PHC"
+                "2" = "/ch[3]/PHC"
+                "3" = "/ch[3]/PHC"
+                "4" = "/ch[3]/GHC"
+                "5" = VBAT
+                "6" = VBAT
+                "7" = VBAT
+                "8" = VBAT
                 "9" = VBAT
             }
         }
         component "/ch[3]/QLA" = {
-            designator = Q22,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q22
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/SRCA",
-                "2" = "/ch[3]/SRCA",
-                "3" = "/ch[3]/SRCA",
-                "4" = "/ch[3]/GLA",
-                "5" = "/ch[3]/PHA",
-                "6" = "/ch[3]/PHA",
-                "7" = "/ch[3]/PHA",
-                "8" = "/ch[3]/PHA",
+                "1" = "/ch[3]/SRCA"
+                "2" = "/ch[3]/SRCA"
+                "3" = "/ch[3]/SRCA"
+                "4" = "/ch[3]/GLA"
+                "5" = "/ch[3]/PHA"
+                "6" = "/ch[3]/PHA"
+                "7" = "/ch[3]/PHA"
+                "8" = "/ch[3]/PHA"
                 "9" = "/ch[3]/PHA"
             }
         }
         component "/ch[3]/QLB" = {
-            designator = Q23,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q23
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/SRCB",
-                "2" = "/ch[3]/SRCB",
-                "3" = "/ch[3]/SRCB",
-                "4" = "/ch[3]/GLB",
-                "5" = "/ch[3]/PHB",
-                "6" = "/ch[3]/PHB",
-                "7" = "/ch[3]/PHB",
-                "8" = "/ch[3]/PHB",
+                "1" = "/ch[3]/SRCB"
+                "2" = "/ch[3]/SRCB"
+                "3" = "/ch[3]/SRCB"
+                "4" = "/ch[3]/GLB"
+                "5" = "/ch[3]/PHB"
+                "6" = "/ch[3]/PHB"
+                "7" = "/ch[3]/PHB"
+                "8" = "/ch[3]/PHB"
                 "9" = "/ch[3]/PHB"
             }
         }
         component "/ch[3]/QLC" = {
-            designator = Q24,
-            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN",
+            designator = Q24
+            package = "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN"
             pads = {
-                "1" = "/ch[3]/SRCC",
-                "2" = "/ch[3]/SRCC",
-                "3" = "/ch[3]/SRCC",
-                "4" = "/ch[3]/GLC",
-                "5" = "/ch[3]/PHC",
-                "6" = "/ch[3]/PHC",
-                "7" = "/ch[3]/PHC",
-                "8" = "/ch[3]/PHC",
+                "1" = "/ch[3]/SRCC"
+                "2" = "/ch[3]/SRCC"
+                "3" = "/ch[3]/SRCC"
+                "4" = "/ch[3]/GLC"
+                "5" = "/ch[3]/PHC"
+                "6" = "/ch[3]/PHC"
+                "7" = "/ch[3]/PHC"
+                "8" = "/ch[3]/PHC"
                 "9" = "/ch[3]/PHC"
             }
         }
         component "/ch[3]/RBOOT" = {
-            designator = R43,
-            package = R_0402_1005Metric_IPCN,
+            designator = R43
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/BOOT0", "2" = GND }
         }
         component "/ch[3]/RGHA" = {
-            designator = R44,
-            package = R_0402_1005Metric_IPCN,
+            designator = R44
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GHA_D", "2" = "/ch[3]/GHA" }
         }
         component "/ch[3]/RGHB" = {
-            designator = R45,
-            package = R_0402_1005Metric_IPCN,
+            designator = R45
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GHB_D", "2" = "/ch[3]/GHB" }
         }
         component "/ch[3]/RGHC" = {
-            designator = R46,
-            package = R_0402_1005Metric_IPCN,
+            designator = R46
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GHC_D", "2" = "/ch[3]/GHC" }
         }
         component "/ch[3]/RGLA" = {
-            designator = R47,
-            package = R_0402_1005Metric_IPCN,
+            designator = R47
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GLA_D", "2" = "/ch[3]/GLA" }
         }
         component "/ch[3]/RGLB" = {
-            designator = R48,
-            package = R_0402_1005Metric_IPCN,
+            designator = R48
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GLB_D", "2" = "/ch[3]/GLB" }
         }
         component "/ch[3]/RGLC" = {
-            designator = R49,
-            package = R_0402_1005Metric_IPCN,
+            designator = R49
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/GLC_D", "2" = "/ch[3]/GLC" }
         }
         component "/ch[3]/RISA" = {
-            designator = R50,
-            package = R_0402_1005Metric_IPCN,
+            designator = R50
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/SRCA", "2" = "/ch[3]/ISENSE_A" }
         }
         component "/ch[3]/RISB" = {
-            designator = R51,
-            package = R_0402_1005Metric_IPCN,
+            designator = R51
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/SRCB", "2" = "/ch[3]/ISENSE_B" }
         }
         component "/ch[3]/RISC" = {
-            designator = R52,
-            package = R_0402_1005Metric_IPCN,
+            designator = R52
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/SRCC", "2" = "/ch[3]/ISENSE_C" }
         }
         component "/ch[3]/RRST" = {
-            designator = R53,
-            package = R_0402_1005Metric_IPCN,
+            designator = R53
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/ch[3]/NRST", "2" = "+3V3" }
         }
         component "/ch[3]/RSHA" = {
-            designator = R54,
-            package = R_1206_3216Metric_IPCN,
+            designator = R54
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[3]/SRCA", "2" = GND }
         }
         component "/ch[3]/RSHB" = {
-            designator = R55,
-            package = R_1206_3216Metric_IPCN,
+            designator = R55
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[3]/SRCB", "2" = GND }
         }
         component "/ch[3]/RSHC" = {
-            designator = R56,
-            package = R_1206_3216Metric_IPCN,
+            designator = R56
+            package = R_1206_3216Metric_IPCN
             pads = { "1" = "/ch[3]/SRCC", "2" = GND }
         }
         net_class gate = { track_width = "0.25 mm" }
@@ -4163,7 +4160,7 @@ layout esc {
             R13,
             R14,
             U2,
-            U3
+            U3,
         ]
         component_class "ch[1]" = [
             C16,
@@ -4201,7 +4198,7 @@ layout esc {
             R27,
             R28,
             U4,
-            U5
+            U5,
         ]
         component_class "ch[2]" = [
             C27,
@@ -4239,7 +4236,7 @@ layout esc {
             R41,
             R42,
             U6,
-            U7
+            U7,
         ]
         component_class "ch[3]" = [
             C38,
@@ -4277,7 +4274,7 @@ layout esc {
             R55,
             R56,
             U8,
-            U9
+            U9,
         ]
     }
 }

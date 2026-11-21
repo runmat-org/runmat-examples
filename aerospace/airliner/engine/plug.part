@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The exhaust plug.
 part plug {
     sketch s on origin.xy {

@@ -1,7 +1,3 @@
-runmat 0.7
-std 1
-
-
 // The heat pump system, in building coordinates: the air handler (3 ton, 10 kW strips) in the
 // utility room on its return platform, the supply plenum and the trunk in a soffit along the
 // utility room and den, two ceiling-height supply registers, the return grille, the condenser on
@@ -45,7 +41,7 @@ part hvac_equipment {
         l3 = line(start = [334 in, 128 in], end = [334 in, 106 in])
     }
     feature air_handler = extrude(profile = sketch.air_handler_s, distance = 40 in, mode = new)
-    material = { body = feature.air_handler.body, material = "material.galvanized_steel" }
+    material = { body = feature.air_handler.body, material = material.galvanized_steel }
     sketch return_platform_s on plane.p_xy_1 {
         l0 = line(start = [334 in, 106 in], end = [356 in, 106 in])
         l1 = line(start = [356 in, 106 in], end = [356 in, 128 in])
@@ -53,7 +49,7 @@ part hvac_equipment {
         l3 = line(start = [334 in, 128 in], end = [334 in, 106 in])
     }
     feature return_platform = extrude(profile = sketch.return_platform_s, distance = 19.5 in, mode = new)
-    material = { body = feature.return_platform.body, material = "material.gypsum_board" }
+    material = { body = feature.return_platform.body, material = material.gypsum_board }
     sketch return_grille_s on plane.p_xy_2 {
         l0 = line(start = [336 in, 104 in], end = [354 in, 104 in])
         l1 = line(start = [354 in, 104 in], end = [354 in, 106 in])
@@ -61,7 +57,7 @@ part hvac_equipment {
         l3 = line(start = [336 in, 106 in], end = [336 in, 104 in])
     }
     feature return_grille = extrude(profile = sketch.return_grille_s, distance = 14 in, mode = new)
-    material = { body = feature.return_grille.body, material = "material.aluminum" }
+    material = { body = feature.return_grille.body, material = material.aluminum }
     sketch supply_plenum_s on plane.p_xy_3 {
         l0 = line(start = [336 in, 108 in], end = [354 in, 108 in])
         l1 = line(start = [354 in, 108 in], end = [354 in, 126 in])
@@ -69,7 +65,7 @@ part hvac_equipment {
         l3 = line(start = [336 in, 126 in], end = [336 in, 108 in])
     }
     feature supply_plenum = extrude(profile = sketch.supply_plenum_s, distance = 36 in, mode = new)
-    material = { body = feature.supply_plenum.body, material = "material.galvanized_steel" }
+    material = { body = feature.supply_plenum.body, material = material.galvanized_steel }
     sketch supply_trunk_s on plane.p_xy_4 {
         l0 = line(start = [354 in, 110 in], end = [452 in, 110 in])
         l1 = line(start = [452 in, 110 in], end = [452 in, 124 in])
@@ -77,7 +73,7 @@ part hvac_equipment {
         l3 = line(start = [354 in, 124 in], end = [354 in, 110 in])
     }
     feature supply_trunk = extrude(profile = sketch.supply_trunk_s, distance = 8 in, mode = new)
-    material = { body = feature.supply_trunk.body, material = "material.galvanized_steel" }
+    material = { body = feature.supply_trunk.body, material = material.galvanized_steel }
     sketch register_utility_s on plane.p_xy_5 {
         l0 = line(start = [338 in, 128 in], end = [350 in, 128 in])
         l1 = line(start = [350 in, 128 in], end = [350 in, 134 in])
@@ -85,7 +81,7 @@ part hvac_equipment {
         l3 = line(start = [338 in, 134 in], end = [338 in, 128 in])
     }
     feature register_utility = extrude(profile = sketch.register_utility_s, distance = 2 in, mode = new)
-    material = { body = feature.register_utility.body, material = "material.aluminum" }
+    material = { body = feature.register_utility.body, material = material.aluminum }
     sketch register_den_s on plane.p_xy_6 {
         l0 = line(start = [424 in, 110 in], end = [436 in, 110 in])
         l1 = line(start = [436 in, 110 in], end = [436 in, 124 in])
@@ -93,7 +89,7 @@ part hvac_equipment {
         l3 = line(start = [424 in, 124 in], end = [424 in, 110 in])
     }
     feature register_den = extrude(profile = sketch.register_den_s, distance = 0.75 in, mode = new)
-    material = { body = feature.register_den.body, material = "material.aluminum" }
+    material = { body = feature.register_den.body, material = material.aluminum }
     sketch condenser_pad_s on plane.p_xy_7 {
         l0 = line(start = [486 in, 160 in], end = [522 in, 160 in])
         l1 = line(start = [522 in, 160 in], end = [522 in, 196 in])
@@ -101,7 +97,7 @@ part hvac_equipment {
         l3 = line(start = [486 in, 196 in], end = [486 in, 160 in])
     }
     feature condenser_pad = extrude(profile = sketch.condenser_pad_s, distance = 4 in, mode = new)
-    material = { body = feature.condenser_pad.body, material = "material.concrete" }
+    material = { body = feature.condenser_pad.body, material = material.concrete }
     sketch condenser_s on plane.p_xy_8 {
         l0 = line(start = [488 in, 162 in], end = [520 in, 162 in])
         l1 = line(start = [520 in, 162 in], end = [520 in, 194 in])
@@ -109,7 +105,7 @@ part hvac_equipment {
         l3 = line(start = [488 in, 194 in], end = [488 in, 162 in])
     }
     feature condenser = extrude(profile = sketch.condenser_s, distance = 34 in, mode = new)
-    material = { body = feature.condenser.body, material = "material.galvanized_steel" }
+    material = { body = feature.condenser.body, material = material.galvanized_steel }
     sketch line_set_0_path on plane.p_zx_9 {
         l0 = line(start = [12 in, 488 in], end = [12 in, 477.25 in])
         l1 = line(start = [12 in, 477.25 in], end = [116 in, 477.25 in])
@@ -119,7 +115,7 @@ part hvac_equipment {
         c = circle(center = [178 in, 12 in], radius = 0.875 in)
     }
     feature line_set_0 = sweep(profile = sketch.line_set_0_p, path = sketch.line_set_0_path, follow_path = true)
-    material = { body = feature.line_set_0.body, material = "material.copper_insulated" }
+    material = { body = feature.line_set_0.body, material = material.copper_insulated }
     sketch line_set_1_path on plane.p_yz_11 {
         l0 = line(start = [178 in, 116 in], end = [117 in, 116 in])
         l1 = line(start = [117 in, 116 in], end = [117 in, 40 in])
@@ -128,7 +124,7 @@ part hvac_equipment {
         c = circle(center = [116 in, 332.3 in], radius = 0.875 in)
     }
     feature line_set_1 = sweep(profile = sketch.line_set_1_p, path = sketch.line_set_1_path, follow_path = true)
-    material = { body = feature.line_set_1.body, material = "material.copper_insulated" }
+    material = { body = feature.line_set_1.body, material = material.copper_insulated }
     sketch line_set_2_path on plane.p_zx_12 {
         l0 = line(start = [40 in, 332.3 in], end = [40 in, 334 in])
     }
@@ -136,7 +132,7 @@ part hvac_equipment {
         c = circle(center = [117 in, 40 in], radius = 0.875 in)
     }
     feature line_set_2 = sweep(profile = sketch.line_set_2_p, path = sketch.line_set_2_path, follow_path = true)
-    material = { body = feature.line_set_2.body, material = "material.copper_insulated" }
+    material = { body = feature.line_set_2.body, material = material.copper_insulated }
     sketch riser_up_s on plane.p_xy_13 {
         l0 = line(start = [370.5 in, 112 in], end = [381.5 in, 112 in])
         l1 = line(start = [381.5 in, 112 in], end = [381.5 in, 122 in])
@@ -144,7 +140,7 @@ part hvac_equipment {
         l3 = line(start = [370.5 in, 122 in], end = [370.5 in, 112 in])
     }
     feature riser_up = extrude(profile = sketch.riser_up_s, distance = 15.25 in, mode = new)
-    material = { body = feature.riser_up.body, material = "material.galvanized_steel" }
+    material = { body = feature.riser_up.body, material = material.galvanized_steel }
     sketch riser_bay_s on plane.p_xy_14 {
         l0 = line(start = [370.5 in, 112 in], end = [381.5 in, 112 in])
         l1 = line(start = [381.5 in, 112 in], end = [381.5 in, 139 in])
@@ -152,7 +148,7 @@ part hvac_equipment {
         l3 = line(start = [370.5 in, 139 in], end = [370.5 in, 112 in])
     }
     feature riser_bay = extrude(profile = sketch.riser_bay_s, distance = 8.5 in, mode = new)
-    material = { body = feature.riser_bay.body, material = "material.galvanized_steel" }
+    material = { body = feature.riser_bay.body, material = material.galvanized_steel }
     sketch riser_l2_s on plane.p_xy_14 {
         l0 = line(start = [370.5 in, 129 in], end = [381.5 in, 129 in])
         l1 = line(start = [381.5 in, 129 in], end = [381.5 in, 139 in])
@@ -160,7 +156,7 @@ part hvac_equipment {
         l3 = line(start = [370.5 in, 139 in], end = [370.5 in, 129 in])
     }
     feature riser_l2 = extrude(profile = sketch.riser_l2_s, distance = 120.25 in, mode = new)
-    material = { body = feature.riser_l2.body, material = "material.galvanized_steel" }
+    material = { body = feature.riser_l2.body, material = material.galvanized_steel }
     sketch riser_attic_s on plane.p_xy_15 {
         l0 = line(start = [370.5 in, 129 in], end = [381.5 in, 129 in])
         l1 = line(start = [381.5 in, 129 in], end = [381.5 in, 187 in])
@@ -168,7 +164,7 @@ part hvac_equipment {
         l3 = line(start = [370.5 in, 187 in], end = [370.5 in, 129 in])
     }
     feature riser_attic = extrude(profile = sketch.riser_attic_s, distance = 8 in, mode = new)
-    material = { body = feature.riser_attic.body, material = "material.galvanized_steel" }
+    material = { body = feature.riser_attic.body, material = material.galvanized_steel }
     sketch attic_trunk_s on plane.p_xy_15 {
         l0 = line(start = [48 in, 173 in], end = [370.5 in, 173 in])
         l1 = line(start = [370.5 in, 173 in], end = [370.5 in, 187 in])
@@ -176,7 +172,7 @@ part hvac_equipment {
         l3 = line(start = [48 in, 187 in], end = [48 in, 173 in])
     }
     feature attic_trunk = extrude(profile = sketch.attic_trunk_s, distance = 8 in, mode = new)
-    material = { body = feature.attic_trunk.body, material = "material.galvanized_steel" }
+    material = { body = feature.attic_trunk.body, material = material.galvanized_steel }
     sketch chase_w_gyp_s on plane.p_xy_16 {
         l0 = line(start = [366 in, 125 in], end = [366.5 in, 125 in])
         l1 = line(start = [366.5 in, 125 in], end = [366.5 in, 141.5 in])
@@ -184,7 +180,7 @@ part hvac_equipment {
         l3 = line(start = [366 in, 141.5 in], end = [366 in, 125 in])
     }
     feature chase_w_gyp = extrude(profile = sketch.chase_w_gyp_s, distance = 96.125 in, mode = new)
-    material = { body = feature.chase_w_gyp.body, material = "material.gypsum_board" }
+    material = { body = feature.chase_w_gyp.body, material = material.gypsum_board }
     sketch chase_w_bot_s on plane.p_xy_16 {
         l0 = line(start = [366.5 in, 128.5 in], end = [370 in, 128.5 in])
         l1 = line(start = [370 in, 128.5 in], end = [370 in, 141.5 in])
@@ -192,7 +188,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 141.5 in], end = [366.5 in, 128.5 in])
     }
     feature chase_w_bot = extrude(profile = sketch.chase_w_bot_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_w_bot.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_w_bot.body, material = material.douglas_fir_lumber }
     sketch chase_w_top_s on plane.p_xy_17 {
         l0 = line(start = [366.5 in, 128.5 in], end = [370 in, 128.5 in])
         l1 = line(start = [370 in, 128.5 in], end = [370 in, 141.5 in])
@@ -200,7 +196,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 141.5 in], end = [366.5 in, 128.5 in])
     }
     feature chase_w_top = extrude(profile = sketch.chase_w_top_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_w_top.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_w_top.body, material = material.douglas_fir_lumber }
     sketch chase_w_stud0_s on plane.p_xy_18 {
         l0 = line(start = [366.5 in, 128.5 in], end = [370 in, 128.5 in])
         l1 = line(start = [370 in, 128.5 in], end = [370 in, 130 in])
@@ -208,7 +204,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 130 in], end = [366.5 in, 128.5 in])
     }
     feature chase_w_stud0 = extrude(profile = sketch.chase_w_stud0_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_w_stud0.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_w_stud0.body, material = material.douglas_fir_lumber }
     sketch chase_w_stud1_s on plane.p_xy_18 {
         l0 = line(start = [366.5 in, 140 in], end = [370 in, 140 in])
         l1 = line(start = [370 in, 140 in], end = [370 in, 141.5 in])
@@ -216,7 +212,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 141.5 in], end = [366.5 in, 140 in])
     }
     feature chase_w_stud1 = extrude(profile = sketch.chase_w_stud1_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_w_stud1.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_w_stud1.body, material = material.douglas_fir_lumber }
     sketch chase_e_gyp_s on plane.p_xy_16 {
         l0 = line(start = [385.5 in, 125 in], end = [386 in, 125 in])
         l1 = line(start = [386 in, 125 in], end = [386 in, 141.5 in])
@@ -224,7 +220,7 @@ part hvac_equipment {
         l3 = line(start = [385.5 in, 141.5 in], end = [385.5 in, 125 in])
     }
     feature chase_e_gyp = extrude(profile = sketch.chase_e_gyp_s, distance = 96.125 in, mode = new)
-    material = { body = feature.chase_e_gyp.body, material = "material.gypsum_board" }
+    material = { body = feature.chase_e_gyp.body, material = material.gypsum_board }
     sketch chase_e_bot_s on plane.p_xy_16 {
         l0 = line(start = [382 in, 128.5 in], end = [385.5 in, 128.5 in])
         l1 = line(start = [385.5 in, 128.5 in], end = [385.5 in, 141.5 in])
@@ -232,7 +228,7 @@ part hvac_equipment {
         l3 = line(start = [382 in, 141.5 in], end = [382 in, 128.5 in])
     }
     feature chase_e_bot = extrude(profile = sketch.chase_e_bot_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_e_bot.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_e_bot.body, material = material.douglas_fir_lumber }
     sketch chase_e_top_s on plane.p_xy_17 {
         l0 = line(start = [382 in, 128.5 in], end = [385.5 in, 128.5 in])
         l1 = line(start = [385.5 in, 128.5 in], end = [385.5 in, 141.5 in])
@@ -240,7 +236,7 @@ part hvac_equipment {
         l3 = line(start = [382 in, 141.5 in], end = [382 in, 128.5 in])
     }
     feature chase_e_top = extrude(profile = sketch.chase_e_top_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_e_top.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_e_top.body, material = material.douglas_fir_lumber }
     sketch chase_e_stud0_s on plane.p_xy_18 {
         l0 = line(start = [382 in, 128.5 in], end = [385.5 in, 128.5 in])
         l1 = line(start = [385.5 in, 128.5 in], end = [385.5 in, 130 in])
@@ -248,7 +244,7 @@ part hvac_equipment {
         l3 = line(start = [382 in, 130 in], end = [382 in, 128.5 in])
     }
     feature chase_e_stud0 = extrude(profile = sketch.chase_e_stud0_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_e_stud0.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_e_stud0.body, material = material.douglas_fir_lumber }
     sketch chase_e_stud1_s on plane.p_xy_18 {
         l0 = line(start = [382 in, 140 in], end = [385.5 in, 140 in])
         l1 = line(start = [385.5 in, 140 in], end = [385.5 in, 141.5 in])
@@ -256,7 +252,7 @@ part hvac_equipment {
         l3 = line(start = [382 in, 141.5 in], end = [382 in, 140 in])
     }
     feature chase_e_stud1 = extrude(profile = sketch.chase_e_stud1_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_e_stud1.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_e_stud1.body, material = material.douglas_fir_lumber }
     sketch chase_s_gyp_s on plane.p_xy_16 {
         l0 = line(start = [366 in, 124.5 in], end = [386 in, 124.5 in])
         l1 = line(start = [386 in, 124.5 in], end = [386 in, 125 in])
@@ -264,7 +260,7 @@ part hvac_equipment {
         l3 = line(start = [366 in, 125 in], end = [366 in, 124.5 in])
     }
     feature chase_s_gyp = extrude(profile = sketch.chase_s_gyp_s, distance = 96.125 in, mode = new)
-    material = { body = feature.chase_s_gyp.body, material = "material.gypsum_board" }
+    material = { body = feature.chase_s_gyp.body, material = material.gypsum_board }
     sketch chase_s_bot_s on plane.p_xy_16 {
         l0 = line(start = [366.5 in, 125 in], end = [385.5 in, 125 in])
         l1 = line(start = [385.5 in, 125 in], end = [385.5 in, 128.5 in])
@@ -272,7 +268,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 128.5 in], end = [366.5 in, 125 in])
     }
     feature chase_s_bot = extrude(profile = sketch.chase_s_bot_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_s_bot.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_s_bot.body, material = material.douglas_fir_lumber }
     sketch chase_s_top_s on plane.p_xy_17 {
         l0 = line(start = [366.5 in, 125 in], end = [385.5 in, 125 in])
         l1 = line(start = [385.5 in, 125 in], end = [385.5 in, 128.5 in])
@@ -280,7 +276,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 128.5 in], end = [366.5 in, 125 in])
     }
     feature chase_s_top = extrude(profile = sketch.chase_s_top_s, distance = 1.5 in, mode = new)
-    material = { body = feature.chase_s_top.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_s_top.body, material = material.douglas_fir_lumber }
     sketch chase_s_stud0_s on plane.p_xy_18 {
         l0 = line(start = [366.5 in, 125 in], end = [368 in, 125 in])
         l1 = line(start = [368 in, 125 in], end = [368 in, 128.5 in])
@@ -288,7 +284,7 @@ part hvac_equipment {
         l3 = line(start = [366.5 in, 128.5 in], end = [366.5 in, 125 in])
     }
     feature chase_s_stud0 = extrude(profile = sketch.chase_s_stud0_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_s_stud0.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_s_stud0.body, material = material.douglas_fir_lumber }
     sketch chase_s_stud1_s on plane.p_xy_18 {
         l0 = line(start = [384 in, 125 in], end = [385.5 in, 125 in])
         l1 = line(start = [385.5 in, 125 in], end = [385.5 in, 128.5 in])
@@ -296,7 +292,7 @@ part hvac_equipment {
         l3 = line(start = [384 in, 128.5 in], end = [384 in, 125 in])
     }
     feature chase_s_stud1 = extrude(profile = sketch.chase_s_stud1_s, distance = 93.125 in, mode = new)
-    material = { body = feature.chase_s_stud1.body, material = "material.douglas_fir_lumber" }
+    material = { body = feature.chase_s_stud1.body, material = material.douglas_fir_lumber }
     sketch branch_0_0_path on plane.p_yz_19 {
         l0 = line(start = [173 in, 227 in], end = [70 in, 227 in])
         l1 = line(start = [70 in, 227 in], end = [70 in, 219 in])
@@ -305,7 +301,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 108 in], radius = 3 in)
     }
     feature branch_0_0 = sweep(profile = sketch.branch_0_0_p, path = sketch.branch_0_0_path, follow_path = true)
-    material = { body = feature.branch_0_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_0_0.body, material = material.galvanized_steel }
     sketch boot_0_s on plane.p_xy_21 {
         l0 = line(start = [103 in, 67 in], end = [113 in, 67 in])
         l1 = line(start = [113 in, 67 in], end = [113 in, 73 in])
@@ -313,7 +309,7 @@ part hvac_equipment {
         l3 = line(start = [103 in, 73 in], end = [103 in, 67 in])
     }
     feature boot_0 = extrude(profile = sketch.boot_0_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_0.body, material = material.galvanized_steel }
     sketch register2_0_s on plane.p_xy_22 {
         l0 = line(start = [102 in, 66 in], end = [114 in, 66 in])
         l1 = line(start = [114 in, 66 in], end = [114 in, 74 in])
@@ -321,7 +317,7 @@ part hvac_equipment {
         l3 = line(start = [102 in, 74 in], end = [102 in, 66 in])
     }
     feature register2_0 = extrude(profile = sketch.register2_0_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_0.body, material = "material.aluminum" }
+    material = { body = feature.register2_0.body, material = material.aluminum }
     sketch branch_1_0_path on plane.p_yz_23 {
         l0 = line(start = [173 in, 227 in], end = [70 in, 227 in])
         l1 = line(start = [70 in, 227 in], end = [70 in, 219 in])
@@ -330,7 +326,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 300 in], radius = 3 in)
     }
     feature branch_1_0 = sweep(profile = sketch.branch_1_0_p, path = sketch.branch_1_0_path, follow_path = true)
-    material = { body = feature.branch_1_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_1_0.body, material = material.galvanized_steel }
     sketch boot_1_s on plane.p_xy_21 {
         l0 = line(start = [295 in, 67 in], end = [305 in, 67 in])
         l1 = line(start = [305 in, 67 in], end = [305 in, 73 in])
@@ -338,7 +334,7 @@ part hvac_equipment {
         l3 = line(start = [295 in, 73 in], end = [295 in, 67 in])
     }
     feature boot_1 = extrude(profile = sketch.boot_1_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_1.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_1.body, material = material.galvanized_steel }
     sketch register2_1_s on plane.p_xy_22 {
         l0 = line(start = [294 in, 66 in], end = [306 in, 66 in])
         l1 = line(start = [306 in, 66 in], end = [306 in, 74 in])
@@ -346,7 +342,7 @@ part hvac_equipment {
         l3 = line(start = [294 in, 74 in], end = [294 in, 66 in])
     }
     feature register2_1 = extrude(profile = sketch.register2_1_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_1.body, material = "material.aluminum" }
+    material = { body = feature.register2_1.body, material = material.aluminum }
     sketch branch_2_0_path on plane.p_yz_24 {
         l0 = line(start = [173 in, 227 in], end = [70 in, 227 in])
         l1 = line(start = [70 in, 227 in], end = [70 in, 219 in])
@@ -355,7 +351,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 420 in], radius = 3 in)
     }
     feature branch_2_0 = sweep(profile = sketch.branch_2_0_p, path = sketch.branch_2_0_path, follow_path = true)
-    material = { body = feature.branch_2_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_2_0.body, material = material.galvanized_steel }
     sketch boot_2_s on plane.p_xy_21 {
         l0 = line(start = [415 in, 67 in], end = [425 in, 67 in])
         l1 = line(start = [425 in, 67 in], end = [425 in, 73 in])
@@ -363,7 +359,7 @@ part hvac_equipment {
         l3 = line(start = [415 in, 73 in], end = [415 in, 67 in])
     }
     feature boot_2 = extrude(profile = sketch.boot_2_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_2.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_2.body, material = material.galvanized_steel }
     sketch register2_2_s on plane.p_xy_22 {
         l0 = line(start = [414 in, 66 in], end = [426 in, 66 in])
         l1 = line(start = [426 in, 66 in], end = [426 in, 74 in])
@@ -371,7 +367,7 @@ part hvac_equipment {
         l3 = line(start = [414 in, 74 in], end = [414 in, 66 in])
     }
     feature register2_2 = extrude(profile = sketch.register2_2_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_2.body, material = "material.aluminum" }
+    material = { body = feature.register2_2.body, material = material.aluminum }
     sketch branch_3_0_path on plane.p_yz_25 {
         l0 = line(start = [187 in, 227 in], end = [290 in, 227 in])
         l1 = line(start = [290 in, 227 in], end = [290 in, 219 in])
@@ -380,7 +376,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 60 in], radius = 3 in)
     }
     feature branch_3_0 = sweep(profile = sketch.branch_3_0_p, path = sketch.branch_3_0_path, follow_path = true)
-    material = { body = feature.branch_3_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_3_0.body, material = material.galvanized_steel }
     sketch boot_3_s on plane.p_xy_21 {
         l0 = line(start = [55 in, 287 in], end = [65 in, 287 in])
         l1 = line(start = [65 in, 287 in], end = [65 in, 293 in])
@@ -388,7 +384,7 @@ part hvac_equipment {
         l3 = line(start = [55 in, 293 in], end = [55 in, 287 in])
     }
     feature boot_3 = extrude(profile = sketch.boot_3_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_3.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_3.body, material = material.galvanized_steel }
     sketch register2_3_s on plane.p_xy_22 {
         l0 = line(start = [54 in, 286 in], end = [66 in, 286 in])
         l1 = line(start = [66 in, 286 in], end = [66 in, 294 in])
@@ -396,7 +392,7 @@ part hvac_equipment {
         l3 = line(start = [54 in, 294 in], end = [54 in, 286 in])
     }
     feature register2_3 = extrude(profile = sketch.register2_3_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_3.body, material = "material.aluminum" }
+    material = { body = feature.register2_3.body, material = material.aluminum }
     sketch branch_4_0_path on plane.p_yz_27 {
         l0 = line(start = [187 in, 227 in], end = [280 in, 227 in])
         l1 = line(start = [280 in, 227 in], end = [280 in, 219 in])
@@ -405,7 +401,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 180 in], radius = 3 in)
     }
     feature branch_4_0 = sweep(profile = sketch.branch_4_0_p, path = sketch.branch_4_0_path, follow_path = true)
-    material = { body = feature.branch_4_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_4_0.body, material = material.galvanized_steel }
     sketch boot_4_s on plane.p_xy_21 {
         l0 = line(start = [175 in, 277 in], end = [185 in, 277 in])
         l1 = line(start = [185 in, 277 in], end = [185 in, 283 in])
@@ -413,7 +409,7 @@ part hvac_equipment {
         l3 = line(start = [175 in, 283 in], end = [175 in, 277 in])
     }
     feature boot_4 = extrude(profile = sketch.boot_4_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_4.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_4.body, material = material.galvanized_steel }
     sketch register2_4_s on plane.p_xy_22 {
         l0 = line(start = [174 in, 276 in], end = [186 in, 276 in])
         l1 = line(start = [186 in, 276 in], end = [186 in, 284 in])
@@ -421,7 +417,7 @@ part hvac_equipment {
         l3 = line(start = [174 in, 284 in], end = [174 in, 276 in])
     }
     feature register2_4 = extrude(profile = sketch.register2_4_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_4.body, material = "material.aluminum" }
+    material = { body = feature.register2_4.body, material = material.aluminum }
     sketch branch_5_0_path on plane.p_yz_23 {
         l0 = line(start = [187 in, 227 in], end = [290 in, 227 in])
         l1 = line(start = [290 in, 227 in], end = [290 in, 219 in])
@@ -430,7 +426,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 300 in], radius = 3 in)
     }
     feature branch_5_0 = sweep(profile = sketch.branch_5_0_p, path = sketch.branch_5_0_path, follow_path = true)
-    material = { body = feature.branch_5_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_5_0.body, material = material.galvanized_steel }
     sketch boot_5_s on plane.p_xy_21 {
         l0 = line(start = [295 in, 287 in], end = [305 in, 287 in])
         l1 = line(start = [305 in, 287 in], end = [305 in, 293 in])
@@ -438,7 +434,7 @@ part hvac_equipment {
         l3 = line(start = [295 in, 293 in], end = [295 in, 287 in])
     }
     feature boot_5 = extrude(profile = sketch.boot_5_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_5.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_5.body, material = material.galvanized_steel }
     sketch register2_5_s on plane.p_xy_22 {
         l0 = line(start = [294 in, 286 in], end = [306 in, 286 in])
         l1 = line(start = [306 in, 286 in], end = [306 in, 294 in])
@@ -446,7 +442,7 @@ part hvac_equipment {
         l3 = line(start = [294 in, 294 in], end = [294 in, 286 in])
     }
     feature register2_5 = extrude(profile = sketch.register2_5_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_5.body, material = "material.aluminum" }
+    material = { body = feature.register2_5.body, material = material.aluminum }
     sketch branch_6_0_path on plane.p_yz_24 {
         l0 = line(start = [187 in, 227 in], end = [290 in, 227 in])
         l1 = line(start = [290 in, 227 in], end = [290 in, 219 in])
@@ -455,7 +451,7 @@ part hvac_equipment {
         c = circle(center = [227 in, 420 in], radius = 3 in)
     }
     feature branch_6_0 = sweep(profile = sketch.branch_6_0_p, path = sketch.branch_6_0_path, follow_path = true)
-    material = { body = feature.branch_6_0.body, material = "material.galvanized_steel" }
+    material = { body = feature.branch_6_0.body, material = material.galvanized_steel }
     sketch boot_6_s on plane.p_xy_21 {
         l0 = line(start = [415 in, 287 in], end = [425 in, 287 in])
         l1 = line(start = [425 in, 287 in], end = [425 in, 293 in])
@@ -463,7 +459,7 @@ part hvac_equipment {
         l3 = line(start = [415 in, 293 in], end = [415 in, 287 in])
     }
     feature boot_6 = extrude(profile = sketch.boot_6_s, distance = 3.125 in, mode = new)
-    material = { body = feature.boot_6.body, material = "material.galvanized_steel" }
+    material = { body = feature.boot_6.body, material = material.galvanized_steel }
     sketch register2_6_s on plane.p_xy_22 {
         l0 = line(start = [414 in, 286 in], end = [426 in, 286 in])
         l1 = line(start = [426 in, 286 in], end = [426 in, 294 in])
@@ -471,56 +467,56 @@ part hvac_equipment {
         l3 = line(start = [414 in, 294 in], end = [414 in, 286 in])
     }
     feature register2_6 = extrude(profile = sketch.register2_6_s, distance = 0.5 in, mode = new)
-    material = { body = feature.register2_6.body, material = "material.aluminum" }
-    output hvac_equipment_air_handler = { body = feature.air_handler.body, part_number = "M-AHU", material = "material.galvanized_steel", label = "Air handler, 3 ton, 10 kW heat strips" }
-    output hvac_equipment_return_platform = { body = feature.return_platform.body, part_number = "M-RTN", material = "material.gypsum_board", label = "Return platform with filter, 20 x 20 in" }
-    output hvac_equipment_return_grille = { body = feature.return_grille.body, part_number = "M-RG", material = "material.aluminum", label = "Return grille, 20 x 14 in" }
-    output hvac_equipment_supply_plenum = { body = feature.supply_plenum.body, part_number = "M-PLN", material = "material.galvanized_steel", label = "Supply plenum" }
-    output hvac_equipment_supply_trunk = { body = feature.supply_trunk.body, part_number = "M-TRK", material = "material.galvanized_steel", label = "Supply trunk 14 x 8 in in the soffit" }
-    output hvac_equipment_register_utility = { body = feature.register_utility.body, part_number = "M-REG", material = "material.aluminum", label = "Supply register, utility room" }
-    output hvac_equipment_register_den = { body = feature.register_den.body, part_number = "M-REG", material = "material.aluminum", label = "Supply register, den, 12 x 6 in" }
-    output hvac_equipment_condenser_pad = { body = feature.condenser_pad.body, part_number = "M-PAD", material = "material.concrete", label = "Condenser pad, 36 x 36 x 4 in" }
-    output hvac_equipment_condenser = { body = feature.condenser.body, part_number = "M-HP", material = "material.galvanized_steel", label = "Heat pump condenser, 3 ton" }
-    output hvac_equipment_line_set = { body = feature.line_set_0.body, part_number = "M-LS", material = "material.copper_insulated", label = "Refrigerant line set, 3/4 in suction and 3/8 in liquid, insulated" }
-    output hvac_equipment_riser_up = { body = feature.riser_up.body, part_number = "M-RSR", material = "material.galvanized_steel", label = "Supply riser, 11 x 10 in" }
-    output hvac_equipment_riser_bay = { body = feature.riser_bay.body, part_number = "M-RSR", material = "material.galvanized_steel", label = "Supply riser, 11 x 10 in" }
-    output hvac_equipment_riser_l2 = { body = feature.riser_l2.body, part_number = "M-RSR", material = "material.galvanized_steel", label = "Supply riser, 11 x 10 in" }
-    output hvac_equipment_riser_attic = { body = feature.riser_attic.body, part_number = "M-RSR", material = "material.galvanized_steel", label = "Supply riser, 11 x 10 in" }
-    output hvac_equipment_attic_trunk = { body = feature.attic_trunk.body, part_number = "M-TRK", material = "material.galvanized_steel", label = "Second-floor supply trunk, 14 x 8 in, in the attic" }
-    output hvac_equipment_chase_w_gyp = { body = feature.chase_w_gyp.body, part_number = "M-CH", material = "material.gypsum_board", label = "Duct chase gypsum board, 1/2 in" }
-    output hvac_equipment_chase_w_bot = { body = feature.chase_w_bot.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4 on the flat" }
-    output hvac_equipment_chase_w_top = { body = feature.chase_w_top.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4 on the flat" }
-    output hvac_equipment_chase_w_stud0 = { body = feature.chase_w_stud0.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4 on the flat" }
-    output hvac_equipment_chase_w_stud1 = { body = feature.chase_w_stud1.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4 on the flat" }
-    output hvac_equipment_chase_e_gyp = { body = feature.chase_e_gyp.body, part_number = "M-CH", material = "material.gypsum_board", label = "Duct chase gypsum board, 1/2 in" }
-    output hvac_equipment_chase_e_bot = { body = feature.chase_e_bot.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4 on the flat" }
-    output hvac_equipment_chase_e_top = { body = feature.chase_e_top.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4 on the flat" }
-    output hvac_equipment_chase_e_stud0 = { body = feature.chase_e_stud0.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4 on the flat" }
-    output hvac_equipment_chase_e_stud1 = { body = feature.chase_e_stud1.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4 on the flat" }
-    output hvac_equipment_chase_s_gyp = { body = feature.chase_s_gyp.body, part_number = "M-CH", material = "material.gypsum_board", label = "Duct chase gypsum board, 1/2 in" }
-    output hvac_equipment_chase_s_bot = { body = feature.chase_s_bot.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4" }
-    output hvac_equipment_chase_s_top = { body = feature.chase_s_top.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase plate, 2x4" }
-    output hvac_equipment_chase_s_stud0 = { body = feature.chase_s_stud0.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4" }
-    output hvac_equipment_chase_s_stud1 = { body = feature.chase_s_stud1.body, part_number = "M-CH", material = "material.douglas_fir_lumber", label = "Duct chase stud, 2x4" }
-    output hvac_equipment_branch_0 = { body = feature.branch_0_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, bedroom 3" }
-    output hvac_equipment_boot_0 = { body = feature.boot_0.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, bedroom 3" }
-    output hvac_equipment_register2_0 = { body = feature.register2_0.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, bedroom 3" }
-    output hvac_equipment_branch_1 = { body = feature.branch_1_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, primary bedroom, west" }
-    output hvac_equipment_boot_1 = { body = feature.boot_1.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, primary bedroom, west" }
-    output hvac_equipment_register2_1 = { body = feature.register2_1.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, primary bedroom, west" }
-    output hvac_equipment_branch_2 = { body = feature.branch_2_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, primary bedroom, east" }
-    output hvac_equipment_boot_2 = { body = feature.boot_2.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, primary bedroom, east" }
-    output hvac_equipment_register2_2 = { body = feature.register2_2.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, primary bedroom, east" }
-    output hvac_equipment_branch_3 = { body = feature.branch_3_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, bedroom 2" }
-    output hvac_equipment_boot_3 = { body = feature.boot_3.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, bedroom 2" }
-    output hvac_equipment_register2_3 = { body = feature.register2_3.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, bedroom 2" }
-    output hvac_equipment_branch_4 = { body = feature.branch_4_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, hall bath" }
-    output hvac_equipment_boot_4 = { body = feature.boot_4.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, hall bath" }
-    output hvac_equipment_register2_4 = { body = feature.register2_4.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, hall bath" }
-    output hvac_equipment_branch_5 = { body = feature.branch_5_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, primary bath" }
-    output hvac_equipment_boot_5 = { body = feature.boot_5.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, primary bath" }
-    output hvac_equipment_register2_5 = { body = feature.register2_5.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, primary bath" }
-    output hvac_equipment_branch_6 = { body = feature.branch_6_0.body, part_number = "M-BR", material = "material.galvanized_steel", label = "Supply branch, 6 in round, primary closet" }
-    output hvac_equipment_boot_6 = { body = feature.boot_6.body, part_number = "M-BT", material = "material.galvanized_steel", label = "Register boot, 10 x 6 in, primary closet" }
-    output hvac_equipment_register2_6 = { body = feature.register2_6.body, part_number = "M-REG", material = "material.aluminum", label = "Ceiling register, 10 x 6 in, primary closet" }
+    material = { body = feature.register2_6.body, material = material.aluminum }
+    output hvac_equipment_air_handler = { body = feature.air_handler.body, part_number = "M-AHU", material = material.galvanized_steel, label = "Air handler, 3 ton, 10 kW heat strips" }
+    output hvac_equipment_return_platform = { body = feature.return_platform.body, part_number = "M-RTN", material = material.gypsum_board, label = "Return platform with filter, 20 x 20 in" }
+    output hvac_equipment_return_grille = { body = feature.return_grille.body, part_number = "M-RG", material = material.aluminum, label = "Return grille, 20 x 14 in" }
+    output hvac_equipment_supply_plenum = { body = feature.supply_plenum.body, part_number = "M-PLN", material = material.galvanized_steel, label = "Supply plenum" }
+    output hvac_equipment_supply_trunk = { body = feature.supply_trunk.body, part_number = "M-TRK", material = material.galvanized_steel, label = "Supply trunk 14 x 8 in in the soffit" }
+    output hvac_equipment_register_utility = { body = feature.register_utility.body, part_number = "M-REG", material = material.aluminum, label = "Supply register, utility room" }
+    output hvac_equipment_register_den = { body = feature.register_den.body, part_number = "M-REG", material = material.aluminum, label = "Supply register, den, 12 x 6 in" }
+    output hvac_equipment_condenser_pad = { body = feature.condenser_pad.body, part_number = "M-PAD", material = material.concrete, label = "Condenser pad, 36 x 36 x 4 in" }
+    output hvac_equipment_condenser = { body = feature.condenser.body, part_number = "M-HP", material = material.galvanized_steel, label = "Heat pump condenser, 3 ton" }
+    output hvac_equipment_line_set = { body = feature.line_set_0.body, part_number = "M-LS", material = material.copper_insulated, label = "Refrigerant line set, 3/4 in suction and 3/8 in liquid, insulated" }
+    output hvac_equipment_riser_up = { body = feature.riser_up.body, part_number = "M-RSR", material = material.galvanized_steel, label = "Supply riser, 11 x 10 in" }
+    output hvac_equipment_riser_bay = { body = feature.riser_bay.body, part_number = "M-RSR", material = material.galvanized_steel, label = "Supply riser, 11 x 10 in" }
+    output hvac_equipment_riser_l2 = { body = feature.riser_l2.body, part_number = "M-RSR", material = material.galvanized_steel, label = "Supply riser, 11 x 10 in" }
+    output hvac_equipment_riser_attic = { body = feature.riser_attic.body, part_number = "M-RSR", material = material.galvanized_steel, label = "Supply riser, 11 x 10 in" }
+    output hvac_equipment_attic_trunk = { body = feature.attic_trunk.body, part_number = "M-TRK", material = material.galvanized_steel, label = "Second-floor supply trunk, 14 x 8 in, in the attic" }
+    output hvac_equipment_chase_w_gyp = { body = feature.chase_w_gyp.body, part_number = "M-CH", material = material.gypsum_board, label = "Duct chase gypsum board, 1/2 in" }
+    output hvac_equipment_chase_w_bot = { body = feature.chase_w_bot.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4 on the flat" }
+    output hvac_equipment_chase_w_top = { body = feature.chase_w_top.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4 on the flat" }
+    output hvac_equipment_chase_w_stud0 = { body = feature.chase_w_stud0.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4 on the flat" }
+    output hvac_equipment_chase_w_stud1 = { body = feature.chase_w_stud1.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4 on the flat" }
+    output hvac_equipment_chase_e_gyp = { body = feature.chase_e_gyp.body, part_number = "M-CH", material = material.gypsum_board, label = "Duct chase gypsum board, 1/2 in" }
+    output hvac_equipment_chase_e_bot = { body = feature.chase_e_bot.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4 on the flat" }
+    output hvac_equipment_chase_e_top = { body = feature.chase_e_top.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4 on the flat" }
+    output hvac_equipment_chase_e_stud0 = { body = feature.chase_e_stud0.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4 on the flat" }
+    output hvac_equipment_chase_e_stud1 = { body = feature.chase_e_stud1.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4 on the flat" }
+    output hvac_equipment_chase_s_gyp = { body = feature.chase_s_gyp.body, part_number = "M-CH", material = material.gypsum_board, label = "Duct chase gypsum board, 1/2 in" }
+    output hvac_equipment_chase_s_bot = { body = feature.chase_s_bot.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4" }
+    output hvac_equipment_chase_s_top = { body = feature.chase_s_top.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase plate, 2x4" }
+    output hvac_equipment_chase_s_stud0 = { body = feature.chase_s_stud0.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4" }
+    output hvac_equipment_chase_s_stud1 = { body = feature.chase_s_stud1.body, part_number = "M-CH", material = material.douglas_fir_lumber, label = "Duct chase stud, 2x4" }
+    output hvac_equipment_branch_0 = { body = feature.branch_0_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, bedroom 3" }
+    output hvac_equipment_boot_0 = { body = feature.boot_0.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, bedroom 3" }
+    output hvac_equipment_register2_0 = { body = feature.register2_0.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, bedroom 3" }
+    output hvac_equipment_branch_1 = { body = feature.branch_1_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, primary bedroom, west" }
+    output hvac_equipment_boot_1 = { body = feature.boot_1.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, primary bedroom, west" }
+    output hvac_equipment_register2_1 = { body = feature.register2_1.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, primary bedroom, west" }
+    output hvac_equipment_branch_2 = { body = feature.branch_2_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, primary bedroom, east" }
+    output hvac_equipment_boot_2 = { body = feature.boot_2.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, primary bedroom, east" }
+    output hvac_equipment_register2_2 = { body = feature.register2_2.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, primary bedroom, east" }
+    output hvac_equipment_branch_3 = { body = feature.branch_3_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, bedroom 2" }
+    output hvac_equipment_boot_3 = { body = feature.boot_3.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, bedroom 2" }
+    output hvac_equipment_register2_3 = { body = feature.register2_3.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, bedroom 2" }
+    output hvac_equipment_branch_4 = { body = feature.branch_4_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, hall bath" }
+    output hvac_equipment_boot_4 = { body = feature.boot_4.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, hall bath" }
+    output hvac_equipment_register2_4 = { body = feature.register2_4.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, hall bath" }
+    output hvac_equipment_branch_5 = { body = feature.branch_5_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, primary bath" }
+    output hvac_equipment_boot_5 = { body = feature.boot_5.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, primary bath" }
+    output hvac_equipment_register2_5 = { body = feature.register2_5.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, primary bath" }
+    output hvac_equipment_branch_6 = { body = feature.branch_6_0.body, part_number = "M-BR", material = material.galvanized_steel, label = "Supply branch, 6 in round, primary closet" }
+    output hvac_equipment_boot_6 = { body = feature.boot_6.body, part_number = "M-BT", material = material.galvanized_steel, label = "Register boot, 10 x 6 in, primary closet" }
+    output hvac_equipment_register2_6 = { body = feature.register2_6.body, part_number = "M-REG", material = material.aluminum, label = "Ceiling register, 10 x 6 in, primary closet" }
 }

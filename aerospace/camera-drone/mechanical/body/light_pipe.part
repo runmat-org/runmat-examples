@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The status light's window: a clear light pipe that fills the slot at the front of the upper
 // shell, lit from the flight controller's status LED below. It is a 2.6 x 15.6 mm obround on the
 // window's centres (R1.3 ends at x = 67.5 and 80.5 mm), so it clears the 3 x 16 mm window by

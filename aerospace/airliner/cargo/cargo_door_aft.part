@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A door to starboard, 1800 mm wide and 1150 mm tall: its outer skin, 6 mm proud of the fuselage.
 part cargo_door_aft {
     sketch s on origin.xy {

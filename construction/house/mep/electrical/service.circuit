@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 use "library/devices.circuit"
 
 // The service one-line: the utility's 120/240 V single-phase drop to the meter on wall A, 4/0 Al

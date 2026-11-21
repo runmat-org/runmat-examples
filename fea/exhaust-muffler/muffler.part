@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A two-chamber exhaust muffler in 1.5 mm aluminized steel, with the exhaust gas it holds. A
 // 50 mm inlet pipe feeds a 180 mm bore shell; a baffle at mid-length with a 50 mm central
 // opening splits it into two 170 mm chambers, and a 50 mm tail pipe leaves the far end cap.
@@ -81,10 +78,10 @@ part muffler {
             feature.chamber_2.face.start,
             feature.chamber_2.face.side(chamber_2_s.rim),
             feature.chamber_2.face.end,
-            feature.tail_bore.face.side(tail_bore_s.rim)
-        ],
-        expect = at_least_one,
-        body = feature.inlet_bore.body,
+            feature.tail_bore.face.side(tail_bore_s.rim),
+        ]
+        expect = one_or_more
+        body = feature.inlet_bore.body
         label = "Walls"
     }
 

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The cabin reading-light driver: one per triple seat row, above the ceiling panel, driving the
 // row's three reading lights as one series string at 333 mA. The 28 V DC cabin bus comes in
 // through a fuse, a series Schottky and a 33 V TVS. A 60 V hysteretic step-down LED driver
@@ -15,81 +12,81 @@ circuit reading_light {
     // 60 V 1 A hysteretic step-down LED driver with an internal switch: output current
     // 0.1 V / R_sense; ADJ below 0.2 V turns the switch off (PWM dimming).
     part "LEDBUCK-60V-1A" = {
-        manufacturer = "Generic",
-        description = "60 V 1 A hysteretic step-down LED driver, high-side current sense, SOT-23-5",
-        category = driver,
-        package = "SOT23-5",
-        params = { vin_max = "60 V", iout_max = "1 A", vsense = "100 mV" },
+        manufacturer = "Generic"
+        description = "60 V 1 A hysteretic step-down LED driver, high-side current sense, SOT-23-5"
+        category = driver
+        package = "SOT23-5"
+        params = { vin_max = "60 V", iout_max = "1 A", vsense = "100 mV" }
         pins = [
             { name = SW, pad = "1", type = power_out },
             { name = GND, pad = "2", type = power_in },
             { name = ADJ, pad = "3", type = input },
             { name = ISENSE, pad = "4", type = input },
-            { name = VIN, pad = "5", type = power_in }
+            { name = VIN, pad = "5", type = power_in },
         ]
     }
 
     part "D-SCHOTTKY-60V-2A" = {
-        manufacturer = "Generic",
-        description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A",
-        category = diode,
-        package = "D2010",
-        params = { vr_max = "60 V", if_max = "2 A" },
+        manufacturer = "Generic"
+        description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A"
+        category = diode
+        package = "D2010"
+        params = { vr_max = "60 V", if_max = "2 A" }
         pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
     }
 
     part "TVS-33V-600W" = {
-        manufacturer = "Generic",
-        description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)",
-        category = diode,
-        package = "D2010",
-        params = { v_standoff = "33 V", v_clamp = "53 V" },
+        manufacturer = "Generic"
+        description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)"
+        category = diode
+        package = "D2010"
+        params = { v_standoff = "33 V", v_clamp = "53 V" }
         pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
     }
 
     part "FUSE-0A5-1206" = {
-        manufacturer = "Generic",
-        description = "0.5 A slow-blow chip fuse, 63 V, 1206",
-        category = fuse,
-        package = "F1206",
-        params = { current = "0.5 A", voltage = "63 V" },
+        manufacturer = "Generic"
+        description = "0.5 A slow-blow chip fuse, 63 V, 1206"
+        category = fuse
+        package = "F1206"
+        params = { current = "0.5 A", voltage = "63 V" }
         pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
     }
 
     part "R0805-0R30" = {
-        manufacturer = "Generic",
-        description = "0.30 Ohm 1 % 0.25 W current-sense resistor, 0805",
-        category = resistor,
-        package = "R0805",
-        params = { resistance = "0.3 ohm", power_rating = "0.25 W" },
+        manufacturer = "Generic"
+        description = "0.30 Ohm 1 % 0.25 W current-sense resistor, 0805"
+        category = resistor
+        package = "R0805"
+        params = { resistance = "0.3 ohm", power_rating = "0.25 W" }
         pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
     }
 
     part "L1812-68U" = {
-        manufacturer = "Generic",
-        description = "68 uH 0.8 A shielded power inductor",
-        category = inductor,
-        package = "L1812",
-        params = { inductance = "68 uH", current = "0.8 A" },
+        manufacturer = "Generic"
+        description = "68 uH 0.8 A shielded power inductor"
+        category = inductor
+        package = "L1812"
+        params = { inductance = "68 uH", current = "0.8 A" }
         pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
     }
 
     part "CONN-1X04" = {
-        manufacturer = "Generic",
-        description = "4-way 2.54 mm header",
-        category = connector,
-        package = "PinHeader1x04",
+        manufacturer = "Generic"
+        description = "4-way 2.54 mm header"
+        category = connector
+        package = "PinHeader1x04"
         pins = [
             { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
-            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive }
+            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
         ]
     }
 
     part "CONN-1X02" = {
-        manufacturer = "Generic",
-        description = "2-way 2.54 mm header",
-        category = connector,
-        package = "PinHeader1x02",
+        manufacturer = "Generic"
+        description = "2-way 2.54 mm header"
+        category = connector
+        package = "PinHeader1x02"
         pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
     }
 

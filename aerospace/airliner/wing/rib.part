@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A wing rib between the spars, its section scaled to the station's chord and thickness.
 part rib {
     input chord : length = 6400 mm

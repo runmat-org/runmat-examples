@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The pylon from the cowl's crown up into the wing box, 360 mm wide.
 part pylon {
     sketch s on origin.zx {
@@ -9,7 +6,7 @@ part pylon {
         l3 = line(start = [1480 mm, 5000 mm], end = [1720 mm, 3200 mm])
         l4 = line(start = [1720 mm, 3200 mm], end = [1040 mm, 700 mm])
     }
-    feature pylon = extrude(profile = sketch.s, distance = 360 mm, symmetric)
+    feature pylon = extrude(profile = sketch.s, distance = 360 mm, symmetric = true)
 
     output pylon = { body = feature.pylon.body, part_number = "NAC-PY-930", material = "titanium", color = "#C7CCD3" }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The brushless motor's bell and shaft: a 22 mm anodised bell with a chamfered cap, turning
 // on its shaft above the pod's rim. Its origin is the pod's origin (motor axis z).
 part motor {

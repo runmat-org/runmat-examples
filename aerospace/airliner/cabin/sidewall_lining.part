@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The sidewall lining over one frame bay: 45.3° of the cabin wall with the window's reveal.
 part sidewall_lining {
     sketch s on origin.xy {

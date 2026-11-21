@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The spinner at the fan's hub.
 part spinner {
     sketch s on origin.xy {

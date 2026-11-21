@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A lavatory: a monument with its door on the aisle.
 part lavatory {
     sketch s on origin.yz {

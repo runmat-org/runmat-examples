@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The kitchen, in building coordinates, along the north and east walls of the first floor: base
 // cabinets 34 1/2 in high and 24 in deep (3/4 in plywood carcasses on 4 in toe kicks) under a 1 1/2 in stone countertop at 36 1/2 in above the
 // slab, a sink centered on the window W5, a 30 in range, a refrigerator and wall cabinets clear of
@@ -220,17 +217,17 @@ part kitchen {
     }
     feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 25.9681 in, mode = cut)
     // end MEP penetrations all
-    output kitchen = { body = feature.base_north.body, part_number = "K-1", material = "material.birch_plywood_cabinet", color = "#E9E3D6", label = "Base cabinets" }
-    output kitchen_countertop = { body = feature.top_north.body, part_number = "K-1", material = "material.granite_countertop", color = "#5E6266", label = "Countertop" }
-    output kitchen_sink = { body = feature.sink.body, part_number = "K-1", material = "material.stainless_304", label = "Sink, 30 x 18 in" }
-    output kitchen_range = { body = feature.range.body, part_number = "K-1", material = "material.stainless_304", label = "Range, 30 in" }
-    output kitchen_refrigerator = { body = feature.refrigerator.body, part_number = "K-1", material = "material.stainless_304", label = "Refrigerator, 36 in" }
-    material = { body = feature.sink_base.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.base_north2.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.base_east1.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.base_east2.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.upper_w.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.upper_e.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.top_east1.body, material = "material.granite_countertop" }
-    material = { body = feature.top_east2.body, material = "material.granite_countertop" }
+    output kitchen = { body = feature.base_north.body, part_number = "K-1", material = material.birch_plywood_cabinet, color = "#E9E3D6", label = "Base cabinets" }
+    output kitchen_countertop = { body = feature.top_north.body, part_number = "K-1", material = material.granite_countertop, color = "#5E6266", label = "Countertop" }
+    output kitchen_sink = { body = feature.sink.body, part_number = "K-1", material = material.stainless_304, label = "Sink, 30 x 18 in" }
+    output kitchen_range = { body = feature.range.body, part_number = "K-1", material = material.stainless_304, label = "Range, 30 in" }
+    output kitchen_refrigerator = { body = feature.refrigerator.body, part_number = "K-1", material = material.stainless_304, label = "Refrigerator, 36 in" }
+    material = { body = feature.sink_base.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.base_north2.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.base_east1.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.base_east2.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.upper_w.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.upper_e.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.top_east1.body, material = material.granite_countertop }
+    material = { body = feature.top_east2.body, material = material.granite_countertop }
 }

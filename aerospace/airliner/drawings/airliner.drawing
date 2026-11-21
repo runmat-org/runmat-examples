@@ -1,18 +1,15 @@
-runmat 0.7
-std 1
-
 // The airliner's general arrangement at 1:200 on A2, third-angle projection: the side
 // elevation, the plan above it and the front view beside it, balloons on the top-level
 // assemblies, the parts list and the overall dimensions in the notes.
 drawing airliner {
     format a2 = {
-        size = { size = iso, name = A2 },
+        size = { size = iso, name = A2 }
         title_block = [
             { label = "Title", source = { source = literal, text = "Narrow-body airliner, general arrangement" } },
             { label = "Part number", source = { source = literal, text = "AL-000" } },
             { label = "Scale", source = { source = scale } },
             { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } }
+            { label = "Rev", source = { source = revision } },
         ]
     }
 
@@ -28,15 +25,15 @@ drawing airliner {
     annotation b4 = balloon(occurrence = [{ name = main_gear_starboard }], table = parts, view = right)
     annotation b5 = balloon(occurrence = [{ name = nose_gear }], table = parts, view = front)
 
-    table parts = bom(view = front, sheet = "1", at = [330, 230], spec = { structure = top_level, columns = [{ column = { column = item } }, { column = { column = definition } }, { column = { column = kind } }, { column = { column = quantity } }] })
+    table parts = bom(view = front, sheet = "1", at = [330, 230], spec = { structure = top_level, columns = [{ column = item }, { column = definition }, { column = kind }, { column = quantity }] })
     table notes = notes(
         rows = [
             "OVERALL LENGTH 38.0 M. SPAN 34.8 M OVER THE WINGLETS. HEIGHT 12.3 M, TIRES TO FIN TIP.",
             "FUSELAGE DIAMETER 3.96 M. WING AREA AND SIZES: SEE AIRLINER_SKELETON.PART.",
             "DIMENSIONS IN MILLIMETERS UNLESS STATED.",
-            "THIRD-ANGLE PROJECTION."
+            "THIRD-ANGLE PROJECTION.",
         ],
         sheet = "1",
-        at = [0, 0]
+        at = [0, 0],
     )
 }

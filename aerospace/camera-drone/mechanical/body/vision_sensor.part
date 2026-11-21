@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A vision sensor: a stereo camera's lens in its bezel (the obstacle-sensing pairs at the nose
 // and under the belly). Its origin is the lens centre on the shell, looking along +z.
 part vision_sensor {

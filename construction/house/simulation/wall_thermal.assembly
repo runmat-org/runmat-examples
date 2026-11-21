@@ -1,10 +1,7 @@
-runmat 0.7
-std 1
-
 // The wall_thermal study's geometry: the exterior-wall section of wall_section.part, exported to
 // geometry/wall_thermal.step for wall_thermal.fea.
 assembly wall_thermal {
     use part wall_section as wall_section {
-        placement = { placement = offset, offset = { translation = [0 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [0 mm, 0 mm, 0 mm])
     }
 }

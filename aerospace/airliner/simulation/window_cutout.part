@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // Study geometry for window_cutout.fea: one frame bay of the barrel skin (500 mm long between
 // frames, 20 degrees of arc, 3 mm 2024-T3 at the 1,980 mm outer radius) with a cabin window's
 // cutout, and the window frame bonded round the cutout inside the skin (40 mm wide, 8 mm deep,
@@ -52,12 +49,12 @@ part window_cutout {
     }
     feature cutout = extrude(profile = sketch.cutout_s, distance = 200 mm, mode = cut)
 
-    region skin_inner : face = { select = [feature.skin.face.side(skin_s.s1)], expect = at_least_one, label = "skin_inner" }
+    region skin_inner : face = { select = [feature.skin.face.side(skin_s.s1)], expect = one_or_more, label = "skin_inner" }
     region fwd_edge : face = { select = [feature.skin.face.side(skin_s.s4)], expect = exactly_one, label = "fwd_edge" }
     region aft_edge : face = { select = [feature.skin.face.side(skin_s.s2)], expect = exactly_one, label = "aft_edge" }
     region sym_low : face = { select = [feature.skin.face.start], expect = exactly_one, label = "sym_low" }
     region sym_high : face = { select = [feature.skin.face.end], expect = exactly_one, label = "sym_high" }
-    region frame_seat : face = { select = [feature.frame.face.side(band_s.l1)], expect = at_least_one, label = "frame_seat" }
+    region frame_seat : face = { select = [feature.frame.face.side(band_s.l1)], expect = one_or_more, label = "frame_seat" }
 
     output skin = { body = feature.skin.body, part_number = "FUS-SK-300-W", material = "aluminum_2024", color = "#F4F5F7" }
     output window_frame = { body = feature.frame.body, part_number = "FUS-WF-041", material = "aluminum_7075", color = "#A7B596" }

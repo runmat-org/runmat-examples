@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // Bath fixtures on the second floor, in building coordinates: the hall bath (60 in tub, toilet,
 // 36 in vanity) and the primary bath (36 x 48 in shower with glass, toilet, 60 in double vanity),
 // on the tile floor. Simple bodies the plumbing connects to.
@@ -250,16 +247,16 @@ part baths {
     }
     feature mep_all_20 = extrude(profile = sketch.mep_all_20_s, distance = 111.0979 in, mode = cut)
     // end MEP penetrations all
-    output baths = { body = feature.tub.body, part_number = "B-1", material = "material.enameled_steel_bathtub", color = "#F3F3F0", label = "Bathtub, 60 x 30 in" }
-    output baths_toilet_hall = { body = feature.bowl_hall.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet" }
-    output baths_toilet_primary = { body = feature.bowl_primary.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet" }
-    output baths_tank_hall = { body = feature.tank_hall.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet tank" }
-    output baths_tank_primary = { body = feature.tank_primary.body, part_number = "B-1", material = "material.vitreous_china", color = "#F7F7F5", label = "Toilet tank" }
-    output baths_shower_base = { body = feature.shower_base.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Shower base" }
-    output baths_vanity_tops = { body = feature.vtop_hall.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Vanity top" }
-    output baths_vanity_top_primary = { body = feature.vtop_primary.body, part_number = "B-1", material = "material.cultured_marble", color = "#EEEDE8", label = "Vanity top" }
-    material = { body = feature.vanity_hall.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.vanity_primary.body, material = "material.birch_plywood_cabinet" }
-    material = { body = feature.glass_e.body, material = "material.glass_tempered" }
-    material = { body = feature.glass_s.body, material = "material.glass_tempered" }
+    output baths = { body = feature.tub.body, part_number = "B-1", material = material.enameled_steel_bathtub, color = "#F3F3F0", label = "Bathtub, 60 x 30 in" }
+    output baths_toilet_hall = { body = feature.bowl_hall.body, part_number = "B-1", material = material.vitreous_china, color = "#F7F7F5", label = "Toilet" }
+    output baths_toilet_primary = { body = feature.bowl_primary.body, part_number = "B-1", material = material.vitreous_china, color = "#F7F7F5", label = "Toilet" }
+    output baths_tank_hall = { body = feature.tank_hall.body, part_number = "B-1", material = material.vitreous_china, color = "#F7F7F5", label = "Toilet tank" }
+    output baths_tank_primary = { body = feature.tank_primary.body, part_number = "B-1", material = material.vitreous_china, color = "#F7F7F5", label = "Toilet tank" }
+    output baths_shower_base = { body = feature.shower_base.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Shower base" }
+    output baths_vanity_tops = { body = feature.vtop_hall.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Vanity top" }
+    output baths_vanity_top_primary = { body = feature.vtop_primary.body, part_number = "B-1", material = material.cultured_marble, color = "#EEEDE8", label = "Vanity top" }
+    material = { body = feature.vanity_hall.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.vanity_primary.body, material = material.birch_plywood_cabinet }
+    material = { body = feature.glass_e.body, material = material.glass_tempered }
+    material = { body = feature.glass_s.body, material = material.glass_tempered }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The interior: partitions with their doors, the stair, the floor and first-floor ceiling finishes,
 // and the kitchen and bath fixtures, in building coordinates (the assembly attaches at the
 // skeleton's building frame). The floor plan is in DESIGN-NOTES, "Floor plan".
@@ -8,87 +5,87 @@ assembly interior {
     // Partitions and guards, one configuration each, placed in building coordinates
     use part partitions as p1_stair {
         configuration = { select = named, name = p1_stair }
-        placement = { placement = offset, offset = { translation = [146 in, 177.5 in, 0 in] } }
+        placement = offset(translation = [146 in, 177.5 in, 0 in])
     }
     use part partitions as p1_utility_w {
         configuration = { select = named, name = p1_utility_w }
-        placement = { placement = offset, offset = { translation = [300.5 in, 6.0156 in, 0 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [300.5 in, 6.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p1_den_n {
         configuration = { select = named, name = p1_den_n }
-        placement = { placement = offset, offset = { translation = [296 in, 134 in, 0 in] } }
+        placement = offset(translation = [296 in, 134 in, 0 in])
     }
     use part partitions as p1_utility_den {
         configuration = { select = named, name = p1_utility_den }
-        placement = { placement = offset, offset = { translation = [364.5 in, 6.0156 in, 0 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [364.5 in, 6.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p2_hall_s {
         configuration = { select = named, name = p2_hall_s }
-        placement = { placement = offset, offset = { translation = [6.0156 in, 141.5 in, 121.75 in] } }
+        placement = offset(translation = [6.0156 in, 141.5 in, 121.75 in])
     }
     use part partitions as p2_hall_n {
         configuration = { select = named, name = p2_hall_n }
-        placement = { placement = offset, offset = { translation = [6.0156 in, 224 in, 121.75 in] } }
+        placement = offset(translation = [6.0156 in, 224 in, 121.75 in])
     }
     use part partitions as p2_br3_primary {
         configuration = { select = named, name = p2_br3_primary }
-        placement = { placement = offset, offset = { translation = [194.5 in, 6.0636 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [194.5 in, 6.0636 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p2_br2_bath {
         configuration = { select = named, name = p2_br2_bath }
-        placement = { placement = offset, offset = { translation = [114.5 in, 228.5 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [114.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p2_baths {
         configuration = { select = named, name = p2_baths }
-        placement = { placement = offset, offset = { translation = [244.5 in, 228.5 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [244.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p2_bath_closet {
         configuration = { select = named, name = p2_bath_closet }
-        placement = { placement = offset, offset = { translation = [344.5 in, 228.5 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [344.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part partitions as p2_guard_s {
         configuration = { select = named, name = p2_guard_s }
-        placement = { placement = offset, offset = { translation = [159.5 in, 177.5 in, 121.75 in] } }
+        placement = offset(translation = [159.5 in, 177.5 in, 121.75 in])
     }
     use part partitions as p2_guard_w {
         configuration = { select = named, name = p2_guard_w }
-        placement = { placement = offset, offset = { translation = [164 in, 182 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [164 in, 182 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     // Interior doors in the partition openings
     use part interior_door as door_1 {
-        placement = { placement = offset, offset = { translation = [300.5 in, 60.0156 in, 0 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [300.5 in, 60.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part interior_door as door_2 {
-        placement = { placement = offset, offset = { translation = [400 in, 134 in, 0 in] } }
+        placement = offset(translation = [400 in, 134 in, 0 in])
     }
     use part interior_door as door_3 {
-        placement = { placement = offset, offset = { translation = [120.2656 in, 141.5 in, 121.75 in] } }
+        placement = offset(translation = [120.2656 in, 141.5 in, 121.75 in])
     }
     use part interior_door as door_4 {
-        placement = { placement = offset, offset = { translation = [320.0156 in, 141.5 in, 121.75 in] } }
+        placement = offset(translation = [320.0156 in, 141.5 in, 121.75 in])
     }
     use part interior_door as door_5 {
-        placement = { placement = offset, offset = { translation = [72.2656 in, 224 in, 121.75 in] } }
+        placement = offset(translation = [72.2656 in, 224 in, 121.75 in])
     }
     use part interior_door as door_6 {
-        placement = { placement = offset, offset = { translation = [124.0156 in, 224 in, 121.75 in] } }
+        placement = offset(translation = [124.0156 in, 224 in, 121.75 in])
     }
     use part interior_door as door_7 {
-        placement = { placement = offset, offset = { translation = [380.0156 in, 224 in, 121.75 in] } }
+        placement = offset(translation = [380.0156 in, 224 in, 121.75 in])
     }
     use part interior_door as door_8 {
-        placement = { placement = offset, offset = { translation = [344.5 in, 258.25 in, 121.75 in], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 90 deg } } }
+        placement = offset(translation = [344.5 in, 258.25 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
     }
     use part stair as stair {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
     use part floor_finishes as floor_finishes {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
     use part kitchen as kitchen {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
     use part baths as baths {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

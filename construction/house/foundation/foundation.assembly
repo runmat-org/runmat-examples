@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The foundation: perimeter and pad footings, the stem wall and the slab on grade, in building
 // coordinates from the skeleton's building frame.
 assembly foundation {

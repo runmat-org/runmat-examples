@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A cargo hold floor with its roller tracks, the length of one hold.
 part cargo_floor_aft {
     feature datum = plane.offset(base = origin.xy, distance = -1702 mm)

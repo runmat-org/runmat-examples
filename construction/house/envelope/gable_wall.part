@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The gable-end cladding above the second-floor plates of walls 1 and 5: 7/16 in OSB on the
 // gable-end truss studs, then the same water-resistive barrier, lath and three-coat stucco as the
 // walls below (exterior_wall.part). Its top edge is the roof plane (the top of the top chords), so
@@ -71,11 +68,11 @@ part gable_wall {
     }
     feature wrb_inner = extrude(profile = sketch.wrb_inner_s, distance = 0.0312 in, mode = new)
 
-    output gable_wall = { body = feature.osb.body, part_number = "EW-G", material = "material.osb", label = "7/16 in OSB gable sheathing" }
-    output gable_wall_stucco_finish = { body = feature.stucco_finish.body, part_number = "EW-G", material = "material.stucco_finish_coat", color = "#D8CDB4", label = "Stucco finish coat, 1/8 in" }
-    output gable_wall_stucco_brown = { body = feature.stucco_brown.body, part_number = "EW-G", material = "material.stucco_brown_coat", color = "#B9AE98", label = "Stucco brown coat, 3/8 in" }
-    output gable_wall_stucco_scratch = { body = feature.stucco_scratch.body, part_number = "EW-G", material = "material.stucco_scratch_coat", color = "#A49C8C", label = "Stucco scratch coat, 3/8 in with the lath" }
-    output gable_wall_lath = { body = feature.lath.body, part_number = "EW-G", material = "material.galvanized_steel_lath", label = "Self-furring expanded metal lath, 2.5 lb/sq yd" }
-    output gable_wall_wrb_outer = { body = feature.wrb_outer.body, part_number = "EW-G", material = "material.asphalt_saturated_kraft_wrb", label = "WRB, outer layer, Grade D 60-minute building paper" }
-    output gable_wall_wrb_inner = { body = feature.wrb_inner.body, part_number = "EW-G", material = "material.asphalt_saturated_kraft_wrb", color = "#5A4A3A", label = "WRB, inner layer, Grade D 60-minute building paper" }
+    output gable_wall = { body = feature.osb.body, part_number = "EW-G", material = material.osb, label = "7/16 in OSB gable sheathing" }
+    output gable_wall_stucco_finish = { body = feature.stucco_finish.body, part_number = "EW-G", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco finish coat, 1/8 in" }
+    output gable_wall_stucco_brown = { body = feature.stucco_brown.body, part_number = "EW-G", material = material.stucco_brown_coat, color = "#B9AE98", label = "Stucco brown coat, 3/8 in" }
+    output gable_wall_stucco_scratch = { body = feature.stucco_scratch.body, part_number = "EW-G", material = material.stucco_scratch_coat, color = "#A49C8C", label = "Stucco scratch coat, 3/8 in with the lath" }
+    output gable_wall_lath = { body = feature.lath.body, part_number = "EW-G", material = material.galvanized_steel_lath, label = "Self-furring expanded metal lath, 2.5 lb/sq yd" }
+    output gable_wall_wrb_outer = { body = feature.wrb_outer.body, part_number = "EW-G", material = material.asphalt_saturated_kraft_wrb, label = "WRB, outer layer, Grade D 60-minute building paper" }
+    output gable_wall_wrb_inner = { body = feature.wrb_inner.body, part_number = "EW-G", material = material.asphalt_saturated_kraft_wrb, color = "#5A4A3A", label = "WRB, inner layer, Grade D 60-minute building paper" }
 }

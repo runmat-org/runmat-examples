@@ -1,10 +1,6 @@
-runmat 0.7
-std 1
-
-
 // The water supply: water heater, PEX manifold and the routed hot and cold runs.
 assembly supply {
     use part supply_piping as supply_piping {
-        placement = { placement = offset, offset = { translation = [0 in, 0 in, 0 in] } }
+        placement = offset(translation = [0 in, 0 in, 0 in])
     }
 }

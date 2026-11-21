@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A cabin window pane, flat, extruded outward through the skin.
 part cabin_window {
     sketch s on origin.zx {

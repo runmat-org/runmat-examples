@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A display unit: a 200 mm square screen standing 8 mm proud of the panel face, and its
 // aluminium case behind it, 190 mm square and 110 mm deep, set into a pocket in the instrument
 // panel. The case is open to the screen, with 2.5 mm walls and back, and four M3 bosses on the
@@ -22,7 +19,7 @@ part display_unit {
         l3 = line(start = [95 mm, 95 mm], end = [-95 mm, 95 mm])
         l4 = line(start = [-95 mm, 95 mm], end = [-95 mm, -95 mm])
     }
-    feature case = extrude(profile = sketch.case_s, distance = 110 mm, reverse, mode = new)
+    feature case = extrude(profile = sketch.case_s, distance = 110 mm, reverse = true, mode = new)
 
     sketch cavity_s on origin.yz {
         l1 = line(start = [-92.5 mm, -92.5 mm], end = [92.5 mm, -92.5 mm])
@@ -30,7 +27,7 @@ part display_unit {
         l3 = line(start = [92.5 mm, 92.5 mm], end = [-92.5 mm, 92.5 mm])
         l4 = line(start = [-92.5 mm, 92.5 mm], end = [-92.5 mm, -92.5 mm])
     }
-    feature cavity = extrude(profile = sketch.cavity_s, distance = 100 mm, reverse, mode = cut)
+    feature cavity = extrude(profile = sketch.cavity_s, distance = 100 mm, reverse = true, mode = cut)
 
     // The bosses stand where the cut below leaves them: the floor of the cavity between them is
     // cut down to the back wall.
@@ -45,7 +42,7 @@ part display_unit {
         b3 = circle(center = [-55 mm, -45 mm], radius = 4 mm)
         b4 = circle(center = [55 mm, -45 mm], radius = 4 mm)
     }
-    feature floor = extrude(profile = sketch.floor_s, distance = 7.5 mm, reverse, mode = cut)
+    feature floor = extrude(profile = sketch.floor_s, distance = 7.5 mm, reverse = true, mode = cut)
 
     region back : face = { select = [feature.case.face.end], expect = exactly_one, label = "case_back" }
     region screen_face : face = { select = [feature.screen.face.end], expect = exactly_one, label = "screen_face" }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A tyre: its section turned about the axle (y). The rim radius and section are inputs.
 part tyre {
     input rim : length = 440 mm

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // Study stand-in for what the gimbal's yaw arm carries, in the arm's frame: the roll motor
 // (17 x 5 mm) on the arm's seat 12 mm under the plate, and ahead of it the yoke, pitch motor,
 // camera and lens. Together they weigh 52.3 g with the centre of mass 17.7 mm ahead of the yaw

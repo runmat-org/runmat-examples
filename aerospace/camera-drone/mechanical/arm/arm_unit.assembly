@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // One folding arm as it swings on its hinge: the arm, the motor pod at its tip (turned by
 // `pod_tilt` about the arm's axis so the motor stays vertical when the hinge is tilted), the
 // motor and the folding propeller. Its origin is the hinge axis (z), and the arm runs along +x.
@@ -18,6 +15,6 @@ assembly arm_unit {
     }
     use assembly motor_station from "../propulsion" as motor {
         configuration = { select = inputs, values = { blade_a = input.blade_a, blade_b = input.blade_b, arm_roll = -input.pod_tilt } }
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = arm, name = tip }, offset = { translation = [input.length_offset, 0 mm, input.rise + 4 mm], rotation = { rotation = axis_angle, axis = [1, 0, 0], angle = input.pod_tilt } } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = arm, name = tip }, offset = { translation = [input.length_offset, 0 mm, input.rise + 4 mm], rotation = axis_angle(axis = [1, 0, 0], angle = input.pod_tilt) })
     }
 }

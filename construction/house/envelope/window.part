@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A vinyl window unit for the opening schedule (DESIGN-NOTES, "Opening schedule"): a 1 1/4 in
 // frame 3 1/4 in deep, sashes 1 3/4 in wide, and an insulating glass unit of two 1/8 in low-E
 // lites around a 1/2 in argon-filled space. The configurations are the schedule's types W1-W5:
@@ -193,27 +190,27 @@ part window {
     }
     feature w5_right_lite1 = extrude(profile = sketch.w5_right_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
 
-    output window = { body = feature.frame.body, part_number = "W2", material = "material.pvc_window_frame", color = "#F2F0EA", label = "Window frame" }
-    material = { body = feature.w1_fix_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w1_fix_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w2_lower.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w2_lower_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w2_lower_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w2_upper.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w2_upper_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w2_upper_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w3_sash.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w3_sash_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w3_sash_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w4_sash.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w4_sash_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w4_sash_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w5_left.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w5_left_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w5_left_lite1.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w5_right.body, material = "material.pvc_window_sash" }
-    material = { body = feature.w5_right_lite0.body, material = "material.glass_low_e_argon" }
-    material = { body = feature.w5_right_lite1.body, material = "material.glass_low_e_argon" }
+    output window = { body = feature.frame.body, part_number = "W2", material = material.pvc_window_frame, color = "#F2F0EA", label = "Window frame" }
+    material = { body = feature.w1_fix_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w1_fix_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w2_lower.body, material = material.pvc_window_sash }
+    material = { body = feature.w2_lower_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w2_lower_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w2_upper.body, material = material.pvc_window_sash }
+    material = { body = feature.w2_upper_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w2_upper_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w3_sash.body, material = material.pvc_window_sash }
+    material = { body = feature.w3_sash_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w3_sash_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w4_sash.body, material = material.pvc_window_sash }
+    material = { body = feature.w4_sash_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w4_sash_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w5_left.body, material = material.pvc_window_sash }
+    material = { body = feature.w5_left_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w5_left_lite1.body, material = material.glass_low_e_argon }
+    material = { body = feature.w5_right.body, material = material.pvc_window_sash }
+    material = { body = feature.w5_right_lite0.body, material = material.glass_low_e_argon }
+    material = { body = feature.w5_right_lite1.body, material = material.glass_low_e_argon }
 
     configuration W1 = { w = 60 in, h = 60 in, features = { w1_fix_lite0 = { suppressed = false }, w1_fix_lite1 = { suppressed = false } }, part_number = "W1", description = "Living-room window, fixed, 60 x 60 in, vinyl, double-pane low-E argon, U-0.25, SHGC 0.25" }
     configuration W2 = { w = 36 in, h = 60 in, features = { w2_lower = { suppressed = false }, w2_lower_lite0 = { suppressed = false }, w2_lower_lite1 = { suppressed = false }, w2_upper = { suppressed = false }, w2_upper_lite0 = { suppressed = false }, w2_upper_lite1 = { suppressed = false } }, part_number = "W2", description = "Window, single hung, 36 x 60 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25" }

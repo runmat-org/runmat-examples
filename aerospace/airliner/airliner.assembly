@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A generic twin-engine narrow-body airliner, 38 m long with a 35 m span.
 assembly airliner {
     input span : length = 34000 mm
@@ -9,23 +6,23 @@ assembly airliner {
 
     use part airliner_skeleton as skeleton
     use assembly fuselage from "./fuselage" as fuselage {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = fuselage } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = fuselage })
     }
     use assembly wing from "./wing" as wing {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = wing_root } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = wing_root })
     }
     use assembly empennage from "./empennage" as empennage {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = tail } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = tail })
     }
     use assembly main_gear from "./landing_gear" as main_gear_starboard {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard })
     }
     use assembly main_gear from "./landing_gear" as main_gear_port {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_port } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_port })
     }
     use assembly nose_gear from "./landing_gear" as nose_gear {
-        placement = { placement = attach, own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = nose_gear } }
+        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = nose_gear })
     }
 
-    view hero = { from = [-0.68, -0.62, 0.42], up = [0, 0, 1], default = true }
+    camera hero = { from = [-0.68, -0.62, 0.42], up = [0, 0, 1], default = true }
 }

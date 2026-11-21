@@ -1,13 +1,10 @@
-runmat 0.7
-std 1
-
 // The cabin window frame's detail drawing at 1:2 on A3, third-angle projection: the plan with
 // the outer size, the cutout it surrounds (the skin's window cutout, the cabin window's
 // outline) and the fastener holes' callout; section A-A across the ring at the fuselage
 // station of its center; and an isometric.
 drawing window_frame {
     format a3 = {
-        size = { size = iso, name = A3 },
+        size = { size = iso, name = A3 }
         title_block = [
             { label = "Title", source = { source = literal, text = "Cabin window frame" } },
             { label = "Part number", source = { source = property, name = part_number } },
@@ -16,7 +13,7 @@ drawing window_frame {
             { label = "Scale", source = { source = scale } },
             { label = "Sheet", source = { source = sheet_number } },
             { label = "Rev", source = { source = revision } },
-            { label = "Date", source = { source = literal, text = "2026-11-10" } }
+            { label = "Date", source = { source = literal, text = "2026-11-10" } },
         ]
     }
 
@@ -30,7 +27,7 @@ drawing window_frame {
         sheet = "1",
         model = { part = window_frame, from = "../fuselage" },
         at = [115, 55],
-        display = visible_lines
+        display = visible_lines,
     )
     view iso = standard(orientation = isometric, sheet = "1", model = { part = window_frame, from = "../fuselage" }, at = [355, 215], scale = [1, 4], display = visible_lines)
 
@@ -44,6 +41,6 @@ drawing window_frame {
     annotation notes = note(
         text = "NOTES:\n1. MATERIAL: {material}-T6 FORGING.\n2. SKIN CUTOUT MATCHES THE FRAME'S INNER OUTLINE, +0.5/0 MM.\n3. FASTEN TO THE SKIN WITH 12 FLUSH FASTENERS, WET INSTALLED.\n4. FORM TO THE FUSELAGE'S 1977 MM INNER SKIN RADIUS.\n5. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.",
         view = iso,
-        at = [250, 150]
+        at = [250, 150],
     )
 }

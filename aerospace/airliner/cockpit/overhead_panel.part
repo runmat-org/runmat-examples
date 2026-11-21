@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The overhead panel in the flight deck roof: the systems switches over the pilots' heads.
 part overhead_panel {
     sketch s on origin.zx {
@@ -19,7 +16,7 @@ part overhead_panel {
         l13 = line(start = [910.509 mm, 2180 mm], end = [865.491 mm, 2080 mm])
         l14 = line(start = [865.491 mm, 2080 mm], end = [975.491 mm, 2080 mm])
     }
-    feature body = extrude(profile = sketch.s, distance = 760 mm, symmetric)
+    feature body = extrude(profile = sketch.s, distance = 760 mm, symmetric = true)
 
     output overhead_panel = { body = feature.body.body, part_number = "FD-OH-370", material = "aluminum_6061", color = "#3C4148" }
 }

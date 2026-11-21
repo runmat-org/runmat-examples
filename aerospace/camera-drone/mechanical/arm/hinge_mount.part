@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The hinge mount: an aluminium clevis moulded into the body at each arm root. Two lugs hold
 // the steel hinge pin (z) above and below the arm's knuckle; the back block sits in the shell
 // and takes two M2 screws. Each lug's sketch is fully defined (0 degrees of freedom) and carries
@@ -66,8 +63,8 @@ part hinge_mount {
         s1 = circle(center = [-16 mm, -3.5 mm], radius = 1.1 mm)
         s2 = circle(center = [-16 mm, 3.5 mm], radius = 1.1 mm)
     }
-    feature bores = extrude(profile = sketch.bore_s, through_all, mode = cut)
-    region pin_bore : face = { select = [feature.upper.face.side(upper_s.pin), feature.lower.face.side(lower_s.pin)], expect = at_least_one }
+    feature bores = extrude(profile = sketch.bore_s, through_all = true, mode = cut)
+    region pin_bore : face = { select = [feature.upper.face.side(upper_s.pin), feature.lower.face.side(lower_s.pin)], expect = one_or_more }
     region mount : face = { select = [feature.back.face.side(back_s.k4)], expect = exactly_one }
     output hinge_mount = { body = feature.upper.body, part_number = "CD-AR-220", material = "aluminum_6061", color = "#9AA1AA" }
 }

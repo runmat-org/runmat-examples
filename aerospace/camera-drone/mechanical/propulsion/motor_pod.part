@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The motor pod's cowl: a turned, filleted nacelle at the arm's tip that houses the motor's
 // stator and the arm's wiring; the bell turns above its rim. Its underside is pocketed
 // (R9.2, 7 mm deep) to fit over the arm's R9 pad, and the pocket's ceiling seats on the pad's
@@ -32,18 +29,18 @@ part motor_pod {
     // slot for the three phase leads, between two screws on the arm's side. Fully defined.
     sketch mount_s on origin.xy {
         bore = circle(center = [0 mm, 0 mm], radius = 2.5 mm)
-        bc = circle(center = [0 mm, 0 mm], radius = 6 mm, construction)
+        bc = circle(center = [0 mm, 0 mm], radius = 6 mm, construction = true)
         h1 = circle(center = [6 mm, 0 mm], radius = 1.1 mm)
         h2 = circle(center = [0 mm, 6 mm], radius = 1.1 mm)
         h3 = circle(center = [-6 mm, 0 mm], radius = 1.1 mm)
         h4 = circle(center = [0 mm, -6 mm], radius = 1.1 mm)
-        x_axis = line(start = [-6 mm, 0 mm], end = [6 mm, 0 mm], construction)
-        y_axis = line(start = [0 mm, -6 mm], end = [0 mm, 6 mm], construction)
+        x_axis = line(start = [-6 mm, 0 mm], end = [6 mm, 0 mm], construction = true)
+        y_axis = line(start = [0 mm, -6 mm], end = [0 mm, 6 mm], construction = true)
         s1 = line(start = [-4.384 mm, -2.687 mm], end = [-6.223 mm, -4.525 mm])
         s2 = arc(center = [-5.374 mm, -5.374 mm], start = [-6.223 mm, -4.525 mm], end = [-4.525 mm, -6.223 mm])
         s3 = line(start = [-4.525 mm, -6.223 mm], end = [-2.687 mm, -4.384 mm])
         s4 = arc(center = [-3.536 mm, -3.536 mm], start = [-2.687 mm, -4.384 mm], end = [-4.384 mm, -2.687 mm])
-        slot_axis = line(start = [0 mm, 0 mm], end = [-3.536 mm, -3.536 mm], construction)
+        slot_axis = line(start = [0 mm, 0 mm], end = [-3.536 mm, -3.536 mm], construction = true)
         constrain fix(bore.center)
         constrain coincident(bc.center, bore.center)
         constrain diameter(bore) = 5 mm

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The gimbal's roll yoke: a U-frame from the roll motor that wraps the camera head and carries
 // the pitch motor on its left side and the pitch bearing on its right. Its origin is the roll
 // axis (x) at the roll motor's front face. The pitch axis (y) is 19.5 mm ahead of it, so the

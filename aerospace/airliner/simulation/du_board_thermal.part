@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The display unit's controller board as the thermal study sees it: a 120 x 100 x 1.6 mm plate
 // with the board's outline and its four M3 holes, in the display unit's frame (y along the
 // board's x, z along its y, the board's top facing +x, toward the screen). The FEA reads STEP

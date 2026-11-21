@@ -1,596 +1,593 @@
-runmat 0.7
-std 1
-
 // The house electrical devices: breakers, the meter, receptacles, switches, luminaires and
 // hardwired equipment. They are wired in the field, so each part has `package = none`: it shows
 // on the schematics and in the BOM, and no board places it.
 
 symbol breaker_1p = {
-    body = [line([-2.54, 0], [1.27, 1.27]), circle([-2.54, 0], 0.4), circle([2.54, 0], 0.4)],
+    body = [line([-2.54, 0], [1.27, 1.27]), circle([-2.54, 0], 0.4), circle([2.54, 0], 0.4)]
     pins = [
         { name = LINE, at = [-5.08, 0], dir = right },
-        { name = LOAD, at = [5.08, 0], dir = left }
+        { name = LOAD, at = [5.08, 0], dir = left },
     ]
 }
 
 symbol breaker_2p = {
-    body = [line([-2.54, 1.27], [1.27, 2.54]), line([-2.54, -1.27], [1.27, 0]), line([0, 2.0], [0, -0.6])],
+    body = [line([-2.54, 1.27], [1.27, 2.54]), line([-2.54, -1.27], [1.27, 0]), line([0, 2.0], [0, -0.6])]
     pins = [
         { name = L1_LINE, at = [-5.08, 1.27], dir = right },
         { name = L2_LINE, at = [-5.08, -1.27], dir = right },
         { name = L1_LOAD, at = [5.08, 1.27], dir = left },
-        { name = L2_LOAD, at = [5.08, -1.27], dir = left }
+        { name = L2_LOAD, at = [5.08, -1.27], dir = left },
     ]
 }
 
 symbol meter = {
-    body = [circle([0, 0], 3.81), text([0, 0], "kWh")],
+    body = [circle([0, 0], 3.81), text([0, 0], "kWh")]
     pins = [
         { name = L1_IN, at = [-7.62, 2.54], dir = right },
         { name = L2_IN, at = [-7.62, -2.54], dir = right },
         { name = N_IN, at = [-7.62, 0], dir = right },
         { name = L1_OUT, at = [7.62, 2.54], dir = left },
         { name = L2_OUT, at = [7.62, -2.54], dir = left },
-        { name = N_OUT, at = [7.62, 0], dir = left }
+        { name = N_OUT, at = [7.62, 0], dir = left },
     ]
 }
 
 symbol source = {
-    body = [circle([0, 0], 3.81), arc([-1.9, 0], [0, 0], [1.9, 0])],
+    body = [circle([0, 0], 3.81), arc([-1.9, 0], [0, 0], [1.9, 0])]
     pins = [
         { name = L1, at = [7.62, 2.54], dir = left },
         { name = L2, at = [7.62, -2.54], dir = left },
-        { name = N, at = [7.62, 0], dir = left }
+        { name = N, at = [7.62, 0], dir = left },
     ]
 }
 
 symbol electrode = {
-    body = [line([0, 0], [0, -2.54]), line([-2.54, -2.54], [2.54, -2.54]), line([-1.52, -3.3], [1.52, -3.3]), line([-0.5, -4.06], [0.5, -4.06])],
+    body = [line([0, 0], [0, -2.54]), line([-2.54, -2.54], [2.54, -2.54]), line([-1.52, -3.3], [1.52, -3.3]), line([-0.5, -4.06], [0.5, -4.06])]
     pins = [
-        { name = GEC, at = [0, 5.08], dir = down }
+        { name = GEC, at = [0, 5.08], dir = down },
     ]
 }
 
 symbol bond = {
-    body = [rect([-2.54, -0.76], [2.54, 0.76])],
+    body = [rect([-2.54, -0.76], [2.54, 0.76])]
     pins = [
         { name = N, at = [-5.08, 0], dir = right },
-        { name = EG, at = [5.08, 0], dir = left }
+        { name = EG, at = [5.08, 0], dir = left },
     ]
 }
 
 symbol receptacle = {
-    body = [circle([0, 0], 3.05), line([-1.0, 0.8], [-1.0, -0.8]), line([1.0, 0.8], [1.0, -0.8])],
+    body = [circle([0, 0], 3.05), line([-1.0, 0.8], [-1.0, -0.8]), line([1.0, 0.8], [1.0, -0.8])]
     pins = [
         { name = HOT, at = [-7.62, 2.54], dir = right },
         { name = NEU, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right }
+        { name = GND, at = [-7.62, -2.54], dir = right },
     ]
 }
 
 symbol gfci = {
-    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "GFCI")],
+    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "GFCI")]
     pins = [
         { name = LINE_H, at = [-7.62, 2.54], dir = right },
         { name = LINE_N, at = [-7.62, 0], dir = right },
         { name = GND, at = [-7.62, -2.54], dir = right },
         { name = LOAD_H, at = [7.62, 2.54], dir = left },
-        { name = LOAD_N, at = [7.62, 0], dir = left }
+        { name = LOAD_N, at = [7.62, 0], dir = left },
     ]
 }
 
 symbol receptacle_240 = {
-    body = [circle([0, 0], 3.05), text([0, 0], "240")],
+    body = [circle([0, 0], 3.05), text([0, 0], "240")]
     pins = [
         { name = X, at = [-7.62, 2.54], dir = right },
         { name = Y, at = [-7.62, 1.27], dir = right },
         { name = W, at = [-7.62, -1.27], dir = right },
-        { name = G, at = [-7.62, -2.54], dir = right }
+        { name = G, at = [-7.62, -2.54], dir = right },
     ]
 }
 
 symbol switch = {
-    body = [circle([-2.54, 0], 0.5), line([-2.54, 0], [2.0, 1.8]), circle([2.54, 0], 0.5)],
+    body = [circle([-2.54, 0], 0.5), line([-2.54, 0], [2.0, 1.8]), circle([2.54, 0], 0.5)]
     pins = [
         { name = LINE, at = [-5.08, 0], dir = right },
         { name = LOAD, at = [5.08, 0], dir = left },
-        { name = GND, at = [0, -5.08], dir = up }
+        { name = GND, at = [0, -5.08], dir = up },
     ]
 }
 
 symbol fixture = {
-    body = [circle([0, 0], 2.54), line([-1.8, 1.8], [1.8, -1.8]), line([-1.8, -1.8], [1.8, 1.8])],
+    body = [circle([0, 0], 2.54), line([-1.8, 1.8], [1.8, -1.8]), line([-1.8, -1.8], [1.8, 1.8])]
     pins = [
         { name = HOT, at = [-7.62, 2.54], dir = right },
         { name = NEU, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right }
+        { name = GND, at = [-7.62, -2.54], dir = right },
     ]
 }
 
 symbol load_240 = {
-    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "M")],
+    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "M")]
     pins = [
         { name = L1, at = [-7.62, 2.54], dir = right },
         { name = L2, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right }
+        { name = GND, at = [-7.62, -2.54], dir = right },
     ]
 }
 
 part "UTIL-120-240" = {
-    manufacturer = "Sample Catalog",
-    description = "Utility transformer secondary, 120/240 V single phase, 3 wire",
-    category = source,
-    prefix = T,
-    package = none,
-    symbol = source,
-    params = { voltage = "120/240 V" },
+    manufacturer = "Sample Catalog"
+    description = "Utility transformer secondary, 120/240 V single phase, 3 wire"
+    category = source
+    prefix = T
+    package = none
+    symbol = source
+    params = { voltage = "120/240 V" }
     pins = [
         { name = L1, type = passive },
         { name = L2, type = passive },
-        { name = N, type = passive }
+        { name = N, type = passive },
     ]
 }
 
 part "METER-200A" = {
-    manufacturer = "Sample Catalog",
-    description = "Meter socket, 200 A continuous, ringless, overhead or underground entry",
-    category = meter,
-    prefix = M,
-    package = none,
-    symbol = meter,
-    params = { rating = "200 A" },
+    manufacturer = "Sample Catalog"
+    description = "Meter socket, 200 A continuous, ringless, overhead or underground entry"
+    category = meter
+    prefix = M
+    package = none
+    symbol = meter
+    params = { rating = "200 A" }
     pins = [
         { name = L1_IN, type = passive },
         { name = L2_IN, type = passive },
         { name = N_IN, type = passive },
         { name = L1_OUT, type = passive },
         { name = L2_OUT, type = passive },
-        { name = N_OUT, type = passive }
+        { name = N_OUT, type = passive },
     ]
 }
 
 part "MAIN-200A-2P" = {
-    manufacturer = "Sample Catalog",
-    description = "Main breaker, 2 pole, 200 A, 22 kA interrupting",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_2p,
-    params = { rating = "200 A", poles = "2" },
+    manufacturer = "Sample Catalog"
+    description = "Main breaker, 2 pole, 200 A, 22 kA interrupting"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_2p
+    params = { rating = "200 A", poles = "2" }
     pins = [
         { name = L1_LINE, type = passive },
         { name = L2_LINE, type = passive },
         { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive }
+        { name = L2_LOAD, type = passive },
     ]
 }
 
 part "GEC-UFER" = {
-    manufacturer = "Sample Catalog",
-    description = "Concrete-encased grounding electrode: 20 ft of #4 rebar in the footing, 4 AWG Cu conductor",
-    category = electrode,
-    prefix = E,
-    package = none,
-    symbol = electrode,
+    manufacturer = "Sample Catalog"
+    description = "Concrete-encased grounding electrode: 20 ft of #4 rebar in the footing, 4 AWG Cu conductor"
+    category = electrode
+    prefix = E
+    package = none
+    symbol = electrode
     pins = [
-        { name = GEC, type = passive }
+        { name = GEC, type = passive },
     ]
 }
 
 part "GEC-ROD" = {
-    manufacturer = "Sample Catalog",
-    description = "Ground rod, 5/8 in x 8 ft, copper-clad, 6 AWG Cu conductor",
-    category = electrode,
-    prefix = E,
-    package = none,
-    symbol = electrode,
+    manufacturer = "Sample Catalog"
+    description = "Ground rod, 5/8 in x 8 ft, copper-clad, 6 AWG Cu conductor"
+    category = electrode
+    prefix = E
+    package = none
+    symbol = electrode
     pins = [
-        { name = GEC, type = passive }
+        { name = GEC, type = passive },
     ]
 }
 
 part "MBJ" = {
-    manufacturer = "Sample Catalog",
-    description = "Main bonding jumper, green screw, neutral bar to enclosure",
-    category = bond,
-    prefix = JP,
-    package = none,
-    symbol = bond,
+    manufacturer = "Sample Catalog"
+    description = "Main bonding jumper, green screw, neutral bar to enclosure"
+    category = bond
+    prefix = JP
+    package = none
+    symbol = bond
     pins = [
         { name = N, type = passive },
-        { name = EG, type = passive }
+        { name = EG, type = passive },
     ]
 }
 
 part "BKR-1P-15A-AFCI" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 1 pole, 15 A, combination AFCI",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_1p,
-    params = { rating = "15 A", poles = "1" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 1 pole, 15 A, combination AFCI"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_1p
+    params = { rating = "15 A", poles = "1" }
     pins = [
         { name = LINE, type = passive },
-        { name = LOAD, type = passive }
+        { name = LOAD, type = passive },
     ]
 }
 
 part "BKR-1P-15A" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 1 pole, 15 A",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_1p,
-    params = { rating = "15 A", poles = "1" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 1 pole, 15 A"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_1p
+    params = { rating = "15 A", poles = "1" }
     pins = [
         { name = LINE, type = passive },
-        { name = LOAD, type = passive }
+        { name = LOAD, type = passive },
     ]
 }
 
 part "BKR-1P-20A" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 1 pole, 20 A",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_1p,
-    params = { rating = "20 A", poles = "1" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 1 pole, 20 A"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_1p
+    params = { rating = "20 A", poles = "1" }
     pins = [
         { name = LINE, type = passive },
-        { name = LOAD, type = passive }
+        { name = LOAD, type = passive },
     ]
 }
 
 part "BKR-1P-20A-AFCI" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 1 pole, 20 A, combination AFCI",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_1p,
-    params = { rating = "20 A", poles = "1" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 1 pole, 20 A, combination AFCI"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_1p
+    params = { rating = "20 A", poles = "1" }
     pins = [
         { name = LINE, type = passive },
-        { name = LOAD, type = passive }
+        { name = LOAD, type = passive },
     ]
 }
 
 part "BKR-1P-20A-DF" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 1 pole, 20 A, dual function AFCI and 5 mA GFCI",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_1p,
-    params = { rating = "20 A", poles = "1" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 1 pole, 20 A, dual function AFCI and 5 mA GFCI"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_1p
+    params = { rating = "20 A", poles = "1" }
     pins = [
         { name = LINE, type = passive },
-        { name = LOAD, type = passive }
+        { name = LOAD, type = passive },
     ]
 }
 
 part "BKR-2P-30A" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 2 pole, 30 A",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_2p,
-    params = { rating = "30 A", poles = "2" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 2 pole, 30 A"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_2p
+    params = { rating = "30 A", poles = "2" }
     pins = [
         { name = L1_LINE, type = passive },
         { name = L2_LINE, type = passive },
         { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive }
+        { name = L2_LOAD, type = passive },
     ]
 }
 
 part "BKR-2P-30A-GF" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 2 pole, 30 A, 5 mA GFCI",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_2p,
-    params = { rating = "30 A", poles = "2" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 2 pole, 30 A, 5 mA GFCI"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_2p
+    params = { rating = "30 A", poles = "2" }
     pins = [
         { name = L1_LINE, type = passive },
         { name = L2_LINE, type = passive },
         { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive }
+        { name = L2_LOAD, type = passive },
     ]
 }
 
 part "BKR-2P-50A-GF" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 2 pole, 50 A, 5 mA GFCI",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_2p,
-    params = { rating = "50 A", poles = "2" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 2 pole, 50 A, 5 mA GFCI"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_2p
+    params = { rating = "50 A", poles = "2" }
     pins = [
         { name = L1_LINE, type = passive },
         { name = L2_LINE, type = passive },
         { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive }
+        { name = L2_LOAD, type = passive },
     ]
 }
 
 part "BKR-2P-60A" = {
-    manufacturer = "Sample Catalog",
-    description = "Branch breaker, 2 pole, 60 A",
-    category = breaker,
-    prefix = CB,
-    package = none,
-    symbol = breaker_2p,
-    params = { rating = "60 A", poles = "2" },
+    manufacturer = "Sample Catalog"
+    description = "Branch breaker, 2 pole, 60 A"
+    category = breaker
+    prefix = CB
+    package = none
+    symbol = breaker_2p
+    params = { rating = "60 A", poles = "2" }
     pins = [
         { name = L1_LINE, type = passive },
         { name = L2_LINE, type = passive },
         { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive }
+        { name = L2_LOAD, type = passive },
     ]
 }
 
 part "RCPT-15A-TR" = {
-    manufacturer = "Sample Catalog",
-    description = "Duplex receptacle, NEMA 5-15R, tamper resistant",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = receptacle,
-    params = { rating = "15 A 125 V" },
+    manufacturer = "Sample Catalog"
+    description = "Duplex receptacle, NEMA 5-15R, tamper resistant"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = receptacle
+    params = { rating = "15 A 125 V" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "RCPT-20A-TR" = {
-    manufacturer = "Sample Catalog",
-    description = "Duplex receptacle, NEMA 5-20R, tamper resistant",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = receptacle,
-    params = { rating = "20 A 125 V" },
+    manufacturer = "Sample Catalog"
+    description = "Duplex receptacle, NEMA 5-20R, tamper resistant"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = receptacle
+    params = { rating = "20 A 125 V" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "RCPT-20A-WR" = {
-    manufacturer = "Sample Catalog",
-    description = "Duplex receptacle, NEMA 5-20R, tamper and weather resistant, in-use cover",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = receptacle,
-    params = { rating = "20 A 125 V" },
+    manufacturer = "Sample Catalog"
+    description = "Duplex receptacle, NEMA 5-20R, tamper and weather resistant, in-use cover"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = receptacle
+    params = { rating = "20 A 125 V" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "GFCI-20A-TR" = {
-    manufacturer = "Sample Catalog",
-    description = "GFCI duplex receptacle, NEMA 5-20R, tamper resistant, feed-through",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = gfci,
-    params = { rating = "20 A 125 V" },
+    manufacturer = "Sample Catalog"
+    description = "GFCI duplex receptacle, NEMA 5-20R, tamper resistant, feed-through"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = gfci
+    params = { rating = "20 A 125 V" }
     pins = [
         { name = LINE_H, type = passive },
         { name = LINE_N, type = passive },
         { name = GND, type = passive },
         { name = LOAD_H, type = passive },
-        { name = LOAD_N, type = passive }
+        { name = LOAD_N, type = passive },
     ]
 }
 
 part "GFCI-20A-WR" = {
-    manufacturer = "Sample Catalog",
-    description = "GFCI duplex receptacle, NEMA 5-20R, tamper and weather resistant, feed-through",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = gfci,
-    params = { rating = "20 A 125 V" },
+    manufacturer = "Sample Catalog"
+    description = "GFCI duplex receptacle, NEMA 5-20R, tamper and weather resistant, feed-through"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = gfci
+    params = { rating = "20 A 125 V" }
     pins = [
         { name = LINE_H, type = passive },
         { name = LINE_N, type = passive },
         { name = GND, type = passive },
         { name = LOAD_H, type = passive },
-        { name = LOAD_N, type = passive }
+        { name = LOAD_N, type = passive },
     ]
 }
 
 part "RCPT-14-50R" = {
-    manufacturer = "Sample Catalog",
-    description = "Range receptacle, NEMA 14-50R, 50 A 125/250 V",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = receptacle_240,
-    params = { rating = "50 A 250 V" },
+    manufacturer = "Sample Catalog"
+    description = "Range receptacle, NEMA 14-50R, 50 A 125/250 V"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = receptacle_240
+    params = { rating = "50 A 250 V" }
     pins = [
         { name = X, type = passive },
         { name = Y, type = passive },
         { name = W, type = passive },
-        { name = G, type = passive }
+        { name = G, type = passive },
     ]
 }
 
 part "RCPT-14-30R" = {
-    manufacturer = "Sample Catalog",
-    description = "Dryer receptacle, NEMA 14-30R, 30 A 125/250 V",
-    category = receptacle,
-    prefix = X,
-    package = none,
-    symbol = receptacle_240,
-    params = { rating = "30 A 250 V" },
+    manufacturer = "Sample Catalog"
+    description = "Dryer receptacle, NEMA 14-30R, 30 A 125/250 V"
+    category = receptacle
+    prefix = X
+    package = none
+    symbol = receptacle_240
+    params = { rating = "30 A 250 V" }
     pins = [
         { name = X, type = passive },
         { name = Y, type = passive },
         { name = W, type = passive },
-        { name = G, type = passive }
+        { name = G, type = passive },
     ]
 }
 
 part "SW-1P-15A" = {
-    manufacturer = "Sample Catalog",
-    description = "Switch, single pole, 15 A 120/277 V",
-    category = switch,
-    prefix = S,
-    package = none,
-    symbol = switch,
-    params = { rating = "15 A" },
+    manufacturer = "Sample Catalog"
+    description = "Switch, single pole, 15 A 120/277 V"
+    category = switch
+    prefix = S
+    package = none
+    symbol = switch
+    params = { rating = "15 A" }
     pins = [
         { name = LINE, type = passive },
         { name = LOAD, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "LUM-CEIL-LED" = {
-    manufacturer = "Sample Catalog",
-    description = "Ceiling luminaire, LED, 18 W",
-    category = fixture,
-    prefix = L,
-    package = none,
-    symbol = fixture,
-    params = { power = "18 W" },
+    manufacturer = "Sample Catalog"
+    description = "Ceiling luminaire, LED, 18 W"
+    category = fixture
+    prefix = L
+    package = none
+    symbol = fixture
+    params = { power = "18 W" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "LUM-WALL-EXT" = {
-    manufacturer = "Sample Catalog",
-    description = "Exterior wall luminaire, LED, 12 W, wet location",
-    category = fixture,
-    prefix = L,
-    package = none,
-    symbol = fixture,
-    params = { power = "12 W" },
+    manufacturer = "Sample Catalog"
+    description = "Exterior wall luminaire, LED, 12 W, wet location"
+    category = fixture
+    prefix = L
+    package = none
+    symbol = fixture
+    params = { power = "12 W" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "FAN-BATH-80" = {
-    manufacturer = "Sample Catalog",
-    description = "Bath exhaust fan, 80 cfm, with LED light, 0.3 sone",
-    category = fixture,
-    prefix = F,
-    package = none,
-    symbol = fixture,
-    params = { power = "25 W" },
+    manufacturer = "Sample Catalog"
+    description = "Bath exhaust fan, 80 cfm, with LED light, 0.3 sone"
+    category = fixture
+    prefix = F
+    package = none
+    symbol = fixture
+    params = { power = "25 W" }
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "SMOKE-CO-120" = {
-    manufacturer = "Sample Catalog",
-    description = "Smoke and CO alarm, 120 V with battery backup, interconnected",
-    category = fixture,
-    prefix = SD,
-    package = none,
-    symbol = fixture,
+    manufacturer = "Sample Catalog"
+    description = "Smoke and CO alarm, 120 V with battery backup, interconnected"
+    category = fixture
+    prefix = SD
+    package = none
+    symbol = fixture
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "DISC-60A-NF" = {
-    manufacturer = "Sample Catalog",
-    description = "Disconnect, 2 pole, 60 A, non-fused, in sight of the unit",
-    category = switch,
-    prefix = DS,
-    package = none,
-    symbol = load_240,
-    params = { rating = "60 A" },
+    manufacturer = "Sample Catalog"
+    description = "Disconnect, 2 pole, 60 A, non-fused, in sight of the unit"
+    category = switch
+    prefix = DS
+    package = none
+    symbol = load_240
+    params = { rating = "60 A" }
     pins = [
         { name = L1, type = passive },
         { name = L2, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "AHU-3T-10KW" = {
-    manufacturer = "Sample Catalog",
-    description = "Air handler, 3 ton, variable speed, 10 kW heat strips; MCA 52 A, MOCP 60 A",
-    category = load,
-    prefix = AH,
-    package = none,
-    symbol = load_240,
-    params = { mca = "52 A" },
+    manufacturer = "Sample Catalog"
+    description = "Air handler, 3 ton, variable speed, 10 kW heat strips; MCA 52 A, MOCP 60 A"
+    category = load
+    prefix = AH
+    package = none
+    symbol = load_240
+    params = { mca = "52 A" }
     pins = [
         { name = L1, type = passive },
         { name = L2, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "HP-3T" = {
-    manufacturer = "Sample Catalog",
-    description = "Heat pump condenser, 3 ton, 15.2 SEER2; MCA 19.5 A, MOCP 30 A",
-    category = load,
-    prefix = HP,
-    package = none,
-    symbol = load_240,
-    params = { mca = "19.5 A" },
+    manufacturer = "Sample Catalog"
+    description = "Heat pump condenser, 3 ton, 15.2 SEER2; MCA 19.5 A, MOCP 30 A"
+    category = load
+    prefix = HP
+    package = none
+    symbol = load_240
+    params = { mca = "19.5 A" }
     pins = [
         { name = L1, type = passive },
         { name = L2, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "WH-50G-4500" = {
-    manufacturer = "Sample Catalog",
-    description = "Electric water heater, 50 gal, two 4,500 W elements, non-simultaneous",
-    category = load,
-    prefix = WH,
-    package = none,
-    symbol = load_240,
-    params = { power = "4500 W" },
+    manufacturer = "Sample Catalog"
+    description = "Electric water heater, 50 gal, two 4,500 W elements, non-simultaneous"
+    category = load
+    prefix = WH
+    package = none
+    symbol = load_240
+    params = { power = "4500 W" }
     pins = [
         { name = L1, type = passive },
         { name = L2, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }
 
 part "APPL-JBOX" = {
-    manufacturer = "Sample Catalog",
-    description = "Junction box, hardwired appliance connection",
-    category = box,
-    prefix = J,
-    package = none,
-    symbol = fixture,
+    manufacturer = "Sample Catalog"
+    description = "Junction box, hardwired appliance connection"
+    category = box
+    prefix = J
+    package = none
+    symbol = fixture
     pins = [
         { name = HOT, type = passive },
         { name = NEU, type = passive },
-        { name = GND, type = passive }
+        { name = GND, type = passive },
     ]
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 use "library/devices.circuit"
 
 // The branch circuits of the house, one sheet per circuit: each device in the order the cable

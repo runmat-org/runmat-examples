@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The ceiling over one barrel section: the lining's crown between the two rows of bins.
 part ceiling_panel {
     sketch s on origin.xy {

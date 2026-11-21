@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The rudder, aft of the hinge line at 70 % chord.
 part rudder {
     feature st0 = plane.offset(base = origin.xy, distance = 1500 mm)

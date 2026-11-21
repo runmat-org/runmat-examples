@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The gimbal's yaw arm as yaw_arm_landing.fea sees it: the arm at its defaults (3.5 mm drop) and
 // a stand-in for what it carries, the roll motor on the arm's seat and a block out to the
 // payload's centre of mass. Exported to geometry/yaw_arm_study.step.

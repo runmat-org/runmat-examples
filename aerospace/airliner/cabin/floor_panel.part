@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The cabin floor over one barrel section: honeycomb panels on the floor beams.
 part floor_panel {
     sketch s on origin.xy {

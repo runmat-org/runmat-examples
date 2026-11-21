@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A seat track along one barrel section, flush with the floor panels.
 part seat_track {
     sketch s on origin.yz {

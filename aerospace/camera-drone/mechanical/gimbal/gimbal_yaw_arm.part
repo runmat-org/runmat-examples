@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The gimbal's yaw arm: an L-bracket machined from 6061-T6 plate that hangs the roll motor from
 // the yaw motor's rotor. Its origin is the yaw axis at the yaw motor's underside, x forward.
 //
@@ -37,35 +34,35 @@ part gimbal_yaw_arm {
     feature drop = extrude(profile = sketch.drop_s, distance = input.wall, mode = add)
     feature root = fillet(edges = [edges_between(feature.plate.face.start, feature.drop.face.end)], radius = 0.4 mm)
 
-    feature yaw_bore = hole(face = feature.plate.face.end, at = { c = point(0 mm, 0 mm, 0 mm) }, diameter = 3 mm, through_all)
+    feature yaw_bore = hole(face = feature.plate.face.end, at = { c = point(0 mm, 0 mm, 0 mm) }, diameter = 3 mm, through_all = true)
     feature yaw_screws = hole(
         face = feature.plate.face.end,
         at = {
-            s1 = point(2.83 mm, 2.83 mm, 0 mm),
-            s2 = point(-2.83 mm, 2.83 mm, 0 mm),
-            s3 = point(-2.83 mm, -2.83 mm, 0 mm),
+            s1 = point(2.83 mm, 2.83 mm, 0 mm)
+            s2 = point(-2.83 mm, 2.83 mm, 0 mm)
+            s3 = point(-2.83 mm, -2.83 mm, 0 mm)
             s4 = point(2.83 mm, -2.83 mm, 0 mm)
         },
         diameter = 1.8 mm,
-        through_all
+        through_all = true,
     )
     feature lightening = hole(
         face = feature.plate.face.end,
         at = { l1 = point(0 mm, 4.6 mm, 0 mm), l2 = point(0 mm, -4.6 mm, 0 mm) },
         diameter = 2 mm,
-        through_all
+        through_all = true,
     )
-    feature seat_bore = hole(face = feature.drop.face.end, at = { c = point(-5.5 mm, 0 mm, -12 mm) }, diameter = 5 mm, through_all)
+    feature seat_bore = hole(face = feature.drop.face.end, at = { c = point(-5.5 mm, 0 mm, -12 mm) }, diameter = 5 mm, through_all = true)
     feature seat_screws = hole(
         face = feature.drop.face.end,
         at = {
-            s1 = point(-5.5 mm, 3.54 mm, -8.46 mm),
-            s2 = point(-5.5 mm, -3.54 mm, -8.46 mm),
-            s3 = point(-5.5 mm, -3.54 mm, -15.54 mm),
+            s1 = point(-5.5 mm, 3.54 mm, -8.46 mm)
+            s2 = point(-5.5 mm, -3.54 mm, -8.46 mm)
+            s3 = point(-5.5 mm, -3.54 mm, -15.54 mm)
             s4 = point(-5.5 mm, 3.54 mm, -15.54 mm)
         },
         diameter = 1.8 mm,
-        through_all
+        through_all = true,
     )
 
     region mount : face = { select = [feature.plate.face.end], expect = exactly_one }

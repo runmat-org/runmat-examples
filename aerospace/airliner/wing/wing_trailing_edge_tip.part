@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The fixed trailing edge outboard of the aileron.
 part wing_trailing_edge_tip {
     input side : real = 1

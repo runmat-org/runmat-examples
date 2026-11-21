@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The folding arm's production drawing at 2:1 on A3, third-angle projection. The plan view
 // carries the hinge bore (datum B) to the motor axis and the motor's bolt circle; the elevation
 // carries the knuckle's height and the pad's thickness; section A-A runs along the arm through
@@ -11,7 +8,7 @@ std 1
 // only: seen end-on, the holes' and the beam's hidden lines would repeat the plan and elevation.
 drawing arm {
     format a3 = {
-        size = { size = iso, name = A3 },
+        size = { size = iso, name = A3 }
         title_block = [
             { label = "Title", source = { source = literal, text = "Folding arm, front" } },
             { label = "Part number", source = { source = property, name = part_number } },
@@ -20,7 +17,7 @@ drawing arm {
             { label = "Scale", source = { source = scale } },
             { label = "Sheet", source = { source = sheet_number } },
             { label = "Rev", source = { source = revision } },
-            { label = "Date", source = { source = literal, text = "2026-11-05" } }
+            { label = "Date", source = { source = literal, text = "2026-11-05" } },
         ]
     }
 
@@ -36,7 +33,7 @@ drawing arm {
         sheet = "1",
         model = { part = arm, from = "../mechanical/arm" },
         at = [150, 88],
-        display = hidden_lines
+        display = hidden_lines,
     )
     view b = detail(
         from = top,
@@ -47,7 +44,7 @@ drawing arm {
         model = { part = arm, from = "../mechanical/arm" },
         at = [364, 214],
         scale = [3, 1],
-        display = hidden_lines
+        display = hidden_lines,
     )
     view iso = standard(orientation = isometric, sheet = "1", model = { part = arm, from = "../mechanical/arm" }, at = [339, 102], scale = [1, 1], display = visible_lines)
 
@@ -71,16 +68,16 @@ drawing arm {
     annotation notes = note(
         text = "NOTES:\n1. MATERIAL: {material}, [0/0/90/0]S PREPREG LAYUP, 2.0 MM MIN WALL.\n2. FINISH: MATTE CLEAR COAT, SEAT AND BORE MASKED.\n3. BREAK SHARP EDGES 0.2 MAX.\n4. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.\n5. PART MARK {part_number} NEAR THE KNUCKLE.",
         view = a_a,
-        at = [25, 50]
+        at = [25, 50],
     )
 
     table revisions = revision(
         rows = [
             { rev = "A", description = "Initial release", date = "2026-10-28", by = "RunMat Design" },
             { rev = "B", description = "Motor seat to 4x M2 on 12 BC; bore H8", date = "2026-11-05", by = "RunMat Design" },
-            { rev = "C", description = "Layup to [0/0/90/0]s for rear-arm flap mode", date = "2026-11-06", by = "RunMat Design" }
+            { rev = "C", description = "Layup to [0/0/90/0]s for rear-arm flap mode", date = "2026-11-06", by = "RunMat Design" },
         ],
         sheet = "1",
-        at = [410, 287]
+        at = [410, 287],
     )
 }

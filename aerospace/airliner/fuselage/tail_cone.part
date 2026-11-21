@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The tail cone: a 5 mm skin lofted aft through circles from the barrel, closing and sweeping up to the APU exhaust.
 part tail_cone {
     sketch s0 on origin.yz {

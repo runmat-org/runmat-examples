@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // Floor and ceiling finishes, in building coordinates. Floors: 1/2 in engineered oak in the living,
 // dining, hall and bedroom areas and 1/2 in porcelain tile (on a thin-set bed) in the kitchen,
 // breakfast area, utility room and both baths, laid to the gypsum faces and partitions, around
@@ -910,10 +907,10 @@ part floor_finishes {
     }
     feature mep_all_60 = extrude(profile = sketch.mep_all_60_s, distance = 25.9681 in, mode = cut)
     // end MEP penetrations all
-    output floor_finishes = { body = feature.wood_den.body, part_number = "FF-1", material = "material.oak_engineered_flooring", label = "1/2 in engineered oak" }
-    output floor_finishes_ceiling_l1 = { body = feature.ceiling_l1.body, part_number = "FF-1", material = "material.gypsum_board", label = "1/2 in gypsum ceiling" }
-    material = { body = feature.wood_l1.body, material = "material.oak_engineered_flooring" }
-    material = { body = feature.wood_l2.body, material = "material.oak_engineered_flooring" }
-    material = { body = feature.tile_l1.body, material = "material.porcelain_tile" }
-    material = { body = feature.tile_l2.body, material = "material.porcelain_tile" }
+    output floor_finishes = { body = feature.wood_den.body, part_number = "FF-1", material = material.oak_engineered_flooring, label = "1/2 in engineered oak" }
+    output floor_finishes_ceiling_l1 = { body = feature.ceiling_l1.body, part_number = "FF-1", material = material.gypsum_board, label = "1/2 in gypsum ceiling" }
+    material = { body = feature.wood_l1.body, material = material.oak_engineered_flooring }
+    material = { body = feature.wood_l2.body, material = material.oak_engineered_flooring }
+    material = { body = feature.tile_l1.body, material = material.porcelain_tile }
+    material = { body = feature.tile_l2.body, material = material.porcelain_tile }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The cabin: three business rows at the business pitch, nine economy rows forward of the
 // overwing exits and thirteen aft of them at the economy pitch, the galleys and lavatories at
 // the doors, and the doors.
@@ -9,105 +6,105 @@ assembly cabin {
     input economy_pitch : length = 790 mm
 
     use part seat_frame as business_starboard_frame {
-        placement = { placement = offset, offset = { translation = [6000 mm, 580 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, 580 mm, -400 mm])
     }
     use part seat_cushion_business as business_starboard_cushion {
-        placement = { placement = offset, offset = { translation = [6000 mm, 580 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, 580 mm, -400 mm])
     }
     use part seat_armrest as business_starboard_armrest {
-        placement = { placement = offset, offset = { translation = [6000 mm, 300 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, 300 mm, -400 mm])
     }
     use part seat_frame as business_port_frame {
-        placement = { placement = offset, offset = { translation = [6000 mm, -1140 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, -1140 mm, -400 mm])
     }
     use part seat_cushion_business as business_port_cushion {
-        placement = { placement = offset, offset = { translation = [6000 mm, -1140 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, -1140 mm, -400 mm])
     }
     use part seat_armrest as business_port_armrest {
-        placement = { placement = offset, offset = { translation = [6000 mm, -1420 mm, -400 mm] } }
+        placement = offset(translation = [6000 mm, -1420 mm, -400 mm])
     }
     use part seat_frame as economy_forward_starboard_frame {
-        placement = { placement = offset, offset = { translation = [8900 mm, 435 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, 435 mm, -400 mm])
     }
     use part seat_cushion as economy_forward_starboard_cushion {
-        placement = { placement = offset, offset = { translation = [8900 mm, 435 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, 435 mm, -400 mm])
     }
     use part seat_armrest as economy_forward_starboard_armrest {
-        placement = { placement = offset, offset = { translation = [8900 mm, 210 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, 210 mm, -400 mm])
     }
     use part seat_frame as economy_forward_port_frame {
-        placement = { placement = offset, offset = { translation = [8900 mm, -1335 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, -1335 mm, -400 mm])
     }
     use part seat_cushion as economy_forward_port_cushion {
-        placement = { placement = offset, offset = { translation = [8900 mm, -1335 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, -1335 mm, -400 mm])
     }
     use part seat_armrest as economy_forward_port_armrest {
-        placement = { placement = offset, offset = { translation = [8900 mm, -1560 mm, -400 mm] } }
+        placement = offset(translation = [8900 mm, -1560 mm, -400 mm])
     }
     use part seat_frame as economy_aft_starboard_frame {
-        placement = { placement = offset, offset = { translation = [17200 mm, 435 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, 435 mm, -400 mm])
     }
     use part seat_cushion as economy_aft_starboard_cushion {
-        placement = { placement = offset, offset = { translation = [17200 mm, 435 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, 435 mm, -400 mm])
     }
     use part seat_armrest as economy_aft_starboard_armrest {
-        placement = { placement = offset, offset = { translation = [17200 mm, 210 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, 210 mm, -400 mm])
     }
     use part seat_frame as economy_aft_port_frame {
-        placement = { placement = offset, offset = { translation = [17200 mm, -1335 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, -1335 mm, -400 mm])
     }
     use part seat_cushion as economy_aft_port_cushion {
-        placement = { placement = offset, offset = { translation = [17200 mm, -1335 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, -1335 mm, -400 mm])
     }
     use part seat_armrest as economy_aft_port_armrest {
-        placement = { placement = offset, offset = { translation = [17200 mm, -1560 mm, -400 mm] } }
+        placement = offset(translation = [17200 mm, -1560 mm, -400 mm])
     }
     use part galley as galley_forward {
-        placement = { placement = offset, offset = { translation = [3700 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [3700 mm, 0 mm, 0 mm])
     }
     use part lavatory as lavatory_forward {
-        placement = { placement = offset, offset = { translation = [4600 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+        placement = offset(translation = [4600 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
     }
     use part lavatory as lavatory_aft_starboard {
-        placement = { placement = offset, offset = { translation = [27100 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [27100 mm, 0 mm, 0 mm])
     }
     use part lavatory as lavatory_aft_port {
-        placement = { placement = offset, offset = { translation = [28000 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+        placement = offset(translation = [28000 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
     }
     use part galley as galley_aft {
-        placement = { placement = offset, offset = { translation = [29000 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [29000 mm, 0 mm, 0 mm])
     }
     use part galley as galley_aft_port {
-        placement = { placement = offset, offset = { translation = [29860 mm, 0 mm, 0 mm], rotation = { rotation = axis_angle, axis = [0, 0, 1], angle = 180 deg } } }
+        placement = offset(translation = [29860 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
     }
     use part passenger_door as passenger_door {
-        placement = { placement = offset, offset = { translation = [5250 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [5250 mm, 0 mm, 0 mm])
     }
     use part overwing_exit as overwing_exit {
-        placement = { placement = offset, offset = { translation = [16300 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [16300 mm, 0 mm, 0 mm])
     }
     use part passenger_door_aft as passenger_door_aft {
-        placement = { placement = offset, offset = { translation = [28100 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [28100 mm, 0 mm, 0 mm])
     }
     use part cargo_door from "../cargo" as cargo_door {
-        placement = { placement = offset, offset = { translation = [9400 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [9400 mm, 0 mm, 0 mm])
     }
     use part cargo_door_aft from "../cargo" as cargo_door_aft {
-        placement = { placement = offset, offset = { translation = [23000 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [23000 mm, 0 mm, 0 mm])
     }
     mirror passenger_door_port = {
-        seeds = [passenger_door],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [passenger_door]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = passenger_door } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror overwing_exit_port = {
-        seeds = [overwing_exit],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [overwing_exit]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = overwing_exit } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror passenger_door_aft_port = {
-        seeds = [passenger_door_aft],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [passenger_door_aft]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = passenger_door_aft } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
 
@@ -135,6 +132,6 @@ assembly cabin {
     // at x = 9,200 and 9,700 mm, 7 mm over the panel's top. Its harness runs down to the row's
     // passenger service unit.
     use circuit reading_light from "../electrical/reading_light" as reading_light_driver {
-        placement = { placement = offset, offset = { translation = [9450 mm, 0 mm, 1815 mm] } }
+        placement = offset(translation = [9450 mm, 0 mm, 1815 mm])
     }
 }

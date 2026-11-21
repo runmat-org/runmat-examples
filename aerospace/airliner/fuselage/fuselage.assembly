@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The fuselage: the nose and its cockpit glazing, three barrel sections, the tail cone and the
 // wing-to-body fairing, along x.
 assembly fuselage {
@@ -10,22 +7,22 @@ assembly fuselage {
     use part cockpit_window_side as window_side
     use part cockpit_window_aft as window_aft
     mirror window_front_port = {
-        seeds = [window_front],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [window_front]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_front } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror window_side_port = {
-        seeds = [window_side],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [window_side]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_side } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror window_aft_port = {
-        seeds = [window_aft],
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+        seeds = [window_aft]
+        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_aft } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     use assembly fuselage_section as forward {
-        placement = { placement = offset, offset = { translation = [5200 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [5200 mm, 0 mm, 0 mm])
         override "window_starboard_fwd@windows_fwd[7]" {
             suppressed = true
         }
@@ -46,10 +43,10 @@ assembly fuselage {
         }
     }
     use assembly fuselage_section as center {
-        placement = { placement = offset, offset = { translation = [13200 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [13200 mm, 0 mm, 0 mm])
     }
     use assembly fuselage_section as aft {
-        placement = { placement = offset, offset = { translation = [21200 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [21200 mm, 0 mm, 0 mm])
         override "window_starboard@windows[6]" {
             suppressed = true
         }
@@ -73,12 +70,12 @@ assembly fuselage {
     use assembly cabin from "../cabin" as cabin
     use assembly hold from "../cargo" as hold
     use part tail_cone as tail_cone {
-        placement = { placement = offset, offset = { translation = [29200 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [29200 mm, 0 mm, 0 mm])
     }
     use part aft_pressure_bulkhead as aft_pressure_bulkhead {
-        placement = { placement = offset, offset = { translation = [29900 mm, 0 mm, 0 mm] } }
+        placement = offset(translation = [29900 mm, 0 mm, 0 mm])
     }
     use part fairing as fairing {
-        placement = { placement = offset, offset = { translation = [11400 mm, 0 mm, -1250 mm] } }
+        placement = offset(translation = [11400 mm, 0 mm, -1250 mm])
     }
 }

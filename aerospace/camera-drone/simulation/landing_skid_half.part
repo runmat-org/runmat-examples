@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The landing skid's half on the +y side of its centre plane (y = 34 mm), for the demo-speed
 // touchdown study landing_skid_half.fea. It imports the full skid as exported to
 // geometry/landing_skid.step from ../mechanical/body/landing_skid.part, so re-export that file
@@ -19,6 +16,6 @@ part landing_skid_half {
     feature halve = extrude(profile = sketch.keep_s, distance = 20 mm, mode = cut)
     region symmetry : face = { select = [feature.halve.face.start], expect = exactly_one }
     region sole : face = { select = [feature.skid.face("sole")], expect = exactly_one }
-    region mount : face = { select = [feature.skid.face("mount")], expect = at_least_one }
+    region mount : face = { select = [feature.skid.face("mount")], expect = one_or_more }
     output landing_skid_half = { body = feature.skid.body("landing_skid"), material = "glass_filled_nylon" }
 }

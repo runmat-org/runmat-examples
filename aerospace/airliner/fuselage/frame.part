@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A fuselage frame: a ring 147 mm deep and 40 mm wide under the skin.
 part frame {
     sketch s on origin.xy {

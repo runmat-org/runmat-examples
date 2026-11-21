@@ -1,7 +1,3 @@
-runmat 0.7
-std 1
-
-
 // The routed cables, in building coordinates: the 2 in PVC service-entrance conduit through wall A,
 // and the NM-B home runs from the panel up into the floor joist space, through bored holes in the
 // I-joist webs and the LVL beams (middle third of the depth, at least 2 ft from any post) and down
@@ -49,7 +45,7 @@ part cable_runs {
         c = circle(center = [60 in, 358 in], radius = 1.1875 in)
     }
     feature service_conduit_0 = sweep(profile = sketch.service_conduit_0_p, path = sketch.service_conduit_0_path, follow_path = true)
-    material = { body = feature.service_conduit_0.body, material = "material.pvc_conduit" }
+    material = { body = feature.service_conduit_0.body, material = material.pvc_conduit }
     sketch c10_laundry_0_path on plane.p_zx_2 {
         l0 = line(start = [78 in, 358 in], end = [111.6 in, 358 in])
         l1 = line(start = [111.6 in, 358 in], end = [111.6 in, 354 in])
@@ -58,7 +54,7 @@ part cable_runs {
         c = circle(center = [358 in, 15.5 in], radius = 0.25 in)
     }
     feature c10_laundry_0 = sweep(profile = sketch.c10_laundry_0_p, path = sketch.c10_laundry_0_path, follow_path = true)
-    material = { body = feature.c10_laundry_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c10_laundry_0.body, material = material.nm_b_cable }
     sketch c10_laundry_1_path on plane.p_xy_4 {
         l0 = line(start = [354 in, 15.5 in], end = [354 in, 110 in])
         l1 = line(start = [354 in, 110 in], end = [298.25 in, 110 in])
@@ -67,7 +63,7 @@ part cable_runs {
         c = circle(center = [111.6 in, 354 in], radius = 0.25 in)
     }
     feature c10_laundry_1 = sweep(profile = sketch.c10_laundry_1_p, path = sketch.c10_laundry_1_path, follow_path = true)
-    material = { body = feature.c10_laundry_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c10_laundry_1.body, material = material.nm_b_cable }
     sketch c10_laundry_2_path on plane.p_zx_5 {
         l0 = line(start = [111.6 in, 298.25 in], end = [43.5 in, 298.25 in])
     }
@@ -75,7 +71,7 @@ part cable_runs {
         c = circle(center = [298.25 in, 110 in], radius = 0.25 in)
     }
     feature c10_laundry_2 = sweep(profile = sketch.c10_laundry_2_p, path = sketch.c10_laundry_2_path, follow_path = true)
-    material = { body = feature.c10_laundry_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c10_laundry_2.body, material = material.nm_b_cable }
     sketch c5_dryer_0_path on plane.p_zx_6 {
         l0 = line(start = [78 in, 358 in], end = [112.3 in, 358 in])
         l1 = line(start = [112.3 in, 358 in], end = [112.3 in, 355 in])
@@ -84,7 +80,7 @@ part cable_runs {
         c = circle(center = [358 in, 17 in], radius = 0.25 in)
     }
     feature c5_dryer_0 = sweep(profile = sketch.c5_dryer_0_p, path = sketch.c5_dryer_0_path, follow_path = true)
-    material = { body = feature.c5_dryer_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c5_dryer_0.body, material = material.nm_b_cable }
     sketch c5_dryer_1_path on plane.p_xy_7 {
         l0 = line(start = [355 in, 17 in], end = [355 in, 126 in])
         l1 = line(start = [355 in, 126 in], end = [298.25 in, 126 in])
@@ -93,7 +89,7 @@ part cable_runs {
         c = circle(center = [112.3 in, 355 in], radius = 0.25 in)
     }
     feature c5_dryer_1 = sweep(profile = sketch.c5_dryer_1_p, path = sketch.c5_dryer_1_path, follow_path = true)
-    material = { body = feature.c5_dryer_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c5_dryer_1.body, material = material.nm_b_cable }
     sketch c5_dryer_2_path on plane.p_zx_8 {
         l0 = line(start = [112.3 in, 298.25 in], end = [32 in, 298.25 in])
     }
@@ -101,7 +97,7 @@ part cable_runs {
         c = circle(center = [298.25 in, 126 in], radius = 0.25 in)
     }
     feature c5_dryer_2 = sweep(profile = sketch.c5_dryer_2_p, path = sketch.c5_dryer_2_path, follow_path = true)
-    material = { body = feature.c5_dryer_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c5_dryer_2.body, material = material.nm_b_cable }
     sketch c9_water_heater_0_path on plane.p_zx_9 {
         l0 = line(start = [78 in, 358 in], end = [117.6 in, 358 in])
         l1 = line(start = [117.6 in, 358 in], end = [117.6 in, 356 in])
@@ -110,7 +106,7 @@ part cable_runs {
         c = circle(center = [358 in, 18.5 in], radius = 0.25 in)
     }
     feature c9_water_heater_0 = sweep(profile = sketch.c9_water_heater_0_p, path = sketch.c9_water_heater_0_path, follow_path = true)
-    material = { body = feature.c9_water_heater_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c9_water_heater_0.body, material = material.nm_b_cable }
     sketch c9_water_heater_1_path on plane.p_xy_10 {
         l0 = line(start = [356 in, 18.5 in], end = [356 in, 135.25 in])
         l1 = line(start = [356 in, 135.25 in], end = [315 in, 135.25 in])
@@ -119,7 +115,7 @@ part cable_runs {
         c = circle(center = [117.6 in, 356 in], radius = 0.25 in)
     }
     feature c9_water_heater_1 = sweep(profile = sketch.c9_water_heater_1_p, path = sketch.c9_water_heater_1_path, follow_path = true)
-    material = { body = feature.c9_water_heater_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c9_water_heater_1.body, material = material.nm_b_cable }
     sketch c9_water_heater_2_path on plane.p_zx_11 {
         l0 = line(start = [117.6 in, 315 in], end = [67.5 in, 315 in])
     }
@@ -127,7 +123,7 @@ part cable_runs {
         c = circle(center = [315 in, 135.25 in], radius = 0.25 in)
     }
     feature c9_water_heater_2 = sweep(profile = sketch.c9_water_heater_2_p, path = sketch.c9_water_heater_2_path, follow_path = true)
-    material = { body = feature.c9_water_heater_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c9_water_heater_2.body, material = material.nm_b_cable }
     sketch c2_kitchen_gfci_0_path on plane.p_zx_12 {
         l0 = line(start = [78 in, 358 in], end = [113.4 in, 358 in])
         l1 = line(start = [113.4 in, 358 in], end = [113.4 in, 357 in])
@@ -137,7 +133,7 @@ part cable_runs {
         c = circle(center = [358 in, 20 in], radius = 0.25 in)
     }
     feature c2_kitchen_gfci_0 = sweep(profile = sketch.c2_kitchen_gfci_0_p, path = sketch.c2_kitchen_gfci_0_path, follow_path = true)
-    material = { body = feature.c2_kitchen_gfci_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c2_kitchen_gfci_0.body, material = material.nm_b_cable }
     sketch c2_kitchen_gfci_1_path on plane.p_xy_13 {
         l0 = line(start = [329 in, 20 in], end = [329 in, 345 in])
         l1 = line(start = [329 in, 345 in], end = [342.5 in, 345 in])
@@ -147,7 +143,7 @@ part cable_runs {
         c = circle(center = [113.4 in, 329 in], radius = 0.25 in)
     }
     feature c2_kitchen_gfci_1 = sweep(profile = sketch.c2_kitchen_gfci_1_p, path = sketch.c2_kitchen_gfci_1_path, follow_path = true)
-    material = { body = feature.c2_kitchen_gfci_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c2_kitchen_gfci_1.body, material = material.nm_b_cable }
     sketch c2_kitchen_gfci_2_path on plane.p_zx_14 {
         l0 = line(start = [113.4 in, 342.5 in], end = [43.5 in, 342.5 in])
     }
@@ -155,7 +151,7 @@ part cable_runs {
         c = circle(center = [342.5 in, 355.25 in], radius = 0.25 in)
     }
     feature c2_kitchen_gfci_2 = sweep(profile = sketch.c2_kitchen_gfci_2_p, path = sketch.c2_kitchen_gfci_2_path, follow_path = true)
-    material = { body = feature.c2_kitchen_gfci_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c2_kitchen_gfci_2.body, material = material.nm_b_cable }
     sketch c6_refrigerator_0_path on plane.p_zx_15 {
         l0 = line(start = [78 in, 358 in], end = [114.1 in, 358 in])
         l1 = line(start = [114.1 in, 358 in], end = [114.1 in, 330.2 in])
@@ -164,7 +160,7 @@ part cable_runs {
         c = circle(center = [358 in, 21.5 in], radius = 0.25 in)
     }
     feature c6_refrigerator_0 = sweep(profile = sketch.c6_refrigerator_0_p, path = sketch.c6_refrigerator_0_path, follow_path = true)
-    material = { body = feature.c6_refrigerator_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c6_refrigerator_0.body, material = material.nm_b_cable }
     sketch c6_refrigerator_1_path on plane.p_xy_16 {
         l0 = line(start = [330.2 in, 21.5 in], end = [330.2 in, 345 in])
         l1 = line(start = [330.2 in, 345 in], end = [328 in, 345 in])
@@ -174,7 +170,7 @@ part cable_runs {
         c = circle(center = [114.1 in, 330.2 in], radius = 0.25 in)
     }
     feature c6_refrigerator_1 = sweep(profile = sketch.c6_refrigerator_1_p, path = sketch.c6_refrigerator_1_path, follow_path = true)
-    material = { body = feature.c6_refrigerator_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c6_refrigerator_1.body, material = material.nm_b_cable }
     sketch c6_refrigerator_2_path on plane.p_zx_14 {
         l0 = line(start = [114.1 in, 328 in], end = [75.5 in, 328 in])
     }
@@ -182,7 +178,7 @@ part cable_runs {
         c = circle(center = [328 in, 355.25 in], radius = 0.25 in)
     }
     feature c6_refrigerator_2 = sweep(profile = sketch.c6_refrigerator_2_p, path = sketch.c6_refrigerator_2_path, follow_path = true)
-    material = { body = feature.c6_refrigerator_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c6_refrigerator_2.body, material = material.nm_b_cable }
     sketch c22_den_0_path on plane.p_zx_17 {
         l0 = line(start = [78 in, 358 in], end = [118.3 in, 358 in])
         l1 = line(start = [118.3 in, 358 in], end = [118.3 in, 359 in])
@@ -191,7 +187,7 @@ part cable_runs {
         c = circle(center = [358 in, 23 in], radius = 0.25 in)
     }
     feature c22_den_0 = sweep(profile = sketch.c22_den_0_p, path = sketch.c22_den_0_path, follow_path = true)
-    material = { body = feature.c22_den_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_0.body, material = material.nm_b_cable }
     sketch c22_den_1_path on plane.p_xy_18 {
         l0 = line(start = [359 in, 23 in], end = [359 in, 12 in])
         l1 = line(start = [359 in, 12 in], end = [376 in, 12 in])
@@ -201,7 +197,7 @@ part cable_runs {
         c = circle(center = [118.3 in, 359 in], radius = 0.25 in)
     }
     feature c22_den_1 = sweep(profile = sketch.c22_den_1_p, path = sketch.c22_den_1_path, follow_path = true)
-    material = { body = feature.c22_den_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_1.body, material = material.nm_b_cable }
     sketch c22_den_2_path on plane.p_zx_19 {
         l0 = line(start = [118.3 in, 376 in], end = [17.5 in, 376 in])
     }
@@ -209,7 +205,7 @@ part cable_runs {
         c = circle(center = [376 in, 4.75 in], radius = 0.25 in)
     }
     feature c22_den_2 = sweep(profile = sketch.c22_den_2_p, path = sketch.c22_den_2_path, follow_path = true)
-    material = { body = feature.c22_den_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_2.body, material = material.nm_b_cable }
     sketch c22_utility_light_0_path on plane.p_zx_20 {
         l0 = line(start = [78 in, 358 in], end = [114.8 in, 358 in])
         l1 = line(start = [114.8 in, 358 in], end = [114.8 in, 360 in])
@@ -218,7 +214,7 @@ part cable_runs {
         c = circle(center = [358 in, 24.5 in], radius = 0.25 in)
     }
     feature c22_utility_light_0 = sweep(profile = sketch.c22_utility_light_0_p, path = sketch.c22_utility_light_0_path, follow_path = true)
-    material = { body = feature.c22_utility_light_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_utility_light_0.body, material = material.nm_b_cable }
     sketch c22_utility_light_1_path on plane.p_xy_21 {
         l0 = line(start = [360 in, 24.5 in], end = [360 in, 70 in])
         l1 = line(start = [360 in, 70 in], end = [344 in, 70 in])
@@ -227,7 +223,7 @@ part cable_runs {
         c = circle(center = [114.8 in, 360 in], radius = 0.25 in)
     }
     feature c22_utility_light_1 = sweep(profile = sketch.c22_utility_light_1_p, path = sketch.c22_utility_light_1_path, follow_path = true)
-    material = { body = feature.c22_utility_light_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_utility_light_1.body, material = material.nm_b_cable }
     sketch c22_utility_light_2_path on plane.p_zx_22 {
         l0 = line(start = [114.8 in, 344 in], end = [110.625 in, 344 in])
     }
@@ -235,7 +231,7 @@ part cable_runs {
         c = circle(center = [344 in, 70 in], radius = 0.25 in)
     }
     feature c22_utility_light_2 = sweep(profile = sketch.c22_utility_light_2_p, path = sketch.c22_utility_light_2_path, follow_path = true)
-    material = { body = feature.c22_utility_light_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_utility_light_2.body, material = material.nm_b_cable }
     sketch c22_den_light_0_path on plane.p_zx_23 {
         l0 = line(start = [78 in, 358 in], end = [119 in, 358 in])
         l1 = line(start = [119 in, 358 in], end = [119 in, 361 in])
@@ -244,7 +240,7 @@ part cable_runs {
         c = circle(center = [358 in, 26 in], radius = 0.25 in)
     }
     feature c22_den_light_0 = sweep(profile = sketch.c22_den_light_0_p, path = sketch.c22_den_light_0_path, follow_path = true)
-    material = { body = feature.c22_den_light_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_light_0.body, material = material.nm_b_cable }
     sketch c22_den_light_1_path on plane.p_xy_24 {
         l0 = line(start = [361 in, 26 in], end = [361 in, 70 in])
         l1 = line(start = [361 in, 70 in], end = [424 in, 70 in])
@@ -253,7 +249,7 @@ part cable_runs {
         c = circle(center = [119 in, 361 in], radius = 0.25 in)
     }
     feature c22_den_light_1 = sweep(profile = sketch.c22_den_light_1_p, path = sketch.c22_den_light_1_path, follow_path = true)
-    material = { body = feature.c22_den_light_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_light_1.body, material = material.nm_b_cable }
     sketch c22_den_light_2_path on plane.p_zx_22 {
         l0 = line(start = [119 in, 424 in], end = [110.625 in, 424 in])
     }
@@ -261,7 +257,7 @@ part cable_runs {
         c = circle(center = [424 in, 70 in], radius = 0.25 in)
     }
     feature c22_den_light_2 = sweep(profile = sketch.c22_den_light_2_p, path = sketch.c22_den_light_2_path, follow_path = true)
-    material = { body = feature.c22_den_light_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c22_den_light_2.body, material = material.nm_b_cable }
     sketch c13_disconnect_0_path on plane.p_zx_25 {
         l0 = line(start = [78 in, 358 in], end = [116.9 in, 358 in])
         l1 = line(start = [116.9 in, 358 in], end = [116.9 in, 362.5 in])
@@ -270,7 +266,7 @@ part cable_runs {
         c = circle(center = [358 in, 27.5 in], radius = 0.25 in)
     }
     feature c13_disconnect_0 = sweep(profile = sketch.c13_disconnect_0_p, path = sketch.c13_disconnect_0_path, follow_path = true)
-    material = { body = feature.c13_disconnect_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c13_disconnect_0.body, material = material.nm_b_cable }
     sketch c13_disconnect_1_path on plane.p_xy_26 {
         l0 = line(start = [362.5 in, 27.5 in], end = [362.5 in, 135.25 in])
         l1 = line(start = [362.5 in, 135.25 in], end = [340 in, 135.25 in])
@@ -279,7 +275,7 @@ part cable_runs {
         c = circle(center = [116.9 in, 362.5 in], radius = 0.25 in)
     }
     feature c13_disconnect_1 = sweep(profile = sketch.c13_disconnect_1_p, path = sketch.c13_disconnect_1_path, follow_path = true)
-    material = { body = feature.c13_disconnect_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c13_disconnect_1.body, material = material.nm_b_cable }
     sketch c13_disconnect_2_path on plane.p_yz_27 {
         l0 = line(start = [135.25 in, 116.9 in], end = [135.25 in, 60 in])
         l1 = line(start = [135.25 in, 60 in], end = [134 in, 60 in])
@@ -288,7 +284,7 @@ part cable_runs {
         c = circle(center = [340 in, 135.25 in], radius = 0.25 in)
     }
     feature c13_disconnect_2 = sweep(profile = sketch.c13_disconnect_2_p, path = sketch.c13_disconnect_2_path, follow_path = true)
-    material = { body = feature.c13_disconnect_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c13_disconnect_2.body, material = material.nm_b_cable }
     sketch c1_range_0_path on plane.p_zx_28 {
         l0 = line(start = [78 in, 358 in], end = [116.2 in, 358 in])
         l1 = line(start = [116.2 in, 358 in], end = [116.2 in, 327.6 in])
@@ -297,7 +293,7 @@ part cable_runs {
         c = circle(center = [358 in, 14.9 in], radius = 0.4 in)
     }
     feature c1_range_0 = sweep(profile = sketch.c1_range_0_p, path = sketch.c1_range_0_path, follow_path = true)
-    material = { body = feature.c1_range_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c1_range_0.body, material = material.nm_b_cable }
     sketch c1_range_1_path on plane.p_xy_29 {
         l0 = line(start = [327.6 in, 14.9 in], end = [327.6 in, 229 in])
         l1 = line(start = [327.6 in, 229 in], end = [475.25 in, 229 in])
@@ -306,7 +302,7 @@ part cable_runs {
         c = circle(center = [116.2 in, 327.6 in], radius = 0.4 in)
     }
     feature c1_range_1 = sweep(profile = sketch.c1_range_1_p, path = sketch.c1_range_1_path, follow_path = true)
-    material = { body = feature.c1_range_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c1_range_1.body, material = material.nm_b_cable }
     sketch c1_range_2_path on plane.p_zx_30 {
         l0 = line(start = [116.2 in, 475.25 in], end = [8 in, 475.25 in])
     }
@@ -314,7 +310,7 @@ part cable_runs {
         c = circle(center = [475.25 in, 229 in], radius = 0.4 in)
     }
     feature c1_range_2 = sweep(profile = sketch.c1_range_2_p, path = sketch.c1_range_2_path, follow_path = true)
-    material = { body = feature.c1_range_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c1_range_2.body, material = material.nm_b_cable }
     sketch c4_kitchen_gfci_0_path on plane.p_zx_31 {
         l0 = line(start = [78 in, 358 in], end = [115.5 in, 358 in])
         l1 = line(start = [115.5 in, 358 in], end = [115.5 in, 328.4 in])
@@ -323,7 +319,7 @@ part cable_runs {
         c = circle(center = [358 in, 28 in], radius = 0.25 in)
     }
     feature c4_kitchen_gfci_0 = sweep(profile = sketch.c4_kitchen_gfci_0_p, path = sketch.c4_kitchen_gfci_0_path, follow_path = true)
-    material = { body = feature.c4_kitchen_gfci_0.body, material = "material.nm_b_cable" }
+    material = { body = feature.c4_kitchen_gfci_0.body, material = material.nm_b_cable }
     sketch c4_kitchen_gfci_1_path on plane.p_xy_32 {
         l0 = line(start = [328.4 in, 28 in], end = [328.4 in, 250 in])
         l1 = line(start = [328.4 in, 250 in], end = [475.25 in, 250 in])
@@ -332,7 +328,7 @@ part cable_runs {
         c = circle(center = [115.5 in, 328.4 in], radius = 0.25 in)
     }
     feature c4_kitchen_gfci_1 = sweep(profile = sketch.c4_kitchen_gfci_1_p, path = sketch.c4_kitchen_gfci_1_path, follow_path = true)
-    material = { body = feature.c4_kitchen_gfci_1.body, material = "material.nm_b_cable" }
+    material = { body = feature.c4_kitchen_gfci_1.body, material = material.nm_b_cable }
     sketch c4_kitchen_gfci_2_path on plane.p_zx_33 {
         l0 = line(start = [115.5 in, 475.25 in], end = [43.5 in, 475.25 in])
     }
@@ -340,7 +336,7 @@ part cable_runs {
         c = circle(center = [475.25 in, 250 in], radius = 0.25 in)
     }
     feature c4_kitchen_gfci_2 = sweep(profile = sketch.c4_kitchen_gfci_2_p, path = sketch.c4_kitchen_gfci_2_path, follow_path = true)
-    material = { body = feature.c4_kitchen_gfci_2.body, material = "material.nm_b_cable" }
+    material = { body = feature.c4_kitchen_gfci_2.body, material = material.nm_b_cable }
     sketch c13_whip_0_path on plane.p_yz_27 {
         l0 = line(start = [132 in, 54 in], end = [132 in, 52 in])
         l1 = line(start = [132 in, 52 in], end = [128 in, 52 in])
@@ -349,18 +345,18 @@ part cable_runs {
         c = circle(center = [340 in, 132 in], radius = 0.375 in)
     }
     feature c13_whip_0 = sweep(profile = sketch.c13_whip_0_p, path = sketch.c13_whip_0_path, follow_path = true)
-    material = { body = feature.c13_whip_0.body, material = "material.pvc_conduit" }
-    output cable_runs_service_conduit = { body = feature.service_conduit_0.body, part_number = "E-SE", material = "material.pvc_conduit", label = "2 in PVC, 4/0 Al SER" }
-    output cable_runs_c10_laundry = { body = feature.c10_laundry_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c10 laundry" }
-    output cable_runs_c5_dryer = { body = feature.c5_dryer_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c5 dryer" }
-    output cable_runs_c9_water_heater = { body = feature.c9_water_heater_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c9 water heater" }
-    output cable_runs_c2_kitchen_gfci = { body = feature.c2_kitchen_gfci_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c2 kitchen gfci" }
-    output cable_runs_c6_refrigerator = { body = feature.c6_refrigerator_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c6 refrigerator" }
-    output cable_runs_c22_den = { body = feature.c22_den_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c22 den" }
-    output cable_runs_c22_utility_light = { body = feature.c22_utility_light_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c22 utility light" }
-    output cable_runs_c22_den_light = { body = feature.c22_den_light_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c22 den light" }
-    output cable_runs_c13_disconnect = { body = feature.c13_disconnect_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c13 disconnect" }
-    output cable_runs_c1_range = { body = feature.c1_range_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c1 range" }
-    output cable_runs_c4_kitchen_gfci = { body = feature.c4_kitchen_gfci_0.body, part_number = "E-CBL", material = "material.nm_b_cable", label = "NM-B cable, c4 kitchen gfci" }
-    output cable_runs_c13_whip = { body = feature.c13_whip_0.body, part_number = "E-CBL", material = "material.pvc_conduit", label = "3/4 in liquidtight whip to the air handler" }
+    material = { body = feature.c13_whip_0.body, material = material.pvc_conduit }
+    output cable_runs_service_conduit = { body = feature.service_conduit_0.body, part_number = "E-SE", material = material.pvc_conduit, label = "2 in PVC, 4/0 Al SER" }
+    output cable_runs_c10_laundry = { body = feature.c10_laundry_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c10 laundry" }
+    output cable_runs_c5_dryer = { body = feature.c5_dryer_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c5 dryer" }
+    output cable_runs_c9_water_heater = { body = feature.c9_water_heater_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c9 water heater" }
+    output cable_runs_c2_kitchen_gfci = { body = feature.c2_kitchen_gfci_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c2 kitchen gfci" }
+    output cable_runs_c6_refrigerator = { body = feature.c6_refrigerator_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c6 refrigerator" }
+    output cable_runs_c22_den = { body = feature.c22_den_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c22 den" }
+    output cable_runs_c22_utility_light = { body = feature.c22_utility_light_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c22 utility light" }
+    output cable_runs_c22_den_light = { body = feature.c22_den_light_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c22 den light" }
+    output cable_runs_c13_disconnect = { body = feature.c13_disconnect_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c13 disconnect" }
+    output cable_runs_c1_range = { body = feature.c1_range_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c1 range" }
+    output cable_runs_c4_kitchen_gfci = { body = feature.c4_kitchen_gfci_0.body, part_number = "E-CBL", material = material.nm_b_cable, label = "NM-B cable, c4 kitchen gfci" }
+    output cable_runs_c13_whip = { body = feature.c13_whip_0.body, part_number = "E-CBL", material = material.pvc_conduit, label = "3/4 in liquidtight whip to the air handler" }
 }

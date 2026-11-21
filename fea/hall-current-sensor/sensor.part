@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // An open-loop Hall current sensor: a gapped C-core of MnZn power ferrite (TDK N87), 44 x 44 x
 // 12 mm with a 26 mm square window and 9 mm legs, around a 16 mm copper primary rod; the Hall
 // element sits in the 3 mm air gap in the right leg. The air is a 120 mm cube round both, less
@@ -58,7 +55,7 @@ part sensor {
 
     region primary_in : face = { select = [feature.rod.face.start], expect = exactly_one, label = "Primary in" }
     region primary_out : face = { select = [feature.rod.face.end], expect = exactly_one, label = "Primary out" }
-    region gap : face = { select = [feature.core.face.side(core_s.lower_pole), feature.core.face.side(core_s.upper_pole)], expect = at_least_one, body = feature.core.body, label = "Gap" }
+    region gap : face = { select = [feature.core.face.side(core_s.lower_pole), feature.core.face.side(core_s.upper_pole)], expect = one_or_more, body = feature.core.body, label = "Gap" }
     region outer_boundary : face = {
         select = [
             feature.air.face.start,
@@ -66,9 +63,9 @@ part sensor {
             feature.air.face.side(air_s.front),
             feature.air.face.side(air_s.right),
             feature.air.face.side(air_s.back),
-            feature.air.face.side(air_s.left)
-        ],
-        expect = at_least_one,
+            feature.air.face.side(air_s.left),
+        ]
+        expect = one_or_more
         label = "Outer boundary"
     }
 

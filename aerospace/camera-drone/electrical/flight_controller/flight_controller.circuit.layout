@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 use circuit flight_controller
 
 layout flight_controller {
@@ -808,83 +805,83 @@ layout flight_controller {
     pour GND = { layers = [B.Cu], outline = [[-17.6, -16.6], [-16.6, -17.6], [16.6, -17.6], [17.6, -16.6], [17.6, 16.6], [16.6, 17.6], [-16.6, 17.6], [-17.6, 16.6]], connect = thermal_tht }
     pour "+5V" = { layers = [In2.Cu], outline = [[-17.6, -16.6], [-16.6, -17.6], [0.6, -17.6], [0.6, -5], [-17.6, -5]], priority = 1 }
     package C_0402_1005Metric_IPCN = {
-        description = "C chip 0402 (1005 metric), IPC-7351B density B",
+        description = "C chip 0402 (1005 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.515, 0.57], at = [-0.3775, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd }
-        ],
-        courtyard = rect([-0.79, -0.44], [0.79, 0.44]),
-        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)],
+            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd },
+        ]
+        courtyard = rect([-0.79, -0.44], [0.79, 0.44])
+        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)]
         body = { height = 0.35, model = "${RUNMAT_3DMODELS}/C_0402_1005Metric_IPCN.step" }
     }
     package C_0603_1608Metric_IPCN = {
-        description = "C chip 0603 (1608 metric), IPC-7351B density B",
+        description = "C chip 0603 (1608 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.96, 0.96], at = [-0.75, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd }
-        ],
-        courtyard = rect([-1.48, -0.73], [1.48, 0.73]),
-        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)],
+            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd },
+        ]
+        courtyard = rect([-1.48, -0.73], [1.48, 0.73])
+        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)]
         body = { height = 0.45, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
     package C_1206_3216Metric_IPCN = {
-        description = "C chip 1206 (3216 metric), IPC-7351B density B",
+        description = "C chip 1206 (3216 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 1.81], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.16], [2.31, 1.16]),
-        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])],
-        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.16], [2.31, 1.16])
+        silk = [line([-0.535, -0.91], [0.535, -0.91]), line([-0.535, 0.91], [0.535, 0.91])]
+        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
     package C_0805_2012Metric_IPCN = {
-        description = "C chip 0805 (2012 metric), IPC-7351B density B",
+        description = "C chip 0805 (2012 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 1.46], at = [-0.825, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 1.46], at = [0.825, 0], layers = smd }
-        ],
-        courtyard = rect([-1.71, -0.98], [1.71, 0.98]),
-        fab = [rect([-1, -0.625], [1, 0.625]), text([0, 0], "${REFERENCE}", size = 0.5)],
+            { number = "2", shape = roundrect, size = [1.26, 1.46], at = [0.825, 0], layers = smd },
+        ]
+        courtyard = rect([-1.71, -0.98], [1.71, 0.98])
+        fab = [rect([-1, -0.625], [1, 0.625]), text([0, 0], "${REFERENCE}", size = 0.5)]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/C_0805_2012Metric_IPCN.step" }
     }
     package LED_0603_1608Metric_IPCN = {
-        description = "LED chip 0603 (1608 metric), IPC-7351B density B",
+        description = "LED chip 0603 (1608 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.96, 0.96], at = [-0.75, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd }
-        ],
-        courtyard = rect([-1.48, -0.73], [1.48, 0.73]),
-        silk = [circle([-1.53, 0], 0.1, fill = true)],
-        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)],
+            { number = "2", shape = roundrect, size = [0.96, 0.96], at = [0.75, 0], layers = smd },
+        ]
+        courtyard = rect([-1.48, -0.73], [1.48, 0.73])
+        silk = [circle([-1.53, 0], 0.1, fill = true)]
+        fab = [rect([-0.8, -0.4], [0.8, 0.4]), text([0, 0], "${REFERENCE}", size = 0.32)]
         body = { height = 0.45, model = "${RUNMAT_3DMODELS}/LED_0603_1608Metric_IPCN.step" }
     }
     package D_1206_3216Metric_IPCN = {
-        description = "D chip 1206 (3216 metric), IPC-7351B density B",
+        description = "D chip 1206 (3216 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 1.81], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.16], [2.31, 1.16]),
+            { number = "2", shape = roundrect, size = [1.26, 1.81], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.16], [2.31, 1.16])
         silk = [
             line([-0.535, -0.91], [0.535, -0.91]),
             line([-0.535, 0.91], [0.535, 0.91]),
-            circle([-2.355, 0], 0.1, fill = true)
-        ],
-        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            circle([-2.355, 0], 0.1, fill = true),
+        ]
+        fab = [rect([-1.6, -0.8], [1.6, 0.8]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/D_1206_3216Metric_IPCN.step" }
     }
     package "MountingHole_3.6mm_Pad4.6mm" = {
-        description = "Mounting hole, drill 3.6 mm, plated pad 4.6 mm",
+        description = "Mounting hole, drill 3.6 mm, plated pad 4.6 mm"
         pads = [
-            { number = "1", shape = circle, size = [4.6, 4.6], at = [0, 0], layers = through, drill = 3.6 }
-        ],
-        courtyard = rect([-2.55, -2.55], [2.55, 2.55]),
-        fab = [rect([-2.3, -2.3], [2.3, 2.3]), text([0, 0], "${REFERENCE}")],
+            { number = "1", shape = circle, size = [4.6, 4.6], at = [0, 0], layers = through, drill = 3.6 },
+        ]
+        courtyard = rect([-2.55, -2.55], [2.55, 2.55])
+        fab = [rect([-2.3, -2.3], [2.3, 2.3]), text([0, 0], "${REFERENCE}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_3.6mm_Pad4.6mm.step" }
     }
     package "USB-C_1x12_P0.5mm" = {
-        description = "USB-C 12 pins",
+        description = "USB-C 12 pins"
         pads = [
             { number = "1", shape = roundrect, size = [0.3, 1], at = [-2.75, -3.65], layers = smd },
             { number = "2", shape = roundrect, size = [0.3, 1], at = [-2.25, -3.65], layers = smd },
@@ -899,9 +896,9 @@ layout flight_controller {
             { number = "11", shape = roundrect, size = [0.3, 1], at = [2.25, -3.65], layers = smd },
             { number = "12", shape = roundrect, size = [0.3, 1], at = [2.75, -3.65], layers = smd },
             { number = "MP1", shape = oval, size = [1, 2.1], at = [-4.32, 0], layers = through, drill = 0.6 },
-            { number = "MP2", shape = oval, size = [1, 2.1], at = [4.32, 0], layers = through, drill = 0.6 }
-        ],
-        courtyard = rect([-5.32, -4.65], [5.32, 4.15]),
+            { number = "MP2", shape = oval, size = [1, 2.1], at = [4.32, 0], layers = through, drill = 0.6 },
+        ]
+        courtyard = rect([-5.32, -4.65], [5.32, 4.15])
         silk = [
             line([-4.58, -3.76], [-3.16, -3.76]),
             line([3.16, -3.76], [4.58, -3.76]),
@@ -909,34 +906,34 @@ layout flight_controller {
             line([4.58, 1.31], [4.58, 3.76]),
             line([-4.58, 3.76], [4.58, 3.76]),
             line([-4.58, -3.76], [-4.58, -1.31]),
-            line([-4.58, 1.31], [-4.58, 3.76])
-        ],
-        fab = [rect([-4.47, -3.65], [4.47, 3.65]), text([0, 0], "${REFERENCE}")],
+            line([-4.58, 1.31], [-4.58, 3.76]),
+        ]
+        fab = [rect([-4.47, -3.65], [4.47, 3.65]), text([0, 0], "${REFERENCE}")]
         body = { height = 3, model = "${RUNMAT_3DMODELS}/USB-C_1x12_P0.5mm.step" }
     }
     package "JST-SH_1x04_P1mm" = {
-        description = "JST-SH 4 pins",
+        description = "JST-SH 4 pins"
         pads = [
             { number = "1", shape = roundrect, size = [0.6, 1.55], at = [-1.5, -2.125], layers = smd },
             { number = "2", shape = roundrect, size = [0.6, 1.55], at = [-0.5, -2.125], layers = smd },
             { number = "3", shape = roundrect, size = [0.6, 1.55], at = [0.5, -2.125], layers = smd },
             { number = "4", shape = roundrect, size = [0.6, 1.55], at = [1.5, -2.125], layers = smd },
             { number = "MP1", shape = roundrect, size = [1.2, 1.8], at = [-2.85, 1.1], layers = smd },
-            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [2.85, 1.1], layers = smd }
-        ],
-        courtyard = rect([-3.95, -3.4], [3.95, 2.63]),
+            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [2.85, 1.1], layers = smd },
+        ]
+        courtyard = rect([-3.95, -3.4], [3.95, 2.63])
         silk = [
             line([-3.11, -2.235], [-2.06, -2.235]),
             line([2.06, -2.235], [3.11, -2.235]),
             line([3.11, -2.235], [3.11, -0.06]),
             line([-1.99, 2.235], [1.99, 2.235]),
-            line([-3.11, -2.235], [-3.11, -0.06])
-        ],
-        fab = [rect([-3, -2.125], [3, 2.125]), text([0, 0], "${REFERENCE}")],
+            line([-3.11, -2.235], [-3.11, -0.06]),
+        ]
+        fab = [rect([-3, -2.125], [3, 2.125]), text([0, 0], "${REFERENCE}")]
         body = { height = 3, model = "${RUNMAT_3DMODELS}/JST-SH_1x04_P1mm.step" }
     }
     package "JST-SH_1x08_P1mm" = {
-        description = "JST-SH 8 pins",
+        description = "JST-SH 8 pins"
         pads = [
             { number = "1", shape = roundrect, size = [0.6, 1.55], at = [-3.5, -2.125], layers = smd },
             { number = "2", shape = roundrect, size = [0.6, 1.55], at = [-2.5, -2.125], layers = smd },
@@ -947,21 +944,21 @@ layout flight_controller {
             { number = "7", shape = roundrect, size = [0.6, 1.55], at = [2.5, -2.125], layers = smd },
             { number = "8", shape = roundrect, size = [0.6, 1.55], at = [3.5, -2.125], layers = smd },
             { number = "MP1", shape = roundrect, size = [1.2, 1.8], at = [-4.85, 1.1], layers = smd },
-            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [4.85, 1.1], layers = smd }
-        ],
-        courtyard = rect([-5.95, -3.4], [5.95, 2.63]),
+            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [4.85, 1.1], layers = smd },
+        ]
+        courtyard = rect([-5.95, -3.4], [5.95, 2.63])
         silk = [
             line([-5.11, -2.235], [-4.06, -2.235]),
             line([4.06, -2.235], [5.11, -2.235]),
             line([5.11, -2.235], [5.11, -0.06]),
             line([-3.99, 2.235], [3.99, 2.235]),
-            line([-5.11, -2.235], [-5.11, -0.06])
-        ],
-        fab = [rect([-5, -2.125], [5, 2.125]), text([0, 0], "${REFERENCE}")],
+            line([-5.11, -2.235], [-5.11, -0.06]),
+        ]
+        fab = [rect([-5, -2.125], [5, 2.125]), text([0, 0], "${REFERENCE}")]
         body = { height = 3, model = "${RUNMAT_3DMODELS}/JST-SH_1x08_P1mm.step" }
     }
     package "JST-SH_1x06_P1mm" = {
-        description = "JST-SH 6 pins",
+        description = "JST-SH 6 pins"
         pads = [
             { number = "1", shape = roundrect, size = [0.6, 1.55], at = [-2.5, -2.125], layers = smd },
             { number = "2", shape = roundrect, size = [0.6, 1.55], at = [-1.5, -2.125], layers = smd },
@@ -970,42 +967,42 @@ layout flight_controller {
             { number = "5", shape = roundrect, size = [0.6, 1.55], at = [1.5, -2.125], layers = smd },
             { number = "6", shape = roundrect, size = [0.6, 1.55], at = [2.5, -2.125], layers = smd },
             { number = "MP1", shape = roundrect, size = [1.2, 1.8], at = [-3.85, 1.1], layers = smd },
-            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [3.85, 1.1], layers = smd }
-        ],
-        courtyard = rect([-4.95, -3.4], [4.95, 2.63]),
+            { number = "MP2", shape = roundrect, size = [1.2, 1.8], at = [3.85, 1.1], layers = smd },
+        ]
+        courtyard = rect([-4.95, -3.4], [4.95, 2.63])
         silk = [
             line([-4.11, -2.235], [-3.06, -2.235]),
             line([3.06, -2.235], [4.11, -2.235]),
             line([4.11, -2.235], [4.11, -0.06]),
             line([-2.99, 2.235], [2.99, 2.235]),
-            line([-4.11, -2.235], [-4.11, -0.06])
-        ],
-        fab = [rect([-4, -2.125], [4, 2.125]), text([0, 0], "${REFERENCE}")],
+            line([-4.11, -2.235], [-4.11, -0.06]),
+        ]
+        fab = [rect([-4, -2.125], [4, 2.125]), text([0, 0], "${REFERENCE}")]
         body = { height = 3, model = "${RUNMAT_3DMODELS}/JST-SH_1x06_P1mm.step" }
     }
     package L_1210_3225Metric_IPCN = {
-        description = "L chip 1210 (3225 metric), IPC-7351B density B",
+        description = "L chip 1210 (3225 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 2.71], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 2.71], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.61], [2.31, 1.61]),
-        silk = [line([-0.535, -1.36], [0.535, -1.36]), line([-0.535, 1.36], [0.535, 1.36])],
-        fab = [rect([-1.6, -1.25], [1.6, 1.25]), text([0, 0], "${REFERENCE}")],
+            { number = "2", shape = roundrect, size = [1.26, 2.71], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.61], [2.31, 1.61])
+        silk = [line([-0.535, -1.36], [0.535, -1.36]), line([-0.535, 1.36], [0.535, 1.36])]
+        fab = [rect([-1.6, -1.25], [1.6, 1.25]), text([0, 0], "${REFERENCE}")]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/L_1210_3225Metric_IPCN.step" }
     }
     package R_0402_1005Metric_IPCN = {
-        description = "R chip 0402 (1005 metric), IPC-7351B density B",
+        description = "R chip 0402 (1005 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.515, 0.57], at = [-0.3775, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd }
-        ],
-        courtyard = rect([-0.79, -0.44], [0.79, 0.44]),
-        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)],
+            { number = "2", shape = roundrect, size = [0.515, 0.57], at = [0.3775, 0], layers = smd },
+        ]
+        courtyard = rect([-0.79, -0.44], [0.79, 0.44])
+        fab = [rect([-0.5, -0.25], [0.5, 0.25]), text([0, 0], "${REFERENCE}", size = 0.2)]
         body = { height = 0.35, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
     package "LQFP-48_7x7mm_P0.5mm_IPCN" = {
-        description = "LQFP 48 pins, pitch 0.5 mm, IPC-7351B density B",
+        description = "LQFP 48 pins, pitch 0.5 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.66, 0.25], at = [-4.125, 2.75], layers = smd },
             { number = "2", shape = roundrect, size = [1.66, 0.25], at = [-4.125, 2.25], layers = smd },
@@ -1054,9 +1051,9 @@ layout flight_controller {
             { number = "45", shape = roundrect, size = [0.25, 1.66], at = [-1.25, 4.125], layers = smd },
             { number = "46", shape = roundrect, size = [0.25, 1.66], at = [-1.75, 4.125], layers = smd },
             { number = "47", shape = roundrect, size = [0.25, 1.66], at = [-2.25, 4.125], layers = smd },
-            { number = "48", shape = roundrect, size = [0.25, 1.66], at = [-2.75, 4.125], layers = smd }
-        ],
-        courtyard = rect([-5.21, -5.21], [5.21, 5.21]),
+            { number = "48", shape = roundrect, size = [0.25, 1.66], at = [-2.75, 4.125], layers = smd },
+        ]
+        courtyard = rect([-5.21, -5.21], [5.21, 5.21])
         silk = [
             line([-3.61, -3.61], [-3.135, -3.61]),
             line([3.135, -3.61], [3.61, -3.61]),
@@ -1066,51 +1063,51 @@ layout flight_controller {
             line([3.135, 3.61], [3.61, 3.61]),
             line([-3.61, -3.61], [-3.61, -3.135]),
             line([-3.61, 3.135], [-3.61, 3.61]),
-            circle([-5.255, 2.75], 0.1, fill = true)
-        ],
-        fab = [rect([-3.5, -3.5], [3.5, 3.5]), text([0, 0], "${REFERENCE}")],
+            circle([-5.255, 2.75], 0.1, fill = true),
+        ]
+        fab = [rect([-3.5, -3.5], [3.5, 3.5]), text([0, 0], "${REFERENCE}")]
         body = { height = 1.6, model = "${RUNMAT_3DMODELS}/LQFP-48_7x7mm_P0.5mm_IPCN.step" }
     }
     package "SOT-23-6_IPCN" = {
-        description = "SOT-23 6 pins, IPC-7351B density B",
+        description = "SOT-23 6 pins, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0.95], layers = smd },
             { number = "2", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0], layers = smd },
             { number = "3", shape = roundrect, size = [1.58, 0.57], at = [-0.885, -0.95], layers = smd },
             { number = "4", shape = roundrect, size = [1.58, 0.57], at = [0.885, -0.95], layers = smd },
             { number = "5", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0], layers = smd },
-            { number = "6", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd }
-        ],
-        courtyard = rect([-1.93, -1.7], [1.93, 1.7]),
+            { number = "6", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd },
+        ]
+        courtyard = rect([-1.93, -1.7], [1.93, 1.7])
         silk = [
             line([-0.91, -1.56], [0.91, -1.56]),
             line([-0.91, 1.56], [0.91, 1.56]),
-            circle([-1.975, 0.95], 0.1, fill = true)
-        ],
-        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            circle([-1.975, 0.95], 0.1, fill = true),
+        ]
+        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 1.1, model = "${RUNMAT_3DMODELS}/SOT-23-6_IPCN.step" }
     }
     package "SOT-23-5_IPCN" = {
-        description = "SOT-23 5 pins, IPC-7351B density B",
+        description = "SOT-23 5 pins, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0.95], layers = smd },
             { number = "2", shape = roundrect, size = [1.58, 0.57], at = [-0.885, 0], layers = smd },
             { number = "3", shape = roundrect, size = [1.58, 0.57], at = [-0.885, -0.95], layers = smd },
             { number = "4", shape = roundrect, size = [1.58, 0.57], at = [0.885, -0.95], layers = smd },
-            { number = "5", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd }
-        ],
-        courtyard = rect([-1.93, -1.7], [1.93, 1.7]),
+            { number = "5", shape = roundrect, size = [1.58, 0.57], at = [0.885, 0.95], layers = smd },
+        ]
+        courtyard = rect([-1.93, -1.7], [1.93, 1.7])
         silk = [
             line([-0.91, -1.56], [0.91, -1.56]),
             line([0.91, -0.405], [0.91, 0.405]),
             line([-0.91, 1.56], [0.91, 1.56]),
-            circle([-1.975, 0.95], 0.1, fill = true)
-        ],
-        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)],
+            circle([-1.975, 0.95], 0.1, fill = true),
+        ]
+        fab = [rect([-0.8, -1.45], [0.8, 1.45]), text([0, 0], "${REFERENCE}", size = 0.64)]
         body = { height = 1.1, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
     package "DFN-14_3x2.5mm_P0.5mm_IPCN" = {
-        description = "DFN 14 pins, pitch 0.5 mm, IPC-7351B density B",
+        description = "DFN 14 pins, pitch 0.5 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.865, 0.19], at = [-1.4025, 1.5], layers = smd },
             { number = "2", shape = roundrect, size = [0.865, 0.19], at = [-1.4025, 1], layers = smd },
@@ -1125,19 +1122,19 @@ layout flight_controller {
             { number = "11", shape = roundrect, size = [0.865, 0.19], at = [1.4025, 0], layers = smd },
             { number = "12", shape = roundrect, size = [0.865, 0.19], at = [1.4025, 0.5], layers = smd },
             { number = "13", shape = roundrect, size = [0.865, 0.19], at = [1.4025, 1], layers = smd },
-            { number = "14", shape = roundrect, size = [0.865, 0.19], at = [1.4025, 1.5], layers = smd }
-        ],
-        courtyard = rect([-2.09, -1.85], [2.09, 1.85]),
+            { number = "14", shape = roundrect, size = [0.865, 0.19], at = [1.4025, 1.5], layers = smd },
+        ]
+        courtyard = rect([-2.09, -1.85], [2.09, 1.85])
         silk = [
             line([-0.71, -1.36], [0.71, -1.36]),
             line([-0.71, 1.36], [0.71, 1.36]),
-            circle([-2.135, 1.5], 0.1, fill = true)
-        ],
-        fab = [rect([-1.5, -1.25], [1.5, 1.25]), text([0, 0], "${REFERENCE}")],
+            circle([-2.135, 1.5], 0.1, fill = true),
+        ]
+        fab = [rect([-1.5, -1.25], [1.5, 1.25]), text([0, 0], "${REFERENCE}")]
         body = { height = 0.8, model = "${RUNMAT_3DMODELS}/DFN-14_3x2.5mm_P0.5mm_IPCN.step" }
     }
     package "DFN-8_2x2.5mm_P0.65mm_IPCN" = {
-        description = "DFN 8 pins, pitch 0.65 mm, IPC-7351B density B",
+        description = "DFN 8 pins, pitch 0.65 mm, IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [0.865, 0.27], at = [-0.9025, 0.975], layers = smd },
             { number = "2", shape = roundrect, size = [0.865, 0.27], at = [-0.9025, 0.325], layers = smd },
@@ -1146,36 +1143,36 @@ layout flight_controller {
             { number = "5", shape = roundrect, size = [0.865, 0.27], at = [0.9025, -0.975], layers = smd },
             { number = "6", shape = roundrect, size = [0.865, 0.27], at = [0.9025, -0.325], layers = smd },
             { number = "7", shape = roundrect, size = [0.865, 0.27], at = [0.9025, 0.325], layers = smd },
-            { number = "8", shape = roundrect, size = [0.865, 0.27], at = [0.9025, 0.975], layers = smd }
-        ],
-        courtyard = rect([-1.59, -1.5], [1.59, 1.5]),
+            { number = "8", shape = roundrect, size = [0.865, 0.27], at = [0.9025, 0.975], layers = smd },
+        ]
+        courtyard = rect([-1.59, -1.5], [1.59, 1.5])
         silk = [
             line([-0.21, -1.36], [0.21, -1.36]),
             line([-0.21, 1.36], [0.21, 1.36]),
-            circle([-1.635, 0.975], 0.1, fill = true)
-        ],
-        fab = [rect([-1, -1.25], [1, 1.25]), text([0, 0], "${REFERENCE}", size = 0.8)],
+            circle([-1.635, 0.975], 0.1, fill = true),
+        ]
+        fab = [rect([-1, -1.25], [1, 1.25]), text([0, 0], "${REFERENCE}", size = 0.8)]
         body = { height = 0.8, model = "${RUNMAT_3DMODELS}/DFN-8_2x2.5mm_P0.65mm_IPCN.step" }
     }
     package C_1210_3225Metric_IPCN = {
-        description = "C chip 1210 (3225 metric), IPC-7351B density B",
+        description = "C chip 1210 (3225 metric), IPC-7351B density B"
         pads = [
             { number = "1", shape = roundrect, size = [1.26, 2.71], at = [-1.425, 0], layers = smd },
-            { number = "2", shape = roundrect, size = [1.26, 2.71], at = [1.425, 0], layers = smd }
-        ],
-        courtyard = rect([-2.31, -1.61], [2.31, 1.61]),
-        silk = [line([-0.535, -1.36], [0.535, -1.36]), line([-0.535, 1.36], [0.535, 1.36])],
-        fab = [rect([-1.6, -1.25], [1.6, 1.25]), text([0, 0], "${REFERENCE}")],
+            { number = "2", shape = roundrect, size = [1.26, 2.71], at = [1.425, 0], layers = smd },
+        ]
+        courtyard = rect([-2.31, -1.61], [2.31, 1.61])
+        silk = [line([-0.535, -1.36], [0.535, -1.36]), line([-0.535, 1.36], [0.535, 1.36])]
+        fab = [rect([-1.6, -1.25], [1.6, 1.25]), text([0, 0], "${REFERENCE}")]
         body = { height = 0.6, model = "${RUNMAT_3DMODELS}/C_1210_3225Metric_IPCN.step" }
     }
     sync {
         version = 1
         compare = {
-            ignore = [],
-            ignored_parameters = [],
-            remove_unlinked_footprints = true,
-            relink_by_designator = true,
-            rooms_per_channel = true,
+            ignore = []
+            ignored_parameters = []
+            remove_unlinked_footprints = true
+            relink_by_designator = true
+            rooms_per_channel = true
             classes_per_channel = true
         }
         footprint C1 = "/mcu/C1"
@@ -1234,8 +1231,8 @@ layout flight_controller {
         footprint U5 = "/sens/U5"
         footprint Y1 = "/mcu/Y1"
         component "/conn/D3" = {
-            designator = D3,
-            package = D_1206_3216Metric_IPCN,
+            designator = D3
+            package = D_1206_3216Metric_IPCN
             pads = { "1" = "+5V", "2" = "/conn/VBUS" }
         }
         component "/conn/H1" = { designator = H1, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
@@ -1243,346 +1240,346 @@ layout flight_controller {
         component "/conn/H3" = { designator = H3, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
         component "/conn/H4" = { designator = H4, package = "MountingHole_3.6mm_Pad4.6mm", pads = {} }
         component "/conn/J1" = {
-            designator = J1,
-            package = "USB-C_1x12_P0.5mm",
+            designator = J1
+            package = "USB-C_1x12_P0.5mm"
             pads = {
-                "1" = GND,
-                "11" = "/conn/VBUS",
-                "12" = GND,
-                "2" = "/conn/VBUS",
-                "3" = "/conn/CC1",
-                "4" = USB_DP,
-                "5" = USB_DN,
-                "6" = USB_DP,
-                "7" = USB_DN,
-                "9" = "/conn/CC2",
-                MP1 = GND,
+                "1" = GND
+                "11" = "/conn/VBUS"
+                "12" = GND
+                "2" = "/conn/VBUS"
+                "3" = "/conn/CC1"
+                "4" = USB_DP
+                "5" = USB_DN
+                "6" = USB_DP
+                "7" = USB_DN
+                "9" = "/conn/CC2"
+                MP1 = GND
                 MP2 = GND
             }
         }
         component "/conn/J2" = {
-            designator = J2,
-            package = "JST-SH_1x04_P1mm",
+            designator = J2
+            package = "JST-SH_1x04_P1mm"
             pads = { "1" = "+5V", "2" = GND, "3" = RC_RX, "4" = RC_TX }
         }
         component "/conn/J3" = {
-            designator = J3,
-            package = "JST-SH_1x08_P1mm",
+            designator = J3
+            package = "JST-SH_1x08_P1mm"
             pads = {
-                "1" = VBAT,
-                "2" = GND,
-                "3" = CURR,
-                "4" = TLM,
-                "5" = M1,
-                "6" = M2,
-                "7" = M3,
+                "1" = VBAT
+                "2" = GND
+                "3" = CURR
+                "4" = TLM
+                "5" = M1
+                "6" = M2
+                "7" = M3
                 "8" = M4
             }
         }
         component "/conn/J4" = {
-            designator = J4,
-            package = "JST-SH_1x04_P1mm",
+            designator = J4
+            package = "JST-SH_1x04_P1mm"
             pads = { "1" = "+5V", "2" = GND, "3" = VTX_TX, "4" = VTX_RX }
         }
         component "/conn/J5" = {
-            designator = J5,
-            package = "JST-SH_1x06_P1mm",
+            designator = J5
+            package = "JST-SH_1x06_P1mm"
             pads = {
-                "1" = GPS_VCC,
-                "2" = GPS_TX,
-                "3" = GPS_RX,
-                "4" = I2C_SCL,
-                "5" = I2C_SDA,
+                "1" = GPS_VCC
+                "2" = GPS_TX
+                "3" = GPS_RX
+                "4" = I2C_SCL
+                "5" = I2C_SDA
                 "6" = GND
             }
         }
         component "/conn/R2" = {
-            designator = R2,
-            package = R_0402_1005Metric_IPCN,
+            designator = R2
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/conn/CC1", "2" = GND }
         }
         component "/conn/R3" = {
-            designator = R3,
-            package = R_0402_1005Metric_IPCN,
+            designator = R3
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/conn/CC2", "2" = GND }
         }
         component "/mcu/C1" = {
-            designator = C1,
-            package = C_0402_1005Metric_IPCN,
+            designator = C1
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/OSC_IN", "2" = GND }
         }
         component "/mcu/C10" = {
-            designator = C10,
-            package = C_0603_1608Metric_IPCN,
+            designator = C10
+            package = C_0603_1608Metric_IPCN
             pads = { "1" = "/mcu/VCAP", "2" = GND }
         }
         component "/mcu/C11" = {
-            designator = C11,
-            package = C_0402_1005Metric_IPCN,
+            designator = C11
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/NRST", "2" = GND }
         }
         component "/mcu/C2" = {
-            designator = C2,
-            package = C_0402_1005Metric_IPCN,
+            designator = C2
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/OSC_OUT", "2" = GND }
         }
         component "/mcu/C3" = {
-            designator = C3,
-            package = C_0402_1005Metric_IPCN,
+            designator = C3
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C4" = {
-            designator = C4,
-            package = C_0402_1005Metric_IPCN,
+            designator = C4
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C5" = {
-            designator = C5,
-            package = C_0402_1005Metric_IPCN,
+            designator = C5
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C6" = {
-            designator = C6,
-            package = C_0402_1005Metric_IPCN,
+            designator = C6
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C7" = {
-            designator = C7,
-            package = C_0402_1005Metric_IPCN,
+            designator = C7
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C8" = {
-            designator = C8,
-            package = C_0402_1005Metric_IPCN,
+            designator = C8
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/C9" = {
-            designator = C9,
-            package = C_0402_1005Metric_IPCN,
+            designator = C9
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/mcu/D1" = {
-            designator = D1,
-            package = LED_0603_1608Metric_IPCN,
+            designator = D1
+            package = LED_0603_1608Metric_IPCN
             pads = { "1" = "/mcu/LED1_K", "2" = GND }
         }
         component "/mcu/D2" = {
-            designator = D2,
-            package = LED_0603_1608Metric_IPCN,
+            designator = D2
+            package = LED_0603_1608Metric_IPCN
             pads = { "1" = "/mcu/LED2_K", "2" = GND }
         }
         component "/mcu/R1" = {
-            designator = R1,
-            package = R_0402_1005Metric_IPCN,
+            designator = R1
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/BOOT0", "2" = GND }
         }
         component "/mcu/R13" = {
-            designator = R13,
-            package = R_0402_1005Metric_IPCN,
+            designator = R13
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/NRST", "2" = "+3V3" }
         }
         component "/mcu/R4" = {
-            designator = R4,
-            package = R_0402_1005Metric_IPCN,
+            designator = R4
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/LED1", "2" = "/mcu/LED1_K" }
         }
         component "/mcu/R5" = {
-            designator = R5,
-            package = R_0402_1005Metric_IPCN,
+            designator = R5
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/mcu/LED2", "2" = "/mcu/LED2_K" }
         }
         component "/mcu/U1" = {
-            designator = U1,
-            package = "LQFP-48_7x7mm_P0.5mm_IPCN",
+            designator = U1
+            package = "LQFP-48_7x7mm_P0.5mm_IPCN"
             pads = {
-                "1" = "+3V3",
-                "10" = VBAT_SENSE,
-                "11" = IMU_INT,
-                "12" = RC_TX,
-                "13" = RC_RX,
-                "14" = IMU_CS,
-                "15" = SPI_SCK,
-                "16" = SPI_MISO,
-                "17" = SPI_MOSI,
-                "19" = CURR,
-                "2" = "/mcu/LED1",
-                "21" = TLM,
-                "22" = "/mcu/VCAP",
-                "23" = GND,
-                "24" = "+3V3",
-                "25" = GPS_TX,
-                "26" = GPS_RX,
-                "3" = "/mcu/LED2",
-                "30" = VTX_TX,
-                "31" = VTX_RX,
-                "32" = USB_DN,
-                "33" = USB_DP,
-                "35" = GND,
-                "36" = "+3V3",
-                "40" = M3,
-                "41" = M4,
-                "42" = M1,
-                "43" = M2,
-                "44" = "/mcu/BOOT0",
-                "45" = I2C_SCL,
-                "46" = I2C_SDA,
-                "47" = GND,
-                "48" = "+3V3",
-                "5" = "/mcu/OSC_IN",
-                "6" = "/mcu/OSC_OUT",
-                "7" = "/mcu/NRST",
-                "8" = GND,
+                "1" = "+3V3"
+                "10" = VBAT_SENSE
+                "11" = IMU_INT
+                "12" = RC_TX
+                "13" = RC_RX
+                "14" = IMU_CS
+                "15" = SPI_SCK
+                "16" = SPI_MISO
+                "17" = SPI_MOSI
+                "19" = CURR
+                "2" = "/mcu/LED1"
+                "21" = TLM
+                "22" = "/mcu/VCAP"
+                "23" = GND
+                "24" = "+3V3"
+                "25" = GPS_TX
+                "26" = GPS_RX
+                "3" = "/mcu/LED2"
+                "30" = VTX_TX
+                "31" = VTX_RX
+                "32" = USB_DN
+                "33" = USB_DP
+                "35" = GND
+                "36" = "+3V3"
+                "40" = M3
+                "41" = M4
+                "42" = M1
+                "43" = M2
+                "44" = "/mcu/BOOT0"
+                "45" = I2C_SCL
+                "46" = I2C_SDA
+                "47" = GND
+                "48" = "+3V3"
+                "5" = "/mcu/OSC_IN"
+                "6" = "/mcu/OSC_OUT"
+                "7" = "/mcu/NRST"
+                "8" = GND
                 "9" = "+3V3"
             }
         }
         component "/mcu/Y1" = {
-            designator = Y1,
-            package = C_1210_3225Metric_IPCN,
+            designator = Y1
+            package = C_1210_3225Metric_IPCN
             pads = { "1" = "/mcu/OSC_IN", "2" = "/mcu/OSC_OUT" }
         }
         component "/pwr/C12" = {
-            designator = C12,
-            package = C_1206_3216Metric_IPCN,
+            designator = C12
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/pwr/C13" = {
-            designator = C13,
-            package = C_1206_3216Metric_IPCN,
+            designator = C13
+            package = C_1206_3216Metric_IPCN
             pads = { "1" = VBAT, "2" = GND }
         }
         component "/pwr/C14" = {
-            designator = C14,
-            package = C_0402_1005Metric_IPCN,
+            designator = C14
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "/pwr/BST", "2" = "/pwr/SW" }
         }
         component "/pwr/C15" = {
-            designator = C15,
-            package = C_0805_2012Metric_IPCN,
+            designator = C15
+            package = C_0805_2012Metric_IPCN
             pads = { "1" = "+5V", "2" = GND }
         }
         component "/pwr/C16" = {
-            designator = C16,
-            package = C_0805_2012Metric_IPCN,
+            designator = C16
+            package = C_0805_2012Metric_IPCN
             pads = { "1" = "+5V", "2" = GND }
         }
         component "/pwr/C17" = {
-            designator = C17,
-            package = C_0402_1005Metric_IPCN,
+            designator = C17
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+5V", "2" = "/pwr/FB" }
         }
         component "/pwr/C18" = {
-            designator = C18,
-            package = C_0402_1005Metric_IPCN,
+            designator = C18
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+5V", "2" = GND }
         }
         component "/pwr/C19" = {
-            designator = C19,
-            package = C_0402_1005Metric_IPCN,
+            designator = C19
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/pwr/C20" = {
-            designator = C20,
-            package = C_0402_1005Metric_IPCN,
+            designator = C20
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = VBAT_SENSE, "2" = GND }
         }
         component "/pwr/L1" = {
-            designator = L1,
-            package = L_1210_3225Metric_IPCN,
+            designator = L1
+            package = L_1210_3225Metric_IPCN
             pads = { "1" = "/pwr/SW", "2" = "+5V" }
         }
         component "/pwr/R10" = {
-            designator = R10,
-            package = R_0402_1005Metric_IPCN,
+            designator = R10
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = VBAT_SENSE, "2" = GND }
         }
         component "/pwr/R6" = {
-            designator = R6,
-            package = R_0402_1005Metric_IPCN,
+            designator = R6
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "+5V", "2" = "/pwr/FB" }
         }
         component "/pwr/R7" = {
-            designator = R7,
-            package = R_0402_1005Metric_IPCN,
+            designator = R7
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "/pwr/FB", "2" = GND }
         }
         component "/pwr/R8" = {
-            designator = R8,
-            package = R_0402_1005Metric_IPCN,
+            designator = R8
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = VBAT, "2" = "/pwr/EN" }
         }
         component "/pwr/R9" = {
-            designator = R9,
-            package = R_0402_1005Metric_IPCN,
+            designator = R9
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = VBAT, "2" = VBAT_SENSE }
         }
         component "/pwr/U2" = {
-            designator = U2,
-            package = "SOT-23-6_IPCN",
+            designator = U2
+            package = "SOT-23-6_IPCN"
             pads = {
-                "1" = "/pwr/BST",
-                "2" = GND,
-                "3" = "/pwr/FB",
-                "4" = "/pwr/EN",
-                "5" = VBAT,
+                "1" = "/pwr/BST"
+                "2" = GND
+                "3" = "/pwr/FB"
+                "4" = "/pwr/EN"
+                "5" = VBAT
                 "6" = "/pwr/SW"
             }
         }
         component "/pwr/U3" = {
-            designator = U3,
-            package = "SOT-23-5_IPCN",
+            designator = U3
+            package = "SOT-23-5_IPCN"
             pads = { "1" = "+5V", "2" = GND, "3" = "+5V", "5" = "+3V3" }
         }
         component "/sens/C21" = {
-            designator = C21,
-            package = C_0402_1005Metric_IPCN,
+            designator = C21
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/sens/C22" = {
-            designator = C22,
-            package = C_0402_1005Metric_IPCN,
+            designator = C22
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/sens/C23" = {
-            designator = C23,
-            package = C_0402_1005Metric_IPCN,
+            designator = C23
+            package = C_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = GND }
         }
         component "/sens/R11" = {
-            designator = R11,
-            package = R_0402_1005Metric_IPCN,
+            designator = R11
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = I2C_SCL }
         }
         component "/sens/R12" = {
-            designator = R12,
-            package = R_0402_1005Metric_IPCN,
+            designator = R12
+            package = R_0402_1005Metric_IPCN
             pads = { "1" = "+3V3", "2" = I2C_SDA }
         }
         component "/sens/U4" = {
-            designator = U4,
-            package = "DFN-14_3x2.5mm_P0.5mm_IPCN",
+            designator = U4
+            package = "DFN-14_3x2.5mm_P0.5mm_IPCN"
             pads = {
-                "1" = SPI_MISO,
-                "13" = SPI_SCK,
-                "14" = IMU_CS,
-                "2" = SPI_MOSI,
-                "4" = IMU_INT,
-                "5" = "+3V3",
-                "6" = GND,
-                "7" = GND,
+                "1" = SPI_MISO
+                "13" = SPI_SCK
+                "14" = IMU_CS
+                "2" = SPI_MOSI
+                "4" = IMU_INT
+                "5" = "+3V3"
+                "6" = GND
+                "7" = GND
                 "8" = "+3V3"
             }
         }
         component "/sens/U5" = {
-            designator = U5,
-            package = "DFN-8_2x2.5mm_P0.65mm_IPCN",
+            designator = U5
+            package = "DFN-8_2x2.5mm_P0.65mm_IPCN"
             pads = {
-                "1" = GND,
-                "2" = "+3V3",
-                "3" = I2C_SDA,
-                "4" = I2C_SCL,
-                "5" = GND,
-                "6" = "+3V3",
-                "7" = GND,
+                "1" = GND
+                "2" = "+3V3"
+                "3" = I2C_SDA
+                "4" = I2C_SCL
+                "5" = GND
+                "6" = "+3V3"
+                "7" = GND
                 "8" = "+3V3"
             }
         }

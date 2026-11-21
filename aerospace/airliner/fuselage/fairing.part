@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The wing-to-body fairing: a long blister shell under the wing box, cut back to the fuselage skin.
 part fairing {
     sketch s on origin.xy {

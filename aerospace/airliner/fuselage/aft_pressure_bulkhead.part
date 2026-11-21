@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The aft pressure bulkhead: a 4 mm spherical dome, convex aft, closing the cabin inside the tail cone.
 // `sweep` turns the profile through less than a full turn for a study sector
 // (simulation/bulkhead_sector.assembly); the aircraft uses the full 360 degrees.
@@ -16,8 +13,8 @@ part aft_pressure_bulkhead {
     feature dome = revolve(profile = sketch.s, axis = origin.x, angle = input.sweep)
 
     // The cabin side (forward, concave), the rim on the fuselage frame, and a sector's cut faces.
-    region cabin_side : face = { select = [feature.dome.face.side(s.c3)], expect = at_least_one, label = "cabin_side" }
-    region rim : face = { select = [feature.dome.face.side(s.c4)], expect = at_least_one, label = "rim" }
+    region cabin_side : face = { select = [feature.dome.face.side(s.c3)], expect = one_or_more, label = "cabin_side" }
+    region rim : face = { select = [feature.dome.face.side(s.c4)], expect = one_or_more, label = "rim" }
     region cut_start : face = { select = [feature.dome.face.start], expect = any, label = "cut_start" }
     region cut_end : face = { select = [feature.dome.face.end], expect = any, label = "cut_end" }
 

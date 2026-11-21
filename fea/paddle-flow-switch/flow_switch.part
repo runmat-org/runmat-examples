@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A paddle flow switch in a 2-inch tee: a schedule 40 steel run (52.5 mm bore, 60.3 mm outside,
 // 240 mm long) with a 1-inch switch boss on top (27 mm bore, 42 mm outside, 70 mm tall), the
 // oil in the tee, and a 0.5 mm stainless spring-steel paddle (EN 1.4310, spring hard), 24 mm
@@ -62,9 +59,9 @@ part flow_switch {
     region inlet : face = { select = [feature.oil.face.start], expect = exactly_one, body = feature.oil.body, label = "Inlet" }
     region outlet : face = { select = [feature.oil.face.end], expect = exactly_one, body = feature.oil.body, label = "Outlet" }
     region pipe_wall : face = {
-        select = [feature.oil.face.side(run_s.bore), feature.boss_oil.face.side(boss_s.bore), feature.boss_oil.face.end],
-        expect = at_least_one,
-        body = feature.oil.body,
+        select = [feature.oil.face.side(run_s.bore), feature.boss_oil.face.side(boss_s.bore), feature.boss_oil.face.end]
+        expect = one_or_more
+        body = feature.oil.body
         label = "Pipe wall"
     }
     region paddle_wetted : face = {
@@ -73,10 +70,10 @@ part flow_switch {
             feature.paddle.face.end,
             feature.paddle.face.side(paddle_s.tip),
             feature.paddle.face.side(paddle_s.right),
-            feature.paddle.face.side(paddle_s.left)
-        ],
-        expect = at_least_one,
-        body = feature.oil.body,
+            feature.paddle.face.side(paddle_s.left),
+        ]
+        expect = one_or_more
+        body = feature.oil.body
         label = "Paddle wetted"
     }
     region paddle_surface : face = {
@@ -85,16 +82,16 @@ part flow_switch {
             feature.paddle.face.end,
             feature.paddle.face.side(paddle_s.tip),
             feature.paddle.face.side(paddle_s.right),
-            feature.paddle.face.side(paddle_s.left)
-        ],
-        expect = at_least_one,
-        body = feature.paddle.body,
+            feature.paddle.face.side(paddle_s.left),
+        ]
+        expect = one_or_more
+        body = feature.paddle.body
         label = "Paddle surface"
     }
     region paddle_root : face = { select = [feature.paddle.face.side(paddle_s.root)], expect = exactly_one, body = feature.paddle.body, label = "Paddle root" }
 
     // The run's two pipe ends, where the line holds the tee.
-    region tee_ends : face = { select = [feature.tee.face.start, feature.tee.face.end], expect = at_least_one, body = feature.tee.body, label = "Tee ends" }
+    region tee_ends : face = { select = [feature.tee.face.start, feature.tee.face.end], expect = one_or_more, body = feature.tee.body, label = "Tee ends" }
 
     output tee = { body = feature.tee.body, label = "Tee", part_number = "FS-50-T", material = "steel_a106b", color = "#7C828859" }
     output oil = { body = feature.oil.body, label = "Oil", color = "#D08A1E40" }

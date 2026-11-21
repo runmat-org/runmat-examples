@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The fixed leading edge inboard of the engine.
 part wing_leading_edge {
     input side : real = 1

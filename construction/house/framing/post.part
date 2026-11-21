@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // An interior 6x6 post (Douglas fir-larch No. 1) from its base on the slab to the floor beam.
 part post {
     input height : length = 108.125 in
@@ -11,5 +8,5 @@ part post {
         e3 = line(start = [-2.75 in, 2.75 in], end = [-2.75 in, -2.75 in])
     }
     feature body = extrude(profile = sketch.s, distance = input.height)
-    output post = { body = feature.body.body, part_number = "P-66", material = "material.douglas_fir_lumber" }
+    output post = { body = feature.body.body, part_number = "P-66", material = material.douglas_fir_lumber }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The winglet: a swept, canted blade lofted up from inside the wing tip.
 part wing_winglet {
     input side : real = 1

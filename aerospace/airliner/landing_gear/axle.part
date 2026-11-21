@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The axle across both wheels: its length is an input.
 part axle {
     input length : length = 1000 mm
@@ -8,7 +5,7 @@ part axle {
     sketch s on origin.zx {
         c = circle(center = [0 mm, 0 mm], radius = 70 mm)
     }
-    feature axle = extrude(profile = sketch.s, distance = input.length, symmetric)
+    feature axle = extrude(profile = sketch.s, distance = input.length, symmetric = true)
 
     output axle = { body = feature.axle.body, part_number = "LG-AX-820", material = "steel_300m", color = "#A2A8AF" }
 }

@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The folding propeller's hub: two plates on the motor's shaft that clamp the blades' root
 // tabs (0.1 mm clear above and below) on 2 mm pivot pins at 9 mm radius, under a domed cap.
 // The plates' 12.6 mm radius covers the tabs' rounded ends, and each blade's airfoil starts

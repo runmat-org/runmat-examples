@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A truss-to-wall tie, 18 gauge galvanized steel: a leg nailed to the side of the bottom chord,
 // a tab over the top plate and a leg down the inside face of the top plates. Origin at the
 // truss face on the top of the plates over the outside face of the wall; +x away from the
@@ -29,5 +26,5 @@ part truss_tie {
         e3 = line(start = [-3 in, 1.5 in], end = [-3 in, 0.048 in])
     }
     feature drop = extrude(profile = sketch.drop_s, distance = 0.048 in, mode = new)
-    output truss_tie = { body = feature.leg.body, part_number = "TT-18", material = "material.galvanized_steel" }
+    output truss_tie = { body = feature.leg.body, part_number = "TT-18", material = material.galvanized_steel }
 }

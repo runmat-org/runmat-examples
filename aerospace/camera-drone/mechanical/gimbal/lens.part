@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The camera's front lens element and its cover glass, seated in the barrel's bezel.
 part lens {
     feature base = plane.offset(base = origin.yz, distance = 17.4 mm)

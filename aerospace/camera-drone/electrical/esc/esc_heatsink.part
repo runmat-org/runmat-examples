@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The ESC's heatsink and stack mount, machined from 6061-T6: a 56 x 56 x 2 mm belly plate that
 // closes a window in the lower shell, a 38 x 38 mm pedestal (wide enough to hold the standoffs
 // whole) that rises to the ESC's underside through a 0.5 mm gap pad, four standoffs that carry
@@ -46,14 +43,14 @@ part esc_heatsink {
     feature taps = hole(
         face = feature.standoffs.face.end,
         at = {
-            t0 = point(15.25 mm, 15.25 mm, 10 mm),
-            t1 = point(-15.25 mm, 15.25 mm, 10 mm),
-            t2 = point(-15.25 mm, -15.25 mm, 10 mm),
+            t0 = point(15.25 mm, 15.25 mm, 10 mm)
+            t1 = point(-15.25 mm, 15.25 mm, 10 mm)
+            t2 = point(-15.25 mm, -15.25 mm, 10 mm)
             t3 = point(15.25 mm, -15.25 mm, 10 mm)
         },
         depth = 7.5 mm,
         spec = { standard = iso, size = M3 },
-        form = { hole = tapped, thread_depth = 6 mm }
+        form = { hole = tapped, thread_depth = 6 mm },
     )
     feature fin_plane = plane.offset(base = origin.xy, distance = -8.5 mm)
     sketch fins_s on plane.fin_plane {
@@ -117,7 +114,7 @@ part esc_heatsink {
     feature fins = extrude(profile = sketch.fins_s, distance = 10 mm, mode = add)
 
     // The faces in the downwash: the fins' flanks and tips, the plate's underside and edges.
-    region fins : face = { select = [feature.fins.face.side(fins_s.f0_l1), feature.fins.face.side(fins_s.f0_l3), feature.fins.face.side(fins_s.f1_l1), feature.fins.face.side(fins_s.f1_l3), feature.fins.face.side(fins_s.f2_l1), feature.fins.face.side(fins_s.f2_l3), feature.fins.face.side(fins_s.f3_l1), feature.fins.face.side(fins_s.f3_l3), feature.fins.face.side(fins_s.f4_l1), feature.fins.face.side(fins_s.f4_l3), feature.fins.face.side(fins_s.f5_l1), feature.fins.face.side(fins_s.f5_l3), feature.fins.face.side(fins_s.f6_l1), feature.fins.face.side(fins_s.f6_l3), feature.fins.face.side(fins_s.f7_l1), feature.fins.face.side(fins_s.f7_l3), feature.fins.face.side(fins_s.f8_l1), feature.fins.face.side(fins_s.f8_l3), feature.fins.face.side(fins_s.f9_l1), feature.fins.face.side(fins_s.f9_l3), feature.fins.face.side(fins_s.f10_l1), feature.fins.face.side(fins_s.f10_l3), feature.fins.face.side(fins_s.f11_l1), feature.fins.face.side(fins_s.f11_l3), feature.fins.face.side(fins_s.f12_l1), feature.fins.face.side(fins_s.f12_l3), feature.fins.face.side(fins_s.f13_l1), feature.fins.face.side(fins_s.f13_l3), feature.fins.face.start, feature.base.face.start, feature.base.face.side(base_s.b_l1), feature.base.face.side(base_s.b_l2), feature.base.face.side(base_s.b_l3), feature.base.face.side(base_s.b_l4)], expect = at_least_one }
-    region pad_seat : face = { select = [feature.pedestal.face.end], expect = at_least_one }
+    region fins : face = { select = [feature.fins.face.side(fins_s.f0_l1), feature.fins.face.side(fins_s.f0_l3), feature.fins.face.side(fins_s.f1_l1), feature.fins.face.side(fins_s.f1_l3), feature.fins.face.side(fins_s.f2_l1), feature.fins.face.side(fins_s.f2_l3), feature.fins.face.side(fins_s.f3_l1), feature.fins.face.side(fins_s.f3_l3), feature.fins.face.side(fins_s.f4_l1), feature.fins.face.side(fins_s.f4_l3), feature.fins.face.side(fins_s.f5_l1), feature.fins.face.side(fins_s.f5_l3), feature.fins.face.side(fins_s.f6_l1), feature.fins.face.side(fins_s.f6_l3), feature.fins.face.side(fins_s.f7_l1), feature.fins.face.side(fins_s.f7_l3), feature.fins.face.side(fins_s.f8_l1), feature.fins.face.side(fins_s.f8_l3), feature.fins.face.side(fins_s.f9_l1), feature.fins.face.side(fins_s.f9_l3), feature.fins.face.side(fins_s.f10_l1), feature.fins.face.side(fins_s.f10_l3), feature.fins.face.side(fins_s.f11_l1), feature.fins.face.side(fins_s.f11_l3), feature.fins.face.side(fins_s.f12_l1), feature.fins.face.side(fins_s.f12_l3), feature.fins.face.side(fins_s.f13_l1), feature.fins.face.side(fins_s.f13_l3), feature.fins.face.start, feature.base.face.start, feature.base.face.side(base_s.b_l1), feature.base.face.side(base_s.b_l2), feature.base.face.side(base_s.b_l3), feature.base.face.side(base_s.b_l4)], expect = one_or_more }
+    region pad_seat : face = { select = [feature.pedestal.face.end], expect = one_or_more }
     output esc_heatsink = { body = feature.base.body, part_number = "CD-TH-310", material = "aluminum_6061", color = "#9EA4AB" }
 }

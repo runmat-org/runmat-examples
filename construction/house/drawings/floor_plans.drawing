@@ -1,21 +1,18 @@
-runmat 0.7
-std 1
-
 // The first- and second-floor plans at 1/4 in = 1 ft on ANSI D: horizontal cuts 4 ft above each
 // floor, keeping what is below the cut and seen from above, as plans are drawn. The key elevation
 // at 1/16 in = 1 ft carries the two cutting lines.
 drawing floor_plans {
     format d = {
-        size = { size = ansi, name = D },
-        standard = asme,
-        units = ft_in,
+        size = { size = ansi, name = D }
+        standard = asme
+        units = ft_in
         title_block = [
             { label = "Title", source = { source = literal, text = "Floor plans" } },
             { label = "Project", source = { source = literal, text = "Two-story house, 40 x 30 ft" } },
             { label = "Drawing", source = { source = literal, text = "A-101" } },
             { label = "Scale", source = { source = scale } },
             { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } }
+            { label = "Rev", source = { source = revision } },
         ]
     }
 
@@ -34,7 +31,7 @@ drawing floor_plans {
         at = [250, 260],
         display = visible_lines,
         exclude = [[{ name = mep }]],
-        centerlines = false
+        centerlines = false,
     )
     view second = section(
         from = key,
@@ -48,7 +45,7 @@ drawing floor_plans {
         at = [615, 260],
         display = visible_lines,
         exclude = [[{ name = mep }]],
-        centerlines = false
+        centerlines = false,
     )
 
     // Overall sizes, outside of framing (the top plates' ends and outside faces), and the grids
@@ -93,9 +90,9 @@ drawing floor_plans {
             "A-A: FIRST FLOOR, CUT 4'-0\" ABOVE THE SLAB. B-B: SECOND FLOOR, CUT 4'-0\" ABOVE THE SUBFLOOR.",
             "OVERALL 40'-0\" x 30'-0\", OUTSIDE OF FRAMING. GRIDS 1-5 WEST TO EAST, A-D SOUTH TO NORTH.",
             "EXTERIOR WALLS 2X6 WITH 7/8\" STUCCO; PARTITIONS 2X4 WITH 1/2\" GYPSUM EACH SIDE.",
-            "ROOM SIZES: DESIGN-NOTES.MD, FLOOR PLAN. MEP NOT SHOWN."
+            "ROOM SIZES: DESIGN-NOTES.MD, FLOOR PLAN. MEP NOT SHOWN.",
         ],
         sheet = "1",
-        at = [0, 0]
+        at = [0, 0],
     )
 }

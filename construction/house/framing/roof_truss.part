@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // A common roof truss, Fink (W) web pattern: 30 ft span, 6:12 pitch, 18 in overhangs, 2x4
 // chords and webs, galvanized steel plates at the joints. Trusses go at 24 in o.c. along the
 // ridge (framing.assembly). The gable_end configuration is the end truss over walls 1 and 5:
@@ -232,9 +229,9 @@ part roof_truss {
     }
     feature plates_neg = extrude(profile = sketch.plates_neg_s, distance = 0.036 in, mode = new)
 
-    output roof_truss = { body = feature.bottom_chord.body, part_number = "TR-30C", material = "material.douglas_fir_lumber" }
-    material = { body = feature.plates_pos.body, material = "material.galvanized_steel" }
-    material = { body = feature.plates_neg.body, material = "material.galvanized_steel" }
+    output roof_truss = { body = feature.bottom_chord.body, part_number = "TR-30C", material = material.douglas_fir_lumber }
+    material = { body = feature.plates_pos.body, material = material.galvanized_steel }
+    material = { body = feature.plates_neg.body, material = material.galvanized_steel }
     region bearing : face = { select = [feature.bottom_chord.face.side(bottom_chord_s.e0)], expect = exactly_one, label = "Bottom chord bearing" }
     configuration common = { part_number = "TR-30C", description = "Common truss, Fink, 30 ft span, 6:12" }
     configuration gable_end = { suppress = [feature.web_1, feature.web_2, feature.web_3, feature.web_4, feature.web_1_fit, feature.web_2_fit, feature.web_3_fit, feature.web_4_fit, feature.web_2_cope, feature.web_3_cope, feature.plates_pos, feature.plates_neg], features = { gable_studs = { suppressed = false } }, part_number = "TR-30G", description = "Gable-end truss, studs at 16 in o.c." }

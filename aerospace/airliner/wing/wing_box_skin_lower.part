@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The lower wing-box skin between the spars, 4 mm thick, root to tip.
 part wing_box_skin_lower {
     input side : real = 1

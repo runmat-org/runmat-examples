@@ -1,6 +1,3 @@
-runmat 0.7
-std 1
-
 // The stair from the first floor to the second, in building coordinates, under the 132 x 42 in
 // floor opening in bay B-C: 16 risers of 7.6094 in and 15 treads of 10 in
 // with a 1 in nosing, 39 in wide between the stair wall and post C3, rising east from
@@ -243,9 +240,9 @@ part stair {
     }
     feature hw_reliefs = extrude(profile = sketch.hw_reliefs_s, distance = 9.0625 in, mode = cut)
     // end connector holes all
-    output stair = { body = feature.stringer_s1.body, part_number = "ST-1", material = "material.douglas_fir_lumber", label = "Notched 2x12 stringer" }
-    output stair_stringer_north = { body = feature.stringer_n.body, part_number = "ST-1", material = "material.douglas_fir_lumber", label = "Notched 2x12 stringer" }
-    output stair_handrail = { body = feature.handrail.body, part_number = "ST-1", material = "material.oak", label = "Oak handrail" }
-    material = { body = feature.treads.body, material = "material.oak" }
-    material = { body = feature.risers.body, material = "material.pine_painted_riser" }
+    output stair = { body = feature.stringer_s1.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
+    output stair_stringer_north = { body = feature.stringer_n.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
+    output stair_handrail = { body = feature.handrail.body, part_number = "ST-1", material = material.oak, label = "Oak handrail" }
+    material = { body = feature.treads.body, material = material.oak }
+    material = { body = feature.risers.body, material = material.pine_painted_riser }
 }
