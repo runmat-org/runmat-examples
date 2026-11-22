@@ -1,4 +1,4 @@
-use circuit esc
+import { esc } from "./esc.circuit"
 
 layout esc {
     stackup rigid {

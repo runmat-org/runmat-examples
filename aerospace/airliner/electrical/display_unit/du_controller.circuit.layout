@@ -1,4 +1,4 @@
-use circuit du_controller
+import { du_controller } from "./du_controller.circuit"
 
 layout du_controller {
     stackup rigid {

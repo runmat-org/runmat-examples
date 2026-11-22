@@ -1,4 +1,4 @@
-use circuit flight_controller
+import { flight_controller } from "./flight_controller.circuit"
 
 layout flight_controller {
     stackup rigid {

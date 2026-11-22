@@ -1,4 +1,4 @@
-use circuit reading_light
+import { reading_light } from "./reading_light.circuit"
 
 layout reading_light {
     stackup rigid {
