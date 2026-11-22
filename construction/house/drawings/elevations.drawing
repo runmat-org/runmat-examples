@@ -20,11 +20,11 @@ drawing elevations {
 
     sheet s1 {
         format = d
-        scale = [1, 48]
+        scale = 1/48
         projection = third_angle
 
-        view south = standard(orientation = front, model = house, at = [250, 290], title = "SOUTH ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
-        view east = projected(from = south, direction = right, model = house, at = [620, 290], title = "EAST ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
+        view south = standard(orientation = front, model = house, at = [250, 290] mm, title = "SOUTH ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
+        view east = projected(from = south, direction = right, model = house, at = [620, 290] mm, title = "EAST ELEVATION", display = visible_lines, exclude = [[{ name = mep }]])
 
         table notes = notes(
             rows = [
@@ -34,7 +34,7 @@ drawing elevations {
                 "ROOF: 6:12 GABLE, RIDGE EAST-WEST. 7/8\" THREE-COAT STUCCO WALLS.",
                 "ELECTRICAL ONE-LINE AND PANEL SCHEDULE: MEP/ELECTRICAL/SERVICE.CIRCUIT.",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 
@@ -43,15 +43,15 @@ drawing elevations {
     annotation lv_ridge = level(label = "RIDGE", datum = ridge, occurrence = [{ name = skeleton }], view = south)
     annotation lv_plate2 = level(label = "T.O. PLATE (2ND)", datum = top_plate, occurrence = [{ name = skeleton }], view = south)
     annotation lv_floor2 = level(label = "2ND FLOOR", datum = second_floor, occurrence = [{ name = skeleton }], view = south)
-    annotation lv_plate1 = level(label = "T.O. PLATE (1ST)", datum = top_plate_l1, occurrence = [{ name = skeleton }], view = south, at = [392, 300])
+    annotation lv_plate1 = level(label = "T.O. PLATE (1ST)", datum = top_plate_l1, occurrence = [{ name = skeleton }], view = south, at = [392, 300] mm)
     annotation lv_slab = level(label = "T.O. SLAB", datum = top_of_slab, occurrence = [{ name = skeleton }], view = south)
-    annotation lv_grade = level(label = "GRADE", datum = grade, occurrence = [{ name = skeleton }], view = south, at = [392, 300])
+    annotation lv_grade = level(label = "GRADE", datum = grade, occurrence = [{ name = skeleton }], view = south, at = [392, 300] mm)
     annotation lv_footing = level(label = "T.O. FOOTING", datum = top_of_footing, occurrence = [{ name = skeleton }], view = south)
 
     // Overall sizes (outside of framing), floor to floor and the roof pitch.
     annotation w_south = dimension(style = linear, references = [feature.top1.face.side(top1_s.e0), feature.top1.face.side(top1_s.e2)], occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_a_l1 }]], view = south)
     annotation w_east = dimension(style = linear, references = [feature.top1.face.start, feature.top1.face.start], occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_d_l1 }]], view = east)
-    annotation ftf = note(text = "FLOOR TO FLOOR 10'-1 3/4\"", view = east, at = [730, 249.1])
-    annotation ftp = note(text = "2ND FLOOR TO T.O. PLATE 8'-1 1/8\"", view = east, at = [730, 307.0])
-    annotation pitch = note(text = "ROOF PITCH 6:12", view = east, at = [598, 400.0])
+    annotation ftf = note(text = "FLOOR TO FLOOR 10'-1 3/4\"", view = east, at = [730, 249.1] mm)
+    annotation ftp = note(text = "2ND FLOOR TO T.O. PLATE 8'-1 1/8\"", view = east, at = [730, 307.0] mm)
+    annotation pitch = note(text = "ROOF PITCH 6:12", view = east, at = [598, 400.0] mm)
 }

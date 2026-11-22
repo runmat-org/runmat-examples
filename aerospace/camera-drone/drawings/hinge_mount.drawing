@@ -18,12 +18,12 @@ drawing hinge_mount {
 
     sheet s1 {
         format = a3
-        scale = [2, 1]
+        scale = 2/1
         projection = third_angle
 
-        view front = standard(orientation = front, model = hinge_mount, at = [150, 200], display = hidden_lines)
-        view top = projected(from = front, direction = up, model = hinge_mount, at = [150, 105], display = hidden_lines)
-        view iso = standard(orientation = isometric, model = hinge_mount, at = [330, 115], display = visible_lines)
+        view front = standard(orientation = front, model = hinge_mount, at = [150, 200] mm, display = hidden_lines)
+        view top = projected(from = front, direction = up, model = hinge_mount, at = [150, 105] mm, display = hidden_lines)
+        view iso = standard(orientation = isometric, model = hinge_mount, at = [330, 115] mm, display = visible_lines)
     }
 
     annotation clevis_height = dimension(style = linear, references = [feature.back.face.start, feature.back.face.end], view = front)

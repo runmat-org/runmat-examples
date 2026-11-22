@@ -17,14 +17,14 @@ drawing drone {
 
     sheet s1 {
         format = a2
-        scale = [1, 2]
+        scale = 1/2
         projection = third_angle
 
-        view front = standard(orientation = front, model = drone, at = [121, 80], display = visible_lines)
-        view top = projected(from = front, direction = up, model = drone, at = [121, 215], display = visible_lines)
-        view iso = standard(orientation = isometric, model = drone, at = [400, 325], scale = [5, 8], display = visible_lines)
+        view front = standard(orientation = front, model = drone, at = [121, 80] mm, display = visible_lines)
+        view top = projected(from = front, direction = up, model = drone, at = [121, 215] mm, display = visible_lines)
+        view iso = standard(orientation = isometric, model = drone, at = [400, 325] mm, scale = 5/8, display = visible_lines)
 
-        table parts = bom(view = iso, at = [228, 225.5])
+        table parts = bom(view = iso, at = [228, 225.5] mm)
         table notes = notes(
             rows = [
                 "DIMENSIONS IN MILLIMETERS. GENERAL TOLERANCES ISO 2768-mK UNLESS STATED.",
@@ -33,7 +33,7 @@ drawing drone {
                 "MATERIAL AND FINISH OF EACH ITEM PER THE PARTS LIST.",
                 "TOLERANCING TO ISO 8015. DRAWN TO ISO 128 AND ISO 5456-2.",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 

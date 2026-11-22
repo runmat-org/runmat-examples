@@ -21,10 +21,10 @@ drawing building_section {
 
     sheet s1 {
         format = d
-        scale = [1, 48]
+        scale = 1/48
         projection = third_angle
 
-        view roof = standard(orientation = top, model = house, at = [140, 420], scale = [1, 96], title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
+        view roof = standard(orientation = top, model = house, at = [140, 420] mm, scale = 1/96, title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
         view a_a = section(
             from = roof,
             plane = origin.yz,
@@ -33,7 +33,7 @@ drawing building_section {
             label = A,
             title = "BUILDING SECTION A-A",
             model = house,
-            at = [520, 300],
+            at = [520, 300] mm,
             display = visible_lines,
             exclude = [[{ name = mep }]],
             centerlines = false,
@@ -47,7 +47,7 @@ drawing building_section {
                 "2X6 STUDS AT 16\" O.C. 11 7/8\" I-JOISTS ON FLUSH LVL BEAMS B AND C. 3/4\" SUBFLOOR.",
                 "FINK TRUSSES AT 24\" O.C., 6:12. STAIR: 16 RISERS AT 7 39/64\", 15 TREADS AT 10\".",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 

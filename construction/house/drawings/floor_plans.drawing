@@ -20,10 +20,10 @@ drawing floor_plans {
 
     sheet s1 {
         format = d
-        scale = [1, 48]
+        scale = 1/48
         projection = third_angle
 
-        view key = standard(orientation = front, model = house, at = [75, 495], scale = [1, 192], display = visible_lines, exclude = [[{ name = mep }]])
+        view key = standard(orientation = front, model = house, at = [75, 495] mm, scale = 1/192, display = visible_lines, exclude = [[{ name = mep }]])
         view first = section(
             from = key,
             plane = origin.xy,
@@ -32,7 +32,7 @@ drawing floor_plans {
             label = A,
             title = "FIRST FLOOR PLAN",
             model = house,
-            at = [250, 260],
+            at = [250, 260] mm,
             display = visible_lines,
             exclude = [[{ name = mep }]],
             centerlines = false,
@@ -45,7 +45,7 @@ drawing floor_plans {
             label = B,
             title = "SECOND FLOOR PLAN",
             model = house,
-            at = [615, 260],
+            at = [615, 260] mm,
             display = visible_lines,
             exclude = [[{ name = mep }]],
             centerlines = false,
@@ -58,7 +58,7 @@ drawing floor_plans {
                 "EXTERIOR WALLS 2X6 WITH 7/8\" STUCCO; PARTITIONS 2X4 WITH 1/2\" GYPSUM EACH SIDE.",
                 "ROOM SIZES: DESIGN-NOTES.MD, FLOOR PLAN. MEP NOT SHOWN.",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 
@@ -85,17 +85,17 @@ drawing floor_plans {
     annotation swing_door_8 = door_swing(door = [{ name = interior }, { name = door_8 }], hinge = start, swing = positive, view = second)
 
     // Room names, placed at each room's centre (DESIGN-NOTES, "Floor plan"); the plans' centres are building (240 in, 180 in).
-    annotation first_r0 = note(text = "LIVING", view = first, at = [157.8, 300.6])
-    annotation first_r1 = note(text = "FOYER", view = first, at = [229.4, 217.0])
-    annotation first_r2 = note(text = "DINING", view = first, at = [228.5, 320.2])
-    annotation first_r3 = note(text = "KITCHEN", view = first, at = [320.4, 298.5])
-    annotation first_r4 = note(text = "UTILITY", view = first, at = [291.3, 189.4])
-    annotation first_r5 = note(text = "DEN", view = first, at = [342.0, 205.4])
-    annotation second_r0 = note(text = "BEDROOM 3", view = second, at = [531.8, 207.5])
-    annotation second_r1 = note(text = "PRIMARY BEDROOM", view = second, at = [641.2, 207.5])
-    annotation second_r2 = note(text = "HALL", view = second, at = [537.3, 266.2])
-    annotation second_r3 = note(text = "BEDROOM 2", view = second, at = [510.6, 322.3])
-    annotation second_r4 = note(text = "BATH", view = second, at = [578.1, 322.3])
-    annotation second_r5 = note(text = "PRIMARY BATH", view = second, at = [631.7, 331.7])
-    annotation second_r6 = note(text = "CLOSET", view = second, at = [699.0, 322.3])
+    annotation first_r0 = note(text = "LIVING", view = first, at = [157.8, 300.6] mm)
+    annotation first_r1 = note(text = "FOYER", view = first, at = [229.4, 217.0] mm)
+    annotation first_r2 = note(text = "DINING", view = first, at = [228.5, 320.2] mm)
+    annotation first_r3 = note(text = "KITCHEN", view = first, at = [320.4, 298.5] mm)
+    annotation first_r4 = note(text = "UTILITY", view = first, at = [291.3, 189.4] mm)
+    annotation first_r5 = note(text = "DEN", view = first, at = [342.0, 205.4] mm)
+    annotation second_r0 = note(text = "BEDROOM 3", view = second, at = [531.8, 207.5] mm)
+    annotation second_r1 = note(text = "PRIMARY BEDROOM", view = second, at = [641.2, 207.5] mm)
+    annotation second_r2 = note(text = "HALL", view = second, at = [537.3, 266.2] mm)
+    annotation second_r3 = note(text = "BEDROOM 2", view = second, at = [510.6, 322.3] mm)
+    annotation second_r4 = note(text = "BATH", view = second, at = [578.1, 322.3] mm)
+    annotation second_r5 = note(text = "PRIMARY BATH", view = second, at = [631.7, 331.7] mm)
+    annotation second_r6 = note(text = "CLOSET", view = second, at = [699.0, 322.3] mm)
 }

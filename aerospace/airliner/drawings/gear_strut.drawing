@@ -21,20 +21,20 @@ drawing gear_strut {
 
     sheet s1 {
         format = a3
-        scale = [1, 15]
+        scale = 1/15
         projection = third_angle
 
-        view front = standard(orientation = front, model = gear_strut, at = [70, 140], display = hidden_lines)
-        view top = projected(from = front, direction = up, model = gear_strut, at = [70, 255], display = visible_lines)
+        view front = standard(orientation = front, model = gear_strut, at = [70, 140] mm, display = hidden_lines)
+        view top = projected(from = front, direction = up, model = gear_strut, at = [70, 255] mm, display = visible_lines)
         view a_a = section(
             from = front,
             plane = feature.strut.face.side(s.c),
             label = A,
             model = gear_strut,
-            at = [175, 140],
+            at = [175, 140] mm,
             display = visible_lines,
         )
-        view iso = standard(orientation = isometric, model = gear_strut, at = [330, 190], scale = [1, 20], display = visible_lines)
+        view iso = standard(orientation = isometric, model = gear_strut, at = [330, 190] mm, scale = 1/20, display = visible_lines)
     }
 
     annotation length = dimension(style = linear, references = [feature.strut.face.start, feature.strut.face.end], view = front)
@@ -46,6 +46,6 @@ drawing gear_strut {
     annotation notes = note(
         text = "NOTES:\n1. MATERIAL: {material}, VACUUM REMELTED, HEAT TREAT TO 1930-2070 MPA.\n2. SHOT PEEN ALL OVER; CHROME PLATE THE OUTSIDE AND THE BORE, 0.1 MM, GROUND TO SIZE.\n3. MAGNETIC PARTICLE INSPECT AFTER GRINDING.\n4. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.\n5. PART MARK {part_number} AT THE TRUNNION END.",
         view = iso,
-        at = [130, 105],
+        at = [130, 105] mm,
     )
 }

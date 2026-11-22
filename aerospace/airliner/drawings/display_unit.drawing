@@ -19,21 +19,21 @@ drawing display_unit {
 
     sheet s1 {
         format = a3
-        scale = [1, 2]
+        scale = 1/2
         projection = third_angle
 
-        view front = standard(orientation = front, model = display_unit_installed, at = [75, 180], display = visible_lines)
+        view front = standard(orientation = front, model = display_unit_installed, at = [75, 180] mm, display = visible_lines)
         view a_a = section(
             from = front,
             plane = origin.xy,
             label = A,
             model = display_unit_installed,
-            at = [190, 180],
+            at = [190, 180] mm,
             display = visible_lines,
         )
-        view iso = standard(orientation = isometric, model = display_unit_installed, at = [330, 215], scale = [1, 3], display = visible_lines)
+        view iso = standard(orientation = isometric, model = display_unit_installed, at = [330, 215] mm, scale = 1/3, display = visible_lines)
 
-        table parts = bom(view = iso, at = [228, 110])
+        table parts = bom(view = iso, at = [228, 110] mm)
         table notes = notes(
             rows = [
                 "DIMENSIONS IN MILLIMETERS. GENERAL TOLERANCES ISO 2768-mK UNLESS STATED.",
@@ -41,7 +41,7 @@ drawing display_unit {
                 "CASE: 6061-T6, CHROMATE CONVERSION COAT, BACK UNPAINTED FOR COOLING.",
                 "SEE ELECTRICAL/DISPLAY_UNIT FOR THE BOARD'S SCHEMATIC AND LAYOUT.",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 

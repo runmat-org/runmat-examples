@@ -22,10 +22,10 @@ drawing wall_section {
 
     sheet s1 {
         format = c
-        scale = [1, 1]
+        scale = 1/1
         projection = third_angle
 
-        view face = standard(orientation = front, model = wall_section, at = [200, 385], display = visible_lines)
+        view face = standard(orientation = front, model = wall_section, at = [200, 385] mm, display = visible_lines)
         view a_a = section(
             from = face,
             plane = origin.xy,
@@ -34,7 +34,7 @@ drawing wall_section {
             label = A,
             title = "EXTERIOR WALL SECTION A-A",
             model = wall_section,
-            at = [200, 220],
+            at = [200, 220] mm,
             display = visible_lines,
         )
 
@@ -45,7 +45,7 @@ drawing wall_section {
                 "METAL LATH AND VAPOR RETARDER ARE THINNER THAN THE DRAWN LINES; NOT MODELED.",
                 "DIMENSIONS IN FEET AND INCHES.",
             ],
-            at = [0, 0],
+            at = [0, 0] mm,
         )
     }
 
@@ -53,12 +53,12 @@ drawing wall_section {
     annotation overall = dimension(style = linear, references = [feature.stucco_finish.face.side(stucco_finish_s.e0), feature.gypsum.face.side(gypsum_s.e2)], view = a_a)
     annotation bay = dimension(style = linear, references = [feature.stud.face.side(stud_s.e3), feature.batt.face.side(batt_s.e1)], view = a_a)
 
-    annotation finish = note(text = "STUCCO FINISH COAT, 1/8\"", leader = feature.stucco_finish.face.end, view = a_a, at = [325, 125])
-    annotation brown = note(text = "STUCCO BROWN COAT, 3/8\"", leader = feature.stucco_brown.face.end, view = a_a, at = [325, 134])
-    annotation scratch = note(text = "STUCCO SCRATCH COAT ON SELF-FURRING METAL LATH, 3/8\"", leader = feature.stucco_scratch.face.end, view = a_a, at = [325, 143])
-    annotation paper = note(text = "2 LAYERS GRADE D BUILDING PAPER (WRB)", leader = feature.wrb_outer.face.end, view = a_a, at = [325, 152])
-    annotation osb = note(text = "7/16\" OSB SHEATHING (SHEAR WALL)", leader = feature.osb.face.end, view = a_a, at = [325, 161])
-    annotation stud = note(text = "2X6 STUD AT 16\" O.C.", leader = feature.stud.face.end, view = a_a, at = [325, 228])
-    annotation batt = note(text = "R-21 FIBERGLASS BATT", leader = feature.batt.face.end, view = a_a, at = [325, 245])
-    annotation gypsum = note(text = "1/2\" GYPSUM BOARD ON VAPOR RETARDER", leader = feature.gypsum.face.end, view = a_a, at = [325, 312])
+    annotation finish = note(text = "STUCCO FINISH COAT, 1/8\"", leader = feature.stucco_finish.face.end, view = a_a, at = [325, 125] mm)
+    annotation brown = note(text = "STUCCO BROWN COAT, 3/8\"", leader = feature.stucco_brown.face.end, view = a_a, at = [325, 134] mm)
+    annotation scratch = note(text = "STUCCO SCRATCH COAT ON SELF-FURRING METAL LATH, 3/8\"", leader = feature.stucco_scratch.face.end, view = a_a, at = [325, 143] mm)
+    annotation paper = note(text = "2 LAYERS GRADE D BUILDING PAPER (WRB)", leader = feature.wrb_outer.face.end, view = a_a, at = [325, 152] mm)
+    annotation osb = note(text = "7/16\" OSB SHEATHING (SHEAR WALL)", leader = feature.osb.face.end, view = a_a, at = [325, 161] mm)
+    annotation stud = note(text = "2X6 STUD AT 16\" O.C.", leader = feature.stud.face.end, view = a_a, at = [325, 228] mm)
+    annotation batt = note(text = "R-21 FIBERGLASS BATT", leader = feature.batt.face.end, view = a_a, at = [325, 245] mm)
+    annotation gypsum = note(text = "1/2\" GYPSUM BOARD ON VAPOR RETARDER", leader = feature.gypsum.face.end, view = a_a, at = [325, 312] mm)
 }

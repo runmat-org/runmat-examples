@@ -3,113 +3,113 @@
 // on the schematics and in the BOM, and no board places it.
 
 symbol breaker_1p = {
-    body = [line([-2.54, 0], [1.27, 1.27]), circle([-2.54, 0], 0.4), circle([2.54, 0], 0.4)]
+    body = [line([-2.54, 0] mm, [1.27, 1.27] mm), circle([-2.54, 0] mm, 0.4 mm), circle([2.54, 0] mm, 0.4 mm)]
     pins = [
-        { name = LINE, at = [-5.08, 0], dir = right },
-        { name = LOAD, at = [5.08, 0], dir = left },
+        { name = LINE, at = [-5.08, 0] mm, dir = right },
+        { name = LOAD, at = [5.08, 0] mm, dir = left },
     ]
 }
 
 symbol breaker_2p = {
-    body = [line([-2.54, 1.27], [1.27, 2.54]), line([-2.54, -1.27], [1.27, 0]), line([0, 2.0], [0, -0.6])]
+    body = [line([-2.54, 1.27] mm, [1.27, 2.54] mm), line([-2.54, -1.27] mm, [1.27, 0] mm), line([0, 2.0] mm, [0, -0.6] mm)]
     pins = [
-        { name = L1_LINE, at = [-5.08, 1.27], dir = right },
-        { name = L2_LINE, at = [-5.08, -1.27], dir = right },
-        { name = L1_LOAD, at = [5.08, 1.27], dir = left },
-        { name = L2_LOAD, at = [5.08, -1.27], dir = left },
+        { name = L1_LINE, at = [-5.08, 1.27] mm, dir = right },
+        { name = L2_LINE, at = [-5.08, -1.27] mm, dir = right },
+        { name = L1_LOAD, at = [5.08, 1.27] mm, dir = left },
+        { name = L2_LOAD, at = [5.08, -1.27] mm, dir = left },
     ]
 }
 
 symbol meter = {
-    body = [circle([0, 0], 3.81), text([0, 0], "kWh")]
+    body = [circle([0, 0] mm, 3.81 mm), text([0, 0] mm, "kWh")]
     pins = [
-        { name = L1_IN, at = [-7.62, 2.54], dir = right },
-        { name = L2_IN, at = [-7.62, -2.54], dir = right },
-        { name = N_IN, at = [-7.62, 0], dir = right },
-        { name = L1_OUT, at = [7.62, 2.54], dir = left },
-        { name = L2_OUT, at = [7.62, -2.54], dir = left },
-        { name = N_OUT, at = [7.62, 0], dir = left },
+        { name = L1_IN, at = [-7.62, 2.54] mm, dir = right },
+        { name = L2_IN, at = [-7.62, -2.54] mm, dir = right },
+        { name = N_IN, at = [-7.62, 0] mm, dir = right },
+        { name = L1_OUT, at = [7.62, 2.54] mm, dir = left },
+        { name = L2_OUT, at = [7.62, -2.54] mm, dir = left },
+        { name = N_OUT, at = [7.62, 0] mm, dir = left },
     ]
 }
 
 symbol source = {
-    body = [circle([0, 0], 3.81), arc([-1.9, 0], [0, 0], [1.9, 0])]
+    body = [circle([0, 0] mm, 3.81 mm), arc([-1.9, 0] mm, [0, 0] mm, [1.9, 0] mm)]
     pins = [
-        { name = L1, at = [7.62, 2.54], dir = left },
-        { name = L2, at = [7.62, -2.54], dir = left },
-        { name = N, at = [7.62, 0], dir = left },
+        { name = L1, at = [7.62, 2.54] mm, dir = left },
+        { name = L2, at = [7.62, -2.54] mm, dir = left },
+        { name = N, at = [7.62, 0] mm, dir = left },
     ]
 }
 
 symbol electrode = {
-    body = [line([0, 0], [0, -2.54]), line([-2.54, -2.54], [2.54, -2.54]), line([-1.52, -3.3], [1.52, -3.3]), line([-0.5, -4.06], [0.5, -4.06])]
+    body = [line([0, 0] mm, [0, -2.54] mm), line([-2.54, -2.54] mm, [2.54, -2.54] mm), line([-1.52, -3.3] mm, [1.52, -3.3] mm), line([-0.5, -4.06] mm, [0.5, -4.06] mm)]
     pins = [
-        { name = GEC, at = [0, 5.08], dir = down },
+        { name = GEC, at = [0, 5.08] mm, dir = down },
     ]
 }
 
 symbol bond = {
-    body = [rect([-2.54, -0.76], [2.54, 0.76])]
+    body = [rect([-2.54, -0.76] mm, [2.54, 0.76] mm)]
     pins = [
-        { name = N, at = [-5.08, 0], dir = right },
-        { name = EG, at = [5.08, 0], dir = left },
+        { name = N, at = [-5.08, 0] mm, dir = right },
+        { name = EG, at = [5.08, 0] mm, dir = left },
     ]
 }
 
 symbol receptacle = {
-    body = [circle([0, 0], 3.05), line([-1.0, 0.8], [-1.0, -0.8]), line([1.0, 0.8], [1.0, -0.8])]
+    body = [circle([0, 0] mm, 3.05 mm), line([-1.0, 0.8] mm, [-1.0, -0.8] mm), line([1.0, 0.8] mm, [1.0, -0.8] mm)]
     pins = [
-        { name = HOT, at = [-7.62, 2.54], dir = right },
-        { name = NEU, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right },
+        { name = HOT, at = [-7.62, 2.54] mm, dir = right },
+        { name = NEU, at = [-7.62, 0] mm, dir = right },
+        { name = GND, at = [-7.62, -2.54] mm, dir = right },
     ]
 }
 
 symbol gfci = {
-    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "GFCI")]
+    body = [rect([-3.81, -3.81] mm, [3.81, 3.81] mm), text([0, 0] mm, "GFCI")]
     pins = [
-        { name = LINE_H, at = [-7.62, 2.54], dir = right },
-        { name = LINE_N, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right },
-        { name = LOAD_H, at = [7.62, 2.54], dir = left },
-        { name = LOAD_N, at = [7.62, 0], dir = left },
+        { name = LINE_H, at = [-7.62, 2.54] mm, dir = right },
+        { name = LINE_N, at = [-7.62, 0] mm, dir = right },
+        { name = GND, at = [-7.62, -2.54] mm, dir = right },
+        { name = LOAD_H, at = [7.62, 2.54] mm, dir = left },
+        { name = LOAD_N, at = [7.62, 0] mm, dir = left },
     ]
 }
 
 symbol receptacle_240 = {
-    body = [circle([0, 0], 3.05), text([0, 0], "240")]
+    body = [circle([0, 0] mm, 3.05 mm), text([0, 0] mm, "240")]
     pins = [
-        { name = X, at = [-7.62, 2.54], dir = right },
-        { name = Y, at = [-7.62, 1.27], dir = right },
-        { name = W, at = [-7.62, -1.27], dir = right },
-        { name = G, at = [-7.62, -2.54], dir = right },
+        { name = X, at = [-7.62, 2.54] mm, dir = right },
+        { name = Y, at = [-7.62, 1.27] mm, dir = right },
+        { name = W, at = [-7.62, -1.27] mm, dir = right },
+        { name = G, at = [-7.62, -2.54] mm, dir = right },
     ]
 }
 
 symbol switch = {
-    body = [circle([-2.54, 0], 0.5), line([-2.54, 0], [2.0, 1.8]), circle([2.54, 0], 0.5)]
+    body = [circle([-2.54, 0] mm, 0.5 mm), line([-2.54, 0] mm, [2.0, 1.8] mm), circle([2.54, 0] mm, 0.5 mm)]
     pins = [
-        { name = LINE, at = [-5.08, 0], dir = right },
-        { name = LOAD, at = [5.08, 0], dir = left },
-        { name = GND, at = [0, -5.08], dir = up },
+        { name = LINE, at = [-5.08, 0] mm, dir = right },
+        { name = LOAD, at = [5.08, 0] mm, dir = left },
+        { name = GND, at = [0, -5.08] mm, dir = up },
     ]
 }
 
 symbol fixture = {
-    body = [circle([0, 0], 2.54), line([-1.8, 1.8], [1.8, -1.8]), line([-1.8, -1.8], [1.8, 1.8])]
+    body = [circle([0, 0] mm, 2.54 mm), line([-1.8, 1.8] mm, [1.8, -1.8] mm), line([-1.8, -1.8] mm, [1.8, 1.8] mm)]
     pins = [
-        { name = HOT, at = [-7.62, 2.54], dir = right },
-        { name = NEU, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right },
+        { name = HOT, at = [-7.62, 2.54] mm, dir = right },
+        { name = NEU, at = [-7.62, 0] mm, dir = right },
+        { name = GND, at = [-7.62, -2.54] mm, dir = right },
     ]
 }
 
 symbol load_240 = {
-    body = [rect([-3.81, -3.81], [3.81, 3.81]), text([0, 0], "M")]
+    body = [rect([-3.81, -3.81] mm, [3.81, 3.81] mm), text([0, 0] mm, "M")]
     pins = [
-        { name = L1, at = [-7.62, 2.54], dir = right },
-        { name = L2, at = [-7.62, 0], dir = right },
-        { name = GND, at = [-7.62, -2.54], dir = right },
+        { name = L1, at = [-7.62, 2.54] mm, dir = right },
+        { name = L2, at = [-7.62, 0] mm, dir = right },
+        { name = GND, at = [-7.62, -2.54] mm, dir = right },
     ]
 }
 

@@ -21,19 +21,19 @@ drawing window_frame {
 
     sheet s1 {
         format = a3
-        scale = [1, 2]
+        scale = 1/2
         projection = third_angle
 
-        view top = standard(orientation = top, model = window_frame, at = [115, 175], display = visible_lines)
+        view top = standard(orientation = top, model = window_frame, at = [115, 175] mm, display = visible_lines)
         view a_a = section(
             from = top,
             plane = feature.fastener_holes.face.wall(a),
             label = A,
             model = window_frame,
-            at = [115, 55],
+            at = [115, 55] mm,
             display = visible_lines,
         )
-        view iso = standard(orientation = isometric, model = window_frame, at = [355, 215], scale = [1, 4], display = visible_lines)
+        view iso = standard(orientation = isometric, model = window_frame, at = [355, 215] mm, scale = 1/4, display = visible_lines)
     }
 
     annotation outer_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol4), feature.ring.face.side(ring_s.ol2)], view = top)
@@ -46,6 +46,6 @@ drawing window_frame {
     annotation notes = note(
         text = "NOTES:\n1. MATERIAL: {material}-T6 FORGING.\n2. SKIN CUTOUT MATCHES THE FRAME'S INNER OUTLINE, +0.5/0 MM.\n3. FASTEN TO THE SKIN WITH 12 FLUSH FASTENERS, WET INSTALLED.\n4. FORM TO THE FUSELAGE'S 1977 MM INNER SKIN RADIUS.\n5. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.",
         view = iso,
-        at = [250, 150],
+        at = [250, 150] mm,
     )
 }
