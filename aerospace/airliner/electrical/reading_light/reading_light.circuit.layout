@@ -1,6 +1,7 @@
 import { reading_light } from "./reading_light.circuit"
 
 layout reading_light {
+    circuit = reading_light
     stackup rigid {
         finish = ENIG
         layer "F.Mask" = { kind = mask, thickness = 0.02, material = solder_mask }

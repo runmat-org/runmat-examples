@@ -1,4 +1,4 @@
-import { meter, bond, "UTIL-120-240", "METER-200A", "MAIN-200A-2P", "GEC-UFER", "GEC-ROD", MBJ, "BKR-1P-15A-AFCI", "BKR-1P-15A", "BKR-1P-20A", "BKR-1P-20A-AFCI", "BKR-1P-20A-DF", "BKR-2P-30A", "BKR-2P-30A-GF", "BKR-2P-50A-GF", "BKR-2P-60A" } from "library/devices.circuit"
+import { meter, bond, "UTIL-120-240", "METER-200A", "MAIN-200A-2P", "GEC-UFER", "GEC-ROD", MBJ, "BKR-1P-15A-AFCI", "BKR-1P-15A", "BKR-1P-20A", "BKR-1P-20A-AFCI", "BKR-1P-20A-DF", "BKR-2P-30A", "BKR-2P-30A-GF", "BKR-2P-50A-GF", "BKR-2P-60A" } from "library/devices.module"
 
 // The service one-line: the utility's 120/240 V single-phase drop to the meter on wall A, 4/0 Al
 // XHHW-2 service-entrance conductors in 2 in PVC through the wall to the 200 A main breaker of

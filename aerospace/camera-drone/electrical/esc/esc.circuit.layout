@@ -1,6 +1,7 @@
 import { esc } from "./esc.circuit"
 
 layout esc {
+    circuit = esc
     stackup rigid {
         finish = ENIG
         layer "F.Mask" = { kind = mask, thickness = 0.02, material = solder_mask }

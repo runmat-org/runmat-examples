@@ -1,4 +1,4 @@
-import { receptacle, "RCPT-15A-TR", "RCPT-20A-TR", "RCPT-20A-WR", "GFCI-20A-TR", "GFCI-20A-WR", "RCPT-14-50R", "RCPT-14-30R", "SW-1P-15A", "LUM-CEIL-LED", "LUM-WALL-EXT", "FAN-BATH-80", "SMOKE-CO-120", "DISC-60A-NF", "AHU-3T-10KW", "HP-3T", "WH-50G-4500" } from "library/devices.circuit"
+import { receptacle, "RCPT-15A-TR", "RCPT-20A-TR", "RCPT-20A-WR", "GFCI-20A-TR", "GFCI-20A-WR", "RCPT-14-50R", "RCPT-14-30R", "SW-1P-15A", "LUM-CEIL-LED", "LUM-WALL-EXT", "FAN-BATH-80", "SMOKE-CO-120", "DISC-60A-NF", "AHU-3T-10KW", "HP-3T", "WH-50G-4500" } from "library/devices.module"
 
 // The branch circuits of the house, one sheet per circuit: each device in the order the cable
 // reaches it, with GFCI protection on the load side of a GFCI receptacle and AFCI protection at

@@ -1,6 +1,7 @@
 import { du_controller } from "./du_controller.circuit"
 
 layout du_controller {
+    circuit = du_controller
     stackup rigid {
         finish = ENIG
         layer "F.Mask" = { kind = mask, thickness = 0.02, material = solder_mask }

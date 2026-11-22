@@ -1,6 +1,7 @@
 import { flight_controller } from "./flight_controller.circuit"
 
 layout flight_controller {
+    circuit = flight_controller
     stackup rigid {
         finish = ENIG
         layer "F.Mask" = { kind = mask, thickness = 0.02, material = solder_mask }

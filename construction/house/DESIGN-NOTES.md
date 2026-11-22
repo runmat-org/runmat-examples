@@ -489,7 +489,7 @@ The longest 15 A run, the primary bedroom at about 75 ft, drops 2.4 % at 12 A on
 `mep/electrical/branch_circuits.circuit` draws each circuit as a sheet: the breaker's load
 terminal, then each device in the order the cable reaches it. Receptacles downstream of a GFCI
 receptacle connect to its load terminals. The devices are parts with no footprint
-(`package = none`, from `mep/electrical/library/devices.circuit`), so the circuits are schematic
+(`package = none`, from `mep/electrical/library/devices.module`), so the circuits are schematic
 only. Both files pass ERC with no findings.
 
 ### Electrical placement and routing
