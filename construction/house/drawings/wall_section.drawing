@@ -20,21 +20,34 @@ drawing wall_section {
         ]
     }
 
-    sheet "1" = { format = c, scale = [1, 1], projection = third_angle }
+    sheet s1 {
+        format = c
+        scale = [1, 1]
+        projection = third_angle
 
-    view face = standard(orientation = front, sheet = "1", model = wall_section, at = [200, 385], display = visible_lines)
-    view a_a = section(
-        from = face,
-        plane = origin.xy,
-        offset = 2.5 mm,
-        keep_other_side = true,
-        label = A,
-        title = "EXTERIOR WALL SECTION A-A",
-        sheet = "1",
-        model = wall_section,
-        at = [200, 220],
-        display = visible_lines,
-    )
+        view face = standard(orientation = front, model = wall_section, at = [200, 385], display = visible_lines)
+        view a_a = section(
+            from = face,
+            plane = origin.xy,
+            offset = 2.5 mm,
+            keep_other_side = true,
+            label = A,
+            title = "EXTERIOR WALL SECTION A-A",
+            model = wall_section,
+            at = [200, 220],
+            display = visible_lines,
+        )
+
+        table notes = notes(
+            rows = [
+                "OUTSIDE AT THE BOTTOM OF THE VIEW, ROOM AT THE TOP. HALF A STUD BAY: STUD CENTER TO BAY CENTER.",
+                "LAYERS AND THICKNESSES MATCH THE WALL_THERMAL STUDY (SIMULATION/WALL_THERMAL.FEA).",
+                "METAL LATH AND VAPOR RETARDER ARE THINNER THAN THE DRAWN LINES; NOT MODELED.",
+                "DIMENSIONS IN FEET AND INCHES.",
+            ],
+            at = [0, 0],
+        )
+    }
 
     annotation layers = dimension(style = chain, references = [feature.stucco_finish.face.side(stucco_finish_s.e0), feature.stucco_scratch.face.side(stucco_scratch_s.e2), feature.osb.face.side(osb_s.e2), feature.stud.face.side(stud_s.e2), feature.gypsum.face.side(gypsum_s.e2)], view = a_a)
     annotation overall = dimension(style = linear, references = [feature.stucco_finish.face.side(stucco_finish_s.e0), feature.gypsum.face.side(gypsum_s.e2)], view = a_a)
@@ -48,15 +61,4 @@ drawing wall_section {
     annotation stud = note(text = "2X6 STUD AT 16\" O.C.", leader = feature.stud.face.end, view = a_a, at = [325, 228])
     annotation batt = note(text = "R-21 FIBERGLASS BATT", leader = feature.batt.face.end, view = a_a, at = [325, 245])
     annotation gypsum = note(text = "1/2\" GYPSUM BOARD ON VAPOR RETARDER", leader = feature.gypsum.face.end, view = a_a, at = [325, 312])
-
-    table notes = notes(
-        rows = [
-            "OUTSIDE AT THE BOTTOM OF THE VIEW, ROOM AT THE TOP. HALF A STUD BAY: STUD CENTER TO BAY CENTER.",
-            "LAYERS AND THICKNESSES MATCH THE WALL_THERMAL STUDY (SIMULATION/WALL_THERMAL.FEA).",
-            "METAL LATH AND VAPOR RETARDER ARE THINNER THAN THE DRAWN LINES; NOT MODELED.",
-            "DIMENSIONS IN FEET AND INCHES.",
-        ],
-        sheet = "1",
-        at = [0, 0],
-    )
 }

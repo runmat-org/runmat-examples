@@ -18,37 +18,49 @@ drawing floor_plans {
         ]
     }
 
-    sheet "1" = { format = d, scale = [1, 48], projection = third_angle }
+    sheet s1 {
+        format = d
+        scale = [1, 48]
+        projection = third_angle
 
-    view key = standard(orientation = front, sheet = "1", model = house, at = [75, 495], scale = [1, 192], display = visible_lines, exclude = [[{ name = mep }]])
-    view first = section(
-        from = key,
-        plane = origin.xy,
-        offset = 4 ft,
-        keep_other_side = true,
-        label = A,
-        title = "FIRST FLOOR PLAN",
-        sheet = "1",
-        model = house,
-        at = [250, 260],
-        display = visible_lines,
-        exclude = [[{ name = mep }]],
-        centerlines = false,
-    )
-    view second = section(
-        from = key,
-        plane = origin.xy,
-        offset = 169.75 in,
-        keep_other_side = true,
-        label = B,
-        title = "SECOND FLOOR PLAN",
-        sheet = "1",
-        model = house,
-        at = [615, 260],
-        display = visible_lines,
-        exclude = [[{ name = mep }]],
-        centerlines = false,
-    )
+        view key = standard(orientation = front, model = house, at = [75, 495], scale = [1, 192], display = visible_lines, exclude = [[{ name = mep }]])
+        view first = section(
+            from = key,
+            plane = origin.xy,
+            offset = 4 ft,
+            keep_other_side = true,
+            label = A,
+            title = "FIRST FLOOR PLAN",
+            model = house,
+            at = [250, 260],
+            display = visible_lines,
+            exclude = [[{ name = mep }]],
+            centerlines = false,
+        )
+        view second = section(
+            from = key,
+            plane = origin.xy,
+            offset = 169.75 in,
+            keep_other_side = true,
+            label = B,
+            title = "SECOND FLOOR PLAN",
+            model = house,
+            at = [615, 260],
+            display = visible_lines,
+            exclude = [[{ name = mep }]],
+            centerlines = false,
+        )
+
+        table notes = notes(
+            rows = [
+                "A-A: FIRST FLOOR, CUT 4'-0\" ABOVE THE SLAB. B-B: SECOND FLOOR, CUT 4'-0\" ABOVE THE SUBFLOOR.",
+                "OVERALL 40'-0\" x 30'-0\", OUTSIDE OF FRAMING. GRIDS 1-5 WEST TO EAST, A-D SOUTH TO NORTH.",
+                "EXTERIOR WALLS 2X6 WITH 7/8\" STUCCO; PARTITIONS 2X4 WITH 1/2\" GYPSUM EACH SIDE.",
+                "ROOM SIZES: DESIGN-NOTES.MD, FLOOR PLAN. MEP NOT SHOWN.",
+            ],
+            at = [0, 0],
+        )
+    }
 
     // Overall sizes, outside of framing (the top plates' ends and outside faces), and the grids
     // from the skeleton with the dimensions between them.
@@ -86,15 +98,4 @@ drawing floor_plans {
     annotation second_r4 = note(text = "BATH", view = second, at = [578.1, 322.3])
     annotation second_r5 = note(text = "PRIMARY BATH", view = second, at = [631.7, 331.7])
     annotation second_r6 = note(text = "CLOSET", view = second, at = [699.0, 322.3])
-
-    table notes = notes(
-        rows = [
-            "A-A: FIRST FLOOR, CUT 4'-0\" ABOVE THE SLAB. B-B: SECOND FLOOR, CUT 4'-0\" ABOVE THE SUBFLOOR.",
-            "OVERALL 40'-0\" x 30'-0\", OUTSIDE OF FRAMING. GRIDS 1-5 WEST TO EAST, A-D SOUTH TO NORTH.",
-            "EXTERIOR WALLS 2X6 WITH 7/8\" STUCCO; PARTITIONS 2X4 WITH 1/2\" GYPSUM EACH SIDE.",
-            "ROOM SIZES: DESIGN-NOTES.MD, FLOOR PLAN. MEP NOT SHOWN.",
-        ],
-        sheet = "1",
-        at = [0, 0],
-    )
 }

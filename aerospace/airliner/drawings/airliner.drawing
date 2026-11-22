@@ -15,27 +15,30 @@ drawing airliner {
         ]
     }
 
-    sheet "1" = { format = a2, scale = [1, 200], projection = third_angle }
+    sheet s1 {
+        format = a2
+        scale = [1, 200]
+        projection = third_angle
 
-    view front = standard(orientation = front, sheet = "1", model = airliner, at = [150, 105], display = visible_lines)
-    view top = projected(from = front, direction = up, sheet = "1", model = airliner, at = [150, 280], display = visible_lines)
-    view right = projected(from = front, direction = right, sheet = "1", model = airliner, at = [390, 105], display = visible_lines)
+        view front = standard(orientation = front, model = airliner, at = [150, 105], display = visible_lines)
+        view top = projected(from = front, direction = up, model = airliner, at = [150, 280], display = visible_lines)
+        view right = projected(from = front, direction = right, model = airliner, at = [390, 105], display = visible_lines)
+
+        table parts = bom(view = front, at = [330, 230], spec = { structure = top_level, columns = [{ column = item() }, { column = definition() }, { column = kind() }, { column = quantity() }] })
+        table notes = notes(
+            rows = [
+                "OVERALL LENGTH 38.0 M. SPAN 34.8 M OVER THE WINGLETS. HEIGHT 12.3 M, TIRES TO FIN TIP.",
+                "FUSELAGE DIAMETER 3.96 M. WING AREA AND SIZES: SEE AIRLINER_SKELETON.PART.",
+                "DIMENSIONS IN MILLIMETERS UNLESS STATED.",
+                "THIRD-ANGLE PROJECTION.",
+            ],
+            at = [0, 0],
+        )
+    }
 
     annotation b1 = balloon(occurrence = [{ name = fuselage }], table = parts, view = front)
     annotation b2 = balloon(occurrence = [{ name = wing }], table = parts, view = top)
     annotation b3 = balloon(occurrence = [{ name = empennage }], table = parts, view = front)
     annotation b4 = balloon(occurrence = [{ name = main_gear_starboard }], table = parts, view = right)
     annotation b5 = balloon(occurrence = [{ name = nose_gear }], table = parts, view = front)
-
-    table parts = bom(view = front, sheet = "1", at = [330, 230], spec = { structure = top_level, columns = [{ column = item() }, { column = definition() }, { column = kind() }, { column = quantity() }] })
-    table notes = notes(
-        rows = [
-            "OVERALL LENGTH 38.0 M. SPAN 34.8 M OVER THE WINGLETS. HEIGHT 12.3 M, TIRES TO FIN TIP.",
-            "FUSELAGE DIAMETER 3.96 M. WING AREA AND SIZES: SEE AIRLINER_SKELETON.PART.",
-            "DIMENSIONS IN MILLIMETERS UNLESS STATED.",
-            "THIRD-ANGLE PROJECTION.",
-        ],
-        sheet = "1",
-        at = [0, 0],
-    )
 }

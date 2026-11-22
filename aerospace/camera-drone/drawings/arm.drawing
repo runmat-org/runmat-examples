@@ -23,32 +23,43 @@ drawing arm {
         ]
     }
 
-    sheet "1" = { format = a3, scale = [2, 1], projection = third_angle }
+    sheet s1 {
+        format = a3
+        scale = [2, 1]
+        projection = third_angle
 
-    view front = standard(orientation = front, sheet = "1", model = arm, at = [157, 164], display = hidden_lines)
-    view top = projected(from = front, direction = up, sheet = "1", model = arm, at = [157, 217], display = hidden_lines)
-    view right = projected(from = front, direction = right, sheet = "1", model = arm, at = [299, 164], display = visible_lines)
-    view a_a = section(
-        from = top,
-        plane = feature.pad.face.side(pad_s.c),
-        label = A,
-        sheet = "1",
-        model = arm,
-        at = [150, 88],
-        display = hidden_lines,
-    )
-    view b = detail(
-        from = top,
-        center = feature.bores.face.side(bores_s.pin),
-        radius = 9 mm,
-        label = B,
-        sheet = "1",
-        model = arm,
-        at = [364, 214],
-        scale = [3, 1],
-        display = hidden_lines,
-    )
-    view iso = standard(orientation = isometric, sheet = "1", model = arm, at = [339, 102], scale = [1, 1], display = visible_lines)
+        view front = standard(orientation = front, model = arm, at = [157, 164], display = hidden_lines)
+        view top = projected(from = front, direction = up, model = arm, at = [157, 217], display = hidden_lines)
+        view right = projected(from = front, direction = right, model = arm, at = [299, 164], display = visible_lines)
+        view a_a = section(
+            from = top,
+            plane = feature.pad.face.side(pad_s.c),
+            label = A,
+            model = arm,
+            at = [150, 88],
+            display = hidden_lines,
+        )
+        view b = detail(
+            from = top,
+            center = feature.bores.face.side(bores_s.pin),
+            radius = 9 mm,
+            label = B,
+            model = arm,
+            at = [364, 214],
+            scale = [3, 1],
+            display = hidden_lines,
+        )
+        view iso = standard(orientation = isometric, model = arm, at = [339, 102], scale = [1, 1], display = visible_lines)
+
+        table revisions = revision(
+            rows = [
+                { rev = "A", description = "Initial release", date = "2026-10-28", by = "RunMat Design" },
+                { rev = "B", description = "Motor seat to 4x M2 on 12 BC; bore H8", date = "2026-11-05", by = "RunMat Design" },
+                { rev = "C", description = "Layup to [0/0/90/0]s for rear-arm flap mode", date = "2026-11-06", by = "RunMat Design" },
+            ],
+            at = [410, 287],
+        )
+    }
 
     annotation knuckle_height = dimension(style = linear, references = [feature.knuckle.face.start, feature.knuckle.face.end], view = front)
     annotation pad_thickness = dimension(style = linear, references = [feature.pad.face.start, feature.pad.face.end], view = front)
@@ -71,15 +82,5 @@ drawing arm {
         text = "NOTES:\n1. MATERIAL: {material}, [0/0/90/0]S PREPREG LAYUP, 2.0 MM MIN WALL.\n2. FINISH: MATTE CLEAR COAT, SEAT AND BORE MASKED.\n3. BREAK SHARP EDGES 0.2 MAX.\n4. DIMENSIONS IN MM. UNTOLERANCED: ISO 2768-m.\n5. PART MARK {part_number} NEAR THE KNUCKLE.",
         view = a_a,
         at = [25, 50],
-    )
-
-    table revisions = revision(
-        rows = [
-            { rev = "A", description = "Initial release", date = "2026-10-28", by = "RunMat Design" },
-            { rev = "B", description = "Motor seat to 4x M2 on 12 BC; bore H8", date = "2026-11-05", by = "RunMat Design" },
-            { rev = "C", description = "Layup to [0/0/90/0]s for rear-arm flap mode", date = "2026-11-06", by = "RunMat Design" },
-        ],
-        sheet = "1",
-        at = [410, 287],
     )
 }
