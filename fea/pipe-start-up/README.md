@@ -87,6 +87,7 @@ final `peak_speed` on the axis should be close to twice the final mean.
 ## Files
 
 - `pipe-start-up.fea`: the transient flow study, with Szymanski's solution in its header.
+- `materials.module`: the material the study imports, `iso_vg_46`.
 - `geometry/oil-line-d10x300.step`: the oil in the bore as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

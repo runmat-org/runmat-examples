@@ -33,12 +33,12 @@ V(3n + 1)/(n + 1) = 0.079 m/s.
    `Slurry`, with faces `Inlet`, `Outlet` and `Wall`. The pipe is a rigid wall, so it is not
    meshed. Linear tetrahedra at 2.5 mm, ten cells across the bore.
 
-2. **Material.** The slurry as a power-law fluid:
+2. **Material.** The slurry as a power-law fluid, declared in `materials.module`:
 
    ```
-   material coal_slurry {
+   material coal_slurry = {
        mass_density = 1500 kg/m^3
-       fluid {
+       fluid = {
            law = power_law
            consistency = 0.2
            power_index = 0.4
@@ -82,6 +82,7 @@ concentrated near the wall.
 ## Files
 
 - `slurry-line-power-law.fea`: the non-Newtonian flow study, with the power-law hand check in its header.
+- `materials.module`: the material the study imports, `coal_slurry`.
 - `geometry/slurry-line-d25x400.step`: the slurry in the bore as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

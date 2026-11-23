@@ -2,6 +2,9 @@
 // A 48 kN downward force on the free end (-Z) takes the root past first yield (about 41.7 kN for a
 // 250 MPa yield stress) toward the plastic hinge load (62.5 kN). The load is applied in increments,
 // with J2 plasticity and linear isotropic hardening.
+
+import { mild_steel } from "./materials.module"
+
 geometry beam {
     file = "./geometry/cantilever.step"
     units = mm
@@ -15,19 +18,6 @@ mesh beam on geometry.beam {
         order = quadratic
         target_size = 50 mm
         maximum_deviation = 1 mm
-    }
-}
-
-material mild_steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
-    }
-    plastic {
-        law = "j2_isotropic_linear_hardening"
-        yield_stress = 250 MPa
-        isotropic_hardening_modulus = 2 GPa
     }
 }
 

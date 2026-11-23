@@ -1,0 +1,10 @@
+// Copper: IEC 60028 (international standard of resistance for copper, 1/58 ohm mm^2/m at 20 C).
+material copper = {
+    electrical = {
+        reference_temperature = 20 degC
+        conductivity = 58000000 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 1
+        relative_permeability = 1
+    }
+}

@@ -21,6 +21,8 @@
 // dp d / (2 E h) = 1.6 % (80 um on the radius). The open end reflects the pulse inverted; its
 // peak gets back to 150 mm after 16.7 ms, outside the 15 ms window.
 
+import { water, silicone_50a } from "./materials.module"
+
 geometry tube {
     file = "./geometry/compliant-tube.step"
     units = mm
@@ -41,22 +43,6 @@ mesh tube on geometry.tube {
         target_size = 1.5 mm
         maximum_deviation = 0.05 mm
         refine wall { on = geometry.tube.region.tube; target_size = 0.5 mm }
-    }
-}
-
-material water {
-    mass_density = 997 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.000855 Pa*s
-    }
-}
-
-material silicone_50a {
-    mass_density = 1150 kg/m^3
-    elastic {
-        youngs_modulus = 2.46 MPa
-        poisson_ratio = 0.49
     }
 }
 

@@ -5,6 +5,9 @@
 // Check: the panel is nearly isothermal (0.005 K through its thickness), so it settles where the
 // radiated power equals the input: T = (q / (eps sigma) + T_space^4)^(1/4) with
 // q = 40 W / 0.09 m^2 = 444.4 W/m^2, giving T = 303.8 K (30.7 C).
+
+import { aluminum_6061_t6 } from "./materials.module"
+
 geometry radiator {
     file = "./geometry/radiator-panel.step"
     units = mm
@@ -18,18 +21,6 @@ mesh radiator on geometry.radiator {
         order = quadratic
         target_size = 10 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
-material aluminum_6061_t6 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
-        expansion_coefficient = 0.0000236 K^-1
     }
 }
 

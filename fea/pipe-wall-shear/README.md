@@ -64,6 +64,7 @@ where the flat profile meets the wall.
 ## Files
 
 - `pipe-wall-shear.fea`: the steady flow study with the wall shear outputs and the Poiseuille hand check in its header.
+- `materials.module`: the material the study imports, `iso_vg_46`.
 - `geometry/oil-line-d10x300.step`: the oil in the bore as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

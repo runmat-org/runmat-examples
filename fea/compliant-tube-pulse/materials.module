@@ -1,0 +1,15 @@
+material water = {
+    mass_density = 997 kg/m^3
+    fluid = {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.000855 Pa*s
+    }
+}
+
+material silicone_50a = {
+    mass_density = 1150 kg/m^3
+    elastic = {
+        youngs_modulus = 2.46 MPa
+        poisson_ratio = 0.49
+    }
+}

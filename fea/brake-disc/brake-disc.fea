@@ -23,6 +23,8 @@
 // restrained, sigma = E alpha dT / (1 - nu) = 110e3 x 12.5e-6 x 100 / 0.74 = 186 MPa per 100 K
 // of ring-to-hat difference. The hat's flexibility relieves most of it.
 
+import { grey_iron } from "./materials.module"
+
 geometry disc {
     file = "./geometry/disc.step"
     units = mm
@@ -39,21 +41,6 @@ mesh disc on geometry.disc {
         order = quadratic
         target_size = 6 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material grey_iron {
-    mass_density = 7200 kg/m^3
-    elastic {
-        youngs_modulus = 110 GPa
-        poisson_ratio = 0.26
-    }
-    thermal {
-        reference_temperature = 313.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 48.5 W/m/K
-        specific_heat = 460 J/kg/K
-        expansion_coefficient = 0.0000125 K^-1
     }
 }
 

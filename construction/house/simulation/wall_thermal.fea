@@ -46,6 +46,8 @@
 // through this 203.2 x 5 mm slice. The solve lets heat cross between the stud and the batt
 // through the sheathing, stucco and gypsum, which the parallel paths cannot.
 
+import { stucco, building_paper, osb, softwood_stud, fiberglass_batt_r21, gypsum_board } from "./materials.module"
+
 geometry wall {
     file = "./geometry/wall_thermal.step"
     units = mm
@@ -85,72 +87,6 @@ mesh wall on geometry.wall {
             on = geometry.wall.region.stucco_finish
             target_size = 3 mm
         }
-    }
-}
-
-material stucco {
-    mass_density = 1858 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.721 W/m/K
-        specific_heat = 837 J/kg/K
-    }
-}
-
-material building_paper {
-    mass_density = 480 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.0751 W/m/K
-        specific_heat = 1380 J/kg/K
-    }
-}
-
-material osb {
-    mass_density = 545 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.115 W/m/K
-        specific_heat = 1214 J/kg/K
-    }
-}
-
-material softwood_stud {
-    mass_density = 513 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.115 W/m/K
-        specific_heat = 1382 J/kg/K
-    }
-}
-
-material fiberglass_batt_r21 {
-    mass_density = 19 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.0378 W/m/K
-        specific_heat = 960 J/kg/K
-    }
-}
-
-material gypsum_board {
-    mass_density = 801 kg/m^3
-    thermal {
-        reference_temperature = 294.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0 K^-1
-        conductivity = 0.160 W/m/K
-        specific_heat = 1089 J/kg/K
     }
 }
 

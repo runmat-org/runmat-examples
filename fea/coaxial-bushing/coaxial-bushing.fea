@@ -5,6 +5,9 @@
 // Check: between coaxial cylinders E(r) = V / (r ln(b / a)), so the field is 36 kV / (10 mm * ln 4)
 // = 2.60 kV/mm at the conductor and 0.65 kV/mm at the sleeve, and the potential halfway out in
 // log radius (r = 20 mm) is exactly 18.0 kV. The field does not depend on the permittivity.
+
+import { cast_epoxy } from "./materials.module"
+
 geometry bushing {
     file = "./geometry/coaxial-bushing.step"
     units = mm
@@ -18,19 +21,6 @@ mesh bushing on geometry.bushing {
         order = quadratic
         target_size = 3 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Cast epoxy. Relative permittivity 4.2 is a typical value for silica-filled casting resin at power
-// frequency; the field above does not depend on it, the stored energy does. The conductivity is a
-// bulk insulation value, small enough to carry no current here.
-material cast_epoxy {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 0.000000000000001 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 4.2
-        relative_permeability = 1
     }
 }
 

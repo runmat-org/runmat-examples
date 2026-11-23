@@ -84,6 +84,7 @@ of initial crookedness and load eccentricity, so design codes apply reduction fa
 ## Files
 
 - `column-buckling.fea`: the study: geometry, mesh, material, model, preload and buckling analysis.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/column-100x50.step`: the column's geometry, with its body, base and top named.
 - `runmat.toml`: the project file.
 

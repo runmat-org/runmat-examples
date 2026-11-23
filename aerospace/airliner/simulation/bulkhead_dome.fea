@@ -19,6 +19,8 @@
 // meridional stress there reaches about 1.6 times the membrane stress on the surfaces, about
 // 50 MPa. The ultimate tensile strength of 2024-T3 sheet (A-basis) is 440 MPa.
 
+import { aluminum_2024_t3 } from "./bulkhead_dome.materials.module"
+
 geometry dome {
     file = "./geometry/bulkhead_sector.step"
     units = mm
@@ -34,14 +36,6 @@ mesh dome on geometry.dome {
         order = quadratic
         target_size = 8 mm
         maximum_deviation = 0.5 mm
-    }
-}
-
-material aluminum_2024_t3 {
-    mass_density = 2780 kg/m^3
-    elastic {
-        youngs_modulus = 73.1 GPa
-        poisson_ratio = 0.33
     }
 }
 

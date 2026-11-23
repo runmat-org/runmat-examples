@@ -1,6 +1,9 @@
 // Shock response of a steel wall-hook bracket (40 x 50 x 35 mm), bolted at its three mounting holes.
 // The mounting sees a pyrotechnic shock along the wall (Y), given as a 5% damped shock response spectrum:
 // 20 g at 100 Hz rising to a 1000 g plateau from 2 kHz. Modes combine by CQC.
+
+import { steel } from "./materials.module"
+
 geometry bracket {
     file = "./geometry/bracket.step"
     units = mm
@@ -14,14 +17,6 @@ mesh bracket on geometry.bracket {
         order = linear
         target_size = 6 mm
         maximum_deviation = 0.15 mm
-    }
-}
-
-material steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
     }
 }
 
@@ -39,7 +34,7 @@ model shocked_bracket {
         modal_combination = cqc
         directional_combination = srss
         minimum_cumulative_mass_ratio = 0.9
-        truncation_correction = none
+        truncation_correction = off
         rigid_response = disabled
     }
 }

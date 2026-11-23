@@ -88,6 +88,7 @@ copper there has higher resistivity.
 ## Files
 
 - `fuse-link-overload.fea`: the study, with the closed-form check in its header.
+- `materials.module`: the material the study imports, `copper`.
 - `geometry/fuse-element.step`: the element as STEP, with the body and both terminals named.
 - `runmat.toml`: the project file.
 

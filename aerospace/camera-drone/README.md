@@ -99,8 +99,8 @@ fins in the props' downwash.
 
 ## What to try
 
-1. Change the arm laminate's modulus and density in `simulation/arm_modal.fea`, run the study, and
-   compare the first flap mode with the 476 Hz target.
+1. Change the arm laminate's modulus and density in `simulation/arm_modal.materials.module`, run
+   `simulation/arm_modal.fea`, and compare the first flap mode with the 476 Hz target.
 2. Change phase A's current-sense filter capacitor (`CISA` in the `channel` sheet of
    `electrical/esc/esc.circuit`) from 10 nF to 22 nF. The corner is 1 / (2π · R · C), so 1 kΩ with
    22 nF gives 7.23 kHz, outside the 14–18 kHz spec. Re-run `current_sense` and read its measures.

@@ -32,6 +32,8 @@
 // study must land within about 5 K of the pad seat; its board peak reads the even spread, below
 // the edge bridges' figure.
 
+import { board_stack, gap_pad, aluminum_6061 } from "./esc_thermal.materials.module"
+
 geometry esc {
     file = "./geometry/esc_thermal.step"
     units = mm
@@ -47,39 +49,6 @@ mesh esc on geometry.esc {
         order = linear
         target_size = 2 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material board_stack {
-    mass_density = 2200 kg/m^3
-    thermal {
-        reference_temperature = 308.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000016 K^-1
-        conductivity = 68 W/m/K
-        specific_heat = 900 J/kg/K
-    }
-}
-
-material gap_pad {
-    mass_density = 3100 kg/m^3
-    thermal {
-        reference_temperature = 308.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0002 K^-1
-        conductivity = 3 W/m/K
-        specific_heat = 1000 J/kg/K
-    }
-}
-
-material aluminum_6061 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 308.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000236 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
     }
 }
 

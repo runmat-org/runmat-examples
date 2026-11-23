@@ -7,6 +7,9 @@
 // fin efficiency tanh(m Hc) / (m Hc) = 0.955. The cell's conductance to air is
 // h (A_base + eta A_fin) = 25 * (400 + 0.955 * 3100) mm^2 = 0.0840 W/K, so the base runs
 // 2.5 / 0.0840 = 29.8 K above the air; with 0.15 K across the base plate the underside reads 54.9 C.
+
+import { aluminum_6061_t6 } from "./materials.module"
+
 geometry cell {
     file = "./geometry/fin-array-cell.step"
     units = mm
@@ -22,18 +25,6 @@ mesh cell on geometry.cell {
         order = quadratic
         target_size = 2 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
-material aluminum_6061_t6 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
-        expansion_coefficient = 0.0000236 K^-1
     }
 }
 

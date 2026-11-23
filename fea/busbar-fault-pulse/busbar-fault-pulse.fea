@@ -7,6 +7,9 @@
 //     dT/dt = rho_20 (1 + alpha (T - 20 C)) J^2 / (rho_m c),  J = 25 kA / 200 mm^2 = 125 A/mm^2,
 // starting at 78.7 K/s. Integrated over the current signal below, the strip rises 42.4 K, to 62.4 C
 // (39.2 K if resistivity stayed at its 20 C value).
+
+import { copper } from "./materials.module"
+
 geometry busbar {
     file = "./geometry/busbar-strip.step"
     units = mm
@@ -21,27 +24,6 @@ mesh busbar on geometry.busbar {
         order = quadratic
         target_size = 4 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Copper: electrical values from IEC 60028 (international standard of resistance for copper:
-// 1/58 ohm mm^2/m at 20 C, temperature coefficient 0.00393 /K); thermal values for C11000 from the
-// ASM Handbook, Vol. 2, properties of wrought coppers.
-material copper {
-    mass_density = 8890 kg/m^3
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 58000000 A/V/m
-        resistive_heating_coefficient = 0.00393 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
-    }
-    thermal {
-        reference_temperature = 20 degC
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 388 W/m/K
-        specific_heat = 385 J/kg/K
-        expansion_coefficient = 0.000017 K^-1
     }
 }
 

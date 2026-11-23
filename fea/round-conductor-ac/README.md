@@ -79,6 +79,7 @@ depth.
 ## Files
 
 - `round-conductor-ac.fea`: the harmonic electromagnetic study, with the Bessel-function check in its header.
+- `materials.module`: the materials the study imports: `copper` and `air`.
 - `geometry/round-conductor.step`: the rod and the air space as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

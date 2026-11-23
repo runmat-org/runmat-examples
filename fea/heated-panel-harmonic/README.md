@@ -96,6 +96,7 @@ response should peak near it, inside the 500 Hz to 1.6 kHz band; the sweep point
 ## Files
 
 - `heated-panel-harmonic.fea`: the four-analysis study, with its hand check in the header.
+- `materials.module`: the material the study imports, `ti_6al_4v`.
 - `geometry/titanium-panel.step`: the panel as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

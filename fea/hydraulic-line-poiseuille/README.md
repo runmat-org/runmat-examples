@@ -25,12 +25,12 @@ within about 0.06 Re d = 28 mm. That entrance adds about 1.25 × ½ρU² = 24 Pa
    faces `Inlet`, `Outlet` and `Wall`. The pipe is a rigid wall to the oil, so it is not meshed.
    Linear tetrahedra at 1.25 mm, about eight cells across the bore.
 
-2. **Material.** The oil as an incompressible Newtonian fluid:
+2. **Material.** The oil as an incompressible Newtonian fluid, declared in `materials.module`:
 
    ```
-   material iso_vg_46 {
+   material iso_vg_46 = {
        mass_density = 861 kg/m^3
-       fluid {
+       fluid = {
            law = incompressible_newtonian
            dynamic_viscosity = 0.0396 Pa*s
        }
@@ -81,6 +81,7 @@ velocity field past the entrance shows the parabolic Poiseuille profile.
 ## Files
 
 - `hydraulic-line-poiseuille.fea`: the steady laminar flow study, with its hand check in the header.
+- `materials.module`: the material the study imports, `iso_vg_46`.
 - `geometry/oil-line-d10x300.step`: the oil in the bore as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

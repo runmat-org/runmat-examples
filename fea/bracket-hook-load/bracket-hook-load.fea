@@ -2,6 +2,9 @@
 // The base plate is bolted to a wall at its three countersunk mounting holes, which are held.
 // A two-kilonewton load hangs from the hook: it presses down the wall (-Y) on the hook seat,
 // the upward-facing flat between the wall and the lip.
+
+import { steel } from "./materials.module"
+
 geometry bracket {
     file = "./geometry/bracket.step"
     units = mm
@@ -17,14 +20,6 @@ mesh bracket on geometry.bracket {
         order = linear
         target_size = 6 mm
         maximum_deviation = 0.15 mm
-    }
-}
-
-material steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
     }
 }
 

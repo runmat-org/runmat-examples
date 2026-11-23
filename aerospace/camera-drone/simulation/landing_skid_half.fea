@@ -7,6 +7,8 @@
 // the full skid's STEP at y = 34 mm. The half sole takes half of the 97 N touchdown load.
 // Load, material and limit are as in landing_skid.fea.
 
+import { nylon_gf30 } from "./landing_skid_half.materials.module"
+
 geometry skid {
     file = "./geometry/landing_skid_half.step"
     units = mm
@@ -22,14 +24,6 @@ mesh skid on geometry.skid {
         target_size = 3 mm
         maximum_deviation = 0.2 mm
         cells_across_gap = 2
-    }
-}
-
-material nylon_gf30 {
-    mass_density = 1360 kg/m^3
-    elastic {
-        youngs_modulus = 7.5 GPa
-        poisson_ratio = 0.35
     }
 }
 

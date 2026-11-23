@@ -95,6 +95,7 @@ The ports reach Re 2000, the edge of this laminar study, at about 43 L/min.
 ## Files
 
 - `hydraulic-manifold.fea`: the steady flow study and its 1 bar assessment, with the hand check in the header.
+- `materials.module`: the material the study imports, `iso_vg_46`.
 - `manifold.part`: the block and its oil in RunMat MCAD, with every size the study depends on as an input.
 - `geometry/manifold-oil.step`: the oil, exported from the part's `oil_only` configuration, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the bores, the layout, the bolt-hole ligaments and the material were chosen, with the hand checks.

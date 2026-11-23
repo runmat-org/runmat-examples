@@ -11,6 +11,8 @@
 // over the developed length (beyond about 28 mm from the inlet). The wall shear is higher in the
 // entrance, where the profile is still flat.
 
+import { iso_vg_46 } from "./materials.module"
+
 geometry line {
     file = "./geometry/oil-line-d10x300.step"
     units = mm
@@ -25,14 +27,6 @@ mesh line on geometry.line {
         order = linear
         target_size = 1.25 mm
         maximum_deviation = 0.05 mm
-    }
-}
-
-material iso_vg_46 {
-    mass_density = 861 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0396 Pa*s
     }
 }
 

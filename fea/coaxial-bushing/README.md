@@ -77,6 +77,7 @@ For a fixed 80 mm sleeve, a bore of 29.4 mm (a = b/e) gives the lowest peak fiel
 ## Files
 
 - `coaxial-bushing.fea`: the electrostatic study, with the coaxial-cylinder check in its header.
+- `materials.module`: the material the study imports, `cast_epoxy`.
 - `geometry/coaxial-bushing.step`: the insulation as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

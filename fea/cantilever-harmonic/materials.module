@@ -1,0 +1,11 @@
+material steel = {
+    mass_density = 7850 kg/m^3
+    elastic = {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+    rayleigh_damping = {
+        mass_coefficient = 10 Hz
+        stiffness_coefficient = 20 us
+    }
+}

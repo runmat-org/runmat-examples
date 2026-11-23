@@ -14,6 +14,8 @@
 // - 63 % of the final flow at 0.090 s; 95 % at nu t / R^2 = ln(0.957 / 0.05) / 5.783 = 0.510,
 //   so t95 = 0.277 s. By 0.6 s the flow is steady to 0.1 %.
 
+import { iso_vg_46 } from "./materials.module"
+
 geometry line {
     file = "./geometry/oil-line-d10x300.step"
     units = mm
@@ -28,14 +30,6 @@ mesh line on geometry.line {
         order = linear
         target_size = 1.5 mm
         maximum_deviation = 0.05 mm
-    }
-}
-
-material iso_vg_46 {
-    mass_density = 861 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0396 Pa*s
     }
 }
 

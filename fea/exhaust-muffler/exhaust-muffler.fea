@@ -15,6 +15,8 @@
 // opening add a further loss, so the muffler should reach about 20 to 30 dB at 500 Hz. The
 // plane-wave estimate holds below the chamber's first radial mode, 1.84 c / (pi D) = 1,116 Hz.
 
+import { air } from "./materials.module"
+
 geometry muffler {
     file = "./geometry/muffler-air.step"
     units = mm
@@ -31,14 +33,6 @@ mesh muffler on geometry.muffler {
         order = quadratic
         target_size = 15 mm
         maximum_deviation = 0.5 mm
-    }
-}
-
-material air {
-    mass_density = 1.204 kg/m^3
-    acoustic {
-        speed_of_sound = 343 m/s
-        damping_ratio = 0.0
     }
 }
 

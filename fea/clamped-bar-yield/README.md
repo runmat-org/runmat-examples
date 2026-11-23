@@ -94,6 +94,7 @@ bar, as the uniaxial hand check expects.
 ## Files
 
 - `clamped-bar-yield.fea`: the elastic-plastic thermal stress study, with its hand check in the header.
+- `materials.module`: the material the study imports, `steel_s275`.
 - `geometry/quarter-bar.step`: a quarter of the bar as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

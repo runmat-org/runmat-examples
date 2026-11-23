@@ -97,6 +97,7 @@ giving the same 56.8 °C and 63.4 °C.
 - `busbar.part`: the busbar in RunMat MCAD, with its length, width, thickness, bolt sizes and pitch as inputs.
 - `geometry/busbar.step`: the part exported to STEP, with the body and face names the study selects.
 - `six-bolt-busbar.fea`: the electrothermal study, with its hand check in the header and the 85 °C assessment.
+- `materials.module`: the material the study imports, `copper_c11000`.
 - `DESIGN-NOTES.md`: how the strap section and the material were chosen, with the hand checks and solved results.
 - `runmat.toml`: the project file.
 

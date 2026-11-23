@@ -1,0 +1,7 @@
+material aluminum_6061_t6 = {
+    mass_density = 2700 kg/m^3
+    elastic = {
+        youngs_modulus = 68.9 GPa
+        poisson_ratio = 0.33
+    }
+}

@@ -94,6 +94,7 @@ at the temperature field across the hat to see the ring-to-hat difference that d
 ## Files
 
 - `brake-disc.fea`: the thermal and thermal-stress study, with the duty and hand checks in its header.
+- `materials.module`: the material the study imports, `grey_iron`.
 - `disc.part`: the disc in RunMat MCAD, with the plate, channel, eye, hat and bore sizes as inputs.
 - `geometry/disc.step`: the part exported to STEP, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the duty, the vanes, the iron and the hat depth were chosen, with the hand checks.

@@ -98,6 +98,7 @@ steel's allowable.
 ## Files
 
 - `bracket-random-vibration.fea`: the modal and random response study.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/bracket.step`: the bracket as STEP, with the body and mounting-hole names the study selects.
 - `runmat.toml`: the project file.
 

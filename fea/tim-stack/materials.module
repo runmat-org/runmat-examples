@@ -1,0 +1,23 @@
+// Copper C11000 (ASM Handbook, Vol. 2, properties of wrought coppers).
+material copper_c11000 = {
+    mass_density = 8890 kg/m^3
+    thermal = {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 388 W/m/K
+        specific_heat = 385 J/kg/K
+        expansion_coefficient = 0.000017 K^-1
+    }
+}
+
+// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
+material aluminum_6061_t6 = {
+    mass_density = 2700 kg/m^3
+    thermal = {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+        expansion_coefficient = 0.0000236 K^-1
+    }
+}

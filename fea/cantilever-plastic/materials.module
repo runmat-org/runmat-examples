@@ -1,0 +1,12 @@
+material mild_steel = {
+    mass_density = 7850 kg/m^3
+    elastic = {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+    plastic = {
+        law = j2_isotropic_linear_hardening
+        yield_stress = 250 MPa
+        isotropic_hardening_modulus = 2 GPa
+    }
+}

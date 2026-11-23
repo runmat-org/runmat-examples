@@ -15,6 +15,8 @@
 // The uniform inlet adds an entrance loss of about 1.25 x 0.5 rho U^2 = 24 Pa, so the run should
 // read about 830 Pa. The developed centerline speed is twice the mean, 0.424 m/s.
 
+import { iso_vg_46 } from "./materials.module"
+
 geometry line {
     file = "./geometry/oil-line-d10x300.step"
     units = mm
@@ -30,14 +32,6 @@ mesh line on geometry.line {
         order = linear
         target_size = 1.25 mm
         maximum_deviation = 0.05 mm
-    }
-}
-
-material iso_vg_46 {
-    mass_density = 861 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0396 Pa*s
     }
 }
 

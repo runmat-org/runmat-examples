@@ -83,6 +83,7 @@ factor under 1 means the rail buckles before the full 10 K is reached.
 ## Files
 
 - `rail-thermal-buckling.fea`: the thermal, preload and buckling study, with the Euler hand check in its header.
+- `materials.module`: the material the study imports, `steel_s275`.
 - `geometry/rail.step`: the rail as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

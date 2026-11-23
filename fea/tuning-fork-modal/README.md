@@ -70,6 +70,7 @@ structure moves, not how far. The tips of the tines move most, and the stem bare
 ## Files
 
 - `tuning-fork-modal.fea`: the study: geometry, mesh, material, model and the modal analysis.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/tuning-fork.step`: the fork's geometry, with its body and its fixed end face named.
 - `tuning-fork-setup.svg`: a sketch of the setup.
 - `runmat.toml`: the project file.

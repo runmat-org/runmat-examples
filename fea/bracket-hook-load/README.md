@@ -91,6 +91,7 @@ from the supports and their stress converges under refinement.
 ## Files
 
 - `bracket-hook-load.fea`: the study: geometry, mesh, material, model and the static analysis.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/bracket.step`: the bracket's geometry, with the body, hook seat, mounting holes and corner fillets named.
 - `runmat.toml`: the project file.
 

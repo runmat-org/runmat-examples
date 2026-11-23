@@ -1,0 +1,10 @@
+// S355 (EN 10025-2), machined from plate. Its yield strength is 355 MPa.
+// Linear elasticity does not model plastic redistribution above yield.
+/// S355 (EN 10025-2), machined plate
+material s355 = {
+    mass_density = 7850 kg/m^3
+    elastic = {
+        youngs_modulus = 210 GPa
+        poisson_ratio = 0.30
+    }
+}

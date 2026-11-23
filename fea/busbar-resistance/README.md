@@ -85,6 +85,7 @@ to blue just upstream and downstream of it, where the current has to turn.
 ## Files
 
 - `busbar-resistance.fea`: the study, with its hand check in the header.
+- `materials.module`: the material the study imports, `copper`.
 - `geometry/busbar-bolt-hole.step`: the strip as STEP, with the body, both terminals and the bolt hole named.
 - `runmat.toml`: the project file.
 

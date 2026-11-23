@@ -19,6 +19,8 @@
 // resistivity, 31 K once resistivity rises with it: about 56 degC. The hottest point, at the
 // output end, runs a few kelvin over the mean.
 
+import { copper_c11000 } from "./materials.module"
+
 geometry busbar {
     file = "./geometry/busbar.step"
     units = mm
@@ -38,24 +40,6 @@ mesh busbar on geometry.busbar {
         order = linear
         target_size = 2 mm
         maximum_deviation = 0.02 mm
-    }
-}
-
-material copper_c11000 {
-    mass_density = 8940 kg/m^3
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 58000000 A/V/m
-        resistive_heating_coefficient = 0.0039 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
-    }
-    thermal {
-        reference_temperature = 20 degC
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 390 W/m/K
-        specific_heat = 385 J/kg/K
-        expansion_coefficient = 0.0000168 K^-1
     }
 }
 

@@ -12,6 +12,8 @@
 //
 // Material: 6061-T6, yield 276 MPa; the 184 MPa limit is its yield over a factor of 1.5.
 
+import { aluminum_6061_t6 } from "./yaw_arm_landing.materials.module"
+
 geometry gimbal {
     file = "./geometry/yaw_arm_study.step"
     units = mm
@@ -27,14 +29,6 @@ mesh gimbal on geometry.gimbal {
         order = quadratic
         target_size = 0.8 mm
         maximum_deviation = 0.05 mm
-    }
-}
-
-material aluminum_6061_t6 {
-    mass_density = 2700 kg/m^3
-    elastic {
-        youngs_modulus = 68.9 GPa
-        poisson_ratio = 0.33
     }
 }
 

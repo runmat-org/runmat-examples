@@ -24,6 +24,8 @@
 // - Time constant: the block stores rho c V = 2700 x 896 x 3.61e-5 = 87 J/K behind about
 //   0.4 K/W, so tau = 35 s: about 63 % of the final rise by 35 s and 95 % by 105 s.
 
+import { aluminum_6061_t6, water } from "./materials.module"
+
 geometry plate {
     file = "./geometry/chip-cold-plate.step"
     units = mm
@@ -43,32 +45,6 @@ mesh plate on geometry.plate {
         target_size = 2.5 mm
         maximum_deviation = 0.05 mm
         refine channel { on = geometry.plate.region.channel_wall; target_size = 0.75 mm }
-    }
-}
-
-material aluminum_6061_t6 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000236 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
-    }
-}
-
-material water {
-    mass_density = 997 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.000855 Pa*s
-    }
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000276 K^-1
-        conductivity = 0.613 W/m/K
-        specific_heat = 4179 J/kg/K
     }
 }
 

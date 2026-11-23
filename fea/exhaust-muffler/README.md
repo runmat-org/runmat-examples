@@ -96,6 +96,7 @@ to see how much of that pass band the second chamber and the baffle close.
 ## Files
 
 - `exhaust-muffler.fea`: the harmonic acoustic sweep, with its plane-wave hand check in the header.
+- `materials.module`: the material the study imports, `air`.
 - `muffler.part`: the shell and its gas in RunMat MCAD, with pipe, bore, chamber length and wall thickness as inputs.
 - `geometry/muffler-air.step`: the gas, exported from the part's `air_only` configuration, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the area ratio, the chamber lengths and the shell were chosen, with the hand checks.

@@ -23,6 +23,8 @@
 //   coolant's 1.4 K rise, the hottest cell top sits near 25 + 1.4 + 1.2 + 4.5 + 2.8 = 35 degC,
 //   10 K under the limit.
 
+import { li_ion_cell, gap_filler, aluminum_3003, water_glycol_50 } from "./materials.module"
+
 geometry module {
     file = "./geometry/m01-cold-plate.step"
     units = mm
@@ -52,54 +54,6 @@ mesh module on geometry.module {
         refine channel { on = geometry.module.region.channel_wall; target_size = 2 mm }
         refine gap_filler { on = geometry.module.region.gap_filler; target_size = 3 mm }
         refine plate { on = geometry.module.region.plate; target_size = 4 mm }
-    }
-}
-
-material li_ion_cell {
-    mass_density = 2500 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.00001 K^-1
-        conductivity = 20 W/m/K
-        specific_heat = 1000 J/kg/K
-    }
-}
-
-material gap_filler {
-    mass_density = 3100 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0002 K^-1
-        conductivity = 3 W/m/K
-        specific_heat = 1000 J/kg/K
-    }
-}
-
-material aluminum_3003 {
-    mass_density = 2730 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000232 K^-1
-        conductivity = 160 W/m/K
-        specific_heat = 893 J/kg/K
-    }
-}
-
-material water_glycol_50 {
-    mass_density = 1070 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0035 Pa*s
-    }
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 0.38 W/m/K
-        specific_heat = 3300 J/kg/K
-        expansion_coefficient = 0.0006 K^-1
     }
 }
 

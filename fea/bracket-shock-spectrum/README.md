@@ -94,6 +94,7 @@ peak of each quantity separately, so the fields do not show the bracket at one i
 ## Files
 
 - `bracket-shock-spectrum.fea`: the modal and response spectrum study.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/bracket.step`: the bracket as STEP, with the body and mounting-hole names the study selects.
 - `runmat.toml`: the project file.
 

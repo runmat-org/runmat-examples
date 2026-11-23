@@ -1,0 +1,23 @@
+material iso_vg_46 = {
+    mass_density = 861 kg/m^3
+    fluid = {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.0396 Pa*s
+    }
+}
+
+material spring_steel = {
+    mass_density = 7900 kg/m^3
+    elastic = {
+        youngs_modulus = 185 GPa
+        poisson_ratio = 0.3
+    }
+}
+
+material carbon_steel = {
+    mass_density = 7850 kg/m^3
+    elastic = {
+        youngs_modulus = 200 GPa
+        poisson_ratio = 0.3
+    }
+}

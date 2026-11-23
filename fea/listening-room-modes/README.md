@@ -28,12 +28,12 @@ formula exists. Every surface is rigid, so the first mode is the uniform 0 Hz pr
 2. **Mesh.** Quadratic tetrahedra at 400 mm, under the 0.57 m that six elements per wavelength at
    100 Hz would allow.
 
-3. **Material.** Air at 20 °C with no damping:
+3. **Material.** Air at 20 °C with no damping, declared in `materials.module`:
 
    ```
-   material air {
+   material air = {
        mass_density = 1.204 kg/m^3
-       acoustic {
+       acoustic = {
            speed_of_sound = 343 m/s
            damping_ratio = 0.0
        }
@@ -93,6 +93,7 @@ along x, y and z.
 ## Files
 
 - `listening-room-modes.fea`: the acoustic modal study, with the rectangular-room table in its header.
+- `materials.module`: the material the study imports, `air`.
 - `geometry/listening-room.step`: the room air as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

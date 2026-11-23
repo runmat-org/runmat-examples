@@ -48,12 +48,12 @@ the solved conduction, so it also shows how evenly the four passes cool the eigh
 
 3. **Materials and loads.** Cells at k = 20 W/m·K with 12,383.9 W/m³ of heat generation, which is
    20 W in each 34 × 500 × 95 mm cell. Gap filler at 3 W/m·K, 3003 aluminum at 160 W/m·K, and the
-   coolant as an incompressible Newtonian fluid:
+   coolant as an incompressible Newtonian fluid, declared in `materials.module`:
 
    ```
-   material water_glycol_50 {
+   material water_glycol_50 = {
        mass_density = 1070 kg/m^3
-       fluid {
+       fluid = {
            law = incompressible_newtonian
            dynamic_viscosity = 0.0035 Pa*s
        }
@@ -109,6 +109,7 @@ the middle.
 ## Files
 
 - `battery-cold-plate.fea`: the conjugate heat transfer study, with its hand checks in the header.
+- `materials.module`: the materials the study imports: `li_ion_cell`, `gap_filler`, `aluminum_3003` and `water_glycol_50`.
 - `m01_cold_plate.part`: the cells, gap filler, plate and coolant in RunMat MCAD, with the channel, plate, land and pad sizes as inputs.
 - `geometry/m01-cold-plate.step`: the part exported to STEP, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the channel, the passes and the gap filler were sized, with the hand checks.
