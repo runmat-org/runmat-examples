@@ -38,10 +38,10 @@ assembly drone {
 
     // Landing gear: a skid under each side of the belly, either side of the heatsink's fins.
     instance skid_left : landing_skid = {
-        configuration = { select = inputs, values = { side = 34 mm } }
+        inputs = { side = 34 mm }
     }
     instance skid_right : landing_skid = {
-        configuration = { select = inputs, values = { side = -34 mm } }
+        inputs = { side = -34 mm }
     }
 
     // The radio's two antennas, upright inside the side walls behind the board stack.
@@ -60,16 +60,13 @@ assembly drone {
     // rear arms drop as they swing forward under them. The right arms are the left ones'
     // mirror images, so their blade inputs are mirrored too.
     instance arm_front_left : arm_station = {
-        configuration = {
-            select = inputs
-            values = {
-                blade_a = input.blade_a
-                blade_b = input.blade_b
-                fold = input.fold_front
-                length_offset = -6.66 mm
-                pod_tilt = -20 deg
-                rise = 5.79 mm
-            }
+        inputs = {
+            blade_a = input.blade_a
+            blade_b = input.blade_b
+            fold = input.fold_front
+            length_offset = -6.66 mm
+            pod_tilt = -20 deg
+            rise = 5.79 mm
         }
         placement = offset(
             translation = [44 mm, 52 mm, 24 mm],
@@ -77,16 +74,13 @@ assembly drone {
         )
     }
     instance arm_front_right : arm_station = {
-        configuration = {
-            select = inputs
-            values = {
-                blade_a = -input.blade_b - 180 deg
-                blade_b = -input.blade_a - 180 deg
-                fold = -input.fold_front
-                length_offset = -6.66 mm
-                pod_tilt = 20 deg
-                rise = 5.79 mm
-            }
+        inputs = {
+            blade_a = -input.blade_b - 180 deg
+            blade_b = -input.blade_a - 180 deg
+            fold = -input.fold_front
+            length_offset = -6.66 mm
+            pod_tilt = 20 deg
+            rise = 5.79 mm
         }
         placement = offset(
             translation = [44 mm, -52 mm, 24 mm],
@@ -94,16 +88,13 @@ assembly drone {
         )
     }
     instance arm_rear_left : arm_station = {
-        configuration = {
-            select = inputs
-            values = {
-                blade_a = input.rear_blade_a
-                blade_b = input.rear_blade_b
-                fold = -input.fold_rear
-                length_offset = 2.407 mm
-                pod_tilt = -28 deg
-                rise = 18.878 mm
-            }
+        inputs = {
+            blade_a = input.rear_blade_a
+            blade_b = input.rear_blade_b
+            fold = -input.fold_rear
+            length_offset = 2.407 mm
+            pod_tilt = -28 deg
+            rise = 18.878 mm
         }
         placement = offset(
             translation = [-66 mm, 44 mm, 13 mm],
@@ -111,16 +102,13 @@ assembly drone {
         )
     }
     instance arm_rear_right : arm_station = {
-        configuration = {
-            select = inputs
-            values = {
-                blade_a = -input.rear_blade_b - 180 deg
-                blade_b = -input.rear_blade_a - 180 deg
-                fold = input.fold_rear
-                length_offset = 2.407 mm
-                pod_tilt = 28 deg
-                rise = 18.878 mm
-            }
+        inputs = {
+            blade_a = -input.rear_blade_b - 180 deg
+            blade_b = -input.rear_blade_a - 180 deg
+            fold = input.fold_rear
+            length_offset = 2.407 mm
+            pod_tilt = 28 deg
+            rise = 18.878 mm
         }
         placement = offset(
             translation = [-66 mm, -44 mm, 13 mm],
@@ -130,7 +118,7 @@ assembly drone {
 
     // The 3-axis gimbal and camera under the nose.
     instance gimbal : gimbal = {
-        configuration = { select = inputs, values = { pitch = input.pitch } }
+        inputs = { pitch = input.pitch }
         placement = offset(translation = [74 mm, 0 mm, 11 mm])
     }
 
@@ -177,11 +165,11 @@ assembly drone {
         placement = offset(translation = [25 mm, 0 mm, 21.6 mm])
     }
     instance spacer : spacer = {
-        configuration = { select = inputs, values = { height = 10 mm } }
+        inputs = { height = 10 mm }
         placement = offset(translation = [9.75 mm, -15.25 mm, 11.6 mm])
     }
     instance stack_screw : screw = {
-        configuration = { select = inputs, values = { length = 18 mm } }
+        inputs = { length = 18 mm }
         placement = offset(translation = [9.75 mm, -15.25 mm, 23.2 mm])
     }
     pattern stack = grid(

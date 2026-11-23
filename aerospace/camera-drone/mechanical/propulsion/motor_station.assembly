@@ -13,7 +13,7 @@ assembly motor_station {
     input arm_roll : angle = 0 deg
 
     instance pod : motor_pod = {
-        configuration = { select = inputs, values = { arm_roll = input.arm_roll } }
+        inputs = { arm_roll = input.arm_roll }
     }
     instance motor : motor
     instance hub : prop_hub

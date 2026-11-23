@@ -6,6 +6,6 @@ import { aft_pressure_bulkhead } from "../fuselage/aft_pressure_bulkhead.part"
 
 assembly bulkhead_sector {
     instance bulkhead : aft_pressure_bulkhead = {
-        configuration = { select = inputs, values = { sweep = 10 deg } }
+        inputs = { sweep = 10 deg }
     }
 }

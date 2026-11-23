@@ -7,17 +7,14 @@ import { drone } from "./drone.assembly"
 
 assembly drone_folded {
     instance drone : drone = {
-        configuration = {
-            select = inputs
-            values = {
-                blade_a = 125 deg
-                blade_b = 125 deg
-                fold_front = 114 deg
-                fold_rear = 114 deg
-                pitch = 0 deg
-                rear_blade_a = 78 deg
-                rear_blade_b = 78 deg
-            }
+        inputs = {
+            blade_a = 125 deg
+            blade_b = 125 deg
+            fold_front = 114 deg
+            fold_rear = 114 deg
+            pitch = 0 deg
+            rear_blade_a = 78 deg
+            rear_blade_b = 78 deg
         }
     }
 

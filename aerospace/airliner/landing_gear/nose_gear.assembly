@@ -6,27 +6,27 @@ import { hub } from "./hub.part"
 
 assembly nose_gear {
     instance strut : gear_strut = {
-        configuration = { select = inputs, values = { bore = 60 mm, length = 2150 mm, radius = 80 mm } }
+        inputs = { bore = 60 mm, length = 2150 mm, radius = 80 mm }
         placement = offset(translation = [0 mm, 0 mm, -2150 mm])
     }
     instance axle : axle = {
-        configuration = { select = inputs, values = { length = 740 mm } }
+        inputs = { length = 740 mm }
         placement = offset(translation = [0 mm, 0 mm, -2150 mm])
     }
     instance inboard_tyre : tyre = {
-        configuration = { select = inputs, values = { rim = 270 mm, tube = 110 mm } }
+        inputs = { rim = 270 mm, tube = 110 mm }
         placement = offset(translation = [0 mm, -260 mm, -2150 mm])
     }
     instance inboard_hub : hub = {
-        configuration = { select = inputs, values = { radius = 270 mm } }
+        inputs = { radius = 270 mm }
         placement = offset(translation = [0 mm, -260 mm, -2150 mm])
     }
     instance outboard_tyre : tyre = {
-        configuration = { select = inputs, values = { rim = 270 mm, tube = 110 mm } }
+        inputs = { rim = 270 mm, tube = 110 mm }
         placement = offset(translation = [0 mm, 260 mm, -2150 mm])
     }
     instance outboard_hub : hub = {
-        configuration = { select = inputs, values = { radius = 270 mm } }
+        inputs = { radius = 270 mm }
         placement = offset(translation = [0 mm, 260 mm, -2150 mm])
     }
 }

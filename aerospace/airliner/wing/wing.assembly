@@ -38,242 +38,170 @@ assembly wing {
     instance rear_spar : wing_rear_spar
     instance winglet : wing_winglet
     instance rib1 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 0 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 0 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 0 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [764.288 mm, 1500 mm, 144.434 mm])
     }
     instance rib2 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 1 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 1 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 1 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [1095.479 mm, 2150 mm, 207.021 mm])
     }
     instance rib3 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 2 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 2 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 2 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [1426.67 mm, 2800 mm, 269.609 mm])
     }
     instance rib4 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 3 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 3 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 3 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [1757.861 mm, 3450 mm, 332.197 mm])
     }
     instance rib5 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 4 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 4 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 4 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [2089.053 mm, 4100 mm, 394.785 mm])
     }
     instance rib6 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 5 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 5 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 5 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [2420.244 mm, 4750 mm, 457.373 mm])
     }
     instance rib7 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 6 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 6 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 6 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [2751.435 mm, 5400 mm, 519.961 mm])
     }
     instance rib8 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 7 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 7 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 7 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [3082.626 mm, 6050 mm, 582.548 mm])
     }
     instance rib9 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 8 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 8 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 8 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [3413.818 mm, 6700 mm, 645.136 mm])
     }
     instance rib10 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 9 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 9 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 9 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [3745.009 mm, 7350 mm, 707.724 mm])
     }
     instance rib11 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 10 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 10 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 10 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [4076.2 mm, 8000 mm, 770.312 mm])
     }
     instance rib12 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 11 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 11 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 11 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [4407.391 mm, 8650 mm, 832.9 mm])
     }
     instance rib13 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 12 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 12 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 12 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [4738.583 mm, 9300 mm, 895.488 mm])
     }
     instance rib14 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 13 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 13 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 13 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [5069.774 mm, 9950 mm, 958.076 mm])
     }
     instance rib15 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 14 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 14 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 14 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [5400.965 mm, 10600 mm, 1020.663 mm])
     }
     instance rib16 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 15 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 15 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 15 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [5732.156 mm, 11250 mm, 1083.251 mm])
     }
     instance rib17 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 16 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 16 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 16 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [6063.348 mm, 11900 mm, 1145.839 mm])
     }
     instance rib18 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 17 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 17 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 17 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [6394.539 mm, 12550 mm, 1208.427 mm])
     }
     instance rib19 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 18 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 18 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 18 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [6725.73 mm, 13200 mm, 1271.015 mm])
     }
     instance rib20 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 19 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 19 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 19 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [7056.921 mm, 13850 mm, 1333.603 mm])
     }
     instance rib21 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 20 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 20 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 20 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [7388.113 mm, 14500 mm, 1396.191 mm])
     }
     instance rib22 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 21 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 21 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 21 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [7719.304 mm, 15150 mm, 1458.778 mm])
     }
     instance rib23 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 22 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 22 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 22 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [8050.495 mm, 15800 mm, 1521.366 mm])
     }
     instance rib24 : rib = {
-        configuration = {
-            select = inputs
-            values = {
-                chord = input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
-                thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 23 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
-            }
+        inputs = {
+            chord = input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord)
+            thickness = ((input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)) + (input.root_station + 100 mm + 23 * input.rib_pitch - input.root_station) / (input.semispan - input.root_station) * (input.tip_chord * input.tip_thickness - (input.root_chord - input.root_station / input.semispan * (input.root_chord - input.tip_chord)) * (input.root_thickness - input.root_station / input.semispan * (input.root_thickness - input.tip_thickness)))) / (input.root_chord - (input.root_station + 100 mm + 23 * input.rib_pitch) / input.semispan * (input.root_chord - input.tip_chord))
         }
         placement = offset(translation = [8381.686 mm, 16450 mm, 1583.954 mm])
     }
