@@ -74,5 +74,10 @@ part hold_down {
 
     output hold_down = { body = feature.back.body, part_number = "HD-58", material = material.galvanized_steel }
     configuration foundation = { part_number = "HD-58-F", description = "Hold-down to the foundation" }
-    configuration floor_to_floor = { rod_bottom = -20.7 in, features = { low_seat = { suppressed = false }, low_back = { suppressed = false }, low_nut = { suppressed = false } }, part_number = "HD-58-FF", description = "Hold-down, second floor to first floor" }
+    configuration floor_to_floor = {
+        inputs = { rod_bottom = -20.7 in }
+        features = { low_seat = { suppressed = false }, low_back = { suppressed = false }, low_nut = { suppressed = false } }
+        part_number = "HD-58-FF"
+        description = "Hold-down, second floor to first floor"
+    }
 }

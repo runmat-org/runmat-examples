@@ -93,6 +93,16 @@ part door {
     assign material.glass_low_e_tempered to feature.d2_sliding_lite0.body
     assign material.glass_low_e_tempered to feature.d2_sliding_lite1.body
 
-    configuration D1 = { w = 37.75 in, h = 82 in, features = { d1_slab = { suppressed = false } }, part_number = "D1", description = "Entry door, insulated steel, 36 x 80 in, U-0.20" }
-    configuration D2 = { w = 73.75 in, h = 82 in, features = { d2_fixed = { suppressed = false }, d2_fixed_lite0 = { suppressed = false }, d2_fixed_lite1 = { suppressed = false }, d2_sliding = { suppressed = false }, d2_sliding_lite0 = { suppressed = false }, d2_sliding_lite1 = { suppressed = false } }, part_number = "D2", description = "Patio door, sliding, 72 x 80 in, tempered double-pane low-E, U-0.30, SHGC 0.25" }
+    configuration D1 = {
+        inputs = { w = 37.75 in, h = 82 in }
+        features = { d1_slab = { suppressed = false } }
+        part_number = "D1"
+        description = "Entry door, insulated steel, 36 x 80 in, U-0.20"
+    }
+    configuration D2 = {
+        inputs = { w = 73.75 in, h = 82 in }
+        features = { d2_fixed = { suppressed = false }, d2_fixed_lite0 = { suppressed = false }, d2_fixed_lite1 = { suppressed = false }, d2_sliding = { suppressed = false }, d2_sliding_lite0 = { suppressed = false }, d2_sliding_lite1 = { suppressed = false } }
+        part_number = "D2"
+        description = "Patio door, sliding, 72 x 80 in, tempered double-pane low-E, U-0.30, SHGC 0.25"
+    }
 }

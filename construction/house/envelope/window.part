@@ -212,9 +212,34 @@ part window {
     assign material.glass_low_e_argon to feature.w5_right_lite0.body
     assign material.glass_low_e_argon to feature.w5_right_lite1.body
 
-    configuration W1 = { w = 60 in, h = 60 in, features = { w1_fix_lite0 = { suppressed = false }, w1_fix_lite1 = { suppressed = false } }, part_number = "W1", description = "Living-room window, fixed, 60 x 60 in, vinyl, double-pane low-E argon, U-0.25, SHGC 0.25" }
-    configuration W2 = { w = 36 in, h = 60 in, features = { w2_lower = { suppressed = false }, w2_lower_lite0 = { suppressed = false }, w2_lower_lite1 = { suppressed = false }, w2_upper = { suppressed = false }, w2_upper_lite0 = { suppressed = false }, w2_upper_lite1 = { suppressed = false } }, part_number = "W2", description = "Window, single hung, 36 x 60 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25" }
-    configuration W3 = { w = 36 in, h = 48 in, features = { w3_sash = { suppressed = false }, w3_sash_lite0 = { suppressed = false }, w3_sash_lite1 = { suppressed = false } }, part_number = "W3", description = "Bedroom window, casement (egress), 36 x 48 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25" }
-    configuration W4 = { w = 24 in, h = 36 in, features = { w4_sash = { suppressed = false }, w4_sash_lite0 = { suppressed = false }, w4_sash_lite1 = { suppressed = false } }, part_number = "W4", description = "Bath window, casement, obscure glass, 24 x 36 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25" }
-    configuration W5 = { w = 48 in, h = 36 in, features = { w5_left = { suppressed = false }, w5_left_lite0 = { suppressed = false }, w5_left_lite1 = { suppressed = false }, w5_right = { suppressed = false }, w5_right_lite0 = { suppressed = false }, w5_right_lite1 = { suppressed = false } }, part_number = "W5", description = "Kitchen window, slider, 48 x 36 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25" }
+    configuration W1 = {
+        inputs = { w = 60 in, h = 60 in }
+        features = { w1_fix_lite0 = { suppressed = false }, w1_fix_lite1 = { suppressed = false } }
+        part_number = "W1"
+        description = "Living-room window, fixed, 60 x 60 in, vinyl, double-pane low-E argon, U-0.25, SHGC 0.25"
+    }
+    configuration W2 = {
+        inputs = { w = 36 in, h = 60 in }
+        features = { w2_lower = { suppressed = false }, w2_lower_lite0 = { suppressed = false }, w2_lower_lite1 = { suppressed = false }, w2_upper = { suppressed = false }, w2_upper_lite0 = { suppressed = false }, w2_upper_lite1 = { suppressed = false } }
+        part_number = "W2"
+        description = "Window, single hung, 36 x 60 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25"
+    }
+    configuration W3 = {
+        inputs = { w = 36 in, h = 48 in }
+        features = { w3_sash = { suppressed = false }, w3_sash_lite0 = { suppressed = false }, w3_sash_lite1 = { suppressed = false } }
+        part_number = "W3"
+        description = "Bedroom window, casement (egress), 36 x 48 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25"
+    }
+    configuration W4 = {
+        inputs = { w = 24 in, h = 36 in }
+        features = { w4_sash = { suppressed = false }, w4_sash_lite0 = { suppressed = false }, w4_sash_lite1 = { suppressed = false } }
+        part_number = "W4"
+        description = "Bath window, casement, obscure glass, 24 x 36 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25"
+    }
+    configuration W5 = {
+        inputs = { w = 48 in, h = 36 in }
+        features = { w5_left = { suppressed = false }, w5_left_lite0 = { suppressed = false }, w5_left_lite1 = { suppressed = false }, w5_right = { suppressed = false }, w5_right_lite0 = { suppressed = false }, w5_right_lite1 = { suppressed = false } }
+        part_number = "W5"
+        description = "Kitchen window, slider, 48 x 36 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25"
+    }
 }

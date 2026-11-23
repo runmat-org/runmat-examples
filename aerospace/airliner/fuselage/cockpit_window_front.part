@@ -66,5 +66,5 @@ part cockpit_window_front {
     feature pane = extrude(profile = sketch.o, distance = 2200 mm, mode = intersect)
 
     output cockpit_window_front = { body = feature.glass.body, part_number = "FUS-WS-031", material = "glass", color = "#16202A" }
-    configuration port = { side = -1, part_number = "FUS-WS-032" }
+    configuration port = { inputs = { side = -1 }, part_number = "FUS-WS-032" }
 }

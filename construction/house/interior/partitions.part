@@ -285,16 +285,93 @@ part partitions {
     output partitions_gypsum_a = { body = feature.gypsum_a.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
     output partitions_gypsum_b = { body = feature.gypsum_b.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
 
-    configuration p1_stair = { len = 150 in, h = 108.625 in, n = 9, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-101", description = "Partition, first floor" }
-    configuration p1_utility_w = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 54 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], features = { mep_p1_utility_w_0 = { suppressed = false }, mep_p1_utility_w_1 = { suppressed = false }, mep_p1_utility_w_2 = { suppressed = false }, mep_p1_utility_w_3 = { suppressed = false } }, part_number = "IP-102", description = "Partition, first floor" }
-    configuration p1_den_n = { len = 177.9844 in, h = 108.625 in, n = 10, d1 = 104 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], features = { mep_p1_den_n_0 = { suppressed = false }, mep_p1_den_n_1 = { suppressed = false }, mep_p1_den_n_2 = { suppressed = false }, mep_p1_den_n_3 = { suppressed = false } }, part_number = "IP-103", description = "Partition, first floor" }
-    configuration p1_utility_den = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], features = { mep_p1_utility_den_0 = { suppressed = false } }, part_number = "IP-104", description = "Partition, first floor" }
-    configuration p2_hall_s = { len = 467.9688 in, h = 96.625 in, n = 28, d1 = 114.25 in, d2 = 314 in, d3 = 40 in, suppress = [feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-205", description = "Partition, second floor" }
-    configuration p2_hall_n = { len = 467.9688 in, h = 96.625 in, n = 28, d1 = 66.25 in, d2 = 118 in, d3 = 374 in, part_number = "IP-206", description = "Partition, second floor" }
-    configuration p2_br3_primary = { len = 135.4364 in, h = 96.625 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-207", description = "Partition, second floor" }
-    configuration p2_br2_bath = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-208", description = "Partition, second floor" }
-    configuration p2_baths = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], features = { mep_p2_baths_0 = { suppressed = false }, mep_p2_baths_1 = { suppressed = false }, mep_p2_baths_2 = { suppressed = false } }, part_number = "IP-209", description = "Partition, second floor" }
-    configuration p2_bath_closet = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 29.75 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-210", description = "Partition, second floor" }
-    configuration p2_guard_s = { len = 136.5 in, h = 36 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-211", description = "Stair guard, 36 in" }
-    configuration p2_guard_w = { len = 42 in, h = 36 in, n = 2, d1 = 40 in, d2 = 40 in, d3 = 40 in, suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board], part_number = "IP-212", description = "Stair guard, 36 in" }
+    configuration p1_stair = {
+        inputs = { len = 150 in, h = 108.625 in, n = 9, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-101"
+        description = "Partition, first floor"
+    }
+    configuration p1_utility_w = {
+        inputs = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 54 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        features = { mep_p1_utility_w_0 = { suppressed = false }, mep_p1_utility_w_1 = { suppressed = false }, mep_p1_utility_w_2 = { suppressed = false }, mep_p1_utility_w_3 = { suppressed = false } }
+        part_number = "IP-102"
+        description = "Partition, first floor"
+    }
+    configuration p1_den_n = {
+        inputs = { len = 177.9844 in, h = 108.625 in, n = 10, d1 = 104 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        features = { mep_p1_den_n_0 = { suppressed = false }, mep_p1_den_n_1 = { suppressed = false }, mep_p1_den_n_2 = { suppressed = false }, mep_p1_den_n_3 = { suppressed = false } }
+        part_number = "IP-103"
+        description = "Partition, first floor"
+    }
+    configuration p1_utility_den = {
+        inputs = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        features = { mep_p1_utility_den_0 = { suppressed = false } }
+        part_number = "IP-104"
+        description = "Partition, first floor"
+    }
+    configuration p2_hall_s = {
+        inputs = {
+            len = 467.9688 in
+            h = 96.625 in
+            n = 28
+            d1 = 114.25 in
+            d2 = 314 in
+            d3 = 40 in
+        }
+        suppress = [feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-205"
+        description = "Partition, second floor"
+    }
+    configuration p2_hall_n = {
+        inputs = {
+            len = 467.9688 in
+            h = 96.625 in
+            n = 28
+            d1 = 66.25 in
+            d2 = 118 in
+            d3 = 374 in
+        }
+        part_number = "IP-206"
+        description = "Partition, second floor"
+    }
+    configuration p2_br3_primary = {
+        inputs = { len = 135.4364 in, h = 96.625 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-207"
+        description = "Partition, second floor"
+    }
+    configuration p2_br2_bath = {
+        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-208"
+        description = "Partition, second floor"
+    }
+    configuration p2_baths = {
+        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        features = { mep_p2_baths_0 = { suppressed = false }, mep_p2_baths_1 = { suppressed = false }, mep_p2_baths_2 = { suppressed = false } }
+        part_number = "IP-209"
+        description = "Partition, second floor"
+    }
+    configuration p2_bath_closet = {
+        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 29.75 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-210"
+        description = "Partition, second floor"
+    }
+    configuration p2_guard_s = {
+        inputs = { len = 136.5 in, h = 36 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-211"
+        description = "Stair guard, 36 in"
+    }
+    configuration p2_guard_w = {
+        inputs = { len = 42 in, h = 36 in, n = 2, d1 = 40 in, d2 = 40 in, d3 = 40 in }
+        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        part_number = "IP-212"
+        description = "Stair guard, 36 in"
+    }
 }

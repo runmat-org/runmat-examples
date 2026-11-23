@@ -948,82 +948,322 @@ part wall_framing {
     export len = value(input = len)
 
     configuration wall_a_l1 = {
-        len = 480 in, zt = 106.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29
-        o1_l = 53.75 in, o1_r = 114.25 in, o1_h = 82.5 in, o1_t = 91.75 in, o1_s = 20.5 in, o1_k = 3 in
-        o2_l = 202.75 in, o2_r = 240.75 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 1.5 in, o2_k = 3 in
-        o3_l = 311.75 in, o3_r = 348.25 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 480 in
+            zt = 106.125 in
+            first = 16 in
+            top2_x0 = 5.5 in
+            top2_x1 = 474.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 29
+            o1_l = 53.75 in
+            o1_r = 114.25 in
+            o1_h = 82.5 in
+            o1_t = 91.75 in
+            o1_s = 20.5 in
+            o1_k = 3 in
+            o2_l = 202.75 in
+            o2_r = 240.75 in
+            o2_h = 82.5 in
+            o2_t = 89.75 in
+            o2_s = 1.5 in
+            o2_k = 3 in
+            o3_l = 311.75 in
+            o3_r = 348.25 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         features = { mep_wall_a_l1_0 = { suppressed = false }, hw_a_l1_0 = { suppressed = false }, hw_a_l1_1 = { suppressed = false }, hw_a_l1_2 = { suppressed = false }, hw_a_l1_3 = { suppressed = false }, hw_a_l1_4 = { suppressed = false }, hw_a_l1_5 = { suppressed = false }, hw_a_l1_6 = { suppressed = false }, hw_a_l1_7 = { suppressed = false }, hw_a_l1_8 = { suppressed = false }, hw_a_l1_9 = { suppressed = false }, hw_a_l1_10 = { suppressed = false }, hw_a_l1_11 = { suppressed = false }, hw_a_l1_12 = { suppressed = false }, hw_a_l1_13 = { suppressed = false }, hw_a_l1_14 = { suppressed = false } }
-        part_number = "W-A1", description = "South (grid A) wall, first floor"
+        part_number = "W-A1"
+        description = "South (grid A) wall, first floor"
     }
     configuration wall_d_l1 = {
-        len = 480 in, zt = 106.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29
-        o1_l = 75.75 in, o1_r = 124.25 in, o1_h = 82.5 in, o1_t = 91.75 in, o1_s = 44.5 in, o1_k = 3 in
-        o2_l = 223.25 in, o2_r = 297.25 in, o2_h = 82.5 in, o2_t = 93.75 in, o2_s = 1.5 in, o2_k = 4.5 in
-        o3_l = 381.75 in, o3_r = 418.25 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 480 in
+            zt = 106.125 in
+            first = 16 in
+            top2_x0 = 5.5 in
+            top2_x1 = 474.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 29
+            o1_l = 75.75 in
+            o1_r = 124.25 in
+            o1_h = 82.5 in
+            o1_t = 91.75 in
+            o1_s = 44.5 in
+            o1_k = 3 in
+            o2_l = 223.25 in
+            o2_r = 297.25 in
+            o2_h = 82.5 in
+            o2_t = 93.75 in
+            o2_s = 1.5 in
+            o2_k = 4.5 in
+            o3_l = 381.75 in
+            o3_r = 418.25 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         suppress = [feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
         features = { mep_wall_d_l1_0 = { suppressed = false }, mep_wall_d_l1_1 = { suppressed = false }, mep_wall_d_l1_2 = { suppressed = false }, mep_wall_d_l1_3 = { suppressed = false }, mep_wall_d_l1_4 = { suppressed = false }, mep_wall_d_l1_5 = { suppressed = false }, mep_wall_d_l1_6 = { suppressed = false }, mep_wall_d_l1_7 = { suppressed = false }, mep_wall_d_l1_8 = { suppressed = false }, mep_wall_d_l1_9 = { suppressed = false }, mep_wall_d_l1_10 = { suppressed = false }, hw_d_l1_0 = { suppressed = false }, hw_d_l1_1 = { suppressed = false }, hw_d_l1_2 = { suppressed = false }, hw_d_l1_3 = { suppressed = false }, hw_d_l1_4 = { suppressed = false }, hw_d_l1_5 = { suppressed = false }, hw_d_l1_6 = { suppressed = false }, hw_d_l1_7 = { suppressed = false }, hw_d_l1_8 = { suppressed = false }, hw_d_l1_9 = { suppressed = false }, hw_d_l1_10 = { suppressed = false }, hw_d_l1_11 = { suppressed = false }, hw_d_l1_12 = { suppressed = false }, hw_d_l1_13 = { suppressed = false }, hw_d_l1_14 = { suppressed = false }, o2_jack_l2 = { suppressed = false }, o2_jack_r2 = { suppressed = false } }
-        part_number = "W-D1", description = "North (grid D) wall, first floor"
+        part_number = "W-D1"
+        description = "North (grid D) wall, first floor"
     }
     configuration wall_1_l1 = {
-        len = 349 in, zt = 106.125 in, first = 10.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 130.5 in, p2 = 210.5 in, n = 21
-        o1_l = 71.75 in, o1_r = 108.25 in, o1_h = 82.5 in, o1_t = 89.75 in, o1_s = 20.5 in, o1_k = 3 in
-        o2_l = 249.75 in, o2_r = 286.25 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 20.5 in, o2_k = 3 in
-        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 349 in
+            zt = 106.125 in
+            first = 10.5 in
+            top2_x0 = -5.5 in
+            top2_x1 = 354.5 in
+            p1 = 130.5 in
+            p2 = 210.5 in
+            n = 21
+            o1_l = 71.75 in
+            o1_r = 108.25 in
+            o1_h = 82.5 in
+            o1_t = 89.75 in
+            o1_s = 20.5 in
+            o1_k = 3 in
+            o2_l = 249.75 in
+            o2_r = 286.25 in
+            o2_h = 82.5 in
+            o2_t = 89.75 in
+            o2_s = 20.5 in
+            o2_k = 3 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
         features = { hw_1_l1_0 = { suppressed = false }, hw_1_l1_1 = { suppressed = false }, hw_1_l1_2 = { suppressed = false }, hw_1_l1_3 = { suppressed = false }, hw_1_l1_4 = { suppressed = false }, hw_1_l1_5 = { suppressed = false }, hw_1_l1_6 = { suppressed = false }, hw_1_l1_7 = { suppressed = false }, hw_1_l1_8 = { suppressed = false }, hw_1_l1_9 = { suppressed = false }, hw_1_l1_10 = { suppressed = false }, hw_1_l1_11 = { suppressed = false }, hw_1_l1_12 = { suppressed = false }, hw_1_l1_13 = { suppressed = false }, hw_1_l1_14 = { suppressed = false }, hw_1_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-11", description = "West (grid 1) wall, first floor"
+        part_number = "W-11"
+        description = "West (grid 1) wall, first floor"
     }
     configuration wall_5_l1 = {
-        len = 349 in, zt = 106.125 in, first = 18.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 138.5 in, p2 = 218.5 in, n = 21
-        o1_l = 62.75 in, o1_r = 99.25 in, o1_h = 82.5 in, o1_t = 89.75 in, o1_s = 20.5 in, o1_k = 3 in
-        o2_l = 271.75 in, o2_r = 308.25 in, o2_h = 82.5 in, o2_t = 89.75 in, o2_s = 20.5 in, o2_k = 3 in
-        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 349 in
+            zt = 106.125 in
+            first = 18.5 in
+            top2_x0 = -5.5 in
+            top2_x1 = 354.5 in
+            p1 = 138.5 in
+            p2 = 218.5 in
+            n = 21
+            o1_l = 62.75 in
+            o1_r = 99.25 in
+            o1_h = 82.5 in
+            o1_t = 89.75 in
+            o1_s = 20.5 in
+            o1_k = 3 in
+            o2_l = 271.75 in
+            o2_r = 308.25 in
+            o2_h = 82.5 in
+            o2_t = 89.75 in
+            o2_s = 20.5 in
+            o2_k = 3 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
         features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false }, mep_wall_5_l1_2 = { suppressed = false }, mep_wall_5_l1_3 = { suppressed = false }, hw_5_l1_0 = { suppressed = false }, hw_5_l1_1 = { suppressed = false }, hw_5_l1_2 = { suppressed = false }, hw_5_l1_3 = { suppressed = false }, hw_5_l1_4 = { suppressed = false }, hw_5_l1_5 = { suppressed = false }, hw_5_l1_6 = { suppressed = false }, hw_5_l1_7 = { suppressed = false }, hw_5_l1_8 = { suppressed = false }, hw_5_l1_9 = { suppressed = false }, hw_5_l1_10 = { suppressed = false }, hw_5_l1_11 = { suppressed = false }, hw_5_l1_12 = { suppressed = false }, hw_5_l1_13 = { suppressed = false }, hw_5_l1_14 = { suppressed = false }, hw_5_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-51", description = "East (grid 5) wall, first floor"
+        part_number = "W-51"
+        description = "East (grid 5) wall, first floor"
     }
     configuration wall_a_l2 = {
-        len = 480 in, zt = 94.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29
-        o1_l = 51.75 in, o1_r = 88.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in
-        o2_l = 151.75 in, o2_r = 188.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in
-        o3_l = 291.75 in, o3_r = 328.25 in, o3_h = 82.875 in, o3_t = 94.125 in, o3_s = 32.875 in, o3_k = 3 in
-        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.875 in, o4_t = 94.125 in, o4_s = 32.875 in, o4_k = 3 in
+        inputs = {
+            len = 480 in
+            zt = 94.125 in
+            first = 16 in
+            top2_x0 = 5.5 in
+            top2_x1 = 474.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 29
+            o1_l = 51.75 in
+            o1_r = 88.25 in
+            o1_h = 82.875 in
+            o1_t = 94.125 in
+            o1_s = 32.875 in
+            o1_k = 3 in
+            o2_l = 151.75 in
+            o2_r = 188.25 in
+            o2_h = 82.875 in
+            o2_t = 94.125 in
+            o2_s = 32.875 in
+            o2_k = 3 in
+            o3_l = 291.75 in
+            o3_r = 328.25 in
+            o3_h = 82.875 in
+            o3_t = 94.125 in
+            o3_s = 32.875 in
+            o3_k = 3 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_h = 82.875 in
+            o4_t = 94.125 in
+            o4_s = 32.875 in
+            o4_k = 3 in
+        }
         suppress = [feature.sill, feature.o2_plate_cut]
         features = { hw_a_l2_0 = { suppressed = false }, hw_a_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-A2", description = "South (grid A) wall, second floor"
+        part_number = "W-A2"
+        description = "South (grid A) wall, second floor"
     }
     configuration wall_d_l2 = {
-        len = 480 in, zt = 94.125 in, first = 16 in, top2_x0 = 5.5 in, top2_x1 = 474.5 in, p1 = 60 in, p2 = 120 in, n = 29
-        o1_l = 51.75 in, o1_r = 88.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in
-        o2_l = 157.75 in, o2_r = 182.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 44.875 in, o2_k = 3 in
-        o3_l = 297.75 in, o3_r = 322.25 in, o3_h = 82.875 in, o3_t = 94.125 in, o3_s = 44.875 in, o3_k = 3 in
-        o4_l = 391.75 in, o4_r = 428.25 in, o4_h = 82.875 in, o4_t = 94.125 in, o4_s = 32.875 in, o4_k = 3 in
+        inputs = {
+            len = 480 in
+            zt = 94.125 in
+            first = 16 in
+            top2_x0 = 5.5 in
+            top2_x1 = 474.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 29
+            o1_l = 51.75 in
+            o1_r = 88.25 in
+            o1_h = 82.875 in
+            o1_t = 94.125 in
+            o1_s = 32.875 in
+            o1_k = 3 in
+            o2_l = 157.75 in
+            o2_r = 182.25 in
+            o2_h = 82.875 in
+            o2_t = 94.125 in
+            o2_s = 44.875 in
+            o2_k = 3 in
+            o3_l = 297.75 in
+            o3_r = 322.25 in
+            o3_h = 82.875 in
+            o3_t = 94.125 in
+            o3_s = 44.875 in
+            o3_k = 3 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_h = 82.875 in
+            o4_t = 94.125 in
+            o4_s = 32.875 in
+            o4_k = 3 in
+        }
         suppress = [feature.sill, feature.o2_plate_cut]
         features = { mep_wall_d_l2_0 = { suppressed = false }, mep_wall_d_l2_1 = { suppressed = false }, mep_wall_d_l2_2 = { suppressed = false }, mep_wall_d_l2_3 = { suppressed = false }, hw_d_l2_0 = { suppressed = false }, hw_d_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-D2", description = "North (grid D) wall, second floor"
+        part_number = "W-D2"
+        description = "North (grid D) wall, second floor"
     }
     configuration wall_1_l2 = {
-        len = 349 in, zt = 94.125 in, first = 10.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 60 in, p2 = 120 in, n = 21
-        o1_l = 71.75 in, o1_r = 108.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in
-        o2_l = 249.75 in, o2_r = 286.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in
-        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 349 in
+            zt = 94.125 in
+            first = 10.5 in
+            top2_x0 = -5.5 in
+            top2_x1 = 354.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 21
+            o1_l = 71.75 in
+            o1_r = 108.25 in
+            o1_h = 82.875 in
+            o1_t = 94.125 in
+            o1_s = 32.875 in
+            o1_k = 3 in
+            o2_l = 249.75 in
+            o2_r = 286.25 in
+            o2_h = 82.875 in
+            o2_t = 94.125 in
+            o2_s = 32.875 in
+            o2_k = 3 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
         features = { hw_1_l2_0 = { suppressed = false }, hw_1_l2_1 = { suppressed = false }, hw_1_l2_2 = { suppressed = false }, hw_1_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-12", description = "West (grid 1) wall, second floor"
+        part_number = "W-12"
+        description = "West (grid 1) wall, second floor"
     }
     configuration wall_5_l2 = {
-        len = 349 in, zt = 94.125 in, first = 18.5 in, top2_x0 = -5.5 in, top2_x1 = 354.5 in, p1 = 60 in, p2 = 120 in, n = 21
-        o1_l = 62.75 in, o1_r = 99.25 in, o1_h = 82.875 in, o1_t = 94.125 in, o1_s = 32.875 in, o1_k = 3 in
-        o2_l = 271.75 in, o2_r = 308.25 in, o2_h = 82.875 in, o2_t = 94.125 in, o2_s = 32.875 in, o2_k = 3 in
-        o3_l = 100 in, o3_r = 136 in, o3_h = 82.5 in, o3_t = 89.75 in, o3_s = 20.5 in, o3_k = 3 in
-        o4_l = 100 in, o4_r = 136 in, o4_h = 82.5 in, o4_t = 89.75 in, o4_s = 20.5 in, o4_k = 3 in
+        inputs = {
+            len = 349 in
+            zt = 94.125 in
+            first = 18.5 in
+            top2_x0 = -5.5 in
+            top2_x1 = 354.5 in
+            p1 = 60 in
+            p2 = 120 in
+            n = 21
+            o1_l = 62.75 in
+            o1_r = 99.25 in
+            o1_h = 82.875 in
+            o1_t = 94.125 in
+            o1_s = 32.875 in
+            o1_k = 3 in
+            o2_l = 271.75 in
+            o2_r = 308.25 in
+            o2_h = 82.875 in
+            o2_t = 94.125 in
+            o2_s = 32.875 in
+            o2_k = 3 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_h = 82.5 in
+            o3_t = 89.75 in
+            o3_s = 20.5 in
+            o3_k = 3 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_h = 82.5 in
+            o4_t = 89.75 in
+            o4_s = 20.5 in
+            o4_k = 3 in
+        }
         suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
         features = { hw_5_l2_0 = { suppressed = false }, hw_5_l2_1 = { suppressed = false }, hw_5_l2_2 = { suppressed = false }, hw_5_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
-        part_number = "W-52", description = "East (grid 5) wall, second floor"
+        part_number = "W-52"
+        description = "East (grid 5) wall, second floor"
     }
 }

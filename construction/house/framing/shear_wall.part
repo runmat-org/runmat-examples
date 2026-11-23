@@ -173,51 +173,299 @@ part shear_wall {
     region edge_nailing : face = { select = [feature.osb.face.side(osb_s.e0), feature.osb.face.side(osb_s.e1), feature.osb.face.side(osb_s.e2), feature.osb.face.side(osb_s.e3), feature.rest.face.side(rest_s.e0), feature.rest.face.side(rest_s.e1), feature.rest.face.side(rest_s.e2), feature.rest.face.side(rest_s.e3)], expect = one_or_more, label = "Edge nailing, 8d common at 6 in o.c., 3/8 in from panel edges" }
 
     configuration wall_a_l1 = {
-        x0 = -0.4375 in, x1 = 480.4375 in, z0 = 0 in, z1 = 109.125 in, j1 = 32 in, j2 = 80 in, j3 = 128 in, j4 = 176 in, j5 = 224 in, j6 = 272 in, j7 = 320 in, j8 = 368 in, j9 = 416 in, j10 = 464 in
-        o1_l = 53.75 in, o1_r = 114.25 in, o1_b = 22 in, o1_t = 82.5 in, o2_l = 202.75 in, o2_r = 240.75 in, o2_b = 0 in, o2_t = 82.5 in, o3_l = 311.75 in, o3_r = 348.25 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 391.75 in, o4_r = 428.25 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -0.4375 in
+            x1 = 480.4375 in
+            z0 = 0 in
+            z1 = 109.125 in
+            j1 = 32 in
+            j2 = 80 in
+            j3 = 128 in
+            j4 = 176 in
+            j5 = 224 in
+            j6 = 272 in
+            j7 = 320 in
+            j8 = 368 in
+            j9 = 416 in
+            j10 = 464 in
+            o1_l = 53.75 in
+            o1_r = 114.25 in
+            o1_b = 22 in
+            o1_t = 82.5 in
+            o2_l = 202.75 in
+            o2_r = 240.75 in
+            o2_b = 0 in
+            o2_t = 82.5 in
+            o3_l = 311.75 in
+            o3_r = 348.25 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         features = { mep_wall_a_l1_0 = { suppressed = false } }
-        part_number = "SW-A1", description = "South (grid A) shear wall, first floor"
+        part_number = "SW-A1"
+        description = "South (grid A) shear wall, first floor"
     }
     configuration wall_d_l1 = {
-        x0 = -0.4375 in, x1 = 480.4375 in, z0 = 0 in, z1 = 109.125 in, j1 = 32 in, j2 = 80 in, j3 = 128 in, j4 = 176 in, j5 = 224 in, j6 = 272 in, j7 = 320 in, j8 = 368 in, j9 = 416 in, j10 = 464 in
-        o1_l = 75.75 in, o1_r = 124.25 in, o1_b = 46 in, o1_t = 82.5 in, o2_l = 223.25 in, o2_r = 297.25 in, o2_b = 0 in, o2_t = 82.5 in, o3_l = 381.75 in, o3_r = 418.25 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 100 in, o4_r = 136 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -0.4375 in
+            x1 = 480.4375 in
+            z0 = 0 in
+            z1 = 109.125 in
+            j1 = 32 in
+            j2 = 80 in
+            j3 = 128 in
+            j4 = 176 in
+            j5 = 224 in
+            j6 = 272 in
+            j7 = 320 in
+            j8 = 368 in
+            j9 = 416 in
+            j10 = 464 in
+            o1_l = 75.75 in
+            o1_r = 124.25 in
+            o1_b = 46 in
+            o1_t = 82.5 in
+            o2_l = 223.25 in
+            o2_r = 297.25 in
+            o2_b = 0 in
+            o2_t = 82.5 in
+            o3_l = 381.75 in
+            o3_r = 418.25 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         suppress = [feature.o4]
-        part_number = "SW-D1", description = "North (grid D) shear wall, first floor"
+        part_number = "SW-D1"
+        description = "North (grid D) shear wall, first floor"
     }
     configuration wall_1_l1 = {
-        x0 = -5.5 in, x1 = 354.5 in, z0 = 0 in, z1 = 109.125 in, j1 = 26.5 in, j2 = 74.5 in, j3 = 122.5 in, j4 = 170.5 in, j5 = 218.5 in, j6 = 266.5 in, j7 = 314.5 in, j8 = 360 in, j9 = 408 in, j10 = 456 in
-        o1_l = 71.75 in, o1_r = 108.25 in, o1_b = 22 in, o1_t = 82.5 in, o2_l = 249.75 in, o2_r = 286.25 in, o2_b = 22 in, o2_t = 82.5 in, o3_l = 100 in, o3_r = 136 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 100 in, o4_r = 136 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -5.5 in
+            x1 = 354.5 in
+            z0 = 0 in
+            z1 = 109.125 in
+            j1 = 26.5 in
+            j2 = 74.5 in
+            j3 = 122.5 in
+            j4 = 170.5 in
+            j5 = 218.5 in
+            j6 = 266.5 in
+            j7 = 314.5 in
+            j8 = 360 in
+            j9 = 408 in
+            j10 = 456 in
+            o1_l = 71.75 in
+            o1_r = 108.25 in
+            o1_b = 22 in
+            o1_t = 82.5 in
+            o2_l = 249.75 in
+            o2_r = 286.25 in
+            o2_b = 22 in
+            o2_t = 82.5 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
-        part_number = "SW-11", description = "West (grid 1) shear wall, first floor"
+        part_number = "SW-11"
+        description = "West (grid 1) shear wall, first floor"
     }
     configuration wall_5_l1 = {
-        x0 = -5.5 in, x1 = 354.5 in, z0 = 0 in, z1 = 109.125 in, j1 = 34.5 in, j2 = 82.5 in, j3 = 130.5 in, j4 = 178.5 in, j5 = 226.5 in, j6 = 274.5 in, j7 = 322.5 in, j8 = 360 in, j9 = 408 in, j10 = 456 in
-        o1_l = 62.75 in, o1_r = 99.25 in, o1_b = 22 in, o1_t = 82.5 in, o2_l = 271.75 in, o2_r = 308.25 in, o2_b = 22 in, o2_t = 82.5 in, o3_l = 100 in, o3_r = 136 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 100 in, o4_r = 136 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -5.5 in
+            x1 = 354.5 in
+            z0 = 0 in
+            z1 = 109.125 in
+            j1 = 34.5 in
+            j2 = 82.5 in
+            j3 = 130.5 in
+            j4 = 178.5 in
+            j5 = 226.5 in
+            j6 = 274.5 in
+            j7 = 322.5 in
+            j8 = 360 in
+            j9 = 408 in
+            j10 = 456 in
+            o1_l = 62.75 in
+            o1_r = 99.25 in
+            o1_b = 22 in
+            o1_t = 82.5 in
+            o2_l = 271.75 in
+            o2_r = 308.25 in
+            o2_b = 22 in
+            o2_t = 82.5 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
         features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false } }
-        part_number = "SW-51", description = "East (grid 5) shear wall, first floor"
+        part_number = "SW-51"
+        description = "East (grid 5) shear wall, first floor"
     }
     configuration wall_a_l2 = {
-        x0 = -0.4375 in, x1 = 480.4375 in, z0 = -12.625 in, z1 = 97.125 in, j1 = 32 in, j2 = 80 in, j3 = 128 in, j4 = 176 in, j5 = 224 in, j6 = 272 in, j7 = 320 in, j8 = 368 in, j9 = 416 in, j10 = 464 in
-        o1_l = 51.75 in, o1_r = 88.25 in, o1_b = 34.375 in, o1_t = 82.875 in, o2_l = 151.75 in, o2_r = 188.25 in, o2_b = 34.375 in, o2_t = 82.875 in, o3_l = 291.75 in, o3_r = 328.25 in, o3_b = 34.375 in, o3_t = 82.875 in, o4_l = 391.75 in, o4_r = 428.25 in, o4_b = 34.375 in, o4_t = 82.875 in
-        part_number = "SW-A2", description = "South (grid A) shear wall, second floor"
+        inputs = {
+            x0 = -0.4375 in
+            x1 = 480.4375 in
+            z0 = -12.625 in
+            z1 = 97.125 in
+            j1 = 32 in
+            j2 = 80 in
+            j3 = 128 in
+            j4 = 176 in
+            j5 = 224 in
+            j6 = 272 in
+            j7 = 320 in
+            j8 = 368 in
+            j9 = 416 in
+            j10 = 464 in
+            o1_l = 51.75 in
+            o1_r = 88.25 in
+            o1_b = 34.375 in
+            o1_t = 82.875 in
+            o2_l = 151.75 in
+            o2_r = 188.25 in
+            o2_b = 34.375 in
+            o2_t = 82.875 in
+            o3_l = 291.75 in
+            o3_r = 328.25 in
+            o3_b = 34.375 in
+            o3_t = 82.875 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_b = 34.375 in
+            o4_t = 82.875 in
+        }
+        part_number = "SW-A2"
+        description = "South (grid A) shear wall, second floor"
     }
     configuration wall_d_l2 = {
-        x0 = -0.4375 in, x1 = 480.4375 in, z0 = -12.625 in, z1 = 97.125 in, j1 = 32 in, j2 = 80 in, j3 = 128 in, j4 = 176 in, j5 = 224 in, j6 = 272 in, j7 = 320 in, j8 = 368 in, j9 = 416 in, j10 = 464 in
-        o1_l = 51.75 in, o1_r = 88.25 in, o1_b = 34.375 in, o1_t = 82.875 in, o2_l = 157.75 in, o2_r = 182.25 in, o2_b = 46.375 in, o2_t = 82.875 in, o3_l = 297.75 in, o3_r = 322.25 in, o3_b = 46.375 in, o3_t = 82.875 in, o4_l = 391.75 in, o4_r = 428.25 in, o4_b = 34.375 in, o4_t = 82.875 in
+        inputs = {
+            x0 = -0.4375 in
+            x1 = 480.4375 in
+            z0 = -12.625 in
+            z1 = 97.125 in
+            j1 = 32 in
+            j2 = 80 in
+            j3 = 128 in
+            j4 = 176 in
+            j5 = 224 in
+            j6 = 272 in
+            j7 = 320 in
+            j8 = 368 in
+            j9 = 416 in
+            j10 = 464 in
+            o1_l = 51.75 in
+            o1_r = 88.25 in
+            o1_b = 34.375 in
+            o1_t = 82.875 in
+            o2_l = 157.75 in
+            o2_r = 182.25 in
+            o2_b = 46.375 in
+            o2_t = 82.875 in
+            o3_l = 297.75 in
+            o3_r = 322.25 in
+            o3_b = 46.375 in
+            o3_t = 82.875 in
+            o4_l = 391.75 in
+            o4_r = 428.25 in
+            o4_b = 34.375 in
+            o4_t = 82.875 in
+        }
         features = { mep_wall_d_l2_0 = { suppressed = false } }
-        part_number = "SW-D2", description = "North (grid D) shear wall, second floor"
+        part_number = "SW-D2"
+        description = "North (grid D) shear wall, second floor"
     }
     configuration wall_1_l2 = {
-        x0 = -5.5 in, x1 = 354.5 in, z0 = -12.625 in, z1 = 97.125 in, j1 = 26.5 in, j2 = 74.5 in, j3 = 122.5 in, j4 = 170.5 in, j5 = 218.5 in, j6 = 266.5 in, j7 = 314.5 in, j8 = 360 in, j9 = 408 in, j10 = 456 in
-        o1_l = 71.75 in, o1_r = 108.25 in, o1_b = 34.375 in, o1_t = 82.875 in, o2_l = 249.75 in, o2_r = 286.25 in, o2_b = 34.375 in, o2_t = 82.875 in, o3_l = 100 in, o3_r = 136 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 100 in, o4_r = 136 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -5.5 in
+            x1 = 354.5 in
+            z0 = -12.625 in
+            z1 = 97.125 in
+            j1 = 26.5 in
+            j2 = 74.5 in
+            j3 = 122.5 in
+            j4 = 170.5 in
+            j5 = 218.5 in
+            j6 = 266.5 in
+            j7 = 314.5 in
+            j8 = 360 in
+            j9 = 408 in
+            j10 = 456 in
+            o1_l = 71.75 in
+            o1_r = 108.25 in
+            o1_b = 34.375 in
+            o1_t = 82.875 in
+            o2_l = 249.75 in
+            o2_r = 286.25 in
+            o2_b = 34.375 in
+            o2_t = 82.875 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
-        part_number = "SW-12", description = "West (grid 1) shear wall, second floor"
+        part_number = "SW-12"
+        description = "West (grid 1) shear wall, second floor"
     }
     configuration wall_5_l2 = {
-        x0 = -5.5 in, x1 = 354.5 in, z0 = -12.625 in, z1 = 97.125 in, j1 = 34.5 in, j2 = 82.5 in, j3 = 130.5 in, j4 = 178.5 in, j5 = 226.5 in, j6 = 274.5 in, j7 = 322.5 in, j8 = 360 in, j9 = 408 in, j10 = 456 in
-        o1_l = 62.75 in, o1_r = 99.25 in, o1_b = 34.375 in, o1_t = 82.875 in, o2_l = 271.75 in, o2_r = 308.25 in, o2_b = 34.375 in, o2_t = 82.875 in, o3_l = 100 in, o3_r = 136 in, o3_b = 22 in, o3_t = 82.5 in, o4_l = 100 in, o4_r = 136 in, o4_b = 22 in, o4_t = 82.5 in
+        inputs = {
+            x0 = -5.5 in
+            x1 = 354.5 in
+            z0 = -12.625 in
+            z1 = 97.125 in
+            j1 = 34.5 in
+            j2 = 82.5 in
+            j3 = 130.5 in
+            j4 = 178.5 in
+            j5 = 226.5 in
+            j6 = 274.5 in
+            j7 = 322.5 in
+            j8 = 360 in
+            j9 = 408 in
+            j10 = 456 in
+            o1_l = 62.75 in
+            o1_r = 99.25 in
+            o1_b = 34.375 in
+            o1_t = 82.875 in
+            o2_l = 271.75 in
+            o2_r = 308.25 in
+            o2_b = 34.375 in
+            o2_t = 82.875 in
+            o3_l = 100 in
+            o3_r = 136 in
+            o3_b = 22 in
+            o3_t = 82.5 in
+            o4_l = 100 in
+            o4_r = 136 in
+            o4_b = 22 in
+            o4_t = 82.5 in
+        }
         suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
-        part_number = "SW-52", description = "East (grid 5) shear wall, second floor"
+        part_number = "SW-52"
+        description = "East (grid 5) shear wall, second floor"
     }
 }

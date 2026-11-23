@@ -1,5 +1,5 @@
 // The house electrical devices: breakers, the meter, receptacles, switches, luminaires and
-// hardwired equipment. They are wired in the field, so each part has `package = none`: it shows
+// hardwired equipment. They are wired in the field, so each part has `wiring = field`: it shows
 // on the schematics and in the BOM, and no board places it.
 
 symbol breaker_1p = {
@@ -118,7 +118,7 @@ part "UTIL-120-240" = {
     description = "Utility transformer secondary, 120/240 V single phase, 3 wire"
     category = source
     prefix = T
-    package = none
+    wiring = field
     symbol = source
     params = { voltage = "120/240 V" }
     pins = [
@@ -133,7 +133,7 @@ part "METER-200A" = {
     description = "Meter socket, 200 A continuous, ringless, overhead or underground entry"
     category = meter
     prefix = M
-    package = none
+    wiring = field
     symbol = meter
     params = { rating = "200 A" }
     pins = [
@@ -151,7 +151,7 @@ part "MAIN-200A-2P" = {
     description = "Main breaker, 2 pole, 200 A, 22 kA interrupting"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_2p
     params = { rating = "200 A", poles = "2" }
     pins = [
@@ -167,7 +167,7 @@ part "GEC-UFER" = {
     description = "Concrete-encased grounding electrode: 20 ft of #4 rebar in the footing, 4 AWG Cu conductor"
     category = electrode
     prefix = E
-    package = none
+    wiring = field
     symbol = electrode
     pins = [
         { name = GEC, type = passive },
@@ -179,7 +179,7 @@ part "GEC-ROD" = {
     description = "Ground rod, 5/8 in x 8 ft, copper-clad, 6 AWG Cu conductor"
     category = electrode
     prefix = E
-    package = none
+    wiring = field
     symbol = electrode
     pins = [
         { name = GEC, type = passive },
@@ -191,7 +191,7 @@ part "MBJ" = {
     description = "Main bonding jumper, green screw, neutral bar to enclosure"
     category = bond
     prefix = JP
-    package = none
+    wiring = field
     symbol = bond
     pins = [
         { name = N, type = passive },
@@ -204,7 +204,7 @@ part "BKR-1P-15A-AFCI" = {
     description = "Branch breaker, 1 pole, 15 A, combination AFCI"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_1p
     params = { rating = "15 A", poles = "1" }
     pins = [
@@ -218,7 +218,7 @@ part "BKR-1P-15A" = {
     description = "Branch breaker, 1 pole, 15 A"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_1p
     params = { rating = "15 A", poles = "1" }
     pins = [
@@ -232,7 +232,7 @@ part "BKR-1P-20A" = {
     description = "Branch breaker, 1 pole, 20 A"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_1p
     params = { rating = "20 A", poles = "1" }
     pins = [
@@ -246,7 +246,7 @@ part "BKR-1P-20A-AFCI" = {
     description = "Branch breaker, 1 pole, 20 A, combination AFCI"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_1p
     params = { rating = "20 A", poles = "1" }
     pins = [
@@ -260,7 +260,7 @@ part "BKR-1P-20A-DF" = {
     description = "Branch breaker, 1 pole, 20 A, dual function AFCI and 5 mA GFCI"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_1p
     params = { rating = "20 A", poles = "1" }
     pins = [
@@ -274,7 +274,7 @@ part "BKR-2P-30A" = {
     description = "Branch breaker, 2 pole, 30 A"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_2p
     params = { rating = "30 A", poles = "2" }
     pins = [
@@ -290,7 +290,7 @@ part "BKR-2P-30A-GF" = {
     description = "Branch breaker, 2 pole, 30 A, 5 mA GFCI"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_2p
     params = { rating = "30 A", poles = "2" }
     pins = [
@@ -306,7 +306,7 @@ part "BKR-2P-50A-GF" = {
     description = "Branch breaker, 2 pole, 50 A, 5 mA GFCI"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_2p
     params = { rating = "50 A", poles = "2" }
     pins = [
@@ -322,7 +322,7 @@ part "BKR-2P-60A" = {
     description = "Branch breaker, 2 pole, 60 A"
     category = breaker
     prefix = CB
-    package = none
+    wiring = field
     symbol = breaker_2p
     params = { rating = "60 A", poles = "2" }
     pins = [
@@ -338,7 +338,7 @@ part "RCPT-15A-TR" = {
     description = "Duplex receptacle, NEMA 5-15R, tamper resistant"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = receptacle
     params = { rating = "15 A 125 V" }
     pins = [
@@ -353,7 +353,7 @@ part "RCPT-20A-TR" = {
     description = "Duplex receptacle, NEMA 5-20R, tamper resistant"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = receptacle
     params = { rating = "20 A 125 V" }
     pins = [
@@ -368,7 +368,7 @@ part "RCPT-20A-WR" = {
     description = "Duplex receptacle, NEMA 5-20R, tamper and weather resistant, in-use cover"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = receptacle
     params = { rating = "20 A 125 V" }
     pins = [
@@ -383,7 +383,7 @@ part "GFCI-20A-TR" = {
     description = "GFCI duplex receptacle, NEMA 5-20R, tamper resistant, feed-through"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = gfci
     params = { rating = "20 A 125 V" }
     pins = [
@@ -400,7 +400,7 @@ part "GFCI-20A-WR" = {
     description = "GFCI duplex receptacle, NEMA 5-20R, tamper and weather resistant, feed-through"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = gfci
     params = { rating = "20 A 125 V" }
     pins = [
@@ -417,7 +417,7 @@ part "RCPT-14-50R" = {
     description = "Range receptacle, NEMA 14-50R, 50 A 125/250 V"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = receptacle_240
     params = { rating = "50 A 250 V" }
     pins = [
@@ -433,7 +433,7 @@ part "RCPT-14-30R" = {
     description = "Dryer receptacle, NEMA 14-30R, 30 A 125/250 V"
     category = receptacle
     prefix = X
-    package = none
+    wiring = field
     symbol = receptacle_240
     params = { rating = "30 A 250 V" }
     pins = [
@@ -449,7 +449,7 @@ part "SW-1P-15A" = {
     description = "Switch, single pole, 15 A 120/277 V"
     category = switch
     prefix = S
-    package = none
+    wiring = field
     symbol = switch
     params = { rating = "15 A" }
     pins = [
@@ -464,7 +464,7 @@ part "LUM-CEIL-LED" = {
     description = "Ceiling luminaire, LED, 18 W"
     category = fixture
     prefix = L
-    package = none
+    wiring = field
     symbol = fixture
     params = { power = "18 W" }
     pins = [
@@ -479,7 +479,7 @@ part "LUM-WALL-EXT" = {
     description = "Exterior wall luminaire, LED, 12 W, wet location"
     category = fixture
     prefix = L
-    package = none
+    wiring = field
     symbol = fixture
     params = { power = "12 W" }
     pins = [
@@ -494,7 +494,7 @@ part "FAN-BATH-80" = {
     description = "Bath exhaust fan, 80 cfm, with LED light, 0.3 sone"
     category = fixture
     prefix = F
-    package = none
+    wiring = field
     symbol = fixture
     params = { power = "25 W" }
     pins = [
@@ -509,7 +509,7 @@ part "SMOKE-CO-120" = {
     description = "Smoke and CO alarm, 120 V with battery backup, interconnected"
     category = fixture
     prefix = SD
-    package = none
+    wiring = field
     symbol = fixture
     pins = [
         { name = HOT, type = passive },
@@ -523,7 +523,7 @@ part "DISC-60A-NF" = {
     description = "Disconnect, 2 pole, 60 A, non-fused, in sight of the unit"
     category = switch
     prefix = DS
-    package = none
+    wiring = field
     symbol = load_240
     params = { rating = "60 A" }
     pins = [
@@ -538,7 +538,7 @@ part "AHU-3T-10KW" = {
     description = "Air handler, 3 ton, variable speed, 10 kW heat strips; MCA 52 A, MOCP 60 A"
     category = load
     prefix = AH
-    package = none
+    wiring = field
     symbol = load_240
     params = { mca = "52 A" }
     pins = [
@@ -553,7 +553,7 @@ part "HP-3T" = {
     description = "Heat pump condenser, 3 ton, 15.2 SEER2; MCA 19.5 A, MOCP 30 A"
     category = load
     prefix = HP
-    package = none
+    wiring = field
     symbol = load_240
     params = { mca = "19.5 A" }
     pins = [
@@ -568,7 +568,7 @@ part "WH-50G-4500" = {
     description = "Electric water heater, 50 gal, two 4,500 W elements, non-simultaneous"
     category = load
     prefix = WH
-    package = none
+    wiring = field
     symbol = load_240
     params = { power = "4500 W" }
     pins = [
@@ -583,7 +583,7 @@ part "APPL-JBOX" = {
     description = "Junction box, hardwired appliance connection"
     category = box
     prefix = J
-    package = none
+    wiring = field
     symbol = fixture
     pins = [
         { name = HOT, type = passive },
