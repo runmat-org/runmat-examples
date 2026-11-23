@@ -7,12 +7,12 @@ part airliner_skeleton {
     input frame_pitch : length = 500 mm
     input rib_pitch : length = 650 mm
 
-    feature fuselage = frame(frame = at, origin = point(0 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
-    feature wing_root = frame(frame = at, origin = point(12600 mm, 0 mm, -1250 mm), z = origin.z, x = origin.x)
-    feature tail = frame(frame = at, origin = point(29200 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
-    feature main_gear_starboard = frame(frame = at, origin = point(18300 mm, 3000 mm, -1150 mm), z = origin.z, x = origin.x)
-    feature main_gear_port = frame(frame = at, origin = point(18300 mm, -3000 mm, -1150 mm), z = origin.z, x = origin.x)
-    feature nose_gear = frame(frame = at, origin = point(4600 mm, 0 mm, -1700 mm), z = origin.z, x = origin.x)
+    feature fuselage = frame.at(origin = point(0 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
+    feature wing_root = frame.at(origin = point(12600 mm, 0 mm, -1250 mm), z = origin.z, x = origin.x)
+    feature tail = frame.at(origin = point(29200 mm, 0 mm, 0 mm), z = origin.z, x = origin.x)
+    feature main_gear_starboard = frame.at(origin = point(18300 mm, 3000 mm, -1150 mm), z = origin.z, x = origin.x)
+    feature main_gear_port = frame.at(origin = point(18300 mm, -3000 mm, -1150 mm), z = origin.z, x = origin.x)
+    feature nose_gear = frame.at(origin = point(4600 mm, 0 mm, -1700 mm), z = origin.z, x = origin.x)
 
     export fuselage = datum(datum = feature(feature = fuselage))
     export wing_root = datum(datum = feature(feature = wing_root))

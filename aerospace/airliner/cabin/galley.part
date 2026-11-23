@@ -39,5 +39,10 @@ part galley {
     }
     feature worktop = extrude(profile = sketch.w, distance = 400 mm, mode = cut)
 
-    output galley = { body = feature.box.body, part_number = "CAB-GL-600", material = "polycarbonate", color = "#D3D6DA" }
+    output galley = {
+        body = feature.box.body
+        part_number = "CAB-GL-600"
+        material = polycarbonate
+        color = "#D3D6DA"
+    }
 }

@@ -8,5 +8,10 @@ part stringer {
     }
     feature body = extrude(profile = sketch.s, distance = 8000 mm)
 
-    output stringer = { body = feature.body.body, part_number = "FUS-ST-200", material = "aluminum_7075", color = "#A7B596" }
+    output stringer = {
+        body = feature.body.body
+        part_number = "FUS-ST-200"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

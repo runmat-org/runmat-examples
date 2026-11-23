@@ -7,5 +7,10 @@ part plug {
     }
     feature body = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
 
-    output plug = { body = feature.body.body, part_number = "NAC-PL-950", material = "titanium", color = "#8A9097" }
+    output plug = {
+        body = feature.body.body
+        part_number = "NAC-PL-950"
+        material = titanium
+        color = "#8A9097"
+    }
 }

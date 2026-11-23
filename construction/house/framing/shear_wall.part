@@ -42,14 +42,14 @@ part shear_wall {
         e2 = line(start = [input.z1, input.j1 - 0.0625 in], end = [input.z0, input.j1 - 0.0625 in])
         e3 = line(start = [input.z0, input.j1 - 0.0625 in], end = [input.z0, input.x0])
     }
-    feature osb = extrude(profile = sketch.osb_s, distance = 0.4375 in, mode = new)
+    feature osb = extrude(profile = sketch.osb_s, distance = 0.4375 in)
     sketch rest_s on plane.face {
         e0 = line(start = [input.z0, input.j1 + 0.0625 in], end = [input.z1, input.j1 + 0.0625 in])
         e1 = line(start = [input.z1, input.j1 + 0.0625 in], end = [input.z1, input.x1])
         e2 = line(start = [input.z1, input.x1], end = [input.z0, input.x1])
         e3 = line(start = [input.z0, input.x1], end = [input.z0, input.j1 + 0.0625 in])
     }
-    feature rest = extrude(profile = sketch.rest_s, distance = 0.4375 in, mode = new)
+    feature rest = extrude(profile = sketch.rest_s, distance = 0.4375 in)
     sketch j2_s on plane.face {
         e0 = line(start = [input.z0, input.j2 - 0.0625 in], end = [input.z1, input.j2 - 0.0625 in])
         e1 = line(start = [input.z1, input.j2 - 0.0625 in], end = [input.z1, input.j2 + 0.0625 in])
@@ -169,8 +169,25 @@ part shear_wall {
     feature mep_wall_d_l2_0 = extrude(profile = sketch.mep_wall_d_l2_0_s, distance = 109.6198 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_d_l2
     output shear_wall = { body = feature.osb.body, part_number = "SW-A1", material = material.osb }
-    region field_nailing : face = { select = [feature.osb.face.start, feature.rest.face.start], expect = one_or_more, label = "Field nailing, 8d common at 12 in o.c." }
-    region edge_nailing : face = { select = [feature.osb.face.side(osb_s.e0), feature.osb.face.side(osb_s.e1), feature.osb.face.side(osb_s.e2), feature.osb.face.side(osb_s.e3), feature.rest.face.side(rest_s.e0), feature.rest.face.side(rest_s.e1), feature.rest.face.side(rest_s.e2), feature.rest.face.side(rest_s.e3)], expect = one_or_more, label = "Edge nailing, 8d common at 6 in o.c., 3/8 in from panel edges" }
+    region field_nailing : face = {
+        select = [feature.osb.face.start, feature.rest.face.start]
+        expect = one_or_more
+        label = "Field nailing, 8d common at 12 in o.c."
+    }
+    region edge_nailing : face = {
+        select = [
+            feature.osb.face.side(osb_s.e0),
+            feature.osb.face.side(osb_s.e1),
+            feature.osb.face.side(osb_s.e2),
+            feature.osb.face.side(osb_s.e3),
+            feature.rest.face.side(rest_s.e0),
+            feature.rest.face.side(rest_s.e1),
+            feature.rest.face.side(rest_s.e2),
+            feature.rest.face.side(rest_s.e3),
+        ]
+        expect = one_or_more
+        label = "Edge nailing, 8d common at 6 in o.c., 3/8 in from panel edges"
+    }
 
     configuration wall_a_l1 = {
         inputs = {
@@ -279,7 +296,7 @@ part shear_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
+        suppress = [feature.j10, feature.j8, feature.j9, feature.o3, feature.o4]
         part_number = "SW-11"
         description = "West (grid 1) shear wall, first floor"
     }
@@ -316,7 +333,7 @@ part shear_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
+        suppress = [feature.j10, feature.j8, feature.j9, feature.o3, feature.o4]
         features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false } }
         part_number = "SW-51"
         description = "East (grid 5) shear wall, first floor"
@@ -427,7 +444,7 @@ part shear_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
+        suppress = [feature.j10, feature.j8, feature.j9, feature.o3, feature.o4]
         part_number = "SW-12"
         description = "West (grid 1) shear wall, second floor"
     }
@@ -464,7 +481,7 @@ part shear_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.j8, feature.j9, feature.j10, feature.o3, feature.o4]
+        suppress = [feature.j10, feature.j8, feature.j9, feature.o3, feature.o4]
         part_number = "SW-52"
         description = "East (grid 5) shear wall, second floor"
     }

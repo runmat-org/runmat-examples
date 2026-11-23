@@ -17,7 +17,7 @@ part footing {
         ri2 = line(start = [466 in, 346 in], end = [14 in, 346 in])
         ri3 = line(start = [14 in, 346 in], end = [14 in, 14 in])
     }
-    feature perimeter = extrude(profile = sketch.perimeter_s, distance = 10 in, mode = new)
+    feature perimeter = extrude(profile = sketch.perimeter_s, distance = 10 in)
     feature pad_base = plane.offset(base = origin.xy, distance = -16.01 in)
     sketch pad_b2_s on plane.pad_base {
         e0 = line(start = [105 in, 129 in], end = [135 in, 129 in])
@@ -25,42 +25,42 @@ part footing {
         e2 = line(start = [135 in, 159 in], end = [105 in, 159 in])
         e3 = line(start = [105 in, 159 in], end = [105 in, 129 in])
     }
-    feature pad_b2 = extrude(profile = sketch.pad_b2_s, distance = 12 in, mode = new)
+    feature pad_b2 = extrude(profile = sketch.pad_b2_s, distance = 12 in)
     sketch pad_b3_s on plane.pad_base {
         e0 = line(start = [217 in, 129 in], end = [247 in, 129 in])
         e1 = line(start = [247 in, 129 in], end = [247 in, 159 in])
         e2 = line(start = [247 in, 159 in], end = [217 in, 159 in])
         e3 = line(start = [217 in, 159 in], end = [217 in, 129 in])
     }
-    feature pad_b3 = extrude(profile = sketch.pad_b3_s, distance = 12 in, mode = new)
+    feature pad_b3 = extrude(profile = sketch.pad_b3_s, distance = 12 in)
     sketch pad_b4_s on plane.pad_base {
         e0 = line(start = [345 in, 129 in], end = [375 in, 129 in])
         e1 = line(start = [375 in, 129 in], end = [375 in, 159 in])
         e2 = line(start = [375 in, 159 in], end = [345 in, 159 in])
         e3 = line(start = [345 in, 159 in], end = [345 in, 129 in])
     }
-    feature pad_b4 = extrude(profile = sketch.pad_b4_s, distance = 12 in, mode = new)
+    feature pad_b4 = extrude(profile = sketch.pad_b4_s, distance = 12 in)
     sketch pad_c2_s on plane.pad_base {
         e0 = line(start = [105 in, 209 in], end = [135 in, 209 in])
         e1 = line(start = [135 in, 209 in], end = [135 in, 239 in])
         e2 = line(start = [135 in, 239 in], end = [105 in, 239 in])
         e3 = line(start = [105 in, 239 in], end = [105 in, 209 in])
     }
-    feature pad_c2 = extrude(profile = sketch.pad_c2_s, distance = 12 in, mode = new)
+    feature pad_c2 = extrude(profile = sketch.pad_c2_s, distance = 12 in)
     sketch pad_c3_s on plane.pad_base {
         e0 = line(start = [217 in, 209 in], end = [247 in, 209 in])
         e1 = line(start = [247 in, 209 in], end = [247 in, 239 in])
         e2 = line(start = [247 in, 239 in], end = [217 in, 239 in])
         e3 = line(start = [217 in, 239 in], end = [217 in, 209 in])
     }
-    feature pad_c3 = extrude(profile = sketch.pad_c3_s, distance = 12 in, mode = new)
+    feature pad_c3 = extrude(profile = sketch.pad_c3_s, distance = 12 in)
     sketch pad_c4_s on plane.pad_base {
         e0 = line(start = [345 in, 209 in], end = [375 in, 209 in])
         e1 = line(start = [375 in, 209 in], end = [375 in, 239 in])
         e2 = line(start = [375 in, 239 in], end = [345 in, 239 in])
         e3 = line(start = [345 in, 239 in], end = [345 in, 209 in])
     }
-    feature pad_c4 = extrude(profile = sketch.pad_c4_s, distance = 12 in, mode = new)
+    feature pad_c4 = extrude(profile = sketch.pad_c4_s, distance = 12 in)
     feature bar_x0 = plane.offset(base = origin.yz, distance = -3 in)
     sketch bars_x_s on plane.bar_x0 {
         c0 = circle(center = [-2.75 in, -28.75 in], radius = 0.25 in)
@@ -68,7 +68,7 @@ part footing {
         c2 = circle(center = [349.25 in, -28.75 in], radius = 0.25 in)
         c3 = circle(center = [362.75 in, -28.75 in], radius = 0.25 in)
     }
-    feature bars_x = extrude(profile = sketch.bars_x_s, distance = 486 in, mode = new)
+    feature bars_x = extrude(profile = sketch.bars_x_s, distance = 486 in)
     feature bar_y0 = plane.offset(base = origin.zx, distance = -3 in)
     sketch bars_y_s on plane.bar_y0 {
         c0 = circle(center = [-28.25 in, -2.75 in], radius = 0.25 in)
@@ -76,91 +76,91 @@ part footing {
         c2 = circle(center = [-28.25 in, 469.25 in], radius = 0.25 in)
         c3 = circle(center = [-28.25 in, 482.75 in], radius = 0.25 in)
     }
-    feature bars_y = extrude(profile = sketch.bars_y_s, distance = 366 in, mode = new)
+    feature bars_y = extrude(profile = sketch.bars_y_s, distance = 366 in)
     feature pad_b2_x0 = plane.offset(base = origin.yz, distance = 108 in)
     sketch pad_b2_bars_x_s on plane.pad_b2_x0 {
         c0 = circle(center = [132 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [144 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [156 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_b2_bars_x = extrude(profile = sketch.pad_b2_bars_x_s, distance = 24 in, mode = new)
+    feature pad_b2_bars_x = extrude(profile = sketch.pad_b2_bars_x_s, distance = 24 in)
     feature pad_b2_y0 = plane.offset(base = origin.zx, distance = 132 in)
     sketch pad_b2_bars_y_s on plane.pad_b2_y0 {
         c0 = circle(center = [-12.26 in, 108 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 120 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 132 in], radius = 0.25 in)
     }
-    feature pad_b2_bars_y = extrude(profile = sketch.pad_b2_bars_y_s, distance = 24 in, mode = new)
+    feature pad_b2_bars_y = extrude(profile = sketch.pad_b2_bars_y_s, distance = 24 in)
     feature pad_b3_x0 = plane.offset(base = origin.yz, distance = 220 in)
     sketch pad_b3_bars_x_s on plane.pad_b3_x0 {
         c0 = circle(center = [132 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [144 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [156 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_b3_bars_x = extrude(profile = sketch.pad_b3_bars_x_s, distance = 24 in, mode = new)
+    feature pad_b3_bars_x = extrude(profile = sketch.pad_b3_bars_x_s, distance = 24 in)
     feature pad_b3_y0 = plane.offset(base = origin.zx, distance = 132 in)
     sketch pad_b3_bars_y_s on plane.pad_b3_y0 {
         c0 = circle(center = [-12.26 in, 220 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 232 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 244 in], radius = 0.25 in)
     }
-    feature pad_b3_bars_y = extrude(profile = sketch.pad_b3_bars_y_s, distance = 24 in, mode = new)
+    feature pad_b3_bars_y = extrude(profile = sketch.pad_b3_bars_y_s, distance = 24 in)
     feature pad_b4_x0 = plane.offset(base = origin.yz, distance = 348 in)
     sketch pad_b4_bars_x_s on plane.pad_b4_x0 {
         c0 = circle(center = [132 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [144 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [156 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_b4_bars_x = extrude(profile = sketch.pad_b4_bars_x_s, distance = 24 in, mode = new)
+    feature pad_b4_bars_x = extrude(profile = sketch.pad_b4_bars_x_s, distance = 24 in)
     feature pad_b4_y0 = plane.offset(base = origin.zx, distance = 132 in)
     sketch pad_b4_bars_y_s on plane.pad_b4_y0 {
         c0 = circle(center = [-12.26 in, 348 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 360 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 372 in], radius = 0.25 in)
     }
-    feature pad_b4_bars_y = extrude(profile = sketch.pad_b4_bars_y_s, distance = 24 in, mode = new)
+    feature pad_b4_bars_y = extrude(profile = sketch.pad_b4_bars_y_s, distance = 24 in)
     feature pad_c2_x0 = plane.offset(base = origin.yz, distance = 108 in)
     sketch pad_c2_bars_x_s on plane.pad_c2_x0 {
         c0 = circle(center = [212 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [224 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [236 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_c2_bars_x = extrude(profile = sketch.pad_c2_bars_x_s, distance = 24 in, mode = new)
+    feature pad_c2_bars_x = extrude(profile = sketch.pad_c2_bars_x_s, distance = 24 in)
     feature pad_c2_y0 = plane.offset(base = origin.zx, distance = 212 in)
     sketch pad_c2_bars_y_s on plane.pad_c2_y0 {
         c0 = circle(center = [-12.26 in, 108 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 120 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 132 in], radius = 0.25 in)
     }
-    feature pad_c2_bars_y = extrude(profile = sketch.pad_c2_bars_y_s, distance = 24 in, mode = new)
+    feature pad_c2_bars_y = extrude(profile = sketch.pad_c2_bars_y_s, distance = 24 in)
     feature pad_c3_x0 = plane.offset(base = origin.yz, distance = 220 in)
     sketch pad_c3_bars_x_s on plane.pad_c3_x0 {
         c0 = circle(center = [212 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [224 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [236 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_c3_bars_x = extrude(profile = sketch.pad_c3_bars_x_s, distance = 24 in, mode = new)
+    feature pad_c3_bars_x = extrude(profile = sketch.pad_c3_bars_x_s, distance = 24 in)
     feature pad_c3_y0 = plane.offset(base = origin.zx, distance = 212 in)
     sketch pad_c3_bars_y_s on plane.pad_c3_y0 {
         c0 = circle(center = [-12.26 in, 220 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 232 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 244 in], radius = 0.25 in)
     }
-    feature pad_c3_bars_y = extrude(profile = sketch.pad_c3_bars_y_s, distance = 24 in, mode = new)
+    feature pad_c3_bars_y = extrude(profile = sketch.pad_c3_bars_y_s, distance = 24 in)
     feature pad_c4_x0 = plane.offset(base = origin.yz, distance = 348 in)
     sketch pad_c4_bars_x_s on plane.pad_c4_x0 {
         c0 = circle(center = [212 in, -12.76 in], radius = 0.25 in)
         c1 = circle(center = [224 in, -12.76 in], radius = 0.25 in)
         c2 = circle(center = [236 in, -12.76 in], radius = 0.25 in)
     }
-    feature pad_c4_bars_x = extrude(profile = sketch.pad_c4_bars_x_s, distance = 24 in, mode = new)
+    feature pad_c4_bars_x = extrude(profile = sketch.pad_c4_bars_x_s, distance = 24 in)
     feature pad_c4_y0 = plane.offset(base = origin.zx, distance = 212 in)
     sketch pad_c4_bars_y_s on plane.pad_c4_y0 {
         c0 = circle(center = [-12.26 in, 348 in], radius = 0.25 in)
         c1 = circle(center = [-12.26 in, 360 in], radius = 0.25 in)
         c2 = circle(center = [-12.26 in, 372 in], radius = 0.25 in)
     }
-    feature pad_c4_bars_y = extrude(profile = sketch.pad_c4_bars_y_s, distance = 24 in, mode = new)
+    feature pad_c4_bars_y = extrude(profile = sketch.pad_c4_bars_y_s, distance = 24 in)
     feature dowel_base = plane.offset(base = origin.xy, distance = -28 in)
     sketch dowels_s on plane.dowel_base {
         c0 = circle(center = [24 in, 4 in], radius = 0.25 in)
@@ -198,7 +198,7 @@ part footing {
         c32 = circle(center = [4 in, 324 in], radius = 0.25 in)
         c33 = circle(center = [476 in, 36 in], radius = 0.25 in)
     }
-    feature dowels = extrude(profile = sketch.dowels_s, distance = 24 in, mode = new)
+    feature dowels = extrude(profile = sketch.dowels_s, distance = 24 in)
 
     // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_pl0 = plane.offset(base = origin.xy, distance = -25 in)
@@ -251,6 +251,10 @@ part footing {
     assign material.steel_rebar_grade_60 to feature.pad_c3_bars_y.body
     assign material.steel_rebar_grade_60 to feature.pad_c4_bars_x.body
     assign material.steel_rebar_grade_60 to feature.pad_c4_bars_y.body
-    region bearing : face = { select = [feature.perimeter.face.start], expect = one_or_more, label = "Footing bearing on soil" }
+    region bearing : face = {
+        select = [feature.perimeter.face.start]
+        expect = one_or_more
+        label = "Footing bearing on soil"
+    }
     export width = let(name = width)
 }

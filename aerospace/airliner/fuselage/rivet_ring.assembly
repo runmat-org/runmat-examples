@@ -5,5 +5,11 @@ assembly rivet_ring {
     instance rivet : rivet = {
         placement = offset(translation = [20 mm, 0 mm, 1980 mm])
     }
-    pattern around = circular(seeds = [rivet], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 24, angle = 360 deg)
+    pattern around = circular(
+        seeds = [rivet],
+        axis_point = [0 mm, 0 mm, 0 mm],
+        axis = [1, 0, 0],
+        count = 24,
+        angle = 360 deg,
+    )
 }

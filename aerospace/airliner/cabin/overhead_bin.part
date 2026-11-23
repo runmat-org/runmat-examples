@@ -14,5 +14,10 @@ part overhead_bin {
     }
     feature bin = extrude(profile = sketch.s, distance = 1590 mm, symmetric = true)
 
-    output overhead_bin = { body = feature.bin.body, part_number = "CAB-BN-520", material = "polycarbonate", color = "#E1E4E8" }
+    output overhead_bin = {
+        body = feature.bin.body
+        part_number = "CAB-BN-520"
+        material = polycarbonate
+        color = "#E1E4E8"
+    }
 }

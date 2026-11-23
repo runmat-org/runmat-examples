@@ -20,19 +20,31 @@ assembly gimbal {
     }
     instance roll_motor : gimbal_motor = {
         configuration = { select = named, name = roll }
-        placement = offset(translation = [-3 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
+        placement = offset(
+            translation = [-3 mm, 0 mm, -16 mm],
+            rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg),
+        )
     }
     instance yoke : gimbal_yoke = {
         placement = offset(translation = [-0.5 mm, 0 mm, -16 mm])
     }
     instance pitch_motor : gimbal_motor = {
         configuration = { select = named, name = pitch }
-        placement = offset(translation = [19 mm, 21.25 mm, -16 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 90 deg))
+        placement = offset(
+            translation = [19 mm, 21.25 mm, -16 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 90 deg),
+        )
     }
     instance camera : camera_head = {
-        placement = offset(translation = [19 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch))
+        placement = offset(
+            translation = [19 mm, 0 mm, -16 mm],
+            rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch),
+        )
     }
     instance lens : lens = {
-        placement = offset(translation = [19 mm, 0 mm, -16 mm], rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch))
+        placement = offset(
+            translation = [19 mm, 0 mm, -16 mm],
+            rotation = axis_angle(axis = [0, 1, 0], angle = -input.pitch),
+        )
     }
 }

@@ -1,7 +1,6 @@
 // An RC low-pass filter whose resistor comes from its corner frequency: rcResistor.m in this
 // folder computes R1 from the corner and C1, so changing `fc` recomputes it.
 circuit lowpass {
-    root = main
     sheet main {
         port IN : in
         port OUT : out

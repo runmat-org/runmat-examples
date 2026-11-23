@@ -18,23 +18,35 @@ assembly fuselage_section {
     instance frame : frame
     instance stringer : stringer
     instance panel : skin_panel = {
-        placement = offset(translation = [0 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 22.5 deg))
+        placement = offset(rotation = axis_angle(axis = [1, 0, 0], angle = 22.5 deg))
     }
     instance rivets : rivet_ring
     instance window_starboard : cabin_window = {
-        placement = offset(translation = [4250 mm, 1940.946 mm, 348.586 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 10.181542 deg))
+        placement = offset(
+            translation = [4250 mm, 1940.946 mm, 348.586 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 10.181542 deg),
+        )
     }
     instance window_port : cabin_window = {
-        placement = offset(translation = [4250 mm, -1940.946 mm, 348.586 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 169.818458 deg))
+        placement = offset(
+            translation = [4250 mm, -1940.946 mm, 348.586 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 169.818458 deg),
+        )
     }
     instance window_starboard_fwd : cabin_window = {
-        placement = offset(translation = [3750 mm, 1940.946 mm, 348.586 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 10.181542 deg))
+        placement = offset(
+            translation = [3750 mm, 1940.946 mm, 348.586 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 10.181542 deg),
+        )
     }
     instance window_port_fwd : cabin_window = {
-        placement = offset(translation = [3750 mm, -1940.946 mm, 348.586 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 169.818458 deg))
+        placement = offset(
+            translation = [3750 mm, -1940.946 mm, 348.586 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 169.818458 deg),
+        )
     }
     instance floor_beam : floor_beam = {
-        placement = offset(translation = [0 mm, 0 mm, 0 mm])
+        placement = offset()
     }
     instance floor : floor_panel = {
         placement = offset(translation = [0 mm, 0 mm, -410 mm])
@@ -52,35 +64,79 @@ assembly fuselage_section {
         placement = offset(translation = [0 mm, 1335 mm, -414 mm])
     }
     instance lining_starboard : sidewall_lining = {
-        placement = offset(translation = [250 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -12.457065 deg))
+        placement = offset(
+            translation = [250 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = -12.457065 deg),
+        )
     }
     instance lining_port : sidewall_lining = {
-        placement = offset(translation = [250 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 147.17985 deg))
+        placement = offset(
+            translation = [250 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 147.17985 deg),
+        )
     }
     instance ceiling : ceiling_panel = {
-        placement = offset(translation = [0 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 58 deg))
+        placement = offset(rotation = axis_angle(axis = [1, 0, 0], angle = 58 deg))
     }
     instance bin_starboard : overhead_bin = {
         placement = offset(translation = [4000 mm, 0 mm, 0 mm])
     }
     instance bin_port : overhead_bin = {
-        placement = offset(translation = [4000 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
+        placement = offset(
+            translation = [4000 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg),
+        )
     }
     instance bin_starboard_fwd : overhead_bin = {
         placement = offset(translation = [2400 mm, 0 mm, 0 mm])
     }
     instance bin_port_fwd : overhead_bin = {
-        placement = offset(translation = [2400 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
+        placement = offset(
+            translation = [2400 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg),
+        )
     }
 
     pattern frames = linear(seeds = [frame], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
-    pattern stringers = circular(seeds = [stringer], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 24, angle = 360 deg)
-    pattern panels = circular(seeds = [panel], axis_point = [0 mm, 0 mm, 0 mm], axis = [1, 0, 0], count = 8, angle = 360 deg)
+    pattern stringers = circular(
+        seeds = [stringer],
+        axis_point = [0 mm, 0 mm, 0 mm],
+        axis = [1, 0, 0],
+        count = 24,
+        angle = 360 deg,
+    )
+    pattern panels = circular(
+        seeds = [panel],
+        axis_point = [0 mm, 0 mm, 0 mm],
+        axis = [1, 0, 0],
+        count = 8,
+        angle = 360 deg,
+    )
     pattern rivet_rings = linear(seeds = [rivets], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
-    pattern windows = linear(seeds = [window_starboard, window_port], direction = [1, 0, 0], spacing = input.frame_pitch, count = 8)
-    pattern windows_fwd = linear(seeds = [window_starboard_fwd, window_port_fwd], direction = [-1, 0, 0], spacing = input.frame_pitch, count = 8)
+    pattern windows = linear(
+        seeds = [window_starboard, window_port],
+        direction = [1, 0, 0],
+        spacing = input.frame_pitch,
+        count = 8,
+    )
+    pattern windows_fwd = linear(
+        seeds = [window_starboard_fwd, window_port_fwd],
+        direction = [-1, 0, 0],
+        spacing = input.frame_pitch,
+        count = 8,
+    )
     pattern floor_beams = linear(seeds = [floor_beam], direction = [1, 0, 0], spacing = input.frame_pitch, count = 17)
-    pattern linings = linear(seeds = [lining_starboard, lining_port], direction = [1, 0, 0], spacing = input.frame_pitch, count = 16)
+    pattern linings = linear(
+        seeds = [lining_starboard, lining_port],
+        direction = [1, 0, 0],
+        spacing = input.frame_pitch,
+        count = 16,
+    )
     pattern bins = linear(seeds = [bin_starboard, bin_port], direction = [1, 0, 0], spacing = 1600 mm, count = 3)
-    pattern bins_fwd = linear(seeds = [bin_starboard_fwd, bin_port_fwd], direction = [-1, 0, 0], spacing = 1600 mm, count = 2)
+    pattern bins_fwd = linear(
+        seeds = [bin_starboard_fwd, bin_port_fwd],
+        direction = [-1, 0, 0],
+        spacing = 1600 mm,
+        count = 2,
+    )
 }

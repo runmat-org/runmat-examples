@@ -25,14 +25,14 @@ part door {
         l1_2 = line(start = [input.h - 0.6875 in, input.w - 0.625 in], end = [0.8125 in, input.w - 0.625 in])
         l1_3 = line(start = [0.8125 in, input.w - 0.625 in], end = [0.8125 in, 0.875 in])
     }
-    feature frame = extrude(profile = sketch.frame_s, distance = 7.0156 in, mode = new)
+    feature frame = extrude(profile = sketch.frame_s, distance = 7.0156 in)
     sketch d1_slab_s on plane.zx_p1 {
         l0_0 = line(start = [0.9375 in, 1 in], end = [80.9375 in, 1 in])
         l0_1 = line(start = [80.9375 in, 1 in], end = [80.9375 in, 37 in])
         l0_2 = line(start = [80.9375 in, 37 in], end = [0.9375 in, 37 in])
         l0_3 = line(start = [0.9375 in, 37 in], end = [0.9375 in, 1 in])
     }
-    feature d1_slab = extrude(profile = sketch.d1_slab_s, distance = 1.75 in, mode = new, suppressed = true)
+    feature d1_slab = extrude(profile = sketch.d1_slab_s, distance = 1.75 in, suppressed = true)
     sketch d2_fixed_s on plane.zx_m0_5 {
         l0_0 = line(start = [0.8125 in, 0.875 in], end = [81.3125 in, 0.875 in])
         l0_1 = line(start = [81.3125 in, 0.875 in], end = [81.3125 in, 37.375 in])
@@ -43,21 +43,21 @@ part door {
         l1_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
         l1_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
     }
-    feature d2_fixed = extrude(profile = sketch.d2_fixed_s, distance = 1.75 in, mode = new, suppressed = true)
+    feature d2_fixed = extrude(profile = sketch.d2_fixed_s, distance = 1.75 in, suppressed = true)
     sketch d2_fixed_lite0_s on plane.zx_m0_0625 {
         l0_0 = line(start = [3.3125 in, 3.375 in], end = [78.8125 in, 3.375 in])
         l0_1 = line(start = [78.8125 in, 3.375 in], end = [78.8125 in, 34.875 in])
         l0_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
         l0_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
     }
-    feature d2_fixed_lite0 = extrude(profile = sketch.d2_fixed_lite0_s, distance = 0.1875 in, mode = new, suppressed = true)
+    feature d2_fixed_lite0 = extrude(profile = sketch.d2_fixed_lite0_s, distance = 0.1875 in, suppressed = true)
     sketch d2_fixed_lite1_s on plane.zx_p0_625 {
         l0_0 = line(start = [3.3125 in, 3.375 in], end = [78.8125 in, 3.375 in])
         l0_1 = line(start = [78.8125 in, 3.375 in], end = [78.8125 in, 34.875 in])
         l0_2 = line(start = [78.8125 in, 34.875 in], end = [3.3125 in, 34.875 in])
         l0_3 = line(start = [3.3125 in, 34.875 in], end = [3.3125 in, 3.375 in])
     }
-    feature d2_fixed_lite1 = extrude(profile = sketch.d2_fixed_lite1_s, distance = 0.1875 in, mode = new, suppressed = true)
+    feature d2_fixed_lite1 = extrude(profile = sketch.d2_fixed_lite1_s, distance = 0.1875 in, suppressed = true)
     sketch d2_sliding_s on plane.zx_p1_5 {
         l0_0 = line(start = [0.8125 in, 36.625 in], end = [81.3125 in, 36.625 in])
         l0_1 = line(start = [81.3125 in, 36.625 in], end = [81.3125 in, 73.125 in])
@@ -68,23 +68,29 @@ part door {
         l1_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
         l1_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
     }
-    feature d2_sliding = extrude(profile = sketch.d2_sliding_s, distance = 1.75 in, mode = new, suppressed = true)
+    feature d2_sliding = extrude(profile = sketch.d2_sliding_s, distance = 1.75 in, suppressed = true)
     sketch d2_sliding_lite0_s on plane.zx_p1_9375 {
         l0_0 = line(start = [3.3125 in, 39.125 in], end = [78.8125 in, 39.125 in])
         l0_1 = line(start = [78.8125 in, 39.125 in], end = [78.8125 in, 70.625 in])
         l0_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
         l0_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
     }
-    feature d2_sliding_lite0 = extrude(profile = sketch.d2_sliding_lite0_s, distance = 0.1875 in, mode = new, suppressed = true)
+    feature d2_sliding_lite0 = extrude(profile = sketch.d2_sliding_lite0_s, distance = 0.1875 in, suppressed = true)
     sketch d2_sliding_lite1_s on plane.zx_p2_625 {
         l0_0 = line(start = [3.3125 in, 39.125 in], end = [78.8125 in, 39.125 in])
         l0_1 = line(start = [78.8125 in, 39.125 in], end = [78.8125 in, 70.625 in])
         l0_2 = line(start = [78.8125 in, 70.625 in], end = [3.3125 in, 70.625 in])
         l0_3 = line(start = [3.3125 in, 70.625 in], end = [3.3125 in, 39.125 in])
     }
-    feature d2_sliding_lite1 = extrude(profile = sketch.d2_sliding_lite1_s, distance = 0.1875 in, mode = new, suppressed = true)
+    feature d2_sliding_lite1 = extrude(profile = sketch.d2_sliding_lite1_s, distance = 0.1875 in, suppressed = true)
 
-    output door = { body = feature.frame.body, part_number = "D1", material = material.aluminum_door_frame, color = "#D9D6CF", label = "Door frame and sill" }
+    output door = {
+        body = feature.frame.body
+        part_number = D1
+        material = material.aluminum_door_frame
+        color = "#D9D6CF"
+        label = "Door frame and sill"
+    }
     assign material.steel_insulated_door to feature.d1_slab.body
     assign material.pvc_door_panel to feature.d2_fixed.body
     assign material.glass_low_e_tempered to feature.d2_fixed_lite0.body
@@ -94,15 +100,22 @@ part door {
     assign material.glass_low_e_tempered to feature.d2_sliding_lite1.body
 
     configuration D1 = {
-        inputs = { w = 37.75 in, h = 82 in }
+        inputs = { h = 82 in, w = 37.75 in }
         features = { d1_slab = { suppressed = false } }
-        part_number = "D1"
+        part_number = D1
         description = "Entry door, insulated steel, 36 x 80 in, U-0.20"
     }
     configuration D2 = {
-        inputs = { w = 73.75 in, h = 82 in }
-        features = { d2_fixed = { suppressed = false }, d2_fixed_lite0 = { suppressed = false }, d2_fixed_lite1 = { suppressed = false }, d2_sliding = { suppressed = false }, d2_sliding_lite0 = { suppressed = false }, d2_sliding_lite1 = { suppressed = false } }
-        part_number = "D2"
+        inputs = { h = 82 in, w = 73.75 in }
+        features = {
+            d2_fixed = { suppressed = false }
+            d2_fixed_lite0 = { suppressed = false }
+            d2_fixed_lite1 = { suppressed = false }
+            d2_sliding = { suppressed = false }
+            d2_sliding_lite0 = { suppressed = false }
+            d2_sliding_lite1 = { suppressed = false }
+        }
+        part_number = D2
         description = "Patio door, sliding, 72 x 80 in, tempered double-pane low-E, U-0.30, SHGC 0.25"
     }
 }

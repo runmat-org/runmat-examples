@@ -11,5 +11,10 @@ part rib {
     }
     feature web = extrude(profile = sketch.s, distance = 20 mm)
 
-    output rib = { body = feature.web.body, part_number = "WNG-RB-400", material = "aluminum_7075", color = "#A7B596" }
+    output rib = {
+        body = feature.web.body
+        part_number = "WNG-RB-400"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

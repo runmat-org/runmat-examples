@@ -14,11 +14,21 @@ assembly empennage {
     mirror stabilizer_port = {
         seeds = [stabilizer_starboard]
         plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
-        hand = opposite(source = { definition = { kind = part, name = stabilizer } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+        hand = opposite(
+            source = { definition = { kind = part, name = stabilizer } },
+            configuration = { select = inputs, values = { side = -1 } },
+            point = [0 mm, 0 mm, 0 mm],
+            normal = [0, 1, 0],
+        )
     }
     mirror elevator_port = {
         seeds = [elevator_starboard]
         plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
-        hand = opposite(source = { definition = { kind = part, name = elevator } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+        hand = opposite(
+            source = { definition = { kind = part, name = elevator } },
+            configuration = { select = inputs, values = { side = -1 } },
+            point = [0 mm, 0 mm, 0 mm],
+            normal = [0, 1, 0],
+        )
     }
 }

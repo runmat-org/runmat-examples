@@ -76,19 +76,28 @@ assembly cabin {
         placement = offset(translation = [3700 mm, 0 mm, 0 mm])
     }
     instance lavatory_forward : lavatory = {
-        placement = offset(translation = [4600 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
+        placement = offset(
+            translation = [4600 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg),
+        )
     }
     instance lavatory_aft_starboard : lavatory = {
         placement = offset(translation = [27100 mm, 0 mm, 0 mm])
     }
     instance lavatory_aft_port : lavatory = {
-        placement = offset(translation = [28000 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
+        placement = offset(
+            translation = [28000 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg),
+        )
     }
     instance galley_aft : galley = {
         placement = offset(translation = [29000 mm, 0 mm, 0 mm])
     }
     instance galley_aft_port : galley = {
-        placement = offset(translation = [29860 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg))
+        placement = offset(
+            translation = [29860 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 180 deg),
+        )
     }
     instance passenger_door : passenger_door = {
         placement = offset(translation = [5250 mm, 0 mm, 0 mm])
@@ -108,37 +117,196 @@ assembly cabin {
     mirror passenger_door_port = {
         seeds = [passenger_door]
         plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
-        hand = opposite(source = { definition = { kind = part, name = passenger_door } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+        hand = opposite(
+            source = { definition = { kind = part, name = passenger_door } },
+            configuration = { select = inputs, values = { side = -1 } },
+            point = [0 mm, 0 mm, 0 mm],
+            normal = [0, 1, 0],
+        )
     }
     mirror overwing_exit_port = {
         seeds = [overwing_exit]
         plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
-        hand = opposite(source = { definition = { kind = part, name = overwing_exit } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+        hand = opposite(
+            source = { definition = { kind = part, name = overwing_exit } },
+            configuration = { select = inputs, values = { side = -1 } },
+            point = [0 mm, 0 mm, 0 mm],
+            normal = [0, 1, 0],
+        )
     }
     mirror passenger_door_aft_port = {
         seeds = [passenger_door_aft]
         plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
-        hand = opposite(source = { definition = { kind = part, name = passenger_door_aft } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
+        hand = opposite(
+            source = { definition = { kind = part, name = passenger_door_aft } },
+            configuration = { select = inputs, values = { side = -1 } },
+            point = [0 mm, 0 mm, 0 mm],
+            normal = [0, 1, 0],
+        )
     }
 
-    pattern business_starboard_frames = grid(seeds = [business_starboard_frame], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 2)
-    pattern business_starboard_cushions = grid(seeds = [business_starboard_cushion], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 2)
-    pattern business_starboard_armrests = grid(seeds = [business_starboard_armrest], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 3)
-    pattern business_port_frames = grid(seeds = [business_port_frame], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 2)
-    pattern business_port_cushions = grid(seeds = [business_port_cushion], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 2)
-    pattern business_port_armrests = grid(seeds = [business_port_armrest], first = [1, 0, 0], first_spacing = input.business_pitch, first_count = 3, second = [0, 1, 0], second_spacing = 560 mm, second_count = 3)
-    pattern economy_forward_starboard_frames = grid(seeds = [economy_forward_starboard_frame], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_forward_starboard_cushions = grid(seeds = [economy_forward_starboard_cushion], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_forward_starboard_armrests = grid(seeds = [economy_forward_starboard_armrest], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 4)
-    pattern economy_forward_port_frames = grid(seeds = [economy_forward_port_frame], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_forward_port_cushions = grid(seeds = [economy_forward_port_cushion], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_forward_port_armrests = grid(seeds = [economy_forward_port_armrest], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 9, second = [0, 1, 0], second_spacing = 450 mm, second_count = 4)
-    pattern economy_aft_starboard_frames = grid(seeds = [economy_aft_starboard_frame], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_aft_starboard_cushions = grid(seeds = [economy_aft_starboard_cushion], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_aft_starboard_armrests = grid(seeds = [economy_aft_starboard_armrest], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 4)
-    pattern economy_aft_port_frames = grid(seeds = [economy_aft_port_frame], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_aft_port_cushions = grid(seeds = [economy_aft_port_cushion], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 3)
-    pattern economy_aft_port_armrests = grid(seeds = [economy_aft_port_armrest], first = [1, 0, 0], first_spacing = input.economy_pitch, first_count = 13, second = [0, 1, 0], second_spacing = 450 mm, second_count = 4)
+    pattern business_starboard_frames = grid(
+        seeds = [business_starboard_frame],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 2,
+    )
+    pattern business_starboard_cushions = grid(
+        seeds = [business_starboard_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 2,
+    )
+    pattern business_starboard_armrests = grid(
+        seeds = [business_starboard_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 3,
+    )
+    pattern business_port_frames = grid(
+        seeds = [business_port_frame],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 2,
+    )
+    pattern business_port_cushions = grid(
+        seeds = [business_port_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 2,
+    )
+    pattern business_port_armrests = grid(
+        seeds = [business_port_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.business_pitch,
+        first_count = 3,
+        second = [0, 1, 0],
+        second_spacing = 560 mm,
+        second_count = 3,
+    )
+    pattern economy_forward_starboard_frames = grid(
+        seeds = [economy_forward_starboard_frame],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_forward_starboard_cushions = grid(
+        seeds = [economy_forward_starboard_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_forward_starboard_armrests = grid(
+        seeds = [economy_forward_starboard_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 4,
+    )
+    pattern economy_forward_port_frames = grid(
+        seeds = [economy_forward_port_frame],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_forward_port_cushions = grid(
+        seeds = [economy_forward_port_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_forward_port_armrests = grid(
+        seeds = [economy_forward_port_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 9,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 4,
+    )
+    pattern economy_aft_starboard_frames = grid(
+        seeds = [economy_aft_starboard_frame],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_aft_starboard_cushions = grid(
+        seeds = [economy_aft_starboard_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_aft_starboard_armrests = grid(
+        seeds = [economy_aft_starboard_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 4,
+    )
+    pattern economy_aft_port_frames = grid(
+        seeds = [economy_aft_port_frame],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_aft_port_cushions = grid(
+        seeds = [economy_aft_port_cushion],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 3,
+    )
+    pattern economy_aft_port_armrests = grid(
+        seeds = [economy_aft_port_armrest],
+        first = [1, 0, 0],
+        first_spacing = input.economy_pitch,
+        first_count = 13,
+        second = [0, 1, 0],
+        second_spacing = 450 mm,
+        second_count = 4,
+    )
 
     // The reading-light driver for the second economy row
     // (x = 9,690 mm), above the ceiling panel at the crown, in the frame bay between the frames

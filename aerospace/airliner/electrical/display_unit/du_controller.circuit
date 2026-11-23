@@ -5,7 +5,6 @@
 // the panel dimming input and the on discrete, sets the backlight's PWM and talks to the panel's
 // timing controller over SPI. The board is 120 x 100 mm on four M3 bosses in the case.
 circuit du_controller {
-    root = main
     net_class power = { track_width = "0.50 mm" }
     net_class supply = { track_width = "0.30 mm" }
     net_class digital = { track_width = "0.15 mm" }
@@ -17,7 +16,7 @@ circuit du_controller {
         description = "60 V 2 A synchronous buck, 500 kHz, 0.8 V reference, SOT-23-6"
         category = regulator
         package = "SOT23-6"
-        params = { vin_max = "60 V", iout_max = "2 A" }
+        params = { iout_max = "2 A", vin_max = "60 V" }
         pins = [
             { name = BST, pad = "1", type = passive },
             { name = GND, pad = "2", type = power_in },
@@ -35,7 +34,7 @@ circuit du_controller {
         description = "Six-channel boost LED driver, 60 V switch, 6 x 60 mA sinks, PWM dimming, QFN-24 4 x 4 mm"
         category = driver
         package = "QFN24_4mm_P0.5_EP2.6"
-        params = { vin_max = "40 V", vsw_max = "60 V", isink_max = "60 mA" }
+        params = { isink_max = "60 mA", vin_max = "40 V", vsw_max = "60 V" }
         pins = [
             { name = VIN, pad = "1", type = power_in },
             { name = VCC, pad = "2", type = power_out },
@@ -66,8 +65,11 @@ circuit du_controller {
         description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A"
         category = diode
         package = "D2010"
-        params = { vr_max = "60 V", if_max = "2 A" }
-        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+        params = { if_max = "2 A", vr_max = "60 V" }
+        pins = [
+            { name = K, pad = "1", type = passive },
+            { name = A, pad = "2", type = passive },
+        ]
     }
 
     part "TVS-33V-600W" = {
@@ -75,8 +77,11 @@ circuit du_controller {
         description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)"
         category = diode
         package = "D2010"
-        params = { v_standoff = "33 V", v_clamp = "53 V" }
-        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+        params = { v_clamp = "53 V", v_standoff = "33 V" }
+        pins = [
+            { name = K, pad = "1", type = passive },
+            { name = A, pad = "2", type = passive },
+        ]
     }
 
     part "FUSE-2A-1206" = {
@@ -85,7 +90,10 @@ circuit du_controller {
         category = fuse
         package = "F1206"
         params = { current = "2 A", voltage = "63 V" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "L1812-22U" = {
@@ -93,8 +101,11 @@ circuit du_controller {
         description = "22 uH 2.2 A shielded power inductor"
         category = inductor
         package = "L1812"
-        params = { inductance = "22 uH", current = "2.2 A" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        params = { current = "2.2 A", inductance = "22 uH" }
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "C1210-2U2-100V" = {
@@ -103,7 +114,10 @@ circuit du_controller {
         category = capacitor
         package = "C1210"
         params = { capacitance = "2.2 uF", voltage_rating = "100 V" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "R0402-330K" = {
@@ -112,7 +126,10 @@ circuit du_controller {
         category = resistor
         package = "R0402"
         params = { resistance = "330 kohm" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "R0402-20K" = {
@@ -121,7 +138,10 @@ circuit du_controller {
         category = resistor
         package = "R0402"
         params = { resistance = "20 kohm" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "CONN-1X05" = {
@@ -130,8 +150,10 @@ circuit du_controller {
         category = connector
         package = "PinHeader1x05"
         pins = [
-            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
-            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive },
+            { name = "4", pad = "4", type = passive },
             { name = "5", pad = "5", type = passive },
         ]
     }
@@ -142,9 +164,12 @@ circuit du_controller {
         category = connector
         package = "PinHeader1x06"
         pins = [
-            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
-            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
-            { name = "5", pad = "5", type = passive }, { name = "6", pad = "6", type = passive },
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive },
+            { name = "4", pad = "4", type = passive },
+            { name = "5", pad = "5", type = passive },
+            { name = "6", pad = "6", type = passive },
         ]
     }
 
@@ -154,10 +179,14 @@ circuit du_controller {
         category = connector
         package = "PinHeader1x08"
         pins = [
-            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
-            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
-            { name = "5", pad = "5", type = passive }, { name = "6", pad = "6", type = passive },
-            { name = "7", pad = "7", type = passive }, { name = "8", pad = "8", type = passive },
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive },
+            { name = "4", pad = "4", type = passive },
+            { name = "5", pad = "5", type = passive },
+            { name = "6", pad = "6", type = passive },
+            { name = "7", pad = "7", type = passive },
+            { name = "8", pad = "8", type = passive },
         ]
     }
 
@@ -350,8 +379,35 @@ circuit du_controller {
         net "+5V" = { class = supply, global = true, power_flag = true }
         net "+3V3" = { class = supply, global = true, power_flag = true }
         instance pwr = { sheet = power, bind = { V28_SENSE = net.V28_SENSE } }
-        instance bl = { sheet = backlight, bind = { BL_EN = net.BL_EN, BL_PWM = net.BL_PWM, BL_FAULT = net.BL_FAULT } }
-        instance mcu = { sheet = mcu, bind = { V28_SENSE = net.V28_SENSE, DIM_IN = net.DIM_IN, DISC_ON = net.DISC_ON, BL_EN = net.BL_EN, BL_PWM = net.BL_PWM, BL_FAULT = net.BL_FAULT, SPI_SCK = net.SPI_SCK, SPI_MOSI = net.SPI_MOSI, PANEL_CS = net.PANEL_CS, PANEL_EN = net.PANEL_EN } }
-        instance conn = { sheet = connectors, bind = { DIM_IN = net.DIM_IN, DISC_ON = net.DISC_ON, SPI_SCK = net.SPI_SCK, SPI_MOSI = net.SPI_MOSI, PANEL_CS = net.PANEL_CS, PANEL_EN = net.PANEL_EN } }
+        instance bl = {
+            sheet = backlight
+            bind = { BL_EN = net.BL_EN, BL_PWM = net.BL_PWM, BL_FAULT = net.BL_FAULT }
+        }
+        instance mcu = {
+            sheet = mcu
+            bind = {
+                V28_SENSE = net.V28_SENSE
+                DIM_IN = net.DIM_IN
+                DISC_ON = net.DISC_ON
+                BL_EN = net.BL_EN
+                BL_PWM = net.BL_PWM
+                BL_FAULT = net.BL_FAULT
+                SPI_SCK = net.SPI_SCK
+                SPI_MOSI = net.SPI_MOSI
+                PANEL_CS = net.PANEL_CS
+                PANEL_EN = net.PANEL_EN
+            }
+        }
+        instance conn = {
+            sheet = connectors
+            bind = {
+                DIM_IN = net.DIM_IN
+                DISC_ON = net.DISC_ON
+                SPI_SCK = net.SPI_SCK
+                SPI_MOSI = net.SPI_MOSI
+                PANEL_CS = net.PANEL_CS
+                PANEL_EN = net.PANEL_EN
+            }
+        }
     }
 }

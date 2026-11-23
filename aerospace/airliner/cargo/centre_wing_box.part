@@ -17,5 +17,10 @@ part centre_wing_box {
     }
     feature cell = extrude(profile = sketch.c, distance = 2950.294 mm, mode = cut)
 
-    output centre_wing_box = { body = feature.box.body, part_number = "WNG-CB-500", material = "aluminum_7075", color = "#A7B596" }
+    output centre_wing_box = {
+        body = feature.box.body
+        part_number = "WNG-CB-500"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

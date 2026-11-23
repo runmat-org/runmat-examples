@@ -42,7 +42,7 @@ part stair {
         l0_31 = line(start = [104.3906 in, 296 in], end = [0.5 in, 159.4702 in])
         l0_32 = line(start = [0.5 in, 159.4702 in], end = [0.5 in, 146 in])
     }
-    feature stringer_s1 = extrude(profile = sketch.stringer_s, distance = 1.5 in, mode = new)
+    feature stringer_s1 = extrude(profile = sketch.stringer_s, distance = 1.5 in)
     sketch stringer_n_s on plane.zx_p219_5 {
         l0_0 = line(start = [0.5 in, 146 in], end = [7.1094 in, 146 in])
         l0_1 = line(start = [7.1094 in, 146 in], end = [7.1094 in, 156 in])
@@ -78,7 +78,7 @@ part stair {
         l0_31 = line(start = [104.3906 in, 296 in], end = [0.5 in, 159.4702 in])
         l0_32 = line(start = [0.5 in, 159.4702 in], end = [0.5 in, 146 in])
     }
-    feature stringer_n = extrude(profile = sketch.stringer_n_s, distance = 1.5 in, mode = new)
+    feature stringer_n = extrude(profile = sketch.stringer_n_s, distance = 1.5 in)
     sketch treads_s on plane.zx_p182 {
         l0_0 = line(start = [7.1094 in, 144.25 in], end = [8.1094 in, 144.25 in])
         l0_1 = line(start = [8.1094 in, 144.25 in], end = [8.1094 in, 156 in])
@@ -141,7 +141,7 @@ part stair {
         l14_2 = line(start = [114.6406 in, 296 in], end = [113.6406 in, 296 in])
         l14_3 = line(start = [113.6406 in, 296 in], end = [113.6406 in, 284.25 in])
     }
-    feature treads = extrude(profile = sketch.treads_s, distance = 39 in, mode = new)
+    feature treads = extrude(profile = sketch.treads_s, distance = 39 in)
     sketch risers_s on plane.zx_p182 {
         l0_0 = line(start = [0.5 in, 145.25 in], end = [7.1094 in, 145.25 in])
         l0_1 = line(start = [7.1094 in, 145.25 in], end = [7.1094 in, 146 in])
@@ -208,14 +208,14 @@ part stair {
         l15_2 = line(start = [122.25 in, 296 in], end = [114.6406 in, 296 in])
         l15_3 = line(start = [114.6406 in, 296 in], end = [114.6406 in, 295.25 in])
     }
-    feature risers = extrude(profile = sketch.risers_s, distance = 39 in, mode = new)
+    feature risers = extrude(profile = sketch.risers_s, distance = 39 in)
     sketch handrail_s on plane.zx_p183_5 {
         l0_0 = line(start = [43.941 in, 146 in], end = [148.9504 in, 284 in])
         l0_1 = line(start = [148.9504 in, 284 in], end = [150.4504 in, 284 in])
         l0_2 = line(start = [150.4504 in, 284 in], end = [45.441 in, 146 in])
         l0_3 = line(start = [45.441 in, 146 in], end = [43.941 in, 146 in])
     }
-    feature handrail = extrude(profile = sketch.handrail_s, distance = 1.75 in, mode = new)
+    feature handrail = extrude(profile = sketch.handrail_s, distance = 1.75 in)
 
     // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_relief_pl0 = plane.offset(base = origin.xy, distance = 109.0625 in)
@@ -240,9 +240,24 @@ part stair {
     }
     feature hw_reliefs = extrude(profile = sketch.hw_reliefs_s, distance = 9.0625 in, mode = cut)
     // end connector holes all
-    output stair = { body = feature.stringer_s1.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
-    output stair_stringer_north = { body = feature.stringer_n.body, part_number = "ST-1", material = material.douglas_fir_lumber, label = "Notched 2x12 stringer" }
-    output stair_handrail = { body = feature.handrail.body, part_number = "ST-1", material = material.oak, label = "Oak handrail" }
+    output stair = {
+        body = feature.stringer_s1.body
+        part_number = "ST-1"
+        material = material.douglas_fir_lumber
+        label = "Notched 2x12 stringer"
+    }
+    output stair_stringer_north = {
+        body = feature.stringer_n.body
+        part_number = "ST-1"
+        material = material.douglas_fir_lumber
+        label = "Notched 2x12 stringer"
+    }
+    output stair_handrail = {
+        body = feature.handrail.body
+        part_number = "ST-1"
+        material = material.oak
+        label = "Oak handrail"
+    }
     assign material.oak to feature.treads.body
     assign material.pine_painted_riser to feature.risers.body
 }

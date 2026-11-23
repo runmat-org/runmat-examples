@@ -15,7 +15,16 @@ assembly arm_station {
     instance hinge : hinge_mount
     instance pin : hinge_pin
     instance unit : arm_unit = {
-        configuration = { select = inputs, values = { length_offset = input.length_offset, rise = input.rise, pod_tilt = input.pod_tilt, blade_a = input.blade_a, blade_b = input.blade_b } }
+        configuration = {
+            select = inputs
+            values = {
+                blade_a = input.blade_a
+                blade_b = input.blade_b
+                length_offset = input.length_offset
+                pod_tilt = input.pod_tilt
+                rise = input.rise
+            }
+        }
         placement = offset(rotation = axis_angle(axis = [0, 0, 1], angle = input.fold))
     }
 }

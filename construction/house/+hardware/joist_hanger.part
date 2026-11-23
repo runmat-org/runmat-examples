@@ -12,35 +12,35 @@ part joist_hanger {
         e2 = line(start = [let.half + let.t, 2.5 in], end = [-let.half - let.t, 2.5 in])
         e3 = line(start = [-let.half - let.t, 2.5 in], end = [-let.half - let.t, 0 in])
     }
-    feature seat = extrude(profile = sketch.seat_s, distance = 0.048 in, mode = new)
+    feature seat = extrude(profile = sketch.seat_s, distance = 0.048 in)
     sketch side_r_s on origin.xy {
         e0 = line(start = [let.half, 0 in], end = [let.half + let.t, 0 in])
         e1 = line(start = [let.half + let.t, 0 in], end = [let.half + let.t, 2.5 in])
         e2 = line(start = [let.half + let.t, 2.5 in], end = [let.half, 2.5 in])
         e3 = line(start = [let.half, 2.5 in], end = [let.half, 0 in])
     }
-    feature side_r = extrude(profile = sketch.side_r_s, distance = 9 in, mode = new)
+    feature side_r = extrude(profile = sketch.side_r_s, distance = 9 in)
     sketch flange_r_s on origin.xy {
         e0 = line(start = [let.half + let.t, 0 in], end = [let.half + 1 in, 0 in])
         e1 = line(start = [let.half + 1 in, 0 in], end = [let.half + 1 in, let.t])
         e2 = line(start = [let.half + 1 in, let.t], end = [let.half + let.t, let.t])
         e3 = line(start = [let.half + let.t, let.t], end = [let.half + let.t, 0 in])
     }
-    feature flange_r = extrude(profile = sketch.flange_r_s, distance = 9 in, mode = new)
+    feature flange_r = extrude(profile = sketch.flange_r_s, distance = 9 in)
     sketch side_l_s on origin.xy {
         e0 = line(start = [-let.half - let.t, 0 in], end = [-let.half, 0 in])
         e1 = line(start = [-let.half, 0 in], end = [-let.half, 2.5 in])
         e2 = line(start = [-let.half, 2.5 in], end = [-let.half - let.t, 2.5 in])
         e3 = line(start = [-let.half - let.t, 2.5 in], end = [-let.half - let.t, 0 in])
     }
-    feature side_l = extrude(profile = sketch.side_l_s, distance = 9 in, mode = new)
+    feature side_l = extrude(profile = sketch.side_l_s, distance = 9 in)
     sketch flange_l_s on origin.xy {
         e0 = line(start = [-let.half - 1 in, 0 in], end = [-let.half - let.t, 0 in])
         e1 = line(start = [-let.half - let.t, 0 in], end = [-let.half - let.t, let.t])
         e2 = line(start = [-let.half - let.t, let.t], end = [-let.half - 1 in, let.t])
         e3 = line(start = [-let.half - 1 in, let.t], end = [-let.half - 1 in, 0 in])
     }
-    feature flange_l = extrude(profile = sketch.flange_l_s, distance = 9 in, mode = new)
+    feature flange_l = extrude(profile = sketch.flange_l_s, distance = 9 in)
     output joist_hanger = { body = feature.seat.body, part_number = "JH-2516", material = material.galvanized_steel }
     configuration single = { part_number = "JH-2516", description = "Hanger, single 2 5/16 x 11 7/8 I-joist" }
     configuration double = {

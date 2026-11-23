@@ -17,7 +17,7 @@ part kitchen {
         l0_2 = line(start = [338 in, 353.9844 in], end = [302 in, 353.9844 in])
         l0_3 = line(start = [302 in, 353.9844 in], end = [302 in, 323.9844 in])
     }
-    feature refrigerator = extrude(profile = sketch.refrigerator_s, distance = 70 in, mode = new)
+    feature refrigerator = extrude(profile = sketch.refrigerator_s, distance = 70 in)
     // North run: a 24 in base, the 36 in sink base centered on the window, and a base to the east,
     // each a carcass with a toe kick; the sink base has no back, for the supply and the drain
     sketch base_north_s on plane.xy_p0_5 {
@@ -26,7 +26,7 @@ part kitchen {
         l0_2 = line(start = [362 in, 353.9844 in], end = [338 in, 353.9844 in])
         l0_3 = line(start = [338 in, 353.9844 in], end = [338 in, 329.9844 in])
     }
-    feature base_north = extrude(profile = sketch.base_north_s, distance = 34.5 in, mode = new)
+    feature base_north = extrude(profile = sketch.base_north_s, distance = 34.5 in)
     sketch base_north_hollow_s on plane.xy_p5_25 {
         l0_0 = line(start = [338.75 in, 330.7344 in], end = [361.25 in, 330.7344 in])
         l0_1 = line(start = [361.25 in, 330.7344 in], end = [361.25 in, 353.7344 in])
@@ -47,7 +47,7 @@ part kitchen {
         l0_2 = line(start = [398 in, 353.9844 in], end = [362 in, 353.9844 in])
         l0_3 = line(start = [362 in, 353.9844 in], end = [362 in, 329.9844 in])
     }
-    feature sink_base = extrude(profile = sketch.sink_base_s, distance = 34.5 in, mode = new)
+    feature sink_base = extrude(profile = sketch.sink_base_s, distance = 34.5 in)
     sketch sink_base_hollow_s on plane.xy_p5_25 {
         l0_0 = line(start = [362.75 in, 330.7344 in], end = [397.25 in, 330.7344 in])
         l0_1 = line(start = [397.25 in, 330.7344 in], end = [397.25 in, 353.9844 in])
@@ -68,7 +68,7 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 353.9844 in], end = [398 in, 353.9844 in])
         l0_3 = line(start = [398 in, 353.9844 in], end = [398 in, 329.9844 in])
     }
-    feature base_north2 = extrude(profile = sketch.base_north2_s, distance = 34.5 in, mode = new)
+    feature base_north2 = extrude(profile = sketch.base_north2_s, distance = 34.5 in)
     sketch base_north2_hollow_s on plane.xy_p5_25 {
         l0_0 = line(start = [398.75 in, 330.7344 in], end = [473.2344 in, 330.7344 in])
         l0_1 = line(start = [473.2344 in, 330.7344 in], end = [473.2344 in, 353.7344 in])
@@ -89,7 +89,7 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 353.9844 in], end = [338 in, 353.9844 in])
         l0_3 = line(start = [338 in, 353.9844 in], end = [338 in, 328.4844 in])
     }
-    feature top_north = extrude(profile = sketch.top_north_s, distance = 1.5 in, mode = new)
+    feature top_north = extrude(profile = sketch.top_north_s, distance = 1.5 in)
     sketch sink_hole_s on plane.xy_p26 {
         l0_0 = line(start = [365 in, 332.9844 in], end = [395 in, 332.9844 in])
         l0_1 = line(start = [395 in, 332.9844 in], end = [395 in, 350.9844 in])
@@ -103,7 +103,7 @@ part kitchen {
         l0_2 = line(start = [395 in, 350.9844 in], end = [365 in, 350.9844 in])
         l0_3 = line(start = [365 in, 350.9844 in], end = [365 in, 332.9844 in])
     }
-    feature sink = extrude(profile = sketch.sink_s, distance = 10.5 in, mode = new)
+    feature sink = extrude(profile = sketch.sink_s, distance = 10.5 in)
     sketch basin_s on plane.xy_p27 {
         l0_0 = line(start = [366 in, 333.9844 in], end = [394 in, 333.9844 in])
         l0_1 = line(start = [394 in, 333.9844 in], end = [394 in, 349.9844 in])
@@ -118,7 +118,7 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 220 in], end = [449.9844 in, 220 in])
         l0_3 = line(start = [449.9844 in, 220 in], end = [449.9844 in, 190 in])
     }
-    feature base_east1 = extrude(profile = sketch.base_east1_s, distance = 34.5 in, mode = new)
+    feature base_east1 = extrude(profile = sketch.base_east1_s, distance = 34.5 in)
     sketch base_east1_hollow_s on plane.xy_p5_25 {
         l0_0 = line(start = [450.7344 in, 190.75 in], end = [473.7344 in, 190.75 in])
         l0_1 = line(start = [473.7344 in, 190.75 in], end = [473.7344 in, 219.25 in])
@@ -139,21 +139,21 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 220 in], end = [448.4844 in, 220 in])
         l0_3 = line(start = [448.4844 in, 220 in], end = [448.4844 in, 190 in])
     }
-    feature top_east1 = extrude(profile = sketch.top_east1_s, distance = 1.5 in, mode = new)
+    feature top_east1 = extrude(profile = sketch.top_east1_s, distance = 1.5 in)
     sketch range_s on plane.xy_p0_5 {
         l0_0 = line(start = [446.9844 in, 220 in], end = [472.9844 in, 220 in])
         l0_1 = line(start = [472.9844 in, 220 in], end = [472.9844 in, 250 in])
         l0_2 = line(start = [472.9844 in, 250 in], end = [446.9844 in, 250 in])
         l0_3 = line(start = [446.9844 in, 250 in], end = [446.9844 in, 220 in])
     }
-    feature range = extrude(profile = sketch.range_s, distance = 36 in, mode = new)
+    feature range = extrude(profile = sketch.range_s, distance = 36 in)
     sketch base_east2_s on plane.xy_p0_5 {
         l0_0 = line(start = [449.9844 in, 250 in], end = [473.9844 in, 250 in])
         l0_1 = line(start = [473.9844 in, 250 in], end = [473.9844 in, 270 in])
         l0_2 = line(start = [473.9844 in, 270 in], end = [449.9844 in, 270 in])
         l0_3 = line(start = [449.9844 in, 270 in], end = [449.9844 in, 250 in])
     }
-    feature base_east2 = extrude(profile = sketch.base_east2_s, distance = 34.5 in, mode = new)
+    feature base_east2 = extrude(profile = sketch.base_east2_s, distance = 34.5 in)
     sketch base_east2_hollow_s on plane.xy_p5_25 {
         l0_0 = line(start = [450.7344 in, 250.75 in], end = [473.7344 in, 250.75 in])
         l0_1 = line(start = [473.7344 in, 250.75 in], end = [473.7344 in, 269.25 in])
@@ -174,7 +174,7 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 270 in], end = [448.4844 in, 270 in])
         l0_3 = line(start = [448.4844 in, 270 in], end = [448.4844 in, 250 in])
     }
-    feature top_east2 = extrude(profile = sketch.top_east2_s, distance = 1.5 in, mode = new)
+    feature top_east2 = extrude(profile = sketch.top_east2_s, distance = 1.5 in)
     // Wall cabinets, 12 in deep, either side of the window: carcasses with a top and a bottom
     sketch upper_w_s on plane.xy_p54_5 {
         l0_0 = line(start = [338 in, 341.9844 in], end = [352 in, 341.9844 in])
@@ -182,7 +182,7 @@ part kitchen {
         l0_2 = line(start = [352 in, 353.9844 in], end = [338 in, 353.9844 in])
         l0_3 = line(start = [338 in, 353.9844 in], end = [338 in, 341.9844 in])
     }
-    feature upper_w = extrude(profile = sketch.upper_w_s, distance = 30 in, mode = new)
+    feature upper_w = extrude(profile = sketch.upper_w_s, distance = 30 in)
     sketch upper_w_hollow_s on plane.xy_p55_25 {
         l0_0 = line(start = [338.75 in, 342.7344 in], end = [351.25 in, 342.7344 in])
         l0_1 = line(start = [351.25 in, 342.7344 in], end = [351.25 in, 353.7344 in])
@@ -196,7 +196,7 @@ part kitchen {
         l0_2 = line(start = [473.9844 in, 353.9844 in], end = [408 in, 353.9844 in])
         l0_3 = line(start = [408 in, 353.9844 in], end = [408 in, 341.9844 in])
     }
-    feature upper_e = extrude(profile = sketch.upper_e_s, distance = 30 in, mode = new)
+    feature upper_e = extrude(profile = sketch.upper_e_s, distance = 30 in)
     sketch upper_e_hollow_s on plane.xy_p55_25 {
         l0_0 = line(start = [408.75 in, 342.7344 in], end = [473.2344 in, 342.7344 in])
         l0_1 = line(start = [473.2344 in, 342.7344 in], end = [473.2344 in, 353.7344 in])
@@ -217,11 +217,38 @@ part kitchen {
     }
     feature mep_all_1 = extrude(profile = sketch.mep_all_1_s, distance = 25.9681 in, mode = cut)
     // end MEP penetrations all
-    output kitchen = { body = feature.base_north.body, part_number = "K-1", material = material.birch_plywood_cabinet, color = "#E9E3D6", label = "Base cabinets" }
-    output kitchen_countertop = { body = feature.top_north.body, part_number = "K-1", material = material.granite_countertop, color = "#5E6266", label = "Countertop" }
-    output kitchen_sink = { body = feature.sink.body, part_number = "K-1", material = material.stainless_304, label = "Sink, 30 x 18 in" }
-    output kitchen_range = { body = feature.range.body, part_number = "K-1", material = material.stainless_304, label = "Range, 30 in" }
-    output kitchen_refrigerator = { body = feature.refrigerator.body, part_number = "K-1", material = material.stainless_304, label = "Refrigerator, 36 in" }
+    output kitchen = {
+        body = feature.base_north.body
+        part_number = "K-1"
+        material = material.birch_plywood_cabinet
+        color = "#E9E3D6"
+        label = "Base cabinets"
+    }
+    output kitchen_countertop = {
+        body = feature.top_north.body
+        part_number = "K-1"
+        material = material.granite_countertop
+        color = "#5E6266"
+        label = Countertop
+    }
+    output kitchen_sink = {
+        body = feature.sink.body
+        part_number = "K-1"
+        material = material.stainless_304
+        label = "Sink, 30 x 18 in"
+    }
+    output kitchen_range = {
+        body = feature.range.body
+        part_number = "K-1"
+        material = material.stainless_304
+        label = "Range, 30 in"
+    }
+    output kitchen_refrigerator = {
+        body = feature.refrigerator.body
+        part_number = "K-1"
+        material = material.stainless_304
+        label = "Refrigerator, 36 in"
+    }
     assign material.birch_plywood_cabinet to feature.sink_base.body
     assign material.birch_plywood_cabinet to feature.base_north2.body
     assign material.birch_plywood_cabinet to feature.base_east1.body

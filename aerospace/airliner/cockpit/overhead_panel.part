@@ -18,5 +18,10 @@ part overhead_panel {
     }
     feature body = extrude(profile = sketch.s, distance = 760 mm, symmetric = true)
 
-    output overhead_panel = { body = feature.body.body, part_number = "FD-OH-370", material = "aluminum_6061", color = "#3C4148" }
+    output overhead_panel = {
+        body = feature.body.body
+        part_number = "FD-OH-370"
+        material = aluminum_6061
+        color = "#3C4148"
+    }
 }

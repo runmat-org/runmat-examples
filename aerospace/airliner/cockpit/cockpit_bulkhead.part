@@ -46,5 +46,10 @@ part cockpit_bulkhead {
     }
     feature doorway = extrude(profile = sketch.d, distance = 40 mm, mode = cut)
 
-    output cockpit_bulkhead = { body = feature.wall.body, part_number = "FD-BH-310", material = "composite", color = "#C9CDD2" }
+    output cockpit_bulkhead = {
+        body = feature.wall.body
+        part_number = "FD-BH-310"
+        material = composite
+        color = "#C9CDD2"
+    }
 }

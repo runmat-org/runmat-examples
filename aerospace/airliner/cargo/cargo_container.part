@@ -10,5 +10,10 @@ part cargo_container {
     }
     feature box = extrude(profile = sketch.s, distance = 1530 mm)
 
-    output cargo_container = { body = feature.box.body, part_number = "FUS-UL-810", material = "aluminum_2024", color = "#B7BDC5" }
+    output cargo_container = {
+        body = feature.box.body
+        part_number = "FUS-UL-810"
+        material = aluminum_2024
+        color = "#B7BDC5"
+    }
 }

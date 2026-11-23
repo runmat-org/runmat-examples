@@ -8,5 +8,10 @@ part ceiling_panel {
     }
     feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 64 deg)
 
-    output ceiling_panel = { body = feature.panel.body, part_number = "CAB-LN-510", material = "polycarbonate", color = "#ECEDEF" }
+    output ceiling_panel = {
+        body = feature.panel.body
+        part_number = "CAB-LN-510"
+        material = polycarbonate
+        color = "#ECEDEF"
+    }
 }

@@ -33,5 +33,10 @@ part seat_frame {
     }
     feature tube1 = extrude(profile = sketch.tube1_s, distance = 400 mm, symmetric = true, mode = add)
 
-    output seat_frame = { body = feature.leg0.body, part_number = "CAB-ST-110", material = "aluminum_7075", color = "#8C9299" }
+    output seat_frame = {
+        body = feature.leg0.body
+        part_number = "CAB-ST-110"
+        material = aluminum_7075
+        color = "#8C9299"
+    }
 }

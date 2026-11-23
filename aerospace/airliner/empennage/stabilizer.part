@@ -25,5 +25,10 @@ part stabilizer {
     }
     feature hollow = loft(profiles = [sketch.is0, sketch.is1], mode = cut)
 
-    output stabilizer = { body = feature.surface.body, part_number = "EMP-HT-710", material = "composite", color = "#E4E7EB" }
+    output stabilizer = {
+        body = feature.surface.body
+        part_number = "EMP-HT-710"
+        material = composite
+        color = "#E4E7EB"
+    }
 }

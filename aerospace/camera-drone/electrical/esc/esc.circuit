@@ -5,11 +5,10 @@
 // carries the battery, the four motor signals and telemetry to the flight controller. The board
 // is 52 x 52 mm on the 30.5 mm stack pattern, its channels set around the center.
 circuit esc {
-    root = main
-    net_class power = { track_width = "1.00 mm", clearance = "0.20 mm" }
+    net_class power = { clearance = "0.20 mm", track_width = "1.00 mm" }
     // Phase and source nets carry the motor current in their copper pours; their tracks carry
     // only gate charge, bootstrap and sense current.
-    net_class phase = { track_width = "0.30 mm", clearance = "0.20 mm" }
+    net_class phase = { clearance = "0.20 mm", track_width = "0.30 mm" }
     net_class gate = { track_width = "0.25 mm" }
     net_class logic_supply = { track_width = "0.30 mm" }
 
@@ -125,7 +124,11 @@ circuit esc {
         net VBAT = { class = power, global = true, power_flag = true }
         net "+3V3" = { class = logic_supply, global = true, power_flag = true }
         bus SIG = [M1, M2, M3, M4]
-        instance ch = { sheet = channel, repeat = 4, bind = { SIG = { bus = SIG, offset = 0 }, TLM = net.TLM } }
+        instance ch = {
+            sheet = channel
+            repeat = 4
+            bind = { SIG = { bus = SIG, offset = 0 }, TLM = net.TLM }
+        }
         connect [net.VBAT, P1."1", C1."1", C2."1", U1.VIN, U1.EN, C3."1", J1."1"]
         connect [net.GND, P2."1", C1."2", C2."2", U1.GND, C3."2", C4."2", J1."2"]
         connect [net."+3V3", U1.VOUT, C4."1"]
@@ -144,19 +147,51 @@ circuit esc {
         sheet = channel
         source VB = { p = net.VBAT, dc = 22.2 V }
         source V3 = { p = net."+3V3", dc = 3.3 V }
-        source HA = { p = net.INHA, pulse = { from = 0 V, to = 3.3 V, delay = 1 us, rise = 5 ns, fall = 5 ns, width = 10 us, period = 20.83 us } }
-        source LA = { p = net.INLA, pulse = { from = 3.3 V, to = 0 V, delay = 0.7 us, rise = 5 ns, fall = 5 ns, width = 10.6 us, period = 20.83 us } }
-        source HB = { p = net.INHB, dc = 0 V }
+        source HA = {
+            p = net.INHA
+            pulse = {
+                from = 0 V
+                to = 3.3 V
+                delay = 1 us
+                rise = 5 ns
+                fall = 5 ns
+                width = 10 us
+                period = 20.83 us
+            }
+        }
+        source LA = {
+            p = net.INLA
+            pulse = {
+                from = 3.3 V
+                to = 0 V
+                delay = 0.7 us
+                rise = 5 ns
+                fall = 5 ns
+                width = 10.6 us
+                period = 20.83 us
+            }
+        }
+        source HB = { p = net.INHB }
         source LB = { p = net.INLB, dc = 3.3 V }
-        source HC = { p = net.INHC, dc = 0 V }
+        source HC = { p = net.INHC }
         source LC = { p = net.INLC, dc = 3.3 V }
         source EN = { p = net.DRV_EN, dc = 3.3 V }
-        source IMOT = { p = net.PHA, n = net.PHB, dc = 20 A, current = true }
-        spice_model "GATEDRV-3PH-QFN24" = { library = "esc_models.lib", subckt = GATEDRV3, pins = [INHA, INLA, INHB, INLB, INHC, INLC, EN, GND, VCC, VDRV, BSTA, GHA, SHA, GLA, BSTB, GHB, SHB, GLB, BSTC, GHC, SHC, GLC, FAULT] }
+        source IMOT = { p = net.PHA, n = net.PHB, current = true, dc = 20 A }
+        spice_model "GATEDRV-3PH-QFN24" = {
+            library = "esc_models.lib"
+            subckt = GATEDRV3
+            pins = [INHA, INLA, INHB, INLB, INHC, INLC, EN, GND, VCC, VDRV, BSTA, GHA, SHA, GLA, BSTB, GHB, SHB, GLB, BSTC, GHC, SHC, GLC, FAULT]
+        }
         spice_model "NMOS-40V-DFN8" = { library = "esc_models.lib", subckt = NMOS40, pins = [D, G, S] }
         analysis edges : tran = { stop = 14 us, step = 2 ns }
         probe = [net.INHA, net.GHA, net.GLA, net.PHA, QHA.D]
-        measure rise = { of = edges, rise_time = net.PHA, from = 0.9 us, to = 4 us, spec = { max = 40 ns } }
+        measure rise = {
+            of = edges
+            rise_time = net.PHA
+            from = 0.9 us
+            to = 4 us
+            spec = { max = 40 ns }
+        }
         measure overshoot = { of = edges, max = net.PHA, from = 0.5 us, to = 4 us, spec = { max = 30 V } }
         measure gate_high = { of = edges, max = net.GHA, spec = { max = 34 V } }
         measure on_current = { of = edges, rms = QHA.D, from = 2 us, to = 10 us }
@@ -170,9 +205,49 @@ circuit esc {
     // reads +20 A and B and C read -10 A each.
     simulation current_sense {
         sheet = channel
-        source IPA = { p = net.GND, n = net.SRCA, current = true, ac = 1 A, pulse = { from = 0 A, to = 20 A, delay = 20 us, rise = 1 us, fall = 1 us, width = 200 us, period = 400 us } }
-        source IPB = { p = net.GND, n = net.SRCB, current = true, pulse = { from = 0 A, to = -10 A, delay = 20 us, rise = 1 us, fall = 1 us, width = 200 us, period = 400 us } }
-        source IPC = { p = net.GND, n = net.SRCC, current = true, pulse = { from = 0 A, to = -10 A, delay = 20 us, rise = 1 us, fall = 1 us, width = 200 us, period = 400 us } }
+        source IPA = {
+            p = net.GND
+            n = net.SRCA
+            current = true
+            ac = 1 A
+            pulse = {
+                from = 0 A
+                to = 20 A
+                delay = 20 us
+                rise = 1 us
+                fall = 1 us
+                width = 200 us
+                period = 400 us
+            }
+        }
+        source IPB = {
+            p = net.GND
+            n = net.SRCB
+            current = true
+            pulse = {
+                from = 0 A
+                to = -10 A
+                delay = 20 us
+                rise = 1 us
+                fall = 1 us
+                width = 200 us
+                period = 400 us
+            }
+        }
+        source IPC = {
+            p = net.GND
+            n = net.SRCC
+            current = true
+            pulse = {
+                from = 0 A
+                to = -10 A
+                delay = 20 us
+                rise = 1 us
+                fall = 1 us
+                width = 200 us
+                period = 400 us
+            }
+        }
         tolerance resistors = { match = "R*", value = 1 % }
         tolerance capacitors = { match = "C*", value = 10 % }
         analysis step : tran = { stop = 120 us, step = 100 ns }
@@ -180,11 +255,42 @@ circuit esc {
         analysis spread : monte_carlo = { of = response, runs = 1000, seed = 7 }
         probe = [net.ISENSE_A, net.ISENSE_B, net.ISENSE_C, net.SRCA]
         measure f3db = { of = response, bandwidth = net.ISENSE_A, spec = { min = 14 kHz, max = 18 kHz } }
-        measure sense = { of = step, average = net.ISENSE_A, from = 100 us, to = 120 us, spec = { min = 9.5 mV, max = 10.5 mV } }
-        measure sense_b = { of = step, average = net.ISENSE_B, from = 100 us, to = 120 us, spec = { min = -5.25 mV, max = -4.75 mV } }
-        measure sense_c = { of = step, average = net.ISENSE_C, from = 100 us, to = 120 us, spec = { min = -5.25 mV, max = -4.75 mV } }
-        measure rise = { of = step, rise_time = net.ISENSE_A, from = 10 us, to = 120 us, spec = { max = 30 us } }
-        measure settle = { of = step, settling = net.ISENSE_A, band = 0.01, from = 20 us, to = 120 us, spec = { max = 60 us } }
+        measure sense = {
+            of = step
+            average = net.ISENSE_A
+            from = 100 us
+            to = 120 us
+            spec = { min = 9.5 mV, max = 10.5 mV }
+        }
+        measure sense_b = {
+            of = step
+            average = net.ISENSE_B
+            from = 100 us
+            to = 120 us
+            spec = { min = -5.25 mV, max = -4.75 mV }
+        }
+        measure sense_c = {
+            of = step
+            average = net.ISENSE_C
+            from = 100 us
+            to = 120 us
+            spec = { min = -5.25 mV, max = -4.75 mV }
+        }
+        measure rise = {
+            of = step
+            rise_time = net.ISENSE_A
+            from = 10 us
+            to = 120 us
+            spec = { max = 30 us }
+        }
+        measure settle = {
+            of = step
+            settling = net.ISENSE_A
+            band = 1 %
+            from = 20 us
+            to = 120 us
+            spec = { max = 60 us }
+        }
         measure f3db_spread = { of = spread, bandwidth = net.ISENSE_A, spec = { min = 14 kHz, max = 18 kHz } }
     }
 }

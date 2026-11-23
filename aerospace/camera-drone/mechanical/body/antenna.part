@@ -9,5 +9,10 @@ part antenna {
         a4 = line(start = [-2.6 mm, 0.2 mm], end = [-2.6 mm, -0.2 mm])
     }
     feature strip = extrude(profile = sketch.s, distance = 30 mm)
-    output antenna = { body = feature.strip.body, part_number = "CD-RF-410", material = "composite", color = "#C8A951" }
+    output antenna = {
+        body = feature.strip.body
+        part_number = "CD-RF-410"
+        material = composite
+        color = "#C8A951"
+    }
 }

@@ -13,10 +13,15 @@ part aft_pressure_bulkhead {
     feature dome = revolve(profile = sketch.s, axis = origin.x, angle = input.sweep)
 
     // The cabin side (forward, concave), the rim on the fuselage frame, and a sector's cut faces.
-    region cabin_side : face = { select = [feature.dome.face.side(s.c3)], expect = one_or_more, label = "cabin_side" }
-    region rim : face = { select = [feature.dome.face.side(s.c4)], expect = one_or_more, label = "rim" }
-    region cut_start : face = { select = [feature.dome.face.start], expect = any, label = "cut_start" }
-    region cut_end : face = { select = [feature.dome.face.end], expect = any, label = "cut_end" }
+    region cabin_side : face = { select = [feature.dome.face.side(s.c3)], expect = one_or_more, label = cabin_side }
+    region rim : face = { select = [feature.dome.face.side(s.c4)], expect = one_or_more, label = rim }
+    region cut_start : face = { select = [feature.dome.face.start], expect = any, label = cut_start }
+    region cut_end : face = { select = [feature.dome.face.end], expect = any, label = cut_end }
 
-    output aft_pressure_bulkhead = { body = feature.dome.body, part_number = "FUS-PB-060", material = "aluminum_2024", color = "#A7B596" }
+    output aft_pressure_bulkhead = {
+        body = feature.dome.body
+        part_number = "FUS-PB-060"
+        material = aluminum_2024
+        color = "#A7B596"
+    }
 }

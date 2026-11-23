@@ -32,22 +32,38 @@ part muffler {
     sketch chamber_1_s on plane.chamber_1_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rc)
     }
-    feature chamber_1 = extrude(profile = sketch.chamber_1_s, distance = input.chamber, mode = add(targets = [feature.inlet_bore.body]))
+    feature chamber_1 = extrude(
+        profile = sketch.chamber_1_s,
+        distance = input.chamber,
+        mode = add(targets = [feature.inlet_bore.body]),
+    )
     feature opening_plane = plane.offset(base = origin.xy, distance = let.c2)
     sketch opening_s on plane.opening_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rp)
     }
-    feature opening = extrude(profile = sketch.opening_s, distance = input.wall, mode = add(targets = [feature.inlet_bore.body]))
+    feature opening = extrude(
+        profile = sketch.opening_s,
+        distance = input.wall,
+        mode = add(targets = [feature.inlet_bore.body]),
+    )
     feature chamber_2_plane = plane.offset(base = origin.xy, distance = let.c3)
     sketch chamber_2_s on plane.chamber_2_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rc)
     }
-    feature chamber_2 = extrude(profile = sketch.chamber_2_s, distance = input.chamber, mode = add(targets = [feature.inlet_bore.body]))
+    feature chamber_2 = extrude(
+        profile = sketch.chamber_2_s,
+        distance = input.chamber,
+        mode = add(targets = [feature.inlet_bore.body]),
+    )
     feature tail_bore_plane = plane.offset(base = origin.xy, distance = let.c4)
     sketch tail_bore_s on plane.tail_bore_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rp)
     }
-    feature tail_bore = extrude(profile = sketch.tail_bore_s, distance = input.pipe_length, mode = add(targets = [feature.inlet_bore.body]))
+    feature tail_bore = extrude(
+        profile = sketch.tail_bore_s,
+        distance = input.pipe_length,
+        mode = add(targets = [feature.inlet_bore.body]),
+    )
 
     // The shell's outside: the pipes and the shell one wall out, the end caps one wall thick.
     sketch inlet_pipe_s on origin.xy {
@@ -58,16 +74,34 @@ part muffler {
     sketch shell_s on plane.shell_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rc + input.wall)
     }
-    feature shell = extrude(profile = sketch.shell_s, distance = input.chamber * 2 + input.wall * 3, mode = add(targets = [feature.inlet_pipe.body]))
+    feature shell = extrude(
+        profile = sketch.shell_s,
+        distance = input.chamber * 2 + input.wall * 3,
+        mode = add(targets = [feature.inlet_pipe.body]),
+    )
     feature tail_pipe_plane = plane.offset(base = origin.xy, distance = let.c4 + input.wall)
     sketch tail_pipe_s on plane.tail_pipe_plane {
         rim = circle(center = [0 mm, 0 mm], radius = let.rp + input.wall)
     }
-    feature tail_pipe = extrude(profile = sketch.tail_pipe_s, distance = input.pipe_length - input.wall, mode = add(targets = [feature.inlet_pipe.body]))
+    feature tail_pipe = extrude(
+        profile = sketch.tail_pipe_s,
+        distance = input.pipe_length - input.wall,
+        mode = add(targets = [feature.inlet_pipe.body]),
+    )
     feature hollow = boolean.subtract(target = feature.inlet_pipe.body, tools = [feature.inlet_bore.body], keep_tools = true)
 
-    region inlet : face = { select = [feature.inlet_bore.face.start], expect = exactly_one, body = feature.inlet_bore.body, label = "Inlet" }
-    region outlet : face = { select = [feature.tail_bore.face.end], expect = exactly_one, body = feature.inlet_bore.body, label = "Outlet" }
+    region inlet : face = {
+        select = [feature.inlet_bore.face.start]
+        expect = exactly_one
+        label = Inlet
+        body = feature.inlet_bore.body
+    }
+    region outlet : face = {
+        select = [feature.tail_bore.face.end]
+        expect = exactly_one
+        label = Outlet
+        body = feature.inlet_bore.body
+    }
     region walls : face = {
         select = [
             feature.inlet_bore.face.side(inlet_bore_s.rim),
@@ -82,13 +116,19 @@ part muffler {
         ]
         expect = one_or_more
         body = feature.inlet_bore.body
-        label = "Walls"
+        label = Walls
     }
 
     // The acoustic study's geometry: the gas alone. The shell is a rigid wall to the gas, so the
     // study needs no mesh of it.
-    configuration air_only = { suppress = [feature.inlet_pipe, feature.shell, feature.tail_pipe, feature.hollow] }
+    configuration air_only = { suppress = [feature.hollow, feature.inlet_pipe, feature.shell, feature.tail_pipe] }
 
-    output shell = { body = feature.inlet_pipe.body, label = "Shell", part_number = "EX-1802", material = "aluminized_steel", color = "#8D9196" }
-    output air = { body = feature.inlet_bore.body, label = "Air", color = "#CFE3F5" }
+    output shell = {
+        body = feature.inlet_pipe.body
+        part_number = "EX-1802"
+        material = aluminized_steel
+        color = "#8D9196"
+        label = Shell
+    }
+    output air = { body = feature.inlet_bore.body, color = "#CFE3F5", label = Air }
 }

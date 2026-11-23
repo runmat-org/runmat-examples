@@ -7,12 +7,12 @@ drawing hinge_mount {
     format a3 = {
         size = iso(name = A3)
         title_block = [
-            { label = "Title", source = literal(text = "Arm hinge mount (clevis)") },
+            { label = Title, source = literal(text = "Arm hinge mount (clevis)") },
             { label = "Part number", source = property(name = part_number) },
-            { label = "Material", source = property(name = material) },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Material, source = property(name = material) },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -22,12 +22,34 @@ drawing hinge_mount {
         projection = third_angle
 
         view front = standard(orientation = front, model = hinge_mount, at = [150, 200] mm, display = hidden_lines)
-        view top = projected(from = front, direction = up, model = hinge_mount, at = [150, 105] mm, display = hidden_lines)
+        view top = projected(
+            from = front,
+            direction = up,
+            model = hinge_mount,
+            at = [150, 105] mm,
+            display = hidden_lines,
+        )
         view iso = standard(orientation = isometric, model = hinge_mount, at = [330, 115] mm, display = visible_lines)
     }
 
-    annotation clevis_height = dimension(style = linear, references = [feature.back.face.start, feature.back.face.end], view = front)
-    annotation lug_thickness = dimension(style = linear, references = [feature.upper.face.start, feature.upper.face.end], view = front)
-    annotation pin_to_screw = dimension(style = linear, references = [feature.upper.face.side(upper_s.pin), feature.bores.face.side(bore_s.s1)], view = top)
-    annotation screw_pitch = dimension(style = linear, references = [feature.bores.face.side(bore_s.s1), feature.bores.face.side(bore_s.s2)], view = top)
+    annotation clevis_height = dimension(
+        style = linear,
+        references = [feature.back.face.start, feature.back.face.end],
+        view = front,
+    )
+    annotation lug_thickness = dimension(
+        style = linear,
+        references = [feature.upper.face.start, feature.upper.face.end],
+        view = front,
+    )
+    annotation pin_to_screw = dimension(
+        style = linear,
+        references = [feature.upper.face.side(upper_s.pin), feature.bores.face.side(bore_s.s1)],
+        view = top,
+    )
+    annotation screw_pitch = dimension(
+        style = linear,
+        references = [feature.bores.face.side(bore_s.s1), feature.bores.face.side(bore_s.s2)],
+        view = top,
+    )
 }

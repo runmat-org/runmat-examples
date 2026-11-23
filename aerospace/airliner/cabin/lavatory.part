@@ -18,5 +18,10 @@ part lavatory {
     }
     feature door = extrude(profile = sketch.d, distance = 10 mm, mode = cut)
 
-    output lavatory = { body = feature.box.body, part_number = "CAB-LV-610", material = "polycarbonate", color = "#E5E1D8" }
+    output lavatory = {
+        body = feature.box.body
+        part_number = "CAB-LV-610"
+        material = polycarbonate
+        color = "#E5E1D8"
+    }
 }

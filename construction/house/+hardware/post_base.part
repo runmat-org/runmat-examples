@@ -7,25 +7,25 @@ part post_base {
         e2 = line(start = [2.75 in, 2.75 in], end = [-2.75 in, 2.75 in])
         e3 = line(start = [-2.75 in, 2.75 in], end = [-2.75 in, -2.75 in])
     }
-    feature plate = extrude(profile = sketch.plate_s, distance = 1 in, mode = new)
+    feature plate = extrude(profile = sketch.plate_s, distance = 1 in)
     feature anchor_plane = plane.offset(base = origin.xy, distance = -3.5 in)
     sketch anchor_s on plane.anchor_plane {
         c = circle(center = [0 in, 0 in], radius = 0.3125 in)
     }
-    feature anchor = extrude(profile = sketch.anchor_s, distance = 3.5 in, mode = new)
+    feature anchor = extrude(profile = sketch.anchor_s, distance = 3.5 in)
     sketch strap_a_s on origin.xy {
         e0 = line(start = [2.75 in, -1.5 in], end = [2.87 in, -1.5 in])
         e1 = line(start = [2.87 in, -1.5 in], end = [2.87 in, 1.5 in])
         e2 = line(start = [2.87 in, 1.5 in], end = [2.75 in, 1.5 in])
         e3 = line(start = [2.75 in, 1.5 in], end = [2.75 in, -1.5 in])
     }
-    feature strap_a = extrude(profile = sketch.strap_a_s, distance = 6 in, mode = new)
+    feature strap_a = extrude(profile = sketch.strap_a_s, distance = 6 in)
     sketch strap_b_s on origin.xy {
         e0 = line(start = [-2.87 in, -1.5 in], end = [-2.75 in, -1.5 in])
         e1 = line(start = [-2.75 in, -1.5 in], end = [-2.75 in, 1.5 in])
         e2 = line(start = [-2.75 in, 1.5 in], end = [-2.87 in, 1.5 in])
         e3 = line(start = [-2.87 in, 1.5 in], end = [-2.87 in, -1.5 in])
     }
-    feature strap_b = extrude(profile = sketch.strap_b_s, distance = 6 in, mode = new)
+    feature strap_b = extrude(profile = sketch.strap_b_s, distance = 6 in)
     output post_base = { body = feature.plate.body, part_number = "PB-66", material = material.galvanized_steel }
 }

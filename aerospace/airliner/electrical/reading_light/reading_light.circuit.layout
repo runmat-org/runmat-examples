@@ -174,8 +174,14 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [1.26, 1.81] mm, at = [1.425, 0] mm, layers = smd },
         ]
         courtyard = rect([-2.31, -1.16] mm, [2.31, 1.16] mm)
-        silk = [line([-0.535, -0.91] mm, [0.535, -0.91] mm), line([-0.535, 0.91] mm, [0.535, 0.91] mm)]
-        fab = [rect([-1.6, -0.8] mm, [1.6, 0.8] mm), text([0, 0] mm, "${REFERENCE}", size = 0.64 mm)]
+        silk = [
+            line([-0.535, -0.91] mm, [0.535, -0.91] mm),
+            line([-0.535, 0.91] mm, [0.535, 0.91] mm),
+        ]
+        fab = [
+            rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+        ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
     package C_0603_1608Metric_IPCN = {
@@ -185,7 +191,10 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [0.96, 0.96] mm, at = [0.75, 0] mm, layers = smd },
         ]
         courtyard = rect([-1.48, -0.73] mm, [1.48, 0.73] mm)
-        fab = [rect([-0.8, -0.4] mm, [0.8, 0.4] mm), text([0, 0] mm, "${REFERENCE}", size = 0.32 mm)]
+        fab = [
+            rect([-0.8, -0.4] mm, [0.8, 0.4] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.32 mm),
+        ]
         body = { height = 0.45 mm, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
     package D_2010_5025Metric_IPCN = {
@@ -210,8 +219,14 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [1.26, 1.81] mm, at = [1.425, 0] mm, layers = smd },
         ]
         courtyard = rect([-2.31, -1.16] mm, [2.31, 1.16] mm)
-        silk = [line([-0.535, -0.91] mm, [0.535, -0.91] mm), line([-0.535, 0.91] mm, [0.535, 0.91] mm)]
-        fab = [rect([-1.6, -0.8] mm, [1.6, 0.8] mm), text([0, 0] mm, "${REFERENCE}", size = 0.64 mm)]
+        silk = [
+            line([-0.535, -0.91] mm, [0.535, -0.91] mm),
+            line([-0.535, 0.91] mm, [0.535, 0.91] mm),
+        ]
+        fab = [
+            rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+        ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/F_1206_3216Metric_IPCN.step" }
     }
     package "MountingHole_3.2mm_Pad6mm" = {
@@ -239,7 +254,10 @@ layout reading_light {
             line([-1.38, -5.19] mm, [-1.38, 5.19] mm),
         ]
         fab = [rect([-1.27, -5.08] mm, [1.27, 5.08] mm), text([0, 0] mm, "${REFERENCE}")]
-        body = { height = 8.5 mm, model = "${RUNMAT_3DMODELS}/PinHeader_1x04_P2.54mm_Vertical.step" }
+        body = {
+            height = 8.5 mm
+            model = "${RUNMAT_3DMODELS}/PinHeader_1x04_P2.54mm_Vertical.step"
+        }
     }
     package "PinHeader_1x02_P2.54mm_Vertical" = {
         description = "Pin header 1x2, pitch 2.54 mm"
@@ -255,7 +273,10 @@ layout reading_light {
             line([-1.38, -2.65] mm, [-1.38, 2.65] mm),
         ]
         fab = [rect([-1.27, -2.54] mm, [1.27, 2.54] mm), text([0, 0] mm, "${REFERENCE}")]
-        body = { height = 8.5 mm, model = "${RUNMAT_3DMODELS}/PinHeader_1x02_P2.54mm_Vertical.step" }
+        body = {
+            height = 8.5 mm
+            model = "${RUNMAT_3DMODELS}/PinHeader_1x02_P2.54mm_Vertical.step"
+        }
     }
     package L_1812_4532Metric_IPCN = {
         description = "L chip 1812 (4532 metric), IPC-7351B density B"
@@ -264,7 +285,10 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [1.36, 3.41] mm, at = [2.025, 0] mm, layers = smd },
         ]
         courtyard = rect([-2.96, -1.96] mm, [2.96, 1.96] mm)
-        silk = [line([-1.085, -1.71] mm, [1.085, -1.71] mm), line([-1.085, 1.71] mm, [1.085, 1.71] mm)]
+        silk = [
+            line([-1.085, -1.71] mm, [1.085, -1.71] mm),
+            line([-1.085, 1.71] mm, [1.085, 1.71] mm),
+        ]
         fab = [rect([-2.25, -1.6] mm, [2.25, 1.6] mm), text([0, 0] mm, "${REFERENCE}")]
         body = { height = 0.8 mm, model = "${RUNMAT_3DMODELS}/L_1812_4532Metric_IPCN.step" }
     }
@@ -275,7 +299,10 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [1.26, 1.46] mm, at = [0.825, 0] mm, layers = smd },
         ]
         courtyard = rect([-1.71, -0.98] mm, [1.71, 0.98] mm)
-        fab = [rect([-1, -0.625] mm, [1, 0.625] mm), text([0, 0] mm, "${REFERENCE}", size = 0.5 mm)]
+        fab = [
+            rect([-1, -0.625] mm, [1, 0.625] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.5 mm),
+        ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/R_0805_2012Metric_IPCN.step" }
     }
     package R_0402_1005Metric_IPCN = {
@@ -285,7 +312,10 @@ layout reading_light {
             { number = "2", shape = roundrect, size = [0.515, 0.57] mm, at = [0.3775, 0] mm, layers = smd },
         ]
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
-        fab = [rect([-0.5, -0.25] mm, [0.5, 0.25] mm), text([0, 0] mm, "${REFERENCE}", size = 0.2 mm)]
+        fab = [
+            rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+        ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
     package "SOT-23-5_IPCN" = {
@@ -304,7 +334,10 @@ layout reading_light {
             line([-0.91, 1.56] mm, [0.91, 1.56] mm),
             circle([-1.975, 0.95] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-0.8, -1.45] mm, [0.8, 1.45] mm), text([0, 0] mm, "${REFERENCE}", size = 0.64 mm)]
+        fab = [
+            rect([-0.8, -1.45] mm, [0.8, 1.45] mm),
+            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+        ]
         body = { height = 1.1 mm, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
     sync {

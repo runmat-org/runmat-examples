@@ -36,7 +36,7 @@ part window_cutout {
         s3 = line(start = [250 mm, 1980 mm], end = [-250 mm, 1980 mm])
         s4 = line(start = [-250 mm, 1980 mm], end = [-250 mm, 1977 mm])
     }
-    feature skin = revolve(profile = sketch.skin_s, axis = origin.x, angle = 20 deg, mode = new)
+    feature skin = revolve(profile = sketch.skin_s, axis = origin.x, angle = 20 deg)
     sketch cutout_s on plane.cut_plane {
         wl1 = line(start = [-45 mm, -115 mm], end = [45 mm, -115 mm])
         wa1 = arc(center = [45 mm, -35 mm], start = wl1.end, end = [125 mm, -35 mm])
@@ -49,13 +49,23 @@ part window_cutout {
     }
     feature cutout = extrude(profile = sketch.cutout_s, distance = 200 mm, mode = cut)
 
-    region skin_inner : face = { select = [feature.skin.face.side(skin_s.s1)], expect = one_or_more, label = "skin_inner" }
-    region fwd_edge : face = { select = [feature.skin.face.side(skin_s.s4)], expect = exactly_one, label = "fwd_edge" }
-    region aft_edge : face = { select = [feature.skin.face.side(skin_s.s2)], expect = exactly_one, label = "aft_edge" }
-    region sym_low : face = { select = [feature.skin.face.start], expect = exactly_one, label = "sym_low" }
-    region sym_high : face = { select = [feature.skin.face.end], expect = exactly_one, label = "sym_high" }
-    region frame_seat : face = { select = [feature.frame.face.side(band_s.l1)], expect = one_or_more, label = "frame_seat" }
+    region skin_inner : face = { select = [feature.skin.face.side(skin_s.s1)], expect = one_or_more, label = skin_inner }
+    region fwd_edge : face = { select = [feature.skin.face.side(skin_s.s4)], expect = exactly_one, label = fwd_edge }
+    region aft_edge : face = { select = [feature.skin.face.side(skin_s.s2)], expect = exactly_one, label = aft_edge }
+    region sym_low : face = { select = [feature.skin.face.start], expect = exactly_one, label = sym_low }
+    region sym_high : face = { select = [feature.skin.face.end], expect = exactly_one, label = sym_high }
+    region frame_seat : face = { select = [feature.frame.face.side(band_s.l1)], expect = one_or_more, label = frame_seat }
 
-    output skin = { body = feature.skin.body, part_number = "FUS-SK-300-W", material = "aluminum_2024", color = "#F4F5F7" }
-    output window_frame = { body = feature.frame.body, part_number = "FUS-WF-041", material = "aluminum_7075", color = "#A7B596" }
+    output skin = {
+        body = feature.skin.body
+        part_number = "FUS-SK-300-W"
+        material = aluminum_2024
+        color = "#F4F5F7"
+    }
+    output window_frame = {
+        body = feature.frame.body
+        part_number = "FUS-WF-041"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

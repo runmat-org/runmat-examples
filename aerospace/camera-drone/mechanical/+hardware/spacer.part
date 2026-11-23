@@ -11,5 +11,10 @@ part spacer {
     }
     feature bore = extrude(profile = sketch.bore_s, through_all = true, mode = cut)
 
-    output spacer = { body = feature.body.body, part_number = "QX-HW-NY-6", material = "nylon", color = "#ECECEC" }
+    output spacer = {
+        body = feature.body.body
+        part_number = "QX-HW-NY-6"
+        material = nylon
+        color = "#ECECEC"
+    }
 }

@@ -10,12 +10,12 @@ drawing building_section {
         standard = asme
         units = ft_in
         title_block = [
-            { label = "Title", source = literal(text = "Building section A-A") },
-            { label = "Project", source = literal(text = "Two-story house, 40 x 30 ft") },
-            { label = "Drawing", source = literal(text = "A-301") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Title, source = literal(text = "Building section A-A") },
+            { label = Project, source = literal(text = "Two-story house, 40 x 30 ft") },
+            { label = Drawing, source = literal(text = "A-301") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -24,7 +24,16 @@ drawing building_section {
         scale = 1/48
         projection = third_angle
 
-        view roof = standard(orientation = top, model = house, at = [140, 420] mm, scale = 1/96, title = "ROOF PLAN", display = visible_lines, exclude = [[{ name = mep }]], centerlines = false)
+        view roof = standard(
+            orientation = top,
+            model = house,
+            at = [140, 420] mm,
+            scale = 1/96,
+            display = visible_lines,
+            exclude = [[{ name = mep }]],
+            title = "ROOF PLAN",
+            centerlines = false,
+        )
         view a_a = section(
             from = roof,
             plane = origin.yz,
@@ -52,10 +61,25 @@ drawing building_section {
     }
 
     // Grids A-D across the section and the levels beside it, from the skeleton.
-    annotation grids_ns = grids(occurrence = [{ name = skeleton }], datums = [grid_a, grid_b, grid_c, grid_d], labels = ["A", "B", "C", "D"], view = a_a)
-    annotation lv_ridge = level(label = "RIDGE", datum = ridge, occurrence = [{ name = skeleton }], view = a_a)
-    annotation lv_plate2 = level(label = "T.O. PLATE (2ND)", datum = top_plate, occurrence = [{ name = skeleton }], view = a_a)
+    annotation grids_ns = grids(
+        occurrence = [{ name = skeleton }],
+        datums = [grid_a, grid_b, grid_c, grid_d],
+        labels = [A, B, C, D],
+        view = a_a,
+    )
+    annotation lv_ridge = level(label = RIDGE, datum = ridge, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_plate2 = level(
+        label = "T.O. PLATE (2ND)",
+        datum = top_plate,
+        occurrence = [{ name = skeleton }],
+        view = a_a,
+    )
     annotation lv_floor2 = level(label = "2ND FLOOR", datum = second_floor, occurrence = [{ name = skeleton }], view = a_a)
     annotation lv_slab = level(label = "T.O. SLAB", datum = top_of_slab, occurrence = [{ name = skeleton }], view = a_a)
-    annotation lv_footing = level(label = "T.O. FOOTING", datum = top_of_footing, occurrence = [{ name = skeleton }], view = a_a)
+    annotation lv_footing = level(
+        label = "T.O. FOOTING",
+        datum = top_of_footing,
+        occurrence = [{ name = skeleton }],
+        view = a_a,
+    )
 }

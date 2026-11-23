@@ -16,5 +16,10 @@ part thermal_pad {
         r3 = circle(center = [15.25 mm, -15.25 mm], radius = 4 mm)
     }
     feature reliefs = extrude(profile = sketch.reliefs_s, through_all = true, mode = cut)
-    output thermal_pad = { body = feature.pad.body, part_number = "CD-TH-311", material = "silicone", color = "#C9A227" }
+    output thermal_pad = {
+        body = feature.pad.body
+        part_number = "CD-TH-311"
+        material = silicone
+        color = "#C9A227"
+    }
 }

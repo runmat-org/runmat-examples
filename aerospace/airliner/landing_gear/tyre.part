@@ -8,5 +8,5 @@ part tyre {
     }
     feature tyre = revolve(profile = sketch.s, axis = origin.y, angle = 360 deg)
 
-    output tyre = { body = feature.tyre.body, part_number = "LG-TY-810", material = "rubber" }
+    output tyre = { body = feature.tyre.body, part_number = "LG-TY-810", material = rubber }
 }

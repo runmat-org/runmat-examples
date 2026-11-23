@@ -10,14 +10,14 @@ part truss_tie {
         e2 = line(start = [4.5 in, 3 in], end = [1 in, 3 in])
         e3 = line(start = [1 in, 3 in], end = [1 in, 0 in])
     }
-    feature leg = extrude(profile = sketch.leg_s, distance = 0.048 in, mode = new)
+    feature leg = extrude(profile = sketch.leg_s, distance = 0.048 in)
     sketch tab_s on origin.xy {
         e0 = line(start = [0.048 in, 1 in], end = [1.5 in, 1 in])
         e1 = line(start = [1.5 in, 1 in], end = [1.5 in, 4.5 in])
         e2 = line(start = [1.5 in, 4.5 in], end = [0.048 in, 4.5 in])
         e3 = line(start = [0.048 in, 4.5 in], end = [0.048 in, 1 in])
     }
-    feature tab = extrude(profile = sketch.tab_s, distance = 0.048 in, mode = new)
+    feature tab = extrude(profile = sketch.tab_s, distance = 0.048 in)
     feature inside = plane.offset(base = origin.zx, distance = 5.5 in)
     sketch drop_s on plane.inside {
         e0 = line(start = [-3 in, 0.048 in], end = [0.048 in, 0.048 in])
@@ -25,6 +25,6 @@ part truss_tie {
         e2 = line(start = [0.048 in, 1.5 in], end = [-3 in, 1.5 in])
         e3 = line(start = [-3 in, 1.5 in], end = [-3 in, 0.048 in])
     }
-    feature drop = extrude(profile = sketch.drop_s, distance = 0.048 in, mode = new)
+    feature drop = extrude(profile = sketch.drop_s, distance = 0.048 in)
     output truss_tie = { body = feature.leg.body, part_number = "TT-18", material = material.galvanized_steel }
 }

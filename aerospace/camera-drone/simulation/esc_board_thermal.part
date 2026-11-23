@@ -21,5 +21,10 @@ part esc_board_thermal {
         h4 = circle(center = [15.25 mm, -15.25 mm], radius = 1.8 mm)
     }
     feature holes = extrude(profile = sketch.holes_s, through_all = true, mode = cut)
-    output esc_board_thermal = { body = feature.board.body, part_number = "CD-EL-720-TH", material = "composite", color = "#1F5F3A" }
+    output esc_board_thermal = {
+        body = feature.board.body
+        part_number = "CD-EL-720-TH"
+        material = composite
+        color = "#1F5F3A"
+    }
 }

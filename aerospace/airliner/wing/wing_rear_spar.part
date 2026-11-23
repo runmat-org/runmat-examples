@@ -18,5 +18,10 @@ part wing_rear_spar {
     }
     feature web = loft(profiles = [sketch.s0, sketch.s1])
 
-    output wing_rear_spar = { body = feature.web.body, part_number = "WNG-SP-510", material = "aluminum_7075", color = "#A7B596" }
+    output wing_rear_spar = {
+        body = feature.web.body
+        part_number = "WNG-SP-510"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

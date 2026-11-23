@@ -12,5 +12,10 @@ part glareshield {
     }
     feature shield = extrude(profile = sketch.s, distance = 1580.567 mm, symmetric = true)
 
-    output glareshield = { body = feature.shield.body, part_number = "FD-GS-330", material = "polycarbonate", color = "#2A2E33" }
+    output glareshield = {
+        body = feature.shield.body
+        part_number = "FD-GS-330"
+        material = polycarbonate
+        color = "#2A2E33"
+    }
 }

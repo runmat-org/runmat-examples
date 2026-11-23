@@ -24,20 +24,37 @@ assembly hold {
         placement = offset(translation = [19900 mm, 0 mm, 0 mm])
     }
     instance hold_liner_starboard : hold_liner = {
-        placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
+        placement = offset(
+            translation = [6100 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg),
+        )
     }
     instance hold_liner_port : hold_liner = {
-        placement = offset(translation = [6100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
+        placement = offset(
+            translation = [6100 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg),
+        )
     }
     instance hold_liner_aft_starboard : hold_liner_aft = {
-        placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg))
+        placement = offset(
+            translation = [19700 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = -69.865789 deg),
+        )
     }
     instance hold_liner_aft_port : hold_liner_aft = {
-        placement = offset(translation = [19700 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg))
+        placement = offset(
+            translation = [19700 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 198.461458 deg),
+        )
     }
     instance centre_wing_box : centre_wing_box
     instance gear_bays : gear_bay
 
-    pattern containers_forward = linear(seeds = [container_forward], direction = [1, 0, 0], spacing = input.container_pitch, count = 4)
+    pattern containers_forward = linear(
+        seeds = [container_forward],
+        direction = [1, 0, 0],
+        spacing = input.container_pitch,
+        count = 4,
+    )
     pattern containers_aft = linear(seeds = [container_aft], direction = [1, 0, 0], spacing = input.container_pitch, count = 4)
 }

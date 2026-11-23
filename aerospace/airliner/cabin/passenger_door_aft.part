@@ -22,5 +22,10 @@ part passenger_door_aft {
     }
     feature cut = extrude(profile = sketch.o, distance = 2180 mm, mode = intersect)
 
-    output passenger_door_aft = { body = feature.skin.body, part_number = "FUS-DR-720", material = "aluminum_2024", color = "#EEF0F2" }
+    output passenger_door_aft = {
+        body = feature.skin.body
+        part_number = "FUS-DR-720"
+        material = aluminum_2024
+        color = "#EEF0F2"
+    }
 }

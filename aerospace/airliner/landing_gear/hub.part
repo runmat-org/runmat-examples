@@ -7,5 +7,10 @@ part hub {
     }
     feature hub = extrude(profile = sketch.s, distance = 200 mm, symmetric = true)
 
-    output hub = { body = feature.hub.body, part_number = "LG-HB-815", material = "aluminum_7075", color = "#A2A8AF" }
+    output hub = {
+        body = feature.hub.body
+        part_number = "LG-HB-815"
+        material = aluminum_7075
+        color = "#A2A8AF"
+    }
 }

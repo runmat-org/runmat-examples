@@ -11,5 +11,10 @@ part motor {
         l6 = line(start = [17.5 mm, 1.2 mm], end = [5 mm, 1.2 mm])
     }
     feature bell = revolve(profile = sketch.prof, axis = origin.z, angle = 360 deg)
-    output motor = { body = feature.bell.body, part_number = "CD-MT-1505", material = "aluminum_7075", color = "#1E2024" }
+    output motor = {
+        body = feature.bell.body
+        part_number = "CD-MT-1505"
+        material = aluminum_7075
+        color = "#1E2024"
+    }
 }

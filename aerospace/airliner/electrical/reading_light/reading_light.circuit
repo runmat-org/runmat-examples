@@ -5,7 +5,6 @@
 // stays the same brightness over the bus's 22 to 29 V. The seat's dimming signal, a 5 V PWM from
 // the passenger service unit, switches the driver's ADJ pin. The board is 60 x 30 mm, two layers.
 circuit reading_light {
-    root = main
     net_class power = { track_width = "0.50 mm" }
     net_class signal = { track_width = "0.20 mm" }
 
@@ -16,7 +15,7 @@ circuit reading_light {
         description = "60 V 1 A hysteretic step-down LED driver, high-side current sense, SOT-23-5"
         category = driver
         package = "SOT23-5"
-        params = { vin_max = "60 V", iout_max = "1 A", vsense = "100 mV" }
+        params = { iout_max = "1 A", vin_max = "60 V", vsense = "100 mV" }
         pins = [
             { name = SW, pad = "1", type = power_out },
             { name = GND, pad = "2", type = power_in },
@@ -31,8 +30,11 @@ circuit reading_light {
         description = "60 V 2 A Schottky rectifier, 0.55 V at 1 A"
         category = diode
         package = "D2010"
-        params = { vr_max = "60 V", if_max = "2 A" }
-        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+        params = { if_max = "2 A", vr_max = "60 V" }
+        pins = [
+            { name = K, pad = "1", type = passive },
+            { name = A, pad = "2", type = passive },
+        ]
     }
 
     part "TVS-33V-600W" = {
@@ -40,8 +42,11 @@ circuit reading_light {
         description = "Unidirectional TVS, 33 V stand-off, 53 V clamp at 11 A, 600 W (10/1000 us)"
         category = diode
         package = "D2010"
-        params = { v_standoff = "33 V", v_clamp = "53 V" }
-        pins = [{ name = K, pad = "1", type = passive }, { name = A, pad = "2", type = passive }]
+        params = { v_clamp = "53 V", v_standoff = "33 V" }
+        pins = [
+            { name = K, pad = "1", type = passive },
+            { name = A, pad = "2", type = passive },
+        ]
     }
 
     part "FUSE-0A5-1206" = {
@@ -50,7 +55,10 @@ circuit reading_light {
         category = fuse
         package = "F1206"
         params = { current = "0.5 A", voltage = "63 V" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "R0805-0R30" = {
@@ -58,8 +66,11 @@ circuit reading_light {
         description = "0.30 Ohm 1 % 0.25 W current-sense resistor, 0805"
         category = resistor
         package = "R0805"
-        params = { resistance = "0.3 ohm", power_rating = "0.25 W" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        params = { power_rating = "0.25 W", resistance = "0.3 ohm" }
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "L1812-68U" = {
@@ -67,8 +78,11 @@ circuit reading_light {
         description = "68 uH 0.8 A shielded power inductor"
         category = inductor
         package = "L1812"
-        params = { inductance = "68 uH", current = "0.8 A" }
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        params = { current = "0.8 A", inductance = "68 uH" }
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     part "CONN-1X04" = {
@@ -77,8 +91,10 @@ circuit reading_light {
         category = connector
         package = "PinHeader1x04"
         pins = [
-            { name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive },
-            { name = "3", pad = "3", type = passive }, { name = "4", pad = "4", type = passive },
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+            { name = "3", pad = "3", type = passive },
+            { name = "4", pad = "4", type = passive },
         ]
     }
 
@@ -87,7 +103,10 @@ circuit reading_light {
         description = "2-way 2.54 mm header"
         category = connector
         package = "PinHeader1x02"
-        pins = [{ name = "1", pad = "1", type = passive }, { name = "2", pad = "2", type = passive }]
+        pins = [
+            { name = "1", pad = "1", type = passive },
+            { name = "2", pad = "2", type = passive },
+        ]
     }
 
     sheet main {

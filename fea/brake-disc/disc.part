@@ -46,10 +46,10 @@ part disc {
     feature hat = revolve(profile = sketch.hat_s, axis = origin.z, angle = 360 deg)
     feature vane_plane = plane.offset(base = origin.xy, distance = input.plate)
     sketch vane_s on plane.vane_plane {
-        v0_a = line(start = [95.0000 mm, -2.5000 mm], end = [148.0000 mm, -2.5000 mm])
-        v0_b = line(start = [148.0000 mm, -2.5000 mm], end = [148.0000 mm, 2.5000 mm])
-        v0_c = line(start = [148.0000 mm, 2.5000 mm], end = [95.0000 mm, 2.5000 mm])
-        v0_d = line(start = [95.0000 mm, 2.5000 mm], end = [95.0000 mm, -2.5000 mm])
+        v0_a = line(start = [95 mm, -2.5 mm], end = [148 mm, -2.5 mm])
+        v0_b = line(start = [148 mm, -2.5 mm], end = [148 mm, 2.5 mm])
+        v0_c = line(start = [148 mm, 2.5 mm], end = [95 mm, 2.5 mm])
+        v0_d = line(start = [95 mm, 2.5 mm], end = [95 mm, -2.5 mm])
         v1_a = line(start = [93.9909 mm, 14.0346 mm], end = [146.1857 mm, 23.2379 mm])
         v1_b = line(start = [146.1857 mm, 23.2379 mm], end = [145.3174 mm, 28.1619 mm])
         v1_c = line(start = [145.3174 mm, 28.1619 mm], end = [93.1226 mm, 18.9586 mm])
@@ -82,10 +82,10 @@ part disc {
         v8_b = line(start = [28.1619 mm, 145.3174 mm], end = [23.2379 mm, 146.1857 mm])
         v8_c = line(start = [23.2379 mm, 146.1857 mm], end = [14.0346 mm, 93.9909 mm])
         v8_d = line(start = [14.0346 mm, 93.9909 mm], end = [18.9586 mm, 93.1226 mm])
-        v9_a = line(start = [2.5000 mm, 95.0000 mm], end = [2.5000 mm, 148.0000 mm])
-        v9_b = line(start = [2.5000 mm, 148.0000 mm], end = [-2.5000 mm, 148.0000 mm])
-        v9_c = line(start = [-2.5000 mm, 148.0000 mm], end = [-2.5000 mm, 95.0000 mm])
-        v9_d = line(start = [-2.5000 mm, 95.0000 mm], end = [2.5000 mm, 95.0000 mm])
+        v9_a = line(start = [2.5 mm, 95 mm], end = [2.5 mm, 148 mm])
+        v9_b = line(start = [2.5 mm, 148 mm], end = [-2.5 mm, 148 mm])
+        v9_c = line(start = [-2.5 mm, 148 mm], end = [-2.5 mm, 95 mm])
+        v9_d = line(start = [-2.5 mm, 95 mm], end = [2.5 mm, 95 mm])
         v10_a = line(start = [-14.0346 mm, 93.9909 mm], end = [-23.2379 mm, 146.1857 mm])
         v10_b = line(start = [-23.2379 mm, 146.1857 mm], end = [-28.1619 mm, 145.3174 mm])
         v10_c = line(start = [-28.1619 mm, 145.3174 mm], end = [-18.9586 mm, 93.1226 mm])
@@ -118,10 +118,10 @@ part disc {
         v17_b = line(start = [-145.3174 mm, 28.1619 mm], end = [-146.1857 mm, 23.2379 mm])
         v17_c = line(start = [-146.1857 mm, 23.2379 mm], end = [-93.9909 mm, 14.0346 mm])
         v17_d = line(start = [-93.9909 mm, 14.0346 mm], end = [-93.1226 mm, 18.9586 mm])
-        v18_a = line(start = [-95.0000 mm, 2.5000 mm], end = [-148.0000 mm, 2.5000 mm])
-        v18_b = line(start = [-148.0000 mm, 2.5000 mm], end = [-148.0000 mm, -2.5000 mm])
-        v18_c = line(start = [-148.0000 mm, -2.5000 mm], end = [-95.0000 mm, -2.5000 mm])
-        v18_d = line(start = [-95.0000 mm, -2.5000 mm], end = [-95.0000 mm, 2.5000 mm])
+        v18_a = line(start = [-95 mm, 2.5 mm], end = [-148 mm, 2.5 mm])
+        v18_b = line(start = [-148 mm, 2.5 mm], end = [-148 mm, -2.5 mm])
+        v18_c = line(start = [-148 mm, -2.5 mm], end = [-95 mm, -2.5 mm])
+        v18_d = line(start = [-95 mm, -2.5 mm], end = [-95 mm, 2.5 mm])
         v19_a = line(start = [-93.9909 mm, -14.0346 mm], end = [-146.1857 mm, -23.2379 mm])
         v19_b = line(start = [-146.1857 mm, -23.2379 mm], end = [-145.3174 mm, -28.1619 mm])
         v19_c = line(start = [-145.3174 mm, -28.1619 mm], end = [-93.1226 mm, -18.9586 mm])
@@ -154,10 +154,10 @@ part disc {
         v26_b = line(start = [-28.1619 mm, -145.3174 mm], end = [-23.2379 mm, -146.1857 mm])
         v26_c = line(start = [-23.2379 mm, -146.1857 mm], end = [-14.0346 mm, -93.9909 mm])
         v26_d = line(start = [-14.0346 mm, -93.9909 mm], end = [-18.9586 mm, -93.1226 mm])
-        v27_a = line(start = [-2.5000 mm, -95.0000 mm], end = [-2.5000 mm, -148.0000 mm])
-        v27_b = line(start = [-2.5000 mm, -148.0000 mm], end = [2.5000 mm, -148.0000 mm])
-        v27_c = line(start = [2.5000 mm, -148.0000 mm], end = [2.5000 mm, -95.0000 mm])
-        v27_d = line(start = [2.5000 mm, -95.0000 mm], end = [-2.5000 mm, -95.0000 mm])
+        v27_a = line(start = [-2.5 mm, -95 mm], end = [-2.5 mm, -148 mm])
+        v27_b = line(start = [-2.5 mm, -148 mm], end = [2.5 mm, -148 mm])
+        v27_c = line(start = [2.5 mm, -148 mm], end = [2.5 mm, -95 mm])
+        v27_d = line(start = [2.5 mm, -95 mm], end = [-2.5 mm, -95 mm])
         v28_a = line(start = [14.0346 mm, -93.9909 mm], end = [23.2379 mm, -146.1857 mm])
         v28_b = line(start = [23.2379 mm, -146.1857 mm], end = [28.1619 mm, -145.3174 mm])
         v28_c = line(start = [28.1619 mm, -145.3174 mm], end = [18.9586 mm, -93.1226 mm])
@@ -196,7 +196,7 @@ part disc {
     feature wheel_bolts = hole(
         face = feature.hat.face.side(hat_s.mount),
         at = {
-            b1 = point(57.1500 mm, 0.0000 mm, input.hat_height)
+            b1 = point(57.15 mm, 0 mm, input.hat_height)
             b2 = point(17.6603 mm, 54.3529 mm, input.hat_height)
             b3 = point(-46.2353 mm, 33.5919 mm, input.hat_height)
             b4 = point(-46.2353 mm, -33.5919 mm, input.hat_height)
@@ -206,8 +206,16 @@ part disc {
         through_all = true,
     )
 
-    region friction_inboard : face = { select = [feature.inboard.face.side(inboard_s.face)], expect = exactly_one, label = "Friction face inboard" }
-    region friction_outboard : face = { select = [feature.hat.face.side(hat_s.face)], expect = exactly_one, label = "Friction face outboard" }
+    region friction_inboard : face = {
+        select = [feature.inboard.face.side(inboard_s.face)]
+        expect = exactly_one
+        label = "Friction face inboard"
+    }
+    region friction_outboard : face = {
+        select = [feature.hat.face.side(hat_s.face)]
+        expect = exactly_one
+        label = "Friction face outboard"
+    }
     region vane_faces : face = {
         select = [
             feature.vanes.face.side(vane_s.v0_a),
@@ -358,7 +366,7 @@ part disc {
             feature.hat.face.side(hat_s.back),
         ]
         expect = one_or_more
-        label = "Vanes"
+        label = Vanes
     }
     region bolt_holes : face = {
         select = [
@@ -383,8 +391,14 @@ part disc {
             feature.hat.face.side(hat_s.inner),
         ]
         expect = one_or_more
-        label = "Exterior"
+        label = Exterior
     }
 
-    output rotor = { body = feature.hat.body, label = "Rotor", part_number = "BD-300V", material = "grey_iron_en_gjl_250", color = "#6F7378" }
+    output rotor = {
+        body = feature.hat.body
+        part_number = "BD-300V"
+        material = grey_iron_en_gjl_250
+        color = "#6F7378"
+        label = Rotor
+    }
 }

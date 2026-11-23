@@ -14,55 +14,75 @@ part roof_truss {
         e2 = line(start = [360 in, 3.5 in], end = [0 in, 3.5 in])
         e3 = line(start = [0 in, 3.5 in], end = [0 in, 0 in])
     }
-    feature bottom_chord = extrude(profile = sketch.bottom_chord_s, distance = 1.5 in, mode = new)
+    feature bottom_chord = extrude(profile = sketch.bottom_chord_s, distance = 1.5 in)
     sketch top_chord_l_s on plane.mid {
         e0 = line(start = [-18 in, -5.5 in], end = [180 in, 93.5 in])
         e1 = line(start = [180 in, 93.5 in], end = [180 in, 97.4131 in])
         e2 = line(start = [180 in, 97.4131 in], end = [-18 in, -1.5869 in])
         e3 = line(start = [-18 in, -1.5869 in], end = [-18 in, -5.5 in])
     }
-    feature top_chord_l = extrude(profile = sketch.top_chord_l_s, distance = 1.5 in, mode = new)
+    feature top_chord_l = extrude(profile = sketch.top_chord_l_s, distance = 1.5 in)
     sketch top_chord_r_s on plane.mid {
         e0 = line(start = [378 in, -1.5869 in], end = [180 in, 97.4131 in])
         e1 = line(start = [180 in, 97.4131 in], end = [180 in, 93.5 in])
         e2 = line(start = [180 in, 93.5 in], end = [378 in, -5.5 in])
         e3 = line(start = [378 in, -5.5 in], end = [378 in, -1.5869 in])
     }
-    feature top_chord_r = extrude(profile = sketch.top_chord_r_s, distance = 1.5 in, mode = new)
+    feature top_chord_r = extrude(profile = sketch.top_chord_r_s, distance = 1.5 in)
     sketch web_1_s on plane.mid {
         e0 = line(start = [119.6533 in, 0.8652 in], end = [87.4345 in, 49.1934 in])
         e1 = line(start = [87.4345 in, 49.1934 in], end = [90.3467 in, 51.1348 in])
         e2 = line(start = [90.3467 in, 51.1348 in], end = [122.5655 in, 2.8066 in])
         e3 = line(start = [122.5655 in, 2.8066 in], end = [119.6533 in, 0.8652 in])
     }
-    feature web_1 = extrude(profile = sketch.web_1_s, distance = 1.5 in, mode = new)
+    feature web_1 = extrude(profile = sketch.web_1_s, distance = 1.5 in)
     sketch web_2_s on plane.mid {
         e0 = line(start = [117.4345 in, 2.8066 in], end = [179.6533 in, 96.1348 in])
         e1 = line(start = [179.6533 in, 96.1348 in], end = [182.5655 in, 94.1934 in])
         e2 = line(start = [182.5655 in, 94.1934 in], end = [120.3467 in, 0.8652 in])
         e3 = line(start = [120.3467 in, 0.8652 in], end = [117.4345 in, 2.8066 in])
     }
-    feature web_2 = extrude(profile = sketch.web_2_s, distance = 1.5 in, mode = new)
+    feature web_2 = extrude(profile = sketch.web_2_s, distance = 1.5 in)
     sketch web_3_s on plane.mid {
         e0 = line(start = [239.6533 in, 0.8652 in], end = [177.4345 in, 94.1934 in])
         e1 = line(start = [177.4345 in, 94.1934 in], end = [180.3467 in, 96.1348 in])
         e2 = line(start = [180.3467 in, 96.1348 in], end = [242.5655 in, 2.8066 in])
         e3 = line(start = [242.5655 in, 2.8066 in], end = [239.6533 in, 0.8652 in])
     }
-    feature web_3 = extrude(profile = sketch.web_3_s, distance = 1.5 in, mode = new)
+    feature web_3 = extrude(profile = sketch.web_3_s, distance = 1.5 in)
     sketch web_4_s on plane.mid {
         e0 = line(start = [237.4345 in, 2.8066 in], end = [269.6533 in, 51.1348 in])
         e1 = line(start = [269.6533 in, 51.1348 in], end = [272.5655 in, 49.1934 in])
         e2 = line(start = [272.5655 in, 49.1934 in], end = [240.3467 in, 0.8652 in])
         e3 = line(start = [240.3467 in, 0.8652 in], end = [237.4345 in, 2.8066 in])
     }
-    feature web_4 = extrude(profile = sketch.web_4_s, distance = 1.5 in, mode = new)
-    feature web_1_fit = boolean.subtract(target = feature.web_1.body, tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body], keep_tools = true)
-    feature web_2_fit = boolean.subtract(target = feature.web_2.body, tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body], keep_tools = true)
-    feature web_3_fit = boolean.subtract(target = feature.web_3.body, tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body], keep_tools = true)
-    feature web_4_fit = boolean.subtract(target = feature.web_4.body, tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body], keep_tools = true)
+    feature web_4 = extrude(profile = sketch.web_4_s, distance = 1.5 in)
+    feature web_1_fit = boolean.subtract(
+        target = feature.web_1.body,
+        tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body],
+        keep_tools = true,
+    )
+    feature web_2_fit = boolean.subtract(
+        target = feature.web_2.body,
+        tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body],
+        keep_tools = true,
+    )
+    feature web_3_fit = boolean.subtract(
+        target = feature.web_3.body,
+        tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body],
+        keep_tools = true,
+    )
+    feature web_4_fit = boolean.subtract(
+        target = feature.web_4.body,
+        tools = [feature.bottom_chord.body, feature.top_chord_l.body, feature.top_chord_r.body],
+        keep_tools = true,
+    )
     feature web_2_cope = boolean.subtract(target = feature.web_2.body, tools = [feature.web_1.body], keep_tools = true)
-    feature web_3_cope = boolean.subtract(target = feature.web_3.body, tools = [feature.web_2.body, feature.web_4.body], keep_tools = true)
+    feature web_3_cope = boolean.subtract(
+        target = feature.web_3.body,
+        tools = [feature.web_2.body, feature.web_4.body],
+        keep_tools = true,
+    )
     sketch gable_studs_s on plane.mid {
         g1_0 = line(start = [15.25 in, 3.5 in], end = [16.75 in, 3.5 in])
         g1_1 = line(start = [16.75 in, 3.5 in], end = [16.75 in, 11.875 in])
@@ -153,7 +173,7 @@ part roof_truss {
         g22_2 = line(start = [352.75 in, 7.125 in], end = [351.25 in, 7.875 in])
         g22_3 = line(start = [351.25 in, 7.875 in], end = [351.25 in, 3.5 in])
     }
-    feature gable_studs = extrude(profile = sketch.gable_studs_s, distance = 1.5 in, mode = new, suppressed = true)
+    feature gable_studs = extrude(profile = sketch.gable_studs_s, distance = 1.5 in, suppressed = true)
     sketch plates_pos_s on plane.face_pos {
         p0_0 = line(start = [0 in, 0.5 in], end = [8 in, 0.5 in])
         p0_1 = line(start = [8 in, 0.5 in], end = [8 in, 7.5 in])
@@ -190,7 +210,7 @@ part roof_truss {
         p6_3 = line(start = [271.7012 in, 51.5 in], end = [265 in, 51.5 in])
         p6_4 = line(start = [265 in, 51.5 in], end = [265 in, 44.5 in])
     }
-    feature plates_pos = extrude(profile = sketch.plates_pos_s, distance = 0.036 in, mode = new)
+    feature plates_pos = extrude(profile = sketch.plates_pos_s, distance = 0.036 in)
     sketch plates_neg_s on plane.face_neg {
         p0_0 = line(start = [0 in, 0.5 in], end = [8 in, 0.5 in])
         p0_1 = line(start = [8 in, 0.5 in], end = [8 in, 7.5 in])
@@ -227,12 +247,38 @@ part roof_truss {
         p6_3 = line(start = [271.7012 in, 51.5 in], end = [265 in, 51.5 in])
         p6_4 = line(start = [265 in, 51.5 in], end = [265 in, 44.5 in])
     }
-    feature plates_neg = extrude(profile = sketch.plates_neg_s, distance = 0.036 in, mode = new)
+    feature plates_neg = extrude(profile = sketch.plates_neg_s, distance = 0.036 in)
 
-    output roof_truss = { body = feature.bottom_chord.body, part_number = "TR-30C", material = material.douglas_fir_lumber }
+    output roof_truss = {
+        body = feature.bottom_chord.body
+        part_number = "TR-30C"
+        material = material.douglas_fir_lumber
+    }
     assign material.galvanized_steel to feature.plates_pos.body
     assign material.galvanized_steel to feature.plates_neg.body
-    region bearing : face = { select = [feature.bottom_chord.face.side(bottom_chord_s.e0)], expect = exactly_one, label = "Bottom chord bearing" }
+    region bearing : face = {
+        select = [feature.bottom_chord.face.side(bottom_chord_s.e0)]
+        expect = exactly_one
+        label = "Bottom chord bearing"
+    }
     configuration common = { part_number = "TR-30C", description = "Common truss, Fink, 30 ft span, 6:12" }
-    configuration gable_end = { suppress = [feature.web_1, feature.web_2, feature.web_3, feature.web_4, feature.web_1_fit, feature.web_2_fit, feature.web_3_fit, feature.web_4_fit, feature.web_2_cope, feature.web_3_cope, feature.plates_pos, feature.plates_neg], features = { gable_studs = { suppressed = false } }, part_number = "TR-30G", description = "Gable-end truss, studs at 16 in o.c." }
+    configuration gable_end = {
+        suppress = [
+            feature.plates_neg,
+            feature.plates_pos,
+            feature.web_1,
+            feature.web_1_fit,
+            feature.web_2,
+            feature.web_2_cope,
+            feature.web_2_fit,
+            feature.web_3,
+            feature.web_3_cope,
+            feature.web_3_fit,
+            feature.web_4,
+            feature.web_4_fit,
+        ]
+        features = { gable_studs = { suppressed = false } }
+        part_number = "TR-30G"
+        description = "Gable-end truss, studs at 16 in o.c."
+    }
 }

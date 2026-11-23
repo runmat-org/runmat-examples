@@ -9,12 +9,12 @@ drawing floor_plans {
         standard = asme
         units = ft_in
         title_block = [
-            { label = "Title", source = literal(text = "Floor plans") },
-            { label = "Project", source = literal(text = "Two-story house, 40 x 30 ft") },
-            { label = "Drawing", source = literal(text = "A-101") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Title, source = literal(text = "Floor plans") },
+            { label = Project, source = literal(text = "Two-story house, 40 x 30 ft") },
+            { label = Drawing, source = literal(text = "A-101") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -23,7 +23,14 @@ drawing floor_plans {
         scale = 1/48
         projection = third_angle
 
-        view key = standard(orientation = front, model = house, at = [75, 495] mm, scale = 1/192, display = visible_lines, exclude = [[{ name = mep }]])
+        view key = standard(
+            orientation = front,
+            model = house,
+            at = [75, 495] mm,
+            scale = 1/192,
+            display = visible_lines,
+            exclude = [[{ name = mep }]],
+        )
         view first = section(
             from = key,
             plane = origin.xy,
@@ -64,38 +71,123 @@ drawing floor_plans {
 
     // Overall sizes, outside of framing (the top plates' ends and outside faces), and the grids
     // from the skeleton with the dimensions between them.
-    annotation first_overall_ew = dimension(style = linear, references = [feature.top1.face.side(top1_s.e0), feature.top1.face.side(top1_s.e2)], occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_a_l1 }]], view = first)
-    annotation first_overall_ns = dimension(style = linear, references = [feature.top1.face.start, feature.top1.face.start], occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_d_l1 }]], view = first)
-    annotation first_grids_ew = grids(occurrence = [{ name = skeleton }], datums = [grid_1, grid_2, grid_3, grid_4, grid_5], labels = ["1", "2", "3", "4", "5"], view = first)
-    annotation first_grids_ns = grids(occurrence = [{ name = skeleton }], datums = [grid_a, grid_b, grid_c, grid_d], labels = ["A", "B", "C", "D"], view = first)
-    annotation second_overall_ew = dimension(style = linear, references = [feature.top1.face.side(top1_s.e0), feature.top1.face.side(top1_s.e2)], occurrences = [[{ name = framing }, { name = wall_a_l2 }], [{ name = framing }, { name = wall_a_l2 }]], view = second)
-    annotation second_overall_ns = dimension(style = linear, references = [feature.top1.face.start, feature.top1.face.start], occurrences = [[{ name = framing }, { name = wall_a_l2 }], [{ name = framing }, { name = wall_d_l2 }]], view = second)
-    annotation second_grids_ew = grids(occurrence = [{ name = skeleton }], datums = [grid_1, grid_2, grid_3, grid_4, grid_5], labels = ["1", "2", "3", "4", "5"], view = second)
-    annotation second_grids_ns = grids(occurrence = [{ name = skeleton }], datums = [grid_a, grid_b, grid_c, grid_d], labels = ["A", "B", "C", "D"], view = second)
+    annotation first_overall_ew = dimension(
+        style = linear,
+        references = [feature.top1.face.side(top1_s.e0), feature.top1.face.side(top1_s.e2)],
+        occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_a_l1 }]],
+        view = first,
+    )
+    annotation first_overall_ns = dimension(
+        style = linear,
+        references = [feature.top1.face.start, feature.top1.face.start],
+        occurrences = [[{ name = framing }, { name = wall_a_l1 }], [{ name = framing }, { name = wall_d_l1 }]],
+        view = first,
+    )
+    annotation first_grids_ew = grids(
+        occurrence = [{ name = skeleton }],
+        datums = [grid_1, grid_2, grid_3, grid_4, grid_5],
+        labels = ["1", "2", "3", "4", "5"],
+        view = first,
+    )
+    annotation first_grids_ns = grids(
+        occurrence = [{ name = skeleton }],
+        datums = [grid_a, grid_b, grid_c, grid_d],
+        labels = [A, B, C, D],
+        view = first,
+    )
+    annotation second_overall_ew = dimension(
+        style = linear,
+        references = [feature.top1.face.side(top1_s.e0), feature.top1.face.side(top1_s.e2)],
+        occurrences = [[{ name = framing }, { name = wall_a_l2 }], [{ name = framing }, { name = wall_a_l2 }]],
+        view = second,
+    )
+    annotation second_overall_ns = dimension(
+        style = linear,
+        references = [feature.top1.face.start, feature.top1.face.start],
+        occurrences = [[{ name = framing }, { name = wall_a_l2 }], [{ name = framing }, { name = wall_d_l2 }]],
+        view = second,
+    )
+    annotation second_grids_ew = grids(
+        occurrence = [{ name = skeleton }],
+        datums = [grid_1, grid_2, grid_3, grid_4, grid_5],
+        labels = ["1", "2", "3", "4", "5"],
+        view = second,
+    )
+    annotation second_grids_ns = grids(
+        occurrence = [{ name = skeleton }],
+        datums = [grid_a, grid_b, grid_c, grid_d],
+        labels = [A, B, C, D],
+        view = second,
+    )
 
     // Door swings: each leaf open 90 degrees from its hinge, into the room it serves.
-    annotation swing_d1_a_l1_2 = door_swing(door = [{ name = envelope }, { name = d1_a_l1_2 }], hinge = start, swing = positive, view = first)
-    annotation swing_door_1 = door_swing(door = [{ name = interior }, { name = door_1 }], hinge = start, swing = negative, view = first)
-    annotation swing_door_2 = door_swing(door = [{ name = interior }, { name = door_2 }], hinge = start, swing = negative, view = first)
-    annotation swing_door_3 = door_swing(door = [{ name = interior }, { name = door_3 }], hinge = start, swing = negative, view = second)
-    annotation swing_door_4 = door_swing(door = [{ name = interior }, { name = door_4 }], hinge = start, swing = negative, view = second)
-    annotation swing_door_5 = door_swing(door = [{ name = interior }, { name = door_5 }], hinge = start, swing = positive, view = second)
-    annotation swing_door_6 = door_swing(door = [{ name = interior }, { name = door_6 }], hinge = start, swing = positive, view = second)
-    annotation swing_door_7 = door_swing(door = [{ name = interior }, { name = door_7 }], hinge = start, swing = positive, view = second)
-    annotation swing_door_8 = door_swing(door = [{ name = interior }, { name = door_8 }], hinge = start, swing = positive, view = second)
+    annotation swing_d1_a_l1_2 = door_swing(
+        door = [{ name = envelope }, { name = d1_a_l1_2 }],
+        hinge = start,
+        swing = positive,
+        view = first,
+    )
+    annotation swing_door_1 = door_swing(
+        door = [{ name = interior }, { name = door_1 }],
+        hinge = start,
+        swing = negative,
+        view = first,
+    )
+    annotation swing_door_2 = door_swing(
+        door = [{ name = interior }, { name = door_2 }],
+        hinge = start,
+        swing = negative,
+        view = first,
+    )
+    annotation swing_door_3 = door_swing(
+        door = [{ name = interior }, { name = door_3 }],
+        hinge = start,
+        swing = negative,
+        view = second,
+    )
+    annotation swing_door_4 = door_swing(
+        door = [{ name = interior }, { name = door_4 }],
+        hinge = start,
+        swing = negative,
+        view = second,
+    )
+    annotation swing_door_5 = door_swing(
+        door = [{ name = interior }, { name = door_5 }],
+        hinge = start,
+        swing = positive,
+        view = second,
+    )
+    annotation swing_door_6 = door_swing(
+        door = [{ name = interior }, { name = door_6 }],
+        hinge = start,
+        swing = positive,
+        view = second,
+    )
+    annotation swing_door_7 = door_swing(
+        door = [{ name = interior }, { name = door_7 }],
+        hinge = start,
+        swing = positive,
+        view = second,
+    )
+    annotation swing_door_8 = door_swing(
+        door = [{ name = interior }, { name = door_8 }],
+        hinge = start,
+        swing = positive,
+        view = second,
+    )
 
     // Room names, placed at each room's centre (DESIGN-NOTES, "Floor plan"); the plans' centres are building (240 in, 180 in).
-    annotation first_r0 = note(text = "LIVING", view = first, at = [157.8, 300.6] mm)
-    annotation first_r1 = note(text = "FOYER", view = first, at = [229.4, 217.0] mm)
-    annotation first_r2 = note(text = "DINING", view = first, at = [228.5, 320.2] mm)
-    annotation first_r3 = note(text = "KITCHEN", view = first, at = [320.4, 298.5] mm)
-    annotation first_r4 = note(text = "UTILITY", view = first, at = [291.3, 189.4] mm)
-    annotation first_r5 = note(text = "DEN", view = first, at = [342.0, 205.4] mm)
+    annotation first_r0 = note(text = LIVING, view = first, at = [157.8, 300.6] mm)
+    annotation first_r1 = note(text = FOYER, view = first, at = [229.4, 217] mm)
+    annotation first_r2 = note(text = DINING, view = first, at = [228.5, 320.2] mm)
+    annotation first_r3 = note(text = KITCHEN, view = first, at = [320.4, 298.5] mm)
+    annotation first_r4 = note(text = UTILITY, view = first, at = [291.3, 189.4] mm)
+    annotation first_r5 = note(text = DEN, view = first, at = [342, 205.4] mm)
     annotation second_r0 = note(text = "BEDROOM 3", view = second, at = [531.8, 207.5] mm)
     annotation second_r1 = note(text = "PRIMARY BEDROOM", view = second, at = [641.2, 207.5] mm)
-    annotation second_r2 = note(text = "HALL", view = second, at = [537.3, 266.2] mm)
+    annotation second_r2 = note(text = HALL, view = second, at = [537.3, 266.2] mm)
     annotation second_r3 = note(text = "BEDROOM 2", view = second, at = [510.6, 322.3] mm)
-    annotation second_r4 = note(text = "BATH", view = second, at = [578.1, 322.3] mm)
+    annotation second_r4 = note(text = BATH, view = second, at = [578.1, 322.3] mm)
     annotation second_r5 = note(text = "PRIMARY BATH", view = second, at = [631.7, 331.7] mm)
-    annotation second_r6 = note(text = "CLOSET", view = second, at = [699.0, 322.3] mm)
+    annotation second_r6 = note(text = CLOSET, view = second, at = [699, 322.3] mm)
 }

@@ -16,7 +16,10 @@ assembly interior {
     }
     instance p1_utility_w : partitions = {
         configuration = { select = named, name = p1_utility_w }
-        placement = offset(translation = [300.5 in, 6.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [300.5 in, 6.0156 in, 0 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p1_den_n : partitions = {
         configuration = { select = named, name = p1_den_n }
@@ -24,7 +27,10 @@ assembly interior {
     }
     instance p1_utility_den : partitions = {
         configuration = { select = named, name = p1_utility_den }
-        placement = offset(translation = [364.5 in, 6.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [364.5 in, 6.0156 in, 0 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p2_hall_s : partitions = {
         configuration = { select = named, name = p2_hall_s }
@@ -36,19 +42,31 @@ assembly interior {
     }
     instance p2_br3_primary : partitions = {
         configuration = { select = named, name = p2_br3_primary }
-        placement = offset(translation = [194.5 in, 6.0636 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [194.5 in, 6.0636 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p2_br2_bath : partitions = {
         configuration = { select = named, name = p2_br2_bath }
-        placement = offset(translation = [114.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [114.5 in, 228.5 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p2_baths : partitions = {
         configuration = { select = named, name = p2_baths }
-        placement = offset(translation = [244.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [244.5 in, 228.5 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p2_bath_closet : partitions = {
         configuration = { select = named, name = p2_bath_closet }
-        placement = offset(translation = [344.5 in, 228.5 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [344.5 in, 228.5 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance p2_guard_s : partitions = {
         configuration = { select = named, name = p2_guard_s }
@@ -56,11 +74,17 @@ assembly interior {
     }
     instance p2_guard_w : partitions = {
         configuration = { select = named, name = p2_guard_w }
-        placement = offset(translation = [164 in, 182 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [164 in, 182 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     // Interior doors in the partition openings
     instance door_1 : interior_door = {
-        placement = offset(translation = [300.5 in, 60.0156 in, 0 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [300.5 in, 60.0156 in, 0 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance door_2 : interior_door = {
         placement = offset(translation = [400 in, 134 in, 0 in])
@@ -81,7 +105,10 @@ assembly interior {
         placement = offset(translation = [380.0156 in, 224 in, 121.75 in])
     }
     instance door_8 : interior_door = {
-        placement = offset(translation = [344.5 in, 258.25 in, 121.75 in], rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg))
+        placement = offset(
+            translation = [344.5 in, 258.25 in, 121.75 in],
+            rotation = axis_angle(axis = [0, 0, 1], angle = 90 deg),
+        )
     }
     instance stair : stair = {
         placement = offset(translation = [0 in, 0 in, 0 in])

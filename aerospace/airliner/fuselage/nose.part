@@ -68,7 +68,27 @@ part nose {
     sketch skin_s16 on plane.skin_st16 {
         c = spline(points = [[0 mm, 1980 mm], [512.462 mm, 1912.533 mm], [990 mm, 1714.73 mm], [1400.071 mm, 1400.071 mm], [1714.73 mm, 990 mm], [1912.533 mm, 512.462 mm], [1980 mm, 0 mm], [1912.533 mm, -512.462 mm], [1714.73 mm, -990 mm], [1400.071 mm, -1400.071 mm], [990 mm, -1714.73 mm], [512.462 mm, -1912.533 mm], [0 mm, -1980 mm], [-512.462 mm, -1912.533 mm], [-990 mm, -1714.73 mm], [-1400.071 mm, -1400.071 mm], [-1714.73 mm, -990 mm], [-1912.533 mm, -512.462 mm], [-1980 mm, 0 mm], [-1912.533 mm, 512.462 mm], [-1714.73 mm, 990 mm], [-1400.071 mm, 1400.071 mm], [-990 mm, 1714.73 mm], [-512.462 mm, 1912.533 mm]], closed = true)
     }
-    feature skin = loft(profiles = [sketch.skin_s0, sketch.skin_s1, sketch.skin_s2, sketch.skin_s3, sketch.skin_s4, sketch.skin_s5, sketch.skin_s6, sketch.skin_s7, sketch.skin_s8, sketch.skin_s9, sketch.skin_s10, sketch.skin_s11, sketch.skin_s12, sketch.skin_s13, sketch.skin_s14, sketch.skin_s15, sketch.skin_s16])
+    feature skin = loft(
+        profiles = [
+            sketch.skin_s0,
+            sketch.skin_s1,
+            sketch.skin_s2,
+            sketch.skin_s3,
+            sketch.skin_s4,
+            sketch.skin_s5,
+            sketch.skin_s6,
+            sketch.skin_s7,
+            sketch.skin_s8,
+            sketch.skin_s9,
+            sketch.skin_s10,
+            sketch.skin_s11,
+            sketch.skin_s12,
+            sketch.skin_s13,
+            sketch.skin_s14,
+            sketch.skin_s15,
+            sketch.skin_s16,
+        ],
+    )
     feature hollow_st0 = plane.offset(base = origin.yz, distance = 10 mm)
     sketch hollow_s0 on plane.hollow_st0 {
         c = spline(points = [[0 mm, -412.901 mm], [7.965 mm, -413.215 mm], [15.386 mm, -414.137 mm], [21.76 mm, -415.604 mm], [26.65 mm, -417.515 mm], [29.724 mm, -419.74 mm], [30.773 mm, -422.129 mm], [29.724 mm, -424.517 mm], [26.65 mm, -426.743 mm], [21.76 mm, -428.654 mm], [15.386 mm, -430.121 mm], [7.965 mm, -431.043 mm], [0 mm, -431.357 mm], [-7.965 mm, -431.043 mm], [-15.386 mm, -430.121 mm], [-21.76 mm, -428.654 mm], [-26.65 mm, -426.743 mm], [-29.724 mm, -424.517 mm], [-30.773 mm, -422.129 mm], [-29.724 mm, -419.74 mm], [-26.65 mm, -417.515 mm], [-21.76 mm, -415.604 mm], [-15.386 mm, -414.137 mm], [-7.965 mm, -413.215 mm]], closed = true)
@@ -133,7 +153,27 @@ part nose {
     sketch hollow_s15 on plane.hollow_st15 {
         c = spline(points = [[0 mm, 1975.802 mm], [511.424 mm, 1908.476 mm], [987.995 mm, 1711.084 mm], [1397.236 mm, 1397.079 mm], [1711.258 mm, 987.859 mm], [1908.66 mm, 511.313 mm], [1975.99 mm, -0.083 mm], [1908.66 mm, -511.48 mm], [1711.258 mm, -988.026 mm], [1397.236 mm, -1397.246 mm], [987.995 mm, -1711.251 mm], [511.424 mm, -1908.643 mm], [0 mm, -1975.969 mm], [-511.424 mm, -1908.643 mm], [-987.995 mm, -1711.251 mm], [-1397.236 mm, -1397.246 mm], [-1711.258 mm, -988.026 mm], [-1908.66 mm, -511.48 mm], [-1975.99 mm, -0.083 mm], [-1908.66 mm, 511.313 mm], [-1711.258 mm, 987.859 mm], [-1397.236 mm, 1397.079 mm], [-987.995 mm, 1711.084 mm], [-511.424 mm, 1908.476 mm]], closed = true)
     }
-    feature hollow = loft(profiles = [sketch.hollow_s0, sketch.hollow_s1, sketch.hollow_s2, sketch.hollow_s3, sketch.hollow_s4, sketch.hollow_s5, sketch.hollow_s6, sketch.hollow_s7, sketch.hollow_s8, sketch.hollow_s9, sketch.hollow_s10, sketch.hollow_s11, sketch.hollow_s12, sketch.hollow_s13, sketch.hollow_s14, sketch.hollow_s15], mode = cut)
+    feature hollow = loft(
+        profiles = [
+            sketch.hollow_s0,
+            sketch.hollow_s1,
+            sketch.hollow_s2,
+            sketch.hollow_s3,
+            sketch.hollow_s4,
+            sketch.hollow_s5,
+            sketch.hollow_s6,
+            sketch.hollow_s7,
+            sketch.hollow_s8,
+            sketch.hollow_s9,
+            sketch.hollow_s10,
+            sketch.hollow_s11,
+            sketch.hollow_s12,
+            sketch.hollow_s13,
+            sketch.hollow_s14,
+            sketch.hollow_s15,
+        ],
+        mode = cut,
+    )
     feature o0_at = plane.offset(base = origin.yz, distance = 300 mm)
     sketch o0 on plane.o0_at {
         c1 = spline(points = [[129.552 mm, 307.904 mm], [80.866 mm, 323.371 mm], [60 mm, 370 mm]])
@@ -207,5 +247,10 @@ part nose {
     }
     feature opening5 = extrude(profile = sketch.o5, distance = 2200 mm, mode = cut)
 
-    output nose = { body = feature.skin.body, part_number = "FUS-NS-010", material = "composite", color = "#F4F5F7" }
+    output nose = {
+        body = feature.skin.body
+        part_number = "FUS-NS-010"
+        material = composite
+        color = "#F4F5F7"
+    }
 }

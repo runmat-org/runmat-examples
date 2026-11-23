@@ -79,5 +79,10 @@ part motor_pod {
         constrain distance(s4.center, s2.center) = 2.6 mm
     }
     feature mount = extrude(profile = sketch.mount_s, distance = 5 mm, mode = cut)
-    output motor_pod = { body = feature.cowl.body, part_number = "CD-AR-240", material = "glass_filled_nylon", color = "#4A4F57" }
+    output motor_pod = {
+        body = feature.cowl.body
+        part_number = "CD-AR-240"
+        material = glass_filled_nylon
+        color = "#4A4F57"
+    }
 }

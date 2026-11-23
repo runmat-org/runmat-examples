@@ -34,7 +34,12 @@ part gimbal_yaw_arm {
     feature drop = extrude(profile = sketch.drop_s, distance = input.wall, mode = add)
     feature root = fillet(edges = [edges_between(feature.plate.face.start, feature.drop.face.end)], radius = 0.4 mm)
 
-    feature yaw_bore = hole(face = feature.plate.face.end, at = { c = point(0 mm, 0 mm, 0 mm) }, diameter = 3 mm, through_all = true)
+    feature yaw_bore = hole(
+        face = feature.plate.face.end,
+        at = { c = point(0 mm, 0 mm, 0 mm) },
+        diameter = 3 mm,
+        through_all = true,
+    )
     feature yaw_screws = hole(
         face = feature.plate.face.end,
         at = {
@@ -52,7 +57,12 @@ part gimbal_yaw_arm {
         diameter = 2 mm,
         through_all = true,
     )
-    feature seat_bore = hole(face = feature.drop.face.end, at = { c = point(-5.5 mm, 0 mm, -12 mm) }, diameter = 5 mm, through_all = true)
+    feature seat_bore = hole(
+        face = feature.drop.face.end,
+        at = { c = point(-5.5 mm, 0 mm, -12 mm) },
+        diameter = 5 mm,
+        through_all = true,
+    )
     feature seat_screws = hole(
         face = feature.drop.face.end,
         at = {
@@ -67,5 +77,10 @@ part gimbal_yaw_arm {
 
     region mount : face = { select = [feature.plate.face.end], expect = exactly_one }
     region seat : face = { select = [feature.drop.face.end], expect = exactly_one }
-    output gimbal_yaw_arm = { body = feature.plate.body, part_number = "CD-GB-520", material = "aluminum_6061", color = "#2A2D32" }
+    output gimbal_yaw_arm = {
+        body = feature.plate.body
+        part_number = "CD-GB-520"
+        material = aluminum_6061
+        color = "#2A2D32"
+    }
 }

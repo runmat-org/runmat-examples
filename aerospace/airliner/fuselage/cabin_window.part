@@ -12,5 +12,10 @@ part cabin_window {
     }
     feature pane = extrude(profile = sketch.s, distance = 12 mm)
 
-    output cabin_window = { body = feature.pane.body, part_number = "FUS-WN-040", material = "glass", color = "#252E38" }
+    output cabin_window = {
+        body = feature.pane.body
+        part_number = "FUS-WN-040"
+        material = glass
+        color = "#252E38"
+    }
 }

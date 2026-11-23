@@ -3,7 +3,6 @@
 // drives the four motor signals to the 4-in-1 ESC through its 8-pin harness. A 36 V buck makes 5 V from the 6S battery
 // and an LDO makes 3.3 V. The board is 36 x 36 mm on the 30.5 mm stack pattern.
 circuit flight_controller {
-    root = main
     net_class power = { track_width = "0.40 mm" }
     net_class supply = { track_width = "0.25 mm" }
     net_class digital = { track_width = "0.10 mm" }
@@ -234,10 +233,8 @@ circuit flight_controller {
         connect [net.SCL, port.SCL, J5."4"]
         connect [net.SDA, port.SDA, J5."5"]
         connect [net.GND, J5."6"]
-        no_erc = [J1.SBU1, J1.SBU2]
-        no_erc = [H1."1", H2."1", H3."1", H4."1"]
+        no_erc = [J1.SBU1, J1.SBU2, H1."1", H2."1", H3."1", H4."1", J5."1"]
         // GPS_VCC has no regulator yet, so J5.1 is its only pin until one is added.
-        no_erc = [J5."1"]
     }
 
     // The top sheet: the power, MCU, sensor and connector sheets, wired by their ports.
@@ -247,9 +244,66 @@ circuit flight_controller {
         net "+5V" = { class = power, global = true, power_flag = true }
         net "+3V3" = { class = supply, global = true, power_flag = true }
         instance pwr = { sheet = power, bind = { VBAT_SENSE = net.VBAT_SENSE } }
-        instance mcu = { sheet = mcu, bind = { SPI_SCK = net.SPI_SCK, SPI_MISO = net.SPI_MISO, SPI_MOSI = net.SPI_MOSI, IMU_CS = net.IMU_CS, IMU_INT = net.IMU_INT, I2C_SCL = net.I2C_SCL, I2C_SDA = net.I2C_SDA, VBAT_SENSE = net.VBAT_SENSE, USB_DP = net.USB_DP, USB_DN = net.USB_DN, RC_RX = net.RC_RX, RC_TX = net.RC_TX, CURR = net.CURR, TLM = net.TLM, M1 = net.M1, M2 = net.M2, M3 = net.M3, M4 = net.M4, VTX_TX = net.VTX_TX, VTX_RX = net.VTX_RX, GPS_TX = net.GPS_TX, GPS_RX = net.GPS_RX } }
-        instance sens = { sheet = sensors, bind = { SCK = net.SPI_SCK, MISO = net.SPI_MISO, MOSI = net.SPI_MOSI, CS = net.IMU_CS, INT = net.IMU_INT, SCL = net.I2C_SCL, SDA = net.I2C_SDA } }
-        instance conn = { sheet = connectors, bind = { USB_DP = net.USB_DP, USB_DN = net.USB_DN, RC_RX = net.RC_RX, RC_TX = net.RC_TX, CURR = net.CURR, TLM = net.TLM, M1 = net.M1, M2 = net.M2, M3 = net.M3, M4 = net.M4, VTX_TX = net.VTX_TX, VTX_RX = net.VTX_RX, GPS_TX = net.GPS_TX, GPS_RX = net.GPS_RX, SCL = net.I2C_SCL, SDA = net.I2C_SDA } }
+        instance mcu = {
+            sheet = mcu
+            bind = {
+                SPI_SCK = net.SPI_SCK
+                SPI_MISO = net.SPI_MISO
+                SPI_MOSI = net.SPI_MOSI
+                IMU_CS = net.IMU_CS
+                IMU_INT = net.IMU_INT
+                I2C_SCL = net.I2C_SCL
+                I2C_SDA = net.I2C_SDA
+                VBAT_SENSE = net.VBAT_SENSE
+                USB_DP = net.USB_DP
+                USB_DN = net.USB_DN
+                RC_RX = net.RC_RX
+                RC_TX = net.RC_TX
+                CURR = net.CURR
+                TLM = net.TLM
+                M1 = net.M1
+                M2 = net.M2
+                M3 = net.M3
+                M4 = net.M4
+                VTX_TX = net.VTX_TX
+                VTX_RX = net.VTX_RX
+                GPS_TX = net.GPS_TX
+                GPS_RX = net.GPS_RX
+            }
+        }
+        instance sens = {
+            sheet = sensors
+            bind = {
+                SCK = net.SPI_SCK
+                MISO = net.SPI_MISO
+                MOSI = net.SPI_MOSI
+                CS = net.IMU_CS
+                INT = net.IMU_INT
+                SCL = net.I2C_SCL
+                SDA = net.I2C_SDA
+            }
+        }
+        instance conn = {
+            sheet = connectors
+            bind = {
+                USB_DP = net.USB_DP
+                USB_DN = net.USB_DN
+                RC_RX = net.RC_RX
+                RC_TX = net.RC_TX
+                CURR = net.CURR
+                TLM = net.TLM
+                M1 = net.M1
+                M2 = net.M2
+                M3 = net.M3
+                M4 = net.M4
+                VTX_TX = net.VTX_TX
+                VTX_RX = net.VTX_RX
+                GPS_TX = net.GPS_TX
+                GPS_RX = net.GPS_RX
+                SCL = net.I2C_SCL
+                SDA = net.I2C_SDA
+            }
+        }
     }
 
     // The 5 V buck's start-up from a 6S battery into a 1.5 A load: the soft-start ramp, the
@@ -257,15 +311,33 @@ circuit flight_controller {
     simulation buck_startup {
         sheet = power
         source VB = { p = net.VBAT, pwl = [[0 s, 0 V], [20 us, 22.2 V], [3 ms, 22.2 V]] }
-        source ILOAD = { p = net."+5V", dc = 1.5 A, current = true }
+        source ILOAD = { p = net."+5V", current = true, dc = 1.5 A }
         spice_model "BUCK-36V-2A" = { library = "fc_models.lib", subckt = BUCK36V, pins = [VIN, EN, BST, SW, FB, GND] }
         spice_model "LDO-3V3-SOT23" = { library = "fc_models.lib", subckt = LDO33, pins = [VIN, EN, VOUT, GND] }
         analysis startup : tran = { stop = 1.6 ms, step = 20 ns }
         probe = [net.VBAT, net."+5V", net.SW, net."+3V3", L1."1"]
-        measure v5 = { of = startup, average = net."+5V", from = 1.4 ms, to = 1.6 ms, spec = { min = 4.85 V, max = 5.15 V } }
-        measure ripple = { of = startup, peak_to_peak = net."+5V", from = 1.4 ms, to = 1.6 ms, spec = { max = 50 mV } }
+        measure v5 = {
+            of = startup
+            average = net."+5V"
+            from = 1.4 ms
+            to = 1.6 ms
+            spec = { min = 4.85 V, max = 5.15 V }
+        }
+        measure ripple = {
+            of = startup
+            peak_to_peak = net."+5V"
+            from = 1.4 ms
+            to = 1.6 ms
+            spec = { max = 50 mV }
+        }
         measure overshoot = { of = startup, overshoot = net."+5V" }
-        measure v33 = { of = startup, average = net."+3V3", from = 1.4 ms, to = 1.6 ms, spec = { min = 3.25 V, max = 3.35 V } }
+        measure v33 = {
+            of = startup
+            average = net."+3V3"
+            from = 1.4 ms
+            to = 1.6 ms
+            spec = { min = 3.25 V, max = 3.35 V }
+        }
         measure peak_inductor = { of = startup, max = L1."1", spec = { max = 3 A } }
     }
 
@@ -274,8 +346,12 @@ circuit flight_controller {
     simulation buck_tolerance {
         sheet = power
         source VB = { p = net.VBAT, dc = 22.2 V }
-        source ILOAD = { p = net."+5V", dc = 1.5 A, current = true }
-        spice_model "BUCK-36V-2A" = { library = "fc_models.lib", subckt = BUCK36V_AVG, pins = [VIN, EN, BST, SW, FB, GND] }
+        source ILOAD = { p = net."+5V", current = true, dc = 1.5 A }
+        spice_model "BUCK-36V-2A" = {
+            library = "fc_models.lib"
+            subckt = BUCK36V_AVG
+            pins = [VIN, EN, BST, SW, FB, GND]
+        }
         spice_model "LDO-3V3-SOT23" = { library = "fc_models.lib", subckt = LDO33, pins = [VIN, EN, VOUT, GND] }
         tolerance resistors = { match = "R*", value = 1 % }
         analysis point : op

@@ -14,5 +14,10 @@ part pedestal {
     }
     feature body = extrude(profile = sketch.s, distance = 300 mm, symmetric = true)
 
-    output pedestal = { body = feature.body.body, part_number = "FD-PD-350", material = "aluminum_6061", color = "#3C4148" }
+    output pedestal = {
+        body = feature.body.body
+        part_number = "FD-PD-350"
+        material = aluminum_6061
+        color = "#3C4148"
+    }
 }

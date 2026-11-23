@@ -62,42 +62,42 @@ part exterior_wall {
         l0_2 = line(start = [input.zo1, input.stucco_finish_x1], end = [input.zo0, input.stucco_finish_x1])
         l0_3 = line(start = [input.zo0, input.stucco_finish_x1], end = [input.zo0, input.stucco_finish_x0])
     }
-    feature stucco_finish = extrude(profile = sketch.stucco_finish_s, distance = 0.125 in, mode = new)
+    feature stucco_finish = extrude(profile = sketch.stucco_finish_s, distance = 0.125 in)
     sketch stucco_brown_s on plane.zx_m1_25 {
         l0_0 = line(start = [input.zo0, input.stucco_brown_x0], end = [input.zo1, input.stucco_brown_x0])
         l0_1 = line(start = [input.zo1, input.stucco_brown_x0], end = [input.zo1, input.stucco_brown_x1])
         l0_2 = line(start = [input.zo1, input.stucco_brown_x1], end = [input.zo0, input.stucco_brown_x1])
         l0_3 = line(start = [input.zo0, input.stucco_brown_x1], end = [input.zo0, input.stucco_brown_x0])
     }
-    feature stucco_brown = extrude(profile = sketch.stucco_brown_s, distance = 0.375 in, mode = new)
+    feature stucco_brown = extrude(profile = sketch.stucco_brown_s, distance = 0.375 in)
     sketch stucco_scratch_s on plane.zx_m0_875 {
         l0_0 = line(start = [input.zo0, input.stucco_scratch_x0], end = [input.zo1, input.stucco_scratch_x0])
         l0_1 = line(start = [input.zo1, input.stucco_scratch_x0], end = [input.zo1, input.stucco_scratch_x1])
         l0_2 = line(start = [input.zo1, input.stucco_scratch_x1], end = [input.zo0, input.stucco_scratch_x1])
         l0_3 = line(start = [input.zo0, input.stucco_scratch_x1], end = [input.zo0, input.stucco_scratch_x0])
     }
-    feature stucco_scratch = extrude(profile = sketch.stucco_scratch_s, distance = 0.25 in, mode = new)
+    feature stucco_scratch = extrude(profile = sketch.stucco_scratch_s, distance = 0.25 in)
     sketch lath_s on plane.zx_m0_625 {
         l0_0 = line(start = [input.zo0, input.lath_x0], end = [input.zo1, input.lath_x0])
         l0_1 = line(start = [input.zo1, input.lath_x0], end = [input.zo1, input.lath_x1])
         l0_2 = line(start = [input.zo1, input.lath_x1], end = [input.zo0, input.lath_x1])
         l0_3 = line(start = [input.zo0, input.lath_x1], end = [input.zo0, input.lath_x0])
     }
-    feature lath = extrude(profile = sketch.lath_s, distance = 0.125 in, mode = new)
+    feature lath = extrude(profile = sketch.lath_s, distance = 0.125 in)
     sketch wrb_outer_s on plane.zx_m0_5 {
         l0_0 = line(start = [input.zo0, input.wrb_outer_x0], end = [input.zo1, input.wrb_outer_x0])
         l0_1 = line(start = [input.zo1, input.wrb_outer_x0], end = [input.zo1, input.wrb_outer_x1])
         l0_2 = line(start = [input.zo1, input.wrb_outer_x1], end = [input.zo0, input.wrb_outer_x1])
         l0_3 = line(start = [input.zo0, input.wrb_outer_x1], end = [input.zo0, input.wrb_outer_x0])
     }
-    feature wrb_outer = extrude(profile = sketch.wrb_outer_s, distance = 0.0312 in, mode = new)
+    feature wrb_outer = extrude(profile = sketch.wrb_outer_s, distance = 0.0312 in)
     sketch wrb_inner_s on plane.zx_m0_4688 {
         l0_0 = line(start = [input.zw0, input.wrb_inner_x0], end = [input.zo1, input.wrb_inner_x0])
         l0_1 = line(start = [input.zo1, input.wrb_inner_x0], end = [input.zo1, input.wrb_inner_x1])
         l0_2 = line(start = [input.zo1, input.wrb_inner_x1], end = [input.zw0, input.wrb_inner_x1])
         l0_3 = line(start = [input.zw0, input.wrb_inner_x1], end = [input.zw0, input.wrb_inner_x0])
     }
-    feature wrb_inner = extrude(profile = sketch.wrb_inner_s, distance = 0.0312 in, mode = new)
+    feature wrb_inner = extrude(profile = sketch.wrb_inner_s, distance = 0.0312 in)
     feature vr_face = plane.offset(base = origin.zx, distance = input.vr_y)
     feature gyp_face = plane.offset(base = origin.zx, distance = input.gyp_y)
     sketch vapor_retarder_s on plane.vr_face {
@@ -106,14 +106,14 @@ part exterior_wall {
         l0_2 = line(start = [input.zi1, input.xi1], end = [input.zi0, input.xi1])
         l0_3 = line(start = [input.zi0, input.xi1], end = [input.zi0, input.xi0])
     }
-    feature vapor_retarder = extrude(profile = sketch.vapor_retarder_s, distance = 0.0156 in, mode = new)
+    feature vapor_retarder = extrude(profile = sketch.vapor_retarder_s, distance = 0.0156 in)
     sketch gypsum_s on plane.gyp_face {
         l0_0 = line(start = [input.zi0, input.xi0], end = [input.zi1, input.xi0])
         l0_1 = line(start = [input.zi1, input.xi0], end = [input.zi1, input.xi1])
         l0_2 = line(start = [input.zi1, input.xi1], end = [input.zi0, input.xi1])
         l0_3 = line(start = [input.zi0, input.xi1], end = [input.zi0, input.xi0])
     }
-    feature gypsum = extrude(profile = sketch.gypsum_s, distance = 0.5 in, mode = new)
+    feature gypsum = extrude(profile = sketch.gypsum_s, distance = 0.5 in)
     sketch screed_ad_s on plane.yz_m1_5 {
         l0_0 = line(start = [-0.4375 in, 1.5 in], end = [-0.4688 in, 1.5 in])
         l0_1 = line(start = [-0.4688 in, 1.5 in], end = [-0.4688 in, -2 in])
@@ -124,7 +124,7 @@ part exterior_wall {
         l0_6 = line(start = [-1.4375 in, -2.0625 in], end = [-0.4375 in, -2.0625 in])
         l0_7 = line(start = [-0.4375 in, -2.0625 in], end = [-0.4375 in, 1.5 in])
     }
-    feature weep_screed_ad = extrude(profile = sketch.screed_ad_s, distance = 483 in, mode = new, suppressed = true)
+    feature weep_screed_ad = extrude(profile = sketch.screed_ad_s, distance = 483 in, suppressed = true)
     sketch screed_15_s on plane.yz_m5_5 {
         l0_0 = line(start = [-0.4375 in, 1.5 in], end = [-0.4688 in, 1.5 in])
         l0_1 = line(start = [-0.4688 in, 1.5 in], end = [-0.4688 in, -2 in])
@@ -135,7 +135,7 @@ part exterior_wall {
         l0_6 = line(start = [-1.4375 in, -2.0625 in], end = [-0.4375 in, -2.0625 in])
         l0_7 = line(start = [-0.4375 in, -2.0625 in], end = [-0.4375 in, 1.5 in])
     }
-    feature weep_screed_15 = extrude(profile = sketch.screed_15_s, distance = 360 in, mode = new, suppressed = true)
+    feature weep_screed_15 = extrude(profile = sketch.screed_15_s, distance = 360 in, suppressed = true)
     sketch o1_out_s on plane.zx_m1_375 {
         l0_0 = line(start = [input.o1_b, input.o1_l], end = [input.o1_t + 0.0625 in, input.o1_l])
         l0_1 = line(start = [input.o1_t + 0.0625 in, input.o1_l], end = [input.o1_t + 0.0625 in, input.o1_r])
@@ -198,56 +198,56 @@ part exterior_wall {
         l0_2 = line(start = [input.o1_b + 0.0625 in, input.o1_r], end = [input.o1_b, input.o1_r])
         l0_3 = line(start = [input.o1_b, input.o1_r], end = [input.o1_b, input.o1_l])
     }
-    feature o1_pan = extrude(profile = sketch.o1_pan_s, distance = 4.625 in, mode = new)
+    feature o1_pan = extrude(profile = sketch.o1_pan_s, distance = 4.625 in)
     sketch o1_head_s on plane.zx_m1_875 {
         l0_0 = line(start = [input.o1_t, input.o1_l], end = [input.o1_t + 0.0625 in, input.o1_l])
         l0_1 = line(start = [input.o1_t + 0.0625 in, input.o1_l], end = [input.o1_t + 0.0625 in, input.o1_r])
         l0_2 = line(start = [input.o1_t + 0.0625 in, input.o1_r], end = [input.o1_t, input.o1_r])
         l0_3 = line(start = [input.o1_t, input.o1_r], end = [input.o1_t, input.o1_l])
     }
-    feature o1_head = extrude(profile = sketch.o1_head_s, distance = 1.4375 in, mode = new)
+    feature o1_head = extrude(profile = sketch.o1_head_s, distance = 1.4375 in)
     sketch o2_pan_s on plane.zx_m1_625 {
         l0_0 = line(start = [input.o2_b, input.o2_l], end = [input.o2_b + 0.0625 in, input.o2_l])
         l0_1 = line(start = [input.o2_b + 0.0625 in, input.o2_l], end = [input.o2_b + 0.0625 in, input.o2_r])
         l0_2 = line(start = [input.o2_b + 0.0625 in, input.o2_r], end = [input.o2_b, input.o2_r])
         l0_3 = line(start = [input.o2_b, input.o2_r], end = [input.o2_b, input.o2_l])
     }
-    feature o2_pan = extrude(profile = sketch.o2_pan_s, distance = 4.625 in, mode = new)
+    feature o2_pan = extrude(profile = sketch.o2_pan_s, distance = 4.625 in)
     sketch o2_head_s on plane.zx_m1_875 {
         l0_0 = line(start = [input.o2_t, input.o2_l], end = [input.o2_t + 0.0625 in, input.o2_l])
         l0_1 = line(start = [input.o2_t + 0.0625 in, input.o2_l], end = [input.o2_t + 0.0625 in, input.o2_r])
         l0_2 = line(start = [input.o2_t + 0.0625 in, input.o2_r], end = [input.o2_t, input.o2_r])
         l0_3 = line(start = [input.o2_t, input.o2_r], end = [input.o2_t, input.o2_l])
     }
-    feature o2_head = extrude(profile = sketch.o2_head_s, distance = 1.4375 in, mode = new)
+    feature o2_head = extrude(profile = sketch.o2_head_s, distance = 1.4375 in)
     sketch o3_pan_s on plane.zx_m1_625 {
         l0_0 = line(start = [input.o3_b, input.o3_l], end = [input.o3_b + 0.0625 in, input.o3_l])
         l0_1 = line(start = [input.o3_b + 0.0625 in, input.o3_l], end = [input.o3_b + 0.0625 in, input.o3_r])
         l0_2 = line(start = [input.o3_b + 0.0625 in, input.o3_r], end = [input.o3_b, input.o3_r])
         l0_3 = line(start = [input.o3_b, input.o3_r], end = [input.o3_b, input.o3_l])
     }
-    feature o3_pan = extrude(profile = sketch.o3_pan_s, distance = 4.625 in, mode = new)
+    feature o3_pan = extrude(profile = sketch.o3_pan_s, distance = 4.625 in)
     sketch o3_head_s on plane.zx_m1_875 {
         l0_0 = line(start = [input.o3_t, input.o3_l], end = [input.o3_t + 0.0625 in, input.o3_l])
         l0_1 = line(start = [input.o3_t + 0.0625 in, input.o3_l], end = [input.o3_t + 0.0625 in, input.o3_r])
         l0_2 = line(start = [input.o3_t + 0.0625 in, input.o3_r], end = [input.o3_t, input.o3_r])
         l0_3 = line(start = [input.o3_t, input.o3_r], end = [input.o3_t, input.o3_l])
     }
-    feature o3_head = extrude(profile = sketch.o3_head_s, distance = 1.4375 in, mode = new)
+    feature o3_head = extrude(profile = sketch.o3_head_s, distance = 1.4375 in)
     sketch o4_pan_s on plane.zx_m1_625 {
         l0_0 = line(start = [input.o4_b, input.o4_l], end = [input.o4_b + 0.0625 in, input.o4_l])
         l0_1 = line(start = [input.o4_b + 0.0625 in, input.o4_l], end = [input.o4_b + 0.0625 in, input.o4_r])
         l0_2 = line(start = [input.o4_b + 0.0625 in, input.o4_r], end = [input.o4_b, input.o4_r])
         l0_3 = line(start = [input.o4_b, input.o4_r], end = [input.o4_b, input.o4_l])
     }
-    feature o4_pan = extrude(profile = sketch.o4_pan_s, distance = 4.625 in, mode = new)
+    feature o4_pan = extrude(profile = sketch.o4_pan_s, distance = 4.625 in)
     sketch o4_head_s on plane.zx_m1_875 {
         l0_0 = line(start = [input.o4_t, input.o4_l], end = [input.o4_t + 0.0625 in, input.o4_l])
         l0_1 = line(start = [input.o4_t + 0.0625 in, input.o4_l], end = [input.o4_t + 0.0625 in, input.o4_r])
         l0_2 = line(start = [input.o4_t + 0.0625 in, input.o4_r], end = [input.o4_t, input.o4_r])
         l0_3 = line(start = [input.o4_t, input.o4_r], end = [input.o4_t, input.o4_l])
     }
-    feature o4_head = extrude(profile = sketch.o4_head_s, distance = 1.4375 in, mode = new)
+    feature o4_head = extrude(profile = sketch.o4_head_s, distance = 1.4375 in)
     sketch batt_a_l1_s on origin.zx {
         l0_0 = line(start = [2.5 in, 7 in], end = [106.125 in, 7 in])
         l0_1 = line(start = [106.125 in, 7 in], end = [106.125 in, 15.25 in])
@@ -434,7 +434,7 @@ part exterior_wall {
         l45_2 = line(start = [106.125 in, 473 in], end = [2.5 in, 473 in])
         l45_3 = line(start = [2.5 in, 473 in], end = [2.5 in, 464.75 in])
     }
-    feature batt_a_l1 = extrude(profile = sketch.batt_a_l1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_a_l1 = extrude(profile = sketch.batt_a_l1_s, distance = 5.5 in, suppressed = true)
     sketch batt_d_l1_s on origin.zx {
         l0_0 = line(start = [2.5 in, 7 in], end = [106.125 in, 7 in])
         l0_1 = line(start = [106.125 in, 7 in], end = [106.125 in, 15.25 in])
@@ -605,7 +605,7 @@ part exterior_wall {
         l41_2 = line(start = [106.125 in, 473 in], end = [2.5 in, 473 in])
         l41_3 = line(start = [2.5 in, 473 in], end = [2.5 in, 464.75 in])
     }
-    feature batt_d_l1 = extrude(profile = sketch.batt_d_l1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_d_l1 = extrude(profile = sketch.batt_d_l1_s, distance = 5.5 in, suppressed = true)
     sketch batt_1_l1_s on origin.zx {
         l0_0 = line(start = [2.5 in, 5.5 in], end = [106.125 in, 5.5 in])
         l0_1 = line(start = [106.125 in, 5.5 in], end = [106.125 in, 9.75 in])
@@ -744,7 +744,7 @@ part exterior_wall {
         l33_2 = line(start = [106.125 in, 343.5 in], end = [2.5 in, 343.5 in])
         l33_3 = line(start = [2.5 in, 343.5 in], end = [2.5 in, 331.25 in])
     }
-    feature batt_1_l1 = extrude(profile = sketch.batt_1_l1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_1_l1 = extrude(profile = sketch.batt_1_l1_s, distance = 5.5 in, suppressed = true)
     sketch batt_5_l1_s on origin.zx {
         l0_0 = line(start = [2.5 in, 5.5 in], end = [106.125 in, 5.5 in])
         l0_1 = line(start = [106.125 in, 5.5 in], end = [106.125 in, 17.75 in])
@@ -883,7 +883,7 @@ part exterior_wall {
         l33_2 = line(start = [106.125 in, 343.5 in], end = [2.5 in, 343.5 in])
         l33_3 = line(start = [2.5 in, 343.5 in], end = [2.5 in, 339.25 in])
     }
-    feature batt_5_l1 = extrude(profile = sketch.batt_5_l1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_5_l1 = extrude(profile = sketch.batt_5_l1_s, distance = 5.5 in, suppressed = true)
     sketch batt_a_l2_s on origin.zx {
         l0_0 = line(start = [1.5 in, 7 in], end = [94.125 in, 7 in])
         l0_1 = line(start = [94.125 in, 7 in], end = [94.125 in, 15.25 in])
@@ -1022,7 +1022,7 @@ part exterior_wall {
         l33_2 = line(start = [94.125 in, 473 in], end = [1.5 in, 473 in])
         l33_3 = line(start = [1.5 in, 473 in], end = [1.5 in, 464.75 in])
     }
-    feature batt_a_l2 = extrude(profile = sketch.batt_a_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_a_l2 = extrude(profile = sketch.batt_a_l2_s, distance = 5.5 in, suppressed = true)
     sketch batt_d_l2_s on origin.zx {
         l0_0 = line(start = [1.5 in, 7 in], end = [94.125 in, 7 in])
         l0_1 = line(start = [94.125 in, 7 in], end = [94.125 in, 15.25 in])
@@ -1169,7 +1169,7 @@ part exterior_wall {
         l35_2 = line(start = [94.125 in, 473 in], end = [1.5 in, 473 in])
         l35_3 = line(start = [1.5 in, 473 in], end = [1.5 in, 464.75 in])
     }
-    feature batt_d_l2 = extrude(profile = sketch.batt_d_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_d_l2 = extrude(profile = sketch.batt_d_l2_s, distance = 5.5 in, suppressed = true)
     sketch batt_1_l2_s on origin.zx {
         l0_0 = line(start = [1.5 in, 5.5 in], end = [94.125 in, 5.5 in])
         l0_1 = line(start = [94.125 in, 5.5 in], end = [94.125 in, 9.75 in])
@@ -1272,7 +1272,7 @@ part exterior_wall {
         l24_2 = line(start = [94.125 in, 343.5 in], end = [1.5 in, 343.5 in])
         l24_3 = line(start = [1.5 in, 343.5 in], end = [1.5 in, 331.25 in])
     }
-    feature batt_1_l2 = extrude(profile = sketch.batt_1_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_1_l2 = extrude(profile = sketch.batt_1_l2_s, distance = 5.5 in, suppressed = true)
     sketch batt_5_l2_s on origin.zx {
         l0_0 = line(start = [1.5 in, 5.5 in], end = [94.125 in, 5.5 in])
         l0_1 = line(start = [94.125 in, 5.5 in], end = [94.125 in, 17.75 in])
@@ -1375,7 +1375,7 @@ part exterior_wall {
         l24_2 = line(start = [94.125 in, 343.5 in], end = [1.5 in, 343.5 in])
         l24_3 = line(start = [1.5 in, 343.5 in], end = [1.5 in, 339.25 in])
     }
-    feature batt_5_l2 = extrude(profile = sketch.batt_5_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature batt_5_l2 = extrude(profile = sketch.batt_5_l2_s, distance = 5.5 in, suppressed = true)
 
     // MEP penetrations for wall_5_l1: bored holes and box cut-outs where the runs pass
     feature mep_wall_5_l1_p_xy_3 = plane.offset(base = origin.xy, distance = 11.125 in)
@@ -1511,14 +1511,58 @@ part exterior_wall {
     }
     feature mep_wall_d_l2_3 = extrude(profile = sketch.mep_wall_d_l2_3_s, distance = 109.6198 in, mode = cut, suppressed = true)
     // end MEP penetrations wall_d_l2
-    output exterior_wall = { body = feature.stucco_finish.body, part_number = "EW-A1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco finish coat, 1/8 in" }
-    output exterior_wall_stucco_brown = { body = feature.stucco_brown.body, part_number = "EW-A1", material = material.stucco_brown_coat, color = "#B9AE98", label = "Stucco brown coat, 3/8 in" }
-    output exterior_wall_stucco_scratch = { body = feature.stucco_scratch.body, part_number = "EW-A1", material = material.stucco_scratch_coat, color = "#A49C8C", label = "Stucco scratch coat, 3/8 in with the lath" }
-    output exterior_wall_lath = { body = feature.lath.body, part_number = "EW-A1", material = material.galvanized_steel_lath, label = "Self-furring expanded metal lath, 2.5 lb/sq yd" }
-    output exterior_wall_wrb_outer = { body = feature.wrb_outer.body, part_number = "EW-A1", material = material.asphalt_saturated_kraft_wrb, label = "WRB, outer layer, Grade D 60-minute building paper" }
-    output exterior_wall_wrb_inner = { body = feature.wrb_inner.body, part_number = "EW-A1", material = material.asphalt_saturated_kraft_wrb, color = "#5A4A3A", label = "WRB, inner layer, Grade D 60-minute building paper" }
-    output exterior_wall_vapor_retarder = { body = feature.vapor_retarder.body, part_number = "EW-A1", material = material.nylon_vapor_retarder, label = "Variable-permeance vapor retarder (Class II dry, Class III humid)" }
-    output exterior_wall_gypsum = { body = feature.gypsum.body, part_number = "EW-A1", material = material.gypsum_board, label = "1/2 in gypsum board" }
+    output exterior_wall = {
+        body = feature.stucco_finish.body
+        part_number = "EW-A1"
+        material = material.stucco_finish_coat
+        color = "#D8CDB4"
+        label = "Stucco finish coat, 1/8 in"
+    }
+    output exterior_wall_stucco_brown = {
+        body = feature.stucco_brown.body
+        part_number = "EW-A1"
+        material = material.stucco_brown_coat
+        color = "#B9AE98"
+        label = "Stucco brown coat, 3/8 in"
+    }
+    output exterior_wall_stucco_scratch = {
+        body = feature.stucco_scratch.body
+        part_number = "EW-A1"
+        material = material.stucco_scratch_coat
+        color = "#A49C8C"
+        label = "Stucco scratch coat, 3/8 in with the lath"
+    }
+    output exterior_wall_lath = {
+        body = feature.lath.body
+        part_number = "EW-A1"
+        material = material.galvanized_steel_lath
+        label = "Self-furring expanded metal lath, 2.5 lb/sq yd"
+    }
+    output exterior_wall_wrb_outer = {
+        body = feature.wrb_outer.body
+        part_number = "EW-A1"
+        material = material.asphalt_saturated_kraft_wrb
+        label = "WRB, outer layer, Grade D 60-minute building paper"
+    }
+    output exterior_wall_wrb_inner = {
+        body = feature.wrb_inner.body
+        part_number = "EW-A1"
+        material = material.asphalt_saturated_kraft_wrb
+        color = "#5A4A3A"
+        label = "WRB, inner layer, Grade D 60-minute building paper"
+    }
+    output exterior_wall_vapor_retarder = {
+        body = feature.vapor_retarder.body
+        part_number = "EW-A1"
+        material = material.nylon_vapor_retarder
+        label = "Variable-permeance vapor retarder (Class II dry, Class III humid)"
+    }
+    output exterior_wall_gypsum = {
+        body = feature.gypsum.body
+        part_number = "EW-A1"
+        material = material.gypsum_board
+        label = "1/2 in gypsum board"
+    }
     assign material.fiberglass_batt to feature.batt_a_l1.body
     assign material.fiberglass_batt to feature.batt_d_l1.body
     assign material.fiberglass_batt to feature.batt_1_l1.body
@@ -1538,7 +1582,11 @@ part exterior_wall {
     assign material.galvanized_steel_flashing to feature.o4_pan.body
     assign material.galvanized_steel_flashing to feature.o4_head.body
     region stucco_face : face = { select = [feature.stucco_finish.face.start], expect = one_or_more, label = "Stucco face" }
-    region room_face : face = { select = [feature.gypsum.face.end], expect = one_or_more, label = "Room face of the gypsum" }
+    region room_face : face = {
+        select = [feature.gypsum.face.end]
+        expect = one_or_more
+        label = "Room face of the gypsum"
+    }
 
     configuration wall_a_l1 = {
         inputs = {
@@ -1580,7 +1628,12 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        features = { mep_wall_a_l1_0 = { suppressed = false }, mep_wall_a_l1_1 = { suppressed = false }, batt_a_l1 = { suppressed = false }, weep_screed_ad = { suppressed = false } }
+        features = {
+            batt_a_l1 = { suppressed = false }
+            mep_wall_a_l1_0 = { suppressed = false }
+            mep_wall_a_l1_1 = { suppressed = false }
+            weep_screed_ad = { suppressed = false }
+        }
         part_number = "EW-A1"
         description = "Envelope layers of the south (grid A) wall, first floor"
     }
@@ -1624,8 +1677,23 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.o4_out, feature.o4_in, feature.o4_pan, feature.o4_head]
-        features = { mep_wall_d_l1_0 = { suppressed = false }, mep_wall_d_l1_1 = { suppressed = false }, mep_wall_d_l1_2 = { suppressed = false }, mep_wall_d_l1_3 = { suppressed = false }, mep_wall_d_l1_4 = { suppressed = false }, mep_wall_d_l1_5 = { suppressed = false }, mep_wall_d_l1_6 = { suppressed = false }, mep_wall_d_l1_7 = { suppressed = false }, mep_wall_d_l1_8 = { suppressed = false }, mep_wall_d_l1_9 = { suppressed = false }, mep_wall_d_l1_10 = { suppressed = false }, mep_wall_d_l1_11 = { suppressed = false }, batt_d_l1 = { suppressed = false }, weep_screed_ad = { suppressed = false } }
+        suppress = [feature.o4_head, feature.o4_in, feature.o4_out, feature.o4_pan]
+        features = {
+            batt_d_l1 = { suppressed = false }
+            mep_wall_d_l1_0 = { suppressed = false }
+            mep_wall_d_l1_1 = { suppressed = false }
+            mep_wall_d_l1_10 = { suppressed = false }
+            mep_wall_d_l1_11 = { suppressed = false }
+            mep_wall_d_l1_2 = { suppressed = false }
+            mep_wall_d_l1_3 = { suppressed = false }
+            mep_wall_d_l1_4 = { suppressed = false }
+            mep_wall_d_l1_5 = { suppressed = false }
+            mep_wall_d_l1_6 = { suppressed = false }
+            mep_wall_d_l1_7 = { suppressed = false }
+            mep_wall_d_l1_8 = { suppressed = false }
+            mep_wall_d_l1_9 = { suppressed = false }
+            weep_screed_ad = { suppressed = false }
+        }
         part_number = "EW-D1"
         description = "Envelope layers of the north (grid D) wall, first floor"
     }
@@ -1669,7 +1737,16 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.o3_out, feature.o3_in, feature.o3_pan, feature.o3_head, feature.o4_out, feature.o4_in, feature.o4_pan, feature.o4_head]
+        suppress = [
+            feature.o3_head,
+            feature.o3_in,
+            feature.o3_out,
+            feature.o3_pan,
+            feature.o4_head,
+            feature.o4_in,
+            feature.o4_out,
+            feature.o4_pan,
+        ]
         features = { batt_1_l1 = { suppressed = false }, weep_screed_15 = { suppressed = false } }
         part_number = "EW-11"
         description = "Envelope layers of the west (grid 1) wall, first floor"
@@ -1714,8 +1791,24 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.o3_out, feature.o3_in, feature.o3_pan, feature.o3_head, feature.o4_out, feature.o4_in, feature.o4_pan, feature.o4_head]
-        features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false }, mep_wall_5_l1_2 = { suppressed = false }, mep_wall_5_l1_3 = { suppressed = false }, batt_5_l1 = { suppressed = false }, weep_screed_15 = { suppressed = false } }
+        suppress = [
+            feature.o3_head,
+            feature.o3_in,
+            feature.o3_out,
+            feature.o3_pan,
+            feature.o4_head,
+            feature.o4_in,
+            feature.o4_out,
+            feature.o4_pan,
+        ]
+        features = {
+            batt_5_l1 = { suppressed = false }
+            mep_wall_5_l1_0 = { suppressed = false }
+            mep_wall_5_l1_1 = { suppressed = false }
+            mep_wall_5_l1_2 = { suppressed = false }
+            mep_wall_5_l1_3 = { suppressed = false }
+            weep_screed_15 = { suppressed = false }
+        }
         part_number = "EW-51"
         description = "Envelope layers of the east (grid 5) wall, first floor"
     }
@@ -1803,7 +1896,13 @@ part exterior_wall {
             o4_b = 34.375 in
             o4_t = 82.875 in
         }
-        features = { mep_wall_d_l2_0 = { suppressed = false }, mep_wall_d_l2_1 = { suppressed = false }, mep_wall_d_l2_2 = { suppressed = false }, mep_wall_d_l2_3 = { suppressed = false }, batt_d_l2 = { suppressed = false } }
+        features = {
+            batt_d_l2 = { suppressed = false }
+            mep_wall_d_l2_0 = { suppressed = false }
+            mep_wall_d_l2_1 = { suppressed = false }
+            mep_wall_d_l2_2 = { suppressed = false }
+            mep_wall_d_l2_3 = { suppressed = false }
+        }
         part_number = "EW-D2"
         description = "Envelope layers of the north (grid D) wall, second floor"
     }
@@ -1847,7 +1946,16 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.o3_out, feature.o3_in, feature.o3_pan, feature.o3_head, feature.o4_out, feature.o4_in, feature.o4_pan, feature.o4_head]
+        suppress = [
+            feature.o3_head,
+            feature.o3_in,
+            feature.o3_out,
+            feature.o3_pan,
+            feature.o4_head,
+            feature.o4_in,
+            feature.o4_out,
+            feature.o4_pan,
+        ]
         features = { batt_1_l2 = { suppressed = false } }
         part_number = "EW-12"
         description = "Envelope layers of the west (grid 1) wall, second floor"
@@ -1892,7 +2000,16 @@ part exterior_wall {
             o4_b = 22 in
             o4_t = 82.5 in
         }
-        suppress = [feature.o3_out, feature.o3_in, feature.o3_pan, feature.o3_head, feature.o4_out, feature.o4_in, feature.o4_pan, feature.o4_head]
+        suppress = [
+            feature.o3_head,
+            feature.o3_in,
+            feature.o3_out,
+            feature.o3_pan,
+            feature.o4_head,
+            feature.o4_in,
+            feature.o4_out,
+            feature.o4_pan,
+        ]
         features = { batt_5_l2 = { suppressed = false } }
         part_number = "EW-52"
         description = "Envelope layers of the east (grid 5) wall, second floor"

@@ -8,5 +8,10 @@ part seat_track {
     }
     feature track = extrude(profile = sketch.s, distance = 8000 mm)
 
-    output seat_track = { body = feature.track.body, part_number = "FUS-TR-420", material = "aluminum_7075", color = "#8C9299" }
+    output seat_track = {
+        body = feature.track.body
+        part_number = "FUS-TR-420"
+        material = aluminum_7075
+        color = "#8C9299"
+    }
 }

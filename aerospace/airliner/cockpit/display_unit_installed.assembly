@@ -6,6 +6,9 @@ import { du_controller } from "../electrical/display_unit/du_controller.circuit"
 assembly display_unit_installed {
     instance display_unit : display_unit
     instance controller : du_controller = {
-        placement = offset(translation = [-100 mm, 0 mm, 0 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [-100 mm, 0 mm, 0 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
 }

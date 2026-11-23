@@ -74,12 +74,33 @@ part landing_skid {
     sketch belly_s8 on plane.belly_st8 {
         c = spline(points = [[0 mm, 35 mm], [3.047 mm, 34.878 mm], [4.876 mm, 34.512 mm], [6.246 mm, 33.904 mm], [7.219 mm, 33.048 mm], [7.804 mm, 31.904 mm], [8 mm, 30 mm], [7.804 mm, 28.096 mm], [7.219 mm, 26.952 mm], [6.246 mm, 26.096 mm], [4.876 mm, 25.488 mm], [3.047 mm, 25.122 mm], [0 mm, 25 mm], [-3.047 mm, 25.122 mm], [-4.876 mm, 25.488 mm], [-6.246 mm, 26.096 mm], [-7.219 mm, 26.952 mm], [-7.804 mm, 28.096 mm], [-8 mm, 30 mm], [-7.804 mm, 31.904 mm], [-7.219 mm, 33.048 mm], [-6.246 mm, 33.904 mm], [-4.876 mm, 34.512 mm], [-3.047 mm, 34.878 mm]], closed = true)
     }
-    feature belly = loft(profiles = [sketch.belly_s0, sketch.belly_s1, sketch.belly_s2, sketch.belly_s3, sketch.belly_s4, sketch.belly_s5, sketch.belly_s6, sketch.belly_s7, sketch.belly_s8], mode = cut)
+    feature belly = loft(
+        profiles = [
+            sketch.belly_s0,
+            sketch.belly_s1,
+            sketch.belly_s2,
+            sketch.belly_s3,
+            sketch.belly_s4,
+            sketch.belly_s5,
+            sketch.belly_s6,
+            sketch.belly_s7,
+            sketch.belly_s8,
+        ],
+        mode = cut,
+    )
     // The sole's edges are rounded, so the skid doesn't catch when it lands with drift.
-    feature sole_round = fillet(edges = [edges_between(feature.rail.face.side(rail_s.c), feature.rail.face.start)], radius = 1.2 mm)
+    feature sole_round = fillet(
+        edges = [edges_between(feature.rail.face.side(rail_s.c), feature.rail.face.start)],
+        radius = 1.2 mm,
+    )
     // The struts' tops, where the skid is bonded and screwed to the belly, and the sole that meets
     // the ground.
     region mount : face = { select = [feature.belly.face.side(belly_s0.c)], expect = one_or_more }
     region sole : face = { select = [feature.rail.face.start], expect = exactly_one }
-    output landing_skid = { body = feature.rail.body, part_number = "CD-BD-140", material = "glass_filled_nylon", color = "#4A4F57" }
+    output landing_skid = {
+        body = feature.rail.body
+        part_number = "CD-BD-140"
+        material = glass_filled_nylon
+        color = "#4A4F57"
+    }
 }

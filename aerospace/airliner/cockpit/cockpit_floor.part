@@ -55,5 +55,10 @@ part cockpit_floor {
     }
     feature floor = extrude(profile = sketch.s, distance = 10 mm)
 
-    output cockpit_floor = { body = feature.floor.body, part_number = "FD-FL-300", material = "composite", color = "#6A7078" }
+    output cockpit_floor = {
+        body = feature.floor.body
+        part_number = "FD-FL-300"
+        material = composite
+        color = "#6A7078"
+    }
 }

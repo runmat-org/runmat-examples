@@ -8,14 +8,14 @@ drawing gear_strut {
     format a3 = {
         size = iso(name = A3)
         title_block = [
-            { label = "Title", source = literal(text = "Main gear strut") },
+            { label = Title, source = literal(text = "Main gear strut") },
             { label = "Part number", source = property(name = part_number) },
-            { label = "Material", source = property(name = material) },
-            { label = "Drawn", source = literal(text = "RunMat Design") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
-            { label = "Date", source = literal(text = "2026-11-10") },
+            { label = Material, source = property(name = material) },
+            { label = Drawn, source = literal(text = "RunMat Design") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
+            { label = Date, source = literal(text = "2026-11-10") },
         ]
     }
 
@@ -25,7 +25,13 @@ drawing gear_strut {
         projection = third_angle
 
         view front = standard(orientation = front, model = gear_strut, at = [70, 140] mm, display = hidden_lines)
-        view top = projected(from = front, direction = up, model = gear_strut, at = [70, 255] mm, display = visible_lines)
+        view top = projected(
+            from = front,
+            direction = up,
+            model = gear_strut,
+            at = [70, 255] mm,
+            display = visible_lines,
+        )
         view a_a = section(
             from = front,
             plane = feature.strut.face.side(s.c),
@@ -34,13 +40,32 @@ drawing gear_strut {
             at = [175, 140] mm,
             display = visible_lines,
         )
-        view iso = standard(orientation = isometric, model = gear_strut, at = [330, 190] mm, scale = 1/20, display = visible_lines)
+        view iso = standard(
+            orientation = isometric,
+            model = gear_strut,
+            at = [330, 190] mm,
+            scale = 1/20,
+            display = visible_lines,
+        )
     }
 
-    annotation length = dimension(style = linear, references = [feature.strut.face.start, feature.strut.face.end], view = front)
-    annotation bore_depth = dimension(style = linear, references = [feature.strut.face.start, feature.cylinder_bore.face.end], view = front)
+    annotation length = dimension(
+        style = linear,
+        references = [feature.strut.face.start, feature.strut.face.end],
+        view = front,
+    )
+    annotation bore_depth = dimension(
+        style = linear,
+        references = [feature.strut.face.start, feature.cylinder_bore.face.end],
+        view = front,
+    )
     annotation outside = dimension(style = diameter, references = [feature.strut.face.side(s.c)], pmi = outside, view = top)
-    annotation bore = dimension(style = diameter, references = [feature.cylinder_bore.face.side(b.c)], pmi = bore_size, view = a_a)
+    annotation bore = dimension(
+        style = diameter,
+        references = [feature.cylinder_bore.face.side(b.c)],
+        pmi = bore_size,
+        view = a_a,
+    )
     annotation datum_a = datum_symbol(label = A, view = front)
     annotation bore_position = gdt(tolerance = bore_coaxial, view = a_a)
     annotation notes = note(

@@ -22,5 +22,10 @@ part overwing_exit {
     }
     feature cut = extrude(profile = sketch.o, distance = 2180 mm, mode = intersect)
 
-    output overwing_exit = { body = feature.skin.body, part_number = "FUS-DR-710", material = "aluminum_2024", color = "#EEF0F2" }
+    output overwing_exit = {
+        body = feature.skin.body
+        part_number = "FUS-DR-710"
+        material = aluminum_2024
+        color = "#EEF0F2"
+    }
 }

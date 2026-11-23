@@ -12,5 +12,10 @@ part seat_armrest {
     }
     feature body = extrude(profile = sketch.s, distance = 40 mm, symmetric = true)
 
-    output seat_armrest = { body = feature.body.body, part_number = "CAB-ST-130", material = "polycarbonate", color = "#4C535B" }
+    output seat_armrest = {
+        body = feature.body.body
+        part_number = "CAB-ST-130"
+        material = polycarbonate
+        color = "#4C535B"
+    }
 }

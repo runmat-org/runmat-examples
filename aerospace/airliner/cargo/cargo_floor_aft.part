@@ -9,5 +9,10 @@ part cargo_floor_aft {
     }
     feature floor = extrude(profile = sketch.s, distance = 12 mm)
 
-    output cargo_floor_aft = { body = feature.floor.body, part_number = "FUS-CF-801", material = "composite", color = "#5D6369" }
+    output cargo_floor_aft = {
+        body = feature.floor.body
+        part_number = "FUS-CF-801"
+        material = composite
+        color = "#5D6369"
+    }
 }

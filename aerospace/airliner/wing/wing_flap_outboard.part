@@ -18,5 +18,10 @@ part wing_flap_outboard {
     }
     feature piece = loft(profiles = [sketch.s0, sketch.s1])
 
-    output wing_flap_outboard = { body = feature.piece.body, part_number = "WNG-FL-640", material = "aluminum_2024", color = "#B1B7BF" }
+    output wing_flap_outboard = {
+        body = feature.piece.body
+        part_number = "WNG-FL-640"
+        material = aluminum_2024
+        color = "#B1B7BF"
+    }
 }

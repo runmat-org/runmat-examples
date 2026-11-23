@@ -13,19 +13,19 @@ part stem_wall {
         ri2 = line(start = [472 in, 352 in], end = [8 in, 352 in])
         ri3 = line(start = [8 in, 352 in], end = [8 in, 8 in])
     }
-    feature wall = extrude(profile = sketch.wall_s, distance = 22 in, mode = new)
+    feature wall = extrude(profile = sketch.wall_s, distance = 22 in)
     feature bar_x0 = plane.offset(base = origin.yz, distance = 1.5 in)
     sketch bars_x_s on plane.bar_x0 {
         c0 = circle(center = [4.5 in, -3.25 in], radius = 0.25 in)
         c1 = circle(center = [355.5 in, -3.25 in], radius = 0.25 in)
     }
-    feature bars_x = extrude(profile = sketch.bars_x_s, distance = 477 in, mode = new)
+    feature bars_x = extrude(profile = sketch.bars_x_s, distance = 477 in)
     feature bar_y0 = plane.offset(base = origin.zx, distance = 1.5 in)
     sketch bars_y_s on plane.bar_y0 {
         c0 = circle(center = [-2.75 in, 4.5 in], radius = 0.25 in)
         c1 = circle(center = [-2.75 in, 475.5 in], radius = 0.25 in)
     }
-    feature bars_y = extrude(profile = sketch.bars_y_s, distance = 357 in, mode = new)
+    feature bars_y = extrude(profile = sketch.bars_y_s, distance = 357 in)
 
     // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_pl2 = plane.offset(base = origin.xy, distance = -3.5 in)
@@ -396,5 +396,9 @@ part stem_wall {
     output stem_wall = { body = feature.wall.body, part_number = "F-2", material = material.concrete }
     assign material.steel_rebar_grade_60 to feature.bars_x.body
     assign material.steel_rebar_grade_60 to feature.bars_y.body
-    region top : face = { select = [feature.wall.face.end], expect = one_or_more, label = "Top of stem wall, sill bearing" }
+    region top : face = {
+        select = [feature.wall.face.end]
+        expect = one_or_more
+        label = "Top of stem wall, sill bearing"
+    }
 }

@@ -8,14 +8,14 @@ drawing window_frame {
     format a3 = {
         size = iso(name = A3)
         title_block = [
-            { label = "Title", source = literal(text = "Cabin window frame") },
+            { label = Title, source = literal(text = "Cabin window frame") },
             { label = "Part number", source = property(name = part_number) },
-            { label = "Material", source = property(name = material) },
-            { label = "Drawn", source = literal(text = "RunMat Design") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
-            { label = "Date", source = literal(text = "2026-11-10") },
+            { label = Material, source = property(name = material) },
+            { label = Drawn, source = literal(text = "RunMat Design") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
+            { label = Date, source = literal(text = "2026-11-10") },
         ]
     }
 
@@ -33,13 +33,35 @@ drawing window_frame {
             at = [115, 55] mm,
             display = visible_lines,
         )
-        view iso = standard(orientation = isometric, model = window_frame, at = [355, 215] mm, scale = 1/4, display = visible_lines)
+        view iso = standard(
+            orientation = isometric,
+            model = window_frame,
+            at = [355, 215] mm,
+            scale = 1/4,
+            display = visible_lines,
+        )
     }
 
-    annotation outer_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol4), feature.ring.face.side(ring_s.ol2)], view = top)
-    annotation outer_height = dimension(style = linear, references = [feature.ring.face.side(ring_s.ol1), feature.ring.face.side(ring_s.ol3)], view = top)
-    annotation cutout_width = dimension(style = linear, references = [feature.ring.face.side(ring_s.il4), feature.ring.face.side(ring_s.il2)], view = top)
-    annotation cutout_height = dimension(style = linear, references = [feature.ring.face.side(ring_s.il1), feature.ring.face.side(ring_s.il3)], view = top)
+    annotation outer_width = dimension(
+        style = linear,
+        references = [feature.ring.face.side(ring_s.ol4), feature.ring.face.side(ring_s.ol2)],
+        view = top,
+    )
+    annotation outer_height = dimension(
+        style = linear,
+        references = [feature.ring.face.side(ring_s.ol1), feature.ring.face.side(ring_s.ol3)],
+        view = top,
+    )
+    annotation cutout_width = dimension(
+        style = linear,
+        references = [feature.ring.face.side(ring_s.il4), feature.ring.face.side(ring_s.il2)],
+        view = top,
+    )
+    annotation cutout_height = dimension(
+        style = linear,
+        references = [feature.ring.face.side(ring_s.il1), feature.ring.face.side(ring_s.il3)],
+        view = top,
+    )
     annotation cutout_corner = dimension(style = radius, references = [feature.ring.face.side(ring_s.ia2)], view = top)
     annotation thickness = dimension(style = linear, references = [feature.ring.face.start, feature.ring.face.end], view = a_a)
     annotation fasteners = hole_callout(hole = feature.fastener_holes.face.wall(a), view = top)

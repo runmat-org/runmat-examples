@@ -23,5 +23,10 @@ part fin {
     }
     feature hollow = loft(profiles = [sketch.is0, sketch.is1], mode = cut)
 
-    output fin = { body = feature.surface.body, part_number = "EMP-VT-700", material = "composite", color = "#E4E7EB" }
+    output fin = {
+        body = feature.surface.body
+        part_number = "EMP-VT-700"
+        material = composite
+        color = "#E4E7EB"
+    }
 }

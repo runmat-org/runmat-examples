@@ -18,9 +18,15 @@ assembly motor_station {
     instance motor : motor
     instance hub : prop_hub
     instance blade_a : prop_blade = {
-        placement = offset(translation = [0 mm, 9 mm, 18.6 mm], rotation = axis_angle(axis = [0, 0, 1], angle = input.blade_a + 90 deg))
+        placement = offset(
+            translation = [0 mm, 9 mm, 18.6 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = input.blade_a + 90 deg),
+        )
     }
     instance blade_b : prop_blade = {
-        placement = offset(translation = [0 mm, -9 mm, 18.6 mm], rotation = axis_angle(axis = [0, 0, 1], angle = input.blade_b + 90 deg))
+        placement = offset(
+            translation = [0 mm, -9 mm, 18.6 mm],
+            rotation = axis_angle(axis = [0, 0, 1], angle = input.blade_b + 90 deg),
+        )
     }
 }

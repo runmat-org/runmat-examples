@@ -3,7 +3,11 @@
 // on the schematics and in the BOM, and no board places it.
 
 symbol breaker_1p = {
-    body = [line([-2.54, 0] mm, [1.27, 1.27] mm), circle([-2.54, 0] mm, 0.4 mm), circle([2.54, 0] mm, 0.4 mm)]
+    body = [
+        line([-2.54, 0] mm, [1.27, 1.27] mm),
+        circle([-2.54, 0] mm, 0.4 mm),
+        circle([2.54, 0] mm, 0.4 mm),
+    ]
     pins = [
         { name = LINE, at = [-5.08, 0] mm, dir = right },
         { name = LOAD, at = [5.08, 0] mm, dir = left },
@@ -11,7 +15,11 @@ symbol breaker_1p = {
 }
 
 symbol breaker_2p = {
-    body = [line([-2.54, 1.27] mm, [1.27, 2.54] mm), line([-2.54, -1.27] mm, [1.27, 0] mm), line([0, 2.0] mm, [0, -0.6] mm)]
+    body = [
+        line([-2.54, 1.27] mm, [1.27, 2.54] mm),
+        line([-2.54, -1.27] mm, [1.27, 0] mm),
+        line([0, 2] mm, [0, -0.6] mm),
+    ]
     pins = [
         { name = L1_LINE, at = [-5.08, 1.27] mm, dir = right },
         { name = L2_LINE, at = [-5.08, -1.27] mm, dir = right },
@@ -42,7 +50,12 @@ symbol source = {
 }
 
 symbol electrode = {
-    body = [line([0, 0] mm, [0, -2.54] mm), line([-2.54, -2.54] mm, [2.54, -2.54] mm), line([-1.52, -3.3] mm, [1.52, -3.3] mm), line([-0.5, -4.06] mm, [0.5, -4.06] mm)]
+    body = [
+        line([0, 0] mm, [0, -2.54] mm),
+        line([-2.54, -2.54] mm, [2.54, -2.54] mm),
+        line([-1.52, -3.3] mm, [1.52, -3.3] mm),
+        line([-0.5, -4.06] mm, [0.5, -4.06] mm),
+    ]
     pins = [
         { name = GEC, at = [0, 5.08] mm, dir = down },
     ]
@@ -57,7 +70,11 @@ symbol bond = {
 }
 
 symbol receptacle = {
-    body = [circle([0, 0] mm, 3.05 mm), line([-1.0, 0.8] mm, [-1.0, -0.8] mm), line([1.0, 0.8] mm, [1.0, -0.8] mm)]
+    body = [
+        circle([0, 0] mm, 3.05 mm),
+        line([-1, 0.8] mm, [-1, -0.8] mm),
+        line([1, 0.8] mm, [1, -0.8] mm),
+    ]
     pins = [
         { name = HOT, at = [-7.62, 2.54] mm, dir = right },
         { name = NEU, at = [-7.62, 0] mm, dir = right },
@@ -87,7 +104,11 @@ symbol receptacle_240 = {
 }
 
 symbol switch = {
-    body = [circle([-2.54, 0] mm, 0.5 mm), line([-2.54, 0] mm, [2.0, 1.8] mm), circle([2.54, 0] mm, 0.5 mm)]
+    body = [
+        circle([-2.54, 0] mm, 0.5 mm),
+        line([-2.54, 0] mm, [2, 1.8] mm),
+        circle([2.54, 0] mm, 0.5 mm),
+    ]
     pins = [
         { name = LINE, at = [-5.08, 0] mm, dir = right },
         { name = LOAD, at = [5.08, 0] mm, dir = left },
@@ -96,7 +117,11 @@ symbol switch = {
 }
 
 symbol fixture = {
-    body = [circle([0, 0] mm, 2.54 mm), line([-1.8, 1.8] mm, [1.8, -1.8] mm), line([-1.8, -1.8] mm, [1.8, 1.8] mm)]
+    body = [
+        circle([0, 0] mm, 2.54 mm),
+        line([-1.8, 1.8] mm, [1.8, -1.8] mm),
+        line([-1.8, -1.8] mm, [1.8, 1.8] mm),
+    ]
     pins = [
         { name = HOT, at = [-7.62, 2.54] mm, dir = right },
         { name = NEU, at = [-7.62, 0] mm, dir = right },
@@ -122,9 +147,9 @@ part "UTIL-120-240" = {
     symbol = source
     params = { voltage = "120/240 V" }
     pins = [
-        { name = L1, type = passive },
-        { name = L2, type = passive },
-        { name = N, type = passive },
+        { name = L1, pads = [], type = passive },
+        { name = L2, pads = [], type = passive },
+        { name = N, pads = [], type = passive },
     ]
 }
 
@@ -137,12 +162,12 @@ part "METER-200A" = {
     symbol = meter
     params = { rating = "200 A" }
     pins = [
-        { name = L1_IN, type = passive },
-        { name = L2_IN, type = passive },
-        { name = N_IN, type = passive },
-        { name = L1_OUT, type = passive },
-        { name = L2_OUT, type = passive },
-        { name = N_OUT, type = passive },
+        { name = L1_IN, pads = [], type = passive },
+        { name = L2_IN, pads = [], type = passive },
+        { name = N_IN, pads = [], type = passive },
+        { name = L1_OUT, pads = [], type = passive },
+        { name = L2_OUT, pads = [], type = passive },
+        { name = N_OUT, pads = [], type = passive },
     ]
 }
 
@@ -153,12 +178,12 @@ part "MAIN-200A-2P" = {
     prefix = CB
     wiring = field
     symbol = breaker_2p
-    params = { rating = "200 A", poles = "2" }
+    params = { poles = "2", rating = "200 A" }
     pins = [
-        { name = L1_LINE, type = passive },
-        { name = L2_LINE, type = passive },
-        { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive },
+        { name = L1_LINE, pads = [], type = passive },
+        { name = L2_LINE, pads = [], type = passive },
+        { name = L1_LOAD, pads = [], type = passive },
+        { name = L2_LOAD, pads = [], type = passive },
     ]
 }
 
@@ -170,7 +195,7 @@ part "GEC-UFER" = {
     wiring = field
     symbol = electrode
     pins = [
-        { name = GEC, type = passive },
+        { name = GEC, pads = [], type = passive },
     ]
 }
 
@@ -182,7 +207,7 @@ part "GEC-ROD" = {
     wiring = field
     symbol = electrode
     pins = [
-        { name = GEC, type = passive },
+        { name = GEC, pads = [], type = passive },
     ]
 }
 
@@ -194,8 +219,8 @@ part "MBJ" = {
     wiring = field
     symbol = bond
     pins = [
-        { name = N, type = passive },
-        { name = EG, type = passive },
+        { name = N, pads = [], type = passive },
+        { name = EG, pads = [], type = passive },
     ]
 }
 
@@ -206,10 +231,10 @@ part "BKR-1P-15A-AFCI" = {
     prefix = CB
     wiring = field
     symbol = breaker_1p
-    params = { rating = "15 A", poles = "1" }
+    params = { poles = "1", rating = "15 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
     ]
 }
 
@@ -220,10 +245,10 @@ part "BKR-1P-15A" = {
     prefix = CB
     wiring = field
     symbol = breaker_1p
-    params = { rating = "15 A", poles = "1" }
+    params = { poles = "1", rating = "15 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
     ]
 }
 
@@ -234,10 +259,10 @@ part "BKR-1P-20A" = {
     prefix = CB
     wiring = field
     symbol = breaker_1p
-    params = { rating = "20 A", poles = "1" }
+    params = { poles = "1", rating = "20 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
     ]
 }
 
@@ -248,10 +273,10 @@ part "BKR-1P-20A-AFCI" = {
     prefix = CB
     wiring = field
     symbol = breaker_1p
-    params = { rating = "20 A", poles = "1" }
+    params = { poles = "1", rating = "20 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
     ]
 }
 
@@ -262,10 +287,10 @@ part "BKR-1P-20A-DF" = {
     prefix = CB
     wiring = field
     symbol = breaker_1p
-    params = { rating = "20 A", poles = "1" }
+    params = { poles = "1", rating = "20 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
     ]
 }
 
@@ -276,12 +301,12 @@ part "BKR-2P-30A" = {
     prefix = CB
     wiring = field
     symbol = breaker_2p
-    params = { rating = "30 A", poles = "2" }
+    params = { poles = "2", rating = "30 A" }
     pins = [
-        { name = L1_LINE, type = passive },
-        { name = L2_LINE, type = passive },
-        { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive },
+        { name = L1_LINE, pads = [], type = passive },
+        { name = L2_LINE, pads = [], type = passive },
+        { name = L1_LOAD, pads = [], type = passive },
+        { name = L2_LOAD, pads = [], type = passive },
     ]
 }
 
@@ -292,12 +317,12 @@ part "BKR-2P-30A-GF" = {
     prefix = CB
     wiring = field
     symbol = breaker_2p
-    params = { rating = "30 A", poles = "2" }
+    params = { poles = "2", rating = "30 A" }
     pins = [
-        { name = L1_LINE, type = passive },
-        { name = L2_LINE, type = passive },
-        { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive },
+        { name = L1_LINE, pads = [], type = passive },
+        { name = L2_LINE, pads = [], type = passive },
+        { name = L1_LOAD, pads = [], type = passive },
+        { name = L2_LOAD, pads = [], type = passive },
     ]
 }
 
@@ -308,12 +333,12 @@ part "BKR-2P-50A-GF" = {
     prefix = CB
     wiring = field
     symbol = breaker_2p
-    params = { rating = "50 A", poles = "2" }
+    params = { poles = "2", rating = "50 A" }
     pins = [
-        { name = L1_LINE, type = passive },
-        { name = L2_LINE, type = passive },
-        { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive },
+        { name = L1_LINE, pads = [], type = passive },
+        { name = L2_LINE, pads = [], type = passive },
+        { name = L1_LOAD, pads = [], type = passive },
+        { name = L2_LOAD, pads = [], type = passive },
     ]
 }
 
@@ -324,12 +349,12 @@ part "BKR-2P-60A" = {
     prefix = CB
     wiring = field
     symbol = breaker_2p
-    params = { rating = "60 A", poles = "2" }
+    params = { poles = "2", rating = "60 A" }
     pins = [
-        { name = L1_LINE, type = passive },
-        { name = L2_LINE, type = passive },
-        { name = L1_LOAD, type = passive },
-        { name = L2_LOAD, type = passive },
+        { name = L1_LINE, pads = [], type = passive },
+        { name = L2_LINE, pads = [], type = passive },
+        { name = L1_LOAD, pads = [], type = passive },
+        { name = L2_LOAD, pads = [], type = passive },
     ]
 }
 
@@ -342,9 +367,9 @@ part "RCPT-15A-TR" = {
     symbol = receptacle
     params = { rating = "15 A 125 V" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -357,9 +382,9 @@ part "RCPT-20A-TR" = {
     symbol = receptacle
     params = { rating = "20 A 125 V" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -372,9 +397,9 @@ part "RCPT-20A-WR" = {
     symbol = receptacle
     params = { rating = "20 A 125 V" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -387,11 +412,11 @@ part "GFCI-20A-TR" = {
     symbol = gfci
     params = { rating = "20 A 125 V" }
     pins = [
-        { name = LINE_H, type = passive },
-        { name = LINE_N, type = passive },
-        { name = GND, type = passive },
-        { name = LOAD_H, type = passive },
-        { name = LOAD_N, type = passive },
+        { name = LINE_H, pads = [], type = passive },
+        { name = LINE_N, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
+        { name = LOAD_H, pads = [], type = passive },
+        { name = LOAD_N, pads = [], type = passive },
     ]
 }
 
@@ -404,11 +429,11 @@ part "GFCI-20A-WR" = {
     symbol = gfci
     params = { rating = "20 A 125 V" }
     pins = [
-        { name = LINE_H, type = passive },
-        { name = LINE_N, type = passive },
-        { name = GND, type = passive },
-        { name = LOAD_H, type = passive },
-        { name = LOAD_N, type = passive },
+        { name = LINE_H, pads = [], type = passive },
+        { name = LINE_N, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
+        { name = LOAD_H, pads = [], type = passive },
+        { name = LOAD_N, pads = [], type = passive },
     ]
 }
 
@@ -421,10 +446,10 @@ part "RCPT-14-50R" = {
     symbol = receptacle_240
     params = { rating = "50 A 250 V" }
     pins = [
-        { name = X, type = passive },
-        { name = Y, type = passive },
-        { name = W, type = passive },
-        { name = G, type = passive },
+        { name = X, pads = [], type = passive },
+        { name = Y, pads = [], type = passive },
+        { name = W, pads = [], type = passive },
+        { name = G, pads = [], type = passive },
     ]
 }
 
@@ -437,10 +462,10 @@ part "RCPT-14-30R" = {
     symbol = receptacle_240
     params = { rating = "30 A 250 V" }
     pins = [
-        { name = X, type = passive },
-        { name = Y, type = passive },
-        { name = W, type = passive },
-        { name = G, type = passive },
+        { name = X, pads = [], type = passive },
+        { name = Y, pads = [], type = passive },
+        { name = W, pads = [], type = passive },
+        { name = G, pads = [], type = passive },
     ]
 }
 
@@ -453,9 +478,9 @@ part "SW-1P-15A" = {
     symbol = switch
     params = { rating = "15 A" }
     pins = [
-        { name = LINE, type = passive },
-        { name = LOAD, type = passive },
-        { name = GND, type = passive },
+        { name = LINE, pads = [], type = passive },
+        { name = LOAD, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -468,9 +493,9 @@ part "LUM-CEIL-LED" = {
     symbol = fixture
     params = { power = "18 W" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -483,9 +508,9 @@ part "LUM-WALL-EXT" = {
     symbol = fixture
     params = { power = "12 W" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -498,9 +523,9 @@ part "FAN-BATH-80" = {
     symbol = fixture
     params = { power = "25 W" }
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -512,9 +537,9 @@ part "SMOKE-CO-120" = {
     wiring = field
     symbol = fixture
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -527,9 +552,9 @@ part "DISC-60A-NF" = {
     symbol = load_240
     params = { rating = "60 A" }
     pins = [
-        { name = L1, type = passive },
-        { name = L2, type = passive },
-        { name = GND, type = passive },
+        { name = L1, pads = [], type = passive },
+        { name = L2, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -542,9 +567,9 @@ part "AHU-3T-10KW" = {
     symbol = load_240
     params = { mca = "52 A" }
     pins = [
-        { name = L1, type = passive },
-        { name = L2, type = passive },
-        { name = GND, type = passive },
+        { name = L1, pads = [], type = passive },
+        { name = L2, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -557,9 +582,9 @@ part "HP-3T" = {
     symbol = load_240
     params = { mca = "19.5 A" }
     pins = [
-        { name = L1, type = passive },
-        { name = L2, type = passive },
-        { name = GND, type = passive },
+        { name = L1, pads = [], type = passive },
+        { name = L2, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -572,9 +597,9 @@ part "WH-50G-4500" = {
     symbol = load_240
     params = { power = "4500 W" }
     pins = [
-        { name = L1, type = passive },
-        { name = L2, type = passive },
-        { name = GND, type = passive },
+        { name = L1, pads = [], type = passive },
+        { name = L2, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }
 
@@ -586,8 +611,8 @@ part "APPL-JBOX" = {
     wiring = field
     symbol = fixture
     pins = [
-        { name = HOT, type = passive },
-        { name = NEU, type = passive },
-        { name = GND, type = passive },
+        { name = HOT, pads = [], type = passive },
+        { name = NEU, pads = [], type = passive },
+        { name = GND, pads = [], type = passive },
     ]
 }

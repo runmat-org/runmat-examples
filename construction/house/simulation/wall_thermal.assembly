@@ -4,6 +4,6 @@ import { wall_section } from "./wall_section.part"
 
 assembly wall_thermal {
     instance wall_section : wall_section = {
-        placement = offset(translation = [0 mm, 0 mm, 0 mm])
+        placement = offset()
     }
 }

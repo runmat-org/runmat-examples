@@ -15,5 +15,10 @@ part du_board_thermal {
         h4 = circle(center = [55 mm, -45 mm], radius = 1.6 mm)
     }
     feature board = extrude(profile = sketch.s, distance = 1.6 mm)
-    output du_board_thermal = { body = feature.board.body, part_number = "FD-EL-342-TH", material = "composite", color = "#1F5F3A" }
+    output du_board_thermal = {
+        body = feature.board.body
+        part_number = "FD-EL-342-TH"
+        material = composite
+        color = "#1F5F3A"
+    }
 }

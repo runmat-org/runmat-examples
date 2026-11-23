@@ -33,14 +33,14 @@ part floor_finishes {
         l4_2 = line(start = [235.25 in, 227.25 in], end = [228.75 in, 227.25 in])
         l4_3 = line(start = [228.75 in, 227.25 in], end = [228.75 in, 220.75 in])
     }
-    feature wood_l1 = extrude(profile = sketch.wood_l1_s, distance = 0.5 in, mode = new)
+    feature wood_l1 = extrude(profile = sketch.wood_l1_s, distance = 0.5 in)
     sketch den_s on origin.xy {
         l0_0 = line(start = [364.5 in, 6.0156 in], end = [473.9844 in, 6.0156 in])
         l0_1 = line(start = [473.9844 in, 6.0156 in], end = [473.9844 in, 134 in])
         l0_2 = line(start = [473.9844 in, 134 in], end = [364.5 in, 134 in])
         l0_3 = line(start = [364.5 in, 134 in], end = [364.5 in, 6.0156 in])
     }
-    feature wood_den = extrude(profile = sketch.den_s, distance = 0.5 in, mode = new)
+    feature wood_den = extrude(profile = sketch.den_s, distance = 0.5 in)
     sketch tile_l1_s on origin.xy {
         l0_0 = line(start = [296 in, 138.5 in], end = [473.9844 in, 138.5 in])
         l0_1 = line(start = [473.9844 in, 138.5 in], end = [473.9844 in, 353.9844 in])
@@ -59,7 +59,7 @@ part floor_finishes {
         l3_2 = line(start = [363.25 in, 227.25 in], end = [356.75 in, 227.25 in])
         l3_3 = line(start = [356.75 in, 227.25 in], end = [356.75 in, 220.75 in])
     }
-    feature tile_l1 = extrude(profile = sketch.tile_l1_s, distance = 0.5 in, mode = new)
+    feature tile_l1 = extrude(profile = sketch.tile_l1_s, distance = 0.5 in)
     sketch wood_l2_s on plane.xy_p121_75 {
         l0_0 = line(start = [6.0156 in, 6.0636 in], end = [190 in, 6.0636 in])
         l0_1 = line(start = [190 in, 6.0636 in], end = [190 in, 141.5 in])
@@ -86,7 +86,7 @@ part floor_finishes {
         l4_2 = line(start = [473.9844 in, 353.9364 in], end = [344.5 in, 353.9364 in])
         l4_3 = line(start = [344.5 in, 353.9364 in], end = [344.5 in, 228.5 in])
     }
-    feature wood_l2 = extrude(profile = sketch.wood_l2_s, distance = 0.5 in, mode = new)
+    feature wood_l2 = extrude(profile = sketch.wood_l2_s, distance = 0.5 in)
     sketch tile_l2_s on plane.xy_p121_75 {
         l0_0 = line(start = [114.5 in, 228.5 in], end = [240 in, 228.5 in])
         l0_1 = line(start = [240 in, 228.5 in], end = [240 in, 353.9364 in])
@@ -97,7 +97,7 @@ part floor_finishes {
         l1_2 = line(start = [340 in, 353.9364 in], end = [244.5 in, 353.9364 in])
         l1_3 = line(start = [244.5 in, 353.9364 in], end = [244.5 in, 228.5 in])
     }
-    feature tile_l2 = extrude(profile = sketch.tile_l2_s, distance = 0.5 in, mode = new)
+    feature tile_l2 = extrude(profile = sketch.tile_l2_s, distance = 0.5 in)
     sketch ceiling_l1_s on plane.xy_p108_625 {
         l0_0 = line(start = [6.0156 in, 6.0156 in], end = [473.9844 in, 6.0156 in])
         l0_1 = line(start = [473.9844 in, 6.0156 in], end = [473.9844 in, 353.9844 in])
@@ -132,7 +132,7 @@ part floor_finishes {
         l6_2 = line(start = [362.875 in, 226.875 in], end = [357.125 in, 226.875 in])
         l6_3 = line(start = [357.125 in, 226.875 in], end = [357.125 in, 221.125 in])
     }
-    feature ceiling_l1 = extrude(profile = sketch.ceiling_l1_s, distance = 0.5 in, mode = new)
+    feature ceiling_l1 = extrude(profile = sketch.ceiling_l1_s, distance = 0.5 in)
 
     // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_relief_pl0 = plane.offset(base = origin.xy, distance = 109.0625 in)
@@ -907,8 +907,18 @@ part floor_finishes {
     }
     feature mep_all_60 = extrude(profile = sketch.mep_all_60_s, distance = 25.9681 in, mode = cut)
     // end MEP penetrations all
-    output floor_finishes = { body = feature.wood_den.body, part_number = "FF-1", material = material.oak_engineered_flooring, label = "1/2 in engineered oak" }
-    output floor_finishes_ceiling_l1 = { body = feature.ceiling_l1.body, part_number = "FF-1", material = material.gypsum_board, label = "1/2 in gypsum ceiling" }
+    output floor_finishes = {
+        body = feature.wood_den.body
+        part_number = "FF-1"
+        material = material.oak_engineered_flooring
+        label = "1/2 in engineered oak"
+    }
+    output floor_finishes_ceiling_l1 = {
+        body = feature.ceiling_l1.body
+        part_number = "FF-1"
+        material = material.gypsum_board
+        label = "1/2 in gypsum ceiling"
+    }
     assign material.oak_engineered_flooring to feature.wood_l1.body
     assign material.oak_engineered_flooring to feature.wood_l2.body
     assign material.porcelain_tile to feature.tile_l1.body

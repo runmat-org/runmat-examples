@@ -20,7 +20,12 @@ part screw {
         l5 = line(start = [-0.577 mm, -1 mm], end = [0.577 mm, -1 mm])
         l6 = line(start = [0.577 mm, -1 mm], end = [1.155 mm, 0 mm])
     }
-    feature socket = extrude(profile = sketch.hex_s, distance = 1.2 mm, mode = cut, reverse = true)
+    feature socket = extrude(profile = sketch.hex_s, distance = 1.2 mm, reverse = true, mode = cut)
 
-    output screw = { body = feature.head.body, part_number = "QX-HW-M3-BH", material = "steel", color = "#3A3A3C" }
+    output screw = {
+        body = feature.head.body
+        part_number = "QX-HW-M3-BH"
+        material = steel
+        color = "#3A3A3C"
+    }
 }

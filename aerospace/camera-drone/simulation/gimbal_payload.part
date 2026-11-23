@@ -18,5 +18,5 @@ part gimbal_payload {
     }
     feature block = extrude(profile = sketch.block_s, distance = 18.2 mm, mode = add)
     region load_point : face = { select = [feature.block.face.end], expect = exactly_one }
-    output gimbal_payload = { body = feature.motor.body, material = "aluminum_6061", color = "#8A9099" }
+    output gimbal_payload = { body = feature.motor.body, material = aluminum_6061, color = "#8A9099" }
 }

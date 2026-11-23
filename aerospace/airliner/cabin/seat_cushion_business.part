@@ -20,5 +20,10 @@ part seat_cushion_business {
     }
     feature body = extrude(profile = sketch.s, distance = 500 mm, symmetric = true)
 
-    output seat_cushion_business = { body = feature.body.body, part_number = "CAB-ST-220", material = "leather", color = "#5A2E3B" }
+    output seat_cushion_business = {
+        body = feature.body.body
+        part_number = "CAB-ST-220"
+        material = leather
+        color = "#5A2E3B"
+    }
 }

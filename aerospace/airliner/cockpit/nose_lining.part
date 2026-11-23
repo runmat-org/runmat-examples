@@ -28,7 +28,17 @@ part nose_lining {
     sketch lining_s6 on plane.lining_st6 {
         c = spline(points = [[0 mm, 1920 mm], [496.933 mm, 1854.578 mm], [960 mm, 1662.769 mm], [1357.645 mm, 1357.645 mm], [1662.769 mm, 960 mm], [1854.578 mm, 496.933 mm], [1920 mm, 0 mm], [1854.578 mm, -496.933 mm], [1662.769 mm, -960 mm], [1357.645 mm, -1357.645 mm], [960 mm, -1662.769 mm], [496.933 mm, -1854.578 mm], [0 mm, -1920 mm], [-496.933 mm, -1854.578 mm], [-960 mm, -1662.769 mm], [-1357.645 mm, -1357.645 mm], [-1662.769 mm, -960 mm], [-1854.578 mm, -496.933 mm], [-1920 mm, 0 mm], [-1854.578 mm, 496.933 mm], [-1662.769 mm, 960 mm], [-1357.645 mm, 1357.645 mm], [-960 mm, 1662.769 mm], [-496.933 mm, 1854.578 mm]], closed = true)
     }
-    feature lining = loft(profiles = [sketch.lining_s0, sketch.lining_s1, sketch.lining_s2, sketch.lining_s3, sketch.lining_s4, sketch.lining_s5, sketch.lining_s6])
+    feature lining = loft(
+        profiles = [
+            sketch.lining_s0,
+            sketch.lining_s1,
+            sketch.lining_s2,
+            sketch.lining_s3,
+            sketch.lining_s4,
+            sketch.lining_s5,
+            sketch.lining_s6,
+        ],
+    )
     feature lining_in_st0 = plane.offset(base = origin.yz, distance = 1800 mm)
     sketch lining_in_s0 on plane.lining_in_st0 {
         c = spline(points = [[0 mm, 865.208 mm], [344.27 mm, 827.381 mm], [665.078 mm, 716.48 mm], [940.563 mm, 540.062 mm], [1151.949 mm, 310.149 mm], [1284.833 mm, 42.41 mm], [1330.157 mm, -244.91 mm], [1284.833 mm, -532.229 mm], [1151.949 mm, -799.968 mm], [940.563 mm, -1029.881 mm], [665.078 mm, -1206.299 mm], [344.27 mm, -1317.201 mm], [0 mm, -1355.027 mm], [-344.27 mm, -1317.201 mm], [-665.078 mm, -1206.299 mm], [-940.563 mm, -1029.881 mm], [-1151.949 mm, -799.968 mm], [-1284.833 mm, -532.229 mm], [-1330.157 mm, -244.91 mm], [-1284.833 mm, 42.41 mm], [-1151.949 mm, 310.149 mm], [-940.563 mm, 540.062 mm], [-665.078 mm, 716.48 mm], [-344.27 mm, 827.381 mm]], closed = true)
@@ -57,7 +67,18 @@ part nose_lining {
     sketch lining_in_s6 on plane.lining_in_st6 {
         c = spline(points = [[0 mm, 1912 mm], [494.862 mm, 1846.85 mm], [956 mm, 1655.841 mm], [1351.988 mm, 1351.988 mm], [1655.841 mm, 956 mm], [1846.85 mm, 494.862 mm], [1912 mm, 0 mm], [1846.85 mm, -494.862 mm], [1655.841 mm, -956 mm], [1351.988 mm, -1351.988 mm], [956 mm, -1655.841 mm], [494.862 mm, -1846.85 mm], [0 mm, -1912 mm], [-494.862 mm, -1846.85 mm], [-956 mm, -1655.841 mm], [-1351.988 mm, -1351.988 mm], [-1655.841 mm, -956 mm], [-1846.85 mm, -494.862 mm], [-1912 mm, 0 mm], [-1846.85 mm, 494.862 mm], [-1655.841 mm, 956 mm], [-1351.988 mm, 1351.988 mm], [-956 mm, 1655.841 mm], [-494.862 mm, 1846.85 mm]], closed = true)
     }
-    feature lining_in = loft(profiles = [sketch.lining_in_s0, sketch.lining_in_s1, sketch.lining_in_s2, sketch.lining_in_s3, sketch.lining_in_s4, sketch.lining_in_s5, sketch.lining_in_s6], mode = cut)
+    feature lining_in = loft(
+        profiles = [
+            sketch.lining_in_s0,
+            sketch.lining_in_s1,
+            sketch.lining_in_s2,
+            sketch.lining_in_s3,
+            sketch.lining_in_s4,
+            sketch.lining_in_s5,
+            sketch.lining_in_s6,
+        ],
+        mode = cut,
+    )
     feature r2_at = plane.offset(base = origin.zx, distance = 0 mm)
     sketch r2 on plane.r2_at {
         c1 = spline(points = [[502.64 mm, 2079.95 mm], [521.481 mm, 2034.583 mm], [568.965 mm, 2021.994 mm]])
@@ -114,5 +135,10 @@ part nose_lining {
     }
     feature below = extrude(profile = sketch.below_s, distance = 5000 mm, symmetric = true, mode = cut)
 
-    output nose_lining = { body = feature.lining.body, part_number = "FD-LN-380", material = "polycarbonate", color = "#ECEDEF" }
+    output nose_lining = {
+        body = feature.lining.body
+        part_number = "FD-LN-380"
+        material = polycarbonate
+        color = "#ECEDEF"
+    }
 }

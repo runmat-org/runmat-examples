@@ -14,5 +14,10 @@ part wing_winglet {
     }
     feature blade = loft(profiles = [sketch.s0, sketch.s1])
 
-    output wing_winglet = { body = feature.blade.body, part_number = "WNG-WL-700", material = "composite", color = "#E4E7EB" }
+    output wing_winglet = {
+        body = feature.blade.body
+        part_number = "WNG-WL-700"
+        material = composite
+        color = "#E4E7EB"
+    }
 }

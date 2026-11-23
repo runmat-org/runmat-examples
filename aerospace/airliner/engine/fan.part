@@ -5,5 +5,10 @@ part fan {
     }
     feature disk = extrude(profile = sketch.s, distance = 140 mm)
 
-    output fan = { body = feature.disk.body, part_number = "NAC-FN-910", material = "titanium", color = "#363C44" }
+    output fan = {
+        body = feature.disk.body
+        part_number = "NAC-FN-910"
+        material = titanium
+        color = "#363C44"
+    }
 }

@@ -11,7 +11,7 @@ part slab_on_grade {
         e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
         e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
     }
-    feature slab = extrude(profile = sketch.slab_s, distance = 4 in, mode = new)
+    feature slab = extrude(profile = sketch.slab_s, distance = 4 in)
     feature vapor_retarder_plane = plane.offset(base = origin.xy, distance = -4.01 in)
     sketch vapor_retarder_s on plane.vapor_retarder_plane {
         e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
@@ -19,7 +19,7 @@ part slab_on_grade {
         e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
         e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
     }
-    feature vapor_retarder = extrude(profile = sketch.vapor_retarder_s, distance = 0.01 in, mode = new)
+    feature vapor_retarder = extrude(profile = sketch.vapor_retarder_s, distance = 0.01 in)
     feature sub_slab_insulation_plane = plane.offset(base = origin.xy, distance = -6.01 in)
     sketch sub_slab_insulation_s on plane.sub_slab_insulation_plane {
         e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
@@ -27,7 +27,7 @@ part slab_on_grade {
         e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
         e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
     }
-    feature sub_slab_insulation = extrude(profile = sketch.sub_slab_insulation_s, distance = 2 in, mode = new)
+    feature sub_slab_insulation = extrude(profile = sketch.sub_slab_insulation_s, distance = 2 in)
     feature gravel_base_plane = plane.offset(base = origin.xy, distance = -10.01 in)
     sketch gravel_base_s on plane.gravel_base_plane {
         e0 = line(start = [9 in, 9 in], end = [471 in, 9 in])
@@ -35,7 +35,7 @@ part slab_on_grade {
         e2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
         e3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
     }
-    feature gravel_base = extrude(profile = sketch.gravel_base_s, distance = 4 in, mode = new)
+    feature gravel_base = extrude(profile = sketch.gravel_base_s, distance = 4 in)
     sketch sub_slab_insulation_pads_s on plane.sub_slab_insulation_plane {
         b2_0 = line(start = [105 in, 129 in], end = [135 in, 129 in])
         b2_1 = line(start = [135 in, 129 in], end = [135 in, 159 in])
@@ -101,7 +101,7 @@ part slab_on_grade {
         ri2 = line(start = [471 in, 351 in], end = [9 in, 351 in])
         ri3 = line(start = [9 in, 351 in], end = [9 in, 9 in])
     }
-    feature edge_insulation = extrude(profile = sketch.edge_insulation_s, distance = 22 in, mode = new)
+    feature edge_insulation = extrude(profile = sketch.edge_insulation_s, distance = 22 in)
 
     // Connector holes for all: bored holes, cast-in voids and seat reliefs
     feature hw_pl0 = plane.offset(base = origin.xy, distance = -3.5 in)

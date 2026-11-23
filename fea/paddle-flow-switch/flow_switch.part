@@ -32,7 +32,11 @@ part flow_switch {
     sketch boss_s on origin.xy {
         bore = circle(center = [0 mm, 0 mm], radius = input.boss_bore / 2)
     }
-    feature boss_oil = extrude(profile = sketch.boss_s, distance = input.boss_height, mode = add(targets = [feature.oil.body]))
+    feature boss_oil = extrude(
+        profile = sketch.boss_s,
+        distance = input.boss_height,
+        mode = add(targets = [feature.oil.body]),
+    )
 
     // The tee: the run's and the boss's outsides, less the oil.
     sketch tee_s on plane.inlet_plane {
@@ -42,7 +46,11 @@ part flow_switch {
     sketch boss_out_s on origin.xy {
         outside = circle(center = [0 mm, 0 mm], radius = input.boss_outside / 2)
     }
-    feature boss = extrude(profile = sketch.boss_out_s, distance = input.boss_height, mode = add(targets = [feature.tee.body]))
+    feature boss = extrude(
+        profile = sketch.boss_out_s,
+        distance = input.boss_height,
+        mode = add(targets = [feature.tee.body]),
+    )
     feature bored = boolean.subtract(target = feature.tee.body, tools = [feature.oil.body], keep_tools = true)
 
     // The paddle, clamped at the top of the boss, and the oil round it.
@@ -56,10 +64,24 @@ part flow_switch {
     feature paddle = extrude(profile = sketch.paddle_s, distance = input.paddle)
     feature wetted = boolean.subtract(target = feature.oil.body, tools = [feature.paddle.body], keep_tools = true)
 
-    region inlet : face = { select = [feature.oil.face.start], expect = exactly_one, body = feature.oil.body, label = "Inlet" }
-    region outlet : face = { select = [feature.oil.face.end], expect = exactly_one, body = feature.oil.body, label = "Outlet" }
+    region inlet : face = {
+        select = [feature.oil.face.start]
+        expect = exactly_one
+        label = Inlet
+        body = feature.oil.body
+    }
+    region outlet : face = {
+        select = [feature.oil.face.end]
+        expect = exactly_one
+        label = Outlet
+        body = feature.oil.body
+    }
     region pipe_wall : face = {
-        select = [feature.oil.face.side(run_s.bore), feature.boss_oil.face.side(boss_s.bore), feature.boss_oil.face.end]
+        select = [
+            feature.oil.face.side(run_s.bore),
+            feature.boss_oil.face.side(boss_s.bore),
+            feature.boss_oil.face.end,
+        ]
         expect = one_or_more
         body = feature.oil.body
         label = "Pipe wall"
@@ -88,12 +110,34 @@ part flow_switch {
         body = feature.paddle.body
         label = "Paddle surface"
     }
-    region paddle_root : face = { select = [feature.paddle.face.side(paddle_s.root)], expect = exactly_one, body = feature.paddle.body, label = "Paddle root" }
+    region paddle_root : face = {
+        select = [feature.paddle.face.side(paddle_s.root)]
+        expect = exactly_one
+        label = "Paddle root"
+        body = feature.paddle.body
+    }
 
     // The run's two pipe ends, where the line holds the tee.
-    region tee_ends : face = { select = [feature.tee.face.start, feature.tee.face.end], expect = one_or_more, body = feature.tee.body, label = "Tee ends" }
+    region tee_ends : face = {
+        select = [feature.tee.face.start, feature.tee.face.end]
+        expect = one_or_more
+        label = "Tee ends"
+        body = feature.tee.body
+    }
 
-    output tee = { body = feature.tee.body, label = "Tee", part_number = "FS-50-T", material = "steel_a106b", color = "#7C828859" }
-    output oil = { body = feature.oil.body, label = "Oil", color = "#D08A1E40" }
-    output paddle = { body = feature.paddle.body, label = "Paddle", part_number = "FS-50-P", material = "stainless_1_4310", color = "#D9DDE1" }
+    output tee = {
+        body = feature.tee.body
+        part_number = "FS-50-T"
+        material = steel_a106b
+        color = "#7C828859"
+        label = Tee
+    }
+    output oil = { body = feature.oil.body, color = "#D08A1E40", label = Oil }
+    output paddle = {
+        body = feature.paddle.body
+        part_number = "FS-50-P"
+        material = stainless_1_4310
+        color = "#D9DDE1"
+        label = Paddle
+    }
 }

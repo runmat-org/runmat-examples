@@ -10,22 +10,22 @@ part disc_cam {
     input thickness : length = 10 mm
 
     let base = camBaseRadius(lift = input.lift, rise = input.rise, max_pressure = input.max_pressure) as m
-    let r0 = camRadius(theta = 0 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r30 = camRadius(theta = 30 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r60 = camRadius(theta = 60 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r90 = camRadius(theta = 90 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r120 = camRadius(theta = 120 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r150 = camRadius(theta = 150 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r180 = camRadius(theta = 180 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r210 = camRadius(theta = 210 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r240 = camRadius(theta = 240 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r270 = camRadius(theta = 270 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r300 = camRadius(theta = 300 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
-    let r330 = camRadius(theta = 330 deg, base = base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r0 = camRadius(theta = 0 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r30 = camRadius(theta = 30 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r60 = camRadius(theta = 60 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r90 = camRadius(theta = 90 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r120 = camRadius(theta = 120 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r150 = camRadius(theta = 150 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r180 = camRadius(theta = 180 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r210 = camRadius(theta = 210 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r240 = camRadius(theta = 240 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r270 = camRadius(theta = 270 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r300 = camRadius(theta = 300 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
+    let r330 = camRadius(theta = 330 deg, base = let.base, lift = input.lift, rise = input.rise, dwell = input.dwell) as m
 
     sketch profile on origin.xy {
         // Station points at r(theta) * [cos theta, sin theta].
-        lobe = spline(points = [[r0, 0 mm], [r30 * 0.866025, r30 * 0.5], [r60 * 0.5, r60 * 0.866025], [0 mm, r90], [r120 * -0.5, r120 * 0.866025], [r150 * -0.866025, r150 * 0.5], [-r180, 0 mm], [r210 * -0.866025, r210 * -0.5], [r240 * -0.5, r240 * -0.866025], [0 mm, -r270], [r300 * 0.5, r300 * -0.866025], [r330 * 0.866025, r330 * -0.5]], closed = true)
+        lobe = spline(points = [[let.r0, 0 mm], [let.r30 * 0.866025, let.r30 * 0.5], [let.r60 * 0.5, let.r60 * 0.866025], [0 mm, let.r90], [let.r120 * -0.5, let.r120 * 0.866025], [let.r150 * -0.866025, let.r150 * 0.5], [-let.r180, 0 mm], [let.r210 * -0.866025, let.r210 * -0.5], [let.r240 * -0.5, let.r240 * -0.866025], [0 mm, -let.r270], [let.r300 * 0.5, let.r300 * -0.866025], [let.r330 * 0.866025, let.r330 * -0.5]], closed = true)
     }
     feature disc = extrude(profile = sketch.profile, distance = input.thickness)
 }

@@ -7,11 +7,11 @@ drawing drone {
     format a2 = {
         size = iso(name = A2)
         title_block = [
-            { label = "Title", source = literal(text = "Foldable camera drone") },
+            { label = Title, source = literal(text = "Foldable camera drone") },
             { label = "Part number", source = literal(text = "CD-100") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -22,7 +22,13 @@ drawing drone {
 
         view front = standard(orientation = front, model = drone, at = [121, 80] mm, display = visible_lines)
         view top = projected(from = front, direction = up, model = drone, at = [121, 215] mm, display = visible_lines)
-        view iso = standard(orientation = isometric, model = drone, at = [400, 325] mm, scale = 5/8, display = visible_lines)
+        view iso = standard(
+            orientation = isometric,
+            model = drone,
+            at = [400, 325] mm,
+            scale = 5/8,
+            display = visible_lines,
+        )
 
         table parts = bom(view = iso, at = [228, 225.5] mm)
         table notes = notes(
@@ -40,8 +46,16 @@ drawing drone {
     annotation b1 = balloon(occurrence = [{ name = body_top }], table = parts, view = iso)
     annotation b2 = balloon(occurrence = [{ name = body_bottom }], table = parts, view = front)
     annotation b3 = balloon(occurrence = [{ name = battery }], table = parts, view = top)
-    annotation b4 = balloon(occurrence = [{ name = arm_front_left }, { name = unit }, { name = arm }], table = parts, view = top)
-    annotation b5 = balloon(occurrence = [{ name = arm_rear_right }, { name = unit }, { name = motor }, { name = motor }], table = parts, view = top)
+    annotation b4 = balloon(
+        occurrence = [{ name = arm_front_left }, { name = unit }, { name = arm }],
+        table = parts,
+        view = top,
+    )
+    annotation b5 = balloon(
+        occurrence = [{ name = arm_rear_right }, { name = unit }, { name = motor }, { name = motor }],
+        table = parts,
+        view = top,
+    )
     annotation b6 = balloon(occurrence = [{ name = gimbal }, { name = camera }], table = parts, view = front)
     annotation b7 = balloon(occurrence = [{ name = vision_front_left }], table = parts, view = iso)
     annotation b8 = balloon(occurrence = [{ name = light_pipe }], table = parts, view = iso)

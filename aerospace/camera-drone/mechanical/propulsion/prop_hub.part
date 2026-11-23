@@ -25,5 +25,10 @@ part prop_hub {
         pin_b = circle(center = [0 mm, -9 mm], radius = 1 mm)
     }
     feature pins = extrude(profile = sketch.pins_s, distance = 2.4 mm, mode = add)
-    output prop_hub = { body = feature.spinner.body, part_number = "CD-PR-310", material = "glass_filled_nylon", color = "#202226" }
+    output prop_hub = {
+        body = feature.spinner.body
+        part_number = "CD-PR-310"
+        material = glass_filled_nylon
+        color = "#202226"
+    }
 }

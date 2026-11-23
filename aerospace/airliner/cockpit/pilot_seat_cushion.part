@@ -20,5 +20,10 @@ part pilot_seat_cushion {
     }
     feature body = extrude(profile = sketch.s, distance = 520 mm, symmetric = true)
 
-    output pilot_seat_cushion = { body = feature.body.body, part_number = "FD-ST-320", material = "leather", color = "#3A3E44" }
+    output pilot_seat_cushion = {
+        body = feature.body.body
+        part_number = "FD-ST-320"
+        material = leather
+        color = "#3A3E44"
+    }
 }

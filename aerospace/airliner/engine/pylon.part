@@ -8,5 +8,10 @@ part pylon {
     }
     feature pylon = extrude(profile = sketch.s, distance = 360 mm, symmetric = true)
 
-    output pylon = { body = feature.pylon.body, part_number = "NAC-PY-930", material = "titanium", color = "#C7CCD3" }
+    output pylon = {
+        body = feature.pylon.body
+        part_number = "NAC-PY-930"
+        material = titanium
+        color = "#C7CCD3"
+    }
 }

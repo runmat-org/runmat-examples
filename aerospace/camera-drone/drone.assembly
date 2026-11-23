@@ -60,20 +60,72 @@ assembly drone {
     // rear arms drop as they swing forward under them. The right arms are the left ones'
     // mirror images, so their blade inputs are mirrored too.
     instance arm_front_left : arm_station = {
-        configuration = { select = inputs, values = { fold = input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = -20 deg, blade_a = input.blade_a, blade_b = input.blade_b } }
-        placement = offset(translation = [44 mm, 52 mm, 24 mm], rotation = euler(yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg))
+        configuration = {
+            select = inputs
+            values = {
+                blade_a = input.blade_a
+                blade_b = input.blade_b
+                fold = input.fold_front
+                length_offset = -6.66 mm
+                pod_tilt = -20 deg
+                rise = 5.79 mm
+            }
+        }
+        placement = offset(
+            translation = [44 mm, 52 mm, 24 mm],
+            rotation = euler(yaw = 56.324 deg, pitch = 0 deg, roll = 20 deg),
+        )
     }
     instance arm_front_right : arm_station = {
-        configuration = { select = inputs, values = { fold = -input.fold_front, length_offset = -6.66 mm, rise = 5.79 mm, pod_tilt = 20 deg, blade_a = -input.blade_b - 180 deg, blade_b = -input.blade_a - 180 deg } }
-        placement = offset(translation = [44 mm, -52 mm, 24 mm], rotation = euler(yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg))
+        configuration = {
+            select = inputs
+            values = {
+                blade_a = -input.blade_b - 180 deg
+                blade_b = -input.blade_a - 180 deg
+                fold = -input.fold_front
+                length_offset = -6.66 mm
+                pod_tilt = 20 deg
+                rise = 5.79 mm
+            }
+        }
+        placement = offset(
+            translation = [44 mm, -52 mm, 24 mm],
+            rotation = euler(yaw = -56.324 deg, pitch = 0 deg, roll = -20 deg),
+        )
     }
     instance arm_rear_left : arm_station = {
-        configuration = { select = inputs, values = { fold = -input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = -28 deg, blade_a = input.rear_blade_a, blade_b = input.rear_blade_b } }
-        placement = offset(translation = [-66 mm, 44 mm, 13 mm], rotation = euler(yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg))
+        configuration = {
+            select = inputs
+            values = {
+                blade_a = input.rear_blade_a
+                blade_b = input.rear_blade_b
+                fold = -input.fold_rear
+                length_offset = 2.407 mm
+                pod_tilt = -28 deg
+                rise = 18.878 mm
+            }
+        }
+        placement = offset(
+            translation = [-66 mm, 44 mm, 13 mm],
+            rotation = euler(yaw = 124.168 deg, pitch = 0 deg, roll = 28 deg),
+        )
     }
     instance arm_rear_right : arm_station = {
-        configuration = { select = inputs, values = { fold = input.fold_rear, length_offset = 2.407 mm, rise = 18.878 mm, pod_tilt = 28 deg, blade_a = -input.rear_blade_b - 180 deg, blade_b = -input.rear_blade_a - 180 deg } }
-        placement = offset(translation = [-66 mm, -44 mm, 13 mm], rotation = euler(yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg))
+        configuration = {
+            select = inputs
+            values = {
+                blade_a = -input.rear_blade_b - 180 deg
+                blade_b = -input.rear_blade_a - 180 deg
+                fold = input.fold_rear
+                length_offset = 2.407 mm
+                pod_tilt = 28 deg
+                rise = 18.878 mm
+            }
+        }
+        placement = offset(
+            translation = [-66 mm, -44 mm, 13 mm],
+            rotation = euler(yaw = -124.168 deg, pitch = 0 deg, roll = -28 deg),
+        )
     }
 
     // The 3-axis gimbal and camera under the nose.
@@ -84,16 +136,28 @@ assembly drone {
 
     // Vision sensors: a forward stereo pair in the nose and a downward pair under the belly.
     instance vision_front_left : vision_sensor = {
-        placement = offset(translation = [97 mm, 6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
+        placement = offset(
+            translation = [97 mm, 6 mm, 31 mm],
+            rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg),
+        )
     }
     instance vision_front_right : vision_sensor = {
-        placement = offset(translation = [97 mm, -6 mm, 31 mm], rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg))
+        placement = offset(
+            translation = [97 mm, -6 mm, 31 mm],
+            rotation = axis_angle(axis = [0, 1, 0], angle = 90 deg),
+        )
     }
     instance vision_down_left : vision_sensor = {
-        placement = offset(translation = [-28 mm, 11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
+        placement = offset(
+            translation = [-28 mm, 11 mm, 2.6 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg),
+        )
     }
     instance vision_down_right : vision_sensor = {
-        placement = offset(translation = [-28 mm, -11 mm, 2.6 mm], rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg))
+        placement = offset(
+            translation = [-28 mm, -11 mm, 2.6 mm],
+            rotation = axis_angle(axis = [1, 0, 0], angle = 180 deg),
+        )
     }
 
     // The ESC's heatsink in the belly window (its fins in the downwash) and the gap pad on its
@@ -120,15 +184,43 @@ assembly drone {
         configuration = { select = inputs, values = { length = 18 mm } }
         placement = offset(translation = [9.75 mm, -15.25 mm, 23.2 mm])
     }
-    pattern stack = grid(seeds = [spacer, stack_screw], first = [1, 0, 0], first_spacing = 30.5 mm, first_count = 2, second = [0, 1, 0], second_spacing = 30.5 mm, second_count = 2)
+    pattern stack = grid(
+        seeds = [spacer, stack_screw],
+        first = [1, 0, 0],
+        first_spacing = 30.5 mm,
+        first_count = 2,
+        second = [0, 1, 0],
+        second_spacing = 30.5 mm,
+        second_count = 2,
+    )
 
     exploded service = {
         steps = [
-            { id = lift_top, occurrences = [[{ name = body_top }], [{ name = light_pipe }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 95 mm) },
-            { id = battery_out, occurrences = [[{ name = battery }]], motion = translate(direction = { direction = "vector", vector = [-9, 0, 20] }, distance = 165 mm) },
-            { id = lift_fc, occurrences = [[{ name = flight_controller }], [{ name = stack_screw }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 50 mm) },
-            { id = lift_esc, occurrences = [[{ name = esc }], [{ name = spacer }]], motion = translate(direction = { direction = "vector", vector = [0, 0, 1] }, distance = 25 mm) },
-            { id = gimbal_down, occurrences = [[{ name = gimbal }]], motion = translate(direction = { direction = "vector", vector = [0, 0, -1] }, distance = 40 mm) },
+            {
+                id = lift_top
+                occurrences = [[{ name = body_top }], [{ name = light_pipe }]]
+                motion = translate(direction = { direction = vector, vector = [0, 0, 1] }, distance = 95 mm)
+            },
+            {
+                id = battery_out
+                occurrences = [[{ name = battery }]]
+                motion = translate(direction = { direction = vector, vector = [-9, 0, 20] }, distance = 165 mm)
+            },
+            {
+                id = lift_fc
+                occurrences = [[{ name = flight_controller }], [{ name = stack_screw }]]
+                motion = translate(direction = { direction = vector, vector = [0, 0, 1] }, distance = 50 mm)
+            },
+            {
+                id = lift_esc
+                occurrences = [[{ name = esc }], [{ name = spacer }]]
+                motion = translate(direction = { direction = vector, vector = [0, 0, 1] }, distance = 25 mm)
+            },
+            {
+                id = gimbal_down
+                occurrences = [[{ name = gimbal }]]
+                motion = translate(direction = { direction = vector, vector = [0, 0, -1] }, distance = 40 mm)
+            },
         ]
         lines = [
             { id = trail_top, occurrence = [{ name = body_top }] },
@@ -140,5 +232,5 @@ assembly drone {
     }
 
     // Opens three-quarters from the front left, above, so the nose, gimbal and all four props read.
-    camera hero = { from = [0.78, 0.62, 0.42], up = [0, 0, 1], default = true }
+    camera hero = { from = [0.78, 0.62, 0.42], default = true }
 }

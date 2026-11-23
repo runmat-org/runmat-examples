@@ -5,5 +5,10 @@ part lens {
         c = circle(center = [0 mm, 0.5 mm], radius = 6.3 mm)
     }
     feature glass = extrude(profile = sketch.s, distance = 0.5 mm)
-    output lens = { body = feature.glass.body, part_number = "CD-GB-570", material = "glass", color = "#1B3B5A" }
+    output lens = {
+        body = feature.glass.body
+        part_number = "CD-GB-570"
+        material = glass
+        color = "#1B3B5A"
+    }
 }

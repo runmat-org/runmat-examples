@@ -17,5 +17,5 @@ part landing_skid_half {
     region symmetry : face = { select = [feature.halve.face.start], expect = exactly_one }
     region sole : face = { select = [feature.skid.face("sole")], expect = exactly_one }
     region mount : face = { select = [feature.skid.face("mount")], expect = one_or_more }
-    output landing_skid_half = { body = feature.skid.body("landing_skid"), material = "glass_filled_nylon" }
+    output landing_skid_half = { body = feature.skid.body("landing_skid"), material = glass_filled_nylon }
 }

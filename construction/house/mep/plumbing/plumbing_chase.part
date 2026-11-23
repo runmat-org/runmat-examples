@@ -10,7 +10,7 @@ part plumbing_chase {
         l2 = line(start = [290 in, 337 in], end = [270 in, 337 in])
         l3 = line(start = [270 in, 337 in], end = [270 in, 336.5 in])
     }
-    feature south_gyp = extrude(profile = sketch.south_gyp_s, distance = 108.125 in, mode = new)
+    feature south_gyp = extrude(profile = sketch.south_gyp_s, distance = 108.125 in)
     assign material.gypsum_board to feature.south_gyp.body
     sketch south_bot_s on plane.p_xy_0 {
         l0 = line(start = [270.5 in, 337 in], end = [289.5 in, 337 in])
@@ -18,7 +18,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 340.5 in], end = [270.5 in, 340.5 in])
         l3 = line(start = [270.5 in, 340.5 in], end = [270.5 in, 337 in])
     }
-    feature south_bot = extrude(profile = sketch.south_bot_s, distance = 1.5 in, mode = new)
+    feature south_bot = extrude(profile = sketch.south_bot_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.south_bot.body
     sketch south_top_s on plane.p_xy_1 {
         l0 = line(start = [270.5 in, 337 in], end = [289.5 in, 337 in])
@@ -26,7 +26,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 340.5 in], end = [270.5 in, 340.5 in])
         l3 = line(start = [270.5 in, 340.5 in], end = [270.5 in, 337 in])
     }
-    feature south_top = extrude(profile = sketch.south_top_s, distance = 1.5 in, mode = new)
+    feature south_top = extrude(profile = sketch.south_top_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.south_top.body
     sketch south_stud0_s on plane.p_xy_2 {
         l0 = line(start = [270.5 in, 337 in], end = [272 in, 337 in])
@@ -34,7 +34,7 @@ part plumbing_chase {
         l2 = line(start = [272 in, 340.5 in], end = [270.5 in, 340.5 in])
         l3 = line(start = [270.5 in, 340.5 in], end = [270.5 in, 337 in])
     }
-    feature south_stud0 = extrude(profile = sketch.south_stud0_s, distance = 105.125 in, mode = new)
+    feature south_stud0 = extrude(profile = sketch.south_stud0_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.south_stud0.body
     sketch south_stud1_s on plane.p_xy_2 {
         l0 = line(start = [288 in, 337 in], end = [289.5 in, 337 in])
@@ -42,7 +42,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 340.5 in], end = [288 in, 340.5 in])
         l3 = line(start = [288 in, 340.5 in], end = [288 in, 337 in])
     }
-    feature south_stud1 = extrude(profile = sketch.south_stud1_s, distance = 105.125 in, mode = new)
+    feature south_stud1 = extrude(profile = sketch.south_stud1_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.south_stud1.body
     sketch west_gyp_s on plane.p_xy_0 {
         l0 = line(start = [270 in, 337 in], end = [270.5 in, 337 in])
@@ -50,7 +50,7 @@ part plumbing_chase {
         l2 = line(start = [270.5 in, 353.9844 in], end = [270 in, 353.9844 in])
         l3 = line(start = [270 in, 353.9844 in], end = [270 in, 337 in])
     }
-    feature west_gyp = extrude(profile = sketch.west_gyp_s, distance = 108.125 in, mode = new)
+    feature west_gyp = extrude(profile = sketch.west_gyp_s, distance = 108.125 in)
     assign material.gypsum_board to feature.west_gyp.body
     sketch west_bot_s on plane.p_xy_0 {
         l0 = line(start = [270.5 in, 340.5 in], end = [274 in, 340.5 in])
@@ -58,7 +58,7 @@ part plumbing_chase {
         l2 = line(start = [274 in, 353.9844 in], end = [270.5 in, 353.9844 in])
         l3 = line(start = [270.5 in, 353.9844 in], end = [270.5 in, 340.5 in])
     }
-    feature west_bot = extrude(profile = sketch.west_bot_s, distance = 1.5 in, mode = new)
+    feature west_bot = extrude(profile = sketch.west_bot_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.west_bot.body
     sketch west_top_s on plane.p_xy_1 {
         l0 = line(start = [270.5 in, 340.5 in], end = [274 in, 340.5 in])
@@ -66,7 +66,7 @@ part plumbing_chase {
         l2 = line(start = [274 in, 353.9844 in], end = [270.5 in, 353.9844 in])
         l3 = line(start = [270.5 in, 353.9844 in], end = [270.5 in, 340.5 in])
     }
-    feature west_top = extrude(profile = sketch.west_top_s, distance = 1.5 in, mode = new)
+    feature west_top = extrude(profile = sketch.west_top_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.west_top.body
     sketch west_stud0_s on plane.p_xy_2 {
         l0 = line(start = [270.5 in, 340.5 in], end = [274 in, 340.5 in])
@@ -74,7 +74,7 @@ part plumbing_chase {
         l2 = line(start = [274 in, 342 in], end = [270.5 in, 342 in])
         l3 = line(start = [270.5 in, 342 in], end = [270.5 in, 340.5 in])
     }
-    feature west_stud0 = extrude(profile = sketch.west_stud0_s, distance = 105.125 in, mode = new)
+    feature west_stud0 = extrude(profile = sketch.west_stud0_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.west_stud0.body
     sketch west_stud1_s on plane.p_xy_2 {
         l0 = line(start = [270.5 in, 352.4844 in], end = [274 in, 352.4844 in])
@@ -82,7 +82,7 @@ part plumbing_chase {
         l2 = line(start = [274 in, 353.9844 in], end = [270.5 in, 353.9844 in])
         l3 = line(start = [270.5 in, 353.9844 in], end = [270.5 in, 352.4844 in])
     }
-    feature west_stud1 = extrude(profile = sketch.west_stud1_s, distance = 105.125 in, mode = new)
+    feature west_stud1 = extrude(profile = sketch.west_stud1_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.west_stud1.body
     sketch east_gyp_s on plane.p_xy_0 {
         l0 = line(start = [289.5 in, 337 in], end = [290 in, 337 in])
@@ -90,7 +90,7 @@ part plumbing_chase {
         l2 = line(start = [290 in, 353.9844 in], end = [289.5 in, 353.9844 in])
         l3 = line(start = [289.5 in, 353.9844 in], end = [289.5 in, 337 in])
     }
-    feature east_gyp = extrude(profile = sketch.east_gyp_s, distance = 108.125 in, mode = new)
+    feature east_gyp = extrude(profile = sketch.east_gyp_s, distance = 108.125 in)
     assign material.gypsum_board to feature.east_gyp.body
     sketch east_bot_s on plane.p_xy_0 {
         l0 = line(start = [286 in, 340.5 in], end = [289.5 in, 340.5 in])
@@ -98,7 +98,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 353.9844 in], end = [286 in, 353.9844 in])
         l3 = line(start = [286 in, 353.9844 in], end = [286 in, 340.5 in])
     }
-    feature east_bot = extrude(profile = sketch.east_bot_s, distance = 1.5 in, mode = new)
+    feature east_bot = extrude(profile = sketch.east_bot_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.east_bot.body
     sketch east_top_s on plane.p_xy_1 {
         l0 = line(start = [286 in, 340.5 in], end = [289.5 in, 340.5 in])
@@ -106,7 +106,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 353.9844 in], end = [286 in, 353.9844 in])
         l3 = line(start = [286 in, 353.9844 in], end = [286 in, 340.5 in])
     }
-    feature east_top = extrude(profile = sketch.east_top_s, distance = 1.5 in, mode = new)
+    feature east_top = extrude(profile = sketch.east_top_s, distance = 1.5 in)
     assign material.douglas_fir_lumber to feature.east_top.body
     sketch east_stud0_s on plane.p_xy_2 {
         l0 = line(start = [286 in, 340.5 in], end = [289.5 in, 340.5 in])
@@ -114,7 +114,7 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 342 in], end = [286 in, 342 in])
         l3 = line(start = [286 in, 342 in], end = [286 in, 340.5 in])
     }
-    feature east_stud0 = extrude(profile = sketch.east_stud0_s, distance = 105.125 in, mode = new)
+    feature east_stud0 = extrude(profile = sketch.east_stud0_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.east_stud0.body
     sketch east_stud1_s on plane.p_xy_2 {
         l0 = line(start = [286 in, 352.4844 in], end = [289.5 in, 352.4844 in])
@@ -122,21 +122,96 @@ part plumbing_chase {
         l2 = line(start = [289.5 in, 353.9844 in], end = [286 in, 353.9844 in])
         l3 = line(start = [286 in, 353.9844 in], end = [286 in, 352.4844 in])
     }
-    feature east_stud1 = extrude(profile = sketch.east_stud1_s, distance = 105.125 in, mode = new)
+    feature east_stud1 = extrude(profile = sketch.east_stud1_s, distance = 105.125 in)
     assign material.douglas_fir_lumber to feature.east_stud1.body
-    output plumbing_chase_south_gyp = { body = feature.south_gyp.body, part_number = "P-CH", material = material.gypsum_board, label = "Chase gypsum board, 1/2 in" }
-    output plumbing_chase_south_bot = { body = feature.south_bot.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase bottom plate, 2x4" }
-    output plumbing_chase_south_top = { body = feature.south_top.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase top plate, 2x4" }
-    output plumbing_chase_south_stud0 = { body = feature.south_stud0.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
-    output plumbing_chase_south_stud1 = { body = feature.south_stud1.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
-    output plumbing_chase_west_gyp = { body = feature.west_gyp.body, part_number = "P-CH", material = material.gypsum_board, label = "Chase gypsum board, 1/2 in" }
-    output plumbing_chase_west_bot = { body = feature.west_bot.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase bottom plate, 2x4" }
-    output plumbing_chase_west_top = { body = feature.west_top.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase top plate, 2x4" }
-    output plumbing_chase_west_stud0 = { body = feature.west_stud0.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
-    output plumbing_chase_west_stud1 = { body = feature.west_stud1.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
-    output plumbing_chase_east_gyp = { body = feature.east_gyp.body, part_number = "P-CH", material = material.gypsum_board, label = "Chase gypsum board, 1/2 in" }
-    output plumbing_chase_east_bot = { body = feature.east_bot.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase bottom plate, 2x4" }
-    output plumbing_chase_east_top = { body = feature.east_top.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase top plate, 2x4" }
-    output plumbing_chase_east_stud0 = { body = feature.east_stud0.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
-    output plumbing_chase_east_stud1 = { body = feature.east_stud1.body, part_number = "P-CH", material = material.douglas_fir_lumber, label = "Chase stud, 2x4" }
+    output plumbing_chase_south_gyp = {
+        body = feature.south_gyp.body
+        part_number = "P-CH"
+        material = material.gypsum_board
+        label = "Chase gypsum board, 1/2 in"
+    }
+    output plumbing_chase_south_bot = {
+        body = feature.south_bot.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase bottom plate, 2x4"
+    }
+    output plumbing_chase_south_top = {
+        body = feature.south_top.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase top plate, 2x4"
+    }
+    output plumbing_chase_south_stud0 = {
+        body = feature.south_stud0.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
+    output plumbing_chase_south_stud1 = {
+        body = feature.south_stud1.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
+    output plumbing_chase_west_gyp = {
+        body = feature.west_gyp.body
+        part_number = "P-CH"
+        material = material.gypsum_board
+        label = "Chase gypsum board, 1/2 in"
+    }
+    output plumbing_chase_west_bot = {
+        body = feature.west_bot.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase bottom plate, 2x4"
+    }
+    output plumbing_chase_west_top = {
+        body = feature.west_top.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase top plate, 2x4"
+    }
+    output plumbing_chase_west_stud0 = {
+        body = feature.west_stud0.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
+    output plumbing_chase_west_stud1 = {
+        body = feature.west_stud1.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
+    output plumbing_chase_east_gyp = {
+        body = feature.east_gyp.body
+        part_number = "P-CH"
+        material = material.gypsum_board
+        label = "Chase gypsum board, 1/2 in"
+    }
+    output plumbing_chase_east_bot = {
+        body = feature.east_bot.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase bottom plate, 2x4"
+    }
+    output plumbing_chase_east_top = {
+        body = feature.east_top.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase top plate, 2x4"
+    }
+    output plumbing_chase_east_stud0 = {
+        body = feature.east_stud0.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
+    output plumbing_chase_east_stud1 = {
+        body = feature.east_stud1.body
+        part_number = "P-CH"
+        material = material.douglas_fir_lumber
+        label = "Chase stud, 2x4"
+    }
 }

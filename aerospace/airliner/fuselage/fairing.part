@@ -17,5 +17,10 @@ part fairing {
     }
     feature skin_line = extrude(profile = sketch.body_line, distance = 11000 mm, mode = cut)
 
-    output fairing = { body = feature.blister.body, part_number = "FUS-FR-050", material = "composite", color = "#C7CCD3" }
+    output fairing = {
+        body = feature.blister.body
+        part_number = "FUS-FR-050"
+        material = composite
+        color = "#C7CCD3"
+    }
 }

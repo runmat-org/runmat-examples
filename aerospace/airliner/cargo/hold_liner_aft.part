@@ -8,5 +8,10 @@ part hold_liner_aft {
     }
     feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 51.404331 deg)
 
-    output hold_liner_aft = { body = feature.panel.body, part_number = "FUS-CL-811", material = "composite", color = "#C9CDD2" }
+    output hold_liner_aft = {
+        body = feature.panel.body
+        part_number = "FUS-CL-811"
+        material = composite
+        color = "#C9CDD2"
+    }
 }

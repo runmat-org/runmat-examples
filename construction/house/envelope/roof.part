@@ -38,98 +38,98 @@ part roof {
         l0_2 = line(start = [179 in, 316.2772 in], end = [-19.5 in, 217.0272 in])
         l0_3 = line(start = [-19.5 in, 217.0272 in], end = [-19.5 in, 216.5381 in])
     }
-    feature sheathing_south = extrude(profile = sketch.sheathing_south_s, distance = 484 in, mode = new)
+    feature sheathing_south = extrude(profile = sketch.sheathing_south_s, distance = 484 in)
     sketch underlayment_south_s on plane.yz_m2 {
         l0_0 = line(start = [-19.5 in, 217.0272 in], end = [179 in, 316.2772 in])
         l0_1 = line(start = [179 in, 316.2772 in], end = [179 in, 316.3122 in])
         l0_2 = line(start = [179 in, 316.3122 in], end = [-19.5 in, 217.0622 in])
         l0_3 = line(start = [-19.5 in, 217.0622 in], end = [-19.5 in, 217.0272 in])
     }
-    feature underlayment_south = extrude(profile = sketch.underlayment_south_s, distance = 484 in, mode = new)
+    feature underlayment_south = extrude(profile = sketch.underlayment_south_s, distance = 484 in)
     sketch shingles_south_s on plane.yz_m2_5 {
         l0_0 = line(start = [-20 in, 216.8122 in], end = [179 in, 316.3122 in])
         l0_1 = line(start = [179 in, 316.3122 in], end = [179 in, 316.5917 in])
         l0_2 = line(start = [179 in, 316.5917 in], end = [-20.5 in, 216.8417 in])
         l0_3 = line(start = [-20.5 in, 216.8417 in], end = [-20 in, 216.8122 in])
     }
-    feature shingles_south = extrude(profile = sketch.shingles_south_s, distance = 485 in, mode = new)
+    feature shingles_south = extrude(profile = sketch.shingles_south_s, distance = 485 in)
     sketch fascia_south_s on plane.yz_m1_375 {
         l0_0 = line(start = [-19.5 in, 211.7881 in], end = [-18 in, 211.7881 in])
         l0_1 = line(start = [-18 in, 211.7881 in], end = [-18 in, 217.2881 in])
         l0_2 = line(start = [-18 in, 217.2881 in], end = [-19.5 in, 216.5381 in])
         l0_3 = line(start = [-19.5 in, 216.5381 in], end = [-19.5 in, 211.7881 in])
     }
-    feature fascia_south = extrude(profile = sketch.fascia_south_s, distance = 482.75 in, mode = new)
+    feature fascia_south = extrude(profile = sketch.fascia_south_s, distance = 482.75 in)
     sketch soffit_south_s on plane.yz_m1_375 {
         l0_0 = line(start = [-18 in, 212.875 in], end = [-1.375 in, 212.875 in])
         l0_1 = line(start = [-1.375 in, 212.875 in], end = [-1.375 in, 213.25 in])
         l0_2 = line(start = [-1.375 in, 213.25 in], end = [-18 in, 213.25 in])
         l0_3 = line(start = [-18 in, 213.25 in], end = [-18 in, 212.875 in])
     }
-    feature soffit_south = extrude(profile = sketch.soffit_south_s, distance = 482.75 in, mode = new)
+    feature soffit_south = extrude(profile = sketch.soffit_south_s, distance = 482.75 in)
     sketch return_south_s on plane.yz_m1_375 {
         l0_0 = line(start = [-18 in, 213.25 in], end = [-0.4375 in, 213.25 in])
         l0_1 = line(start = [-0.4375 in, 213.25 in], end = [-0.4375 in, 226.0693 in])
         l0_2 = line(start = [-0.4375 in, 226.0693 in], end = [-18 in, 217.2881 in])
         l0_3 = line(start = [-18 in, 217.2881 in], end = [-18 in, 213.25 in])
     }
-    feature return_south_west = extrude(profile = sketch.return_south_s, distance = 1.375 in, mode = new)
+    feature return_south_west = extrude(profile = sketch.return_south_s, distance = 1.375 in)
     sketch return_south_e_s on plane.yz_p480 {
         l0_0 = line(start = [-18 in, 213.25 in], end = [-0.4375 in, 213.25 in])
         l0_1 = line(start = [-0.4375 in, 213.25 in], end = [-0.4375 in, 226.0693 in])
         l0_2 = line(start = [-0.4375 in, 226.0693 in], end = [-18 in, 217.2881 in])
         l0_3 = line(start = [-18 in, 217.2881 in], end = [-18 in, 213.25 in])
     }
-    feature return_south_east = extrude(profile = sketch.return_south_e_s, distance = 1.375 in, mode = new)
+    feature return_south_east = extrude(profile = sketch.return_south_e_s, distance = 1.375 in)
     sketch sheathing_north_s on plane.yz_m2 {
         l0_0 = line(start = [379.5 in, 216.5381 in], end = [181 in, 315.7881 in])
         l0_1 = line(start = [181 in, 315.7881 in], end = [181 in, 316.2772 in])
         l0_2 = line(start = [181 in, 316.2772 in], end = [379.5 in, 217.0272 in])
         l0_3 = line(start = [379.5 in, 217.0272 in], end = [379.5 in, 216.5381 in])
     }
-    feature sheathing_north = extrude(profile = sketch.sheathing_north_s, distance = 484 in, mode = new)
+    feature sheathing_north = extrude(profile = sketch.sheathing_north_s, distance = 484 in)
     sketch underlayment_north_s on plane.yz_m2 {
         l0_0 = line(start = [379.5 in, 217.0272 in], end = [181 in, 316.2772 in])
         l0_1 = line(start = [181 in, 316.2772 in], end = [181 in, 316.3122 in])
         l0_2 = line(start = [181 in, 316.3122 in], end = [379.5 in, 217.0622 in])
         l0_3 = line(start = [379.5 in, 217.0622 in], end = [379.5 in, 217.0272 in])
     }
-    feature underlayment_north = extrude(profile = sketch.underlayment_north_s, distance = 484 in, mode = new)
+    feature underlayment_north = extrude(profile = sketch.underlayment_north_s, distance = 484 in)
     sketch shingles_north_s on plane.yz_m2_5 {
         l0_0 = line(start = [380 in, 216.8122 in], end = [181 in, 316.3122 in])
         l0_1 = line(start = [181 in, 316.3122 in], end = [181 in, 316.5917 in])
         l0_2 = line(start = [181 in, 316.5917 in], end = [380.5 in, 216.8417 in])
         l0_3 = line(start = [380.5 in, 216.8417 in], end = [380 in, 216.8122 in])
     }
-    feature shingles_north = extrude(profile = sketch.shingles_north_s, distance = 485 in, mode = new)
+    feature shingles_north = extrude(profile = sketch.shingles_north_s, distance = 485 in)
     sketch fascia_north_s on plane.yz_m1_375 {
         l0_0 = line(start = [379.5 in, 211.7881 in], end = [378 in, 211.7881 in])
         l0_1 = line(start = [378 in, 211.7881 in], end = [378 in, 217.2881 in])
         l0_2 = line(start = [378 in, 217.2881 in], end = [379.5 in, 216.5381 in])
         l0_3 = line(start = [379.5 in, 216.5381 in], end = [379.5 in, 211.7881 in])
     }
-    feature fascia_north = extrude(profile = sketch.fascia_north_s, distance = 482.75 in, mode = new)
+    feature fascia_north = extrude(profile = sketch.fascia_north_s, distance = 482.75 in)
     sketch soffit_north_s on plane.yz_m1_375 {
         l0_0 = line(start = [378 in, 212.875 in], end = [361.375 in, 212.875 in])
         l0_1 = line(start = [361.375 in, 212.875 in], end = [361.375 in, 213.25 in])
         l0_2 = line(start = [361.375 in, 213.25 in], end = [378 in, 213.25 in])
         l0_3 = line(start = [378 in, 213.25 in], end = [378 in, 212.875 in])
     }
-    feature soffit_north = extrude(profile = sketch.soffit_north_s, distance = 482.75 in, mode = new)
+    feature soffit_north = extrude(profile = sketch.soffit_north_s, distance = 482.75 in)
     sketch return_north_s on plane.yz_m1_375 {
         l0_0 = line(start = [378 in, 213.25 in], end = [360.4375 in, 213.25 in])
         l0_1 = line(start = [360.4375 in, 213.25 in], end = [360.4375 in, 226.0693 in])
         l0_2 = line(start = [360.4375 in, 226.0693 in], end = [378 in, 217.2881 in])
         l0_3 = line(start = [378 in, 217.2881 in], end = [378 in, 213.25 in])
     }
-    feature return_north_west = extrude(profile = sketch.return_north_s, distance = 1.375 in, mode = new)
+    feature return_north_west = extrude(profile = sketch.return_north_s, distance = 1.375 in)
     sketch return_north_e_s on plane.yz_p480 {
         l0_0 = line(start = [378 in, 213.25 in], end = [360.4375 in, 213.25 in])
         l0_1 = line(start = [360.4375 in, 213.25 in], end = [360.4375 in, 226.0693 in])
         l0_2 = line(start = [360.4375 in, 226.0693 in], end = [378 in, 217.2881 in])
         l0_3 = line(start = [378 in, 217.2881 in], end = [378 in, 213.25 in])
     }
-    feature return_north_east = extrude(profile = sketch.return_north_e_s, distance = 1.375 in, mode = new)
+    feature return_north_east = extrude(profile = sketch.return_north_e_s, distance = 1.375 in)
     sketch ridge_vent_s on plane.yz_p4 {
         l0_0 = line(start = [172 in, 313.0917 in], end = [179 in, 316.5917 in])
         l0_1 = line(start = [179 in, 316.5917 in], end = [181 in, 316.5917 in])
@@ -139,14 +139,14 @@ part roof {
         l0_5 = line(start = [180 in, 318.0917 in], end = [172 in, 313.8417 in])
         l0_6 = line(start = [172 in, 313.8417 in], end = [172 in, 313.0917 in])
     }
-    feature ridge_vent = extrude(profile = sketch.ridge_vent_s, distance = 472 in, mode = new)
+    feature ridge_vent = extrude(profile = sketch.ridge_vent_s, distance = 472 in)
     sketch ceiling_s on plane.xy_p218_375 {
         l0_0 = line(start = [6.0156 in, 6.0156 in], end = [473.9844 in, 6.0156 in])
         l0_1 = line(start = [473.9844 in, 6.0156 in], end = [473.9844 in, 353.9844 in])
         l0_2 = line(start = [473.9844 in, 353.9844 in], end = [6.0156 in, 353.9844 in])
         l0_3 = line(start = [6.0156 in, 353.9844 in], end = [6.0156 in, 6.0156 in])
     }
-    feature ceiling = extrude(profile = sketch.ceiling_s, distance = 0.5 in, mode = new)
+    feature ceiling = extrude(profile = sketch.ceiling_s, distance = 0.5 in)
     sketch ins_0_s on plane.yz_p5_5 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -155,7 +155,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_0 = extrude(profile = sketch.ins_0_s, distance = 17.714 in, mode = new)
+    feature insulation_0 = extrude(profile = sketch.ins_0_s, distance = 17.714 in)
     sketch baf_0_s on plane.yz_p5_5 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -166,7 +166,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_0 = extrude(profile = sketch.baf_0_s, distance = 17.714 in, mode = new)
+    feature baffles_0 = extrude(profile = sketch.baf_0_s, distance = 17.714 in)
     sketch ins_1_s on plane.yz_p24_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -175,7 +175,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_1 = extrude(profile = sketch.ins_1_s, distance = 22.428 in, mode = new)
+    feature insulation_1 = extrude(profile = sketch.ins_1_s, distance = 22.428 in)
     sketch baf_1_s on plane.yz_p24_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -186,7 +186,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_1 = extrude(profile = sketch.baf_1_s, distance = 22.428 in, mode = new)
+    feature baffles_1 = extrude(profile = sketch.baf_1_s, distance = 22.428 in)
     sketch ins_2_s on plane.yz_p48_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -195,7 +195,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_2 = extrude(profile = sketch.ins_2_s, distance = 22.428 in, mode = new)
+    feature insulation_2 = extrude(profile = sketch.ins_2_s, distance = 22.428 in)
     sketch baf_2_s on plane.yz_p48_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -206,7 +206,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_2 = extrude(profile = sketch.baf_2_s, distance = 22.428 in, mode = new)
+    feature baffles_2 = extrude(profile = sketch.baf_2_s, distance = 22.428 in)
     sketch ins_3_s on plane.yz_p72_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -215,7 +215,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_3 = extrude(profile = sketch.ins_3_s, distance = 22.428 in, mode = new)
+    feature insulation_3 = extrude(profile = sketch.ins_3_s, distance = 22.428 in)
     sketch baf_3_s on plane.yz_p72_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -226,7 +226,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_3 = extrude(profile = sketch.baf_3_s, distance = 22.428 in, mode = new)
+    feature baffles_3 = extrude(profile = sketch.baf_3_s, distance = 22.428 in)
     sketch ins_4_s on plane.yz_p96_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -235,7 +235,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_4 = extrude(profile = sketch.ins_4_s, distance = 22.428 in, mode = new)
+    feature insulation_4 = extrude(profile = sketch.ins_4_s, distance = 22.428 in)
     sketch baf_4_s on plane.yz_p96_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -246,7 +246,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_4 = extrude(profile = sketch.baf_4_s, distance = 22.428 in, mode = new)
+    feature baffles_4 = extrude(profile = sketch.baf_4_s, distance = 22.428 in)
     sketch ins_5_s on plane.yz_p120_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -255,7 +255,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_5 = extrude(profile = sketch.ins_5_s, distance = 22.428 in, mode = new)
+    feature insulation_5 = extrude(profile = sketch.ins_5_s, distance = 22.428 in)
     sketch baf_5_s on plane.yz_p120_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -266,7 +266,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_5 = extrude(profile = sketch.baf_5_s, distance = 22.428 in, mode = new)
+    feature baffles_5 = extrude(profile = sketch.baf_5_s, distance = 22.428 in)
     sketch ins_6_s on plane.yz_p144_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -275,7 +275,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_6 = extrude(profile = sketch.ins_6_s, distance = 22.428 in, mode = new)
+    feature insulation_6 = extrude(profile = sketch.ins_6_s, distance = 22.428 in)
     sketch baf_6_s on plane.yz_p144_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -286,7 +286,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_6 = extrude(profile = sketch.baf_6_s, distance = 22.428 in, mode = new)
+    feature baffles_6 = extrude(profile = sketch.baf_6_s, distance = 22.428 in)
     sketch ins_7_s on plane.yz_p168_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -295,7 +295,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_7 = extrude(profile = sketch.ins_7_s, distance = 22.428 in, mode = new)
+    feature insulation_7 = extrude(profile = sketch.ins_7_s, distance = 22.428 in)
     sketch baf_7_s on plane.yz_p168_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -306,7 +306,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_7 = extrude(profile = sketch.baf_7_s, distance = 22.428 in, mode = new)
+    feature baffles_7 = extrude(profile = sketch.baf_7_s, distance = 22.428 in)
     sketch ins_8_s on plane.yz_p192_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -315,7 +315,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_8 = extrude(profile = sketch.ins_8_s, distance = 22.428 in, mode = new)
+    feature insulation_8 = extrude(profile = sketch.ins_8_s, distance = 22.428 in)
     sketch baf_8_s on plane.yz_p192_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -326,7 +326,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_8 = extrude(profile = sketch.baf_8_s, distance = 22.428 in, mode = new)
+    feature baffles_8 = extrude(profile = sketch.baf_8_s, distance = 22.428 in)
     sketch ins_9_s on plane.yz_p216_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -335,7 +335,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_9 = extrude(profile = sketch.ins_9_s, distance = 22.428 in, mode = new)
+    feature insulation_9 = extrude(profile = sketch.ins_9_s, distance = 22.428 in)
     sketch baf_9_s on plane.yz_p216_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -346,7 +346,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_9 = extrude(profile = sketch.baf_9_s, distance = 22.428 in, mode = new)
+    feature baffles_9 = extrude(profile = sketch.baf_9_s, distance = 22.428 in)
     sketch ins_10_s on plane.yz_p240_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -355,7 +355,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_10 = extrude(profile = sketch.ins_10_s, distance = 22.428 in, mode = new)
+    feature insulation_10 = extrude(profile = sketch.ins_10_s, distance = 22.428 in)
     sketch baf_10_s on plane.yz_p240_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -366,7 +366,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_10 = extrude(profile = sketch.baf_10_s, distance = 22.428 in, mode = new)
+    feature baffles_10 = extrude(profile = sketch.baf_10_s, distance = 22.428 in)
     sketch ins_11_s on plane.yz_p264_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -375,7 +375,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_11 = extrude(profile = sketch.ins_11_s, distance = 22.428 in, mode = new)
+    feature insulation_11 = extrude(profile = sketch.ins_11_s, distance = 22.428 in)
     sketch baf_11_s on plane.yz_p264_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -386,7 +386,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_11 = extrude(profile = sketch.baf_11_s, distance = 22.428 in, mode = new)
+    feature baffles_11 = extrude(profile = sketch.baf_11_s, distance = 22.428 in)
     sketch ins_12_s on plane.yz_p288_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -395,7 +395,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_12 = extrude(profile = sketch.ins_12_s, distance = 22.428 in, mode = new)
+    feature insulation_12 = extrude(profile = sketch.ins_12_s, distance = 22.428 in)
     sketch baf_12_s on plane.yz_p288_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -406,7 +406,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_12 = extrude(profile = sketch.baf_12_s, distance = 22.428 in, mode = new)
+    feature baffles_12 = extrude(profile = sketch.baf_12_s, distance = 22.428 in)
     sketch ins_13_s on plane.yz_p312_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -415,7 +415,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_13 = extrude(profile = sketch.ins_13_s, distance = 22.428 in, mode = new)
+    feature insulation_13 = extrude(profile = sketch.ins_13_s, distance = 22.428 in)
     sketch baf_13_s on plane.yz_p312_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -426,7 +426,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_13 = extrude(profile = sketch.baf_13_s, distance = 22.428 in, mode = new)
+    feature baffles_13 = extrude(profile = sketch.baf_13_s, distance = 22.428 in)
     sketch ins_14_s on plane.yz_p336_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -435,7 +435,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_14 = extrude(profile = sketch.ins_14_s, distance = 22.428 in, mode = new)
+    feature insulation_14 = extrude(profile = sketch.ins_14_s, distance = 22.428 in)
     sketch baf_14_s on plane.yz_p336_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -446,7 +446,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_14 = extrude(profile = sketch.baf_14_s, distance = 22.428 in, mode = new)
+    feature baffles_14 = extrude(profile = sketch.baf_14_s, distance = 22.428 in)
     sketch ins_15_s on plane.yz_p360_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -455,7 +455,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_15 = extrude(profile = sketch.ins_15_s, distance = 22.428 in, mode = new)
+    feature insulation_15 = extrude(profile = sketch.ins_15_s, distance = 22.428 in)
     sketch baf_15_s on plane.yz_p360_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -466,7 +466,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_15 = extrude(profile = sketch.baf_15_s, distance = 22.428 in, mode = new)
+    feature baffles_15 = extrude(profile = sketch.baf_15_s, distance = 22.428 in)
     sketch ins_16_s on plane.yz_p384_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -475,7 +475,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_16 = extrude(profile = sketch.ins_16_s, distance = 22.428 in, mode = new)
+    feature insulation_16 = extrude(profile = sketch.ins_16_s, distance = 22.428 in)
     sketch baf_16_s on plane.yz_p384_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -486,7 +486,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_16 = extrude(profile = sketch.baf_16_s, distance = 22.428 in, mode = new)
+    feature baffles_16 = extrude(profile = sketch.baf_16_s, distance = 22.428 in)
     sketch ins_17_s on plane.yz_p408_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -495,7 +495,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_17 = extrude(profile = sketch.ins_17_s, distance = 22.428 in, mode = new)
+    feature insulation_17 = extrude(profile = sketch.ins_17_s, distance = 22.428 in)
     sketch baf_17_s on plane.yz_p408_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -506,7 +506,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_17 = extrude(profile = sketch.baf_17_s, distance = 22.428 in, mode = new)
+    feature baffles_17 = extrude(profile = sketch.baf_17_s, distance = 22.428 in)
     sketch ins_18_s on plane.yz_p432_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -515,7 +515,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_18 = extrude(profile = sketch.ins_18_s, distance = 22.428 in, mode = new)
+    feature insulation_18 = extrude(profile = sketch.ins_18_s, distance = 22.428 in)
     sketch baf_18_s on plane.yz_p432_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -526,7 +526,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_18 = extrude(profile = sketch.baf_18_s, distance = 22.428 in, mode = new)
+    feature baffles_18 = extrude(profile = sketch.baf_18_s, distance = 22.428 in)
     sketch ins_19_s on plane.yz_p456_786 {
         l0_0 = line(start = [5.6 in, 218.875 in], end = [354.4 in, 218.875 in])
         l0_1 = line(start = [354.4 in, 218.875 in], end = [354.4 in, 227.2756 in])
@@ -535,7 +535,7 @@ part roof {
         l0_4 = line(start = [18.2988 in, 233.625 in], end = [5.6 in, 227.2756 in])
         l0_5 = line(start = [5.6 in, 227.2756 in], end = [5.6 in, 218.875 in])
     }
-    feature insulation_19 = extrude(profile = sketch.ins_19_s, distance = 17.714 in, mode = new)
+    feature insulation_19 = extrude(profile = sketch.ins_19_s, distance = 17.714 in)
     sketch baf_19_s on plane.yz_p456_786 {
         l0_0 = line(start = [1.5 in, 225.2881 in], end = [48 in, 248.5381 in])
         l0_1 = line(start = [48 in, 248.5381 in], end = [48 in, 248.7881 in])
@@ -546,7 +546,7 @@ part roof {
         l1_2 = line(start = [312 in, 248.7881 in], end = [358.5 in, 225.5381 in])
         l1_3 = line(start = [358.5 in, 225.5381 in], end = [358.5 in, 225.2881 in])
     }
-    feature baffles_19 = extrude(profile = sketch.baf_19_s, distance = 17.714 in, mode = new)
+    feature baffles_19 = extrude(profile = sketch.baf_19_s, distance = 17.714 in)
 
     // MEP penetrations for all: bored holes and box cut-outs where the runs pass
     feature mep_all_p_xy_9 = plane.offset(base = origin.xy, distance = 222.8125 in)
@@ -659,22 +659,115 @@ part roof {
     }
     feature mep_all_17 = extrude(profile = sketch.mep_all_17_s, distance = 45.1875 in, mode = cut)
     // end MEP penetrations all
-    output roof = { body = feature.shingles_south.body, part_number = "RF-1", material = material.asphalt_shingle, color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
-    output roof_shingles_north = { body = feature.shingles_north.body, part_number = "RF-1", material = material.asphalt_shingle, color = "#4A4D52", label = "Laminated asphalt shingles, Class 3 wind" }
-    output roof_underlayment = { body = feature.underlayment_south.body, part_number = "RF-1", material = material.polypropylene_synthetic_underlayment, color = "#3C6E8F", label = "Synthetic underlayment" }
-    output roof_underlayment_north = { body = feature.underlayment_north.body, part_number = "RF-1", material = material.polypropylene_synthetic_underlayment, color = "#3C6E8F", label = "Synthetic underlayment" }
-    output roof_sheathing = { body = feature.sheathing_south.body, part_number = "RF-1", material = material.osb, label = "7/16 in OSB roof sheathing with H-clips" }
-    output roof_sheathing_north = { body = feature.sheathing_north.body, part_number = "RF-1", material = material.osb, label = "7/16 in OSB roof sheathing with H-clips" }
-    output roof_ridge_vent = { body = feature.ridge_vent.body, part_number = "RF-1", material = material.polypropylene_ridge_vent, color = "#3A3D42", label = "Ridge vent under cap shingles" }
-    output roof_fascia = { body = feature.fascia_south.body, part_number = "RF-1", material = material.douglas_fir_lumber, color = "#E8E4DA", label = "2x6 fascia, primed" }
-    output roof_fascia_north = { body = feature.fascia_north.body, part_number = "RF-1", material = material.douglas_fir_lumber, color = "#E8E4DA", label = "2x6 fascia, primed" }
-    output roof_soffit = { body = feature.soffit_south.body, part_number = "RF-1", material = material.aluminum_vented_soffit, color = "#EDEBE6", label = "Vented aluminum soffit" }
-    output roof_soffit_north = { body = feature.soffit_north.body, part_number = "RF-1", material = material.aluminum_vented_soffit, color = "#EDEBE6", label = "Vented aluminum soffit" }
-    output roof_return_south_west = { body = feature.return_south_west.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_south_east = { body = feature.return_south_east.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_north_west = { body = feature.return_north_west.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_return_north_east = { body = feature.return_north_east.body, part_number = "RF-1", material = material.stucco_finish_coat, color = "#D8CDB4", label = "Stucco return at the eave" }
-    output roof_ceiling = { body = feature.ceiling.body, part_number = "RF-1", material = material.gypsum_board, label = "1/2 in sag-resistant gypsum ceiling board" }
+    output roof = {
+        body = feature.shingles_south.body
+        part_number = "RF-1"
+        material = material.asphalt_shingle
+        color = "#4A4D52"
+        label = "Laminated asphalt shingles, Class 3 wind"
+    }
+    output roof_shingles_north = {
+        body = feature.shingles_north.body
+        part_number = "RF-1"
+        material = material.asphalt_shingle
+        color = "#4A4D52"
+        label = "Laminated asphalt shingles, Class 3 wind"
+    }
+    output roof_underlayment = {
+        body = feature.underlayment_south.body
+        part_number = "RF-1"
+        material = material.polypropylene_synthetic_underlayment
+        color = "#3C6E8F"
+        label = "Synthetic underlayment"
+    }
+    output roof_underlayment_north = {
+        body = feature.underlayment_north.body
+        part_number = "RF-1"
+        material = material.polypropylene_synthetic_underlayment
+        color = "#3C6E8F"
+        label = "Synthetic underlayment"
+    }
+    output roof_sheathing = {
+        body = feature.sheathing_south.body
+        part_number = "RF-1"
+        material = material.osb
+        label = "7/16 in OSB roof sheathing with H-clips"
+    }
+    output roof_sheathing_north = {
+        body = feature.sheathing_north.body
+        part_number = "RF-1"
+        material = material.osb
+        label = "7/16 in OSB roof sheathing with H-clips"
+    }
+    output roof_ridge_vent = {
+        body = feature.ridge_vent.body
+        part_number = "RF-1"
+        material = material.polypropylene_ridge_vent
+        color = "#3A3D42"
+        label = "Ridge vent under cap shingles"
+    }
+    output roof_fascia = {
+        body = feature.fascia_south.body
+        part_number = "RF-1"
+        material = material.douglas_fir_lumber
+        color = "#E8E4DA"
+        label = "2x6 fascia, primed"
+    }
+    output roof_fascia_north = {
+        body = feature.fascia_north.body
+        part_number = "RF-1"
+        material = material.douglas_fir_lumber
+        color = "#E8E4DA"
+        label = "2x6 fascia, primed"
+    }
+    output roof_soffit = {
+        body = feature.soffit_south.body
+        part_number = "RF-1"
+        material = material.aluminum_vented_soffit
+        color = "#EDEBE6"
+        label = "Vented aluminum soffit"
+    }
+    output roof_soffit_north = {
+        body = feature.soffit_north.body
+        part_number = "RF-1"
+        material = material.aluminum_vented_soffit
+        color = "#EDEBE6"
+        label = "Vented aluminum soffit"
+    }
+    output roof_return_south_west = {
+        body = feature.return_south_west.body
+        part_number = "RF-1"
+        material = material.stucco_finish_coat
+        color = "#D8CDB4"
+        label = "Stucco return at the eave"
+    }
+    output roof_return_south_east = {
+        body = feature.return_south_east.body
+        part_number = "RF-1"
+        material = material.stucco_finish_coat
+        color = "#D8CDB4"
+        label = "Stucco return at the eave"
+    }
+    output roof_return_north_west = {
+        body = feature.return_north_west.body
+        part_number = "RF-1"
+        material = material.stucco_finish_coat
+        color = "#D8CDB4"
+        label = "Stucco return at the eave"
+    }
+    output roof_return_north_east = {
+        body = feature.return_north_east.body
+        part_number = "RF-1"
+        material = material.stucco_finish_coat
+        color = "#D8CDB4"
+        label = "Stucco return at the eave"
+    }
+    output roof_ceiling = {
+        body = feature.ceiling.body
+        part_number = "RF-1"
+        material = material.gypsum_board
+        label = "1/2 in sag-resistant gypsum ceiling board"
+    }
     assign material.glass_wool_loose_fill to feature.insulation_0.body
     assign material.polystyrene_vent_baffle to feature.baffles_0.body
     assign material.glass_wool_loose_fill to feature.insulation_1.body

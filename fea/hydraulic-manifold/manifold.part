@@ -40,7 +40,11 @@ part manifold {
     sketch a_s on plane.a_plane {
         bore = circle(center = [input.a_x, input.p_y], radius = input.bore / 2)
     }
-    feature a_port = extrude(profile = sketch.a_s, distance = input.height - input.p_z, mode = add(targets = [feature.p_line.body]))
+    feature a_port = extrude(
+        profile = sketch.a_s,
+        distance = input.height - input.p_z,
+        mode = add(targets = [feature.p_line.body]),
+    )
 
     // B to T: port B down from the top into the return gallery, drilled from the right face.
     feature t_plane = plane.offset(base = origin.yz, distance = input.length - input.t_depth)
@@ -52,7 +56,11 @@ part manifold {
     sketch b_s on plane.b_plane {
         bore = circle(center = [input.b_x, input.t_y], radius = input.bore / 2)
     }
-    feature b_port = extrude(profile = sketch.b_s, distance = input.height - input.t_z, mode = add(targets = [feature.t_line.body]))
+    feature b_port = extrude(
+        profile = sketch.b_s,
+        distance = input.height - input.t_z,
+        mode = add(targets = [feature.t_line.body]),
+    )
 
     // The block, its edge breaks and its bolt holes.
     sketch block_s on origin.xy {
@@ -90,19 +98,47 @@ part manifold {
         keep_tools = true,
     )
 
-    region port_p : face = { select = [feature.p_line.face.start], expect = exactly_one, body = feature.p_line.body, label = "Port P" }
-    region port_a : face = { select = [feature.a_port.face.end], expect = exactly_one, body = feature.p_line.body, label = "Port A" }
-    region port_b : face = { select = [feature.b_port.face.end], expect = exactly_one, body = feature.t_line.body, label = "Port B" }
-    region port_t : face = { select = [feature.t_line.face.end], expect = exactly_one, body = feature.t_line.body, label = "Port T" }
+    region port_p : face = {
+        select = [feature.p_line.face.start]
+        expect = exactly_one
+        label = "Port P"
+        body = feature.p_line.body
+    }
+    region port_a : face = {
+        select = [feature.a_port.face.end]
+        expect = exactly_one
+        label = "Port A"
+        body = feature.p_line.body
+    }
+    region port_b : face = {
+        select = [feature.b_port.face.end]
+        expect = exactly_one
+        label = "Port B"
+        body = feature.t_line.body
+    }
+    region port_t : face = {
+        select = [feature.t_line.face.end]
+        expect = exactly_one
+        label = "Port T"
+        body = feature.t_line.body
+    }
     // The oil's side of each passage wall (the block's side is the same surface).
     region supply_wall : face = {
-        select = [feature.p_line.face.side(p_s.bore), feature.p_line.face.end, feature.a_port.face.side(a_s.bore)]
+        select = [
+            feature.p_line.face.side(p_s.bore),
+            feature.p_line.face.end,
+            feature.a_port.face.side(a_s.bore),
+        ]
         expect = one_or_more
         body = feature.p_line.body
         label = "Passage wall"
     }
     region return_wall : face = {
-        select = [feature.t_line.face.side(t_s.bore), feature.t_line.face.start, feature.b_port.face.side(b_s.bore)]
+        select = [
+            feature.t_line.face.side(t_s.bore),
+            feature.t_line.face.start,
+            feature.b_port.face.side(b_s.bore),
+        ]
         expect = one_or_more
         body = feature.t_line.body
         label = "Passage wall"
@@ -110,9 +146,15 @@ part manifold {
 
     // The flow study's geometry: the oil alone. The block is a rigid wall to the oil, so the
     // study needs no mesh of it.
-    configuration oil_only = { suppress = [feature.block, feature.edges, feature.bolts, feature.passages] }
+    configuration oil_only = { suppress = [feature.block, feature.bolts, feature.edges, feature.passages] }
 
-    output block = { body = feature.block.body, label = "Block", part_number = "HM-0101", material = "aluminum_6061", color = "#B9BFC7" }
-    output supply_oil = { body = feature.p_line.body, label = "Oil", color = "#D08A1E" }
-    output return_oil = { body = feature.t_line.body, label = "Oil", color = "#D08A1E" }
+    output block = {
+        body = feature.block.body
+        part_number = "HM-0101"
+        material = aluminum_6061
+        color = "#B9BFC7"
+        label = Block
+    }
+    output supply_oil = { body = feature.p_line.body, color = "#D08A1E", label = Oil }
+    output return_oil = { body = feature.t_line.body, color = "#D08A1E", label = Oil }
 }

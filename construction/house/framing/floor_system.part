@@ -17,28 +17,28 @@ part floor_system {
         e2 = line(start = [480 in, 1.125 in], end = [0 in, 1.125 in])
         e3 = line(start = [0 in, 1.125 in], end = [0 in, 0 in])
     }
-    feature rim_s = extrude(profile = sketch.rim_s_s, distance = 11.875 in, mode = new)
+    feature rim_s = extrude(profile = sketch.rim_s_s, distance = 11.875 in)
     sketch rim_n_s on origin.xy {
         e0 = line(start = [0 in, 358.875 in], end = [480 in, 358.875 in])
         e1 = line(start = [480 in, 358.875 in], end = [480 in, 360 in])
         e2 = line(start = [480 in, 360 in], end = [0 in, 360 in])
         e3 = line(start = [0 in, 360 in], end = [0 in, 358.875 in])
     }
-    feature rim_n = extrude(profile = sketch.rim_n_s, distance = 11.875 in, mode = new)
+    feature rim_n = extrude(profile = sketch.rim_n_s, distance = 11.875 in)
     sketch rim_w_s on origin.xy {
         e0 = line(start = [0 in, 1.125 in], end = [1.125 in, 1.125 in])
         e1 = line(start = [1.125 in, 1.125 in], end = [1.125 in, 358.875 in])
         e2 = line(start = [1.125 in, 358.875 in], end = [0 in, 358.875 in])
         e3 = line(start = [0 in, 358.875 in], end = [0 in, 1.125 in])
     }
-    feature rim_w = extrude(profile = sketch.rim_w_s, distance = 11.875 in, mode = new)
+    feature rim_w = extrude(profile = sketch.rim_w_s, distance = 11.875 in)
     sketch rim_e_s on origin.xy {
         e0 = line(start = [478.875 in, 1.125 in], end = [480 in, 1.125 in])
         e1 = line(start = [480 in, 1.125 in], end = [480 in, 358.875 in])
         e2 = line(start = [480 in, 358.875 in], end = [478.875 in, 358.875 in])
         e3 = line(start = [478.875 in, 358.875 in], end = [478.875 in, 1.125 in])
     }
-    feature rim_e = extrude(profile = sketch.rim_e_s, distance = 11.875 in, mode = new)
+    feature rim_e = extrude(profile = sketch.rim_e_s, distance = 11.875 in)
     // Flush beams on grids B and C
     sketch beam_b_s on origin.xy {
         e0 = line(start = [1.125 in, 142.25 in], end = [478.875 in, 142.25 in])
@@ -46,14 +46,14 @@ part floor_system {
         e2 = line(start = [478.875 in, 145.75 in], end = [1.125 in, 145.75 in])
         e3 = line(start = [1.125 in, 145.75 in], end = [1.125 in, 142.25 in])
     }
-    feature beam_b = extrude(profile = sketch.beam_b_s, distance = 11.875 in, mode = new)
+    feature beam_b = extrude(profile = sketch.beam_b_s, distance = 11.875 in)
     sketch beam_c_s on origin.xy {
         e0 = line(start = [1.125 in, 222.25 in], end = [478.875 in, 222.25 in])
         e1 = line(start = [478.875 in, 222.25 in], end = [478.875 in, 225.75 in])
         e2 = line(start = [478.875 in, 225.75 in], end = [1.125 in, 225.75 in])
         e3 = line(start = [1.125 in, 225.75 in], end = [1.125 in, 222.25 in])
     }
-    feature beam_c = extrude(profile = sketch.beam_c_s, distance = 11.875 in, mode = new)
+    feature beam_c = extrude(profile = sketch.beam_c_s, distance = 11.875 in)
     // I-joists, one bay at a time: the first joist at 16 in, then the pattern
     sketch joist_ab_s on plane.y_ab {
         e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
@@ -69,8 +69,11 @@ part floor_system {
         e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
         e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
     }
-    feature joist_ab = extrude(profile = sketch.joist_ab_s, distance = 141.0625 in, mode = new)
-    feature joists_ab = pattern(bodies = [feature.joist_ab.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29))
+    feature joist_ab = extrude(profile = sketch.joist_ab_s, distance = 141.0625 in)
+    feature joists_ab = pattern(
+        bodies = [feature.joist_ab.body],
+        layout = linear(direction = origin.x, spacing = input.spacing, count = 29),
+    )
     sketch joist_bc_s on plane.y_bc {
         e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
         e1 = line(start = [0 in, 17.1562 in], end = [1.5 in, 17.1562 in])
@@ -85,8 +88,22 @@ part floor_system {
         e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
         e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
     }
-    feature joist_bc = extrude(profile = sketch.joist_bc_s, distance = 76.375 in, mode = new)
-    feature joists_bc = pattern(bodies = [feature.joist_bc.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29), skip = [{ instance = linear, step = 9 }, { instance = linear, step = 10 }, { instance = linear, step = 11 }, { instance = linear, step = 12 }, { instance = linear, step = 13 }, { instance = linear, step = 14 }, { instance = linear, step = 15 }, { instance = linear, step = 16 }, { instance = linear, step = 17 }])
+    feature joist_bc = extrude(profile = sketch.joist_bc_s, distance = 76.375 in)
+    feature joists_bc = pattern(
+        bodies = [feature.joist_bc.body],
+        layout = linear(direction = origin.x, spacing = input.spacing, count = 29),
+        skip = [
+            { instance = linear, step = 9 },
+            { instance = linear, step = 10 },
+            { instance = linear, step = 11 },
+            { instance = linear, step = 12 },
+            { instance = linear, step = 13 },
+            { instance = linear, step = 14 },
+            { instance = linear, step = 15 },
+            { instance = linear, step = 16 },
+            { instance = linear, step = 17 },
+        ],
+    )
     sketch joist_cd_s on plane.y_cd {
         e0 = line(start = [0 in, 14.8438 in], end = [0 in, 17.1562 in])
         e1 = line(start = [0 in, 17.1562 in], end = [1.5 in, 17.1562 in])
@@ -101,8 +118,11 @@ part floor_system {
         e10 = line(start = [1.5 in, 15.8125 in], end = [1.5 in, 14.8438 in])
         e11 = line(start = [1.5 in, 14.8438 in], end = [0 in, 14.8438 in])
     }
-    feature joist_cd = extrude(profile = sketch.joist_cd_s, distance = 133.0625 in, mode = new)
-    feature joists_cd = pattern(bodies = [feature.joist_cd.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 29))
+    feature joist_cd = extrude(profile = sketch.joist_cd_s, distance = 133.0625 in)
+    feature joists_cd = pattern(
+        bodies = [feature.joist_cd.body],
+        layout = linear(direction = origin.x, spacing = input.spacing, count = 29),
+    )
     // Stair opening: doubled trimmers, the LVL header and the tail joists
     sketch trimmer_0_s on plane.y_bc {
         e0 = line(start = [0 in, 159.375 in], end = [0 in, 161.6875 in])
@@ -118,7 +138,7 @@ part floor_system {
         e10 = line(start = [1.5 in, 160.3438 in], end = [1.5 in, 159.375 in])
         e11 = line(start = [1.5 in, 159.375 in], end = [0 in, 159.375 in])
     }
-    feature trimmer_0 = extrude(profile = sketch.trimmer_0_s, distance = 76.375 in, mode = new)
+    feature trimmer_0 = extrude(profile = sketch.trimmer_0_s, distance = 76.375 in)
     sketch trimmer_1_s on plane.y_bc {
         e0 = line(start = [0 in, 161.6875 in], end = [0 in, 164 in])
         e1 = line(start = [0 in, 164 in], end = [1.5 in, 164 in])
@@ -133,7 +153,7 @@ part floor_system {
         e10 = line(start = [1.5 in, 162.6562 in], end = [1.5 in, 161.6875 in])
         e11 = line(start = [1.5 in, 161.6875 in], end = [0 in, 161.6875 in])
     }
-    feature trimmer_1 = extrude(profile = sketch.trimmer_1_s, distance = 76.375 in, mode = new)
+    feature trimmer_1 = extrude(profile = sketch.trimmer_1_s, distance = 76.375 in)
     sketch trimmer_2_s on plane.y_bc {
         e0 = line(start = [0 in, 296 in], end = [0 in, 298.3125 in])
         e1 = line(start = [0 in, 298.3125 in], end = [1.5 in, 298.3125 in])
@@ -148,7 +168,7 @@ part floor_system {
         e10 = line(start = [1.5 in, 296.9688 in], end = [1.5 in, 296 in])
         e11 = line(start = [1.5 in, 296 in], end = [0 in, 296 in])
     }
-    feature trimmer_2 = extrude(profile = sketch.trimmer_2_s, distance = 76.375 in, mode = new)
+    feature trimmer_2 = extrude(profile = sketch.trimmer_2_s, distance = 76.375 in)
     sketch trimmer_3_s on plane.y_bc {
         e0 = line(start = [0 in, 298.3125 in], end = [0 in, 300.625 in])
         e1 = line(start = [0 in, 300.625 in], end = [1.5 in, 300.625 in])
@@ -163,14 +183,14 @@ part floor_system {
         e10 = line(start = [1.5 in, 299.2812 in], end = [1.5 in, 298.3125 in])
         e11 = line(start = [1.5 in, 298.3125 in], end = [0 in, 298.3125 in])
     }
-    feature trimmer_3 = extrude(profile = sketch.trimmer_3_s, distance = 76.375 in, mode = new)
+    feature trimmer_3 = extrude(profile = sketch.trimmer_3_s, distance = 76.375 in)
     sketch stair_header_s on plane.y_hdr {
         e0 = line(start = [0 in, 164.0625 in], end = [11.875 in, 164.0625 in])
         e1 = line(start = [11.875 in, 164.0625 in], end = [11.875 in, 295.9375 in])
         e2 = line(start = [11.875 in, 295.9375 in], end = [0 in, 295.9375 in])
         e3 = line(start = [0 in, 295.9375 in], end = [0 in, 164.0625 in])
     }
-    feature stair_header = extrude(profile = sketch.stair_header_s, distance = 1.75 in, mode = new)
+    feature stair_header = extrude(profile = sketch.stair_header_s, distance = 1.75 in)
     sketch tail_s on plane.y_tail {
         e0 = line(start = [0 in, 174.8438 in], end = [0 in, 177.1562 in])
         e1 = line(start = [0 in, 177.1562 in], end = [1.5 in, 177.1562 in])
@@ -185,8 +205,11 @@ part floor_system {
         e10 = line(start = [1.5 in, 175.8125 in], end = [1.5 in, 174.8438 in])
         e11 = line(start = [1.5 in, 174.8438 in], end = [0 in, 174.8438 in])
     }
-    feature tail = extrude(profile = sketch.tail_s, distance = 32.625 in, mode = new)
-    feature tails = pattern(bodies = [feature.tail.body], layout = linear(direction = origin.x, spacing = input.spacing, count = 8))
+    feature tail = extrude(profile = sketch.tail_s, distance = 32.625 in)
+    feature tails = pattern(
+        bodies = [feature.tail.body],
+        layout = linear(direction = origin.x, spacing = input.spacing, count = 8),
+    )
     // Subfloor, with the stair opening cut out
     feature deck = plane.offset(base = origin.xy, distance = 11.875 in)
     sketch subfloor_s on plane.deck {
@@ -195,7 +218,7 @@ part floor_system {
         e2 = line(start = [480 in, 360 in], end = [0 in, 360 in])
         e3 = line(start = [0 in, 360 in], end = [0 in, 0 in])
     }
-    feature subfloor = extrude(profile = sketch.subfloor_s, distance = 0.75 in, mode = new)
+    feature subfloor = extrude(profile = sketch.subfloor_s, distance = 0.75 in)
     sketch opening_s on plane.deck {
         e0 = line(start = [164 in, 180.25 in], end = [296 in, 180.25 in])
         e1 = line(start = [296 in, 180.25 in], end = [296 in, 222.25 in])
@@ -1084,5 +1107,14 @@ part floor_system {
     assign material.engineered_lumber_i_joist to feature.trimmer_2.body
     assign material.engineered_lumber_i_joist to feature.trimmer_3.body
     assign material.engineered_lumber_i_joist to feature.tail.body
-    region stair_opening : face = { select = [feature.opening.face.side(opening_s.e0), feature.opening.face.side(opening_s.e1), feature.opening.face.side(opening_s.e2), feature.opening.face.side(opening_s.e3)], expect = one_or_more, label = "Stair opening" }
+    region stair_opening : face = {
+        select = [
+            feature.opening.face.side(opening_s.e0),
+            feature.opening.face.side(opening_s.e1),
+            feature.opening.face.side(opening_s.e2),
+            feature.opening.face.side(opening_s.e3),
+        ]
+        expect = one_or_more
+        label = "Stair opening"
+    }
 }

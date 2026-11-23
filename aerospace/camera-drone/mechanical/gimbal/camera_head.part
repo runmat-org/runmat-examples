@@ -28,5 +28,10 @@ part camera_head {
         c = circle(center = [0 mm, 0.5 mm], radius = 6.4 mm)
     }
     feature bezel = extrude(profile = sketch.bezel_s, distance = 0.6 mm, mode = cut)
-    output camera_head = { body = feature.housing.body, part_number = "CD-GB-560", material = "aluminum_6061", color = "#1C1E22" }
+    output camera_head = {
+        body = feature.housing.body
+        part_number = "CD-GB-560"
+        material = aluminum_6061
+        color = "#1C1E22"
+    }
 }

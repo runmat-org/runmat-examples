@@ -68,7 +68,7 @@ part dwv_piping {
         l2 = line(start = [377.25 in, 354.5 in], end = [374.75 in, 354.5 in])
         l3 = line(start = [374.75 in, 354.5 in], end = [374.75 in, 353.9844 in])
     }
-    feature cleanout = extrude(profile = sketch.cleanout_s, distance = 2.5 in, mode = new)
+    feature cleanout = extrude(profile = sketch.cleanout_s, distance = 2.5 in)
     assign material.pvc_dwv to feature.cleanout.body
     sketch hall_branch_0_path on plane.p_yz_6 {
         l0 = line(start = [356 in, 115.3302 in], end = [346 in, 115.226 in])
@@ -92,7 +92,11 @@ part dwv_piping {
     sketch primary_branch_0_p on plane.p_yz_9 {
         c = circle(center = [346 in, 114.0646 in], radius = 1.75 in)
     }
-    feature primary_branch_0 = sweep(profile = sketch.primary_branch_0_p, path = sketch.primary_branch_0_path, follow_path = true)
+    feature primary_branch_0 = sweep(
+        profile = sketch.primary_branch_0_p,
+        path = sketch.primary_branch_0_path,
+        follow_path = true,
+    )
     assign material.pvc_dwv to feature.primary_branch_0.body
     sketch tub_0_path on plane.p_zx_10 {
         l0 = line(start = [124.25 in, 133.5 in], end = [115.226 in, 133.5 in])
@@ -144,7 +148,7 @@ part dwv_piping {
         l2 = line(start = [229.25 in, 281.25 in], end = [226.75 in, 281.25 in])
         l3 = line(start = [226.75 in, 281.25 in], end = [226.75 in, 278.75 in])
     }
-    feature lav_hall_aav = extrude(profile = sketch.lav_hall_aav_s, distance = 4 in, mode = new)
+    feature lav_hall_aav = extrude(profile = sketch.lav_hall_aav_s, distance = 4 in)
     assign material.pvc_dwv to feature.lav_hall_aav.body
     sketch lav_primary_1_0_path on plane.p_yz_18 {
         l0 = line(start = [242 in, 132.25 in], end = [242 in, 117.6 in])
@@ -161,7 +165,7 @@ part dwv_piping {
         l2 = line(start = [263.25 in, 243.25 in], end = [260.75 in, 243.25 in])
         l3 = line(start = [260.75 in, 243.25 in], end = [260.75 in, 240.75 in])
     }
-    feature lav_primary_1_aav = extrude(profile = sketch.lav_primary_1_aav_s, distance = 4 in, mode = new)
+    feature lav_primary_1_aav = extrude(profile = sketch.lav_primary_1_aav_s, distance = 4 in)
     assign material.pvc_dwv to feature.lav_primary_1_aav.body
     sketch lav_primary_2_0_path on plane.p_yz_19 {
         l0 = line(start = [242 in, 132.25 in], end = [242 in, 117.6 in])
@@ -178,7 +182,7 @@ part dwv_piping {
         l2 = line(start = [294.75 in, 243.25 in], end = [292.25 in, 243.25 in])
         l3 = line(start = [292.25 in, 243.25 in], end = [292.25 in, 240.75 in])
     }
-    feature lav_primary_2_aav = extrude(profile = sketch.lav_primary_2_aav_s, distance = 4 in, mode = new)
+    feature lav_primary_2_aav = extrude(profile = sketch.lav_primary_2_aav_s, distance = 4 in)
     assign material.pvc_dwv to feature.lav_primary_2_aav.body
     sketch tub_vent_0_path on plane.p_yz_6 {
         l0 = line(start = [356 in, 115.3302 in], end = [356 in, 224 in])
@@ -214,7 +218,11 @@ part dwv_piping {
     sketch building_drain_0_p on plane.p_yz_0 {
         c = circle(center = [346 in, -8 in], radius = 1.75 in)
     }
-    feature building_drain_0 = sweep(profile = sketch.building_drain_0_p, path = sketch.building_drain_0_path, follow_path = true)
+    feature building_drain_0 = sweep(
+        profile = sketch.building_drain_0_p,
+        path = sketch.building_drain_0_path,
+        follow_path = true,
+    )
     assign material.pvc_dwv to feature.building_drain_0.body
     sketch building_drain_1_path on plane.p_yz_24 {
         l0 = line(start = [346 in, -10 in], end = [420 in, -11.5417 in])
@@ -222,7 +230,11 @@ part dwv_piping {
     sketch building_drain_1_p on plane.p_zx_8 {
         c = circle(center = [-10 in, 280 in], radius = 1.75 in)
     }
-    feature building_drain_1 = sweep(profile = sketch.building_drain_1_p, path = sketch.building_drain_1_path, follow_path = true)
+    feature building_drain_1 = sweep(
+        profile = sketch.building_drain_1_p,
+        path = sketch.building_drain_1_path,
+        follow_path = true,
+    )
     assign material.pvc_dwv to feature.building_drain_1.body
     sketch kitchen_drain_0_path on plane.p_yz_0 {
         l0 = line(start = [353.9844 in, 16.0681 in], end = [350 in, 16.0681 in])
@@ -240,27 +252,132 @@ part dwv_piping {
         l2 = line(start = [282 in, 344.25 in], end = [278 in, 344.25 in])
         l3 = line(start = [278 in, 344.25 in], end = [278 in, 342 in])
     }
-    feature stack_cleanout = extrude(profile = sketch.stack_cleanout_s, distance = 4 in, mode = new)
+    feature stack_cleanout = extrude(profile = sketch.stack_cleanout_s, distance = 4 in)
     assign material.pvc_dwv to feature.stack_cleanout.body
-    output dwv_piping_sink_trap_arm = { body = feature.sink_trap_arm_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Trap arm, 1 1/2 in PVC DWV, 1/4 in per ft" }
-    output dwv_piping_sink_vent = { body = feature.sink_vent_0.body, part_number = "P-VENT", material = material.pvc_dwv, label = "Vent, 1 1/2 in PVC DWV, through the roof" }
-    output dwv_piping_cleanout = { body = feature.cleanout.body, part_number = "P-CO", material = material.pvc_dwv, label = "Cleanout cover" }
-    output dwv_piping_hall_branch = { body = feature.hall_branch_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Hall bath branch, 3 in PVC DWV, 1/8 in per ft" }
-    output dwv_piping_primary_branch = { body = feature.primary_branch_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Primary bath branch, 3 in PVC DWV, 1/8 in per ft" }
-    output dwv_piping_tub = { body = feature.tub_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Tub waste, 1 1/2 in PVC DWV" }
-    output dwv_piping_wc_hall = { body = feature.wc_hall_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Hall toilet closet bend, 3 in PVC DWV" }
-    output dwv_piping_wc_primary = { body = feature.wc_primary_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Primary toilet closet bend, 3 in PVC DWV" }
-    output dwv_piping_shower = { body = feature.shower_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Shower drain, 2 in PVC DWV, 1/4 in per ft" }
-    output dwv_piping_lav_hall = { body = feature.lav_hall_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Hall lavatory drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
-    output dwv_piping_lav_hall_aav = { body = feature.lav_hall_aav.body, part_number = "P-AAV", material = material.pvc_dwv, label = "Air admittance valve, hall lavatory drain" }
-    output dwv_piping_lav_primary_1 = { body = feature.lav_primary_1_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Primary lavatory 1 drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
-    output dwv_piping_lav_primary_1_aav = { body = feature.lav_primary_1_aav.body, part_number = "P-AAV", material = material.pvc_dwv, label = "Air admittance valve, primary lavatory 1 drain" }
-    output dwv_piping_lav_primary_2 = { body = feature.lav_primary_2_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Primary lavatory 2 drain, 1 1/2 in PVC DWV, 1/4 in per ft" }
-    output dwv_piping_lav_primary_2_aav = { body = feature.lav_primary_2_aav.body, part_number = "P-AAV", material = material.pvc_dwv, label = "Air admittance valve, primary lavatory 2 drain" }
-    output dwv_piping_tub_vent = { body = feature.tub_vent_0.body, part_number = "P-VENT", material = material.pvc_dwv, label = "Tub vent, 1 1/2 in PVC DWV, in wall D and through the roof" }
-    output dwv_piping_bath_vent = { body = feature.bath_vent_0.body, part_number = "P-VENT", material = material.pvc_dwv, label = "Bath vent, 2 in PVC DWV, in the partition between the baths and through the roof" }
-    output dwv_piping_stack = { body = feature.stack_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Drain stack, 3 in PVC DWV" }
-    output dwv_piping_building_drain = { body = feature.building_drain_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Building drain, 3 in PVC DWV, 1/4 in per ft, to the sewer" }
-    output dwv_piping_kitchen_drain = { body = feature.kitchen_drain_0.body, part_number = "P-DWV", material = material.pvc_dwv, label = "Kitchen sink drain, 1 1/2 in PVC DWV, down through the sink base" }
-    output dwv_piping_stack_cleanout = { body = feature.stack_cleanout.body, part_number = "P-CO", material = material.pvc_dwv, label = "Cleanout at the stack base" }
+    output dwv_piping_sink_trap_arm = {
+        body = feature.sink_trap_arm_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Trap arm, 1 1/2 in PVC DWV, 1/4 in per ft"
+    }
+    output dwv_piping_sink_vent = {
+        body = feature.sink_vent_0.body
+        part_number = "P-VENT"
+        material = material.pvc_dwv
+        label = "Vent, 1 1/2 in PVC DWV, through the roof"
+    }
+    output dwv_piping_cleanout = {
+        body = feature.cleanout.body
+        part_number = "P-CO"
+        material = material.pvc_dwv
+        label = "Cleanout cover"
+    }
+    output dwv_piping_hall_branch = {
+        body = feature.hall_branch_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Hall bath branch, 3 in PVC DWV, 1/8 in per ft"
+    }
+    output dwv_piping_primary_branch = {
+        body = feature.primary_branch_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Primary bath branch, 3 in PVC DWV, 1/8 in per ft"
+    }
+    output dwv_piping_tub = {
+        body = feature.tub_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Tub waste, 1 1/2 in PVC DWV"
+    }
+    output dwv_piping_wc_hall = {
+        body = feature.wc_hall_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Hall toilet closet bend, 3 in PVC DWV"
+    }
+    output dwv_piping_wc_primary = {
+        body = feature.wc_primary_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Primary toilet closet bend, 3 in PVC DWV"
+    }
+    output dwv_piping_shower = {
+        body = feature.shower_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Shower drain, 2 in PVC DWV, 1/4 in per ft"
+    }
+    output dwv_piping_lav_hall = {
+        body = feature.lav_hall_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Hall lavatory drain, 1 1/2 in PVC DWV, 1/4 in per ft"
+    }
+    output dwv_piping_lav_hall_aav = {
+        body = feature.lav_hall_aav.body
+        part_number = "P-AAV"
+        material = material.pvc_dwv
+        label = "Air admittance valve, hall lavatory drain"
+    }
+    output dwv_piping_lav_primary_1 = {
+        body = feature.lav_primary_1_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Primary lavatory 1 drain, 1 1/2 in PVC DWV, 1/4 in per ft"
+    }
+    output dwv_piping_lav_primary_1_aav = {
+        body = feature.lav_primary_1_aav.body
+        part_number = "P-AAV"
+        material = material.pvc_dwv
+        label = "Air admittance valve, primary lavatory 1 drain"
+    }
+    output dwv_piping_lav_primary_2 = {
+        body = feature.lav_primary_2_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Primary lavatory 2 drain, 1 1/2 in PVC DWV, 1/4 in per ft"
+    }
+    output dwv_piping_lav_primary_2_aav = {
+        body = feature.lav_primary_2_aav.body
+        part_number = "P-AAV"
+        material = material.pvc_dwv
+        label = "Air admittance valve, primary lavatory 2 drain"
+    }
+    output dwv_piping_tub_vent = {
+        body = feature.tub_vent_0.body
+        part_number = "P-VENT"
+        material = material.pvc_dwv
+        label = "Tub vent, 1 1/2 in PVC DWV, in wall D and through the roof"
+    }
+    output dwv_piping_bath_vent = {
+        body = feature.bath_vent_0.body
+        part_number = "P-VENT"
+        material = material.pvc_dwv
+        label = "Bath vent, 2 in PVC DWV, in the partition between the baths and through the roof"
+    }
+    output dwv_piping_stack = {
+        body = feature.stack_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Drain stack, 3 in PVC DWV"
+    }
+    output dwv_piping_building_drain = {
+        body = feature.building_drain_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Building drain, 3 in PVC DWV, 1/4 in per ft, to the sewer"
+    }
+    output dwv_piping_kitchen_drain = {
+        body = feature.kitchen_drain_0.body
+        part_number = "P-DWV"
+        material = material.pvc_dwv
+        label = "Kitchen sink drain, 1 1/2 in PVC DWV, down through the sink base"
+    }
+    output dwv_piping_stack_cleanout = {
+        body = feature.stack_cleanout.body
+        part_number = "P-CO"
+        material = material.pvc_dwv
+        label = "Cleanout at the stack base"
+    }
 }

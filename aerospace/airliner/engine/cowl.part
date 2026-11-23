@@ -7,5 +7,10 @@ part cowl {
     }
     feature body = revolve(profile = sketch.s, axis = origin.x, angle = 360 deg)
 
-    output cowl = { body = feature.body.body, part_number = "NAC-CW-900", material = "composite", color = "#E6E9EC" }
+    output cowl = {
+        body = feature.body.body
+        part_number = "NAC-CW-900"
+        material = composite
+        color = "#E6E9EC"
+    }
 }

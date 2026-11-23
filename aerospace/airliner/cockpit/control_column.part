@@ -20,5 +20,10 @@ part control_column {
     }
     feature yoke = extrude(profile = sketch.y, distance = 40 mm, mode = add)
 
-    output control_column = { body = feature.post.body, part_number = "FD-CC-360", material = "aluminum_7075", color = "#2A2E33" }
+    output control_column = {
+        body = feature.post.body
+        part_number = "FD-CC-360"
+        material = aluminum_7075
+        color = "#2A2E33"
+    }
 }

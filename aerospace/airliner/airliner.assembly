@@ -13,23 +13,41 @@ assembly airliner {
 
     instance skeleton : airliner_skeleton
     instance fuselage : fuselage = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = fuselage })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = fuselage },
+        )
     }
     instance wing : wing = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = wing_root })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = wing_root },
+        )
     }
     instance empennage : empennage = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = tail })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = tail },
+        )
     }
     instance main_gear_starboard : main_gear = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = main_gear_starboard },
+        )
     }
     instance main_gear_port : main_gear = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = main_gear_port })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = main_gear_port },
+        )
     }
     instance nose_gear : nose_gear = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = airliner_skeleton, name = nose_gear })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = airliner_skeleton, name = nose_gear },
+        )
     }
 
-    camera hero = { from = [-0.68, -0.62, 0.42], up = [0, 0, 1], default = true }
+    camera hero = { from = [-0.68, -0.62, 0.42], default = true }
 }

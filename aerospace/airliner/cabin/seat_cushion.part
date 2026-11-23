@@ -20,5 +20,10 @@ part seat_cushion {
     }
     feature body = extrude(profile = sketch.s, distance = 400 mm, symmetric = true)
 
-    output seat_cushion = { body = feature.body.body, part_number = "CAB-ST-120", material = "wool_fabric", color = "#2E4A6B" }
+    output seat_cushion = {
+        body = feature.body.body
+        part_number = "CAB-ST-120"
+        material = wool_fabric
+        color = "#2E4A6B"
+    }
 }

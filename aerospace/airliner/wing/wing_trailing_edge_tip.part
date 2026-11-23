@@ -18,5 +18,10 @@ part wing_trailing_edge_tip {
     }
     feature piece = loft(profiles = [sketch.s0, sketch.s1])
 
-    output wing_trailing_edge_tip = { body = feature.piece.body, part_number = "WNG-TE-660", material = "aluminum_2024", color = "#A8AFB8" }
+    output wing_trailing_edge_tip = {
+        body = feature.piece.body
+        part_number = "WNG-TE-660"
+        material = aluminum_2024
+        color = "#A8AFB8"
+    }
 }

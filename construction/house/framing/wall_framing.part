@@ -50,28 +50,28 @@ part wall_framing {
         e2 = line(start = [1.5 in, input.len], end = [0 in, input.len])
         e3 = line(start = [0 in, input.len], end = [0 in, 0 in])
     }
-    feature sill = extrude(profile = sketch.sill_s, distance = 5.5 in, mode = new)
+    feature sill = extrude(profile = sketch.sill_s, distance = 5.5 in)
     sketch bottom_s on origin.zx {
         e0 = line(start = [0 in, 0 in], end = [1.5 in, 0 in])
         e1 = line(start = [1.5 in, 0 in], end = [1.5 in, input.len])
         e2 = line(start = [1.5 in, input.len], end = [0 in, input.len])
         e3 = line(start = [0 in, input.len], end = [0 in, 0 in])
     }
-    feature bottom = extrude(profile = sketch.bottom_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature bottom = extrude(profile = sketch.bottom_s, distance = 5.5 in, suppressed = true)
     sketch top1_s on origin.zx {
         e0 = line(start = [input.zt, 0 in], end = [let.zt2, 0 in])
         e1 = line(start = [let.zt2, 0 in], end = [let.zt2, input.len])
         e2 = line(start = [let.zt2, input.len], end = [input.zt, input.len])
         e3 = line(start = [input.zt, input.len], end = [input.zt, 0 in])
     }
-    feature top1 = extrude(profile = sketch.top1_s, distance = 5.5 in, mode = new)
+    feature top1 = extrude(profile = sketch.top1_s, distance = 5.5 in)
     sketch top2_s on origin.zx {
         e0 = line(start = [let.zt2, input.top2_x0], end = [let.ztop, input.top2_x0])
         e1 = line(start = [let.ztop, input.top2_x0], end = [let.ztop, input.top2_x1])
         e2 = line(start = [let.ztop, input.top2_x1], end = [let.zt2, input.top2_x1])
         e3 = line(start = [let.zt2, input.top2_x1], end = [let.zt2, input.top2_x0])
     }
-    feature top2 = extrude(profile = sketch.top2_s, distance = 5.5 in, mode = new)
+    feature top2 = extrude(profile = sketch.top2_s, distance = 5.5 in)
     // End posts (2 plies, the hold-down post) and the corner backing stud of the long walls
     sketch e0_s on origin.zx {
         e0 = line(start = [1.5 in, 0 in], end = [input.zt, 0 in])
@@ -79,42 +79,42 @@ part wall_framing {
         e2 = line(start = [input.zt, 1.5 in], end = [1.5 in, 1.5 in])
         e3 = line(start = [1.5 in, 1.5 in], end = [1.5 in, 0 in])
     }
-    feature e0 = extrude(profile = sketch.e0_s, distance = 5.5 in, mode = new)
+    feature e0 = extrude(profile = sketch.e0_s, distance = 5.5 in)
     sketch e1_s on origin.zx {
         e0 = line(start = [1.5 in, 1.5 in], end = [input.zt, 1.5 in])
         e1 = line(start = [input.zt, 1.5 in], end = [input.zt, 3 in])
         e2 = line(start = [input.zt, 3 in], end = [1.5 in, 3 in])
         e3 = line(start = [1.5 in, 3 in], end = [1.5 in, 1.5 in])
     }
-    feature e1 = extrude(profile = sketch.e1_s, distance = 5.5 in, mode = new)
+    feature e1 = extrude(profile = sketch.e1_s, distance = 5.5 in)
     sketch e2_s on origin.zx {
         e0 = line(start = [1.5 in, 5.5 in], end = [input.zt, 5.5 in])
         e1 = line(start = [input.zt, 5.5 in], end = [input.zt, 7 in])
         e2 = line(start = [input.zt, 7 in], end = [1.5 in, 7 in])
         e3 = line(start = [1.5 in, 7 in], end = [1.5 in, 5.5 in])
     }
-    feature e2 = extrude(profile = sketch.e2_s, distance = 5.5 in, mode = new)
+    feature e2 = extrude(profile = sketch.e2_s, distance = 5.5 in)
     sketch e3_s on origin.zx {
         e0 = line(start = [1.5 in, input.len - 1.5 in], end = [input.zt, input.len - 1.5 in])
         e1 = line(start = [input.zt, input.len - 1.5 in], end = [input.zt, input.len])
         e2 = line(start = [input.zt, input.len], end = [1.5 in, input.len])
         e3 = line(start = [1.5 in, input.len], end = [1.5 in, input.len - 1.5 in])
     }
-    feature e3 = extrude(profile = sketch.e3_s, distance = 5.5 in, mode = new)
+    feature e3 = extrude(profile = sketch.e3_s, distance = 5.5 in)
     sketch e4_s on origin.zx {
         e0 = line(start = [1.5 in, input.len - 3 in], end = [input.zt, input.len - 3 in])
         e1 = line(start = [input.zt, input.len - 3 in], end = [input.zt, input.len - 1.5 in])
         e2 = line(start = [input.zt, input.len - 1.5 in], end = [1.5 in, input.len - 1.5 in])
         e3 = line(start = [1.5 in, input.len - 1.5 in], end = [1.5 in, input.len - 3 in])
     }
-    feature e4 = extrude(profile = sketch.e4_s, distance = 5.5 in, mode = new)
+    feature e4 = extrude(profile = sketch.e4_s, distance = 5.5 in)
     sketch e5_s on origin.zx {
         e0 = line(start = [1.5 in, input.len - 7 in], end = [input.zt, input.len - 7 in])
         e1 = line(start = [input.zt, input.len - 7 in], end = [input.zt, input.len - 5.5 in])
         e2 = line(start = [input.zt, input.len - 5.5 in], end = [1.5 in, input.len - 5.5 in])
         e3 = line(start = [1.5 in, input.len - 5.5 in], end = [1.5 in, input.len - 7 in])
     }
-    feature e5 = extrude(profile = sketch.e5_s, distance = 5.5 in, mode = new)
+    feature e5 = extrude(profile = sketch.e5_s, distance = 5.5 in)
     // Studs at 16 in o.c. from the first layout mark
     sketch stud_s on origin.zx {
         e0 = line(start = [1.5 in, input.first - 0.75 in], end = [input.zt, input.first - 0.75 in])
@@ -122,8 +122,11 @@ part wall_framing {
         e2 = line(start = [input.zt, input.first + 0.75 in], end = [1.5 in, input.first + 0.75 in])
         e3 = line(start = [1.5 in, input.first + 0.75 in], end = [1.5 in, input.first - 0.75 in])
     }
-    feature stud = extrude(profile = sketch.stud_s, distance = 5.5 in, mode = new)
-    feature studs = pattern(bodies = [feature.stud.body], layout = linear(direction = origin.x, spacing = 16 in, count = input.n))
+    feature stud = extrude(profile = sketch.stud_s, distance = 5.5 in)
+    feature studs = pattern(
+        bodies = [feature.stud.body],
+        layout = linear(direction = origin.x, spacing = 16 in, count = input.n),
+    )
     // 3-ply posts under the floor beams (walls 1 and 5, first floor)
     sketch p1_0_s on origin.zx {
         e0 = line(start = [1.5 in, input.p1 + -2.25 in], end = [input.zt, input.p1 + -2.25 in])
@@ -131,42 +134,42 @@ part wall_framing {
         e2 = line(start = [input.zt, input.p1 + -0.75 in], end = [1.5 in, input.p1 + -0.75 in])
         e3 = line(start = [1.5 in, input.p1 + -0.75 in], end = [1.5 in, input.p1 + -2.25 in])
     }
-    feature p1_0 = extrude(profile = sketch.p1_0_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p1_0 = extrude(profile = sketch.p1_0_s, distance = 5.5 in, suppressed = true)
     sketch p1_1_s on origin.zx {
         e0 = line(start = [1.5 in, input.p1 + -0.75 in], end = [input.zt, input.p1 + -0.75 in])
         e1 = line(start = [input.zt, input.p1 + -0.75 in], end = [input.zt, input.p1 + 0.75 in])
         e2 = line(start = [input.zt, input.p1 + 0.75 in], end = [1.5 in, input.p1 + 0.75 in])
         e3 = line(start = [1.5 in, input.p1 + 0.75 in], end = [1.5 in, input.p1 + -0.75 in])
     }
-    feature p1_1 = extrude(profile = sketch.p1_1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p1_1 = extrude(profile = sketch.p1_1_s, distance = 5.5 in, suppressed = true)
     sketch p1_2_s on origin.zx {
         e0 = line(start = [1.5 in, input.p1 + 0.75 in], end = [input.zt, input.p1 + 0.75 in])
         e1 = line(start = [input.zt, input.p1 + 0.75 in], end = [input.zt, input.p1 + 2.25 in])
         e2 = line(start = [input.zt, input.p1 + 2.25 in], end = [1.5 in, input.p1 + 2.25 in])
         e3 = line(start = [1.5 in, input.p1 + 2.25 in], end = [1.5 in, input.p1 + 0.75 in])
     }
-    feature p1_2 = extrude(profile = sketch.p1_2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p1_2 = extrude(profile = sketch.p1_2_s, distance = 5.5 in, suppressed = true)
     sketch p2_0_s on origin.zx {
         e0 = line(start = [1.5 in, input.p2 + -2.25 in], end = [input.zt, input.p2 + -2.25 in])
         e1 = line(start = [input.zt, input.p2 + -2.25 in], end = [input.zt, input.p2 + -0.75 in])
         e2 = line(start = [input.zt, input.p2 + -0.75 in], end = [1.5 in, input.p2 + -0.75 in])
         e3 = line(start = [1.5 in, input.p2 + -0.75 in], end = [1.5 in, input.p2 + -2.25 in])
     }
-    feature p2_0 = extrude(profile = sketch.p2_0_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p2_0 = extrude(profile = sketch.p2_0_s, distance = 5.5 in, suppressed = true)
     sketch p2_1_s on origin.zx {
         e0 = line(start = [1.5 in, input.p2 + -0.75 in], end = [input.zt, input.p2 + -0.75 in])
         e1 = line(start = [input.zt, input.p2 + -0.75 in], end = [input.zt, input.p2 + 0.75 in])
         e2 = line(start = [input.zt, input.p2 + 0.75 in], end = [1.5 in, input.p2 + 0.75 in])
         e3 = line(start = [1.5 in, input.p2 + 0.75 in], end = [1.5 in, input.p2 + -0.75 in])
     }
-    feature p2_1 = extrude(profile = sketch.p2_1_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p2_1 = extrude(profile = sketch.p2_1_s, distance = 5.5 in, suppressed = true)
     sketch p2_2_s on origin.zx {
         e0 = line(start = [1.5 in, input.p2 + 0.75 in], end = [input.zt, input.p2 + 0.75 in])
         e1 = line(start = [input.zt, input.p2 + 0.75 in], end = [input.zt, input.p2 + 2.25 in])
         e2 = line(start = [input.zt, input.p2 + 2.25 in], end = [1.5 in, input.p2 + 2.25 in])
         e3 = line(start = [1.5 in, input.p2 + 2.25 in], end = [1.5 in, input.p2 + 0.75 in])
     }
-    feature p2_2 = extrude(profile = sketch.p2_2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature p2_2 = extrude(profile = sketch.p2_2_s, distance = 5.5 in, suppressed = true)
     // Opening 1: rough opening o1_l to o1_r, head o1_h; king and jack zone o1_k each side
     sketch o1_cut_s on origin.zx {
         e0 = line(start = [input.o1_s, input.o1_l - input.o1_k], end = [input.o1_t, input.o1_l - input.o1_k])
@@ -188,70 +191,70 @@ part wall_framing {
         e2 = line(start = [input.zt, input.o1_l - input.o1_k + 1.5 in], end = [1.5 in, input.o1_l - input.o1_k + 1.5 in])
         e3 = line(start = [1.5 in, input.o1_l - input.o1_k + 1.5 in], end = [1.5 in, input.o1_l - input.o1_k])
     }
-    feature o1_king_l = extrude(profile = sketch.o1_king_l_s, distance = 5.5 in, mode = new)
+    feature o1_king_l = extrude(profile = sketch.o1_king_l_s, distance = 5.5 in)
     sketch o1_king_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o1_r + input.o1_k - 1.5 in], end = [input.zt, input.o1_r + input.o1_k - 1.5 in])
         e1 = line(start = [input.zt, input.o1_r + input.o1_k - 1.5 in], end = [input.zt, input.o1_r + input.o1_k])
         e2 = line(start = [input.zt, input.o1_r + input.o1_k], end = [1.5 in, input.o1_r + input.o1_k])
         e3 = line(start = [1.5 in, input.o1_r + input.o1_k], end = [1.5 in, input.o1_r + input.o1_k - 1.5 in])
     }
-    feature o1_king_r = extrude(profile = sketch.o1_king_r_s, distance = 5.5 in, mode = new)
+    feature o1_king_r = extrude(profile = sketch.o1_king_r_s, distance = 5.5 in)
     sketch o1_jack_l_s on origin.zx {
         e0 = line(start = [1.5 in, input.o1_l - 1.5 in], end = [input.o1_h, input.o1_l - 1.5 in])
         e1 = line(start = [input.o1_h, input.o1_l - 1.5 in], end = [input.o1_h, input.o1_l])
         e2 = line(start = [input.o1_h, input.o1_l], end = [1.5 in, input.o1_l])
         e3 = line(start = [1.5 in, input.o1_l], end = [1.5 in, input.o1_l - 1.5 in])
     }
-    feature o1_jack_l = extrude(profile = sketch.o1_jack_l_s, distance = 5.5 in, mode = new)
+    feature o1_jack_l = extrude(profile = sketch.o1_jack_l_s, distance = 5.5 in)
     sketch o1_jack_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o1_r], end = [input.o1_h, input.o1_r])
         e1 = line(start = [input.o1_h, input.o1_r], end = [input.o1_h, input.o1_r + 1.5 in])
         e2 = line(start = [input.o1_h, input.o1_r + 1.5 in], end = [1.5 in, input.o1_r + 1.5 in])
         e3 = line(start = [1.5 in, input.o1_r + 1.5 in], end = [1.5 in, input.o1_r])
     }
-    feature o1_jack_r = extrude(profile = sketch.o1_jack_r_s, distance = 5.5 in, mode = new)
+    feature o1_jack_r = extrude(profile = sketch.o1_jack_r_s, distance = 5.5 in)
     sketch o1_jack_l2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o1_l - 3 in], end = [input.o1_h, input.o1_l - 3 in])
         e1 = line(start = [input.o1_h, input.o1_l - 3 in], end = [input.o1_h, input.o1_l - 1.5 in])
         e2 = line(start = [input.o1_h, input.o1_l - 1.5 in], end = [1.5 in, input.o1_l - 1.5 in])
         e3 = line(start = [1.5 in, input.o1_l - 1.5 in], end = [1.5 in, input.o1_l - 3 in])
     }
-    feature o1_jack_l2 = extrude(profile = sketch.o1_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o1_jack_l2 = extrude(profile = sketch.o1_jack_l2_s, distance = 5.5 in, suppressed = true)
     sketch o1_jack_r2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o1_r + 1.5 in], end = [input.o1_h, input.o1_r + 1.5 in])
         e1 = line(start = [input.o1_h, input.o1_r + 1.5 in], end = [input.o1_h, input.o1_r + 3 in])
         e2 = line(start = [input.o1_h, input.o1_r + 3 in], end = [1.5 in, input.o1_r + 3 in])
         e3 = line(start = [1.5 in, input.o1_r + 3 in], end = [1.5 in, input.o1_r + 1.5 in])
     }
-    feature o1_jack_r2 = extrude(profile = sketch.o1_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o1_jack_r2 = extrude(profile = sketch.o1_jack_r2_s, distance = 5.5 in, suppressed = true)
     sketch o1_hdr_out_s on origin.zx {
         e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
         e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
         e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
         e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
     }
-    feature o1_hdr_out = extrude(profile = sketch.o1_hdr_out_s, distance = 1.5 in, mode = new)
+    feature o1_hdr_out = extrude(profile = sketch.o1_hdr_out_s, distance = 1.5 in)
     sketch o1_hdr_foam_s on plane.y15 {
         e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
         e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
         e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
         e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
     }
-    feature o1_hdr_foam = extrude(profile = sketch.o1_hdr_foam_s, distance = 2.5 in, mode = new)
+    feature o1_hdr_foam = extrude(profile = sketch.o1_hdr_foam_s, distance = 2.5 in)
     sketch o1_hdr_in_s on plane.y40 {
         e0 = line(start = [input.o1_h, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_l - input.o1_k + 1.5 in])
         e1 = line(start = [input.o1_t, input.o1_l - input.o1_k + 1.5 in], end = [input.o1_t, input.o1_r + input.o1_k - 1.5 in])
         e2 = line(start = [input.o1_t, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_r + input.o1_k - 1.5 in])
         e3 = line(start = [input.o1_h, input.o1_r + input.o1_k - 1.5 in], end = [input.o1_h, input.o1_l - input.o1_k + 1.5 in])
     }
-    feature o1_hdr_in = extrude(profile = sketch.o1_hdr_in_s, distance = 1.5 in, mode = new)
+    feature o1_hdr_in = extrude(profile = sketch.o1_hdr_in_s, distance = 1.5 in)
     sketch o1_rough_sill_s on origin.zx {
         e0 = line(start = [input.o1_s, input.o1_l], end = [input.o1_s + 1.5 in, input.o1_l])
         e1 = line(start = [input.o1_s + 1.5 in, input.o1_l], end = [input.o1_s + 1.5 in, input.o1_r])
         e2 = line(start = [input.o1_s + 1.5 in, input.o1_r], end = [input.o1_s, input.o1_r])
         e3 = line(start = [input.o1_s, input.o1_r], end = [input.o1_s, input.o1_l])
     }
-    feature o1_rough_sill = extrude(profile = sketch.o1_rough_sill_s, distance = 5.5 in, mode = new)
+    feature o1_rough_sill = extrude(profile = sketch.o1_rough_sill_s, distance = 5.5 in)
     // Opening 2: rough opening o2_l to o2_r, head o2_h; king and jack zone o2_k each side
     sketch o2_cut_s on origin.zx {
         e0 = line(start = [input.o2_s, input.o2_l - input.o2_k], end = [input.o2_t, input.o2_l - input.o2_k])
@@ -273,70 +276,70 @@ part wall_framing {
         e2 = line(start = [input.zt, input.o2_l - input.o2_k + 1.5 in], end = [1.5 in, input.o2_l - input.o2_k + 1.5 in])
         e3 = line(start = [1.5 in, input.o2_l - input.o2_k + 1.5 in], end = [1.5 in, input.o2_l - input.o2_k])
     }
-    feature o2_king_l = extrude(profile = sketch.o2_king_l_s, distance = 5.5 in, mode = new)
+    feature o2_king_l = extrude(profile = sketch.o2_king_l_s, distance = 5.5 in)
     sketch o2_king_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o2_r + input.o2_k - 1.5 in], end = [input.zt, input.o2_r + input.o2_k - 1.5 in])
         e1 = line(start = [input.zt, input.o2_r + input.o2_k - 1.5 in], end = [input.zt, input.o2_r + input.o2_k])
         e2 = line(start = [input.zt, input.o2_r + input.o2_k], end = [1.5 in, input.o2_r + input.o2_k])
         e3 = line(start = [1.5 in, input.o2_r + input.o2_k], end = [1.5 in, input.o2_r + input.o2_k - 1.5 in])
     }
-    feature o2_king_r = extrude(profile = sketch.o2_king_r_s, distance = 5.5 in, mode = new)
+    feature o2_king_r = extrude(profile = sketch.o2_king_r_s, distance = 5.5 in)
     sketch o2_jack_l_s on origin.zx {
         e0 = line(start = [1.5 in, input.o2_l - 1.5 in], end = [input.o2_h, input.o2_l - 1.5 in])
         e1 = line(start = [input.o2_h, input.o2_l - 1.5 in], end = [input.o2_h, input.o2_l])
         e2 = line(start = [input.o2_h, input.o2_l], end = [1.5 in, input.o2_l])
         e3 = line(start = [1.5 in, input.o2_l], end = [1.5 in, input.o2_l - 1.5 in])
     }
-    feature o2_jack_l = extrude(profile = sketch.o2_jack_l_s, distance = 5.5 in, mode = new)
+    feature o2_jack_l = extrude(profile = sketch.o2_jack_l_s, distance = 5.5 in)
     sketch o2_jack_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o2_r], end = [input.o2_h, input.o2_r])
         e1 = line(start = [input.o2_h, input.o2_r], end = [input.o2_h, input.o2_r + 1.5 in])
         e2 = line(start = [input.o2_h, input.o2_r + 1.5 in], end = [1.5 in, input.o2_r + 1.5 in])
         e3 = line(start = [1.5 in, input.o2_r + 1.5 in], end = [1.5 in, input.o2_r])
     }
-    feature o2_jack_r = extrude(profile = sketch.o2_jack_r_s, distance = 5.5 in, mode = new)
+    feature o2_jack_r = extrude(profile = sketch.o2_jack_r_s, distance = 5.5 in)
     sketch o2_jack_l2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o2_l - 3 in], end = [input.o2_h, input.o2_l - 3 in])
         e1 = line(start = [input.o2_h, input.o2_l - 3 in], end = [input.o2_h, input.o2_l - 1.5 in])
         e2 = line(start = [input.o2_h, input.o2_l - 1.5 in], end = [1.5 in, input.o2_l - 1.5 in])
         e3 = line(start = [1.5 in, input.o2_l - 1.5 in], end = [1.5 in, input.o2_l - 3 in])
     }
-    feature o2_jack_l2 = extrude(profile = sketch.o2_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o2_jack_l2 = extrude(profile = sketch.o2_jack_l2_s, distance = 5.5 in, suppressed = true)
     sketch o2_jack_r2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o2_r + 1.5 in], end = [input.o2_h, input.o2_r + 1.5 in])
         e1 = line(start = [input.o2_h, input.o2_r + 1.5 in], end = [input.o2_h, input.o2_r + 3 in])
         e2 = line(start = [input.o2_h, input.o2_r + 3 in], end = [1.5 in, input.o2_r + 3 in])
         e3 = line(start = [1.5 in, input.o2_r + 3 in], end = [1.5 in, input.o2_r + 1.5 in])
     }
-    feature o2_jack_r2 = extrude(profile = sketch.o2_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o2_jack_r2 = extrude(profile = sketch.o2_jack_r2_s, distance = 5.5 in, suppressed = true)
     sketch o2_hdr_out_s on origin.zx {
         e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
         e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
         e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
         e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
     }
-    feature o2_hdr_out = extrude(profile = sketch.o2_hdr_out_s, distance = 1.5 in, mode = new)
+    feature o2_hdr_out = extrude(profile = sketch.o2_hdr_out_s, distance = 1.5 in)
     sketch o2_hdr_foam_s on plane.y15 {
         e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
         e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
         e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
         e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
     }
-    feature o2_hdr_foam = extrude(profile = sketch.o2_hdr_foam_s, distance = 2.5 in, mode = new)
+    feature o2_hdr_foam = extrude(profile = sketch.o2_hdr_foam_s, distance = 2.5 in)
     sketch o2_hdr_in_s on plane.y40 {
         e0 = line(start = [input.o2_h, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_l - input.o2_k + 1.5 in])
         e1 = line(start = [input.o2_t, input.o2_l - input.o2_k + 1.5 in], end = [input.o2_t, input.o2_r + input.o2_k - 1.5 in])
         e2 = line(start = [input.o2_t, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_r + input.o2_k - 1.5 in])
         e3 = line(start = [input.o2_h, input.o2_r + input.o2_k - 1.5 in], end = [input.o2_h, input.o2_l - input.o2_k + 1.5 in])
     }
-    feature o2_hdr_in = extrude(profile = sketch.o2_hdr_in_s, distance = 1.5 in, mode = new)
+    feature o2_hdr_in = extrude(profile = sketch.o2_hdr_in_s, distance = 1.5 in)
     sketch o2_rough_sill_s on origin.zx {
         e0 = line(start = [input.o2_s, input.o2_l], end = [input.o2_s + 1.5 in, input.o2_l])
         e1 = line(start = [input.o2_s + 1.5 in, input.o2_l], end = [input.o2_s + 1.5 in, input.o2_r])
         e2 = line(start = [input.o2_s + 1.5 in, input.o2_r], end = [input.o2_s, input.o2_r])
         e3 = line(start = [input.o2_s, input.o2_r], end = [input.o2_s, input.o2_l])
     }
-    feature o2_rough_sill = extrude(profile = sketch.o2_rough_sill_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o2_rough_sill = extrude(profile = sketch.o2_rough_sill_s, distance = 5.5 in, suppressed = true)
     // Opening 3: rough opening o3_l to o3_r, head o3_h; king and jack zone o3_k each side
     sketch o3_cut_s on origin.zx {
         e0 = line(start = [input.o3_s, input.o3_l - input.o3_k], end = [input.o3_t, input.o3_l - input.o3_k])
@@ -358,70 +361,70 @@ part wall_framing {
         e2 = line(start = [input.zt, input.o3_l - input.o3_k + 1.5 in], end = [1.5 in, input.o3_l - input.o3_k + 1.5 in])
         e3 = line(start = [1.5 in, input.o3_l - input.o3_k + 1.5 in], end = [1.5 in, input.o3_l - input.o3_k])
     }
-    feature o3_king_l = extrude(profile = sketch.o3_king_l_s, distance = 5.5 in, mode = new)
+    feature o3_king_l = extrude(profile = sketch.o3_king_l_s, distance = 5.5 in)
     sketch o3_king_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o3_r + input.o3_k - 1.5 in], end = [input.zt, input.o3_r + input.o3_k - 1.5 in])
         e1 = line(start = [input.zt, input.o3_r + input.o3_k - 1.5 in], end = [input.zt, input.o3_r + input.o3_k])
         e2 = line(start = [input.zt, input.o3_r + input.o3_k], end = [1.5 in, input.o3_r + input.o3_k])
         e3 = line(start = [1.5 in, input.o3_r + input.o3_k], end = [1.5 in, input.o3_r + input.o3_k - 1.5 in])
     }
-    feature o3_king_r = extrude(profile = sketch.o3_king_r_s, distance = 5.5 in, mode = new)
+    feature o3_king_r = extrude(profile = sketch.o3_king_r_s, distance = 5.5 in)
     sketch o3_jack_l_s on origin.zx {
         e0 = line(start = [1.5 in, input.o3_l - 1.5 in], end = [input.o3_h, input.o3_l - 1.5 in])
         e1 = line(start = [input.o3_h, input.o3_l - 1.5 in], end = [input.o3_h, input.o3_l])
         e2 = line(start = [input.o3_h, input.o3_l], end = [1.5 in, input.o3_l])
         e3 = line(start = [1.5 in, input.o3_l], end = [1.5 in, input.o3_l - 1.5 in])
     }
-    feature o3_jack_l = extrude(profile = sketch.o3_jack_l_s, distance = 5.5 in, mode = new)
+    feature o3_jack_l = extrude(profile = sketch.o3_jack_l_s, distance = 5.5 in)
     sketch o3_jack_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o3_r], end = [input.o3_h, input.o3_r])
         e1 = line(start = [input.o3_h, input.o3_r], end = [input.o3_h, input.o3_r + 1.5 in])
         e2 = line(start = [input.o3_h, input.o3_r + 1.5 in], end = [1.5 in, input.o3_r + 1.5 in])
         e3 = line(start = [1.5 in, input.o3_r + 1.5 in], end = [1.5 in, input.o3_r])
     }
-    feature o3_jack_r = extrude(profile = sketch.o3_jack_r_s, distance = 5.5 in, mode = new)
+    feature o3_jack_r = extrude(profile = sketch.o3_jack_r_s, distance = 5.5 in)
     sketch o3_jack_l2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o3_l - 3 in], end = [input.o3_h, input.o3_l - 3 in])
         e1 = line(start = [input.o3_h, input.o3_l - 3 in], end = [input.o3_h, input.o3_l - 1.5 in])
         e2 = line(start = [input.o3_h, input.o3_l - 1.5 in], end = [1.5 in, input.o3_l - 1.5 in])
         e3 = line(start = [1.5 in, input.o3_l - 1.5 in], end = [1.5 in, input.o3_l - 3 in])
     }
-    feature o3_jack_l2 = extrude(profile = sketch.o3_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o3_jack_l2 = extrude(profile = sketch.o3_jack_l2_s, distance = 5.5 in, suppressed = true)
     sketch o3_jack_r2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o3_r + 1.5 in], end = [input.o3_h, input.o3_r + 1.5 in])
         e1 = line(start = [input.o3_h, input.o3_r + 1.5 in], end = [input.o3_h, input.o3_r + 3 in])
         e2 = line(start = [input.o3_h, input.o3_r + 3 in], end = [1.5 in, input.o3_r + 3 in])
         e3 = line(start = [1.5 in, input.o3_r + 3 in], end = [1.5 in, input.o3_r + 1.5 in])
     }
-    feature o3_jack_r2 = extrude(profile = sketch.o3_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o3_jack_r2 = extrude(profile = sketch.o3_jack_r2_s, distance = 5.5 in, suppressed = true)
     sketch o3_hdr_out_s on origin.zx {
         e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
         e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
         e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
         e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
     }
-    feature o3_hdr_out = extrude(profile = sketch.o3_hdr_out_s, distance = 1.5 in, mode = new)
+    feature o3_hdr_out = extrude(profile = sketch.o3_hdr_out_s, distance = 1.5 in)
     sketch o3_hdr_foam_s on plane.y15 {
         e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
         e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
         e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
         e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
     }
-    feature o3_hdr_foam = extrude(profile = sketch.o3_hdr_foam_s, distance = 2.5 in, mode = new)
+    feature o3_hdr_foam = extrude(profile = sketch.o3_hdr_foam_s, distance = 2.5 in)
     sketch o3_hdr_in_s on plane.y40 {
         e0 = line(start = [input.o3_h, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_l - input.o3_k + 1.5 in])
         e1 = line(start = [input.o3_t, input.o3_l - input.o3_k + 1.5 in], end = [input.o3_t, input.o3_r + input.o3_k - 1.5 in])
         e2 = line(start = [input.o3_t, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_r + input.o3_k - 1.5 in])
         e3 = line(start = [input.o3_h, input.o3_r + input.o3_k - 1.5 in], end = [input.o3_h, input.o3_l - input.o3_k + 1.5 in])
     }
-    feature o3_hdr_in = extrude(profile = sketch.o3_hdr_in_s, distance = 1.5 in, mode = new)
+    feature o3_hdr_in = extrude(profile = sketch.o3_hdr_in_s, distance = 1.5 in)
     sketch o3_rough_sill_s on origin.zx {
         e0 = line(start = [input.o3_s, input.o3_l], end = [input.o3_s + 1.5 in, input.o3_l])
         e1 = line(start = [input.o3_s + 1.5 in, input.o3_l], end = [input.o3_s + 1.5 in, input.o3_r])
         e2 = line(start = [input.o3_s + 1.5 in, input.o3_r], end = [input.o3_s, input.o3_r])
         e3 = line(start = [input.o3_s, input.o3_r], end = [input.o3_s, input.o3_l])
     }
-    feature o3_rough_sill = extrude(profile = sketch.o3_rough_sill_s, distance = 5.5 in, mode = new)
+    feature o3_rough_sill = extrude(profile = sketch.o3_rough_sill_s, distance = 5.5 in)
     // Opening 4: rough opening o4_l to o4_r, head o4_h; king and jack zone o4_k each side
     sketch o4_cut_s on origin.zx {
         e0 = line(start = [input.o4_s, input.o4_l - input.o4_k], end = [input.o4_t, input.o4_l - input.o4_k])
@@ -443,70 +446,70 @@ part wall_framing {
         e2 = line(start = [input.zt, input.o4_l - input.o4_k + 1.5 in], end = [1.5 in, input.o4_l - input.o4_k + 1.5 in])
         e3 = line(start = [1.5 in, input.o4_l - input.o4_k + 1.5 in], end = [1.5 in, input.o4_l - input.o4_k])
     }
-    feature o4_king_l = extrude(profile = sketch.o4_king_l_s, distance = 5.5 in, mode = new)
+    feature o4_king_l = extrude(profile = sketch.o4_king_l_s, distance = 5.5 in)
     sketch o4_king_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o4_r + input.o4_k - 1.5 in], end = [input.zt, input.o4_r + input.o4_k - 1.5 in])
         e1 = line(start = [input.zt, input.o4_r + input.o4_k - 1.5 in], end = [input.zt, input.o4_r + input.o4_k])
         e2 = line(start = [input.zt, input.o4_r + input.o4_k], end = [1.5 in, input.o4_r + input.o4_k])
         e3 = line(start = [1.5 in, input.o4_r + input.o4_k], end = [1.5 in, input.o4_r + input.o4_k - 1.5 in])
     }
-    feature o4_king_r = extrude(profile = sketch.o4_king_r_s, distance = 5.5 in, mode = new)
+    feature o4_king_r = extrude(profile = sketch.o4_king_r_s, distance = 5.5 in)
     sketch o4_jack_l_s on origin.zx {
         e0 = line(start = [1.5 in, input.o4_l - 1.5 in], end = [input.o4_h, input.o4_l - 1.5 in])
         e1 = line(start = [input.o4_h, input.o4_l - 1.5 in], end = [input.o4_h, input.o4_l])
         e2 = line(start = [input.o4_h, input.o4_l], end = [1.5 in, input.o4_l])
         e3 = line(start = [1.5 in, input.o4_l], end = [1.5 in, input.o4_l - 1.5 in])
     }
-    feature o4_jack_l = extrude(profile = sketch.o4_jack_l_s, distance = 5.5 in, mode = new)
+    feature o4_jack_l = extrude(profile = sketch.o4_jack_l_s, distance = 5.5 in)
     sketch o4_jack_r_s on origin.zx {
         e0 = line(start = [1.5 in, input.o4_r], end = [input.o4_h, input.o4_r])
         e1 = line(start = [input.o4_h, input.o4_r], end = [input.o4_h, input.o4_r + 1.5 in])
         e2 = line(start = [input.o4_h, input.o4_r + 1.5 in], end = [1.5 in, input.o4_r + 1.5 in])
         e3 = line(start = [1.5 in, input.o4_r + 1.5 in], end = [1.5 in, input.o4_r])
     }
-    feature o4_jack_r = extrude(profile = sketch.o4_jack_r_s, distance = 5.5 in, mode = new)
+    feature o4_jack_r = extrude(profile = sketch.o4_jack_r_s, distance = 5.5 in)
     sketch o4_jack_l2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o4_l - 3 in], end = [input.o4_h, input.o4_l - 3 in])
         e1 = line(start = [input.o4_h, input.o4_l - 3 in], end = [input.o4_h, input.o4_l - 1.5 in])
         e2 = line(start = [input.o4_h, input.o4_l - 1.5 in], end = [1.5 in, input.o4_l - 1.5 in])
         e3 = line(start = [1.5 in, input.o4_l - 1.5 in], end = [1.5 in, input.o4_l - 3 in])
     }
-    feature o4_jack_l2 = extrude(profile = sketch.o4_jack_l2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o4_jack_l2 = extrude(profile = sketch.o4_jack_l2_s, distance = 5.5 in, suppressed = true)
     sketch o4_jack_r2_s on origin.zx {
         e0 = line(start = [1.5 in, input.o4_r + 1.5 in], end = [input.o4_h, input.o4_r + 1.5 in])
         e1 = line(start = [input.o4_h, input.o4_r + 1.5 in], end = [input.o4_h, input.o4_r + 3 in])
         e2 = line(start = [input.o4_h, input.o4_r + 3 in], end = [1.5 in, input.o4_r + 3 in])
         e3 = line(start = [1.5 in, input.o4_r + 3 in], end = [1.5 in, input.o4_r + 1.5 in])
     }
-    feature o4_jack_r2 = extrude(profile = sketch.o4_jack_r2_s, distance = 5.5 in, mode = new, suppressed = true)
+    feature o4_jack_r2 = extrude(profile = sketch.o4_jack_r2_s, distance = 5.5 in, suppressed = true)
     sketch o4_hdr_out_s on origin.zx {
         e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
         e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
         e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
         e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
     }
-    feature o4_hdr_out = extrude(profile = sketch.o4_hdr_out_s, distance = 1.5 in, mode = new)
+    feature o4_hdr_out = extrude(profile = sketch.o4_hdr_out_s, distance = 1.5 in)
     sketch o4_hdr_foam_s on plane.y15 {
         e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
         e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
         e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
         e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
     }
-    feature o4_hdr_foam = extrude(profile = sketch.o4_hdr_foam_s, distance = 2.5 in, mode = new)
+    feature o4_hdr_foam = extrude(profile = sketch.o4_hdr_foam_s, distance = 2.5 in)
     sketch o4_hdr_in_s on plane.y40 {
         e0 = line(start = [input.o4_h, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_l - input.o4_k + 1.5 in])
         e1 = line(start = [input.o4_t, input.o4_l - input.o4_k + 1.5 in], end = [input.o4_t, input.o4_r + input.o4_k - 1.5 in])
         e2 = line(start = [input.o4_t, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_r + input.o4_k - 1.5 in])
         e3 = line(start = [input.o4_h, input.o4_r + input.o4_k - 1.5 in], end = [input.o4_h, input.o4_l - input.o4_k + 1.5 in])
     }
-    feature o4_hdr_in = extrude(profile = sketch.o4_hdr_in_s, distance = 1.5 in, mode = new)
+    feature o4_hdr_in = extrude(profile = sketch.o4_hdr_in_s, distance = 1.5 in)
     sketch o4_rough_sill_s on origin.zx {
         e0 = line(start = [input.o4_s, input.o4_l], end = [input.o4_s + 1.5 in, input.o4_l])
         e1 = line(start = [input.o4_s + 1.5 in, input.o4_l], end = [input.o4_s + 1.5 in, input.o4_r])
         e2 = line(start = [input.o4_s + 1.5 in, input.o4_r], end = [input.o4_s, input.o4_r])
         e3 = line(start = [input.o4_s, input.o4_r], end = [input.o4_s, input.o4_l])
     }
-    feature o4_rough_sill = extrude(profile = sketch.o4_rough_sill_s, distance = 5.5 in, mode = new)
+    feature o4_rough_sill = extrude(profile = sketch.o4_rough_sill_s, distance = 5.5 in)
 
     // Connector holes 1_l1 for wall_1_l1: bored holes, cast-in voids and seat reliefs
     feature hw_1_l1_pl1 = plane.offset(base = origin.xy, distance = 102.55 in)
@@ -944,7 +947,11 @@ part wall_framing {
     assign material.xps_foam to feature.o2_hdr_foam.body
     assign material.xps_foam to feature.o3_hdr_foam.body
     assign material.xps_foam to feature.o4_hdr_foam.body
-    region outside_face : face = { select = [feature.top1.face.start], expect = exactly_one, label = "Outside face of framing" }
+    region outside_face : face = {
+        select = [feature.top1.face.start]
+        expect = exactly_one
+        label = "Outside face of framing"
+    }
     export len = value(input = len)
 
     configuration wall_a_l1 = {
@@ -982,7 +989,24 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        features = { mep_wall_a_l1_0 = { suppressed = false }, hw_a_l1_0 = { suppressed = false }, hw_a_l1_1 = { suppressed = false }, hw_a_l1_2 = { suppressed = false }, hw_a_l1_3 = { suppressed = false }, hw_a_l1_4 = { suppressed = false }, hw_a_l1_5 = { suppressed = false }, hw_a_l1_6 = { suppressed = false }, hw_a_l1_7 = { suppressed = false }, hw_a_l1_8 = { suppressed = false }, hw_a_l1_9 = { suppressed = false }, hw_a_l1_10 = { suppressed = false }, hw_a_l1_11 = { suppressed = false }, hw_a_l1_12 = { suppressed = false }, hw_a_l1_13 = { suppressed = false }, hw_a_l1_14 = { suppressed = false } }
+        features = {
+            hw_a_l1_0 = { suppressed = false }
+            hw_a_l1_1 = { suppressed = false }
+            hw_a_l1_10 = { suppressed = false }
+            hw_a_l1_11 = { suppressed = false }
+            hw_a_l1_12 = { suppressed = false }
+            hw_a_l1_13 = { suppressed = false }
+            hw_a_l1_14 = { suppressed = false }
+            hw_a_l1_2 = { suppressed = false }
+            hw_a_l1_3 = { suppressed = false }
+            hw_a_l1_4 = { suppressed = false }
+            hw_a_l1_5 = { suppressed = false }
+            hw_a_l1_6 = { suppressed = false }
+            hw_a_l1_7 = { suppressed = false }
+            hw_a_l1_8 = { suppressed = false }
+            hw_a_l1_9 = { suppressed = false }
+            mep_wall_a_l1_0 = { suppressed = false }
+        }
         part_number = "W-A1"
         description = "South (grid A) wall, first floor"
     }
@@ -1021,8 +1045,47 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        suppress = [feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
-        features = { mep_wall_d_l1_0 = { suppressed = false }, mep_wall_d_l1_1 = { suppressed = false }, mep_wall_d_l1_2 = { suppressed = false }, mep_wall_d_l1_3 = { suppressed = false }, mep_wall_d_l1_4 = { suppressed = false }, mep_wall_d_l1_5 = { suppressed = false }, mep_wall_d_l1_6 = { suppressed = false }, mep_wall_d_l1_7 = { suppressed = false }, mep_wall_d_l1_8 = { suppressed = false }, mep_wall_d_l1_9 = { suppressed = false }, mep_wall_d_l1_10 = { suppressed = false }, hw_d_l1_0 = { suppressed = false }, hw_d_l1_1 = { suppressed = false }, hw_d_l1_2 = { suppressed = false }, hw_d_l1_3 = { suppressed = false }, hw_d_l1_4 = { suppressed = false }, hw_d_l1_5 = { suppressed = false }, hw_d_l1_6 = { suppressed = false }, hw_d_l1_7 = { suppressed = false }, hw_d_l1_8 = { suppressed = false }, hw_d_l1_9 = { suppressed = false }, hw_d_l1_10 = { suppressed = false }, hw_d_l1_11 = { suppressed = false }, hw_d_l1_12 = { suppressed = false }, hw_d_l1_13 = { suppressed = false }, hw_d_l1_14 = { suppressed = false }, o2_jack_l2 = { suppressed = false }, o2_jack_r2 = { suppressed = false } }
+        suppress = [
+            feature.o4_cut,
+            feature.o4_hdr_foam,
+            feature.o4_hdr_in,
+            feature.o4_hdr_out,
+            feature.o4_jack_l,
+            feature.o4_jack_r,
+            feature.o4_king_l,
+            feature.o4_king_r,
+            feature.o4_rough_sill,
+        ]
+        features = {
+            hw_d_l1_0 = { suppressed = false }
+            hw_d_l1_1 = { suppressed = false }
+            hw_d_l1_10 = { suppressed = false }
+            hw_d_l1_11 = { suppressed = false }
+            hw_d_l1_12 = { suppressed = false }
+            hw_d_l1_13 = { suppressed = false }
+            hw_d_l1_14 = { suppressed = false }
+            hw_d_l1_2 = { suppressed = false }
+            hw_d_l1_3 = { suppressed = false }
+            hw_d_l1_4 = { suppressed = false }
+            hw_d_l1_5 = { suppressed = false }
+            hw_d_l1_6 = { suppressed = false }
+            hw_d_l1_7 = { suppressed = false }
+            hw_d_l1_8 = { suppressed = false }
+            hw_d_l1_9 = { suppressed = false }
+            mep_wall_d_l1_0 = { suppressed = false }
+            mep_wall_d_l1_1 = { suppressed = false }
+            mep_wall_d_l1_10 = { suppressed = false }
+            mep_wall_d_l1_2 = { suppressed = false }
+            mep_wall_d_l1_3 = { suppressed = false }
+            mep_wall_d_l1_4 = { suppressed = false }
+            mep_wall_d_l1_5 = { suppressed = false }
+            mep_wall_d_l1_6 = { suppressed = false }
+            mep_wall_d_l1_7 = { suppressed = false }
+            mep_wall_d_l1_8 = { suppressed = false }
+            mep_wall_d_l1_9 = { suppressed = false }
+            o2_jack_l2 = { suppressed = false }
+            o2_jack_r2 = { suppressed = false }
+        }
         part_number = "W-D1"
         description = "North (grid D) wall, first floor"
     }
@@ -1061,8 +1124,54 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
-        features = { hw_1_l1_0 = { suppressed = false }, hw_1_l1_1 = { suppressed = false }, hw_1_l1_2 = { suppressed = false }, hw_1_l1_3 = { suppressed = false }, hw_1_l1_4 = { suppressed = false }, hw_1_l1_5 = { suppressed = false }, hw_1_l1_6 = { suppressed = false }, hw_1_l1_7 = { suppressed = false }, hw_1_l1_8 = { suppressed = false }, hw_1_l1_9 = { suppressed = false }, hw_1_l1_10 = { suppressed = false }, hw_1_l1_11 = { suppressed = false }, hw_1_l1_12 = { suppressed = false }, hw_1_l1_13 = { suppressed = false }, hw_1_l1_14 = { suppressed = false }, hw_1_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [
+            feature.e2,
+            feature.e5,
+            feature.o2_plate_cut,
+            feature.o3_cut,
+            feature.o3_hdr_foam,
+            feature.o3_hdr_in,
+            feature.o3_hdr_out,
+            feature.o3_jack_l,
+            feature.o3_jack_r,
+            feature.o3_king_l,
+            feature.o3_king_r,
+            feature.o3_rough_sill,
+            feature.o4_cut,
+            feature.o4_hdr_foam,
+            feature.o4_hdr_in,
+            feature.o4_hdr_out,
+            feature.o4_jack_l,
+            feature.o4_jack_r,
+            feature.o4_king_l,
+            feature.o4_king_r,
+            feature.o4_rough_sill,
+        ]
+        features = {
+            hw_1_l1_0 = { suppressed = false }
+            hw_1_l1_1 = { suppressed = false }
+            hw_1_l1_10 = { suppressed = false }
+            hw_1_l1_11 = { suppressed = false }
+            hw_1_l1_12 = { suppressed = false }
+            hw_1_l1_13 = { suppressed = false }
+            hw_1_l1_14 = { suppressed = false }
+            hw_1_l1_15 = { suppressed = false }
+            hw_1_l1_2 = { suppressed = false }
+            hw_1_l1_3 = { suppressed = false }
+            hw_1_l1_4 = { suppressed = false }
+            hw_1_l1_5 = { suppressed = false }
+            hw_1_l1_6 = { suppressed = false }
+            hw_1_l1_7 = { suppressed = false }
+            hw_1_l1_8 = { suppressed = false }
+            hw_1_l1_9 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+            p1_0 = { suppressed = false }
+            p1_1 = { suppressed = false }
+            p1_2 = { suppressed = false }
+            p2_0 = { suppressed = false }
+            p2_1 = { suppressed = false }
+            p2_2 = { suppressed = false }
+        }
         part_number = "W-11"
         description = "West (grid 1) wall, first floor"
     }
@@ -1101,8 +1210,58 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        suppress = [feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
-        features = { mep_wall_5_l1_0 = { suppressed = false }, mep_wall_5_l1_1 = { suppressed = false }, mep_wall_5_l1_2 = { suppressed = false }, mep_wall_5_l1_3 = { suppressed = false }, hw_5_l1_0 = { suppressed = false }, hw_5_l1_1 = { suppressed = false }, hw_5_l1_2 = { suppressed = false }, hw_5_l1_3 = { suppressed = false }, hw_5_l1_4 = { suppressed = false }, hw_5_l1_5 = { suppressed = false }, hw_5_l1_6 = { suppressed = false }, hw_5_l1_7 = { suppressed = false }, hw_5_l1_8 = { suppressed = false }, hw_5_l1_9 = { suppressed = false }, hw_5_l1_10 = { suppressed = false }, hw_5_l1_11 = { suppressed = false }, hw_5_l1_12 = { suppressed = false }, hw_5_l1_13 = { suppressed = false }, hw_5_l1_14 = { suppressed = false }, hw_5_l1_15 = { suppressed = false }, p1_0 = { suppressed = false }, p1_1 = { suppressed = false }, p1_2 = { suppressed = false }, p2_0 = { suppressed = false }, p2_1 = { suppressed = false }, p2_2 = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [
+            feature.e2,
+            feature.e5,
+            feature.o2_plate_cut,
+            feature.o3_cut,
+            feature.o3_hdr_foam,
+            feature.o3_hdr_in,
+            feature.o3_hdr_out,
+            feature.o3_jack_l,
+            feature.o3_jack_r,
+            feature.o3_king_l,
+            feature.o3_king_r,
+            feature.o3_rough_sill,
+            feature.o4_cut,
+            feature.o4_hdr_foam,
+            feature.o4_hdr_in,
+            feature.o4_hdr_out,
+            feature.o4_jack_l,
+            feature.o4_jack_r,
+            feature.o4_king_l,
+            feature.o4_king_r,
+            feature.o4_rough_sill,
+        ]
+        features = {
+            hw_5_l1_0 = { suppressed = false }
+            hw_5_l1_1 = { suppressed = false }
+            hw_5_l1_10 = { suppressed = false }
+            hw_5_l1_11 = { suppressed = false }
+            hw_5_l1_12 = { suppressed = false }
+            hw_5_l1_13 = { suppressed = false }
+            hw_5_l1_14 = { suppressed = false }
+            hw_5_l1_15 = { suppressed = false }
+            hw_5_l1_2 = { suppressed = false }
+            hw_5_l1_3 = { suppressed = false }
+            hw_5_l1_4 = { suppressed = false }
+            hw_5_l1_5 = { suppressed = false }
+            hw_5_l1_6 = { suppressed = false }
+            hw_5_l1_7 = { suppressed = false }
+            hw_5_l1_8 = { suppressed = false }
+            hw_5_l1_9 = { suppressed = false }
+            mep_wall_5_l1_0 = { suppressed = false }
+            mep_wall_5_l1_1 = { suppressed = false }
+            mep_wall_5_l1_2 = { suppressed = false }
+            mep_wall_5_l1_3 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+            p1_0 = { suppressed = false }
+            p1_1 = { suppressed = false }
+            p1_2 = { suppressed = false }
+            p2_0 = { suppressed = false }
+            p2_1 = { suppressed = false }
+            p2_2 = { suppressed = false }
+        }
         part_number = "W-51"
         description = "East (grid 5) wall, first floor"
     }
@@ -1141,8 +1300,13 @@ part wall_framing {
             o4_s = 32.875 in
             o4_k = 3 in
         }
-        suppress = [feature.sill, feature.o2_plate_cut]
-        features = { hw_a_l2_0 = { suppressed = false }, hw_a_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [feature.o2_plate_cut, feature.sill]
+        features = {
+            bottom = { suppressed = false }
+            hw_a_l2_0 = { suppressed = false }
+            hw_a_l2_1 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+        }
         part_number = "W-A2"
         description = "South (grid A) wall, second floor"
     }
@@ -1181,8 +1345,17 @@ part wall_framing {
             o4_s = 32.875 in
             o4_k = 3 in
         }
-        suppress = [feature.sill, feature.o2_plate_cut]
-        features = { mep_wall_d_l2_0 = { suppressed = false }, mep_wall_d_l2_1 = { suppressed = false }, mep_wall_d_l2_2 = { suppressed = false }, mep_wall_d_l2_3 = { suppressed = false }, hw_d_l2_0 = { suppressed = false }, hw_d_l2_1 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [feature.o2_plate_cut, feature.sill]
+        features = {
+            bottom = { suppressed = false }
+            hw_d_l2_0 = { suppressed = false }
+            hw_d_l2_1 = { suppressed = false }
+            mep_wall_d_l2_0 = { suppressed = false }
+            mep_wall_d_l2_1 = { suppressed = false }
+            mep_wall_d_l2_2 = { suppressed = false }
+            mep_wall_d_l2_3 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+        }
         part_number = "W-D2"
         description = "North (grid D) wall, second floor"
     }
@@ -1221,8 +1394,38 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
-        features = { hw_1_l2_0 = { suppressed = false }, hw_1_l2_1 = { suppressed = false }, hw_1_l2_2 = { suppressed = false }, hw_1_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [
+            feature.e2,
+            feature.e5,
+            feature.o2_plate_cut,
+            feature.o3_cut,
+            feature.o3_hdr_foam,
+            feature.o3_hdr_in,
+            feature.o3_hdr_out,
+            feature.o3_jack_l,
+            feature.o3_jack_r,
+            feature.o3_king_l,
+            feature.o3_king_r,
+            feature.o3_rough_sill,
+            feature.o4_cut,
+            feature.o4_hdr_foam,
+            feature.o4_hdr_in,
+            feature.o4_hdr_out,
+            feature.o4_jack_l,
+            feature.o4_jack_r,
+            feature.o4_king_l,
+            feature.o4_king_r,
+            feature.o4_rough_sill,
+            feature.sill,
+        ]
+        features = {
+            bottom = { suppressed = false }
+            hw_1_l2_0 = { suppressed = false }
+            hw_1_l2_1 = { suppressed = false }
+            hw_1_l2_2 = { suppressed = false }
+            hw_1_l2_3 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+        }
         part_number = "W-12"
         description = "West (grid 1) wall, second floor"
     }
@@ -1261,8 +1464,38 @@ part wall_framing {
             o4_s = 20.5 in
             o4_k = 3 in
         }
-        suppress = [feature.sill, feature.e2, feature.e5, feature.o2_plate_cut, feature.o3_cut, feature.o3_king_l, feature.o3_king_r, feature.o3_jack_l, feature.o3_jack_r, feature.o3_hdr_out, feature.o3_hdr_foam, feature.o3_hdr_in, feature.o3_rough_sill, feature.o4_cut, feature.o4_king_l, feature.o4_king_r, feature.o4_jack_l, feature.o4_jack_r, feature.o4_hdr_out, feature.o4_hdr_foam, feature.o4_hdr_in, feature.o4_rough_sill]
-        features = { hw_5_l2_0 = { suppressed = false }, hw_5_l2_1 = { suppressed = false }, hw_5_l2_2 = { suppressed = false }, hw_5_l2_3 = { suppressed = false }, bottom = { suppressed = false }, o2_rough_sill = { suppressed = false } }
+        suppress = [
+            feature.e2,
+            feature.e5,
+            feature.o2_plate_cut,
+            feature.o3_cut,
+            feature.o3_hdr_foam,
+            feature.o3_hdr_in,
+            feature.o3_hdr_out,
+            feature.o3_jack_l,
+            feature.o3_jack_r,
+            feature.o3_king_l,
+            feature.o3_king_r,
+            feature.o3_rough_sill,
+            feature.o4_cut,
+            feature.o4_hdr_foam,
+            feature.o4_hdr_in,
+            feature.o4_hdr_out,
+            feature.o4_jack_l,
+            feature.o4_jack_r,
+            feature.o4_king_l,
+            feature.o4_king_r,
+            feature.o4_rough_sill,
+            feature.sill,
+        ]
+        features = {
+            bottom = { suppressed = false }
+            hw_5_l2_0 = { suppressed = false }
+            hw_5_l2_1 = { suppressed = false }
+            hw_5_l2_2 = { suppressed = false }
+            hw_5_l2_3 = { suppressed = false }
+            o2_rough_sill = { suppressed = false }
+        }
         part_number = "W-52"
         description = "East (grid 5) wall, second floor"
     }

@@ -40,22 +40,40 @@ assembly cockpit {
     // Each display unit's controller board on its case's four bosses, 100 mm forward of the panel
     // face, its components toward the screen (the board's x along y, its y along z).
     instance display1_controller : du_controller = {
-        placement = offset(translation = [1580 mm, -780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, -780 mm, 230 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance display2_controller : du_controller = {
-        placement = offset(translation = [1580 mm, -540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, -540 mm, 230 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance display3_controller : du_controller = {
-        placement = offset(translation = [1580 mm, 540 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, 540 mm, 230 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance display4_controller : du_controller = {
-        placement = offset(translation = [1580 mm, 780 mm, 230 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, 780 mm, 230 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance display5_controller : du_controller = {
-        placement = offset(translation = [1580 mm, 0 mm, 280 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, 0 mm, 280 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance display6_controller : du_controller = {
-        placement = offset(translation = [1580 mm, 0 mm, 60 mm], rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg))
+        placement = offset(
+            translation = [1580 mm, 0 mm, 60 mm],
+            rotation = axis_angle(axis = [1, 1, 1], angle = 120 deg),
+        )
     }
     instance column_captain : control_column = {
         placement = offset(translation = [1740 mm, -540 mm, -400 mm])

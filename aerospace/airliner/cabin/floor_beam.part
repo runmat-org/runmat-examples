@@ -16,5 +16,10 @@ part floor_beam {
     }
     feature beam = extrude(profile = sketch.s, distance = 3464.422 mm, symmetric = true)
 
-    output floor_beam = { body = feature.beam.body, part_number = "FUS-FB-400", material = "aluminum_7075", color = "#A7B596" }
+    output floor_beam = {
+        body = feature.beam.body
+        part_number = "FUS-FB-400"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

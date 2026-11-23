@@ -8,5 +8,10 @@ part skin_panel {
     }
     feature panel = revolve(profile = sketch.s, axis = origin.x, angle = 45 deg)
 
-    output skin_panel = { body = feature.panel.body, part_number = "FUS-SK-300", material = "aluminum_2024", color = "#F4F5F7" }
+    output skin_panel = {
+        body = feature.panel.body
+        part_number = "FUS-SK-300"
+        material = aluminum_2024
+        color = "#F4F5F7"
+    }
 }

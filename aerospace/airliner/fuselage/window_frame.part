@@ -26,14 +26,14 @@ part window_frame {
     feature ring = extrude(profile = sketch.ring_s, distance = 8 mm)
     feature skin_side = plane.offset(base = origin.xy, distance = 8 mm)
     sketch fastener_s on plane.skin_side {
-        a = point(at = [-35.000 mm, -145.000 mm])
-        b = point(at = [35.000 mm, -145.000 mm])
-        c = point(at = [-35.000 mm, 145.000 mm])
-        d = point(at = [35.000 mm, 145.000 mm])
-        e = point(at = [-135.000 mm, -45.000 mm])
-        f = point(at = [-135.000 mm, 45.000 mm])
-        g = point(at = [135.000 mm, -45.000 mm])
-        h = point(at = [135.000 mm, 45.000 mm])
+        a = point(at = [-35 mm, -145 mm])
+        b = point(at = [35 mm, -145 mm])
+        c = point(at = [-35 mm, 145 mm])
+        d = point(at = [35 mm, 145 mm])
+        e = point(at = [-135 mm, -45 mm])
+        f = point(at = [-135 mm, 45 mm])
+        g = point(at = [135 mm, -45 mm])
+        h = point(at = [135 mm, 45 mm])
         i = point(at = [105.711 mm, 115.711 mm])
         j = point(at = [-105.711 mm, 115.711 mm])
         k = point(at = [-105.711 mm, -115.711 mm])
@@ -41,10 +41,28 @@ part window_frame {
     }
     feature fastener_holes = hole(
         face = feature.ring.face.end,
-        at = { a = sketch.fastener_s.a.at, b = sketch.fastener_s.b.at, c = sketch.fastener_s.c.at, d = sketch.fastener_s.d.at, e = sketch.fastener_s.e.at, f = sketch.fastener_s.f.at, g = sketch.fastener_s.g.at, h = sketch.fastener_s.h.at, i = sketch.fastener_s.i.at, j = sketch.fastener_s.j.at, k = sketch.fastener_s.k.at, l = sketch.fastener_s.l.at },
-        spec = { standard = iso, size = "M4", fit = close },
+        at = {
+            a = sketch.fastener_s.a.at
+            b = sketch.fastener_s.b.at
+            c = sketch.fastener_s.c.at
+            d = sketch.fastener_s.d.at
+            e = sketch.fastener_s.e.at
+            f = sketch.fastener_s.f.at
+            g = sketch.fastener_s.g.at
+            h = sketch.fastener_s.h.at
+            i = sketch.fastener_s.i.at
+            j = sketch.fastener_s.j.at
+            k = sketch.fastener_s.k.at
+            l = sketch.fastener_s.l.at
+        },
+        spec = { standard = iso, size = M4, fit = close },
         through_all = true,
     )
 
-    output window_frame = { body = feature.ring.body, part_number = "FUS-WF-041", material = "aluminum_7075", color = "#A7B596" }
+    output window_frame = {
+        body = feature.ring.body
+        part_number = "FUS-WF-041"
+        material = aluminum_7075
+        color = "#A7B596"
+    }
 }

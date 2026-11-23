@@ -11,12 +11,12 @@ drawing wall_section {
         standard = asme
         units = ft_in
         title_block = [
-            { label = "Title", source = literal(text = "Exterior wall section") },
-            { label = "Project", source = literal(text = "Two-story house, 40 x 30 ft") },
-            { label = "Drawing", source = literal(text = "A-501") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Title, source = literal(text = "Exterior wall section") },
+            { label = Project, source = literal(text = "Two-story house, 40 x 30 ft") },
+            { label = Drawing, source = literal(text = "A-501") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -49,16 +49,77 @@ drawing wall_section {
         )
     }
 
-    annotation layers = dimension(style = chain, references = [feature.stucco_finish.face.side(stucco_finish_s.e0), feature.stucco_scratch.face.side(stucco_scratch_s.e2), feature.osb.face.side(osb_s.e2), feature.stud.face.side(stud_s.e2), feature.gypsum.face.side(gypsum_s.e2)], view = a_a)
-    annotation overall = dimension(style = linear, references = [feature.stucco_finish.face.side(stucco_finish_s.e0), feature.gypsum.face.side(gypsum_s.e2)], view = a_a)
-    annotation bay = dimension(style = linear, references = [feature.stud.face.side(stud_s.e3), feature.batt.face.side(batt_s.e1)], view = a_a)
+    annotation layers = dimension(
+        style = chain,
+        references = [
+            feature.stucco_finish.face.side(stucco_finish_s.e0),
+            feature.stucco_scratch.face.side(stucco_scratch_s.e2),
+            feature.osb.face.side(osb_s.e2),
+            feature.stud.face.side(stud_s.e2),
+            feature.gypsum.face.side(gypsum_s.e2),
+        ],
+        view = a_a,
+    )
+    annotation overall = dimension(
+        style = linear,
+        references = [
+            feature.stucco_finish.face.side(stucco_finish_s.e0),
+            feature.gypsum.face.side(gypsum_s.e2),
+        ],
+        view = a_a,
+    )
+    annotation bay = dimension(
+        style = linear,
+        references = [feature.stud.face.side(stud_s.e3), feature.batt.face.side(batt_s.e1)],
+        view = a_a,
+    )
 
-    annotation finish = note(text = "STUCCO FINISH COAT, 1/8\"", leader = feature.stucco_finish.face.end, view = a_a, at = [325, 125] mm)
-    annotation brown = note(text = "STUCCO BROWN COAT, 3/8\"", leader = feature.stucco_brown.face.end, view = a_a, at = [325, 134] mm)
-    annotation scratch = note(text = "STUCCO SCRATCH COAT ON SELF-FURRING METAL LATH, 3/8\"", leader = feature.stucco_scratch.face.end, view = a_a, at = [325, 143] mm)
-    annotation paper = note(text = "2 LAYERS GRADE D BUILDING PAPER (WRB)", leader = feature.wrb_outer.face.end, view = a_a, at = [325, 152] mm)
-    annotation osb = note(text = "7/16\" OSB SHEATHING (SHEAR WALL)", leader = feature.osb.face.end, view = a_a, at = [325, 161] mm)
-    annotation stud = note(text = "2X6 STUD AT 16\" O.C.", leader = feature.stud.face.end, view = a_a, at = [325, 228] mm)
-    annotation batt = note(text = "R-21 FIBERGLASS BATT", leader = feature.batt.face.end, view = a_a, at = [325, 245] mm)
-    annotation gypsum = note(text = "1/2\" GYPSUM BOARD ON VAPOR RETARDER", leader = feature.gypsum.face.end, view = a_a, at = [325, 312] mm)
+    annotation finish = note(
+        text = "STUCCO FINISH COAT, 1/8\"",
+        leader = feature.stucco_finish.face.end,
+        view = a_a,
+        at = [325, 125] mm,
+    )
+    annotation brown = note(
+        text = "STUCCO BROWN COAT, 3/8\"",
+        leader = feature.stucco_brown.face.end,
+        view = a_a,
+        at = [325, 134] mm,
+    )
+    annotation scratch = note(
+        text = "STUCCO SCRATCH COAT ON SELF-FURRING METAL LATH, 3/8\"",
+        leader = feature.stucco_scratch.face.end,
+        view = a_a,
+        at = [325, 143] mm,
+    )
+    annotation paper = note(
+        text = "2 LAYERS GRADE D BUILDING PAPER (WRB)",
+        leader = feature.wrb_outer.face.end,
+        view = a_a,
+        at = [325, 152] mm,
+    )
+    annotation osb = note(
+        text = "7/16\" OSB SHEATHING (SHEAR WALL)",
+        leader = feature.osb.face.end,
+        view = a_a,
+        at = [325, 161] mm,
+    )
+    annotation stud = note(
+        text = "2X6 STUD AT 16\" O.C.",
+        leader = feature.stud.face.end,
+        view = a_a,
+        at = [325, 228] mm,
+    )
+    annotation batt = note(
+        text = "R-21 FIBERGLASS BATT",
+        leader = feature.batt.face.end,
+        view = a_a,
+        at = [325, 245] mm,
+    )
+    annotation gypsum = note(
+        text = "1/2\" GYPSUM BOARD ON VAPOR RETARDER",
+        leader = feature.gypsum.face.end,
+        view = a_a,
+        at = [325, 312] mm,
+    )
 }

@@ -17,5 +17,10 @@ part gear_bay {
     }
     feature well = extrude(profile = sketch.c, distance = 2170 mm, mode = cut)
 
-    output gear_bay = { body = feature.bay.body, part_number = "FUS-GB-820", material = "aluminum_2024", color = "#A7B596" }
+    output gear_bay = {
+        body = feature.bay.body
+        part_number = "FUS-GB-820"
+        material = aluminum_2024
+        color = "#A7B596"
+    }
 }

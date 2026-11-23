@@ -5,6 +5,6 @@ import { gear_strut } from "../landing_gear/gear_strut.part"
 
 assembly main_gear_strut {
     instance strut : gear_strut = {
-        configuration = { select = inputs, values = { length = 2500 mm, radius = 115 mm, bore = 90 mm } }
+        configuration = { select = inputs, values = { bore = 90 mm, length = 2500 mm, radius = 115 mm } }
     }
 }

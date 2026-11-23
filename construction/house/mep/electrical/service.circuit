@@ -22,7 +22,7 @@ circuit service {
         component T1 : "UTIL-120-240"
         component M1 : "METER-200A"
         component CB0 : "MAIN-200A-2P"
-        component JP1 : "MBJ"
+        component JP1 : MBJ
         component E1 : "GEC-UFER"
         component E2 : "GEC-ROD"
         net L1 = { global = true, power_flag = true }

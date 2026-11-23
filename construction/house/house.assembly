@@ -12,21 +12,36 @@ import { mep } from "./mep/mep.assembly"
 assembly house {
     instance skeleton : house_skeleton
     instance foundation : foundation = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = house_skeleton, name = building },
+        )
     }
     instance framing : framing = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = house_skeleton, name = building },
+        )
     }
     instance envelope : envelope = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = house_skeleton, name = building },
+        )
     }
     instance interior : interior = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = house_skeleton, name = building },
+        )
     }
     instance mep : mep = {
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = house_skeleton, name = building })
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = house_skeleton, name = building },
+        )
     }
 
-    camera hero = { from = [-0.62, -0.7, 0.36], up = [0, 0, 1], default = true }
-    camera back = { from = [0.6, 0.72, 0.34], up = [0, 0, 1] }
+    camera hero = { from = [-0.62, -0.7, 0.36], default = true }
+    camera back = { from = [0.6, 0.72, 0.34] }
 }

@@ -7,5 +7,10 @@ part axle {
     }
     feature axle = extrude(profile = sketch.s, distance = input.length, symmetric = true)
 
-    output axle = { body = feature.axle.body, part_number = "LG-AX-820", material = "steel_300m", color = "#A2A8AF" }
+    output axle = {
+        body = feature.axle.body
+        part_number = "LG-AX-820"
+        material = steel_300m
+        color = "#A2A8AF"
+    }
 }

@@ -38,7 +38,19 @@ part body_bottom {
     sketch outer_s8 on plane.outer_st8 {
         c = spline(points = [[0 mm, 35 mm], [3.047 mm, 34.878 mm], [4.876 mm, 34.512 mm], [6.246 mm, 33.904 mm], [7.219 mm, 33.048 mm], [7.804 mm, 31.904 mm], [8 mm, 30 mm], [7.804 mm, 28.096 mm], [7.219 mm, 26.952 mm], [6.246 mm, 26.096 mm], [4.876 mm, 25.488 mm], [3.047 mm, 25.122 mm], [0 mm, 25 mm], [-3.047 mm, 25.122 mm], [-4.876 mm, 25.488 mm], [-6.246 mm, 26.096 mm], [-7.219 mm, 26.952 mm], [-7.804 mm, 28.096 mm], [-8 mm, 30 mm], [-7.804 mm, 31.904 mm], [-7.219 mm, 33.048 mm], [-6.246 mm, 33.904 mm], [-4.876 mm, 34.512 mm], [-3.047 mm, 34.878 mm]], closed = true)
     }
-    feature outer = loft(profiles = [sketch.outer_s0, sketch.outer_s1, sketch.outer_s2, sketch.outer_s3, sketch.outer_s4, sketch.outer_s5, sketch.outer_s6, sketch.outer_s7, sketch.outer_s8])
+    feature outer = loft(
+        profiles = [
+            sketch.outer_s0,
+            sketch.outer_s1,
+            sketch.outer_s2,
+            sketch.outer_s3,
+            sketch.outer_s4,
+            sketch.outer_s5,
+            sketch.outer_s6,
+            sketch.outer_s7,
+            sketch.outer_s8,
+        ],
+    )
     // The tail cap, lofted through the body's last sections; the hollow stops short of it.
     feature tail_st0 = plane.offset(base = origin.yz, distance = -100 mm)
     sketch tail_s0 on plane.tail_st0 {
@@ -85,10 +97,26 @@ part body_bottom {
     sketch hollow_s7 on plane.hollow_st7 {
         c = spline(points = [[0 mm, 38.2 mm], [5.408 mm, 37.999 mm], [8.655 mm, 37.399 mm], [11.086 mm, 36.402 mm], [12.813 mm, 34.998 mm], [13.853 mm, 33.123 mm], [14.2 mm, 30 mm], [13.853 mm, 26.877 mm], [12.813 mm, 25.002 mm], [11.086 mm, 23.598 mm], [8.655 mm, 22.601 mm], [5.408 mm, 22.001 mm], [0 mm, 21.8 mm], [-5.408 mm, 22.001 mm], [-8.655 mm, 22.601 mm], [-11.086 mm, 23.598 mm], [-12.813 mm, 25.002 mm], [-13.853 mm, 26.877 mm], [-14.2 mm, 30 mm], [-13.853 mm, 33.123 mm], [-12.813 mm, 34.998 mm], [-11.086 mm, 36.402 mm], [-8.655 mm, 37.399 mm], [-5.408 mm, 37.999 mm]], closed = true)
     }
-    feature hollow = loft(profiles = [sketch.hollow_s0, sketch.hollow_s1, sketch.hollow_s2, sketch.hollow_s3, sketch.hollow_s4, sketch.hollow_s5, sketch.hollow_s6, sketch.hollow_s7], mode = cut)
+    feature hollow = loft(
+        profiles = [
+            sketch.hollow_s0,
+            sketch.hollow_s1,
+            sketch.hollow_s2,
+            sketch.hollow_s3,
+            sketch.hollow_s4,
+            sketch.hollow_s5,
+            sketch.hollow_s6,
+            sketch.hollow_s7,
+        ],
+        mode = cut,
+    )
     // The hinges' recesses: each hinge mount's envelope in its own frame (pin axis z), so the
     // clevis seats in the wall 0.05 mm clear all round.
-    feature front_left_seat_plane = plane.three_point(a = point(41.125 mm, 53.915 mm, 14.509 mm), b = point(46.67 mm, 62.237 mm, 14.509 mm), c = point(33.305 mm, 59.126 mm, 17.929 mm))
+    feature front_left_seat_plane = plane.three_point(
+        a = point(41.125 mm, 53.915 mm, 14.509 mm),
+        b = point(46.67 mm, 62.237 mm, 14.509 mm),
+        c = point(33.305 mm, 59.126 mm, 17.929 mm),
+    )
     sketch front_left_seat_s on plane.front_left_seat_plane {
         s1 = line(start = [-20.05 mm, -7.55 mm], end = [8 mm, -7.55 mm])
         s2 = line(start = [8 mm, -7.55 mm], end = [8 mm, 7.55 mm])
@@ -96,7 +124,11 @@ part body_bottom {
         s4 = line(start = [-20.05 mm, 7.55 mm], end = [-20.05 mm, -7.55 mm])
     }
     feature front_left_seat = extrude(profile = sketch.front_left_seat_s, distance = 20.2 mm, mode = cut)
-    feature front_right_seat_plane = plane.three_point(a = point(41.125 mm, -53.915 mm, 14.509 mm), b = point(46.67 mm, -62.237 mm, 14.509 mm), c = point(48.945 mm, -48.705 mm, 11.089 mm))
+    feature front_right_seat_plane = plane.three_point(
+        a = point(41.125 mm, -53.915 mm, 14.509 mm),
+        b = point(46.67 mm, -62.237 mm, 14.509 mm),
+        c = point(48.945 mm, -48.705 mm, 11.089 mm),
+    )
     sketch front_right_seat_s on plane.front_right_seat_plane {
         s1 = line(start = [-20.05 mm, -7.55 mm], end = [8 mm, -7.55 mm])
         s2 = line(start = [8 mm, -7.55 mm], end = [8 mm, 7.55 mm])
@@ -104,7 +136,11 @@ part body_bottom {
         s4 = line(start = [-20.05 mm, 7.55 mm], end = [-20.05 mm, -7.55 mm])
     }
     feature front_right_seat = extrude(profile = sketch.front_right_seat_s, distance = 20.2 mm, mode = cut)
-    feature rear_left_seat_plane = plane.three_point(a = point(-69.923 mm, 41.337 mm, 4.082 mm), b = point(-75.539 mm, 49.611 mm, 4.082 mm), c = point(-77.229 mm, 36.378 mm, 8.777 mm))
+    feature rear_left_seat_plane = plane.three_point(
+        a = point(-69.923 mm, 41.337 mm, 4.082 mm),
+        b = point(-75.539 mm, 49.611 mm, 4.082 mm),
+        c = point(-77.229 mm, 36.378 mm, 8.777 mm),
+    )
     sketch rear_left_seat_s on plane.rear_left_seat_plane {
         s1 = line(start = [-20.05 mm, -7.55 mm], end = [8 mm, -7.55 mm])
         s2 = line(start = [8 mm, -7.55 mm], end = [8 mm, 7.55 mm])
@@ -112,7 +148,11 @@ part body_bottom {
         s4 = line(start = [-20.05 mm, 7.55 mm], end = [-20.05 mm, -7.55 mm])
     }
     feature rear_left_seat = extrude(profile = sketch.rear_left_seat_s, distance = 20.2 mm, mode = cut)
-    feature rear_right_seat_plane = plane.three_point(a = point(-69.923 mm, -41.337 mm, 4.082 mm), b = point(-75.539 mm, -49.611 mm, 4.082 mm), c = point(-62.618 mm, -46.296 mm, -0.612 mm))
+    feature rear_right_seat_plane = plane.three_point(
+        a = point(-69.923 mm, -41.337 mm, 4.082 mm),
+        b = point(-75.539 mm, -49.611 mm, 4.082 mm),
+        c = point(-62.618 mm, -46.296 mm, -0.612 mm),
+    )
     sketch rear_right_seat_s on plane.rear_right_seat_plane {
         s1 = line(start = [-20.05 mm, -7.55 mm], end = [8 mm, -7.55 mm])
         s2 = line(start = [8 mm, -7.55 mm], end = [8 mm, 7.55 mm])
@@ -178,5 +218,10 @@ part body_bottom {
     }
     feature belly_openings = extrude(profile = sketch.belly_cut_s, distance = 15 mm, mode = cut)
     region skin : face = { select = [feature.outer.face.side(outer_s0.c)], expect = one_or_more }
-    output body_bottom = { body = feature.outer.body, part_number = "CD-BD-120", material = "polycarbonate", color = "#3A3E44" }
+    output body_bottom = {
+        body = feature.outer.body
+        part_number = "CD-BD-120"
+        material = polycarbonate
+        color = "#3A3E44"
+    }
 }

@@ -20,21 +20,21 @@ part partitions {
         l0_2 = line(start = [1.5 in, input.len], end = [0 in, input.len])
         l0_3 = line(start = [0 in, input.len], end = [0 in, 0 in])
     }
-    feature bottom = extrude(profile = sketch.bottom_s, distance = 3.5 in, mode = new)
+    feature bottom = extrude(profile = sketch.bottom_s, distance = 3.5 in)
     sketch top1_s on plane.zx_p0_5 {
         l0_0 = line(start = [input.h - 3 in, 0 in], end = [input.h - 1.5 in, 0 in])
         l0_1 = line(start = [input.h - 1.5 in, 0 in], end = [input.h - 1.5 in, input.len])
         l0_2 = line(start = [input.h - 1.5 in, input.len], end = [input.h - 3 in, input.len])
         l0_3 = line(start = [input.h - 3 in, input.len], end = [input.h - 3 in, 0 in])
     }
-    feature top1 = extrude(profile = sketch.top1_s, distance = 3.5 in, mode = new)
+    feature top1 = extrude(profile = sketch.top1_s, distance = 3.5 in)
     sketch top2_s on plane.zx_p0_5 {
         l0_0 = line(start = [input.h - 1.5 in, 0 in], end = [input.h, 0 in])
         l0_1 = line(start = [input.h, 0 in], end = [input.h, input.len])
         l0_2 = line(start = [input.h, input.len], end = [input.h - 1.5 in, input.len])
         l0_3 = line(start = [input.h - 1.5 in, input.len], end = [input.h - 1.5 in, 0 in])
     }
-    feature top2 = extrude(profile = sketch.top2_s, distance = 3.5 in, mode = new)
+    feature top2 = extrude(profile = sketch.top2_s, distance = 3.5 in)
     // Studs: end studs and 2x4s at 16 in o.c.
     sketch end0_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, 0 in], end = [input.h - 3 in, 0 in])
@@ -42,22 +42,25 @@ part partitions {
         l0_2 = line(start = [input.h - 3 in, 1.5 in], end = [1.5 in, 1.5 in])
         l0_3 = line(start = [1.5 in, 1.5 in], end = [1.5 in, 0 in])
     }
-    feature end0 = extrude(profile = sketch.end0_s, distance = 3.5 in, mode = new)
+    feature end0 = extrude(profile = sketch.end0_s, distance = 3.5 in)
     sketch end1_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.len - 1.5 in], end = [input.h - 3 in, input.len - 1.5 in])
         l0_1 = line(start = [input.h - 3 in, input.len - 1.5 in], end = [input.h - 3 in, input.len])
         l0_2 = line(start = [input.h - 3 in, input.len], end = [1.5 in, input.len])
         l0_3 = line(start = [1.5 in, input.len], end = [1.5 in, input.len - 1.5 in])
     }
-    feature end1 = extrude(profile = sketch.end1_s, distance = 3.5 in, mode = new)
+    feature end1 = extrude(profile = sketch.end1_s, distance = 3.5 in)
     sketch stud_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, 15.25 in], end = [input.h - 3 in, 15.25 in])
         l0_1 = line(start = [input.h - 3 in, 15.25 in], end = [input.h - 3 in, 16.75 in])
         l0_2 = line(start = [input.h - 3 in, 16.75 in], end = [1.5 in, 16.75 in])
         l0_3 = line(start = [1.5 in, 16.75 in], end = [1.5 in, 15.25 in])
     }
-    feature stud = extrude(profile = sketch.stud_s, distance = 3.5 in, mode = new)
-    feature studs = pattern(bodies = [feature.stud.body], layout = linear(direction = origin.x, spacing = 16 in, count = input.n))
+    feature stud = extrude(profile = sketch.stud_s, distance = 3.5 in)
+    feature studs = pattern(
+        bodies = [feature.stud.body],
+        layout = linear(direction = origin.x, spacing = 16 in, count = input.n),
+    )
     // Door openings: 32 x 82 1/2 in rough openings, king studs and a flat 2x4 header
     sketch d1_zone_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d1 - 1.5 in], end = [84 in, input.d1 - 1.5 in])
@@ -79,21 +82,21 @@ part partitions {
         l0_2 = line(start = [input.h - 3 in, input.d1], end = [1.5 in, input.d1])
         l0_3 = line(start = [1.5 in, input.d1], end = [1.5 in, input.d1 - 1.5 in])
     }
-    feature d1_king_l = extrude(profile = sketch.d1_king_l_s, distance = 3.5 in, mode = new)
+    feature d1_king_l = extrude(profile = sketch.d1_king_l_s, distance = 3.5 in)
     sketch d1_king_r_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d1 + 32 in], end = [input.h - 3 in, input.d1 + 32 in])
         l0_1 = line(start = [input.h - 3 in, input.d1 + 32 in], end = [input.h - 3 in, input.d1 + 33.5 in])
         l0_2 = line(start = [input.h - 3 in, input.d1 + 33.5 in], end = [1.5 in, input.d1 + 33.5 in])
         l0_3 = line(start = [1.5 in, input.d1 + 33.5 in], end = [1.5 in, input.d1 + 32 in])
     }
-    feature d1_king_r = extrude(profile = sketch.d1_king_r_s, distance = 3.5 in, mode = new)
+    feature d1_king_r = extrude(profile = sketch.d1_king_r_s, distance = 3.5 in)
     sketch d1_header_s on plane.zx_p0_5 {
         l0_0 = line(start = [82.5 in, input.d1], end = [84 in, input.d1])
         l0_1 = line(start = [84 in, input.d1], end = [84 in, input.d1 + 32 in])
         l0_2 = line(start = [84 in, input.d1 + 32 in], end = [82.5 in, input.d1 + 32 in])
         l0_3 = line(start = [82.5 in, input.d1 + 32 in], end = [82.5 in, input.d1])
     }
-    feature d1_header = extrude(profile = sketch.d1_header_s, distance = 3.5 in, mode = new)
+    feature d1_header = extrude(profile = sketch.d1_header_s, distance = 3.5 in)
     sketch d2_zone_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d2 - 1.5 in], end = [84 in, input.d2 - 1.5 in])
         l0_1 = line(start = [84 in, input.d2 - 1.5 in], end = [84 in, input.d2 + 33.5 in])
@@ -114,21 +117,21 @@ part partitions {
         l0_2 = line(start = [input.h - 3 in, input.d2], end = [1.5 in, input.d2])
         l0_3 = line(start = [1.5 in, input.d2], end = [1.5 in, input.d2 - 1.5 in])
     }
-    feature d2_king_l = extrude(profile = sketch.d2_king_l_s, distance = 3.5 in, mode = new)
+    feature d2_king_l = extrude(profile = sketch.d2_king_l_s, distance = 3.5 in)
     sketch d2_king_r_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d2 + 32 in], end = [input.h - 3 in, input.d2 + 32 in])
         l0_1 = line(start = [input.h - 3 in, input.d2 + 32 in], end = [input.h - 3 in, input.d2 + 33.5 in])
         l0_2 = line(start = [input.h - 3 in, input.d2 + 33.5 in], end = [1.5 in, input.d2 + 33.5 in])
         l0_3 = line(start = [1.5 in, input.d2 + 33.5 in], end = [1.5 in, input.d2 + 32 in])
     }
-    feature d2_king_r = extrude(profile = sketch.d2_king_r_s, distance = 3.5 in, mode = new)
+    feature d2_king_r = extrude(profile = sketch.d2_king_r_s, distance = 3.5 in)
     sketch d2_header_s on plane.zx_p0_5 {
         l0_0 = line(start = [82.5 in, input.d2], end = [84 in, input.d2])
         l0_1 = line(start = [84 in, input.d2], end = [84 in, input.d2 + 32 in])
         l0_2 = line(start = [84 in, input.d2 + 32 in], end = [82.5 in, input.d2 + 32 in])
         l0_3 = line(start = [82.5 in, input.d2 + 32 in], end = [82.5 in, input.d2])
     }
-    feature d2_header = extrude(profile = sketch.d2_header_s, distance = 3.5 in, mode = new)
+    feature d2_header = extrude(profile = sketch.d2_header_s, distance = 3.5 in)
     sketch d3_zone_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d3 - 1.5 in], end = [84 in, input.d3 - 1.5 in])
         l0_1 = line(start = [84 in, input.d3 - 1.5 in], end = [84 in, input.d3 + 33.5 in])
@@ -149,21 +152,21 @@ part partitions {
         l0_2 = line(start = [input.h - 3 in, input.d3], end = [1.5 in, input.d3])
         l0_3 = line(start = [1.5 in, input.d3], end = [1.5 in, input.d3 - 1.5 in])
     }
-    feature d3_king_l = extrude(profile = sketch.d3_king_l_s, distance = 3.5 in, mode = new)
+    feature d3_king_l = extrude(profile = sketch.d3_king_l_s, distance = 3.5 in)
     sketch d3_king_r_s on plane.zx_p0_5 {
         l0_0 = line(start = [1.5 in, input.d3 + 32 in], end = [input.h - 3 in, input.d3 + 32 in])
         l0_1 = line(start = [input.h - 3 in, input.d3 + 32 in], end = [input.h - 3 in, input.d3 + 33.5 in])
         l0_2 = line(start = [input.h - 3 in, input.d3 + 33.5 in], end = [1.5 in, input.d3 + 33.5 in])
         l0_3 = line(start = [1.5 in, input.d3 + 33.5 in], end = [1.5 in, input.d3 + 32 in])
     }
-    feature d3_king_r = extrude(profile = sketch.d3_king_r_s, distance = 3.5 in, mode = new)
+    feature d3_king_r = extrude(profile = sketch.d3_king_r_s, distance = 3.5 in)
     sketch d3_header_s on plane.zx_p0_5 {
         l0_0 = line(start = [82.5 in, input.d3], end = [84 in, input.d3])
         l0_1 = line(start = [84 in, input.d3], end = [84 in, input.d3 + 32 in])
         l0_2 = line(start = [84 in, input.d3 + 32 in], end = [82.5 in, input.d3 + 32 in])
         l0_3 = line(start = [82.5 in, input.d3 + 32 in], end = [82.5 in, input.d3])
     }
-    feature d3_header = extrude(profile = sketch.d3_header_s, distance = 3.5 in, mode = new)
+    feature d3_header = extrude(profile = sketch.d3_header_s, distance = 3.5 in)
     // Gypsum board both faces, from the finish floor to the ceiling board
     sketch gypsum_a_s on origin.zx {
         l0_0 = line(start = [0.5 in, 0 in], end = [input.h, 0 in])
@@ -171,14 +174,14 @@ part partitions {
         l0_2 = line(start = [input.h, input.len], end = [0.5 in, input.len])
         l0_3 = line(start = [0.5 in, input.len], end = [0.5 in, 0 in])
     }
-    feature gypsum_a = extrude(profile = sketch.gypsum_a_s, distance = 0.5 in, mode = new)
+    feature gypsum_a = extrude(profile = sketch.gypsum_a_s, distance = 0.5 in)
     sketch gypsum_b_s on plane.zx_p4 {
         l0_0 = line(start = [0.5 in, 0 in], end = [input.h, 0 in])
         l0_1 = line(start = [input.h, 0 in], end = [input.h, input.len])
         l0_2 = line(start = [input.h, input.len], end = [0.5 in, input.len])
         l0_3 = line(start = [0.5 in, input.len], end = [0.5 in, 0 in])
     }
-    feature gypsum_b = extrude(profile = sketch.gypsum_b_s, distance = 0.5 in, mode = new)
+    feature gypsum_b = extrude(profile = sketch.gypsum_b_s, distance = 0.5 in)
     sketch d1_board_s on origin.zx {
         l0_0 = line(start = [0 in, input.d1], end = [82.5 in, input.d1])
         l0_1 = line(start = [82.5 in, input.d1], end = [82.5 in, input.d1 + 32 in])
@@ -281,96 +284,290 @@ part partitions {
     }
     feature mep_p2_baths_2 = extrude(profile = sketch.mep_p2_baths_2_s, distance = 111.0979 in, mode = cut, suppressed = true)
     // end MEP penetrations p2_baths
-    output partitions = { body = feature.top1.body, part_number = "IP", material = material.douglas_fir_lumber, label = "2x4 framing, Douglas fir-larch stud grade" }
-    output partitions_gypsum_a = { body = feature.gypsum_a.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
-    output partitions_gypsum_b = { body = feature.gypsum_b.body, part_number = "IP", material = material.gypsum_board, label = "1/2 in gypsum board" }
+    output partitions = {
+        body = feature.top1.body
+        part_number = IP
+        material = material.douglas_fir_lumber
+        label = "2x4 framing, Douglas fir-larch stud grade"
+    }
+    output partitions_gypsum_a = {
+        body = feature.gypsum_a.body
+        part_number = IP
+        material = material.gypsum_board
+        label = "1/2 in gypsum board"
+    }
+    output partitions_gypsum_b = {
+        body = feature.gypsum_b.body
+        part_number = IP
+        material = material.gypsum_board
+        label = "1/2 in gypsum board"
+    }
 
     configuration p1_stair = {
-        inputs = { len = 150 in, h = 108.625 in, n = 9, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 108.625 in, len = 150 in, n = 9 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-101"
         description = "Partition, first floor"
     }
     configuration p1_utility_w = {
-        inputs = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 54 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
-        features = { mep_p1_utility_w_0 = { suppressed = false }, mep_p1_utility_w_1 = { suppressed = false }, mep_p1_utility_w_2 = { suppressed = false }, mep_p1_utility_w_3 = { suppressed = false } }
+        inputs = { d1 = 54 in, d2 = 40 in, d3 = 40 in, h = 108.625 in, len = 127.9844 in, n = 7 }
+        suppress = [
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
+        features = {
+            mep_p1_utility_w_0 = { suppressed = false }
+            mep_p1_utility_w_1 = { suppressed = false }
+            mep_p1_utility_w_2 = { suppressed = false }
+            mep_p1_utility_w_3 = { suppressed = false }
+        }
         part_number = "IP-102"
         description = "Partition, first floor"
     }
     configuration p1_den_n = {
-        inputs = { len = 177.9844 in, h = 108.625 in, n = 10, d1 = 104 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
-        features = { mep_p1_den_n_0 = { suppressed = false }, mep_p1_den_n_1 = { suppressed = false }, mep_p1_den_n_2 = { suppressed = false }, mep_p1_den_n_3 = { suppressed = false } }
+        inputs = { d1 = 104 in, d2 = 40 in, d3 = 40 in, h = 108.625 in, len = 177.9844 in, n = 10 }
+        suppress = [
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
+        features = {
+            mep_p1_den_n_0 = { suppressed = false }
+            mep_p1_den_n_1 = { suppressed = false }
+            mep_p1_den_n_2 = { suppressed = false }
+            mep_p1_den_n_3 = { suppressed = false }
+        }
         part_number = "IP-103"
         description = "Partition, first floor"
     }
     configuration p1_utility_den = {
-        inputs = { len = 127.9844 in, h = 108.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 108.625 in, len = 127.9844 in, n = 7 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         features = { mep_p1_utility_den_0 = { suppressed = false } }
         part_number = "IP-104"
         description = "Partition, first floor"
     }
     configuration p2_hall_s = {
-        inputs = {
-            len = 467.9688 in
-            h = 96.625 in
-            n = 28
-            d1 = 114.25 in
-            d2 = 314 in
-            d3 = 40 in
-        }
-        suppress = [feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 114.25 in, d2 = 314 in, d3 = 40 in, h = 96.625 in, len = 467.9688 in, n = 28 }
+        suppress = [
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-205"
         description = "Partition, second floor"
     }
     configuration p2_hall_n = {
-        inputs = {
-            len = 467.9688 in
-            h = 96.625 in
-            n = 28
-            d1 = 66.25 in
-            d2 = 118 in
-            d3 = 374 in
-        }
+        inputs = { d1 = 66.25 in, d2 = 118 in, d3 = 374 in, h = 96.625 in, len = 467.9688 in, n = 28 }
         part_number = "IP-206"
         description = "Partition, second floor"
     }
     configuration p2_br3_primary = {
-        inputs = { len = 135.4364 in, h = 96.625 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 96.625 in, len = 135.4364 in, n = 8 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-207"
         description = "Partition, second floor"
     }
     configuration p2_br2_bath = {
-        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 96.625 in, len = 125.4364 in, n = 7 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-208"
         description = "Partition, second floor"
     }
     configuration p2_baths = {
-        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
-        features = { mep_p2_baths_0 = { suppressed = false }, mep_p2_baths_1 = { suppressed = false }, mep_p2_baths_2 = { suppressed = false } }
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 96.625 in, len = 125.4364 in, n = 7 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
+        features = {
+            mep_p2_baths_0 = { suppressed = false }
+            mep_p2_baths_1 = { suppressed = false }
+            mep_p2_baths_2 = { suppressed = false }
+        }
         part_number = "IP-209"
         description = "Partition, second floor"
     }
     configuration p2_bath_closet = {
-        inputs = { len = 125.4364 in, h = 96.625 in, n = 7, d1 = 29.75 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 29.75 in, d2 = 40 in, d3 = 40 in, h = 96.625 in, len = 125.4364 in, n = 7 }
+        suppress = [
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-210"
         description = "Partition, second floor"
     }
     configuration p2_guard_s = {
-        inputs = { len = 136.5 in, h = 36 in, n = 8, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 36 in, len = 136.5 in, n = 8 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-211"
         description = "Stair guard, 36 in"
     }
     configuration p2_guard_w = {
-        inputs = { len = 42 in, h = 36 in, n = 2, d1 = 40 in, d2 = 40 in, d3 = 40 in }
-        suppress = [feature.d1_zone, feature.d1_plate, feature.d1_king_l, feature.d1_king_r, feature.d1_header, feature.d1_board, feature.d2_zone, feature.d2_plate, feature.d2_king_l, feature.d2_king_r, feature.d2_header, feature.d2_board, feature.d3_zone, feature.d3_plate, feature.d3_king_l, feature.d3_king_r, feature.d3_header, feature.d3_board]
+        inputs = { d1 = 40 in, d2 = 40 in, d3 = 40 in, h = 36 in, len = 42 in, n = 2 }
+        suppress = [
+            feature.d1_board,
+            feature.d1_header,
+            feature.d1_king_l,
+            feature.d1_king_r,
+            feature.d1_plate,
+            feature.d1_zone,
+            feature.d2_board,
+            feature.d2_header,
+            feature.d2_king_l,
+            feature.d2_king_r,
+            feature.d2_plate,
+            feature.d2_zone,
+            feature.d3_board,
+            feature.d3_header,
+            feature.d3_king_l,
+            feature.d3_king_r,
+            feature.d3_plate,
+            feature.d3_zone,
+        ]
         part_number = "IP-212"
         description = "Stair guard, 36 in"
     }

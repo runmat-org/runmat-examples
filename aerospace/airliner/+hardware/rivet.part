@@ -9,5 +9,10 @@ part rivet {
     }
     feature body = revolve(profile = sketch.s, axis = origin.z, angle = 360 deg)
 
-    output rivet = { body = feature.body.body, part_number = "MS20426AD6", material = "aluminum_2117", color = "#BFC4CB" }
+    output rivet = {
+        body = feature.body.body
+        part_number = MS20426AD6
+        material = aluminum_2117
+        color = "#BFC4CB"
+    }
 }

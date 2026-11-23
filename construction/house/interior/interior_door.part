@@ -13,15 +13,27 @@ part interior_door {
         l0_6 = line(start = [81.5 in, 31.75 in], end = [81.5 in, 0.25 in])
         l0_7 = line(start = [81.5 in, 0.25 in], end = [0.5 in, 0.25 in])
     }
-    feature jamb = extrude(profile = sketch.jamb_s, distance = 4.5 in, mode = new)
+    feature jamb = extrude(profile = sketch.jamb_s, distance = 4.5 in)
     sketch slab_s on plane.zx_p1_5625 {
         l0_0 = line(start = [1 in, 1.125 in], end = [80.625 in, 1.125 in])
         l0_1 = line(start = [80.625 in, 1.125 in], end = [80.625 in, 30.875 in])
         l0_2 = line(start = [80.625 in, 30.875 in], end = [1 in, 30.875 in])
         l0_3 = line(start = [1 in, 30.875 in], end = [1 in, 1.125 in])
     }
-    feature slab = extrude(profile = sketch.slab_s, distance = 1.375 in, mode = new)
+    feature slab = extrude(profile = sketch.slab_s, distance = 1.375 in)
 
-    output interior_door = { body = feature.jamb.body, part_number = "D3", material = material.pine_door_jamb, color = "#F1EEE6", label = "Jamb, primed pine" }
-    output interior_door_slab = { body = feature.slab.body, part_number = "D3", material = material.wood_hollow_core_door, color = "#F6F4EE", label = "30 x 80 in hollow-core slab" }
+    output interior_door = {
+        body = feature.jamb.body
+        part_number = D3
+        material = material.pine_door_jamb
+        color = "#F1EEE6"
+        label = "Jamb, primed pine"
+    }
+    output interior_door_slab = {
+        body = feature.slab.body
+        part_number = D3
+        material = material.wood_hollow_core_door
+        color = "#F6F4EE"
+        label = "30 x 80 in hollow-core slab"
+    }
 }

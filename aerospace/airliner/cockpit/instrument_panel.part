@@ -38,5 +38,10 @@ part instrument_panel {
     }
     feature pockets = extrude(profile = sketch.pockets_s, distance = 120 mm, mode = cut)
 
-    output instrument_panel = { body = feature.panel.body, part_number = "FD-IP-320", material = "aluminum_6061", color = "#3C4148" }
+    output instrument_panel = {
+        body = feature.panel.body
+        part_number = "FD-IP-320"
+        material = aluminum_6061
+        color = "#3C4148"
+    }
 }

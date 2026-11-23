@@ -7,11 +7,14 @@ drawing airliner {
     format a2 = {
         size = iso(name = A2)
         title_block = [
-            { label = "Title", source = literal(text = "Narrow-body airliner, general arrangement") },
+            {
+                label = Title
+                source = literal(text = "Narrow-body airliner, general arrangement")
+            },
             { label = "Part number", source = literal(text = "AL-000") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
         ]
     }
 
@@ -21,10 +24,34 @@ drawing airliner {
         projection = third_angle
 
         view front = standard(orientation = front, model = airliner, at = [150, 105] mm, display = visible_lines)
-        view top = projected(from = front, direction = up, model = airliner, at = [150, 280] mm, display = visible_lines)
-        view right = projected(from = front, direction = right, model = airliner, at = [390, 105] mm, display = visible_lines)
+        view top = projected(
+            from = front,
+            direction = up,
+            model = airliner,
+            at = [150, 280] mm,
+            display = visible_lines,
+        )
+        view right = projected(
+            from = front,
+            direction = right,
+            model = airliner,
+            at = [390, 105] mm,
+            display = visible_lines,
+        )
 
-        table parts = bom(view = front, at = [330, 230] mm, spec = { structure = top_level, columns = [{ column = item() }, { column = definition() }, { column = kind() }, { column = quantity() }] })
+        table parts = bom(
+            view = front,
+            spec = {
+                columns = [
+                    { column = item() },
+                    { column = definition() },
+                    { column = kind() },
+                    { column = quantity() },
+                ]
+                structure = top_level
+            },
+            at = [330, 230] mm,
+        )
         table notes = notes(
             rows = [
                 "OVERALL LENGTH 38.0 M. SPAN 34.8 M OVER THE WINGLETS. HEIGHT 12.3 M, TIRES TO FIN TIP.",

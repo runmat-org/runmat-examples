@@ -8,5 +8,10 @@ part floor_panel {
     }
     feature panel = extrude(profile = sketch.s, distance = 10 mm)
 
-    output floor_panel = { body = feature.panel.body, part_number = "FUS-FP-410", material = "composite", color = "#6A7078" }
+    output floor_panel = {
+        body = feature.panel.body
+        part_number = "FUS-FP-410"
+        material = composite
+        color = "#6A7078"
+    }
 }

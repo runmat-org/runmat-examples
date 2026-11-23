@@ -59,7 +59,11 @@ part busbar {
     region cell_bolt_4 : face = { select = [feature.cell_bolts.face.wall(c4)], expect = exactly_one, label = "Cell bolt 4" }
     region cell_bolt_5 : face = { select = [feature.cell_bolts.face.wall(c5)], expect = exactly_one, label = "Cell bolt 5" }
     region cell_bolt_6 : face = { select = [feature.cell_bolts.face.wall(c6)], expect = exactly_one, label = "Cell bolt 6" }
-    region output_bolt : face = { select = [feature.output_bolt.face.wall(out)], expect = exactly_one, label = "Output bolt" }
+    region output_bolt : face = {
+        select = [feature.output_bolt.face.wall(out)]
+        expect = exactly_one
+        label = "Output bolt"
+    }
     region exterior : face = {
         select = [
             feature.strap.face.start,
@@ -74,8 +78,14 @@ part busbar {
             feature.strap.face.side(strap_s.corner_bl),
         ]
         expect = one_or_more
-        label = "Exterior"
+        label = Exterior
     }
 
-    output busbar = { body = feature.strap.body, label = "Busbar", part_number = "BB-0604", material = "copper_c11000", color = "#C8794A" }
+    output busbar = {
+        body = feature.strap.body
+        part_number = "BB-0604"
+        material = copper_c11000
+        color = "#C8794A"
+        label = Busbar
+    }
 }

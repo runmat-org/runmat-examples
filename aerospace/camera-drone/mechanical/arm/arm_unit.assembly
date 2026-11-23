@@ -14,10 +14,27 @@ assembly arm_unit {
     input blade_b : angle = 180 deg
 
     instance arm : arm = {
-        configuration = { select = inputs, values = { length_offset = input.length_offset, rise = input.rise, pad_tilt = input.pod_tilt } }
+        configuration = {
+            select = inputs
+            values = {
+                length_offset = input.length_offset
+                pad_tilt = input.pod_tilt
+                rise = input.rise
+            }
+        }
     }
     instance motor : motor_station = {
-        configuration = { select = inputs, values = { blade_a = input.blade_a, blade_b = input.blade_b, arm_roll = -input.pod_tilt } }
-        placement = attach(own = { anchor = origin }, to = { frame = interface, part = arm, name = tip }, offset = { translation = [input.length_offset, 0 mm, input.rise + 4 mm], rotation = axis_angle(axis = [1, 0, 0], angle = input.pod_tilt) })
+        configuration = {
+            select = inputs
+            values = { arm_roll = -input.pod_tilt, blade_a = input.blade_a, blade_b = input.blade_b }
+        }
+        placement = attach(
+            own = { anchor = origin },
+            to = { frame = interface, part = arm, name = tip },
+            offset = {
+                translation = [input.length_offset, 0 mm, input.rise + 4 mm]
+                rotation = axis_angle(axis = [1, 0, 0], angle = input.pod_tilt)
+            },
+        )
     }
 }

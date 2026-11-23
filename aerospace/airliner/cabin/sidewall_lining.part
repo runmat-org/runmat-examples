@@ -19,5 +19,10 @@ part sidewall_lining {
     }
     feature reveal = extrude(profile = sketch.r, distance = 1980 mm, mode = cut)
 
-    output sidewall_lining = { body = feature.panel.body, part_number = "CAB-LN-500", material = "polycarbonate", color = "#ECEDEF" }
+    output sidewall_lining = {
+        body = feature.panel.body
+        part_number = "CAB-LN-500"
+        material = polycarbonate
+        color = "#ECEDEF"
+    }
 }

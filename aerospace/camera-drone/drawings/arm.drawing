@@ -12,14 +12,14 @@ drawing arm {
     format a3 = {
         size = iso(name = A3)
         title_block = [
-            { label = "Title", source = literal(text = "Folding arm, front") },
+            { label = Title, source = literal(text = "Folding arm, front") },
             { label = "Part number", source = property(name = part_number) },
-            { label = "Material", source = property(name = material) },
-            { label = "Drawn", source = literal(text = "RunMat Design") },
-            { label = "Scale", source = scale() },
-            { label = "Sheet", source = sheet_number() },
-            { label = "Rev", source = revision() },
-            { label = "Date", source = literal(text = "2026-11-05") },
+            { label = Material, source = property(name = material) },
+            { label = Drawn, source = literal(text = "RunMat Design") },
+            { label = Scale, source = scale() },
+            { label = Sheet, source = sheet_number() },
+            { label = Rev, source = revision() },
+            { label = Date, source = literal(text = "2026-11-05") },
         ]
     }
 
@@ -49,26 +49,72 @@ drawing arm {
             scale = 3/1,
             display = hidden_lines,
         )
-        view iso = standard(orientation = isometric, model = arm, at = [339, 102] mm, scale = 1/1, display = visible_lines)
+        view iso = standard(
+            orientation = isometric,
+            model = arm,
+            at = [339, 102] mm,
+            scale = 1/1,
+            display = visible_lines,
+        )
 
         table revisions = revision(
             rows = [
-                { rev = "A", description = "Initial release", date = "2026-10-28", by = "RunMat Design" },
-                { rev = "B", description = "Motor seat to 4x M2 on 12 BC; bore H8", date = "2026-11-05", by = "RunMat Design" },
-                { rev = "C", description = "Layup to [0/0/90/0]s for rear-arm flap mode", date = "2026-11-06", by = "RunMat Design" },
+                {
+                    rev = A
+                    description = "Initial release"
+                    date = "2026-10-28"
+                    by = "RunMat Design"
+                },
+                {
+                    rev = B
+                    description = "Motor seat to 4x M2 on 12 BC; bore H8"
+                    date = "2026-11-05"
+                    by = "RunMat Design"
+                },
+                {
+                    rev = C
+                    description = "Layup to [0/0/90/0]s for rear-arm flap mode"
+                    date = "2026-11-06"
+                    by = "RunMat Design"
+                },
             ],
             at = [410, 287] mm,
         )
     }
 
-    annotation knuckle_height = dimension(style = linear, references = [feature.knuckle.face.start, feature.knuckle.face.end], view = front)
+    annotation knuckle_height = dimension(
+        style = linear,
+        references = [feature.knuckle.face.start, feature.knuckle.face.end],
+        view = front,
+    )
     annotation pad_thickness = dimension(style = linear, references = [feature.pad.face.start, feature.pad.face.end], view = front)
     // The overall length over the knuckle and the pad, a reference dimension: the toleranced
     // bore-to-motor distance and the two radii set it.
-    annotation overall_length = dimension(style = linear, references = [feature.knuckle.face.side(knuckle_b.c), feature.pad.face.side(pad_s.c)], condition = max, reference = true, view = top)
-    annotation pin_to_motor = dimension(style = linear, references = [feature.bores.face.side(bores_s.pin), feature.pad.face.side(pad_s.c)], pmi = pin_to_motor, view = top)
-    annotation bolt_circle = dimension(style = linear, references = [feature.motor_holes.face.wall(c), feature.motor_holes.face.wall(a)], pmi = motor_bolt_circle, view = top)
-    annotation pin_bore = dimension(style = diameter, references = [feature.bores.face.side(bores_s.pin)], pmi = pin_bore, view = b)
+    annotation overall_length = dimension(
+        style = linear,
+        references = [feature.knuckle.face.side(knuckle_b.c), feature.pad.face.side(pad_s.c)],
+        reference = true,
+        condition = max,
+        view = top,
+    )
+    annotation pin_to_motor = dimension(
+        style = linear,
+        references = [feature.bores.face.side(bores_s.pin), feature.pad.face.side(pad_s.c)],
+        pmi = pin_to_motor,
+        view = top,
+    )
+    annotation bolt_circle = dimension(
+        style = linear,
+        references = [feature.motor_holes.face.wall(c), feature.motor_holes.face.wall(a)],
+        pmi = motor_bolt_circle,
+        view = top,
+    )
+    annotation pin_bore = dimension(
+        style = diameter,
+        references = [feature.bores.face.side(bores_s.pin)],
+        pmi = pin_bore,
+        view = b,
+    )
     annotation motor_holes = hole_callout(hole = feature.motor_holes.face.wall(a), view = top)
     annotation datum_a = datum_symbol(label = A, view = right)
     annotation datum_b = datum_symbol(label = B, view = b)

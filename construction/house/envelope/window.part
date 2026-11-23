@@ -24,21 +24,21 @@ part window {
         l1_2 = line(start = [input.h - 1 in, input.w - 1 in], end = [1.5 in, input.w - 1 in])
         l1_3 = line(start = [1.5 in, input.w - 1 in], end = [1.5 in, 1.5 in])
     }
-    feature frame = extrude(profile = sketch.frame_s, distance = 3.25 in, mode = new)
+    feature frame = extrude(profile = sketch.frame_s, distance = 3.25 in)
     sketch w1_fix_lite0_s on plane.zx_p0_25 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [59 in, 1.5 in])
         l0_1 = line(start = [59 in, 1.5 in], end = [59 in, 59 in])
         l0_2 = line(start = [59 in, 59 in], end = [1.5 in, 59 in])
         l0_3 = line(start = [1.5 in, 59 in], end = [1.5 in, 1.5 in])
     }
-    feature w1_fix_lite0 = extrude(profile = sketch.w1_fix_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w1_fix_lite0 = extrude(profile = sketch.w1_fix_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w1_fix_lite1_s on plane.zx_p0_875 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [59 in, 1.5 in])
         l0_1 = line(start = [59 in, 1.5 in], end = [59 in, 59 in])
         l0_2 = line(start = [59 in, 59 in], end = [1.5 in, 59 in])
         l0_3 = line(start = [1.5 in, 59 in], end = [1.5 in, 1.5 in])
     }
-    feature w1_fix_lite1 = extrude(profile = sketch.w1_fix_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w1_fix_lite1 = extrude(profile = sketch.w1_fix_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w2_lower_s on plane.zx_m0_5 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [30.25 in, 1.5 in])
         l0_1 = line(start = [30.25 in, 1.5 in], end = [30.25 in, 35 in])
@@ -49,21 +49,21 @@ part window {
         l1_2 = line(start = [28.5 in, 33.25 in], end = [3.25 in, 33.25 in])
         l1_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w2_lower = extrude(profile = sketch.w2_lower_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w2_lower = extrude(profile = sketch.w2_lower_s, distance = 2.25 in, suppressed = true)
     sketch w2_lower_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [28.5 in, 3.25 in])
         l0_1 = line(start = [28.5 in, 3.25 in], end = [28.5 in, 33.25 in])
         l0_2 = line(start = [28.5 in, 33.25 in], end = [3.25 in, 33.25 in])
         l0_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w2_lower_lite0 = extrude(profile = sketch.w2_lower_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w2_lower_lite0 = extrude(profile = sketch.w2_lower_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w2_lower_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [28.5 in, 3.25 in])
         l0_1 = line(start = [28.5 in, 3.25 in], end = [28.5 in, 33.25 in])
         l0_2 = line(start = [28.5 in, 33.25 in], end = [3.25 in, 33.25 in])
         l0_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w2_lower_lite1 = extrude(profile = sketch.w2_lower_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w2_lower_lite1 = extrude(profile = sketch.w2_lower_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w2_upper_s on plane.zx_m0_5 {
         l0_0 = line(start = [30.25 in, 1.5 in], end = [59 in, 1.5 in])
         l0_1 = line(start = [59 in, 1.5 in], end = [59 in, 35 in])
@@ -74,21 +74,21 @@ part window {
         l1_2 = line(start = [57.25 in, 33.25 in], end = [32 in, 33.25 in])
         l1_3 = line(start = [32 in, 33.25 in], end = [32 in, 3.25 in])
     }
-    feature w2_upper = extrude(profile = sketch.w2_upper_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w2_upper = extrude(profile = sketch.w2_upper_s, distance = 2.25 in, suppressed = true)
     sketch w2_upper_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [32 in, 3.25 in], end = [57.25 in, 3.25 in])
         l0_1 = line(start = [57.25 in, 3.25 in], end = [57.25 in, 33.25 in])
         l0_2 = line(start = [57.25 in, 33.25 in], end = [32 in, 33.25 in])
         l0_3 = line(start = [32 in, 33.25 in], end = [32 in, 3.25 in])
     }
-    feature w2_upper_lite0 = extrude(profile = sketch.w2_upper_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w2_upper_lite0 = extrude(profile = sketch.w2_upper_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w2_upper_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [32 in, 3.25 in], end = [57.25 in, 3.25 in])
         l0_1 = line(start = [57.25 in, 3.25 in], end = [57.25 in, 33.25 in])
         l0_2 = line(start = [57.25 in, 33.25 in], end = [32 in, 33.25 in])
         l0_3 = line(start = [32 in, 33.25 in], end = [32 in, 3.25 in])
     }
-    feature w2_upper_lite1 = extrude(profile = sketch.w2_upper_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w2_upper_lite1 = extrude(profile = sketch.w2_upper_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w3_sash_s on plane.zx_m0_5 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [47 in, 1.5 in])
         l0_1 = line(start = [47 in, 1.5 in], end = [47 in, 35 in])
@@ -99,21 +99,21 @@ part window {
         l1_2 = line(start = [45.25 in, 33.25 in], end = [3.25 in, 33.25 in])
         l1_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w3_sash = extrude(profile = sketch.w3_sash_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w3_sash = extrude(profile = sketch.w3_sash_s, distance = 2.25 in, suppressed = true)
     sketch w3_sash_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [45.25 in, 3.25 in])
         l0_1 = line(start = [45.25 in, 3.25 in], end = [45.25 in, 33.25 in])
         l0_2 = line(start = [45.25 in, 33.25 in], end = [3.25 in, 33.25 in])
         l0_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w3_sash_lite0 = extrude(profile = sketch.w3_sash_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w3_sash_lite0 = extrude(profile = sketch.w3_sash_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w3_sash_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [45.25 in, 3.25 in])
         l0_1 = line(start = [45.25 in, 3.25 in], end = [45.25 in, 33.25 in])
         l0_2 = line(start = [45.25 in, 33.25 in], end = [3.25 in, 33.25 in])
         l0_3 = line(start = [3.25 in, 33.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w3_sash_lite1 = extrude(profile = sketch.w3_sash_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w3_sash_lite1 = extrude(profile = sketch.w3_sash_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w4_sash_s on plane.zx_m0_5 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [35 in, 1.5 in])
         l0_1 = line(start = [35 in, 1.5 in], end = [35 in, 23 in])
@@ -124,21 +124,21 @@ part window {
         l1_2 = line(start = [33.25 in, 21.25 in], end = [3.25 in, 21.25 in])
         l1_3 = line(start = [3.25 in, 21.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w4_sash = extrude(profile = sketch.w4_sash_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w4_sash = extrude(profile = sketch.w4_sash_s, distance = 2.25 in, suppressed = true)
     sketch w4_sash_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [33.25 in, 3.25 in])
         l0_1 = line(start = [33.25 in, 3.25 in], end = [33.25 in, 21.25 in])
         l0_2 = line(start = [33.25 in, 21.25 in], end = [3.25 in, 21.25 in])
         l0_3 = line(start = [3.25 in, 21.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w4_sash_lite0 = extrude(profile = sketch.w4_sash_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w4_sash_lite0 = extrude(profile = sketch.w4_sash_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w4_sash_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [33.25 in, 3.25 in])
         l0_1 = line(start = [33.25 in, 3.25 in], end = [33.25 in, 21.25 in])
         l0_2 = line(start = [33.25 in, 21.25 in], end = [3.25 in, 21.25 in])
         l0_3 = line(start = [3.25 in, 21.25 in], end = [3.25 in, 3.25 in])
     }
-    feature w4_sash_lite1 = extrude(profile = sketch.w4_sash_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w4_sash_lite1 = extrude(profile = sketch.w4_sash_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w5_left_s on plane.zx_m0_5 {
         l0_0 = line(start = [1.5 in, 1.5 in], end = [35 in, 1.5 in])
         l0_1 = line(start = [35 in, 1.5 in], end = [35 in, 24.25 in])
@@ -149,21 +149,21 @@ part window {
         l1_2 = line(start = [33.25 in, 22.5 in], end = [3.25 in, 22.5 in])
         l1_3 = line(start = [3.25 in, 22.5 in], end = [3.25 in, 3.25 in])
     }
-    feature w5_left = extrude(profile = sketch.w5_left_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w5_left = extrude(profile = sketch.w5_left_s, distance = 2.25 in, suppressed = true)
     sketch w5_left_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [33.25 in, 3.25 in])
         l0_1 = line(start = [33.25 in, 3.25 in], end = [33.25 in, 22.5 in])
         l0_2 = line(start = [33.25 in, 22.5 in], end = [3.25 in, 22.5 in])
         l0_3 = line(start = [3.25 in, 22.5 in], end = [3.25 in, 3.25 in])
     }
-    feature w5_left_lite0 = extrude(profile = sketch.w5_left_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w5_left_lite0 = extrude(profile = sketch.w5_left_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w5_left_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [3.25 in, 3.25 in], end = [33.25 in, 3.25 in])
         l0_1 = line(start = [33.25 in, 3.25 in], end = [33.25 in, 22.5 in])
         l0_2 = line(start = [33.25 in, 22.5 in], end = [3.25 in, 22.5 in])
         l0_3 = line(start = [3.25 in, 22.5 in], end = [3.25 in, 3.25 in])
     }
-    feature w5_left_lite1 = extrude(profile = sketch.w5_left_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w5_left_lite1 = extrude(profile = sketch.w5_left_lite1_s, distance = 0.125 in, suppressed = true)
     sketch w5_right_s on plane.zx_m0_5 {
         l0_0 = line(start = [1.5 in, 24.25 in], end = [35 in, 24.25 in])
         l0_1 = line(start = [35 in, 24.25 in], end = [35 in, 47 in])
@@ -174,23 +174,29 @@ part window {
         l1_2 = line(start = [33.25 in, 45.25 in], end = [3.25 in, 45.25 in])
         l1_3 = line(start = [3.25 in, 45.25 in], end = [3.25 in, 26 in])
     }
-    feature w5_right = extrude(profile = sketch.w5_right_s, distance = 2.25 in, mode = new, suppressed = true)
+    feature w5_right = extrude(profile = sketch.w5_right_s, distance = 2.25 in, suppressed = true)
     sketch w5_right_lite0_s on plane.zx_p0_375 {
         l0_0 = line(start = [3.25 in, 26 in], end = [33.25 in, 26 in])
         l0_1 = line(start = [33.25 in, 26 in], end = [33.25 in, 45.25 in])
         l0_2 = line(start = [33.25 in, 45.25 in], end = [3.25 in, 45.25 in])
         l0_3 = line(start = [3.25 in, 45.25 in], end = [3.25 in, 26 in])
     }
-    feature w5_right_lite0 = extrude(profile = sketch.w5_right_lite0_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w5_right_lite0 = extrude(profile = sketch.w5_right_lite0_s, distance = 0.125 in, suppressed = true)
     sketch w5_right_lite1_s on plane.zx_p1 {
         l0_0 = line(start = [3.25 in, 26 in], end = [33.25 in, 26 in])
         l0_1 = line(start = [33.25 in, 26 in], end = [33.25 in, 45.25 in])
         l0_2 = line(start = [33.25 in, 45.25 in], end = [3.25 in, 45.25 in])
         l0_3 = line(start = [3.25 in, 45.25 in], end = [3.25 in, 26 in])
     }
-    feature w5_right_lite1 = extrude(profile = sketch.w5_right_lite1_s, distance = 0.125 in, mode = new, suppressed = true)
+    feature w5_right_lite1 = extrude(profile = sketch.w5_right_lite1_s, distance = 0.125 in, suppressed = true)
 
-    output window = { body = feature.frame.body, part_number = "W2", material = material.pvc_window_frame, color = "#F2F0EA", label = "Window frame" }
+    output window = {
+        body = feature.frame.body
+        part_number = W2
+        material = material.pvc_window_frame
+        color = "#F2F0EA"
+        label = "Window frame"
+    }
     assign material.glass_low_e_argon to feature.w1_fix_lite0.body
     assign material.glass_low_e_argon to feature.w1_fix_lite1.body
     assign material.pvc_window_sash to feature.w2_lower.body
@@ -213,33 +219,55 @@ part window {
     assign material.glass_low_e_argon to feature.w5_right_lite1.body
 
     configuration W1 = {
-        inputs = { w = 60 in, h = 60 in }
+        inputs = { h = 60 in, w = 60 in }
         features = { w1_fix_lite0 = { suppressed = false }, w1_fix_lite1 = { suppressed = false } }
-        part_number = "W1"
+        part_number = W1
         description = "Living-room window, fixed, 60 x 60 in, vinyl, double-pane low-E argon, U-0.25, SHGC 0.25"
     }
     configuration W2 = {
-        inputs = { w = 36 in, h = 60 in }
-        features = { w2_lower = { suppressed = false }, w2_lower_lite0 = { suppressed = false }, w2_lower_lite1 = { suppressed = false }, w2_upper = { suppressed = false }, w2_upper_lite0 = { suppressed = false }, w2_upper_lite1 = { suppressed = false } }
-        part_number = "W2"
+        inputs = { h = 60 in, w = 36 in }
+        features = {
+            w2_lower = { suppressed = false }
+            w2_lower_lite0 = { suppressed = false }
+            w2_lower_lite1 = { suppressed = false }
+            w2_upper = { suppressed = false }
+            w2_upper_lite0 = { suppressed = false }
+            w2_upper_lite1 = { suppressed = false }
+        }
+        part_number = W2
         description = "Window, single hung, 36 x 60 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25"
     }
     configuration W3 = {
-        inputs = { w = 36 in, h = 48 in }
-        features = { w3_sash = { suppressed = false }, w3_sash_lite0 = { suppressed = false }, w3_sash_lite1 = { suppressed = false } }
-        part_number = "W3"
+        inputs = { h = 48 in, w = 36 in }
+        features = {
+            w3_sash = { suppressed = false }
+            w3_sash_lite0 = { suppressed = false }
+            w3_sash_lite1 = { suppressed = false }
+        }
+        part_number = W3
         description = "Bedroom window, casement (egress), 36 x 48 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25"
     }
     configuration W4 = {
-        inputs = { w = 24 in, h = 36 in }
-        features = { w4_sash = { suppressed = false }, w4_sash_lite0 = { suppressed = false }, w4_sash_lite1 = { suppressed = false } }
-        part_number = "W4"
+        inputs = { h = 36 in, w = 24 in }
+        features = {
+            w4_sash = { suppressed = false }
+            w4_sash_lite0 = { suppressed = false }
+            w4_sash_lite1 = { suppressed = false }
+        }
+        part_number = W4
         description = "Bath window, casement, obscure glass, 24 x 36 in, vinyl, double-pane low-E argon, U-0.27, SHGC 0.25"
     }
     configuration W5 = {
-        inputs = { w = 48 in, h = 36 in }
-        features = { w5_left = { suppressed = false }, w5_left_lite0 = { suppressed = false }, w5_left_lite1 = { suppressed = false }, w5_right = { suppressed = false }, w5_right_lite0 = { suppressed = false }, w5_right_lite1 = { suppressed = false } }
-        part_number = "W5"
+        inputs = { h = 36 in, w = 48 in }
+        features = {
+            w5_left = { suppressed = false }
+            w5_left_lite0 = { suppressed = false }
+            w5_left_lite1 = { suppressed = false }
+            w5_right = { suppressed = false }
+            w5_right_lite0 = { suppressed = false }
+            w5_right_lite1 = { suppressed = false }
+        }
+        part_number = W5
         description = "Kitchen window, slider, 48 x 36 in, vinyl, double-pane low-E argon, U-0.28, SHGC 0.25"
     }
 }

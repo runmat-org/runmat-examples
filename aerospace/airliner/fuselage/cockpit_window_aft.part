@@ -35,7 +35,10 @@ part cockpit_window_aft {
     sketch inside_s3 on plane.inside_st3 {
         c = spline(points = [[0 mm, 1650.11 mm], [476.282 mm, 1590.931 mm], [920.105 mm, 1417.426 mm], [1301.225 mm, 1141.42 mm], [1593.669 mm, 781.722 mm], [1777.507 mm, 362.845 mm], [1840.21 mm, -86.665 mm], [1777.507 mm, -536.176 mm], [1593.669 mm, -955.053 mm], [1301.225 mm, -1314.751 mm], [920.105 mm, -1590.757 mm], [476.282 mm, -1764.261 mm], [0 mm, -1823.44 mm], [-476.282 mm, -1764.261 mm], [-920.105 mm, -1590.757 mm], [-1301.225 mm, -1314.751 mm], [-1593.669 mm, -955.053 mm], [-1777.507 mm, -536.176 mm], [-1840.21 mm, -86.665 mm], [-1777.507 mm, 362.845 mm], [-1593.669 mm, 781.722 mm], [-1301.225 mm, 1141.42 mm], [-920.105 mm, 1417.426 mm], [-476.282 mm, 1590.931 mm]], closed = true)
     }
-    feature inside = loft(profiles = [sketch.inside_s0, sketch.inside_s1, sketch.inside_s2, sketch.inside_s3], mode = cut)
+    feature inside = loft(
+        profiles = [sketch.inside_s0, sketch.inside_s1, sketch.inside_s2, sketch.inside_s3],
+        mode = cut,
+    )
     feature o_at = plane.offset(base = origin.zx, distance = (input.side - 1) * 1100 mm)
     sketch o on plane.o_at {
         c1 = spline(points = [[538.085 mm, 2739.532 mm], [553.426 mm, 2690.859 mm], [600 mm, 2670 mm]])
@@ -49,6 +52,11 @@ part cockpit_window_aft {
     }
     feature pane = extrude(profile = sketch.o, distance = 2200 mm, mode = intersect)
 
-    output cockpit_window_aft = { body = feature.glass.body, part_number = "FUS-WS-035", material = "glass", color = "#16202A" }
+    output cockpit_window_aft = {
+        body = feature.glass.body
+        part_number = "FUS-WS-035"
+        material = glass
+        color = "#16202A"
+    }
     configuration port = { inputs = { side = -1 }, part_number = "FUS-WS-036" }
 }

@@ -191,7 +191,11 @@ part m01_cold_plate {
         s8_back = line(start = [286 mm, 500 mm], end = [252 mm, 500 mm])
         s8_left = line(start = [252 mm, 500 mm], end = [252 mm, 0 mm])
     }
-    feature lands = extrude(profile = sketch.lands_s, distance = input.land, mode = add(targets = [feature.plate.body]))
+    feature lands = extrude(
+        profile = sketch.lands_s,
+        distance = input.land,
+        mode = add(targets = [feature.plate.body]),
+    )
 
     // The coolant: the serpentine, from the inlet's left corner round the outline.
     feature channel_plane = plane.offset(base = origin.xy, distance = let.plate_bottom + input.floor)
@@ -216,28 +220,181 @@ part m01_cold_plate {
     feature channel = extrude(profile = sketch.channel_s, distance = input.channel_depth)
     feature passages = boolean.subtract(target = feature.plate.body, tools = [feature.channel.body], keep_tools = true)
 
-    region coolant_inlet : face = { select = [feature.channel.face.side(channel_s.inlet)], expect = exactly_one, body = feature.channel.body, label = "Coolant inlet" }
-    region coolant_outlet : face = { select = [feature.channel.face.side(channel_s.outlet)], expect = exactly_one, body = feature.channel.body, label = "Coolant outlet" }
-    region channel_wall : face = { select = [feature.channel.face.side(channel_s.pass1_out), feature.channel.face.side(channel_s.turn_a_out), feature.channel.face.side(channel_s.pass2_out), feature.channel.face.side(channel_s.turn_b_in), feature.channel.face.side(channel_s.pass3_out), feature.channel.face.side(channel_s.turn_c_out), feature.channel.face.side(channel_s.pass4_out), feature.channel.face.side(channel_s.pass4_in), feature.channel.face.side(channel_s.turn_c_in), feature.channel.face.side(channel_s.pass3_in), feature.channel.face.side(channel_s.turn_b_out), feature.channel.face.side(channel_s.pass2_in), feature.channel.face.side(channel_s.turn_a_in), feature.channel.face.side(channel_s.pass1_in), feature.channel.face.start, feature.channel.face.end], expect = one_or_more, body = feature.channel.body, label = "Channel wall" }
-    region plate_channel_wall : face = { select = [feature.channel.face.side(channel_s.pass1_out), feature.channel.face.side(channel_s.turn_a_out), feature.channel.face.side(channel_s.pass2_out), feature.channel.face.side(channel_s.turn_b_in), feature.channel.face.side(channel_s.pass3_out), feature.channel.face.side(channel_s.turn_c_out), feature.channel.face.side(channel_s.pass4_out), feature.channel.face.side(channel_s.pass4_in), feature.channel.face.side(channel_s.turn_c_in), feature.channel.face.side(channel_s.pass3_in), feature.channel.face.side(channel_s.turn_b_out), feature.channel.face.side(channel_s.pass2_in), feature.channel.face.side(channel_s.turn_a_in), feature.channel.face.side(channel_s.pass1_in), feature.channel.face.start, feature.channel.face.end], expect = one_or_more, body = feature.plate.body, label = "Plate channel wall" }
-    region cell_bottoms : face = { select = [feature.cell_1.face.start, feature.cell_2.face.start, feature.cell_3.face.start, feature.cell_4.face.start, feature.cell_5.face.start, feature.cell_6.face.start, feature.cell_7.face.start, feature.cell_8.face.start], expect = one_or_more, label = "M01 cell bottom" }
+    region coolant_inlet : face = {
+        select = [feature.channel.face.side(channel_s.inlet)]
+        expect = exactly_one
+        label = "Coolant inlet"
+        body = feature.channel.body
+    }
+    region coolant_outlet : face = {
+        select = [feature.channel.face.side(channel_s.outlet)]
+        expect = exactly_one
+        label = "Coolant outlet"
+        body = feature.channel.body
+    }
+    region channel_wall : face = {
+        select = [
+            feature.channel.face.side(channel_s.pass1_out),
+            feature.channel.face.side(channel_s.turn_a_out),
+            feature.channel.face.side(channel_s.pass2_out),
+            feature.channel.face.side(channel_s.turn_b_in),
+            feature.channel.face.side(channel_s.pass3_out),
+            feature.channel.face.side(channel_s.turn_c_out),
+            feature.channel.face.side(channel_s.pass4_out),
+            feature.channel.face.side(channel_s.pass4_in),
+            feature.channel.face.side(channel_s.turn_c_in),
+            feature.channel.face.side(channel_s.pass3_in),
+            feature.channel.face.side(channel_s.turn_b_out),
+            feature.channel.face.side(channel_s.pass2_in),
+            feature.channel.face.side(channel_s.turn_a_in),
+            feature.channel.face.side(channel_s.pass1_in),
+            feature.channel.face.start,
+            feature.channel.face.end,
+        ]
+        expect = one_or_more
+        label = "Channel wall"
+        body = feature.channel.body
+    }
+    region plate_channel_wall : face = {
+        select = [
+            feature.channel.face.side(channel_s.pass1_out),
+            feature.channel.face.side(channel_s.turn_a_out),
+            feature.channel.face.side(channel_s.pass2_out),
+            feature.channel.face.side(channel_s.turn_b_in),
+            feature.channel.face.side(channel_s.pass3_out),
+            feature.channel.face.side(channel_s.turn_c_out),
+            feature.channel.face.side(channel_s.pass4_out),
+            feature.channel.face.side(channel_s.pass4_in),
+            feature.channel.face.side(channel_s.turn_c_in),
+            feature.channel.face.side(channel_s.pass3_in),
+            feature.channel.face.side(channel_s.turn_b_out),
+            feature.channel.face.side(channel_s.pass2_in),
+            feature.channel.face.side(channel_s.turn_a_in),
+            feature.channel.face.side(channel_s.pass1_in),
+            feature.channel.face.start,
+            feature.channel.face.end,
+        ]
+        expect = one_or_more
+        label = "Plate channel wall"
+        body = feature.plate.body
+    }
+    region cell_bottoms : face = {
+        select = [
+            feature.cell_1.face.start,
+            feature.cell_2.face.start,
+            feature.cell_3.face.start,
+            feature.cell_4.face.start,
+            feature.cell_5.face.start,
+            feature.cell_6.face.start,
+            feature.cell_7.face.start,
+            feature.cell_8.face.start,
+        ]
+        expect = one_or_more
+        label = "M01 cell bottom"
+    }
 
-    output cell_1 = { body = feature.cell_1.body, label = "M01 cell 1", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_2 = { body = feature.cell_2.body, label = "M01 cell 2", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_3 = { body = feature.cell_3.body, label = "M01 cell 3", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_4 = { body = feature.cell_4.body, label = "M01 cell 4", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_5 = { body = feature.cell_5.body, label = "M01 cell 5", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_6 = { body = feature.cell_6.body, label = "M01 cell 6", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_7 = { body = feature.cell_7.body, label = "M01 cell 7", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output cell_8 = { body = feature.cell_8.body, label = "M01 cell 8", material = "li_ion_prismatic", color = "#2F5D8A" }
-    output pad_1 = { body = feature.pad_1.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_2 = { body = feature.pad_2.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_3 = { body = feature.pad_3.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_4 = { body = feature.pad_4.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_5 = { body = feature.pad_5.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_6 = { body = feature.pad_6.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_7 = { body = feature.pad_7.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output pad_8 = { body = feature.pad_8.body, label = "Gap filler", material = "gap_filler_3w", color = "#E0B43C" }
-    output cold_plate = { body = feature.plate.body, label = "Cold plate", part_number = "M01-CP-01", material = "aluminum_3003", color = "#B9BFC7" }
-    output coolant = { body = feature.channel.body, label = "Coolant", color = "#3C8DD8" }
+    output cell_1 = {
+        body = feature.cell_1.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 1"
+    }
+    output cell_2 = {
+        body = feature.cell_2.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 2"
+    }
+    output cell_3 = {
+        body = feature.cell_3.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 3"
+    }
+    output cell_4 = {
+        body = feature.cell_4.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 4"
+    }
+    output cell_5 = {
+        body = feature.cell_5.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 5"
+    }
+    output cell_6 = {
+        body = feature.cell_6.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 6"
+    }
+    output cell_7 = {
+        body = feature.cell_7.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 7"
+    }
+    output cell_8 = {
+        body = feature.cell_8.body
+        material = li_ion_prismatic
+        color = "#2F5D8A"
+        label = "M01 cell 8"
+    }
+    output pad_1 = {
+        body = feature.pad_1.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_2 = {
+        body = feature.pad_2.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_3 = {
+        body = feature.pad_3.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_4 = {
+        body = feature.pad_4.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_5 = {
+        body = feature.pad_5.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_6 = {
+        body = feature.pad_6.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_7 = {
+        body = feature.pad_7.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output pad_8 = {
+        body = feature.pad_8.body
+        material = gap_filler_3w
+        color = "#E0B43C"
+        label = "Gap filler"
+    }
+    output cold_plate = {
+        body = feature.plate.body
+        part_number = "M01-CP-01"
+        material = aluminum_3003
+        color = "#B9BFC7"
+        label = "Cold plate"
+    }
+    output coolant = { body = feature.channel.body, color = "#3C8DD8", label = Coolant }
 }

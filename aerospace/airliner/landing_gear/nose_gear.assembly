@@ -6,7 +6,7 @@ import { hub } from "./hub.part"
 
 assembly nose_gear {
     instance strut : gear_strut = {
-        configuration = { select = inputs, values = { length = 2150 mm, radius = 80 mm, bore = 60 mm } }
+        configuration = { select = inputs, values = { bore = 60 mm, length = 2150 mm, radius = 80 mm } }
         placement = offset(translation = [0 mm, 0 mm, -2150 mm])
     }
     instance axle : axle = {

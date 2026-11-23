@@ -64,7 +64,15 @@ part hinge_mount {
         s2 = circle(center = [-16 mm, 3.5 mm], radius = 1.1 mm)
     }
     feature bores = extrude(profile = sketch.bore_s, through_all = true, mode = cut)
-    region pin_bore : face = { select = [feature.upper.face.side(upper_s.pin), feature.lower.face.side(lower_s.pin)], expect = one_or_more }
+    region pin_bore : face = {
+        select = [feature.upper.face.side(upper_s.pin), feature.lower.face.side(lower_s.pin)]
+        expect = one_or_more
+    }
     region mount : face = { select = [feature.back.face.side(back_s.k4)], expect = exactly_one }
-    output hinge_mount = { body = feature.upper.body, part_number = "CD-AR-220", material = "aluminum_6061", color = "#9AA1AA" }
+    output hinge_mount = {
+        body = feature.upper.body
+        part_number = "CD-AR-220"
+        material = aluminum_6061
+        color = "#9AA1AA"
+    }
 }

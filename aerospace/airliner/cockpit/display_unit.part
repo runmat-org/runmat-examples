@@ -19,7 +19,7 @@ part display_unit {
         l3 = line(start = [95 mm, 95 mm], end = [-95 mm, 95 mm])
         l4 = line(start = [-95 mm, 95 mm], end = [-95 mm, -95 mm])
     }
-    feature case = extrude(profile = sketch.case_s, distance = 110 mm, reverse = true, mode = new)
+    feature case = extrude(profile = sketch.case_s, distance = 110 mm, reverse = true)
 
     sketch cavity_s on origin.yz {
         l1 = line(start = [-92.5 mm, -92.5 mm], end = [92.5 mm, -92.5 mm])
@@ -44,9 +44,19 @@ part display_unit {
     }
     feature floor = extrude(profile = sketch.floor_s, distance = 7.5 mm, reverse = true, mode = cut)
 
-    region back : face = { select = [feature.case.face.end], expect = exactly_one, label = "case_back" }
-    region screen_face : face = { select = [feature.screen.face.end], expect = exactly_one, label = "screen_face" }
+    region back : face = { select = [feature.case.face.end], expect = exactly_one, label = case_back }
+    region screen_face : face = { select = [feature.screen.face.end], expect = exactly_one, label = screen_face }
 
-    output display_unit = { body = feature.screen.body, part_number = "FD-DU-340", material = "glass", color = "#0D1318" }
-    output case = { body = feature.case.body, part_number = "FD-DU-341", material = "aluminum_6061", color = "#3C4148" }
+    output display_unit = {
+        body = feature.screen.body
+        part_number = "FD-DU-340"
+        material = glass
+        color = "#0D1318"
+    }
+    output case = {
+        body = feature.case.body
+        part_number = "FD-DU-341"
+        material = aluminum_6061
+        color = "#3C4148"
+    }
 }
