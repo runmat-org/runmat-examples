@@ -6,16 +6,16 @@ import { house } from "../house.assembly"
 
 drawing building_section {
     format d = {
-        size = { size = ansi, name = D }
+        size = ansi(name = D)
         standard = asme
         units = ft_in
         title_block = [
-            { label = "Title", source = { source = literal, text = "Building section A-A" } },
-            { label = "Project", source = { source = literal, text = "Two-story house, 40 x 30 ft" } },
-            { label = "Drawing", source = { source = literal, text = "A-301" } },
-            { label = "Scale", source = { source = scale } },
-            { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } },
+            { label = "Title", source = literal(text = "Building section A-A") },
+            { label = "Project", source = literal(text = "Two-story house, 40 x 30 ft") },
+            { label = "Drawing", source = literal(text = "A-301") },
+            { label = "Scale", source = scale() },
+            { label = "Sheet", source = sheet_number() },
+            { label = "Rev", source = revision() },
         ]
     }
 

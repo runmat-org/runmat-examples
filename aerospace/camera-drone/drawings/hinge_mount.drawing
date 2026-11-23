@@ -5,14 +5,14 @@ import { hinge_mount } from "../mechanical/arm/hinge_mount.part"
 
 drawing hinge_mount {
     format a3 = {
-        size = { size = iso, name = A3 }
+        size = iso(name = A3)
         title_block = [
-            { label = "Title", source = { source = literal, text = "Arm hinge mount (clevis)" } },
-            { label = "Part number", source = { source = property, name = part_number } },
-            { label = "Material", source = { source = property, name = material } },
-            { label = "Scale", source = { source = scale } },
-            { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } },
+            { label = "Title", source = literal(text = "Arm hinge mount (clevis)") },
+            { label = "Part number", source = property(name = part_number) },
+            { label = "Material", source = property(name = material) },
+            { label = "Scale", source = scale() },
+            { label = "Sheet", source = sheet_number() },
+            { label = "Rev", source = revision() },
         ]
     }
 

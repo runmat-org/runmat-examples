@@ -61,7 +61,7 @@ The main sizes, in millimeters, with x aft from the nose tip, y to starboard and
    ```
    mirror stabilizer_port = {
        seeds = [stabilizer_starboard],
-       plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] },
+       plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0]),
    ```
 
 5. **Boards in the cockpit and cabin.** The display unit controller (120 × 100 mm, four layers)

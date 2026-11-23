@@ -10,16 +10,16 @@ import { arm } from "../mechanical/arm/arm.part"
 
 drawing arm {
     format a3 = {
-        size = { size = iso, name = A3 }
+        size = iso(name = A3)
         title_block = [
-            { label = "Title", source = { source = literal, text = "Folding arm, front" } },
-            { label = "Part number", source = { source = property, name = part_number } },
-            { label = "Material", source = { source = property, name = material } },
-            { label = "Drawn", source = { source = literal, text = "RunMat Design" } },
-            { label = "Scale", source = { source = scale } },
-            { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } },
-            { label = "Date", source = { source = literal, text = "2026-11-05" } },
+            { label = "Title", source = literal(text = "Folding arm, front") },
+            { label = "Part number", source = property(name = part_number) },
+            { label = "Material", source = property(name = material) },
+            { label = "Drawn", source = literal(text = "RunMat Design") },
+            { label = "Scale", source = scale() },
+            { label = "Sheet", source = sheet_number() },
+            { label = "Rev", source = revision() },
+            { label = "Date", source = literal(text = "2026-11-05") },
         ]
     }
 

@@ -155,72 +155,72 @@ assembly wing {
 
     mirror leading_edge_port = {
         seeds = [leading_edge]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_leading_edge } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror slat_port = {
         seeds = [slat]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_slat } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror box_skin_upper_port = {
         seeds = [box_skin_upper]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_box_skin_upper } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror box_skin_lower_port = {
         seeds = [box_skin_lower]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_box_skin_lower } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror flap_inboard_port = {
         seeds = [flap_inboard]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_flap_inboard } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror flap_outboard_port = {
         seeds = [flap_outboard]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_flap_outboard } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror aileron_port = {
         seeds = [aileron]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_aileron } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror trailing_edge_tip_port = {
         seeds = [trailing_edge_tip]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_trailing_edge_tip } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror front_spar_port = {
         seeds = [front_spar]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_front_spar } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror rear_spar_port = {
         seeds = [rear_spar]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_rear_spar } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror winglet_port = {
         seeds = [winglet]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = wing_winglet } }, configuration = { select = inputs, values = { side = -1 } }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror ribs_port = {
         seeds = [rib1, rib2, rib3, rib4, rib5, rib6, rib7, rib8, rib9, rib10, rib11, rib12, rib13, rib14, rib15, rib16, rib17, rib18, rib19, rib20, rib21, rib22, rib23, rib24]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = symmetric(point = [0 mm, 10 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror rivets_port = {
         seeds = [front_upper_cap, front_lower_cap, rear_upper_cap, rear_lower_cap]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = symmetric(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror engine_port = {
         seeds = [engine]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = symmetric(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
 }

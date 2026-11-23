@@ -79,8 +79,8 @@ part arm {
     // motor pod's thrust comes in.
     region root : face = { select = [feature.bores.face.side(bores_s.pin)], expect = one_or_more }
     region motor_seat : face = { select = [feature.pad.face.end], expect = one_or_more }
-    export seat = datum(datum = { datum = feature, feature = seat_frame })
-    export tip = datum(datum = { datum = feature, feature = tip_frame })
+    export seat = datum(datum = feature(feature = seat_frame))
+    export tip = datum(datum = feature(feature = tip_frame))
     output arm = { body = feature.knuckle.body, part_number = "CD-AR-210", material = "carbon_fiber", color = "#3C4048" }
 
     // Datums: A the motor seat, B the hinge bore's axis, C the knuckle's underside.

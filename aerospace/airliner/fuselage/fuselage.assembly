@@ -21,17 +21,17 @@ assembly fuselage {
     instance window_aft : cockpit_window_aft
     mirror window_front_port = {
         seeds = [window_front]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_front } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror window_side_port = {
         seeds = [window_side]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_side } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     mirror window_aft_port = {
         seeds = [window_aft]
-        plane = { plane = explicit, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0] }
+        plane = explicit(point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
         hand = opposite(source = { definition = { kind = part, name = cockpit_window_aft } }, configuration = { select = named, name = port }, point = [0 mm, 0 mm, 0 mm], normal = [0, 1, 0])
     }
     instance forward : fuselage_section = {

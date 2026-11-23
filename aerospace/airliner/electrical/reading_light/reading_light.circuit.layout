@@ -38,92 +38,134 @@ layout reading_light {
     footprint R2 = { package = R_0402_1005Metric_IPCN, at = [-20, -5] mm, value = "1 kΩ ±1%", pads = { "1" = DIM, "2" = ADJ }, properties = { "param:power_rating" = "62.5 mW", "param:resistance" = "1 kΩ ±1%" } }
     footprint R3 = { package = R_0402_1005Metric_IPCN, at = [-16.5, -5] mm, rotation = 90 deg, value = "100 kΩ ±1%", pads = { "1" = ADJ, "2" = GND }, properties = { "param:power_rating" = "62.5 mW", "param:resistance" = "100 kΩ ±1%" } }
     footprint U1 = { package = "SOT-23-5_IPCN", at = [0, 1] mm, pads = { "1" = SW, "2" = GND, "3" = ADJ, "4" = LED_A, "5" = V28 }, properties = { "param:iout_max" = "1 A", "param:vin_max" = "60 V", "param:vsense" = "100 mV" } }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-7.5, 1.575] mm, to = [-6.6, 1.925] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-6.6, 1.925] mm, to = [-5.45, 1.925] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-5.45, 1.925] mm, to = [-5, 2.25] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-7.5, 4.425] mm, to = [-6.6, 4.075] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-6.6, 4.075] mm, to = [-5.45, 4.075] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-5.45, 4.075] mm, to = [-5, 3.75] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-19.6225, -5] mm, to = [-19.4225, -5.25] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-19.4225, -5.25] mm, to = [-16.7725, -5.25] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-16.7725, -5.25] mm, to = [-16.5, -5.3775] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-0.825, 6.5] mm, to = [-0.425, 5.8] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-0.425, 5.8] mm, to = [0.875, 4.5] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [0.875, 4.5] mm, to = [0.875, 2.2] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [0.875, 2.2] mm, to = [0.885, 1.95] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-5, 3.75] mm, to = [-4.55, 3.4] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-4.55, 3.4] mm, to = [-2.15, 1] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-2.15, 1] mm, to = [-0.885, 1] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-15.775, 6] mm, to = [-15.775, 1] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-7.5, 4.425] mm, to = [-8.3, 3.925] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-8.3, 3.925] mm, to = [-11.225, 1] mm }
-    track V28_IN = { layer = F.Cu, width = 0.5 mm, from = [-21.425, 6] mm, to = [-22.025, 5.3] mm }
-    track V28_IN = { layer = F.Cu, width = 0.5 mm, from = [-22.025, 5.3] mm, to = [-23.725, 5.3] mm }
-    track V28_IN = { layer = F.Cu, width = 0.5 mm, from = [-23.725, 5.3] mm, to = [-25.175, 3.85] mm }
-    track V28_IN = { layer = F.Cu, width = 0.5 mm, from = [-25.175, 3.85] mm, to = [-26, 3.81] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [4.225, 6.5] mm, to = [4.825, 5.3] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [4.825, 5.3] mm, to = [7.425, 2.7] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [7.425, 2.7] mm, to = [8, 2.025] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-5, 2.25] mm, to = [-4.55, 2.3] mm }
-    track V28 = { layer = B.Cu, width = 0.5 mm, from = [-4.55, 2.3] mm, to = [-3.25, 2.3] mm }
-    track V28 = { layer = B.Cu, width = 0.5 mm, from = [-3.25, 2.3] mm, to = [-2.8, 2.75] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-2.8, 2.75] mm, to = [0.05, 2.75] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [0.05, 2.75] mm, to = [0.6, 2.2] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [0.6, 2.2] mm, to = [0.885, 1.95] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [0.825, 6.5] mm, to = [1.225, 5.8] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [1.225, 5.8] mm, to = [2.175, 4.85] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [2.175, 4.85] mm, to = [2.175, 1.55] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [2.175, 1.55] mm, to = [0.925, 0.3] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [0.925, 0.3] mm, to = [0.885, 0.05] mm }
-    track DIM = { layer = F.Cu, width = 0.2 mm, from = [-26, -1.27] mm, to = [-25.25, -1.67] mm }
-    track DIM = { layer = F.Cu, width = 0.2 mm, from = [-25.25, -1.67] mm, to = [-21.95, -4.97] mm }
-    track DIM = { layer = F.Cu, width = 0.2 mm, from = [-21.95, -4.97] mm, to = [-20.6, -4.97] mm }
-    track DIM = { layer = F.Cu, width = 0.2 mm, from = [-20.6, -4.97] mm, to = [-20.3775, -5] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [4.225, 6.5] mm, to = [3.575, 5.35] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [3.575, 5.35] mm, to = [2.975, 4.75] mm }
-    track SW = { layer = B.Cu, width = 0.5 mm, from = [2.975, 4.75] mm, to = [0.175, 1.95] mm }
-    track SW = { layer = B.Cu, width = 0.5 mm, from = [0.175, 1.95] mm, to = [-0.425, 1.95] mm }
-    track SW = { layer = F.Cu, width = 0.5 mm, from = [-0.425, 1.95] mm, to = [-0.885, 1.95] mm }
-    track V28_FUSED = { layer = F.Cu, width = 0.2 mm, from = [-11.225, 6] mm, to = [-11.875, 7.15] mm }
-    track V28_FUSED = { layer = F.Cu, width = 0.2 mm, from = [-11.875, 7.15] mm, to = [-12.425, 7.7] mm }
-    track V28_FUSED = { layer = F.Cu, width = 0.2 mm, from = [-12.425, 7.7] mm, to = [-16.875, 7.7] mm }
-    track V28_FUSED = { layer = F.Cu, width = 0.2 mm, from = [-16.875, 7.7] mm, to = [-18.575, 6] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-11.225, 1] mm, to = [-11.875, -0.15] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-11.875, -0.15] mm, to = [-16.225, -4.5] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-16.225, -4.5] mm, to = [-16.5, -4.6225] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-7.5, 1.575] mm, to = [-8.35, 1.125] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-8.35, 1.125] mm, to = [-10, 1.125] mm }
-    track V28 = { layer = B.Cu, width = 0.5 mm, from = [-10, 1.125] mm, to = [-12.45, 1.125] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-12.45, 1.125] mm, to = [-15.1, 1.125] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [-15.1, 1.125] mm, to = [-15.775, 1] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [8.775, 6.5] mm, to = [8.125, 5.35] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [8.125, 5.35] mm, to = [5.875, 5.35] mm }
-    track V28 = { layer = B.Cu, width = 0.5 mm, from = [5.875, 5.35] mm, to = [2.575, 2.05] mm }
-    track V28 = { layer = B.Cu, width = 0.5 mm, from = [2.575, 2.05] mm, to = [1.375, 2.05] mm }
-    track V28 = { layer = F.Cu, width = 0.5 mm, from = [1.375, 2.05] mm, to = [0.885, 1.95] mm }
-    track GND = { layer = B.Cu, width = 0.5 mm, from = [-26, -3.81] mm, to = [-22.25, -3.81] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-22.25, -3.81] mm, to = [-17.35, -3.81] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-17.35, -3.81] mm, to = [-16.75, -4.41] mm }
-    track GND = { layer = F.Cu, width = 0.5 mm, from = [-16.75, -4.41] mm, to = [-16.5, -4.6225] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-16.5, -5.3775] mm, to = [-16.25, -5.2275] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-16.25, -5.2275] mm, to = [-6.2, -5.2275] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-6.2, -5.2275] mm, to = [-1.2, -0.2275] mm }
-    track ADJ = { layer = F.Cu, width = 0.2 mm, from = [-1.2, -0.2275] mm, to = [-0.885, 0.05] mm }
-    track LED_K = { layer = F.Cu, width = 0.5 mm, from = [26, -1.27] mm, to = [25.25, -1.67] mm }
-    track LED_K = { layer = F.Cu, width = 0.5 mm, from = [25.25, -1.67] mm, to = [9.2, -1.67] mm }
-    track LED_K = { layer = F.Cu, width = 0.5 mm, from = [9.2, -1.67] mm, to = [8, -2.025] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [26, 1.27] mm, to = [24.85, 0.12] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [24.85, 0.12] mm, to = [1.65, 0.12] mm }
-    track LED_A = { layer = F.Cu, width = 0.5 mm, from = [1.65, 0.12] mm, to = [0.885, 0.05] mm }
-    via V28 = { at = [-4.55, 2.3] mm, size = 0.6 mm, drill = 0.3 mm }
-    via V28 = { at = [-2.8, 2.75] mm, size = 0.6 mm, drill = 0.3 mm }
-    via SW = { at = [2.975, 4.75] mm, size = 0.6 mm, drill = 0.3 mm }
-    via SW = { at = [-0.425, 1.95] mm, size = 0.6 mm, drill = 0.3 mm }
-    via V28 = { at = [-10, 1.125] mm, size = 0.6 mm, drill = 0.3 mm }
-    via V28 = { at = [-12.45, 1.125] mm, size = 0.6 mm, drill = 0.3 mm }
-    via V28 = { at = [5.875, 5.35] mm, size = 0.6 mm, drill = 0.3 mm }
-    via V28 = { at = [1.375, 2.05] mm, size = 0.6 mm, drill = 0.3 mm }
-    via GND = { at = [-22.25, -3.81] mm, size = 0.6 mm, drill = 0.3 mm }
+    route V28 = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [-7.5, 1.575] mm, to = [-6.6, 1.925] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-6.6, 1.925] mm, to = [-5.45, 1.925] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-5.45, 1.925] mm, to = [-5, 2.25] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-0.825, 6.5] mm, to = [-0.425, 5.8] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-0.425, 5.8] mm, to = [0.875, 4.5] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [0.875, 4.5] mm, to = [0.875, 2.2] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [0.875, 2.2] mm, to = [0.885, 1.95] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-15.775, 6] mm, to = [-15.775, 1] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-5, 2.25] mm, to = [-4.55, 2.3] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [-4.55, 2.3] mm, to = [-3.25, 2.3] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [-3.25, 2.3] mm, to = [-2.8, 2.75] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-2.8, 2.75] mm, to = [0.05, 2.75] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [0.05, 2.75] mm, to = [0.6, 2.2] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [0.6, 2.2] mm, to = [0.885, 1.95] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-7.5, 1.575] mm, to = [-8.35, 1.125] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-8.35, 1.125] mm, to = [-10, 1.125] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [-10, 1.125] mm, to = [-12.45, 1.125] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-12.45, 1.125] mm, to = [-15.1, 1.125] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-15.1, 1.125] mm, to = [-15.775, 1] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [8.775, 6.5] mm, to = [8.125, 5.35] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [8.125, 5.35] mm, to = [5.875, 5.35] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [5.875, 5.35] mm, to = [2.575, 2.05] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [2.575, 2.05] mm, to = [1.375, 2.05] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [1.375, 2.05] mm, to = [0.885, 1.95] mm },
+        ]
+        vias = [
+            { at = [-4.55, 2.3] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [-2.8, 2.75] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [-10, 1.125] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [-12.45, 1.125] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [5.875, 5.35] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [1.375, 2.05] mm, size = 0.6 mm, drill = 0.3 mm },
+        ]
+    }
+    route GND = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [-7.5, 4.425] mm, to = [-6.6, 4.075] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-6.6, 4.075] mm, to = [-5.45, 4.075] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-5.45, 4.075] mm, to = [-5, 3.75] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-5, 3.75] mm, to = [-4.55, 3.4] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-4.55, 3.4] mm, to = [-2.15, 1] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-2.15, 1] mm, to = [-0.885, 1] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-7.5, 4.425] mm, to = [-8.3, 3.925] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-8.3, 3.925] mm, to = [-11.225, 1] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-11.225, 1] mm, to = [-11.875, -0.15] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-11.875, -0.15] mm, to = [-16.225, -4.5] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-16.225, -4.5] mm, to = [-16.5, -4.6225] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [-26, -3.81] mm, to = [-22.25, -3.81] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-22.25, -3.81] mm, to = [-17.35, -3.81] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-17.35, -3.81] mm, to = [-16.75, -4.41] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-16.75, -4.41] mm, to = [-16.5, -4.6225] mm },
+        ]
+        vias = [
+            { at = [-22.25, -3.81] mm, size = 0.6 mm, drill = 0.3 mm },
+        ]
+    }
+    route V28_FUSED = {
+        tracks = [
+            { layer = F.Cu, width = 0.2 mm, from = [-11.225, 6] mm, to = [-11.875, 7.15] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-11.875, 7.15] mm, to = [-12.425, 7.7] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-12.425, 7.7] mm, to = [-16.875, 7.7] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-16.875, 7.7] mm, to = [-18.575, 6] mm },
+        ]
+    }
+    route SW = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [4.225, 6.5] mm, to = [4.825, 5.3] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [4.825, 5.3] mm, to = [7.425, 2.7] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [7.425, 2.7] mm, to = [8, 2.025] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [4.225, 6.5] mm, to = [3.575, 5.35] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [3.575, 5.35] mm, to = [2.975, 4.75] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [2.975, 4.75] mm, to = [0.175, 1.95] mm },
+            { layer = B.Cu, width = 0.5 mm, from = [0.175, 1.95] mm, to = [-0.425, 1.95] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-0.425, 1.95] mm, to = [-0.885, 1.95] mm },
+        ]
+        vias = [
+            { at = [2.975, 4.75] mm, size = 0.6 mm, drill = 0.3 mm },
+            { at = [-0.425, 1.95] mm, size = 0.6 mm, drill = 0.3 mm },
+        ]
+    }
+    route V28_IN = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [-21.425, 6] mm, to = [-22.025, 5.3] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-22.025, 5.3] mm, to = [-23.725, 5.3] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-23.725, 5.3] mm, to = [-25.175, 3.85] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [-25.175, 3.85] mm, to = [-26, 3.81] mm },
+        ]
+    }
+    route DIM = {
+        tracks = [
+            { layer = F.Cu, width = 0.2 mm, from = [-26, -1.27] mm, to = [-25.25, -1.67] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-25.25, -1.67] mm, to = [-21.95, -4.97] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-21.95, -4.97] mm, to = [-20.6, -4.97] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-20.6, -4.97] mm, to = [-20.3775, -5] mm },
+        ]
+    }
+    route LED_A = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [0.825, 6.5] mm, to = [1.225, 5.8] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [1.225, 5.8] mm, to = [2.175, 4.85] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [2.175, 4.85] mm, to = [2.175, 1.55] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [2.175, 1.55] mm, to = [0.925, 0.3] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [0.925, 0.3] mm, to = [0.885, 0.05] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [26, 1.27] mm, to = [24.85, 0.12] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [24.85, 0.12] mm, to = [1.65, 0.12] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [1.65, 0.12] mm, to = [0.885, 0.05] mm },
+        ]
+    }
+    route LED_K = {
+        tracks = [
+            { layer = F.Cu, width = 0.5 mm, from = [26, -1.27] mm, to = [25.25, -1.67] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [25.25, -1.67] mm, to = [9.2, -1.67] mm },
+            { layer = F.Cu, width = 0.5 mm, from = [9.2, -1.67] mm, to = [8, -2.025] mm },
+        ]
+    }
+    route ADJ = {
+        tracks = [
+            { layer = F.Cu, width = 0.2 mm, from = [-19.6225, -5] mm, to = [-19.4225, -5.25] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-19.4225, -5.25] mm, to = [-16.7725, -5.25] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-16.7725, -5.25] mm, to = [-16.5, -5.3775] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-16.5, -5.3775] mm, to = [-16.25, -5.2275] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-16.25, -5.2275] mm, to = [-6.2, -5.2275] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-6.2, -5.2275] mm, to = [-1.2, -0.2275] mm },
+            { layer = F.Cu, width = 0.2 mm, from = [-1.2, -0.2275] mm, to = [-0.885, 0.05] mm },
+        ]
+    }
     pour GND = { layers = [B.Cu], outline = [[-29.5, -14.5], [29.5, -14.5], [29.5, 14.5], [-29.5, 14.5]] mm, connect = thermal_tht }
     package C_1206_3216Metric_IPCN = {
         description = "C chip 1206 (3216 metric), IPC-7351B density B"

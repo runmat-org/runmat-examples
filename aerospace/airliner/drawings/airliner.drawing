@@ -5,13 +5,13 @@ import { airliner } from "../airliner.assembly"
 
 drawing airliner {
     format a2 = {
-        size = { size = iso, name = A2 }
+        size = iso(name = A2)
         title_block = [
-            { label = "Title", source = { source = literal, text = "Narrow-body airliner, general arrangement" } },
-            { label = "Part number", source = { source = literal, text = "AL-000" } },
-            { label = "Scale", source = { source = scale } },
-            { label = "Sheet", source = { source = sheet_number } },
-            { label = "Rev", source = { source = revision } },
+            { label = "Title", source = literal(text = "Narrow-body airliner, general arrangement") },
+            { label = "Part number", source = literal(text = "AL-000") },
+            { label = "Scale", source = scale() },
+            { label = "Sheet", source = sheet_number() },
+            { label = "Rev", source = revision() },
         ]
     }
 
