@@ -1,15 +1,9 @@
 material prepreg_carbon = {
     mass_density = 1550 kg/m^3
-    elastic = {
-        youngs_modulus = 90 GPa
-        poisson_ratio = 0.3
-    }
+    elastic = { youngs_modulus = 90 GPa, poisson_ratio = 0.3 }
 }
 
 material pod_lumped = {
     mass_density = 6390 kg/m^3
-    elastic = {
-        youngs_modulus = 9 GPa
-        poisson_ratio = 0.35
-    }
+    elastic = { youngs_modulus = 9 GPa, poisson_ratio = 0.35 }
 }

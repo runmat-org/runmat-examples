@@ -33,10 +33,7 @@ material aluminum_3003 = {
 
 material water_glycol_50 = {
     mass_density = 1070 kg/m^3
-    fluid = {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0035 Pa*s
-    }
+    fluid = { law = incompressible_newtonian, dynamic_viscosity = 0.0035 Pa*s }
     thermal = {
         reference_temperature = 298.15 K
         modulus_temperature_coefficient = 0 K^-1

@@ -1,7 +1,4 @@
 material iso_vg_46 = {
     mass_density = 861 kg/m^3
-    fluid = {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.0396 Pa*s
-    }
+    fluid = { law = incompressible_newtonian, dynamic_viscosity = 0.0396 Pa*s }
 }

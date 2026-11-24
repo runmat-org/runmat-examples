@@ -11,10 +11,7 @@ material aluminum_6061_t6 = {
 
 material water = {
     mass_density = 997 kg/m^3
-    fluid = {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.000855 Pa*s
-    }
+    fluid = { law = incompressible_newtonian, dynamic_viscosity = 0.000855 Pa*s }
     thermal = {
         reference_temperature = 298.15 K
         modulus_temperature_coefficient = 0 K^-1

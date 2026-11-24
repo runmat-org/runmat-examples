@@ -1,7 +1,4 @@
 material steel_300m = {
     mass_density = 7830 kg/m^3
-    elastic = {
-        youngs_modulus = 205 GPa
-        poisson_ratio = 0.29
-    }
+    elastic = { youngs_modulus = 205 GPa, poisson_ratio = 0.29 }
 }

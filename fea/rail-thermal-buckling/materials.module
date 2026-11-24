@@ -2,10 +2,7 @@
 // specific heat are the constant values EN 1993-1-2, 3.4.1 gives for simple calculations.
 material steel_s275 = {
     mass_density = 7850 kg/m^3
-    elastic = {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.3
-    }
+    elastic = { youngs_modulus = 210 GPa, poisson_ratio = 0.3 }
     thermal = {
         reference_temperature = 293.15 K
         modulus_temperature_coefficient = 0 K^-1

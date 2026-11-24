@@ -3,10 +3,7 @@
 // EN 1993-1-5, Annex C.6 allows in finite-element models.
 material steel_s275 = {
     mass_density = 7850 kg/m^3
-    elastic = {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.3
-    }
+    elastic = { youngs_modulus = 210 GPa, poisson_ratio = 0.3 }
     plastic = {
         law = j2_isotropic_linear_hardening
         yield_stress = 275 MPa

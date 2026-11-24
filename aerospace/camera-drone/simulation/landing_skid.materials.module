@@ -1,7 +1,4 @@
 material nylon_gf30 = {
     mass_density = 1360 kg/m^3
-    elastic = {
-        youngs_modulus = 7.5 GPa
-        poisson_ratio = 0.35
-    }
+    elastic = { youngs_modulus = 7.5 GPa, poisson_ratio = 0.35 }
 }

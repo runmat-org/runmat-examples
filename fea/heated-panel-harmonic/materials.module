@@ -2,10 +2,7 @@
 // stiffness term is a modeling choice: about 2 % of critical damping at 1 kHz.
 material ti_6al_4v = {
     mass_density = 4430 kg/m^3
-    elastic = {
-        youngs_modulus = 113.8 GPa
-        poisson_ratio = 0.342
-    }
+    elastic = { youngs_modulus = 113.8 GPa, poisson_ratio = 0.342 }
     thermal = {
         reference_temperature = 293.15 K
         modulus_temperature_coefficient = 0 K^-1
@@ -13,8 +10,5 @@ material ti_6al_4v = {
         specific_heat = 526.3 J/kg/K
         expansion_coefficient = 0.0000086 K^-1
     }
-    rayleigh_damping = {
-        mass_coefficient = 0 Hz
-        stiffness_coefficient = 6.4 us
-    }
+    rayleigh_damping = { mass_coefficient = 0 Hz, stiffness_coefficient = 6.4 us }
 }

@@ -1,9 +1,6 @@
 material grey_iron = {
     mass_density = 7200 kg/m^3
-    elastic = {
-        youngs_modulus = 110 GPa
-        poisson_ratio = 0.26
-    }
+    elastic = { youngs_modulus = 110 GPa, poisson_ratio = 0.26 }
     thermal = {
         reference_temperature = 313.15 K
         modulus_temperature_coefficient = 0 K^-1

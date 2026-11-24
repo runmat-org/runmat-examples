@@ -1,9 +1,6 @@
 material engine_oil_400k = {
     mass_density = 825.1 kg/m^3
-    fluid = {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.00874 Pa*s
-    }
+    fluid = { law = incompressible_newtonian, dynamic_viscosity = 0.00874 Pa*s }
     thermal = {
         reference_temperature = 400 K
         modulus_temperature_coefficient = 0 K^-1
