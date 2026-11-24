@@ -62,11 +62,8 @@ model power_step {
     }
     constraint walls { fluid.no_slip_wall { target = geometry.plate.region.channel_wall } }
     load outlet { fluid.outlet_pressure { target = geometry.plate.region.outlet; value = 0 Pa } }
-    initial block_start {
-        thermal.temperature { target = geometry.plate.region.block; uniform = 298.15 K }
-    }
-    initial coolant_start {
-        thermal.temperature { target = geometry.plate.region.coolant; uniform = 298.15 K }
+    initial start {
+        thermal.temperature { target = whole_model; uniform = 298.15 K }
     }
     interface wetted_wall {
         conjugate_heat_transfer.perfect {
@@ -87,7 +84,7 @@ study die_warm_up {
             end_time = 150 s
             time_step = 1 s
         }
-        initial_conditions = [model.initial.block_start, model.initial.coolant_start]
+        initial_conditions = [model.initial.start]
     }
     output temperature = analysis.warm_up.field.node.temperature
     output velocity = analysis.warm_up.field.cell.fluid_velocity
