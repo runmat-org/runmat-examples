@@ -57,7 +57,7 @@ Together the die settles near 25 + 0.9 + 18 + 2 = 46 °C. The block stores ρcV 
            end_time = 150 s
            time_step = 1 s
        }
-       initial_conditions = [model.initial.block_start, model.initial.coolant_start]
+       initial_conditions = [model.initial.start]
    }
    ```
 
