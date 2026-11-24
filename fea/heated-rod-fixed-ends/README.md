@@ -74,6 +74,7 @@ The run's energy balance closes to 2 × 10⁻¹³ W.
 ## Files
 
 - `heated-rod-fixed-ends.fea`: the study, with its hand check in the header.
+- `materials.module`: the material the study imports, `stainless_304`.
 - `geometry/heater-rod.step`: the rod as STEP, with the body, both ends and the rod surface named.
 - `runmat.toml`: the project file.
 

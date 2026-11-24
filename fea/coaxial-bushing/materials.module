@@ -1,0 +1,12 @@
+// Cast epoxy. Relative permittivity 4.2 is a typical value for silica-filled casting resin at power
+// frequency; the field above does not depend on it, the stored energy does. The conductivity is a
+// bulk insulation value, small enough to carry no current here.
+material cast_epoxy = {
+    electrical = {
+        reference_temperature = 20 degC
+        conductivity = 0.000000000000001 A/V/m
+        resistive_heating_coefficient = 0 K^-1
+        relative_permittivity = 4.2
+        relative_permeability = 1
+    }
+}

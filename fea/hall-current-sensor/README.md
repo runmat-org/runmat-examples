@@ -88,6 +88,7 @@ middle, where the Hall element sits.
 ## Files
 
 - `hall-current-sensor.fea`: the magnetostatic study, with the Ampère's-law hand check in its header.
+- `materials.module`: the materials the study imports: `ferrite_n87`, `copper` and `air`.
 - `sensor.part`: the core, the primary rod and the air in RunMat MCAD, with core size, window, depth, gap and rod diameter as inputs.
 - `geometry/sensor.step`: the part exported to STEP, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the ferrite grade, the gap and the window were chosen, with the hand checks.

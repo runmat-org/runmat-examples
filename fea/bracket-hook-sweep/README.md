@@ -90,6 +90,7 @@ Every case passes the 0.1 mm limit, with the 4 kN case at under 40 % of it.
 ## Files
 
 - `bracket-hook-sweep.fea`: the study, its deflection assessment and the seven-case load sweep.
+- `materials.module`: the material the study imports, `s355`.
 - `geometry/bracket.step`: the bracket's geometry, with the body, hook seat and mounting holes named.
 - `runmat.toml`: the project file.
 - `runmat.lock`: the resolved project dependencies.

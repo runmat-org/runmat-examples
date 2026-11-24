@@ -33,6 +33,8 @@
 // hand check, which takes the spreading to the bosses as one uniform path; the peak is still
 // 28.6 K inside the parts' 85 degC rating.
 
+import { board_stack, aluminum_6061, glass } from "./du_thermal.materials.module"
+
 geometry du {
     file = "./geometry/du_thermal.step"
     units = mm
@@ -49,39 +51,6 @@ mesh du on geometry.du {
         order = linear
         target_size = 6 mm
         maximum_deviation = 0.2 mm
-    }
-}
-
-material board_stack {
-    mass_density = 1900 kg/m^3
-    thermal {
-        reference_temperature = 313.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000016 K^-1
-        conductivity = 34 W/m/K
-        specific_heat = 1100 J/kg/K
-    }
-}
-
-material aluminum_6061 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 313.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000236 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
-    }
-}
-
-material glass {
-    mass_density = 2500 kg/m^3
-    thermal {
-        reference_temperature = 313.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000009 K^-1
-        conductivity = 1.0 W/m/K
-        specific_heat = 840 J/kg/K
     }
 }
 

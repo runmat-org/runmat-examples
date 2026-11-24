@@ -91,6 +91,7 @@ retained modes cover the response least well.
 ## Files
 
 - `cantilever-harmonic.fea`: the study: geometry, mesh, damped material, frequency-domain force, modes and harmonic response.
+- `materials.module`: the material the study imports, `steel`.
 - `geometry/cantilever.step`: the beam's geometry, with its body, fixed end and loaded end named.
 - `runmat.toml`: the project file.
 

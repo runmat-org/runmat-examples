@@ -23,6 +23,8 @@
 // - Pressure drop, Hagen-Poiseuille: 32 mu U L / d^2 = 32 x 855e-6 x 0.004288 x 0.240 / 0.008^2
 //   = 0.44 Pa.
 
+import { copper, water } from "./materials.module"
+
 geometry tube {
     file = "./geometry/heated-tube.step"
     units = mm
@@ -43,32 +45,6 @@ mesh tube on geometry.tube {
         target_size = 1.5 mm
         maximum_deviation = 0.05 mm
         refine bore { on = geometry.tube.region.channel_wall; target_size = 0.6 mm }
-    }
-}
-
-material copper {
-    mass_density = 8933 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000165 K^-1
-        conductivity = 401 W/m/K
-        specific_heat = 385 J/kg/K
-    }
-}
-
-material water {
-    mass_density = 997 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.000855 Pa*s
-    }
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000276 K^-1
-        conductivity = 0.613 W/m/K
-        specific_heat = 4179 J/kg/K
     }
 }
 

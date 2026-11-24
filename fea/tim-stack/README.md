@@ -73,6 +73,7 @@ through each part and a step at the joint.
 ## Files
 
 - `tim-stack.fea`: the study, with its hand check in the header.
+- `materials.module`: the materials the study imports: `copper_c11000` and `aluminum_6061_t6`.
 - `geometry/tim-stack.step`: the spreader and block as STEP, with both bodies, the heated face, both joint faces and the cold face named.
 - `runmat.toml`: the project file.
 

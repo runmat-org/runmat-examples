@@ -91,6 +91,7 @@ cell itself.
 ## Files
 
 - `battery-module-cells.fea`: the study: geometry, mesh, cell material, heat loads, the cold-plate condition and the hand check.
+- `materials.module`: the material the study imports, `li_ion_cell`.
 - `geometry/m01-cells.step`: the module's eight cells, with each cell and the cell bottoms named.
 - `runmat.toml`: the project file.
 

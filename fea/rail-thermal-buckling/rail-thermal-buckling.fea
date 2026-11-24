@@ -6,6 +6,9 @@
 // Check: a rod fixed at both ends buckles when its thermal force E A alpha dT reaches
 // 4 pi^2 E I / L^2, so dT_cr = 4 pi^2 I / (alpha A L^2). About the weak axis (I = 20 * 10^3 / 12
 // mm^4) dT_cr = 6.85 K: the run's load factor should read 0.685.
+
+import { steel_s275 } from "./materials.module"
+
 geometry rail {
     file = "./geometry/rail.step"
     units = mm
@@ -19,23 +22,6 @@ mesh rail on geometry.rail {
         order = quadratic
         target_size = 5 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Structural steel S275: E, nu, density and expansion from EN 1993-1-1, 3.2.6; conductivity and
-// specific heat are the constant values EN 1993-1-2, 3.4.1 gives for simple calculations.
-material steel_s275 {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.3
-    }
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 45 W/m/K
-        specific_heat = 600 J/kg/K
-        expansion_coefficient = 0.000012 K^-1
     }
 }
 

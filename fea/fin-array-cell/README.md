@@ -83,6 +83,7 @@ height, so almost all of its area works.
 ## Files
 
 - `fin-array-cell.fea`: the study, with its fin-array estimate in the header.
+- `materials.module`: the material the study imports, `aluminum_6061_t6`.
 - `geometry/fin-array-cell.step`: the cell as STEP, with the body, base underside, cell sides and cooled surfaces named.
 - `runmat.toml`: the project file.
 

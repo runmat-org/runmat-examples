@@ -101,6 +101,7 @@ stronger than Shah's estimate, so a steady die temperature a few kelvin under 46
 ## Files
 
 - `chip-cold-plate-power-step.fea`: the transient conjugate heat transfer study, with its hand checks in the header.
+- `materials.module`: the materials the study imports: `aluminum_6061_t6` and `water`.
 - `geometry/chip-cold-plate.step`: the block and the water as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

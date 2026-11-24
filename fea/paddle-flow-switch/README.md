@@ -89,6 +89,7 @@ wake behind the paddle and the flow squeezing past it through the 60 % of the bo
 ## Files
 
 - `paddle-flow-switch.fea`: the fluid-structure study, with its hand check in the header.
+- `materials.module`: the materials the study imports: `iso_vg_46`, `spring_steel` and `carbon_steel`.
 - `flow_switch.part`: the tee, the oil and the paddle in RunMat MCAD, with the bores and the paddle's thickness, width and length as inputs.
 - `geometry/flow_switch.step`: the part exported to STEP, with the body and face names the study selects.
 - `DESIGN-NOTES.md`: how the line size, the paddle and its material were chosen, with the hand checks.

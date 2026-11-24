@@ -15,6 +15,8 @@
 // B = mu0 I / (g + l / mu_r) = 4 pi e-7 x 500 / (3 mm + 0.062 mm) = 0.205 T in the gap and,
 // less the gap's fringing, in the legs. That is 53 % of the 100 degC saturation.
 
+import { ferrite_n87, copper, air } from "./materials.module"
+
 geometry sensor {
     file = "./geometry/sensor.step"
     units = mm
@@ -34,36 +36,6 @@ mesh sensor on geometry.sensor {
         target_size = 6 mm
         maximum_deviation = 0.05 mm
         refine core { on = geometry.sensor.region.core; target_size = 1.5 mm }
-    }
-}
-
-material ferrite_n87 {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 0 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 2200
-    }
-}
-
-material copper {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 0 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
-    }
-}
-
-material air {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 0 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
     }
 }
 

@@ -6,6 +6,9 @@
 // Check: the compression is P / Pcr = alpha dT A L^2 / (4 pi^2 I) = 0.0730 of the clamped-clamped
 // buckling load, so mode 1 drops by about sqrt(1 - P / Pcr) = 0.963. Euler-Bernoulli theory puts
 // the cold mode 1 at 531.7 Hz (the solid model reads lower, with shear); hot, about 512 Hz.
+
+import { steel_s275 } from "./materials.module"
+
 geometry bar {
     file = "./geometry/heated-bar.step"
     units = mm
@@ -19,23 +22,6 @@ mesh bar on geometry.bar {
         order = quadratic
         target_size = 50 mm
         maximum_deviation = 1 mm
-    }
-}
-
-// Structural steel S275: E, nu, density and expansion from EN 1993-1-1, 3.2.6; conductivity and
-// specific heat are the constant values EN 1993-1-2, 3.4.1 gives for simple calculations.
-material steel_s275 {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.3
-    }
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 45 W/m/K
-        specific_heat = 600 J/kg/K
-        expansion_coefficient = 0.000012 K^-1
     }
 }
 

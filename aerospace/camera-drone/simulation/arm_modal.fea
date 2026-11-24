@@ -22,6 +22,8 @@
 // station by station, gives k = 431 N/mm at 90 GPa; with the 40 g pod and the arm's effective
 // 3.8 g, f1 = sqrt(k/m)/(2 pi) = 499 Hz, 1.36 x the 368 Hz blade pass.
 
+import { prepreg_carbon, pod_lumped } from "./arm_modal.materials.module"
+
 geometry arm {
     file = "./geometry/arm_study.step"
     units = mm
@@ -36,22 +38,6 @@ mesh arm on geometry.arm {
         order = quadratic
         target_size = 3 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material prepreg_carbon {
-    mass_density = 1550 kg/m^3
-    elastic {
-        youngs_modulus = 90 GPa
-        poisson_ratio = 0.3
-    }
-}
-
-material pod_lumped {
-    mass_density = 6390 kg/m^3
-    elastic {
-        youngs_modulus = 9 GPa
-        poisson_ratio = 0.35
     }
 }
 

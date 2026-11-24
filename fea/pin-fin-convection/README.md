@@ -82,6 +82,7 @@ temperature.
 ## Files
 
 - `pin-fin-convection.fea`: the study, with the classical fin solution in its header.
+- `materials.module`: the material the study imports, `aluminum_6061_t6`.
 - `geometry/pin-fin.step`: the fin as STEP, with the body, base, side and tip named.
 - `runmat.toml`: the project file.
 

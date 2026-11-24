@@ -12,6 +12,8 @@
 // bending stress there is about 3.3 MPa, two orders below the laminate's 600 MPa strength. The
 // lugs, 16.8 mm apart, carry the moment as a 54 N couple on the 4 mm pin.
 
+import { prepreg_carbon, pod_lumped } from "./arm_landing.materials.module"
+
 geometry arm {
     file = "./geometry/arm_study.step"
     units = mm
@@ -27,22 +29,6 @@ mesh arm on geometry.arm {
         order = quadratic
         target_size = 3 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material prepreg_carbon {
-    mass_density = 1550 kg/m^3
-    elastic {
-        youngs_modulus = 90 GPa
-        poisson_ratio = 0.3
-    }
-}
-
-material pod_lumped {
-    mass_density = 6390 kg/m^3
-    elastic {
-        youngs_modulus = 9 GPa
-        poisson_ratio = 0.35
     }
 }
 

@@ -85,6 +85,7 @@ its area runs hot enough to radiate well.
 ## Files
 
 - `radiator-panel.fea`: the study, with the radiation balance in its header.
+- `materials.module`: the material the study imports, `aluminum_6061_t6`.
 - `geometry/radiator-panel.step`: the panel as STEP, with the body, mounting face, radiating face and edges named.
 - `runmat.toml`: the project file.
 

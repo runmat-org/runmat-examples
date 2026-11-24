@@ -1,0 +1,36 @@
+material engine_oil_400k = {
+    mass_density = 825.1 kg/m^3
+    fluid = {
+        law = incompressible_newtonian
+        dynamic_viscosity = 0.00874 Pa*s
+    }
+    thermal = {
+        reference_temperature = 400 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0007 K^-1
+        conductivity = 0.134 W/m/K
+        specific_heat = 2337 J/kg/K
+    }
+}
+
+material aisi_1010 = {
+    mass_density = 7832 kg/m^3
+    thermal = {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0000122 K^-1
+        conductivity = 63.9 W/m/K
+        specific_heat = 434 J/kg/K
+    }
+}
+
+material glass_fiber_blanket = {
+    mass_density = 16 kg/m^3
+    thermal = {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.000005 K^-1
+        conductivity = 0.046 W/m/K
+        specific_heat = 835 J/kg/K
+    }
+}

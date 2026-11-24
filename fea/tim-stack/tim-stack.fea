@@ -6,6 +6,9 @@
 // Check: heat flows straight down at q = 30 W / 900 mm^2 = 33.3 kW/m^2 through three resistances
 // in series: block 0.010 / 167 -> 2.00 K, joint 0.525e-4 m^2 K/W -> 1.75 K, copper 0.003 / 388 ->
 // 0.26 K. The block top reads 42.00 C, the spreader underside 43.75 C and the heated face 44.00 C.
+
+import { copper_c11000, aluminum_6061_t6 } from "./materials.module"
+
 geometry stack {
     file = "./geometry/tim-stack.step"
     units = mm
@@ -22,30 +25,6 @@ mesh stack on geometry.stack {
         order = quadratic
         target_size = 2 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Copper C11000 (ASM Handbook, Vol. 2, properties of wrought coppers).
-material copper_c11000 {
-    mass_density = 8890 kg/m^3
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 388 W/m/K
-        specific_heat = 385 J/kg/K
-        expansion_coefficient = 0.000017 K^-1
-    }
-}
-
-// Aluminum 6061-T6 (ASM Handbook, Vol. 2, properties of wrought aluminum alloys).
-material aluminum_6061_t6 {
-    mass_density = 2700 kg/m^3
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 167 W/m/K
-        specific_heat = 896 J/kg/K
-        expansion_coefficient = 0.0000236 K^-1
     }
 }
 

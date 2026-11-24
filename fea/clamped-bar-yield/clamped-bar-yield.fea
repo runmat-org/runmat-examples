@@ -8,6 +8,9 @@
 // von Mises stress at 275 MPa (275.01 MPa on the E/10000 hardening slope), with a plastic strain
 // of 4.9e-4. The elastic modulus is held at its 20 C value; EN 1993-1-2 gives a factor of about
 // 0.93 at 170 C, which would move first yield to about 117 K.
+
+import { steel_s275 } from "./materials.module"
+
 geometry bar {
     file = "./geometry/quarter-bar.step"
     units = mm
@@ -23,29 +26,6 @@ mesh bar on geometry.bar {
         order = quadratic
         target_size = 2 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Structural steel S275: E, nu, density and expansion from EN 1993-1-1, 3.2.6; yield strength for
-// thicknesses up to 16 mm from EN 10025-2; the E/10000 hardening slope is the nominal plateau that
-// EN 1993-1-5, Annex C.6 allows in finite-element models.
-material steel_s275 {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.3
-    }
-    plastic {
-        law = "j2_isotropic_linear_hardening"
-        yield_stress = 275 MPa
-        isotropic_hardening_modulus = 21 MPa
-    }
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 45 W/m/K
-        specific_heat = 600 J/kg/K
-        expansion_coefficient = 0.000012 K^-1
     }
 }
 

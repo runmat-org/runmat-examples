@@ -1,0 +1,11 @@
+// Stainless steel AISI 304 (ASM Handbook, Vol. 1, properties of wrought stainless steels).
+material stainless_304 = {
+    mass_density = 8000 kg/m^3
+    thermal = {
+        reference_temperature = 293.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        conductivity = 16.2 W/m/K
+        specific_heat = 500 J/kg/K
+        expansion_coefficient = 0.0000173 K^-1
+    }
+}

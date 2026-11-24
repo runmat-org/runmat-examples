@@ -8,6 +8,9 @@
 // The exact solution for a round wire, Z / Rdc = (k a / 2) J0(k a) / J1(k a) with k = (1 - j) / delta,
 // gives Rac / Rdc = 1.027 at 50 Hz and 2.662 at 1 kHz. With Rdc = 1.646 uOhm, the rod loses
 // 0.845 W and 2.191 W (0.823 W at DC). The surface loss density is 0.099 and 1.109 MW/m^3.
+
+import { copper, air } from "./materials.module"
+
 geometry conductor {
     file = "./geometry/round-conductor.step"
     units = mm
@@ -25,27 +28,6 @@ mesh conductor on geometry.conductor {
         order = linear
         target_size = 1.2 mm
         maximum_deviation = 0.05 mm
-    }
-}
-
-// Copper: IEC 60028 (international standard of resistance for copper, 1/58 ohm mm^2/m at 20 C).
-material copper {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 58000000 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
-    }
-}
-
-material air {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 0 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
     }
 }
 

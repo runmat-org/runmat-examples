@@ -16,6 +16,8 @@
 // where the rail meets the struts: 1.7 x margin on 55 MPa. A 2.5 mm rail (Z = 7.3 mm^3) would
 // reach about 64 MPa, over the limit.
 
+import { nylon_gf30 } from "./landing_skid.materials.module"
+
 geometry skid {
     file = "./geometry/landing_skid.step"
     units = mm
@@ -29,14 +31,6 @@ mesh skid on geometry.skid {
         order = quadratic
         target_size = 2 mm
         maximum_deviation = 0.2 mm
-    }
-}
-
-material nylon_gf30 {
-    mass_density = 1360 kg/m^3
-    elastic {
-        youngs_modulus = 7.5 GPa
-        poisson_ratio = 0.35
     }
 }
 

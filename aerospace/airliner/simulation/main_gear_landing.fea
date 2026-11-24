@@ -30,6 +30,8 @@
 // hand check's 330 MPa where the tube starts; the axle end moves 27.6 mm against the hand
 // check's 29 mm. The assessment passes: 325.5 MPa is 21 % of the 1,586 MPa yield.
 
+import { steel_300m } from "./main_gear_landing.materials.module"
+
 geometry strut {
     file = "./geometry/main_gear_strut.step"
     units = mm
@@ -43,14 +45,6 @@ mesh strut on geometry.strut {
         order = quadratic
         target_size = 30 mm
         maximum_deviation = 1 mm
-    }
-}
-
-material steel_300m {
-    mass_density = 7830 kg/m^3
-    elastic {
-        youngs_modulus = 205 GPa
-        poisson_ratio = 0.29
     }
 }
 

@@ -19,6 +19,8 @@
 //   loss.
 // - Centerline speed V (3n+1)/(n+1) = 0.05 x 2.2 / 1.4 = 0.079 m/s (a Newtonian fluid: 0.100 m/s).
 
+import { coal_slurry } from "./materials.module"
+
 geometry line {
     file = "./geometry/slurry-line-d25x400.step"
     units = mm
@@ -34,15 +36,6 @@ mesh line on geometry.line {
         order = linear
         target_size = 2.5 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material coal_slurry {
-    mass_density = 1500 kg/m^3
-    fluid {
-        law = power_law
-        consistency = 0.2
-        power_index = 0.4
     }
 }
 

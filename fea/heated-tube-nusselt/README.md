@@ -86,6 +86,7 @@ the warm water would lose a little less pressure.
 ## Files
 
 - `heated-tube-nusselt.fea`: the conjugate heat transfer study, with its hand check in the header.
+- `materials.module`: the materials the study imports: `copper` and `water`.
 - `geometry/heated-tube.step`: the tube and the water as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

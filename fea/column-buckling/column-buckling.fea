@@ -1,6 +1,9 @@
 // Buckling of a steel column (1000 mm tall, 100 x 50 mm section), fixed at its base.
 // A 250 kN axial load presses on its top face. The preload's geometric stiffness feeds a buckling
 // analysis, which returns the load factor on 250 kN at which the column buckles, and the buckled shape.
+
+import { steel } from "./materials.module"
+
 geometry column {
     file = "./geometry/column-100x50.step"
     units = mm
@@ -14,14 +17,6 @@ mesh column on geometry.column {
         order = quadratic
         target_size = 25 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
     }
 }
 

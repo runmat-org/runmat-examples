@@ -70,6 +70,7 @@ largest motion at the middle. To read the thermal effect, run the same study wit
 ## Files
 
 - `heated-bar-modes.fea`: the study: geometry, mesh, material, clamps, end temperatures and the three analysis steps, with its hand check in the header.
+- `materials.module`: the material the study imports, `steel_s275`.
 - `geometry/heated-bar.step`: the bar as STEP, with the body and both ends named.
 - `runmat.toml`: the project file.
 

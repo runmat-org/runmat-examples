@@ -92,6 +92,7 @@ read the delay between their peaks; 100 mm divided by that delay is the solved w
 ## Files
 
 - `compliant-tube-pulse.fea`: the transient fluid-structure study, with its Moens–Korteweg hand check in the header.
+- `materials.module`: the materials the study imports: `water` and `silicone_50a`.
 - `geometry/compliant-tube.step`: the tube and the water as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

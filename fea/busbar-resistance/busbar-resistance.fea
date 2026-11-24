@@ -7,6 +7,9 @@
 // reads about 39.1 uOhm: 3.91 mV at 100 A. Current crowds at the hole's sides to about twice the
 // strip's mean density (1.11 A/mm^2), a little more with the strip's finite width: about 2.2 A/mm^2,
 // against 1.59 A/mm^2 averaged over the net section.
+
+import { copper } from "./materials.module"
+
 geometry busbar {
     file = "./geometry/busbar-bolt-hole.step"
     units = mm
@@ -21,17 +24,6 @@ mesh busbar on geometry.busbar {
         order = quadratic
         target_size = 2 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Copper: IEC 60028 (international standard of resistance for copper, 1/58 ohm mm^2/m at 20 C).
-material copper {
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 58000000 A/V/m
-        resistive_heating_coefficient = 0 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
     }
 }
 

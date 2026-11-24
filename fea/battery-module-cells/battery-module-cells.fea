@@ -17,6 +17,8 @@
 // top, so its top reaches
 //     T = 298.15 + Q H / h_eff + Q H^2 / (2 k) = 298.15 + 2.919 + 2.794 = 303.86 K  (H = 0.095 m).
 
+import { li_ion_cell } from "./materials.module"
+
 geometry module {
     file = "./geometry/m01-cells.step"
     units = mm
@@ -37,18 +39,6 @@ mesh module on geometry.module {
         order = linear
         target_size = 12 mm
         maximum_deviation = 0.2 mm
-    }
-}
-
-// An effective isotropic cell, at the in-plane conductivity of a stacked prismatic cell.
-material li_ion_cell {
-    mass_density = 2500 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.00001 K^-1
-        conductivity = 20 W/m/K
-        specific_heat = 1000 J/kg/K
     }
 }
 

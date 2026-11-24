@@ -1,3 +1,5 @@
+import { steel } from "./materials.module"
+
 geometry fork {
     file = "./geometry/tuning-fork.step"
     units = mm
@@ -10,14 +12,6 @@ mesh fork on geometry.fork {
         order = quadratic
         target_size = 30 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-material steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
     }
 }
 

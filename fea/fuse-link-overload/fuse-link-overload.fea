@@ -7,6 +7,9 @@
 //     theta(x) = (cos(m (x - L/2)) / cos(m L/2) - 1) / alpha,  m^2 = alpha J^2 rho_20 / k,
 // with J = 480 A/mm^2: m = 200.6 1/m, m L/2 = 1.003, so the middle reaches 218.7 K above the ends,
 // 238.7 C. At constant resistivity the rise would be rho J^2 L^2 / (8 k) = 128.0 K.
+
+import { copper } from "./materials.module"
+
 geometry fuse {
     file = "./geometry/fuse-element.step"
     units = mm
@@ -20,27 +23,6 @@ mesh fuse on geometry.fuse {
         order = quadratic
         target_size = 0.125 mm
         maximum_deviation = 0.02 mm
-    }
-}
-
-// Copper: electrical values from IEC 60028 (international standard of resistance for copper:
-// 1/58 ohm mm^2/m at 20 C, temperature coefficient 0.00393 /K); thermal values for C11000 from the
-// ASM Handbook, Vol. 2, properties of wrought coppers.
-material copper {
-    mass_density = 8890 kg/m^3
-    electrical {
-        reference_temperature = 20 degC
-        conductivity = 58000000 A/V/m
-        resistive_heating_coefficient = 0.00393 K^-1
-        relative_permittivity = 1
-        relative_permeability = 1
-    }
-    thermal {
-        reference_temperature = 20 degC
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 388 W/m/K
-        specific_heat = 385 J/kg/K
-        expansion_coefficient = 0.000017 K^-1
     }
 }
 

@@ -94,6 +94,7 @@ a straight strip, so the peak and the mean should stay close. After the fault, 4
 ## Files
 
 - `busbar-fault-pulse.fea`: the electrothermal transient study, with its hand check in the header.
+- `materials.module`: the material the study imports, `copper`.
 - `geometry/busbar-strip.step`: the strip as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 

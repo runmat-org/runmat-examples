@@ -85,8 +85,9 @@ A hand estimate in the notes takes the walls, windows and doors together: 118.6 
 
 1. Open `house.assembly` and use Section to cut through a wall, the roof or the foundation.
 2. Open `mep/electrical/branch_circuits.circuit` for the branch-circuit wiring diagrams.
-3. In `simulation/wall_thermal.fea`, change a layer's conductivity, run `wall_heat_loss`, and read
-   `heat_through_room_face` and the coldest room surface over the stud.
+3. In `simulation/materials.module`, change a layer's conductivity, run `wall_heat_loss` in
+   `simulation/wall_thermal.fea`, and read `heat_through_room_face` and the coldest room surface over
+   the stud.
 4. Change `simulation/wall_section.part`, for example to add continuous exterior insulation, then
    re-export `wall_thermal.assembly` to `simulation/geometry/wall_thermal.step` and run the study.
 

@@ -29,6 +29,8 @@
 // jacket surface sits at 25 + 28 x 0.396 = 36 degC and the pipe within 2 K of the oil. The oil
 // cools by only 4.2 / (825.1 x 0.1 x 5.574e-4 x 2337) = 0.04 K.
 
+import { engine_oil_400k, aisi_1010, glass_fiber_blanket } from "./materials.module"
+
 geometry line {
     file = "./geometry/insulated-oil-line.step"
     units = mm
@@ -50,43 +52,6 @@ mesh line on geometry.line {
         maximum_deviation = 0.1 mm
         refine oil_wall { on = geometry.line.region.oil_wall; target_size = 1.5 mm }
         refine pipe { on = geometry.line.region.pipe; target_size = 1.7 mm }
-    }
-}
-
-material engine_oil_400k {
-    mass_density = 825.1 kg/m^3
-    fluid {
-        law = incompressible_newtonian
-        dynamic_viscosity = 0.00874 Pa*s
-    }
-    thermal {
-        reference_temperature = 400 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0007 K^-1
-        conductivity = 0.134 W/m/K
-        specific_heat = 2337 J/kg/K
-    }
-}
-
-material aisi_1010 {
-    mass_density = 7832 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.0000122 K^-1
-        conductivity = 63.9 W/m/K
-        specific_heat = 434 J/kg/K
-    }
-}
-
-material glass_fiber_blanket {
-    mass_density = 16 kg/m^3
-    thermal {
-        reference_temperature = 298.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        expansion_coefficient = 0.000005 K^-1
-        conductivity = 0.046 W/m/K
-        specific_heat = 835 J/kg/K
     }
 }
 

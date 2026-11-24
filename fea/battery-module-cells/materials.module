@@ -1,0 +1,11 @@
+// An effective isotropic cell, at the in-plane conductivity of a stacked prismatic cell.
+material li_ion_cell = {
+    mass_density = 2500 kg/m^3
+    thermal = {
+        reference_temperature = 298.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.00001 K^-1
+        conductivity = 20 W/m/K
+        specific_heat = 1000 J/kg/K
+    }
+}

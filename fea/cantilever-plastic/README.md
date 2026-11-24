@@ -29,17 +29,17 @@ strength over this perfectly plastic estimate.
 1. **Geometry and mesh.** `geometry/cantilever.step` holds the beam as body `Beam`, with faces
    `Fixed end` and `Loaded end`. Quadratic tetrahedra at a 50 mm target size.
 
-2. **Material.** Mild steel with J2 plasticity and linear isotropic hardening:
+2. **Material.** Mild steel with J2 plasticity and linear isotropic hardening, declared in `materials.module`:
 
    ```
-   material mild_steel {
+   material mild_steel = {
        mass_density = 7850 kg/m^3
-       elastic {
+       elastic = {
            youngs_modulus = 200 GPa
            poisson_ratio = 0.3
        }
-       plastic {
-           law = "j2_isotropic_linear_hardening"
+       plastic = {
+           law = j2_isotropic_linear_hardening
            yield_stress = 250 MPa
            isotropic_hardening_modulus = 2 GPa
        }
@@ -94,6 +94,7 @@ because the yielded fibers have lost stiffness.
 ## Files
 
 - `cantilever-plastic.fea`: the nonlinear study, with the first-yield and hinge loads in its header.
+- `materials.module`: the material the study imports, `mild_steel`.
 - `geometry/cantilever.step`: the beam as STEP, with the body and end-face names the study selects.
 - `runmat.toml`: the project file.
 

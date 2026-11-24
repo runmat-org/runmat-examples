@@ -15,6 +15,8 @@
 //   (0, 0, 1)   61.3      (0, 2, 0)   85.8
 //   (2, 0, 0)   68.6      (2, 0, 1)   92.0
 
+import { air } from "./materials.module"
+
 geometry room {
     file = "./geometry/listening-room.step"
     units = mm
@@ -30,14 +32,6 @@ mesh room on geometry.room {
         order = quadratic
         target_size = 400 mm
         maximum_deviation = 2 mm
-    }
-}
-
-material air {
-    mass_density = 1.204 kg/m^3
-    acoustic {
-        speed_of_sound = 343 m/s
-        damping_ratio = 0.0
     }
 }
 

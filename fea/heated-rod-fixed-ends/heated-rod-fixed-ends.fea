@@ -3,6 +3,9 @@
 // the rod's surface is insulated. The run returns the temperature field and the peak temperature.
 // Check: heat flows only along the rod, so the profile is a parabola peaking at mid-length:
 //     T_max = T_end + q''' L^2 / (8 k) = 20 + 1e6 * 0.1^2 / (8 * 16.2) = 97.2 C.
+
+import { stainless_304 } from "./materials.module"
+
 geometry rod {
     file = "./geometry/heater-rod.step"
     units = mm
@@ -16,18 +19,6 @@ mesh rod on geometry.rod {
         order = quadratic
         target_size = 2.5 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Stainless steel AISI 304 (ASM Handbook, Vol. 1, properties of wrought stainless steels).
-material stainless_304 {
-    mass_density = 8000 kg/m^3
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 16.2 W/m/K
-        specific_heat = 500 J/kg/K
-        expansion_coefficient = 0.0000173 K^-1
     }
 }
 

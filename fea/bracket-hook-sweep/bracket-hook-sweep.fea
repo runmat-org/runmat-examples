@@ -2,6 +2,9 @@
 // The base plate is bolted to a wall at its three countersunk mounting holes, which are held.
 // A 2 kN load hangs from the hook: it presses down the wall (-Y) on the hook seat.
 // The STEP file declares millimeters, so the geometry keeps the file's scale.
+
+import { s355 } from "./materials.module"
+
 geometry bracket {
     file = "./geometry/bracket.step"
     region body : solid {
@@ -25,17 +28,6 @@ mesh bracket on geometry.bracket {
         target_size = 6 mm
         maximum_deviation = 0.05 mm
         cells_across_gap = 3
-    }
-}
-
-// S355 (EN 10025-2), machined from plate. Its yield strength is 355 MPa.
-// Linear elasticity does not model plastic redistribution above yield.
-material s355 {
-    name = "S355 (EN 10025-2), machined plate"
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 210 GPa
-        poisson_ratio = 0.30
     }
 }
 

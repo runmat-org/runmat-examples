@@ -92,6 +92,7 @@ kelvin of steady state.
 ## Files
 
 - `heat-spreader-warm-up.fea`: the study, with the lumped-model check in its header.
+- `materials.module`: the material the study imports, `aluminum_6061_t6`.
 - `geometry/heat-spreader.step`: the plate as STEP, with the body, heater pad and cooled surfaces named.
 - `runmat.toml`: the project file.
 

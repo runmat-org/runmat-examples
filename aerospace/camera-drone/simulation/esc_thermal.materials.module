@@ -1,0 +1,32 @@
+material board_stack = {
+    mass_density = 2200 kg/m^3
+    thermal = {
+        reference_temperature = 308.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.000016 K^-1
+        conductivity = 68 W/m/K
+        specific_heat = 900 J/kg/K
+    }
+}
+
+material gap_pad = {
+    mass_density = 3100 kg/m^3
+    thermal = {
+        reference_temperature = 308.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0002 K^-1
+        conductivity = 3 W/m/K
+        specific_heat = 1000 J/kg/K
+    }
+}
+
+material aluminum_6061 = {
+    mass_density = 2700 kg/m^3
+    thermal = {
+        reference_temperature = 308.15 K
+        modulus_temperature_coefficient = 0 K^-1
+        expansion_coefficient = 0.0000236 K^-1
+        conductivity = 167 W/m/K
+        specific_heat = 896 J/kg/K
+    }
+}

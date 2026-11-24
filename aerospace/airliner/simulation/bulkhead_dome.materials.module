@@ -1,0 +1,7 @@
+material aluminum_2024_t3 = {
+    mass_density = 2780 kg/m^3
+    elastic = {
+        youngs_modulus = 73.1 GPa
+        poisson_ratio = 0.33
+    }
+}

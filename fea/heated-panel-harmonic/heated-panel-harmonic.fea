@@ -8,6 +8,9 @@
 // (Leissa, Vibration of Plates). Uniform heating buckles the clamped panel at
 // dT_cr = 5.31 pi^2 h^2 / (12 (1 + nu) alpha a^2) = 341 K, so at 150 K the compression is 0.44 of
 // the buckling level and mode 1 falls by about sqrt(1 - 0.44) = 0.75, to near 1000 Hz.
+
+import { ti_6al_4v } from "./materials.module"
+
 geometry panel {
     file = "./geometry/titanium-panel.step"
     units = mm
@@ -21,27 +24,6 @@ mesh panel on geometry.panel {
         order = quadratic
         target_size = 5 mm
         maximum_deviation = 0.1 mm
-    }
-}
-
-// Ti-6Al-4V (Grade 5), annealed: ASM Aerospace Specification Metals data sheet. The Rayleigh
-// stiffness term is a modeling choice: about 2 % of critical damping at 1 kHz.
-material ti_6al_4v {
-    mass_density = 4430 kg/m^3
-    elastic {
-        youngs_modulus = 113.8 GPa
-        poisson_ratio = 0.342
-    }
-    thermal {
-        reference_temperature = 293.15 K
-        modulus_temperature_coefficient = 0 K^-1
-        conductivity = 6.7 W/m/K
-        specific_heat = 526.3 J/kg/K
-        expansion_coefficient = 0.0000086 K^-1
-    }
-    rayleigh_damping {
-        mass_coefficient = 0 Hz
-        stiffness_coefficient = 6.4 us
     }
 }
 

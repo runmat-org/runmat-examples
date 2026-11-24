@@ -3,6 +3,9 @@
 // NASA GEVS component qualification profile: 0.026 g^2/Hz at 20 Hz, rising to a 0.16 g^2/Hz plateau
 // from 50 to 800 Hz, and falling to 0.026 g^2/Hz at 2000 Hz (14.2 g RMS). The breakpoints follow the
 // profile's 6 dB per octave slopes. 3% modal damping.
+
+import { steel } from "./materials.module"
+
 geometry bracket {
     file = "./geometry/bracket.step"
     units = mm
@@ -16,14 +19,6 @@ mesh bracket on geometry.bracket {
         order = linear
         target_size = 6 mm
         maximum_deviation = 0.15 mm
-    }
-}
-
-material steel {
-    mass_density = 7850 kg/m^3
-    elastic {
-        youngs_modulus = 200 GPa
-        poisson_ratio = 0.3
     }
 }
 

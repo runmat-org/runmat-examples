@@ -96,6 +96,7 @@ a radial drop across the jacket.
 ## Files
 
 - `insulated-oil-line.fea`: the conjugate heat transfer study, with the radial resistance network in its header.
+- `materials.module`: the materials the study imports: `engine_oil_400k`, `aisi_1010` and `glass_fiber_blanket`.
 - `geometry/insulated-oil-line.step`: the oil, pipe and jacket as STEP, with the body and face names the study selects.
 - `runmat.toml`: the project file.
 
