@@ -3,6 +3,9 @@
 // with a 1 in nosing, 39 in wide between the stair wall and post C3, rising east from
 // x = 146 in to the floor edge at x = 296 in. Notched 2x12 stringers, 1 in oak treads, 3/4 in
 // painted risers and an oak handrail 36 in above the nosings (DESIGN-NOTES, "Stair").
+
+import { douglas_fir_lumber, oak, pine_painted_riser } from "../materials.module"
+
 part stair {
     feature zx_p182 = plane.offset(base = origin.zx, distance = 182 in)
     feature zx_p219_5 = plane.offset(base = origin.zx, distance = 219.5 in)

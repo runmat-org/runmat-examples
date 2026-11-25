@@ -1,4 +1,7 @@
 // The core cowl and its nozzle, aft of the fan cowl.
+
+import { titanium } from "../materials.module"
+
 part core_nozzle {
     sketch s on origin.xy {
         c1 = spline(points = [[2900 mm, 0 mm], [2900 mm, 400 mm], [3100 mm, 790 mm], [3700 mm, 760 mm], [4300 mm, 590 mm]])

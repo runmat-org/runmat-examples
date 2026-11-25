@@ -1,4 +1,7 @@
 // The axle across both wheels: its length is an input.
+
+import { steel_300m } from "../materials.module"
+
 part axle {
     input length : length = 1000 mm
 

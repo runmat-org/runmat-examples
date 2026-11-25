@@ -3,6 +3,9 @@
 // double-pane low-E glass, U-0.30, SHGC 0.25). The frame runs from 1 in outside the studs to the
 // gypsum face, so it trims the wall's full depth. Origin at the bottom corner of the rough opening
 // on the outside face of the studs: x along the wall, y inward, z up; the sill sits on the sill pan.
+
+import { aluminum_door_frame, glass_low_e_tempered, pvc_door_panel, steel_insulated_door } from "../materials.module"
+
 part door {
     input w : length = 37.75 in
     input h : length = 82 in

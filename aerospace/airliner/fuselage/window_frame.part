@@ -4,6 +4,9 @@
 // cabin window's outline), and fastened to the skin by twelve 4 mm fasteners on the ring's mid-
 // line. Drawn flat; over its 330 mm the fuselage's 1,977 mm radius bows it by 7 mm. x runs along
 // the fuselage and y round it; the seat (the face toward the cabin) is at z = 0.
+
+import { aluminum_7075 } from "../materials.module"
+
 part window_frame {
     sketch ring_s on origin.xy {
         ol1 = line(start = [-35 mm, -165 mm], end = [35 mm, -165 mm])

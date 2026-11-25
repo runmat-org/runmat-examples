@@ -1,4 +1,7 @@
 // The starboard sliding window, aft of the windshield.
+
+import { glass } from "../materials.module"
+
 part cockpit_window_side {
     input side : real = 1
 

@@ -1,4 +1,7 @@
 // A skin panel: 45° of the barrel, one section long, 3 mm thick.
+
+import { aluminum_2024 } from "../materials.module"
+
 part skin_panel {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, 1977 mm], end = [8000 mm, 1977 mm])

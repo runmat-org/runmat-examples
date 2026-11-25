@@ -1,6 +1,9 @@
 // A 2.4 GHz / 5.8 GHz antenna: a printed dipole strip on a 0.4 mm laminate, stood upright inside
 // the shell's side wall behind the board stack, clear of the carbon arms. Its origin is the
 // strip's foot, and it rises along +z.
+
+import { composite } from "../../materials.module"
+
 part antenna {
     sketch s on origin.xy {
         a1 = line(start = [-2.6 mm, -0.2 mm], end = [2.6 mm, -0.2 mm])

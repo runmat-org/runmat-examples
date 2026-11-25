@@ -1,4 +1,7 @@
 // The main gear bays: a roof, side walls and pressure walls fore and aft, open below.
+
+import { aluminum_2024 } from "../materials.module"
+
 part gear_bay {
     feature datum = plane.offset(base = origin.yz, distance = 17400 mm)
     sketch s on plane.datum {

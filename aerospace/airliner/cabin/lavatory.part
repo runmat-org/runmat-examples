@@ -1,4 +1,7 @@
 // A lavatory: a monument with its door on the aisle.
+
+import { polycarbonate } from "../materials.module"
+
 part lavatory {
     sketch s on origin.yz {
         l1 = line(start = [250 mm, -400 mm], end = [1700 mm, -400 mm])

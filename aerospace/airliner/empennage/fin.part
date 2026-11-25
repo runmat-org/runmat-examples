@@ -1,4 +1,7 @@
 // The vertical fin ahead of the rudder hinge: NACA 0011, swept 38°.
+
+import { composite } from "../materials.module"
+
 part fin {
     feature st0 = plane.offset(base = origin.xy, distance = 1500 mm)
     sketch s0 on plane.st0 {

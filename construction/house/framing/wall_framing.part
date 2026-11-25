@@ -5,6 +5,9 @@
 // layout as cripples. Each wall line and level is a configuration; the opening sizes follow the
 // opening schedule in DESIGN-NOTES.md. Local axes: x along the wall, y inward from the outside face
 // of the studs, z up from the bottom of the sill.
+
+import { douglas_fir_lumber, douglas_fir_lumber_pressure_treated, xps_foam } from "../materials.module"
+
 part wall_framing {
     input len : length = 480 in
     input zt : length = 106.125 in

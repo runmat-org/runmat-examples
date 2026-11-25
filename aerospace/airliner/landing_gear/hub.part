@@ -1,4 +1,7 @@
 // A wheel hub filling the tyre's rim: its radius is an input.
+
+import { aluminum_7075 } from "../materials.module"
+
 part hub {
     input radius : length = 440 mm
 

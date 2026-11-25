@@ -6,6 +6,9 @@
 // in bored holes (middle third, at x = 25'-9 1/2" to 26'-5"), and branch in bay C-D to each fixture:
 // stubs up through the floor at the toilets and vanities, risers in the partition between the baths
 // for the shower valve, and in wall D for the tub valve.
+
+import { galvanized_steel, pex, pvc_device } from "../../materials.module"
+
 part supply_piping {
     feature p_yz_42 = plane.offset(base = origin.yz, distance = 307.5 in)
     feature p_yz_41 = plane.offset(base = origin.yz, distance = 297 in)

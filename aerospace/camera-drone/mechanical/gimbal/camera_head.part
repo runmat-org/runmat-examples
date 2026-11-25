@@ -1,5 +1,8 @@
 // The camera head: a soft, lofted housing on the gimbal's pitch axis (its origin, y the pitch
 // axis) with the lens barrel and its glass on the front. It holds a 1-inch-class sensor.
+
+import { aluminum_6061 } from "../../materials.module"
+
 part camera_head {
     feature housing_st0 = plane.offset(base = origin.yz, distance = -12 mm)
     sketch housing_s0 on plane.housing_st0 {

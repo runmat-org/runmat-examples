@@ -1,4 +1,7 @@
 // A door to starboard, 1800 mm wide and 1150 mm tall: its outer skin, 6 mm proud of the fuselage.
+
+import { aluminum_2024 } from "../materials.module"
+
 part cargo_door_aft {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, 1986 mm], end = [1800 mm, 1986 mm])

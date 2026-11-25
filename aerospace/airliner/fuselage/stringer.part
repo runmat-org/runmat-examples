@@ -1,4 +1,7 @@
 // A stringer the length of one barrel section, under the skin at the crown.
+
+import { aluminum_7075 } from "../materials.module"
+
 part stringer {
     sketch s on origin.yz {
         l1 = line(start = [-12 mm, 1937 mm], end = [12 mm, 1937 mm])

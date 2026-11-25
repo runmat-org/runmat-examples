@@ -1,4 +1,7 @@
 // A horizontal stabilizer ahead of the elevator hinge: NACA 0010, swept 33° with 7° dihedral.
+
+import { composite } from "../materials.module"
+
 part stabilizer {
     input side : real = 1
 

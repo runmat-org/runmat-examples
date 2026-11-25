@@ -4,6 +4,9 @@
 // the post bases, and clear of the stair opening. Ceiling: the first-floor 1/2 in gypsum ceiling
 // under the floor joists, open at the stair and around the posts. The second-floor ceiling is in
 // envelope/roof.part, under the trusses.
+
+import { gypsum_board, oak_engineered_flooring, porcelain_tile } from "../materials.module"
+
 part floor_finishes {
     feature xy_p121_75 = plane.offset(base = origin.xy, distance = 121.75 in)
     feature xy_p108_625 = plane.offset(base = origin.xy, distance = 108.625 in)

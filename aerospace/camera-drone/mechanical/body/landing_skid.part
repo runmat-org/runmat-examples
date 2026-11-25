@@ -3,6 +3,9 @@
 // flush on the lower shell (bonded and screwed from inside). The two skids stand either side of
 // the heatsink's fins and hold the gimbal camera 3 mm off the ground. `side` places the skid's
 // centre line (y); its origin is the body origin.
+
+import { glass_filled_nylon } from "../../materials.module"
+
 part landing_skid {
     input side : length = 34 mm
     // The rail's depth under the struts: the wall the landing load bends.

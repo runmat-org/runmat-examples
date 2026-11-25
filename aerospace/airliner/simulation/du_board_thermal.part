@@ -3,6 +3,9 @@
 // board's x, z along its y, the board's top facing +x, toward the screen). The FEA reads STEP
 // solids and has no reader for a routed board's copper yet, so the plate carries the four-layer
 // stack's in-plane conductivity and the components' dissipation spread over its volume.
+
+import { composite } from "../materials.module"
+
 part du_board_thermal {
     sketch s on origin.yz {
         l1 = line(start = [-60 mm, -50 mm], end = [60 mm, -50 mm])

@@ -2,6 +2,9 @@
 // on the utility room's east partition, device boxes recessed in the walls and partitions with
 // their devices, the disconnect and the ceiling boxes and luminaires. The circuits are in
 // branch_circuits.circuit; DESIGN-NOTES, "Electrical", gives each location.
+
+import { galvanized_steel, pvc_device, pvc_electrical_box } from "../../materials.module"
+
 part electrical_devices {
     feature p_xy_15 = plane.offset(base = origin.xy, distance = 3 in)
     feature p_xy_14 = plane.offset(base = origin.xy, distance = 4 in)

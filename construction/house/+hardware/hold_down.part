@@ -3,6 +3,9 @@
 // sill into the stem wall and footing; in floor_to_floor it runs down through the floor to an
 // inverted bracket on the first-floor post. Origin on the sill top at the post face; +x away
 // from the post, z up. Allowable tension 3,000 lb or more (DESIGN-NOTES, "Hold-downs").
+
+import { galvanized_steel } from "../materials.module"
+
 part hold_down {
     input rod_bottom : length = -26.5 in
     sketch back_s on origin.yz {

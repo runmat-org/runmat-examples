@@ -11,6 +11,9 @@
 // - The drop's root has an R0.4 inside radius, the largest that clears the roll motor's can
 //   (0.5 mm under the plate). Every hole wall is 1.1 mm or more from an edge or another hole.
 // - `wall` is the drop's thickness. The drop grows aft, so the seat face stays at x -5.5.
+
+import { aluminum_6061 } from "../../materials.module"
+
 part gimbal_yaw_arm {
     input wall : length = 3.5 mm
 

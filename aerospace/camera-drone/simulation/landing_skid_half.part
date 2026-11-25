@@ -4,6 +4,9 @@
 // first after changing the skid (rail_thickness). The rail, the struts and the 97 N load are
 // symmetric about this plane; only the struts' tops, trimmed by the belly loft, lean slightly,
 // and they are held fixed. The cut face is the region `symmetry`.
+
+import { glass_filled_nylon } from "../materials.module"
+
 part landing_skid_half {
     feature skid = import(source = "./geometry/landing_skid.step", digest = skid_step)
     feature centre = plane.offset(base = origin.zx, distance = 34 mm)

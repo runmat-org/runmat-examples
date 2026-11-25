@@ -27,3 +27,5 @@ material air = {
         relative_permeability = 1
     }
 }
+
+material copper_c11000 = { mass_density = 8940 kg/m^3 }

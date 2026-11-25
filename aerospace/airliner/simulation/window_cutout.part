@@ -4,6 +4,9 @@
 // 7075-T6). The cutout is the cabin window's outline (cabin_window.part: 230 mm along the
 // fuselage, 250 mm round it, 80 mm corner radius). The bay is centred on the window, which
 // faces +y; the frame bay's edges are where the frames stand.
+
+import { aluminum_2024, aluminum_7075 } from "../materials.module"
+
 part window_cutout {
     feature start = plane.angle(base = origin.xy, axis = origin.x, angle = -10 deg)
     sketch band_s on plane.start {

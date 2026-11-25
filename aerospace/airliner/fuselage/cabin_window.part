@@ -1,4 +1,7 @@
 // A cabin window pane, flat, extruded outward through the skin.
+
+import { glass } from "../materials.module"
+
 part cabin_window {
     sketch s on origin.zx {
         l1 = line(start = [-45 mm, -115 mm], end = [45 mm, -115 mm])

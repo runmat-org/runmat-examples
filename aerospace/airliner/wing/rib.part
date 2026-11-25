@@ -1,4 +1,7 @@
 // A wing rib between the spars, its section scaled to the station's chord and thickness.
+
+import { aluminum_7075 } from "../materials.module"
+
 part rib {
     input chord : length = 6400 mm
     input thickness : real = 0.145

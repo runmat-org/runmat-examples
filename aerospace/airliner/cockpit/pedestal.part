@@ -1,4 +1,7 @@
 // The centre pedestal: throttle quadrant and radio panels between the pilot seats.
+
+import { aluminum_6061 } from "../materials.module"
+
 part pedestal {
     sketch s on origin.zx {
         c1 = spline(points = [[-370 mm, 1680 mm], [-391 mm, 1689 mm], [-400 mm, 1710 mm]])

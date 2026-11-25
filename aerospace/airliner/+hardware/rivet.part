@@ -1,4 +1,7 @@
 // A countersunk rivet, axis along z: its head sits flush, 1 mm under the skin's outer face.
+
+import { aluminum_2117 } from "../materials.module"
+
 part rivet {
     sketch s on origin.yz {
         l1 = line(start = [0 mm, -16 mm], end = [2.4 mm, -16 mm])

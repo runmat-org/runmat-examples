@@ -8,6 +8,9 @@
 // the kitchen sink and leaves through the north stem wall. Vents: a 1 1/2 in vent at the tub end rises in
 // wall D and a 2 in vent rises in the partition between the baths; each runs across the attic and out
 // through the roof. The primary vanity basins and the hall lavatory vent through air admittance valves.
+
+import { pvc_dwv } from "../../materials.module"
+
 part dwv_piping {
     feature p_xy_25 = plane.offset(base = origin.xy, distance = 12 in)
     feature p_yz_24 = plane.offset(base = origin.yz, distance = 280 in)

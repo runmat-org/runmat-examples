@@ -1,4 +1,7 @@
 // The fixed trailing edge outboard of the aileron.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_trailing_edge_tip {
     input side : real = 1
 

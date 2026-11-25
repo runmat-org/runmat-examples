@@ -1,6 +1,9 @@
 // The perimeter stem wall: 8 in cast-in-place concrete from the top of the footing to the top
 // of the slab, its outside face on the building line. One #4 continuous bar 3 in below the top
 // carries the anchor-bolt line; the #4 dowels from the footing lap into it (footing.part).
+
+import { concrete, steel_rebar_grade_60 } from "../materials.module"
+
 part stem_wall {
     feature base = plane.offset(base = origin.xy, distance = -22 in)
     sketch wall_s on plane.base {

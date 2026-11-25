@@ -1,6 +1,9 @@
 // The body's lower shell: the same loft below the split line, closed at the tail by a lofted
 // cap, with the battery bay's lower half mid-body and a window in the belly for the ESC's heatsink, which carries the ESC and the
 // flight controller on the 30.5 mm stack pattern and puts its fins in the downwash.
+
+import { polycarbonate } from "../../materials.module"
+
 part body_bottom {
     feature outer_st0 = plane.offset(base = origin.yz, distance = -94 mm)
     sketch outer_s0 on plane.outer_st0 {

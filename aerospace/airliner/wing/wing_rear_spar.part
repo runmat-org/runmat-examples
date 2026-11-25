@@ -1,4 +1,7 @@
 // A spar web at 65 % chord, root to tip.
+
+import { aluminum_7075 } from "../materials.module"
+
 part wing_rear_spar {
     input side : real = 1
 

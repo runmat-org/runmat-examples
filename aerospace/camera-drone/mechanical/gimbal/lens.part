@@ -1,4 +1,7 @@
 // The camera's front lens element and its cover glass, seated in the barrel's bezel.
+
+import { glass } from "../../materials.module"
+
 part lens {
     feature base = plane.offset(base = origin.yz, distance = 17.4 mm)
     sketch s on plane.base {

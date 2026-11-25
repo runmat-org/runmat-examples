@@ -1,4 +1,7 @@
 // A door, 820 mm wide and 1850 mm tall: its outer skin, 6 mm proud of the fuselage; to starboard, or to port in the opposite hand.
+
+import { aluminum_2024 } from "../materials.module"
+
 part passenger_door_aft {
     input side : real = 1
 

@@ -1,4 +1,7 @@
 // A galley: three cart bays and a worktop open to the aisle.
+
+import { polycarbonate } from "../materials.module"
+
 part galley {
     sketch s on origin.yz {
         l1 = line(start = [250 mm, -400 mm], end = [1700 mm, -400 mm])

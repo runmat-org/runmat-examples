@@ -1,6 +1,9 @@
 // A face-mount joist hanger, 18 gauge galvanized steel: a seat under the joist, sides up the
 // joist and flanges nailed to the beam face. Origin on the beam face at the bottom of the joist;
 // +y along the joist. Configurations for a single I-joist, a doubled I-joist and an LVL header.
+
+import { galvanized_steel } from "../materials.module"
+
 part joist_hanger {
     input width : length = 2.3125 in
     let t = 0.048 in

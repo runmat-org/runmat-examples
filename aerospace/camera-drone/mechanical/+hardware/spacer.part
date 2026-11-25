@@ -1,4 +1,7 @@
 // A nylon M3 spacer between the stack's boards. Its height is an input.
+
+import { nylon } from "../../materials.module"
+
 part spacer {
     input height : length = 6 mm
 

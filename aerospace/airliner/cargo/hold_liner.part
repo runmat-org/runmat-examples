@@ -1,4 +1,7 @@
 // A cargo hold's sidewall liner, one side, inside the frames from the cargo floor to the floor beams.
+
+import { composite } from "../materials.module"
+
 part hold_liner {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, 1800 mm], end = [6800 mm, 1800 mm])

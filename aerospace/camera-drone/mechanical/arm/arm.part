@@ -2,6 +2,9 @@
 // Its origin is the hinge axis (z) at the knuckle's mid-height and it runs along +x; the pad at
 // the tip rises by `rise` so the props clear the body. The knuckle turns on the hinge pin, and
 // four M2 screws hold the motor and its pod to the pad.
+
+import { carbon_fiber } from "../../materials.module"
+
 part arm {
     // `length` is the nominal pin-bore-to-motor-axis length, the one arm.drawing dimensions. A
     // station that needs a longer or shorter arm sets `length_offset`, so a change of `length`

@@ -1,6 +1,9 @@
 // Bath fixtures on the second floor, in building coordinates: the hall bath (60 in tub, toilet,
 // 36 in vanity) and the primary bath (36 x 48 in shower with glass, toilet, 60 in double vanity),
 // on the tile floor. Simple bodies the plumbing connects to.
+
+import { birch_plywood_cabinet, cultured_marble, enameled_steel_bathtub, glass_tempered, vitreous_china } from "../materials.module"
+
 part baths {
     feature xy_p122_25 = plane.offset(base = origin.xy, distance = 122.25 in)
     feature xy_p124_25 = plane.offset(base = origin.xy, distance = 124.25 in)

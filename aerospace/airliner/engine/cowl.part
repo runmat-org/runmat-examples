@@ -1,4 +1,7 @@
 // The nacelle cowl: a rounded inlet lip swelling to 1.1 m and closing over the core, turned about x.
+
+import { composite } from "../materials.module"
+
 part cowl {
     sketch s on origin.xy {
         c1 = spline(points = [[180 mm, 835 mm], [50 mm, 850 mm], [0 mm, 895 mm], [30 mm, 965 mm], [300 mm, 1045 mm], [1100 mm, 1100 mm], [2200 mm, 1075 mm], [3000 mm, 975 mm], [3450 mm, 880 mm]])

@@ -9,3 +9,5 @@ material grey_iron = {
         expansion_coefficient = 0.0000125 K^-1
     }
 }
+
+material grey_iron_en_gjl_250 = { mass_density = 7850 kg/m^3 }

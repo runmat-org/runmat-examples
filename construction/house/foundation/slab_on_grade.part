@@ -3,6 +3,9 @@
 // of XPS (R-5) on the inside face of the stem wall from the top of the slab down to the footing,
 // the slab-edge thermal break. The pad footings come up through the base and the insulation to
 // the vapor retarder. Each layer is its own body with its material.
+
+import { concrete, crushed_stone_gravel, polyethylene_10_mil, xps_foam } from "../materials.module"
+
 part slab_on_grade {
     feature slab_plane = plane.offset(base = origin.xy, distance = -4 in)
     sketch slab_s on plane.slab_plane {

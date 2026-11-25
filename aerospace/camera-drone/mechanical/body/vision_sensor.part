@@ -1,5 +1,8 @@
 // A vision sensor: a stereo camera's lens in its bezel (the obstacle-sensing pairs at the nose
 // and under the belly). Its origin is the lens centre on the shell, looking along +z.
+
+import { glass } from "../../materials.module"
+
 part vision_sensor {
     feature base = plane.offset(base = origin.xy, distance = -1.6 mm)
     sketch s on plane.base {

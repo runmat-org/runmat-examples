@@ -1,4 +1,7 @@
 // The starboard front windshield pane, beside the centre post.
+
+import { glass } from "../materials.module"
+
 part cockpit_window_front {
     input side : real = 1
 

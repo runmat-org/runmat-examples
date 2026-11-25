@@ -1,4 +1,7 @@
 // The fan disk behind the inlet.
+
+import { titanium } from "../materials.module"
+
 part fan {
     sketch s on origin.yz {
         c = circle(center = [0 mm, 0 mm], radius = 840 mm)

@@ -1,4 +1,7 @@
 // The sidewall lining over one frame bay: 45.3° of the cabin wall with the window's reveal.
+
+import { polycarbonate } from "../materials.module"
+
 part sidewall_lining {
     sketch s on origin.xy {
         l1 = line(start = [-248 mm, 1800 mm], end = [248 mm, 1800 mm])

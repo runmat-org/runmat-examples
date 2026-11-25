@@ -6,6 +6,9 @@
 // loses about 3.4 W, which still air (10 W/m^2/K over its 12,400 mm^2) carries off at about
 // 31 K over ambient: about 56 degC at 25 degC, under the 85 degC limit.
 // Change `thickness`, `width` or the bolt pitch and re-run the study.
+
+import { copper_c11000 } from "./materials.module"
+
 part busbar {
     input length : length = 200 mm
     input width : length = 30 mm

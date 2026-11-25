@@ -1,4 +1,7 @@
 // A lower-deck container: a sloped base for the hold's curve, full width, 1530 mm long.
+
+import { aluminum_2024 } from "../materials.module"
+
 part cargo_container {
     sketch s on origin.yz {
         l1 = line(start = [-620 mm, -1690 mm], end = [620 mm, -1690 mm])

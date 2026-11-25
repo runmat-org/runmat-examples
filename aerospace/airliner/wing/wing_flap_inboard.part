@@ -1,4 +1,7 @@
 // The inboard flap, aft of the rear spar.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_flap_inboard {
     input side : real = 1
 

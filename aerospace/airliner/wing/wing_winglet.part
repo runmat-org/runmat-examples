@@ -1,4 +1,7 @@
 // The winglet: a swept, canted blade lofted up from inside the wing tip.
+
+import { composite } from "../materials.module"
+
 part wing_winglet {
     input side : real = 1
 

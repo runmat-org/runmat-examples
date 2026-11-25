@@ -1,4 +1,7 @@
 // The glareshield over the instrument panel, carrying the flight control unit.
+
+import { polycarbonate } from "../materials.module"
+
 part glareshield {
     sketch s on origin.zx {
         c1 = spline(points = [[412 mm, 1309 mm], [403.6 mm, 1307.2 mm], [400 mm, 1315 mm]])

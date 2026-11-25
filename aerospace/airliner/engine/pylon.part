@@ -1,4 +1,7 @@
 // The pylon from the cowl's crown up into the wing box, 360 mm wide.
+
+import { titanium } from "../materials.module"
+
 part pylon {
     sketch s on origin.zx {
         l1 = line(start = [1040 mm, 700 mm], end = [860 mm, 3300 mm])

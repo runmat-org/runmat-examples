@@ -1,4 +1,7 @@
 // The outboard flap.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_flap_outboard {
     input side : real = 1
 

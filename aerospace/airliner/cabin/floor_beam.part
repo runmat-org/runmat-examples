@@ -1,4 +1,7 @@
 // A floor beam: an I section 150 mm deep across the fuselage at a frame, under the floor panels.
+
+import { aluminum_7075 } from "../materials.module"
+
 part floor_beam {
     sketch s on origin.zx {
         l1 = line(start = [-560 mm, -40 mm], end = [-560 mm, 40 mm])

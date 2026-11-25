@@ -1,4 +1,7 @@
 // The overhead panel in the flight deck roof: the systems switches over the pilots' heads.
+
+import { aluminum_6061 } from "../materials.module"
+
 part overhead_panel {
     sketch s on origin.zx {
         l1 = line(start = [975.491 mm, 2080 mm], end = [1020.509 mm, 2180 mm])

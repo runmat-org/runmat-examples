@@ -1,4 +1,7 @@
 // A seat's frame: two leg plates and two cross tubes under the cushion.
+
+import { aluminum_7075 } from "../materials.module"
+
 part seat_frame {
     feature leg0_at = plane.offset(base = origin.zx, distance = -180 mm)
     sketch leg0_s on plane.leg0_at {

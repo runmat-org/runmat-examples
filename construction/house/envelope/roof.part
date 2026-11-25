@@ -5,6 +5,9 @@
 // bay by bay between the trusses. A polystyrene baffle in every bay keeps a 1 1/2 in air channel
 // under the sheathing from the soffit vents past the insulation (DESIGN-NOTES, "Roof and attic").
 // Roof layers are drawn at their nominal thickness normal to the 6:12 slope.
+
+import { aluminum_vented_soffit, asphalt_shingle, douglas_fir_lumber, glass_wool_loose_fill, gypsum_board, osb, polypropylene_ridge_vent, polypropylene_synthetic_underlayment, polystyrene_vent_baffle, stucco_finish_coat } from "../materials.module"
+
 part roof {
     feature yz_m2 = plane.offset(base = origin.yz, distance = -2 in)
     feature yz_m2_5 = plane.offset(base = origin.yz, distance = -2.5 in)

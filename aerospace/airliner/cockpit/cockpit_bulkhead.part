@@ -1,4 +1,7 @@
 // The flight deck bulkhead with the cockpit door's opening, 800 mm wide and 1900 mm tall.
+
+import { composite } from "../materials.module"
+
 part cockpit_bulkhead {
     feature datum = plane.offset(base = origin.yz, distance = 3600 mm)
     sketch s on plane.datum {

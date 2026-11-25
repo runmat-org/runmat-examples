@@ -1,4 +1,7 @@
 // The flight deck and forward cabin floor, from the rudder pedals aft to the first barrel section.
+
+import { composite } from "../materials.module"
+
 part cockpit_floor {
     feature datum = plane.offset(base = origin.xy, distance = -410 mm)
     sketch s on plane.datum {

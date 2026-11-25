@@ -1,4 +1,7 @@
 // A fuselage frame: a ring 147 mm deep and 40 mm wide under the skin.
+
+import { aluminum_7075 } from "../materials.module"
+
 part frame {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, 1830 mm], end = [40 mm, 1830 mm])

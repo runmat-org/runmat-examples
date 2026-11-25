@@ -2,3 +2,5 @@ material air = {
     mass_density = 1.204 kg/m^3
     acoustic = { speed_of_sound = 343 m/s, damping_ratio = 0.0 }
 }
+
+material aluminized_steel = { mass_density = 7850 kg/m^3 }

@@ -2,6 +2,9 @@
 // cabinets 34 1/2 in high and 24 in deep (3/4 in plywood carcasses on 4 in toe kicks) under a 1 1/2 in stone countertop at 36 1/2 in above the
 // slab, a sink centered on the window W5, a 30 in range, a refrigerator and wall cabinets clear of
 // the window. Simple bodies the plumbing and electrical runs connect to.
+
+import { birch_plywood_cabinet, granite_countertop, stainless_304 } from "../materials.module"
+
 part kitchen {
     feature xy_p0_5 = plane.offset(base = origin.xy, distance = 0.5 in)
     feature xy_p5_25 = plane.offset(base = origin.xy, distance = 5.25 in)

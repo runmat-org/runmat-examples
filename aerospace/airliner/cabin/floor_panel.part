@@ -1,4 +1,7 @@
 // The cabin floor over one barrel section: honeycomb panels on the floor beams.
+
+import { composite } from "../materials.module"
+
 part floor_panel {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, -1775.749 mm], end = [8000 mm, -1775.749 mm])

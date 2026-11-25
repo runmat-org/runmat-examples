@@ -4,6 +4,9 @@
 // rail that the skid rests on, mitred at all four corners. Two cross members butt between the top
 // rails, and the side frames sit across two feet that give the stand its 260 mm width. Origin:
 // on the ground under the cradle's centre; x points to the drone's nose.
+
+import { al_6061 } from "../../materials.module"
+
 part launch_stand {
     // The feet lie on the ground, across the drone's axis; their centre lines are 10 mm up.
     feature foot_plane = plane.offset(base = origin.xy, distance = 10 mm)

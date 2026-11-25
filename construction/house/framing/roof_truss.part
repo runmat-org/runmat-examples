@@ -4,6 +4,9 @@
 // vertical studs at 16 in o.c. in place of the webs, for the gable sheathing. Local axes: y across
 // the span from the outside face of wall A, z up from the top of the wall plates, x through the
 // 1 1/2 in thickness, centred.
+
+import { douglas_fir_lumber, galvanized_steel } from "../materials.module"
+
 part roof_truss {
     feature mid = plane.offset(base = origin.yz, distance = -0.75 in)
     feature face_pos = plane.offset(base = origin.yz, distance = 0.75 in)

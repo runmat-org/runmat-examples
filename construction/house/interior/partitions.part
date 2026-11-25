@@ -4,6 +4,9 @@
 // wall of the floor plan (DESIGN-NOTES, "Floor plan"); the two guard configurations are the
 // 36 in half walls at the stair opening. Local axes: x along the wall, y through it (0 to 4 1/2 in),
 // z up from the slab or subfloor.
+
+import { douglas_fir_lumber, gypsum_board } from "../materials.module"
+
 part partitions {
     input len : length = 150 in
     input h : length = 108.625 in

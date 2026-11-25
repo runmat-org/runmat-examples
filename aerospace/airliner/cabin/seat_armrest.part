@@ -1,4 +1,7 @@
 // An armrest between two seats, on a post from the seat frame.
+
+import { polycarbonate } from "../materials.module"
+
 part seat_armrest {
     sketch s on origin.zx {
         l1 = line(start = [595 mm, -150 mm], end = [595 mm, 200 mm])

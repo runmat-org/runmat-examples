@@ -8,6 +8,9 @@
 // The disc's axis is z; the inboard friction face lies on z = 0 and the hub face on z = 60 mm.
 // The plate, hat and bore sizes are inputs; the vane count and thickness come from the generator
 // (runmat-cad/wasm/tests/sim/brake-disc, gen_disc.py), which writes the vane sketch.
+
+import { grey_iron_en_gjl_250 } from "./materials.module"
+
 part disc {
     input outer_radius : length = 150 mm
     input plate : length = 9 mm

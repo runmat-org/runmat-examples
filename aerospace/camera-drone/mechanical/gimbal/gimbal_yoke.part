@@ -2,6 +2,9 @@
 // the pitch motor on its left side and the pitch bearing on its right. Its origin is the roll
 // axis (x) at the roll motor's front face. The pitch axis (y) is 19.5 mm ahead of it, so the
 // camera's back (15.3 mm from the pitch axis) clears the yoke over the whole pitch travel.
+
+import { aluminum_6061 } from "../../materials.module"
+
 part gimbal_yoke {
     feature back_base = plane.offset(base = origin.yz, distance = 0 mm)
     sketch back_s on plane.back_base {

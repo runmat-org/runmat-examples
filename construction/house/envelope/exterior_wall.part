@@ -8,6 +8,9 @@
 // sill plate and 6 in above grade. One configuration per wall line and level. Local axes as
 // wall_framing: x along the wall, y inward from the outside face of the studs, z up.
 // Thin sheets are drawn at their nominal thickness: each paper layer 1/32 in, the retarder 1/64 in.
+
+import { asphalt_saturated_kraft_wrb, fiberglass_batt, galvanized_steel_flashing, galvanized_steel_lath, galvanized_steel_weep_screed, gypsum_board, nylon_vapor_retarder, stucco_brown_coat, stucco_finish_coat, stucco_scratch_coat } from "../materials.module"
+
 part exterior_wall {
     input stucco_finish_x0 : length = -1.375 in
     input stucco_finish_x1 : length = 481.375 in

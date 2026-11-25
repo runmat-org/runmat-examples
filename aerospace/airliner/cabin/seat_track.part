@@ -1,4 +1,7 @@
 // A seat track along one barrel section, flush with the floor panels.
+
+import { aluminum_7075 } from "../materials.module"
+
 part seat_track {
     sketch s on origin.yz {
         l1 = line(start = [-14 mm, 0 mm], end = [14 mm, 0 mm])

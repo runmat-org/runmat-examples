@@ -1,4 +1,7 @@
 // The tail cone: a 5 mm skin lofted aft through circles from the barrel, closing and sweeping up to the APU exhaust.
+
+import { aluminum_2024 } from "../materials.module"
+
 part tail_cone {
     sketch s0 on origin.yz {
         c = circle(center = [0 mm, 0 mm], radius = 1980 mm)

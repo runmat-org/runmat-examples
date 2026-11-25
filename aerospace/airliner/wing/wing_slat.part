@@ -1,4 +1,7 @@
 // The leading-edge slat, engine to tip.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_slat {
     input side : real = 1
 

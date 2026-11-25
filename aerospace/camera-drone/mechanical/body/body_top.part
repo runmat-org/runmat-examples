@@ -4,6 +4,9 @@
 // window sits at the front, and the battery's lid opening sits mid-body over the thrust centre;
 // the tail is closed by a lofted cap. The front hinge mounts seat
 // in recesses moulded where they pass through the wall (0.05 mm clear all round).
+
+import { polycarbonate } from "../../materials.module"
+
 part body_top {
     feature outer_st0 = plane.offset(base = origin.yz, distance = -94 mm)
     sketch outer_s0 on plane.outer_st0 {

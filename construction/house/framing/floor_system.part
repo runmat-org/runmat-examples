@@ -3,6 +3,9 @@
 // LVL beams on grids B and C (on posts at grids 2, 3 and 4 and on the end walls), the stair
 // opening between them with doubled trimmers, an LVL header and tail joists, and 3/4 in
 // tongue-and-groove subfloor. Joists hang from the beams on face-mount hangers (framing.assembly).
+
+import { engineered_lumber_i_joist, lsl_rim_board, lvl, osb } from "../materials.module"
+
 part floor_system {
     input spacing : length = 16 in
     feature y_ab = plane.offset(base = origin.zx, distance = 1.125 in)

@@ -16,6 +16,9 @@
 //   R = 0.15 K/W, 0.9 K; pedestal: 6 mm of aluminium over 38 x 38 mm, R = 0.025 K/W, 0.2 K.
 // The board's pad sits about 14 K over ambient, about 49 degC. The four polycarbonate bosses
 // gave 258 K/W (1,600 K) on the same losses. Mass: 22,200 mm^3 of aluminium, 60 g.
+
+import { aluminum_6061 } from "../../materials.module"
+
 part esc_heatsink {
     feature base_plane = plane.offset(base = origin.xy, distance = 1.5 mm)
     sketch base_s on plane.base_plane {

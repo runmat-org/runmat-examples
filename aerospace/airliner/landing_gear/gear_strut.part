@@ -1,6 +1,9 @@
 // An oleo strut hanging from its trunnion: a 300M steel cylinder with the shock absorber's bore
 // open at the axle end, stopping 200 mm short of the trunnion end. Length, radius and bore
 // radius are inputs.
+
+import { steel_300m } from "../materials.module"
+
 part gear_strut {
     input length : length = 2500 mm
     input radius : length = 115 mm

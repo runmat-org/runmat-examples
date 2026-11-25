@@ -1,4 +1,7 @@
 // An overhead bin module: its back on the lining, its door curving down to the aisle.
+
+import { polycarbonate } from "../materials.module"
+
 part overhead_bin {
     sketch s on origin.yz {
         c1 = spline(points = [[1472.277 mm, 1014.654 mm], [1480.883 mm, 998.938 mm], [1462.982 mm, 999.71 mm]])

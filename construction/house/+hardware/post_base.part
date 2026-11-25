@@ -1,5 +1,8 @@
 // A standoff post base: a 1 in steel standoff under a 6x6 post, with straps up two faces,
 // anchored into the slab over the pad footing. Origin on the top of the slab at the post axis.
+
+import { galvanized_steel } from "../materials.module"
+
 part post_base {
     sketch plate_s on origin.xy {
         e0 = line(start = [-2.75 in, -2.75 in], end = [2.75 in, -2.75 in])

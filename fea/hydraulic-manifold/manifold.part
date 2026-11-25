@@ -12,6 +12,9 @@
 // - 10 mm work ports: U = Q / A = 3.333e-4 / 7.854e-5 = 4.24 m/s, Re = U d / nu = 922.
 // - 12 mm galleries: U = 2.95 m/s, Re = 768.
 // Change `bore`, `gallery` or the gallery positions below and re-run the study.
+
+import { aluminum_6061 } from "./materials.module"
+
 part manifold {
     input length : length = 90 mm
     input width : length = 80 mm

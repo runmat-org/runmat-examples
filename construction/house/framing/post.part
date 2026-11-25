@@ -1,4 +1,7 @@
 // An interior 6x6 post (Douglas fir-larch No. 1) from its base on the slab to the floor beam.
+
+import { douglas_fir_lumber } from "../materials.module"
+
 part post {
     input height : length = 108.125 in
     sketch s on origin.xy {

@@ -3,6 +3,9 @@
 // walls below (exterior_wall.part). Its top edge is the roof plane (the top of the top chords), so
 // the roof sheathing runs over it. Local axes as the second-floor wall frames of walls 1 and 5:
 // x along the wall, y inward, z up from the second floor.
+
+import { asphalt_saturated_kraft_wrb, galvanized_steel_lath, osb, stucco_brown_coat, stucco_finish_coat, stucco_scratch_coat } from "../materials.module"
+
 part gable_wall {
     feature zx_m0_4375 = plane.offset(base = origin.zx, distance = -0.4375 in)
     feature zx_m1_375 = plane.offset(base = origin.zx, distance = -1.375 in)

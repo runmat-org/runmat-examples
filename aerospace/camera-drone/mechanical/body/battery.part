@@ -6,6 +6,9 @@
 // third slides under the upper shell. Its origin is the body origin, so it places at identity.
 // For mass it is one lumped body: cells, case and electronics at 2,110 kg/m^3 over the case's
 // 141 cm^3, 297 g (a 6S 2,000 mAh pack's weight).
+
+import { lipo_pack } from "../../materials.module"
+
 part battery {
     feature case_st0 = plane.offset(base = origin.yz, distance = -94 mm)
     sketch case_s0 on plane.case_st0 {

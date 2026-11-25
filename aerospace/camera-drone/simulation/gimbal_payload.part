@@ -3,6 +3,9 @@
 // camera and lens. Together they weigh 52.3 g with the centre of mass 17.7 mm ahead of the yaw
 // axis. The motor's back face bears on the seat around its bore and screws; one stiff block runs
 // from the motor's front face to the centre of mass, where the study applies the load.
+
+import { aluminum_6061 } from "../materials.module"
+
 part gimbal_payload {
     feature seat = plane.offset(base = origin.yz, distance = -5.5 mm)
     sketch motor_s on plane.seat {

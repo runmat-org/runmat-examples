@@ -9,6 +9,9 @@
 // F = Cd 0.5 rho U^2 A = 2 x 0.5 x 861 x 1 x 864e-6 = 0.74 N on its 864 mm^2 in the run, about
 // 64 mm below the clamp. Change `paddle`, `paddle_width` or `paddle_length` and re-run.
 // The run's axis is x; the boss's axis is z; the origin is where they cross.
+
+import { stainless_1_4310, steel_a106b } from "./materials.module"
+
 part flow_switch {
     input run_bore : length = 52.5 mm
     input run_outside : length = 60.3 mm

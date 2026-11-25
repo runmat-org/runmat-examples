@@ -2,6 +2,9 @@
 // outline and its four stack holes. The FEA reads STEP solids and has no reader for a routed
 // board's copper yet, so the board is a plate with the four-layer stack's in-plane conductivity
 // and its losses spread over its volume. Its origin is the board's centre on its underside.
+
+import { composite } from "../materials.module"
+
 part esc_board_thermal {
     sketch s on origin.xy {
         l1 = line(start = [-24 mm, -26 mm], end = [24 mm, -26 mm])

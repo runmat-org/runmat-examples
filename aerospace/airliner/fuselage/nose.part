@@ -1,4 +1,7 @@
 // The nose: a drooped shell lofted through elliptical sections, tangent to the barrel, with openings for the cockpit glazing.
+
+import { composite } from "../materials.module"
+
 part nose {
     feature skin_st0 = plane.offset(base = origin.yz, distance = 2 mm)
     sketch skin_s0 on plane.skin_st0 {

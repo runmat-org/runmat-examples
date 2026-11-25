@@ -1,4 +1,7 @@
 // The ceiling over one barrel section: the lining's crown between the two rows of bins.
+
+import { polycarbonate } from "../materials.module"
+
 part ceiling_panel {
     sketch s on origin.xy {
         l1 = line(start = [0 mm, 1800 mm], end = [8000 mm, 1800 mm])

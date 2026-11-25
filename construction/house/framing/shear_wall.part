@@ -4,6 +4,9 @@
 // floors. Nailing (DESIGN-NOTES, "Shear walls"): 8d common (0.131 x 2 1/2 in) at 6 in o.c. at
 // panel edges and 12 in o.c. in the field; the regions name the faces each schedule applies to.
 // Local axes as wall_framing: x along the wall, y inward (the panel is at y < 0), z up.
+
+import { osb } from "../materials.module"
+
 part shear_wall {
     input x0 : length = -0.4375 in
     input x1 : length = 480.4375 in

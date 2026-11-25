@@ -1,5 +1,8 @@
 // A framed chase in the dining room's north-east corner around the 3 in drain stack:
 // 2x4 studs and plates with 1/2 in gypsum on the room faces, from the floor finish to the ceiling board.
+
+import { douglas_fir_lumber, gypsum_board } from "../../materials.module"
+
 part plumbing_chase {
     feature p_xy_2 = plane.offset(base = origin.xy, distance = 2 in)
     feature p_xy_1 = plane.offset(base = origin.xy, distance = 107.125 in)

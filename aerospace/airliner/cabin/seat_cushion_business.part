@@ -1,4 +1,7 @@
 // A business seat's cushion and back, 500 mm wide, in leather.
+
+import { leather } from "../materials.module"
+
 part seat_cushion_business {
     sketch s on origin.zx {
         c1 = spline(points = [[409.451 mm, -222.005 mm], [418.133 mm, -242.912 mm], [437.657 mm, -254.367 mm]])

@@ -4,6 +4,9 @@
 // fixed, single hung (two sashes), casement and slider. Origin at the bottom corner of the rough
 // opening on the outside face of the studs (the skeleton's opening frames): x along the wall,
 // y inward, z up. The unit sits on 1/4 in shims over the sill pan.
+
+import { glass_low_e_argon, pvc_window_frame, pvc_window_sash } from "../materials.module"
+
 part window {
     input w : length = 36 in
     input h : length = 60 in

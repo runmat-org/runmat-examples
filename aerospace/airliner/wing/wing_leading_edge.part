@@ -1,4 +1,7 @@
 // The fixed leading edge inboard of the engine.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_leading_edge {
     input side : real = 1
 

@@ -2,6 +2,9 @@
 // a tab over the top plate and a leg down the inside face of the top plates. Origin at the
 // truss face on the top of the plates over the outside face of the wall; +x away from the
 // truss, +y into the building, z up.
+
+import { galvanized_steel } from "../materials.module"
+
 part truss_tie {
     let t = 0.048 in
     sketch leg_s on origin.yz {

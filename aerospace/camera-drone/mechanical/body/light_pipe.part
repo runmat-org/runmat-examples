@@ -2,6 +2,9 @@
 // shell, lit from the flight controller's status LED below. It is a 2.6 x 15.6 mm obround on the
 // window's centres (R1.3 ends at x = 67.5 and 80.5 mm), so it clears the 3 x 16 mm window by
 // 0.2 mm all round.
+
+import { polycarbonate } from "../../materials.module"
+
 part light_pipe {
     feature base = plane.offset(base = origin.xy, distance = 46.5 mm)
     sketch s on plane.base {

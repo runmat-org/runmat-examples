@@ -1,4 +1,7 @@
 // An elevator, aft of the hinge line at 70 % chord.
+
+import { composite } from "../materials.module"
+
 part elevator {
     input side : real = 1
 

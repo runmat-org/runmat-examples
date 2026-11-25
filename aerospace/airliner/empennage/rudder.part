@@ -1,4 +1,7 @@
 // The rudder, aft of the hinge line at 70 % chord.
+
+import { composite } from "../materials.module"
+
 part rudder {
     feature st0 = plane.offset(base = origin.xy, distance = 1500 mm)
     sketch s0 on plane.st0 {

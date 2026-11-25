@@ -1,6 +1,9 @@
 // A gimbal motor: a flat brushless outrunner with a machined face ring. Its origin is the motor's
 // centre and it turns about z. Each axis takes its own motor size, and each size is its own
 // part number: yaw 20 x 6 mm, roll 17 x 5 mm, pitch 15 x 4.5 mm.
+
+import { aluminum_6061 } from "../../materials.module"
+
 part gimbal_motor {
     input radius : length = 10 mm
     input height : length = 6 mm

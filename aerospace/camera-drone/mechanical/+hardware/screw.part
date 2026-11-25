@@ -1,5 +1,8 @@
 // An M3 button-head cap screw. Its length (under the head) is an input; the head is z = 0..1.65
 // and the shank runs down -z.
+
+import { steel } from "../../materials.module"
+
 part screw {
     input length : length = 8 mm
 

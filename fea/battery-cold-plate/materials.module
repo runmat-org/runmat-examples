@@ -42,3 +42,7 @@ material water_glycol_50 = {
         expansion_coefficient = 0.0006 K^-1
     }
 }
+
+material gap_filler_3w = {}
+
+material li_ion_prismatic = {}

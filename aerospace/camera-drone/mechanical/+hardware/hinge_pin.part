@@ -1,4 +1,7 @@
 // The hinge pin: a 4 mm ground steel pin through the clevis and the arm's knuckle.
+
+import { steel } from "../../materials.module"
+
 part hinge_pin {
     feature base = plane.offset(base = origin.xy, distance = -10.1 mm)
     sketch s on plane.base {

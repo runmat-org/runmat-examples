@@ -1,5 +1,8 @@
 // A 5/8 in anchor bolt cast into the stem wall, 10 in embedment, with a 3 x 3 x 0.229 in plate
 // washer and nut on the sill plate. Origin on the top of the sill at the bolt axis.
+
+import { galvanized_steel } from "../materials.module"
+
 part anchor_bolt {
     feature down = plane.offset(base = origin.xy, distance = -11.5 in)
     sketch rod2_s on plane.down {

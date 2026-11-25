@@ -1,4 +1,7 @@
 // The upper wing-box skin between the spars, 4 mm thick, root to tip.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_box_skin_upper {
     input side : real = 1
 

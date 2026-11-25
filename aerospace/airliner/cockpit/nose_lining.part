@@ -1,4 +1,7 @@
 // The flight deck lining: sidewalls and ceiling from behind the windshield to the barrel, with reveals at the side windows.
+
+import { polycarbonate } from "../materials.module"
+
 part nose_lining {
     feature lining_st0 = plane.offset(base = origin.yz, distance = 1800 mm)
     sketch lining_s0 on plane.lining_st0 {

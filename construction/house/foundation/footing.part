@@ -4,6 +4,9 @@
 // retarder. Reinforcement (Grade 60, 3 in cover): two #4 continuous each way in the perimeter
 // footing, three #4 each way in each pad, and #4 dowels at 48 in o.c. lapping 18 in into the stem
 // wall. DESIGN-NOTES, "Footings", has the sizing.
+
+import { concrete, steel_rebar_grade_60 } from "../materials.module"
+
 part footing {
     let width : length = 20 in
     feature base = plane.offset(base = origin.xy, distance = -32 in)

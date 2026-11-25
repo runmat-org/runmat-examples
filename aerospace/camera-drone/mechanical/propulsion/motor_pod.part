@@ -2,6 +2,9 @@
 // stator and the arm's wiring; the bell turns above its rim. Its underside is pocketed
 // (R9.2, 7 mm deep) to fit over the arm's R9 pad, and the pocket's ceiling seats on the pad's
 // top face. Its origin is the motor axis (z) at the arm pad's top face.
+
+import { glass_filled_nylon } from "../../materials.module"
+
 part motor_pod {
     input arm_roll : angle = 0 deg
     sketch prof on origin.zx {

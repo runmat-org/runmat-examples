@@ -1,4 +1,7 @@
 // The starboard aft side window, tapering aft.
+
+import { glass } from "../materials.module"
+
 part cockpit_window_aft {
     input side : real = 1
 

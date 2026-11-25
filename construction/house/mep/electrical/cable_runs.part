@@ -2,6 +2,9 @@
 // and the NM-B home runs from the panel up into the floor joist space, through bored holes in the
 // I-joist webs and the LVL beams (middle third of the depth, at least 2 ft from any post) and down
 // through bored top plates to their boxes. Cables are drawn 1/2 in round in 3/4 in holes.
+
+import { nm_b_cable, pvc_conduit } from "../../materials.module"
+
 part cable_runs {
     feature p_xy_34 = plane.offset(base = origin.xy, distance = 54 in)
     feature p_zx_33 = plane.offset(base = origin.zx, distance = 250 in)

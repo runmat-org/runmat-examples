@@ -3,6 +3,9 @@
 // twisted, tapered sections to the tip. The pitch angle at radius R is atan(pitch / 2 pi R) for
 // a 115 mm pitch. The tab turns on the hub's pin, so the blade folds back along the arm with
 // its airfoil outside the plates.
+
+import { glass_filled_nylon } from "../../materials.module"
+
 part prop_blade {
     sketch tab_s on origin.xy {
         t1 = line(start = [0 mm, -3.4 mm], end = [20 mm, -3.4 mm])

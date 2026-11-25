@@ -4,6 +4,9 @@
 // back that carry the controller board (electrical/display_unit) 7.5 mm off the back wall, at
 // x = -100 mm, its components facing the screen. The origin is the panel face at the screen's
 // center; x points aft, toward the pilot.
+
+import { aluminum_6061, glass } from "../materials.module"
+
 part display_unit {
     sketch s on origin.yz {
         l1 = line(start = [-100 mm, -100 mm], end = [100 mm, -100 mm])

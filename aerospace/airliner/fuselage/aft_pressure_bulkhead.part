@@ -1,6 +1,9 @@
 // The aft pressure bulkhead: a 4 mm spherical dome, convex aft, closing the cabin inside the tail cone.
 // `sweep` turns the profile through less than a full turn for a study sector
 // (simulation/bulkhead_sector.assembly); the aircraft uses the full 360 degrees.
+
+import { aluminum_2024 } from "../materials.module"
+
 part aft_pressure_bulkhead {
     input sweep : angle = 360 deg
 

@@ -1,6 +1,9 @@
 // An interior door: a 30 x 80 in hollow-core slab, 1 3/8 in thick, hung in a 3/4 in jamb as deep as
 // the partition, in a 32 x 82 1/2 in rough opening. Origin at the bottom corner of the rough opening
 // on the partition's y = 0 face; x along the wall, y through it, z up from the slab or subfloor.
+
+import { pine_door_jamb, wood_hollow_core_door } from "../materials.module"
+
 part interior_door {
     feature zx_p1_5625 = plane.offset(base = origin.zx, distance = 1.5625 in)
     sketch jamb_s on origin.zx {

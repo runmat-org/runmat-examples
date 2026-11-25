@@ -1,4 +1,7 @@
 // A control column: a post from the floor, leaning aft, with the yoke across its top.
+
+import { aluminum_7075 } from "../materials.module"
+
 part control_column {
     sketch p on origin.zx {
         l1 = line(start = [0 mm, 0 mm], end = [0 mm, 60 mm])

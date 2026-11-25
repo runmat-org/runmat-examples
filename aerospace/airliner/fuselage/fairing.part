@@ -1,4 +1,7 @@
 // The wing-to-body fairing: a long blister shell under the wing box, cut back to the fuselage skin.
+
+import { composite } from "../materials.module"
+
 part fairing {
     sketch s on origin.xy {
         c1 = spline(points = [[0 mm, 0 mm], [785.714 mm, 743.053 mm], [1571.429 mm, 979.131 mm], [2357.143 mm, 1129.996 mm], [3142.857 mm, 1232.175 mm], [3928.571 mm, 1299.245 mm], [4714.286 mm, 1337.532 mm], [5500 mm, 1350 mm], [6285.714 mm, 1337.532 mm], [7071.429 mm, 1299.245 mm], [7857.143 mm, 1232.175 mm], [8642.857 mm, 1129.996 mm], [9428.571 mm, 979.131 mm], [10214.286 mm, 743.053 mm], [11000 mm, 0 mm]])

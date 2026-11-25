@@ -7,6 +7,9 @@
 // height (the heat flows in x and y only). The metal lath inside the scratch coat and the 1/64 in
 // vapor retarder are left out: the lath is open mesh inside the plaster, and the retarder's
 // thermal resistance is nil (DESIGN-NOTES, "Envelope"). The gypsum board sits on the studs.
+
+import { asphalt_saturated_kraft_wrb, douglas_fir_lumber, fiberglass_batt, gypsum_board, osb, stucco_brown_coat, stucco_finish_coat, stucco_scratch_coat } from "../materials.module"
+
 part wall_section {
     sketch stucco_finish_s on origin.xy {
         e0 = line(start = [0 mm, -34.925 mm], end = [203.2 mm, -34.925 mm])

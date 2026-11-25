@@ -1,4 +1,7 @@
 // The aileron.
+
+import { aluminum_2024 } from "../materials.module"
+
 part wing_aileron {
     input side : real = 1
 

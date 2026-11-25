@@ -1,4 +1,7 @@
 // The spinner at the fan's hub.
+
+import { composite } from "../materials.module"
+
 part spinner {
     sketch s on origin.xy {
         c1 = spline(points = [[140 mm, 0 mm], [175 mm, 120 mm], [280 mm, 230 mm], [440 mm, 300 mm], [620 mm, 320 mm]])

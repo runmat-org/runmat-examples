@@ -1,4 +1,7 @@
 // The exhaust plug.
+
+import { titanium } from "../materials.module"
+
 part plug {
     sketch s on origin.xy {
         c1 = spline(points = [[4300 mm, 420 mm], [4650 mm, 300 mm], [4950 mm, 120 mm], [5050 mm, 0 mm]])

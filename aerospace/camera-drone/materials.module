@@ -1,0 +1,23 @@
+material al_6061 = { mass_density = 2700 kg/m^3 }
+
+material aluminum_6061 = { mass_density = 2700 kg/m^3 }
+
+material aluminum_7075 = { mass_density = 2810 kg/m^3 }
+
+material carbon_fiber = { mass_density = 1600 kg/m^3 }
+
+material composite = { mass_density = 1850 kg/m^3 }
+
+material glass = { mass_density = 2500 kg/m^3 }
+
+material glass_filled_nylon = { mass_density = 1360 kg/m^3 }
+
+material lipo_pack = {}
+
+material nylon = { mass_density = 1140 kg/m^3 }
+
+material polycarbonate = { mass_density = 1200 kg/m^3 }
+
+material silicone = { mass_density = 2400 kg/m^3 }
+
+material steel = { mass_density = 7850 kg/m^3 }
