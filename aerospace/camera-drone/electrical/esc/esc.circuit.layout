@@ -3341,7 +3341,7 @@ layout esc {
             line([-1.985, -1.71] mm, [1.985, -1.71] mm),
             line([-1.985, 1.71] mm, [1.985, 1.71] mm),
         ]
-        fab = [rect([-3.15, -1.6] mm, [3.15, 1.6] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-3.15, -1.6] mm, [3.15, 1.6] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_2512_6332Metric_IPCN.step" }
     }
     package C_0603_1608Metric_IPCN = {
@@ -3353,7 +3353,7 @@ layout esc {
         courtyard = rect([-1.48, -0.73] mm, [1.48, 0.73] mm)
         fab = [
             rect([-0.8, -0.4] mm, [0.8, 0.4] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.32 mm),
+            text([0, 0] mm, "{reference}", size = 0.32 mm),
         ]
         body = { height = 0.45 mm, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
@@ -3366,7 +3366,7 @@ layout esc {
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
         fab = [
             rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+            text([0, 0] mm, "{reference}", size = 0.2 mm),
         ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/C_0402_1005Metric_IPCN.step" }
     }
@@ -3383,7 +3383,7 @@ layout esc {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
@@ -3393,7 +3393,7 @@ layout esc {
             { number = "1", shape = circle, size = [4.6, 4.6] mm, at = [0, 0] mm, layers = through, drill = 3.6 mm },
         ]
         courtyard = rect([-2.55, -2.55] mm, [2.55, 2.55] mm)
-        fab = [rect([-2.3, -2.3] mm, [2.3, 2.3] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.3, -2.3] mm, [2.3, 2.3] mm), text([0, 0] mm, "{reference}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_3.6mm_Pad4.6mm.step" }
     }
     package "JST-SH_1x08_P1mm" = {
@@ -3418,7 +3418,7 @@ layout esc {
             line([-3.99, 2.235] mm, [3.99, 2.235] mm),
             line([-5.11, -2.235] mm, [-5.11, -0.06] mm),
         ]
-        fab = [rect([-5, -2.125] mm, [5, 2.125] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-5, -2.125] mm, [5, 2.125] mm), text([0, 0] mm, "{reference}")]
         body = { height = 3 mm, model = "${RUNMAT_3DMODELS}/JST-SH_1x08_P1mm.step" }
     }
     package "MountingHole_2.2mm_Pad4.2mm" = {
@@ -3427,7 +3427,7 @@ layout esc {
             { number = "1", shape = circle, size = [4.2, 4.2] mm, at = [0, 0] mm, layers = through, drill = 2.2 mm },
         ]
         courtyard = rect([-2.35, -2.35] mm, [2.35, 2.35] mm)
-        fab = [rect([-2.1, -2.1] mm, [2.1, 2.1] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.1, -2.1] mm, [2.1, 2.1] mm), text([0, 0] mm, "{reference}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_2.2mm_Pad4.2mm.step" }
     }
     package "MountingHole_1.2mm_Pad2.6mm" = {
@@ -3436,7 +3436,7 @@ layout esc {
             { number = "1", shape = circle, size = [2.6, 2.6] mm, at = [0, 0] mm, layers = through, drill = 1.2 mm },
         ]
         courtyard = rect([-1.55, -1.55] mm, [1.55, 1.55] mm)
-        fab = [rect([-1.3, -1.3] mm, [1.3, 1.3] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.3, -1.3] mm, [1.3, 1.3] mm), text([0, 0] mm, "{reference}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_1.2mm_Pad2.6mm.step" }
     }
     package "DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN" = {
@@ -3462,7 +3462,7 @@ layout esc {
             line([-1.76, 1.37] mm, [-1.76, 1.76] mm),
             circle([-2.425, 0.975] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-1.65, -1.65] mm, [1.65, 1.65] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.65, -1.65] mm, [1.65, 1.65] mm), text([0, 0] mm, "{reference}")]
         body = {
             height = 0.8 mm
             model = "${RUNMAT_3DMODELS}/DFN-8_3.3x3.3mm_P0.65mm_EP2.4x1.8mm_IPCN.step"
@@ -3477,7 +3477,7 @@ layout esc {
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
         fab = [
             rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+            text([0, 0] mm, "{reference}", size = 0.2 mm),
         ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
@@ -3494,7 +3494,7 @@ layout esc {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/R_1206_3216Metric_IPCN.step" }
     }
@@ -3516,7 +3516,7 @@ layout esc {
         ]
         fab = [
             rect([-0.8, -1.45] mm, [0.8, 1.45] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 1.1 mm, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
@@ -3561,7 +3561,7 @@ layout esc {
             line([-2.11, 1.605] mm, [-2.11, 2.11] mm),
             circle([-2.65, 1.25] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-2, -2] mm, [2, 2] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2, -2] mm, [2, 2] mm), text([0, 0] mm, "{reference}")]
         body = {
             height = 0.9 mm
             model = "${RUNMAT_3DMODELS}/QFN-24_4x4mm_P0.5mm_EP2.6x2.6mm_IPCN.step"
@@ -3616,7 +3616,7 @@ layout esc {
             line([-2.61, 2.105] mm, [-2.61, 2.61] mm),
             circle([-3.135, 1.75] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-2.5, -2.5] mm, [2.5, 2.5] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.5, -2.5] mm, [2.5, 2.5] mm), text([0, 0] mm, "{reference}")]
         body = {
             height = 0.9 mm
             model = "${RUNMAT_3DMODELS}/QFN-32_5x5mm_P0.5mm_EP3.3x3.3mm_IPCN.step"

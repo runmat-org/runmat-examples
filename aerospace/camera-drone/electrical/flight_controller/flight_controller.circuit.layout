@@ -1048,7 +1048,7 @@ layout flight_controller {
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
         fab = [
             rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+            text([0, 0] mm, "{reference}", size = 0.2 mm),
         ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/C_0402_1005Metric_IPCN.step" }
     }
@@ -1061,7 +1061,7 @@ layout flight_controller {
         courtyard = rect([-1.48, -0.73] mm, [1.48, 0.73] mm)
         fab = [
             rect([-0.8, -0.4] mm, [0.8, 0.4] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.32 mm),
+            text([0, 0] mm, "{reference}", size = 0.32 mm),
         ]
         body = { height = 0.45 mm, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
@@ -1078,7 +1078,7 @@ layout flight_controller {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
@@ -1091,7 +1091,7 @@ layout flight_controller {
         courtyard = rect([-1.71, -0.98] mm, [1.71, 0.98] mm)
         fab = [
             rect([-1, -0.625] mm, [1, 0.625] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.5 mm),
+            text([0, 0] mm, "{reference}", size = 0.5 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_0805_2012Metric_IPCN.step" }
     }
@@ -1105,7 +1105,7 @@ layout flight_controller {
         silk = [circle([-1.53, 0] mm, 0.1 mm, fill = true)]
         fab = [
             rect([-0.8, -0.4] mm, [0.8, 0.4] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.32 mm),
+            text([0, 0] mm, "{reference}", size = 0.32 mm),
         ]
         body = { height = 0.45 mm, model = "${RUNMAT_3DMODELS}/LED_0603_1608Metric_IPCN.step" }
     }
@@ -1123,7 +1123,7 @@ layout flight_controller {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/D_1206_3216Metric_IPCN.step" }
     }
@@ -1133,7 +1133,7 @@ layout flight_controller {
             { number = "1", shape = circle, size = [4.6, 4.6] mm, at = [0, 0] mm, layers = through, drill = 3.6 mm },
         ]
         courtyard = rect([-2.55, -2.55] mm, [2.55, 2.55] mm)
-        fab = [rect([-2.3, -2.3] mm, [2.3, 2.3] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.3, -2.3] mm, [2.3, 2.3] mm), text([0, 0] mm, "{reference}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_3.6mm_Pad4.6mm.step" }
     }
     package "USB-C_1x12_P0.5mm" = {
@@ -1164,7 +1164,7 @@ layout flight_controller {
             line([-4.58, -3.76] mm, [-4.58, -1.31] mm),
             line([-4.58, 1.31] mm, [-4.58, 3.76] mm),
         ]
-        fab = [rect([-4.47, -3.65] mm, [4.47, 3.65] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-4.47, -3.65] mm, [4.47, 3.65] mm), text([0, 0] mm, "{reference}")]
         body = { height = 3 mm, model = "${RUNMAT_3DMODELS}/USB-C_1x12_P0.5mm.step" }
     }
     package "JST-SH_1x04_P1mm" = {
@@ -1185,7 +1185,7 @@ layout flight_controller {
             line([-1.99, 2.235] mm, [1.99, 2.235] mm),
             line([-3.11, -2.235] mm, [-3.11, -0.06] mm),
         ]
-        fab = [rect([-3, -2.125] mm, [3, 2.125] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-3, -2.125] mm, [3, 2.125] mm), text([0, 0] mm, "{reference}")]
         body = { height = 3 mm, model = "${RUNMAT_3DMODELS}/JST-SH_1x04_P1mm.step" }
     }
     package "JST-SH_1x08_P1mm" = {
@@ -1210,7 +1210,7 @@ layout flight_controller {
             line([-3.99, 2.235] mm, [3.99, 2.235] mm),
             line([-5.11, -2.235] mm, [-5.11, -0.06] mm),
         ]
-        fab = [rect([-5, -2.125] mm, [5, 2.125] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-5, -2.125] mm, [5, 2.125] mm), text([0, 0] mm, "{reference}")]
         body = { height = 3 mm, model = "${RUNMAT_3DMODELS}/JST-SH_1x08_P1mm.step" }
     }
     package "JST-SH_1x06_P1mm" = {
@@ -1233,7 +1233,7 @@ layout flight_controller {
             line([-2.99, 2.235] mm, [2.99, 2.235] mm),
             line([-4.11, -2.235] mm, [-4.11, -0.06] mm),
         ]
-        fab = [rect([-4, -2.125] mm, [4, 2.125] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-4, -2.125] mm, [4, 2.125] mm), text([0, 0] mm, "{reference}")]
         body = { height = 3 mm, model = "${RUNMAT_3DMODELS}/JST-SH_1x06_P1mm.step" }
     }
     package L_1210_3225Metric_IPCN = {
@@ -1247,7 +1247,7 @@ layout flight_controller {
             line([-0.535, -1.36] mm, [0.535, -1.36] mm),
             line([-0.535, 1.36] mm, [0.535, 1.36] mm),
         ]
-        fab = [rect([-1.6, -1.25] mm, [1.6, 1.25] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.6, -1.25] mm, [1.6, 1.25] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/L_1210_3225Metric_IPCN.step" }
     }
     package R_0402_1005Metric_IPCN = {
@@ -1259,7 +1259,7 @@ layout flight_controller {
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
         fab = [
             rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+            text([0, 0] mm, "{reference}", size = 0.2 mm),
         ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
@@ -1327,7 +1327,7 @@ layout flight_controller {
             line([-3.61, 3.135] mm, [-3.61, 3.61] mm),
             circle([-5.255, 2.75] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-3.5, -3.5] mm, [3.5, 3.5] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-3.5, -3.5] mm, [3.5, 3.5] mm), text([0, 0] mm, "{reference}")]
         body = { height = 1.6 mm, model = "${RUNMAT_3DMODELS}/LQFP-48_7x7mm_P0.5mm_IPCN.step" }
     }
     package "SOT-23-6_IPCN" = {
@@ -1348,7 +1348,7 @@ layout flight_controller {
         ]
         fab = [
             rect([-0.8, -1.45] mm, [0.8, 1.45] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 1.1 mm, model = "${RUNMAT_3DMODELS}/SOT-23-6_IPCN.step" }
     }
@@ -1370,7 +1370,7 @@ layout flight_controller {
         ]
         fab = [
             rect([-0.8, -1.45] mm, [0.8, 1.45] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 1.1 mm, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
@@ -1398,7 +1398,7 @@ layout flight_controller {
             line([-0.71, 1.36] mm, [0.71, 1.36] mm),
             circle([-2.135, 1.5] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-1.5, -1.25] mm, [1.5, 1.25] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.5, -1.25] mm, [1.5, 1.25] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.8 mm, model = "${RUNMAT_3DMODELS}/DFN-14_3x2.5mm_P0.5mm_IPCN.step" }
     }
     package "DFN-8_2x2.5mm_P0.65mm_IPCN" = {
@@ -1419,7 +1419,7 @@ layout flight_controller {
             line([-0.21, 1.36] mm, [0.21, 1.36] mm),
             circle([-1.635, 0.975] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-1, -1.25] mm, [1, 1.25] mm), text([0, 0] mm, "${REFERENCE}", size = 0.8 mm)]
+        fab = [rect([-1, -1.25] mm, [1, 1.25] mm), text([0, 0] mm, "{reference}", size = 0.8 mm)]
         body = { height = 0.8 mm, model = "${RUNMAT_3DMODELS}/DFN-8_2x2.5mm_P0.65mm_IPCN.step" }
     }
     package C_1210_3225Metric_IPCN = {
@@ -1433,7 +1433,7 @@ layout flight_controller {
             line([-0.535, -1.36] mm, [0.535, -1.36] mm),
             line([-0.535, 1.36] mm, [0.535, 1.36] mm),
         ]
-        fab = [rect([-1.6, -1.25] mm, [1.6, 1.25] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.6, -1.25] mm, [1.6, 1.25] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_1210_3225Metric_IPCN.step" }
     }
     sync {

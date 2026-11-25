@@ -180,7 +180,7 @@ layout reading_light {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/C_1206_3216Metric_IPCN.step" }
     }
@@ -193,7 +193,7 @@ layout reading_light {
         courtyard = rect([-1.48, -0.73] mm, [1.48, 0.73] mm)
         fab = [
             rect([-0.8, -0.4] mm, [0.8, 0.4] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.32 mm),
+            text([0, 0] mm, "{reference}", size = 0.32 mm),
         ]
         body = { height = 0.45 mm, model = "${RUNMAT_3DMODELS}/C_0603_1608Metric_IPCN.step" }
     }
@@ -209,7 +209,7 @@ layout reading_light {
             line([-1.335, 1.36] mm, [1.335, 1.36] mm),
             circle([-3.255, 0] mm, 0.1 mm, fill = true),
         ]
-        fab = [rect([-2.5, -1.25] mm, [2.5, 1.25] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.5, -1.25] mm, [2.5, 1.25] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/D_2010_5025Metric_IPCN.step" }
     }
     package F_1206_3216Metric_IPCN = {
@@ -225,7 +225,7 @@ layout reading_light {
         ]
         fab = [
             rect([-1.6, -0.8] mm, [1.6, 0.8] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/F_1206_3216Metric_IPCN.step" }
     }
@@ -235,7 +235,7 @@ layout reading_light {
             { number = "1", shape = circle, size = [6, 6] mm, at = [0, 0] mm, layers = through, drill = 3.2 mm },
         ]
         courtyard = rect([-3.25, -3.25] mm, [3.25, 3.25] mm)
-        fab = [rect([-3, -3] mm, [3, 3] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-3, -3] mm, [3, 3] mm), text([0, 0] mm, "{reference}")]
         body = { model = "${RUNMAT_3DMODELS}/MountingHole_3.2mm_Pad6mm.step" }
     }
     package "PinHeader_1x04_P2.54mm_Vertical" = {
@@ -253,7 +253,7 @@ layout reading_light {
             line([-1.38, 5.19] mm, [1.38, 5.19] mm),
             line([-1.38, -5.19] mm, [-1.38, 5.19] mm),
         ]
-        fab = [rect([-1.27, -5.08] mm, [1.27, 5.08] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.27, -5.08] mm, [1.27, 5.08] mm), text([0, 0] mm, "{reference}")]
         body = {
             height = 8.5 mm
             model = "${RUNMAT_3DMODELS}/PinHeader_1x04_P2.54mm_Vertical.step"
@@ -272,7 +272,7 @@ layout reading_light {
             line([-1.38, 2.65] mm, [1.38, 2.65] mm),
             line([-1.38, -2.65] mm, [-1.38, 2.65] mm),
         ]
-        fab = [rect([-1.27, -2.54] mm, [1.27, 2.54] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-1.27, -2.54] mm, [1.27, 2.54] mm), text([0, 0] mm, "{reference}")]
         body = {
             height = 8.5 mm
             model = "${RUNMAT_3DMODELS}/PinHeader_1x02_P2.54mm_Vertical.step"
@@ -289,7 +289,7 @@ layout reading_light {
             line([-1.085, -1.71] mm, [1.085, -1.71] mm),
             line([-1.085, 1.71] mm, [1.085, 1.71] mm),
         ]
-        fab = [rect([-2.25, -1.6] mm, [2.25, 1.6] mm), text([0, 0] mm, "${REFERENCE}")]
+        fab = [rect([-2.25, -1.6] mm, [2.25, 1.6] mm), text([0, 0] mm, "{reference}")]
         body = { height = 0.8 mm, model = "${RUNMAT_3DMODELS}/L_1812_4532Metric_IPCN.step" }
     }
     package R_0805_2012Metric_IPCN = {
@@ -301,7 +301,7 @@ layout reading_light {
         courtyard = rect([-1.71, -0.98] mm, [1.71, 0.98] mm)
         fab = [
             rect([-1, -0.625] mm, [1, 0.625] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.5 mm),
+            text([0, 0] mm, "{reference}", size = 0.5 mm),
         ]
         body = { height = 0.6 mm, model = "${RUNMAT_3DMODELS}/R_0805_2012Metric_IPCN.step" }
     }
@@ -314,7 +314,7 @@ layout reading_light {
         courtyard = rect([-0.79, -0.44] mm, [0.79, 0.44] mm)
         fab = [
             rect([-0.5, -0.25] mm, [0.5, 0.25] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.2 mm),
+            text([0, 0] mm, "{reference}", size = 0.2 mm),
         ]
         body = { height = 0.35 mm, model = "${RUNMAT_3DMODELS}/R_0402_1005Metric_IPCN.step" }
     }
@@ -336,7 +336,7 @@ layout reading_light {
         ]
         fab = [
             rect([-0.8, -1.45] mm, [0.8, 1.45] mm),
-            text([0, 0] mm, "${REFERENCE}", size = 0.64 mm),
+            text([0, 0] mm, "{reference}", size = 0.64 mm),
         ]
         body = { height = 1.1 mm, model = "${RUNMAT_3DMODELS}/SOT-23-5_IPCN.step" }
     }
