@@ -29,6 +29,7 @@ material aluminum_3003 = {
         conductivity = 160 W/m/K
         specific_heat = 893 J/kg/K
     }
+    color = "#c7ccd4"
 }
 
 material water_glycol_50 = {

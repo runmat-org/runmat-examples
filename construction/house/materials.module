@@ -1,111 +1,199 @@
-material aluminum = { mass_density = 2700 kg/m^3 }
+material aluminum = { mass_density = 2700 kg/m^3, color = "#c7ccd4" }
 
-material aluminum_door_frame = { mass_density = 2700 kg/m^3 }
+material aluminum_door_frame = { mass_density = 2700 kg/m^3, color = "#c7ccd4" }
 
-material aluminum_vented_soffit = { mass_density = 2700 kg/m^3 }
+material aluminum_vented_soffit = { mass_density = 2700 kg/m^3, color = "#c7ccd4" }
 
-material asphalt_saturated_kraft_wrb = { mass_density = 1100 kg/m^3 }
+material asphalt_saturated_kraft_wrb = { mass_density = 1100 kg/m^3, color = "#4c4c52" }
 
-material asphalt_shingle = { mass_density = 1100 kg/m^3 }
+material asphalt_shingle = { mass_density = 1100 kg/m^3, color = "#4c4c52" }
 
-material birch_plywood_cabinet = { mass_density = 650 kg/m^3 }
+material birch_plywood_cabinet = {
+    mass_density = 650 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material concrete = { mass_density = 2400 kg/m^3 }
+material concrete = { mass_density = 2400 kg/m^3, color = "#a8a8a3", section_lining = concrete }
 
-material copper_insulated = { mass_density = 8940 kg/m^3 }
+material copper_insulated = { mass_density = 8940 kg/m^3, color = "#c7805c" }
 
-material crushed_stone_gravel = { mass_density = 1600 kg/m^3 }
+material crushed_stone_gravel = {
+    mass_density = 1600 kg/m^3
+    color = "#858078"
+    section_lining = earth
+}
 
 material cultured_marble = {}
 
-material douglas_fir_lumber = { mass_density = 530 kg/m^3 }
+material douglas_fir_lumber = {
+    mass_density = 530 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material douglas_fir_lumber_pressure_treated = { mass_density = 530 kg/m^3 }
+material douglas_fir_lumber_pressure_treated = {
+    mass_density = 530 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material enameled_steel_bathtub = { mass_density = 7850 kg/m^3 }
+material enameled_steel_bathtub = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material engineered_lumber_i_joist = { mass_density = 600 kg/m^3 }
+material engineered_lumber_i_joist = {
+    mass_density = 600 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material fiberglass_batt = { mass_density = 20 kg/m^3 }
+material fiberglass_batt = {
+    mass_density = 20 kg/m^3
+    color = "#edcc80"
+    section_lining = insulation
+}
 
-material galvanized_steel = { mass_density = 7850 kg/m^3 }
+material galvanized_steel = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material galvanized_steel_flashing = { mass_density = 7850 kg/m^3 }
+material galvanized_steel_flashing = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material galvanized_steel_lath = { mass_density = 7850 kg/m^3 }
+material galvanized_steel_lath = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material galvanized_steel_weep_screed = { mass_density = 7850 kg/m^3 }
+material galvanized_steel_weep_screed = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material glass_low_e_argon = { mass_density = 2500 kg/m^3 }
+material glass_low_e_argon = { mass_density = 2500 kg/m^3, color = "#8cadc759" }
 
-material glass_low_e_tempered = { mass_density = 2500 kg/m^3 }
+material glass_low_e_tempered = { mass_density = 2500 kg/m^3, color = "#8cadc759" }
 
-material glass_tempered = { mass_density = 2500 kg/m^3 }
+material glass_tempered = { mass_density = 2500 kg/m^3, color = "#8cadc759" }
 
-material glass_wool_loose_fill = { mass_density = 20 kg/m^3 }
+material glass_wool_loose_fill = {
+    mass_density = 20 kg/m^3
+    color = "#8cadc759"
+    section_lining = insulation
+}
 
 material granite_countertop = {}
 
-material gypsum_board = { mass_density = 700 kg/m^3 }
+material gypsum_board = { mass_density = 700 kg/m^3, color = "#e6e0d1", section_lining = gypsum }
 
-material lsl_rim_board = { mass_density = 600 kg/m^3 }
+material lsl_rim_board = { mass_density = 600 kg/m^3, color = "#b88f61", section_lining = wood }
 
-material lvl = { mass_density = 600 kg/m^3 }
+material lvl = { mass_density = 600 kg/m^3, color = "#b88f61", section_lining = wood }
 
 material nm_b_cable = {}
 
-material nylon_vapor_retarder = { mass_density = 1140 kg/m^3 }
+material nylon_vapor_retarder = { mass_density = 1140 kg/m^3, color = "#e6e6e0" }
 
-material oak = { mass_density = 750 kg/m^3 }
+material oak = { mass_density = 750 kg/m^3, color = "#b88f61", section_lining = wood }
 
-material oak_engineered_flooring = { mass_density = 750 kg/m^3 }
+material oak_engineered_flooring = {
+    mass_density = 750 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material osb = { mass_density = 620 kg/m^3 }
+material osb = { mass_density = 620 kg/m^3, color = "#cca86b", section_lining = wood }
 
 material pex = {}
 
-material pine_door_jamb = { mass_density = 500 kg/m^3 }
+material pine_door_jamb = { mass_density = 500 kg/m^3, color = "#b88f61", section_lining = wood }
 
-material pine_painted_riser = { mass_density = 500 kg/m^3 }
+material pine_painted_riser = {
+    mass_density = 500 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material polyethylene_10_mil = { mass_density = 950 kg/m^3 }
+material polyethylene_10_mil = { mass_density = 950 kg/m^3, color = "#e6e6e0" }
 
-material polypropylene_ridge_vent = { mass_density = 905 kg/m^3 }
+material polypropylene_ridge_vent = { mass_density = 905 kg/m^3, color = "#e6e6e0" }
 
-material polypropylene_synthetic_underlayment = { mass_density = 905 kg/m^3 }
+material polypropylene_synthetic_underlayment = { mass_density = 905 kg/m^3, color = "#e6e6e0" }
 
-material polystyrene_vent_baffle = { mass_density = 20 kg/m^3 }
+material polystyrene_vent_baffle = {
+    mass_density = 20 kg/m^3
+    color = "#94c2e0"
+    section_lining = rigid_insulation
+}
 
 material porcelain_tile = {}
 
-material pvc_conduit = { mass_density = 1380 kg/m^3 }
+material pvc_conduit = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_device = { mass_density = 1380 kg/m^3 }
+material pvc_device = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_door_panel = { mass_density = 1380 kg/m^3 }
+material pvc_door_panel = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_dwv = { mass_density = 1380 kg/m^3 }
+material pvc_dwv = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_electrical_box = { mass_density = 1380 kg/m^3 }
+material pvc_electrical_box = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_window_frame = { mass_density = 1380 kg/m^3 }
+material pvc_window_frame = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material pvc_window_sash = { mass_density = 1380 kg/m^3 }
+material pvc_window_sash = { mass_density = 1380 kg/m^3, color = "#e6e6e0" }
 
-material stainless_304 = { mass_density = 7950 kg/m^3 }
+material stainless_304 = { mass_density = 7950 kg/m^3, color = "#9ea3ab", section_lining = steel }
 
-material steel_insulated_door = { mass_density = 7850 kg/m^3 }
+material steel_insulated_door = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material steel_rebar_grade_60 = { mass_density = 7850 kg/m^3 }
+material steel_rebar_grade_60 = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material stucco_brown_coat = { mass_density = 1860 kg/m^3 }
+material stucco_brown_coat = {
+    mass_density = 1860 kg/m^3
+    color = "#e6e0d1"
+    section_lining = gypsum
+}
 
-material stucco_finish_coat = { mass_density = 1860 kg/m^3 }
+material stucco_finish_coat = {
+    mass_density = 1860 kg/m^3
+    color = "#e6e0d1"
+    section_lining = gypsum
+}
 
-material stucco_scratch_coat = { mass_density = 1860 kg/m^3 }
+material stucco_scratch_coat = {
+    mass_density = 1860 kg/m^3
+    color = "#e6e0d1"
+    section_lining = gypsum
+}
 
 material vitreous_china = {}
 
-material wood_hollow_core_door = { mass_density = 500 kg/m^3 }
+material wood_hollow_core_door = {
+    mass_density = 500 kg/m^3
+    color = "#b88f61"
+    section_lining = wood
+}
 
-material xps_foam = { mass_density = 35 kg/m^3 }
+material xps_foam = {
+    mass_density = 35 kg/m^3
+    color = "#94c2e0"
+    section_lining = rigid_insulation
+}

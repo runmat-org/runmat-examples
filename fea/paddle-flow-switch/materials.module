@@ -6,13 +6,21 @@ material iso_vg_46 = {
 material spring_steel = {
     mass_density = 7900 kg/m^3
     elastic = { youngs_modulus = 185 GPa, poisson_ratio = 0.3 }
+    color = "#9ea3ab"
+    section_lining = steel
 }
 
 material carbon_steel = {
     mass_density = 7850 kg/m^3
     elastic = { youngs_modulus = 200 GPa, poisson_ratio = 0.3 }
+    color = "#9ea3ab"
+    section_lining = steel
 }
 
-material stainless_1_4310 = { mass_density = 7950 kg/m^3 }
+material stainless_1_4310 = {
+    mass_density = 7950 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
 
-material steel_a106b = { mass_density = 7850 kg/m^3 }
+material steel_a106b = { mass_density = 7850 kg/m^3, color = "#9ea3ab", section_lining = steel }

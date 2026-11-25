@@ -16,6 +16,7 @@ material copper = {
         relative_permittivity = 1
         relative_permeability = 1
     }
+    color = "#c7805c"
 }
 
 material air = {
@@ -28,4 +29,4 @@ material air = {
     }
 }
 
-material copper_c11000 = { mass_density = 8940 kg/m^3 }
+material copper_c11000 = { mass_density = 8940 kg/m^3, color = "#c7805c" }

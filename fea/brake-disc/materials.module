@@ -8,6 +8,12 @@ material grey_iron = {
         specific_heat = 460 J/kg/K
         expansion_coefficient = 0.0000125 K^-1
     }
+    color = "#9ea3ab"
+    section_lining = steel
 }
 
-material grey_iron_en_gjl_250 = { mass_density = 7850 kg/m^3 }
+material grey_iron_en_gjl_250 = {
+    mass_density = 7850 kg/m^3
+    color = "#9ea3ab"
+    section_lining = steel
+}
