@@ -1,0 +1,12 @@
+[package]
+name = "apps-board-thermal-explorer"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "board-thermal-explorer.m"
+
+[desktop.artifacts]
+root = ".artifacts"

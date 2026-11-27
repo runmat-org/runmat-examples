@@ -1,0 +1,29 @@
+{
+  "id": "apps-impeller-viewer",
+  "title": "Impeller geometry viewer",
+  "pickerTitle": "Impeller viewer",
+  "pickerLine": "Apps",
+  "line": "Turn a shaded 3-D impeller mesh and read its size and surface area.",
+  "description": "An app that builds a seven-blade centrifugal pump impeller as a triangle mesh and draws it with per-vertex shading. Buttons and sliders set the camera, pop-up menus the finish and light, and a panel lists the diameter, height, wetted area and mesh size.",
+  "topic": "apps",
+  "topicLabel": "Apps",
+  "group": null,
+  "kind": "script",
+  "visual": "3d",
+  "entry": "impeller-viewer.m",
+  "roles": [
+    "structural",
+    "automotive",
+    "thermal_fluids"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "learn_matlab_alternative"
+  ],
+  "theme": "apps-impeller-viewer",
+  "thumbnailAlt": "An app window with a shaded bronze pump impeller beside camera, appearance and part property panels, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:apps/impeller-viewer"
+  }
+}

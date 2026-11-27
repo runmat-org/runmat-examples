@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/fatigue-test-log.m"
+    ],
+    "activeFile": "/fatigue-test-log.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain the Basquin fit and its exponent",
+      "Add runout tests at 10^7 cycles",
+      "Fit all three alloys and compare their exponents"
+    ]
+  }
+}

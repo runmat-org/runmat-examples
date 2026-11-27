@@ -1,0 +1,28 @@
+{
+  "id": "apps-board-thermal-explorer",
+  "title": "Circuit board thermal explorer",
+  "pickerTitle": "Board thermal explorer",
+  "pickerLine": "Apps",
+  "line": "Change chip power and air temperature and re-solve a board's temperature.",
+  "description": "An app that solves the steady temperature of a 120 by 80 mm circuit board carrying three chips and cooled by air on both faces. A slider sets the processor power, an edit field the air temperature and a pop-up menu the colormap; the 3-D surface, isotherms and a section plot update on each change.",
+  "topic": "apps",
+  "topicLabel": "Apps",
+  "group": null,
+  "kind": "script",
+  "visual": "3d",
+  "entry": "board-thermal-explorer.m",
+  "roles": [
+    "thermal_fluids",
+    "electrical"
+  ],
+  "goals": [
+    "build_simulations",
+    "analyze_visualize_data"
+  ],
+  "theme": "apps-board-thermal-explorer",
+  "thumbnailAlt": "An app window with operating-point controls and results beside a 3-D temperature surface of a circuit board, its isotherms and a temperature section, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:apps/board-thermal-explorer"
+  }
+}

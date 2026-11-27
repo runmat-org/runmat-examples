@@ -1,0 +1,28 @@
+{
+  "id": "apps-vibration-workbench",
+  "title": "Gearbox vibration workbench",
+  "pickerTitle": "Vibration workbench",
+  "pickerLine": "Apps",
+  "line": "Filter a run-up record and compare waveform, spectrum and spectrogram.",
+  "description": "An app for a gearbox accelerometer record taken during a run-up from 20 to 40 Hz shaft speed. Filter controls set a Butterworth band-pass, low-pass or high-pass filter; the plots show the waveform, the Welch spectrum and the spectrogram, and the side panel reports RMS, peak and crest factor.",
+  "topic": "apps",
+  "topicLabel": "Apps",
+  "group": null,
+  "kind": "script",
+  "visual": "image",
+  "entry": "vibration-workbench.m",
+  "roles": [
+    "controls_signals",
+    "structural"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "migrate_matlab_code"
+  ],
+  "theme": "apps-vibration-workbench",
+  "thumbnailAlt": "An app window with filter controls beside a filtered acceleration trace, a power spectral density plot and a spectrogram with two rising gear-mesh lines, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:apps/vibration-workbench"
+  }
+}

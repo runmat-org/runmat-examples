@@ -1,0 +1,30 @@
+{
+  "id": "apps-plate-modal-analysis",
+  "title": "Plate modal analysis app",
+  "pickerTitle": "Plate mode shapes",
+  "pickerLine": "Apps",
+  "line": "Pick a mode of a simply supported plate and see its 3-D shape.",
+  "description": "An app for a 600 by 400 by 5 mm aluminum plate: a pop-up menu picks one of the first eight modes, the 3-D surface and contour plot show its shape, and a table of TeX labels lists the natural frequencies.",
+  "topic": "apps",
+  "topicLabel": "Apps",
+  "group": null,
+  "kind": "script",
+  "visual": "3d",
+  "entry": "plate-modal-analysis.m",
+  "roles": [
+    "structural",
+    "aerospace",
+    "teaching"
+  ],
+  "goals": [
+    "build_simulations",
+    "analyze_visualize_data",
+    "learn_matlab_alternative"
+  ],
+  "theme": "apps-plate-modal-analysis",
+  "thumbnailAlt": "An app window with a model summary, a mode menu and a frequency table beside a 3-D mode shape of a plate and its contour plot, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:apps/plate-modal-analysis"
+  }
+}

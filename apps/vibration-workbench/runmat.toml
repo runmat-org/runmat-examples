@@ -1,0 +1,12 @@
+[package]
+name = "apps-vibration-workbench"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "vibration-workbench.m"
+
+[desktop.artifacts]
+root = ".artifacts"

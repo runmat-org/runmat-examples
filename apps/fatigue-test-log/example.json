@@ -1,0 +1,28 @@
+{
+  "id": "apps-fatigue-test-log",
+  "title": "Fatigue test log",
+  "pickerTitle": "Fatigue test log",
+  "pickerLine": "Apps",
+  "line": "Fit S-N curves to a table of fatigue test results.",
+  "description": "An app that holds constant-amplitude fatigue results for three alloys in a table and plots them as S-N data. A pop-up menu picks an alloy, and the Basquin fit and the stress amplitude at 10^7 cycles appear as TeX labels.",
+  "topic": "apps",
+  "topicLabel": "Apps",
+  "group": null,
+  "kind": "script",
+  "visual": "2d",
+  "entry": "fatigue-test-log.m",
+  "roles": [
+    "structural",
+    "research"
+  ],
+  "goals": [
+    "analyze_visualize_data",
+    "migrate_matlab_code"
+  ],
+  "theme": "apps-fatigue-test-log",
+  "thumbnailAlt": "An app window with a table of fatigue specimens beside S-N data for three alloys and a Basquin fit line, rendered by RunMat",
+  "origin": {
+    "page": "/math/plotting",
+    "key": "website:apps/fatigue-test-log"
+  }
+}

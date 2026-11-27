@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/impeller-viewer.m"
+    ],
+    "activeFile": "/impeller-viewer.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the vertex normals and shading are computed",
+      "Change the impeller to nine blades",
+      "Export the mesh as an STL file"
+    ]
+  }
+}

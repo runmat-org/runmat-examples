@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/vibration-workbench.m"
+    ],
+    "activeFile": "/vibration-workbench.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain what the crest factor says about the bearing",
+      "Add an envelope spectrum of the filtered signal",
+      "Track the gear-mesh order instead of frequency"
+    ]
+  }
+}

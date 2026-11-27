@@ -34,6 +34,7 @@ const ORDER = [
   "life-sciences",
   "quant",
   "plotting",
+  "apps",
   "signal-processing",
   "statistics",
   "curve-fitting",
@@ -46,7 +47,7 @@ const ORDER = [
 ];
 
 /** A topic whose examples don't name a runmat.com page of their own. */
-const TOPIC_PAGE = { construction: "/cad", fea: "/simulation" };
+const TOPIC_PAGE = { apps: "/math/plotting", construction: "/cad", fea: "/simulation" };
 
 /** FEA groups, by the simulation page an example comes from. Others fall under "More studies". */
 const FEA_GROUPS = [

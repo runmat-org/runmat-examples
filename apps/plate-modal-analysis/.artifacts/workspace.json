@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "editor": {
+    "openFiles": [
+      "/plate-modal-analysis.m"
+    ],
+    "activeFile": "/plate-modal-analysis.m"
+  },
+  "panels": {
+    "files": true,
+    "agent": true,
+    "runtime": {
+      "mode": "auto",
+      "tab": "results"
+    },
+    "feaResults": false
+  },
+  "resultView": {
+    "kind": "figure",
+    "figure": 1
+  },
+  "agent": {
+    "suggestions": [
+      "Explain how the natural frequencies are computed",
+      "Add a second plate thickness to compare",
+      "Animate the selected mode over one period"
+    ]
+  }
+}

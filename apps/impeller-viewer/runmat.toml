@@ -1,0 +1,12 @@
+[package]
+name = "apps-impeller-viewer"
+version = "0.1.0"
+
+[sources]
+roots = ["."]
+
+[entrypoints.main]
+path = "impeller-viewer.m"
+
+[desktop.artifacts]
+root = ".artifacts"
