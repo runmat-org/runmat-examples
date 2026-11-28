@@ -62,14 +62,15 @@ function fitAlloy(ui, results, alloys)
     sel = ui.alloy.Value;
     cla(ui.ax);
     hold(ui.ax, 'on');
+    % Failed specimens first: legend labels the first three plotted objects.
     for k = 1:numel(alloys)
-        r = strcmp(results.Alloy, alloys{k});
-        failed = r & strcmp(results.Result, 'Failed');
-        runout = r & strcmp(results.Result, 'Runout');
-        sz = 36 + 30*(k == sel);
-        scatter(ui.ax, results.Cycles(failed), results.Amplitude_MPa(failed), sz, colors(k,:), 'filled');
-        if any(runout)   % open markers: runouts
-            scatter(ui.ax, results.Cycles(runout), results.Amplitude_MPa(runout), sz, colors(k,:));
+        failed = strcmp(results.Alloy, alloys{k}) & strcmp(results.Result, 'Failed');
+        scatter(ui.ax, results.Cycles(failed), results.Amplitude_MPa(failed), 36 + 30*(k == sel), colors(k,:), 'filled');
+    end
+    for k = 1:numel(alloys)   % open markers: runouts
+        runout = strcmp(results.Alloy, alloys{k}) & strcmp(results.Result, 'Runout');
+        if any(runout)
+            scatter(ui.ax, results.Cycles(runout), results.Amplitude_MPa(runout), 36 + 30*(k == sel), colors(k,:));
         end
     end
     r = strcmp(results.Alloy, alloys{sel}) & strcmp(results.Result, 'Failed');
@@ -80,6 +81,9 @@ function fitAlloy(ui, results, alloys)
     set(ui.ax, 'XScale', 'log');
     grid(ui.ax, 'on');
     xlim(ui.ax, [1e3 2e7]);
+    % Pad the stress range so the lowest and highest points sit inside the axes.
+    ylim(ui.ax, [50*floor(0.9*min(results.Amplitude_MPa)/50), 50*ceil(1.08*max(results.Amplitude_MPa)/50)]);
+    legend(ui.ax, alloys{:}, 'Location', 'northeast');
     title(ui.ax, sprintf('S-N data, Basquin fit for %s', alloys{sel}));
     xlabel(ui.ax, 'Cycles to failure N');
     ylabel(ui.ax, 'Stress amplitude \sigma_a (MPa)');
